@@ -21,6 +21,6 @@ Happy development!
 
 **Copyright** &copy; Rei Vilo, 2010-2023
 
-**Licence** [# Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](./LICENCE.md)
+**Licence** [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](./LICENCE.md)
 
 ![](./img/by-nc-sa.svg)
