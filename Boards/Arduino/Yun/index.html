@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="embedXcode User Manual">
+        <meta name="description" content="emCode User Manual">
       
       
         <meta name="author" content="Rei Vilo">
@@ -1721,13 +1721,13 @@
 
 <h1 id="manage-the-arduino-y-boards">Manage the Arduino Y&uacute; boards<a class="headerlink" href="#manage-the-arduino-y-boards" title="Permanent link">&para;</a></h1>
 <h2 id="upload-to-arduino-yn-using-ethernet-or-wifi">Upload to Arduino Y&uacute;n using Ethernet or WiFi<a class="headerlink" href="#upload-to-arduino-yn-using-ethernet-or-wifi" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="img/Logo-064-Arduino-IDE.png" /> Although the Arduino Y&uacute;n requires no specific procedure, the Ethernet or WiFi network needs to be installed and configured successfully before any upload, and the RSA key fingerprint of the Arduino Y&uacute;n needs to be known by the Mac.</p>
+<p>Although the Arduino Y&uacute;n requires no specific procedure, the Ethernet or WiFi network needs to be installed and configured successfully before any upload, and the RSA key fingerprint of the Arduino Y&uacute;n needs to be known.</p>
 <ul>
 <li>
 <p>Check that the router has discovered the Arduino Y&uacute;n and note the IP address.</p>
 </li>
 <li>
-<p>Check the Mac knows the RSA key fingerprint of the Arduino Y&uacute;n.</p>
+<p>Check the main computer knows the RSA key fingerprint of the Arduino Y&uacute;n.</p>
 </li>
 <li>
 <p>Also, keep the password of the Arduino Y&uacute;n at hand.</p>
@@ -1736,7 +1736,7 @@
 <p>Disconnect all the SPI devices from the ICSP connector as the WiFi module uses SPI to communicate with the Arduino.</p>
 </li>
 </ul>
-<p>It is recommended to proceed with a test of the over-the-air upload with the Arduino IDE, through Ethernet or WiFi, to be sure that the Mac recognises the board and knows the RSA key fingerprint of the Arduino Y&uacute;n.</p>
+<p>It is recommended to proceed with a test of the over-the-air upload with the Arduino IDE, through Ethernet or WiFi, to be sure that the main computer recognises the board and knows the RSA key fingerprint of the Arduino Y&uacute;n.</p>
 <h3 id="check-the-ssh-connection">Check the SSH connection<a class="headerlink" href="#check-the-ssh-connection" title="Permanent link">&para;</a></h3>
 <p>To check the router has discovered the Arduino Y&uacute;n,</p>
 <ul>
@@ -1749,7 +1749,7 @@
 </ul>
 <p>The Arduino Y&uacute;n board should appear as <code>arduino.local</code> but often has a different name, as <code>host-001</code>.</p>
 <p>The default address should be <code>192.168.240.1</code> but may differ according to the settings of the network.</p>
-<p>To check the Mac knows the RSA key fingerprint of the board,</p>
+<p>To check the main computer knows the RSA key fingerprint of the board,</p>
 <ul>
 <li>Open a <strong>Terminal</strong> window and type the command <code>ssh root@</code> followed by the IP address of the board, <code>192.168.240.1</code> in the example.</li>
 </ul>
