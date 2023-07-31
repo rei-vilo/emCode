@@ -15,7 +15,7 @@ Happy development!
 ## Links
 
 + [Website](https://emCode.weebly.com)
-+ [User manual]() 
++ [User manual](https://rei-vilo.github.io/emCode/) 
 
 ## Licence
 
