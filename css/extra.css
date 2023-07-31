@@ -1,0 +1,32 @@
+@page {
+    size: a4 portrait;
+    margin: 25mm 10mm 25mm 10mm;
+    counter-increment: page;
+    font-family: "Roboto", "Helvetica Neue", "Material Icons", Helvetica, Arial, sans-serif;
+    white-space: pre;
+    color: grey;
+    font-size: 10px;
+
+    @top-left {
+        /*#        content: '© 2018 My Company';*/
+        /*#    }*/
+        /*#    @top-center {*/
+        font-weight: bold;
+        content: 'emCode User Manual';
+    }
+
+    @top-right {
+        content: string(chapter);
+    }
+
+    @bottom-left {
+        /*#        content: '© 2018 My Company';*/
+        /*#    }*/
+        /*#    @top-center {*/
+        content: '© Rei Vilo, 2010-2023 • All rights reserved \a Document subject to change without prior notice';
+    }
+
+    @bottom-right {
+        content: 'Page ' counter(page);
+    }
+}

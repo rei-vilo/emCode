@@ -1,0 +1,2447 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="embedXcode User Manual">
+      
+      
+        <meta name="author" content="Rei Vilo">
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>Upload - emCode User Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-L8GYGH8EGF"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-L8GYGH8EGF",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-L8GYGH8EGF",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="pink">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#upload-to-esp32-cam-board" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="emCode User Manual" class="md-header__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
+      
+  <img src="../../../img/Logo-256-eC-Website-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            emCode User Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Upload
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="emCode User Manual" class="md-nav__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
+      
+  <img src="../../../img/Logo-256-eC-Website-white.png" alt="logo">
+
+    </a>
+    emCode User Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Table of contents
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Forewords/">Forewords</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Forewords
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Install/">Install emCode</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Install emCode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Install/Code/" class="md-nav__link">
+        Install Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Install/Arduino/" class="md-nav__link">
+        Install the Arduino tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Install/emCode/" class="md-nav__link">
+        Install emCode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Develop/">Develop a project</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Develop a project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/New/" class="md-nav__link">
+        Create a new project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Import/" class="md-nav__link">
+        Import an existing project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Write/" class="md-nav__link">
+        Write the project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Libraries/" class="md-nav__link">
+        Add libraries to the project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Build/" class="md-nav__link">
+        Build and upload the project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Develop/Run/" class="md-nav__link">
+        Run and debug the project
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Manage the boards</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Manage the boards
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Adafruit/">Adafruit</a>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adafruit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adafruit/ESP8266/" class="md-nav__link">
+        Feather ESP8266
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adafruit/ESP32/" class="md-nav__link">
+        Feather ESP32
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adafruit/nRF52/" class="md-nav__link">
+        Feather nRF52832 and nRF52840
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adafruit/Cortex-M/" class="md-nav__link">
+        Feather M0 and M4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adafruit/RP2040/" class="md-nav__link">
+        Feather RP2040
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Adafruit/AVR/" class="md-nav__link">
+        Trinket and Trinket Pro AVR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Arduino/">Arduino</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Arduino
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arduino/AVR/" class="md-nav__link">
+        Arduino AVR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arduino/MegaAVR/" class="md-nav__link">
+        Arduino MegaAVR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arduino/SAM/" class="md-nav__link">
+        Arduino SAM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arduino/SAMD/" class="md-nav__link">
+        Arduino SAMD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arduino/ESP32/" class="md-nav__link">
+        Arduino ESP32
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arduino/nRF52/" class="md-nav__link">
+        Arduino nRF52
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arduino/RP2040/" class="md-nav__link">
+        Arduino RP2040
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arduino/Mbed/" class="md-nav__link">
+        Arduino Mbed-OS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Espressif/">Espressif</a>
+          
+            <label for="__nav_5_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Espressif
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Espressif/ESP8266/" class="md-nav__link">
+        Espressif ESP8266
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Espressif/ESP32/" class="md-nav__link">
+        Espressif ESP32
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Seeed/">Seeed</a>
+          
+            <label for="__nav_5_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Seeed
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeed/Grove_AVR/" class="md-nav__link">
+        Grove Beginner Kit for Arduino
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeed/Xiao_ESP32/" class="md-nav__link">
+        Xiao ESP32-C3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeed/Xiao_nRF/" class="md-nav__link">
+        Xiao nRF52840
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeed/Xiao_mbed/" class="md-nav__link">
+        Xiao nRF52840 Mbed-OS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeed/Xiao_RP2040/" class="md-nav__link">
+        Xiao RP2040
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeed/Xiao_M0/" class="md-nav__link">
+        Xiao M0 and Wio Terminal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeed/SenseCAP/" class="md-nav__link">
+        SenseCAP Indicator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Seeed/Xiao_Expansion/" class="md-nav__link">
+        Xiao expansion board
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../RP2040/">Raspberry Pi Pico</a>
+          
+            <label for="__nav_5_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Raspberry Pi Pico
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RP2040/RP2040/" class="md-nav__link">
+        Raspberry Pi Pico RP2040
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../STM32/">STM32duino</a>
+          
+            <label for="__nav_5_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          STM32duino
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../STM32/STM32/" class="md-nav__link">
+        STM32
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Teensy/">Teensy</a>
+          
+            <label for="__nav_5_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_8">
+          <span class="md-nav__icon md-icon"></span>
+          Teensy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Teensy/Teensy/" class="md-nav__link">
+        Teensy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Other/">Add a board</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Add a board
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Issues/">Find solutions to issues</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Find solutions to issues
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Issues/Compatibility/" class="md-nav__link">
+        Compatibility with Arduino
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Issues/Common/" class="md-nav__link">
+        Solutions to common issues
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Appendixes/">Appendixes</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Appendixes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Appendixes/Notes/" class="md-nav__link">
+        Release notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Appendixes/History/" class="md-nav__link">
+        Release history
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Appendixes/Glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Appendixes/Indexes/" class="md-nav__link">
+        Index of boards and platforms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Appendixes/Changes/" class="md-nav__link">
+        Changes by emCode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Appendixes/Legal/" class="md-nav__link">
+        Legal notice
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-esp32-cam-board" class="md-nav__link">
+    Upload to ESP32-CAM board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-launchpad-boards-with-xds110" class="md-nav__link">
+    Upload to LaunchPad boards with XDS110
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-launchpad-c2000" class="md-nav__link">
+    Upload to LaunchPad C2000
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload to LaunchPad C2000">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-launchpad-c2000-f28027" class="md-nav__link">
+    Prepare LaunchPad C2000 F28027
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-launchpad-c2000-f28069" class="md-nav__link">
+    Prepare LaunchPad C2000 F28069
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-launchpad-c2000-f28069_1" class="md-nav__link">
+    Prepare LaunchPad C2000 F28069
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-launchpad-cc3200-wifi" class="md-nav__link">
+    Upload to LaunchPad CC3200 WiFi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-launchpad-cc3220-wifi" class="md-nav__link">
+    Upload to LaunchPad CC3220 WiFi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-launchpad-msp430f5529-and-msp430fr5969" class="md-nav__link">
+    Upload to LaunchPad MSP430F5529 and MSP430FR5969
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-microsoft-azure-iot-devkit" class="md-nav__link">
+    Upload to Microsoft Azure IoT DevKit
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload to Microsoft Azure IoT DevKit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upload-to-microsoft-azure-iot-devkit-through-usb-port" class="md-nav__link">
+    Upload to Microsoft Azure IoT DevKit Through USB Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-to-microsoft-azure-iot-devkit-through-mass-storage-device" class="md-nav__link">
+    Upload to Microsoft Azure IoT DevKit Through Mass Storage Device
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-nodemcu-10-board" class="md-nav__link">
+    Upload to NodeMCU 1.0 board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-esp8266-nodemcu-boards-using-wifi" class="md-nav__link">
+    Upload to ESP8266 NodeMCU boards using WiFi
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload to ESP8266 NodeMCU boards using WiFi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-the-running-sketch" class="md-nav__link">
+    Check the running sketch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-wifi-connection" class="md-nav__link">
+    Check the WiFi connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enter-ip-address" class="md-nav__link">
+    Enter IP address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-wiring-arduino-sketch" class="md-nav__link">
+    Upload Wiring / Arduino sketch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload-to-raspberry-pi" class="md-nav__link">
+    Upload to Raspberry Pi
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+  <h1>Upload</h1>
+
+<h2 id="upload-to-esp32-cam-board">Upload to ESP32-CAM board<a class="headerlink" href="#upload-to-esp32-cam-board" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-Espressif-Systems.png" /> The ESP32-CAM board comes with no built-in programmer and features a unique <span class="keys"><kbd class="key-reset">Reset</kbd></span> button.</p>
+<p>Flashing the board requires an external programmer and a specific procedure to put the board in programming mode.</p>
+<p><center><img alt="" src="img/ESP32-FTDI.png" /></center>
+<center><em>Example of connection with a FTDI programmer</em></center></p>
+<p>Proceed as follow:</p>
+<ul>
+<li>Connect the <code>+3.3V</code>, <code>Ground</code>, <code>U0R</code> and <code>U0T</code> pins of the board to the corresponding pins of the external programmer.</li>
+<li>Disconnect the external programmer from the USB port.</li>
+<li>Connect pin <code>IO0</code> to ground.</li>
+<li>Connect the board to the USB port.</li>
+<li>Press <span class="keys"><kbd class="key-reset">Reset</kbd></span>.</li>
+<li>Upload the sketch.</li>
+<li>Disconnect pin <code>IO0</code> from ground.</li>
+<li>Press <span class="keys"><kbd class="key-reset">Reset</kbd></span> to run the executable.</li>
+</ul>
+<p>In case the following message is displayed on the serial console,</p>
+<p><html><body><div class="* highlight"><pre><span></span><code>Brownout detector was triggered
+</code></pre></div></body></html></p>
+<ul>
+<li>Power the ESP32 board through the +5V pin instead of the +3.3V pin.</li>
+</ul>
+<p>The ESP32 board requires up to 400 mA and may exceed what a standard USB port can deliver.</p>
+<ul>
+<li>Power the ESP32 board with an external power supply.</li>
+</ul>
+<h2 id="upload-to-launchpad-boards-with-xds110">Upload to LaunchPad boards with XDS110<a class="headerlink" href="#upload-to-launchpad-boards-with-xds110" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-Launchpad.png" /> The following procedure is valid for boards featuring an XDS110 programmer-debugger, as long as each board has a unique serial number. The unique serial number is used for identification to upload the executable and debug.</p>
+<p>Most of the LaunchPad boards of the SimpleLink range include an XDS110 programmer-debugger. The procedure has been tested successfully with the MSP432, CC26xx and CC13xx LaunchPad boards. It is especially handy for projects involving a server and one or many clients.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to ensure support for the external USB XDS110 debug probe, speed is limited to 1500 kHz.</p>
+</div>
+<p>In the example below, let&rsquo;s consider two projects for two CC1352 LaunchPad boards: one is a sensor node and the other the central hub.</p>
+<ul>
+<li>
+<p>Connect the first board, here the sensor node.</p>
+</li>
+<li>
+<p>Open a <strong>Terminal</strong> window and launch <code>lsusb</code>, a utility that lists the connected USB devices.</p>
+</li>
+</ul>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">~/.emCode/Tools/Utilities/lsusb
+</span>Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Device<span class="w"> </span><span class="m">007</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0451</span>:bef3<span class="w"> </span>Texas<span class="w"> </span>Instruments<span class="w"> </span>XDS110<span class="w"> </span><span class="o">(</span><span class="m">02</span>.03.00.18<span class="o">)</span><span class="w"> </span>Embed<span class="w"> </span>with<span class="w"> </span>CMSIS-DAP<span class="w">  </span>Serial:<span class="w"> </span>L41009S9
+</code></pre></div></td></tr></table></div></body></html></p>
+<ul>
+<li>
+<p>Note the serial number for the first board, here <code>L41009S9</code> for the sensor.</p>
+</li>
+<li>
+<p>Connect the second board, here the central hub.</p>
+</li>
+<li>
+<p>Perform the same <code>lsusb</code>.</p>
+</li>
+</ul>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<span class="normal"></span>
+<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">~/Library/embedXcode/Tools/Utilities/lsusb
+</span>Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Device<span class="w"> </span><span class="m">007</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0451</span>:bef3<span class="w"> </span>Texas<span class="w"> </span>Instruments<span class="w"> </span>XDS110<span class="w"> </span><span class="o">(</span><span class="m">02</span>.03.00.18<span class="o">)</span><span class="w"> </span>Embed<span class="w"> </span>with<span class="w"> </span>CMSIS-DAP<span class="w">  </span>Serial:<span class="w"> </span>L41009S9
+Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Device<span class="w"> </span><span class="m">006</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0451</span>:bef3<span class="w"> </span>Texas<span class="w"> </span>Instruments<span class="w"> </span>XDS110<span class="w"> </span><span class="o">(</span><span class="m">02</span>.03.00.18<span class="o">)</span><span class="w"> </span>Embed<span class="w"> </span>with<span class="w"> </span>CMSIS-DAP<span class="w">  </span>Serial:<span class="w"> </span>L41009PJ
+</code></pre></div></td></tr></table></div></body></html></p>
+<ul>
+<li>Note the serial number for the second board, here <code>L41009PJ</code> for the central hub.</li>
+</ul>
+<p>In the example, the sensor node is identified by serial <code>L41009S9</code> and the central hub by serial <code>L41009PJ</code>.</p>
+<ul>
+<li>
+<p>Create two projects, one for the sensor node and another for the central hub.</p>
+</li>
+<li>
+<p>Edit the main <code>Makefile</code> or the board configuration file of each project, here <code>LaunchPad CC1312 EMT.xcconfig</code>, and set the uploader to <code>xds110</code>.</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
+</code></pre></div></body></html></p>
+<p>On the project for the sensor node board,</p>
+<ul>
+<li>
+<p>Run the <code>All</code> or <code>Fast</code>  target.</p>
+</li>
+<li>
+<p>Select <code>L41009S9</code> on the dialogue window.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/XDS110_L41009S9.png" /></center></p>
+<ul>
+<li>Click <strong>OK</strong>.</li>
+</ul>
+<p>To make the selection permanent,</p>
+<ul>
+<li>
+<p>Edit the main <code>Makefile</code> or the board configuration file of the project, here <code>LaunchPad CC1312 EMT.xcconfig</code>, for the sensor node board.</p>
+</li>
+<li>
+<p>Set the serial number to <code>L41009S9</code>.</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
+<span class="err">XDS110_SERIAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">L41009S9</span>
+</code></pre></div></body></html></p>
+<p>On the project for the central hub board,</p>
+<ul>
+<li>
+<p>Run the <code>All</code> or <code>Fast</code> target for each project.</p>
+</li>
+<li>
+<p>Select <code>L41009PJ</code> on the dialogue window.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/XDS110_L41009PJ.png" /></center></p>
+<ul>
+<li>Click <strong>OK</strong>.</li>
+</ul>
+<p>To make the selection permanent,</p>
+<ul>
+<li>
+<p>Edit the main <code>Makefile</code> or the board configuration file of the project, here <code>LaunchPad CC1312 EMT.xcconfig</code>, for the sensor node board.</p>
+</li>
+<li>
+<p>Set the serial number to <code>L41009PJ</code>.</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
+<span class="err">XDS110_SERIAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">L41009PJ</span>
+</code></pre></div></body></html></p>
+<p>If no board corresponds to the serial number, an error message is displayed.</p>
+<p><html><body><div class="* highlight"><pre><span></span><code>XDS110 L41009PJ not found among connected L41009S9 M4111016 E0071009
+</code></pre></div></body></html></p>
+<p>If two LaunchPad boards with an XDS110 programmer-debugger share the same serial number, the serial number of one board needs to be changed to make it unique.</p>
+<p>To change the serial number of one board,</p>
+<ul>
+<li>
+<p>Disconnect all boards except the board with the serial number to change.</p>
+</li>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Run the commands</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code>xdsdfu<span class="w"> </span>-m
+xdsdfu<span class="w"> </span>-s<span class="w"> </span><span class="m">12345678</span><span class="w"> </span>-r
+</code></pre></div></body></html>
+Here, <code>12345678</code> is the new serial number.</p>
+<ul>
+<li>Check with</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code>xdsdfu<span class="w"> </span>-e
+</code></pre></div></body></html></p>
+<p>For more information on the XDS110 programmer-debugger and related software, and on how to change the serial number,</p>
+<ul>
+<li>Please refer to the <a href="http://www.ti.com/lit/ug/sprui94/sprui94.pdf">XDS110 Debug Probe User&rsquo;s Guide</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
+</ul>
+<h2 id="upload-to-launchpad-c2000">Upload to LaunchPad C2000<a class="headerlink" href="#upload-to-launchpad-c2000" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-Launchpad.png" /> The LaunchPad C2000 boards use a new upload procedure with Energia 17.</p>
+<h3 id="prepare-launchpad-c2000-f28027">Prepare LaunchPad C2000 F28027<a class="headerlink" href="#prepare-launchpad-c2000-f28027" title="Permanent link">&para;</a></h3>
+<p>Proceed as follow:</p>
+<ul>
+<li>
+<p>Unplug the LaunchPad C2000 F28027 board.</p>
+</li>
+<li>
+<p>For the LaunchPad C2000 F28027, configure <code>S4 SERIAL</code> on.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/350-01-200.png" /></center></p>
+<ul>
+<li>Configure <code>S1 BOOT</code> on-on-on or up-up-up.</li>
+</ul>
+<p><center><img alt="" src="img/350-02-200.png" /></center></p>
+<ul>
+<li>
+<p>Plug the LaunchPad C2000 board in.</p>
+</li>
+<li>
+<p>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</p>
+</li>
+</ul>
+<p>The project is uploaded into flash.</p>
+<h3 id="prepare-launchpad-c2000-f28069">Prepare LaunchPad C2000 F28069<a class="headerlink" href="#prepare-launchpad-c2000-f28069" title="Permanent link">&para;</a></h3>
+<p>Proceed as follow:</p>
+<ul>
+<li>
+<p>Unplug the LaunchPad C2000 F28069 board.</p>
+</li>
+<li>
+<p>Remove jumper <code>J6</code> and place jumper <code>J7</code>.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/351-01-200.png" /></center></p>
+<p>Configure <code>S1 BOOT</code> on-on-on or up-up-up.</p>
+<p><center><img alt="" src="img/351-02-200.png" /></center></p>
+<ul>
+<li>
+<p>Plug the LaunchPad C2000 board in.</p>
+</li>
+<li>
+<p>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</p>
+</li>
+</ul>
+<p>The project is uploaded into flash.</p>
+<h3 id="prepare-launchpad-c2000-f28069_1">Prepare LaunchPad C2000 F28069<a class="headerlink" href="#prepare-launchpad-c2000-f28069_1" title="Permanent link">&para;</a></h3>
+<p>Proceed as follow:</p>
+<ul>
+<li>
+<p>Unplug the LaunchPad C2000 F28069 board.</p>
+</li>
+<li>
+<p>Configure <code>S1 BOOT</code> on-on-on or up-up-up.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/351-03-200.png" /></center></p>
+<ul>
+<li>
+<p>Plug the LaunchPad C2000 board in.</p>
+</li>
+<li>
+<p>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</p>
+</li>
+</ul>
+<p>The project is uploaded into flash.</p>
+<h2 id="upload-to-launchpad-cc3200-wifi">Upload to LaunchPad CC3200 WiFi<a class="headerlink" href="#upload-to-launchpad-cc3200-wifi" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-Launchpad.png" /> The LaunchPad CC3200 WiFi board requires a specific hardware configuration.</p>
+<p>For a normal upload, proceed as follow:</p>
+<ul>
+<li>
+<p>Unplug the LaunchPad CC3200 WiFi board..</p>
+</li>
+<li>
+<p>Remove the <code>JTAG J8</code> jumper and the <code>SPO2</code> jumper.</p>
+</li>
+<li>
+<p>Place a wire from <code>JTAG J8</code> (emulator side) to <code>SOP 2</code> (CC3200) side.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/352-01-420.png" /></center>
+<center><em>Uploading requires <code>TCK</code> connected to <code>SOP 2</code></em> </center></p>
+<ul>
+<li>
+<p>Plug the LaunchPad CC3200 WiFi board.</p>
+</li>
+<li>
+<p>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</p>
+</li>
+</ul>
+<p>The project is uploaded into flash and is kept even if the power is disconnected.</p>
+<p>For a debugging session, proceed as follow:</p>
+<ul>
+<li>
+<p>Unplug the LaunchPad CC3200 WiFi board..</p>
+</li>
+<li>
+<p>Remove the wire from <code>JTAG J8</code> (emulator side) to <code>SOP 2</code> (CC3200) side.</p>
+</li>
+<li>
+<p>Place the <code>JTAG J8</code> jumper.</p>
+</li>
+<li>
+<p>Place the <code>SOP 2</code> jumper.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/352-02-420.png" /></center>
+<center><em>Debugging requires <code>TCK</code> and <code>SOP 2</code> jumpers placed on</em></center></p>
+<ul>
+<li>
+<p>Plug the LaunchPad CC3200 WiFi board.</p>
+</li>
+<li>
+<p>Launch the target <strong>Debug</strong>.</p>
+</li>
+</ul>
+<p>The project is uploaded into SRAM and is lost in case the power is disconnected.</p>
+<h2 id="upload-to-launchpad-cc3220-wifi">Upload to LaunchPad CC3220 WiFi<a class="headerlink" href="#upload-to-launchpad-cc3220-wifi" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-Launchpad.png" /> The LaunchPad CC3220S and CC3220SF WiFi boards require a specific hardware and software configuration.</p>
+<p>For a normal upload, proceed as follow:</p>
+<ul>
+<li>
+<p>Unplug the LaunchPad CC3220 WiFi board..</p>
+</li>
+<li>
+<p>Ensure only the <code>SOP1</code> jumper is shorted.</p>
+</li>
+<li>
+<p>Download and install the <a href="http://www.ti.com/tool/UNIFLASH">Uniflash Standalone Flash Tool for TI Micro-Controllers (MCU), Sitara Processors and SimpleLink Devices</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> from Texas Instruments .</p>
+</li>
+<li>
+<p>Make sure to select release 4, as previous releases do not support the CC3220.</p>
+</li>
+<li>
+<p>Connect the LaunchPad to the computer.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/Logo-128-Uniflash.png" /></center></p>
+<ul>
+<li>Open <strong>Uniflash</strong> and select the <code>CC3220SF-LAUNCHXL</code> from the list of devices.</li>
+</ul>
+<p><center><img alt="" src="img/352-03-640.png" /></center></p>
+<ul>
+<li>Click <strong>Start Image Creator</strong>.</li>
+</ul>
+<p><center><img alt="" src="img/352-04-640.png" /></center></p>
+<ul>
+<li>
+<p>Click <strong>New Project</strong></p>
+</li>
+<li>
+<p>Give the project a name, for example <code>CC3220 Development</code>.</p>
+</li>
+<li>
+<p>Select <code>CC3220SF</code> from the <strong>Device Type</strong> drop-down list.</p>
+</li>
+<li>
+<p>Set <strong>Device Mode</strong> to <strong>Develop</strong>.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/352-07-640.png" /></center></p>
+<ul>
+<li>
+<p>Click <strong>Create Project</strong>.</p>
+</li>
+<li>
+<p>Click the <strong>Connect</strong> button.</p>
+</li>
+<li>
+<p>Under <strong>General &gt; Settings</strong>, make sure <strong>Image mode</strong> is set to <code>Development</code>.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/352-05-640.png" /></center></p>
+<ul>
+<li>Click the <strong>Generate Image</strong> button, pictured with a flame. Sometimes, this button is not active. In that case, select the <strong>Create Image</strong> button instead.</li>
+</ul>
+<p><center><img alt="" src="img/352-06-640.png" /></center></p>
+<ul>
+<li>Click <strong>Program Image (Create &amp; Program)</strong>.</li>
+</ul>
+<p>The LaunchPad CC3220 should be ready for uploading a sketch to. Keep in mind the sketch resides in RAM and is lost if the power is disconnected.</p>
+<ul>
+<li>Once done, launch <strong>Energia</strong> and program the CC3220SF with the <em>blinky</em> sketch.</li>
+</ul>
+<p>If upload fails, perform the same operation with <strong>Uniflash</strong> but on Windows.</p>
+<p>For more information,</p>
+<ul>
+<li>Please refer to <a href="http://processors.wiki.ti.com/index.php/UniFlash_v4_Quick_Guide">UniFlash v4 Quick Guide</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
+</ul>
+<h2 id="upload-to-launchpad-msp430f5529-and-msp430fr5969">Upload to LaunchPad MSP430F5529 and MSP430FR5969<a class="headerlink" href="#upload-to-launchpad-msp430f5529-and-msp430fr5969" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-Launchpad.png" /> The LaunchPad MSP430F5529 requires Energia release 10 and the LaunchPad MSP430FR5969 the release 12.</p>
+<p>Some versions of the LaunchPad MSP430F5529 and MSP430FR5969 may require an update of the firmware.</p>
+<p>To do so,</p>
+<ul>
+<li>
+<p>Download <a href="http://energia.nu">Energia release 14</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> or later.</p>
+</li>
+<li>
+<p>Launch <strong>Energia</strong>.</p>
+</li>
+<li>
+<p>Create a new basic sketch, for example the <code>blinky</code> sketch.</p>
+</li>
+<li>
+<p>Select the board LaunchPad with MSP430F5529 or LaunchPad with MSP430FR5969</p>
+</li>
+<li>
+<p>Upload the sketch to the LaunchPad.</p>
+</li>
+</ul>
+<p>If the firmware needs to be updated, a window pops-up.</p>
+<p><center><img alt="" src="img/353-01-360.png" /></center></p>
+<p>In that case, follow the instructions.</p>
+<ul>
+<li>Call the menu <strong>Tools &gt; Update programmer</strong>.</li>
+</ul>
+<p><center><img alt="" src="img/353-02-200.png" /></center></p>
+<ul>
+<li>
+<p>Check that the upload of the sketch works correctly.</p>
+</li>
+<li>
+<p>If necessary, repeat the update of the programmer.</p>
+</li>
+<li>
+<p>Close <strong>Energia</strong>.</p>
+</li>
+</ul>
+<h2 id="upload-to-microsoft-azure-iot-devkit">Upload to Microsoft Azure IoT DevKit<a class="headerlink" href="#upload-to-microsoft-azure-iot-devkit" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-Microsoft.png" /> The Microsoft Azure IoT DevKit offers different options for uploading the sketch to the board.</p>
+<h3 id="upload-to-microsoft-azure-iot-devkit-through-usb-port">Upload to Microsoft Azure IoT DevKit Through USB Port<a class="headerlink" href="#upload-to-microsoft-azure-iot-devkit-through-usb-port" title="Permanent link">&para;</a></h3>
+<p>Proceed as follow:</p>
+<ul>
+<li>
+<p>Connect the Microsoft Azure IoT DevKit board to the computer.</p>
+</li>
+<li>
+<p>Select the <code>Microsoft IoT DevKit (USB)</code> board.</p>
+</li>
+<li>
+<p>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</p>
+</li>
+</ul>
+<h3 id="upload-to-microsoft-azure-iot-devkit-through-mass-storage-device">Upload to Microsoft Azure IoT DevKit Through Mass Storage Device<a class="headerlink" href="#upload-to-microsoft-azure-iot-devkit-through-mass-storage-device" title="Permanent link">&para;</a></h3>
+<p>Proceed as follow:</p>
+<ul>
+<li>Connect the Microsoft Azure IoT DevKit module to the computer.</li>
+</ul>
+<p>A new volume called <code>AZ3166</code> appears.</p>
+<p><center><img alt="" src="img/356-01-200.png" /></center></p>
+<ul>
+<li>
+<p>Select the <code>Microsoft IoT DevKit (MSD)</code> board.</p>
+</li>
+<li>
+<p>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</p>
+</li>
+</ul>
+<p>During the upload process, a warning notification may appear.
+   <center><img alt="" src="img/356-02-360.png" /></center></p>
+<ul>
+<li>Click on <strong>Close</strong> to close the notification.</li>
+</ul>
+<h2 id="upload-to-nodemcu-10-board">Upload to NodeMCU 1.0 board<a class="headerlink" href="#upload-to-nodemcu-10-board" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-NodeMCU.png" /> The NodeMCU 1.0 board requires a specific procedure.</p>
+<p>Proceed as follow:</p>
+<p>Plug the NodeMCU 1.0 board in.</p>
+<ul>
+<li>
+<p>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</p>
+</li>
+<li>
+<p>Wait for the message window:</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/357-01-360.png" /></center></p>
+<ul>
+<li>
+<p>Press the <span class="keys"><kbd class="key-reset">Reset</kbd></span> and <code>FLASH</code> buttons on the board.</p>
+</li>
+<li>
+<p>Release the <span class="keys"><kbd class="key-reset">Reset</kbd></span> button first.</p>
+</li>
+<li>
+<p>Release then the <code>FLASH</code> button.</p>
+</li>
+</ul>
+<p><center><img alt="" src="img/357-02-420.png" /></center></p>
+<ul>
+<li>Click on <strong>OK</strong>.</li>
+</ul>
+<p><center><img alt="" src="img/357-03-360.png" /></center></p>
+<p>For more information,</p>
+<ul>
+<li>Please refer to the <a href="http://www.esp8266.com">ESP8266 Community Forum</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
+</ul>
+<h2 id="upload-to-esp8266-nodemcu-boards-using-wifi">Upload to ESP8266 NodeMCU boards using WiFi<a class="headerlink" href="#upload-to-esp8266-nodemcu-boards-using-wifi" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-NodeMCU.png" /> Although the ESP8266 and NodeMCU boards require no specific procedure for an over-the-air upload, the WiFi network needs to be installed and configured successfully before any upload.</p>
+<p>Over-the-air upload requires that a sketch based on the ArduinoOTA library has been installed previously and is currently running. Otherwise,</p>
+<ul>
+<li>Build and upload the <code>BasicOTA</code> example using the <strong>Arduino IDE</strong>.</li>
+</ul>
+<p>Before uploading, please</p>
+<ul>
+<li>
+<p>Check that the router has discovered the NoteMCU board and note the IP address.</p>
+</li>
+<li>
+<p>It is recommended to proceed with a test of the WiFi connection. Either try pinging the board on the <strong>Terminal</strong>, or uploading a sketch from the Arduino IDE.</p>
+</li>
+</ul>
+<h3 id="check-the-running-sketch">Check the running sketch<a class="headerlink" href="#check-the-running-sketch" title="Permanent link">&para;</a></h3>
+<p>The over-the-air process is managed by the sketch itself, based on the <code>ArduinoOTA</code> library.</p>
+<p>If the <code>ArduinoOTA</code> object isn&rsquo;t running,</p>
+<ul>
+<li>
+<p>Build the <code>BasicOTA</code> example.</p>
+</li>
+<li>
+<p>Upload using an USB connection as per section <a href="../Advanced/Specific-1/#upload-to-nodemcu-10-board">Upload to NodeMCU 1.0 board</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sketch requires twice its size.</p>
+</div>
+<h3 id="check-the-wifi-connection">Check the WiFi connection<a class="headerlink" href="#check-the-wifi-connection" title="Permanent link">&para;</a></h3>
+<p>To identify the IP addresses of the ESP8266 or NodeMCU board,</p>
+<ul>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Run the following command.</p>
+</li>
+</ul>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arp<span class="w"> </span>-a
+</span><span class="">esp_a1b2c3<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.1.209<span class="o">)</span><span class="w"> </span>at<span class="w"> </span><span class="m">12</span>:ef:34:a1:b2:c3<span class="w"> </span>on<span class="w"> </span>en0<span class="w"> </span>ifscope<span class="w"> </span><span class="o">[</span>ethernet<span class="o">]</span>
+</span></code></pre></div></td></tr></table></div></body></html></p>
+<p>The address <code>192.168.1.209</code> gives access to the board.</p>
+<ul>
+<li>Test the board is connected with ping.</li>
+</ul>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ping<span class="w"> </span><span class="m">192</span>.168.1.209
+</span></code></pre></div></td></tr></table></div></body></html></p>
+<h3 id="enter-ip-address">Enter IP address<a class="headerlink" href="#enter-ip-address" title="Permanent link">&para;</a></h3>
+<p>During the first compilation, embedXcode looks for the ESP8266 or NodeMCU board.</p>
+<p>If the ESP8266 or NodeMCU board isn&rsquo;t found on the network, a window asks for the IP address.</p>
+<p><center><img alt="" src="img/359-01-360.png" /></center></p>
+<ul>
+<li>
+<p>Enter the IP address of the ESP8266 or NodeMCU board.</p>
+</li>
+<li>
+<p>Click on <strong>OK</strong> to validate or <strong>Cancel</strong> to cancel.</p>
+</li>
+</ul>
+<p>When validated, the IP address is saved on the board configuration file <code>NodeMCU 0.9 ESP-12 (WiFi)</code> or <code>NodeMCU 1.0 ESP-12E (WiFi)</code> in the project.</p>
+<p><center><img alt="" src="img/359-02-360.png" /></center></p>
+<p>The IP address is only asked once.</p>
+<ul>
+<li>
+<p>To erase the IP address, just delete the whole line.</p>
+</li>
+<li>
+<p>To edit the IP address, just change the left part after <code>SSH_ADDRESS =</code> on the corresponding line.</p>
+</li>
+</ul>
+<p>Password isn&rsquo;t implemented.</p>
+<h3 id="upload-wiring-arduino-sketch">Upload Wiring / Arduino sketch<a class="headerlink" href="#upload-wiring-arduino-sketch" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="img/Logo-064-NodeMCU.png" /> Once the checks have been performed successfully, proceed as follow:</p>
+<p>Connect the ESP8266 or NodeMCU board to the network through WiFi.</p>
+<ul>
+<li>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</li>
+</ul>
+<p>A window may ask for allowing incoming network connections.</p>
+<p><center><img alt="" src="img/360-01-360.png" /></center></p>
+<ul>
+<li>Click on <strong>Allow</strong> to proceed.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sketch requires twice its size.</p>
+</div>
+<p>For more information about the installation and use of the over-the-air upload,</p>
+<ul>
+<li>Please refer to the procedure <a href="https://github.com/esp8266/Arduino/blob/4897e0006b5b0123a2fa31f67b14a3fff65ce561/doc/ota_updates/readme.md">ESP8266 OTA Updates</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
+</ul>
+<h2 id="upload-to-raspberry-pi">Upload to Raspberry Pi<a class="headerlink" href="#upload-to-raspberry-pi" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="img/Logo-064-Raspberry-Pi.png" /> The Raspberry Pi board provides over-the-air connection through Ethernet or WiFi for upload, console and debugging. The connection is protected by a password defined during the installation of the board.</p>
+<ul>
+<li>Please refer to the procedure <a href="../../Install/Section4/Page13">Install the RasPiArduino platform</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span> for installation and <a href="../../Develop/Section2/#enter-raspberry-pi-ip-address-and-password">Enter Raspberry Pi IP address and password</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span> for configuration.</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Rei Vilo, 2010-2023 &bull; All rights reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.1.2"}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2257 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="embedXcode User Manual">
+      
+      
+        <meta name="author" content="Rei Vilo">
+      
+      
+      
+        <link rel="prev" href="../Teensy/Teensy/">
+      
+      
+        <link rel="next" href="../../Issues/">
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>Add a board - emCode User Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-L8GYGH8EGF"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-L8GYGH8EGF",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-L8GYGH8EGF",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="pink">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#add-a-board" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="emCode User Manual" class="md-header__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
+      
+  <img src="../../img/Logo-256-eC-Website-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            emCode User Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Add a board
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="emCode User Manual" class="md-nav__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
+      
+  <img src="../../img/Logo-256-eC-Website-white.png" alt="logo">
+
+    </a>
+    emCode User Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Table of contents
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Forewords/">Forewords</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Forewords
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Install/">Install emCode</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Install emCode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Install/Code/" class="md-nav__link">
+        Install Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Install/Arduino/" class="md-nav__link">
+        Install the Arduino tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Install/emCode/" class="md-nav__link">
+        Install emCode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Develop/">Develop a project</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Develop a project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/New/" class="md-nav__link">
+        Create a new project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Import/" class="md-nav__link">
+        Import an existing project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Write/" class="md-nav__link">
+        Write the project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Libraries/" class="md-nav__link">
+        Add libraries to the project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Build/" class="md-nav__link">
+        Build and upload the project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Run/" class="md-nav__link">
+        Run and debug the project
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Manage the boards</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Manage the boards
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Adafruit/">Adafruit</a>
+          
+            <label for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Adafruit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adafruit/ESP8266/" class="md-nav__link">
+        Feather ESP8266
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adafruit/ESP32/" class="md-nav__link">
+        Feather ESP32
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adafruit/nRF52/" class="md-nav__link">
+        Feather nRF52832 and nRF52840
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adafruit/Cortex-M/" class="md-nav__link">
+        Feather M0 and M4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adafruit/RP2040/" class="md-nav__link">
+        Feather RP2040
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Adafruit/AVR/" class="md-nav__link">
+        Trinket and Trinket Pro AVR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Arduino/">Arduino</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Arduino
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino/AVR/" class="md-nav__link">
+        Arduino AVR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino/MegaAVR/" class="md-nav__link">
+        Arduino MegaAVR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino/SAM/" class="md-nav__link">
+        Arduino SAM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino/SAMD/" class="md-nav__link">
+        Arduino SAMD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino/ESP32/" class="md-nav__link">
+        Arduino ESP32
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino/nRF52/" class="md-nav__link">
+        Arduino nRF52
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino/RP2040/" class="md-nav__link">
+        Arduino RP2040
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arduino/Mbed/" class="md-nav__link">
+        Arduino Mbed-OS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Espressif/">Espressif</a>
+          
+            <label for="__nav_5_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Espressif
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Espressif/ESP8266/" class="md-nav__link">
+        Espressif ESP8266
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Espressif/ESP32/" class="md-nav__link">
+        Espressif ESP32
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Seeed/">Seeed</a>
+          
+            <label for="__nav_5_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Seeed
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeed/Grove_AVR/" class="md-nav__link">
+        Grove Beginner Kit for Arduino
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeed/Xiao_ESP32/" class="md-nav__link">
+        Xiao ESP32-C3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeed/Xiao_nRF/" class="md-nav__link">
+        Xiao nRF52840
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeed/Xiao_mbed/" class="md-nav__link">
+        Xiao nRF52840 Mbed-OS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeed/Xiao_RP2040/" class="md-nav__link">
+        Xiao RP2040
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeed/Xiao_M0/" class="md-nav__link">
+        Xiao M0 and Wio Terminal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeed/SenseCAP/" class="md-nav__link">
+        SenseCAP Indicator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seeed/Xiao_Expansion/" class="md-nav__link">
+        Xiao expansion board
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../RP2040/">Raspberry Pi Pico</a>
+          
+            <label for="__nav_5_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Raspberry Pi Pico
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RP2040/RP2040/" class="md-nav__link">
+        Raspberry Pi Pico RP2040
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../STM32/">STM32duino</a>
+          
+            <label for="__nav_5_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          STM32duino
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STM32/STM32/" class="md-nav__link">
+        STM32
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Teensy/">Teensy</a>
+          
+            <label for="__nav_5_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_8">
+          <span class="md-nav__icon md-icon"></span>
+          Teensy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Teensy/Teensy/" class="md-nav__link">
+        Teensy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" checked>
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Add a board</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Add a board
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Issues/">Find solutions to issues</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Find solutions to issues
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Issues/Compatibility/" class="md-nav__link">
+        Compatibility with Arduino
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Issues/Common/" class="md-nav__link">
+        Solutions to common issues
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Appendixes/">Appendixes</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Appendixes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendixes/Notes/" class="md-nav__link">
+        Release notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendixes/History/" class="md-nav__link">
+        Release history
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendixes/Glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendixes/Indexes/" class="md-nav__link">
+        Index of boards and platforms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendixes/Changes/" class="md-nav__link">
+        Changes by emCode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Appendixes/Legal/" class="md-nav__link">
+        Legal notice
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-configuration-file-for-a-new-board" class="md-nav__link">
+    Create a configuration file for a new board
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a configuration file for a new board">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-the-board-tag" class="md-nav__link">
+    Set the board tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-serial-port" class="md-nav__link">
+    Set the serial port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-platform-references" class="md-nav__link">
+    Set the platform references
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-memory-sizes" class="md-nav__link">
+    Set memory sizes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-a-specific-programmer-for-a-new-board" class="md-nav__link">
+    Define a specific programmer for a new board
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-programmer-options" class="md-nav__link">
+    Set programmer options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-boot-loader-options" class="md-nav__link">
+    Define boot-loader options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-compatible-mcu" class="md-nav__link">
+    Define compatible MCU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-fuses-options" class="md-nav__link">
+    Set fuses options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-the-cc-properties-file-of-the-project" class="md-nav__link">
+    Edit the C/C++ properties file of the project
+  </a>
+  
+    <nav class="md-nav" aria-label="Edit the C/C++ properties file of the project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-the-path-to-the-board-package" class="md-nav__link">
+    Set the path to the board package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-path-to-the-compiler" class="md-nav__link">
+    Set the path to the compiler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-path-to-the-board-files" class="md-nav__link">
+    Set the path to the board files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-new-boards-to-the-template" class="md-nav__link">
+    Add the new boards to the template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-the-tasks-file-for-debug" class="md-nav__link">
+    Edit the tasks file for debug
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="add-a-board">Add a board<a class="headerlink" href="#add-a-board" title="Permanent link">&para;</a></h1>
+<p>If a board is not listed, adding it requires two steps plus one optional.</p>
+<ul>
+<li>
+<p><a href="#create-a-configuration-file-for-a-new-board">Create a board configuration file</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>; </p>
+</li>
+<li>
+<p><a href="#edit-the-cc-properties-file-of-the-project">Edit the C/C++ properties file of the project</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>; and optionally</p>
+</li>
+<li>
+<p><a href="#edit-the-tasks-file-for-debug">Edit the tasks file for debug</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</p>
+</li>
+</ul>
+<h2 id="create-a-configuration-file-for-a-new-board">Create a configuration file for a new board<a class="headerlink" href="#create-a-configuration-file-for-a-new-board" title="Permanent link">&para;</a></h2>
+<p>To add a configuration file for a new board,</p>
+<ul>
+<li>
+<p>Go to the <code>Configurations</code> sub-folder of the <code>Tools</code> folder of emCode.</p>
+</li>
+<li>
+<p>Create a new file, for example <code>Raspberry_Pi_Pico_W_RP2040_DebugProbe_CMSIS_DAP.mk</code>.</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The file name should not contain spaces and the extension is <code>.mk</code>.</p>
+</div>
+<p><html><body><div class="* highlight"><span class="filename">Raspberry_Pi_Pico_W_RP2040_DebugProbe_CMSIS_DAP.mk</span><pre><span></span><code><span class="c">#</span>
+<span class="c"># Raspberry Pi Pico W RP2040 (DebugProbe CMSIS-DAP).mk</span>
+<span class="c"># Board configuration file</span>
+<span class="c"># ----------------------------------</span>
+
+<span class="c"># Board identifier</span>
+<span class="err">BOARD_TAG</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow</span>
+
+<span class="c"># More options</span>
+<span class="err">BOARD_TAG1</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.flash.2097152_0</span>
+<span class="err">BOARD_TAG2</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.freq.125</span>
+<span class="err">BOARD_TAG3</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.dbgport.Serial</span>
+<span class="err">BOARD_TAG4</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.dbglvl.None</span>
+<span class="err">BOARD_TAG5</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.usbstack.picosdk</span>
+<span class="err">BOARD_TAG6</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.stackprotect.Disabled</span>
+<span class="err">BOARD_TAG7</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.exceptions.Disabled</span>
+<span class="err">BOARD_TAG8</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.uploadmethod.picoprobe_cmsis_dap</span>
+
+<span class="c"># Port (optional)</span>
+<span class="err">BOARD_PORT</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/dev/ttyACM*</span>
+
+<span class="c"># Define macros for build</span>
+<span class="err">GCC_PREPROCESSOR_DEFINITIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">ARDUINO</span>
+
+<span class="c"># Specific programmer options, no port</span>
+<span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">debugprobe</span>
+<span class="err">DELAY_BEFORE_UPLOAD</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">5</span>
+
+<span class="c"># Linux</span>
+<span class="c"># BOARD_VOLUME = /media/$(USER)/RPI-RP2</span>
+
+<span class="err">DELAY_BEFORE_SERIAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">5</span>
+
+<span class="err">CONFIG_NAME</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Raspberry</span><span class="w"> </span><span class="err">Pi</span><span class="w"> </span><span class="err">Pico</span><span class="w"> </span><span class="err">W</span><span class="w"> </span><span class="nb">RP2040</span><span class="w"> </span><span class="p">(</span><span class="s">DebugProbe</span><span class="w"> </span><span class="s">CMSIS-DAP</span><span class="p">)</span>
+</code></pre></div></body></html></p>
+<h3 id="set-the-board-tag">Set the board tag<a class="headerlink" href="#set-the-board-tag" title="Permanent link">&para;</a></h3>
+<p>Specify the following variables:</p>
+<ul>
+<li><code>BOARD_TAG</code> is the unique identifier of the board, found in the <code>boards.txt</code> file.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># Board identifier</span>
+<span class="err">BOARD_TAG</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow</span>
+</code></pre></div></body></html></p>
+<ul>
+<li>Indexed <code>BOARD_TAG</code>, like <code>BOARD_TAG1</code> <code>BOARD_TAG2</code> &hellip;, are sometimes required to ensure compatibility between old and new identifiers, or to complement the initial <code>BOARD_TAG</code>.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># More options</span>
+<span class="err">BOARD_TAG1</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.flash.2097152_0</span>
+<span class="err">BOARD_TAG2</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.freq.125</span>
+<span class="err">BOARD_TAG3</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.dbgport.Serial</span>
+<span class="err">BOARD_TAG4</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.dbglvl.None</span>
+<span class="err">BOARD_TAG5</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.usbstack.picosdk</span>
+<span class="err">BOARD_TAG6</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.stackprotect.Disabled</span>
+<span class="err">BOARD_TAG7</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.exceptions.Disabled</span>
+<span class="err">BOARD_TAG8</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">rpipicow.menu.uploadmethod.picoprobe_cmsis_dap</span>
+</code></pre></div></body></html></p>
+<h3 id="set-the-serial-port">Set the serial port<a class="headerlink" href="#set-the-serial-port" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>BOARD_PORT</code> defines the USB port to be used.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">BOARD_PORT</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/dev/ttyACM*</span>
+</code></pre></div></body></html></p>
+<p>This parameter is optional. To know the name of the USB port, proceed as follow:</p>
+<ul>
+<li>
+<p>Open the <strong>Terminal</strong> window,</p>
+</li>
+<li>
+<p>Plug the board,</p>
+</li>
+<li>
+<p>Launch the command <code>ls /dev/ttyUSB*</code></p>
+</li>
+</ul>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ls<span class="w"> </span>/dev/ttyUSB*
+</span>/dev/ttyUSB0
+</code></pre></div></td></tr></table></div></body></html></p>
+<ul>
+<li>or <code>ls /dev/ttyACM*</code>.</li>
+</ul>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ls<span class="w"> </span>/dev/ttyACM*
+</span>/dev/ttyACM0
+</code></pre></div></td></tr></table></div></body></html></p>
+<ul>
+<li>
+<p>Read the answer, here <code>/dev/ttyUSB0</code> or <code>/dev/ttyACM0</code>.</p>
+</li>
+<li>
+<p>Change the value of <code>BOARD_PORT</code> accordingly.</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">BOARD_PORT</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/dev/ttyACM*</span>
+</code></pre></div></body></html></p>
+<p>The generic character <code>*</code> allows other values for the port, for example <code>/dev/ttyUSB1</code>.</p>
+<ul>
+<li><code>DELAY_BEFORE_SERIAL</code> defines a delay in seconds before opening the Console.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">DELAY_BEFORE_SERIAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">5</span>
+</code></pre></div></body></html></p>
+<p>If previous versions, <code>DELAY_PRE_SERIAL</code> may appear instead. Change it for <code>DELAY_BEFORE_SERIAL</code>.</p>
+<h3 id="set-the-platform-references">Set the platform references<a class="headerlink" href="#set-the-platform-references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>GCC_PREPROCESSOR_DEFINITIONS</code> is the name of the micro-controller of the board, found in the <code>boards.txt</code> file.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">GCC_PREPROCESSOR_DEFINITIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">ARDUINO</span>
+</code></pre></div></body></html></p>
+<h3 id="set-memory-sizes">Set memory sizes<a class="headerlink" href="#set-memory-sizes" title="Permanent link">&para;</a></h3>
+<p>Normally, the Arduino configuration file of the platform provides the memory sizes for Falsh and RAM.</p>
+<p>However, some boards are missing those critical sizes.</p>
+<ul>
+<li><code>MAX_FLASH_SIZE</code> gives the number of bytes of Flash. Read the specification sheet of the MCU to find the correct value.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">MAX_FLASH_SIZE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">262144</span>
+</code></pre></div></body></html></p>
+<ul>
+<li><code>MAX_RAM_SIZE</code> gives the number of bytes of SRAM. Read the specification sheet of the MCU to find the correct value.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">MAX_RAM_SIZE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">2048</span>
+</code></pre></div></body></html></p>
+<p>Additional parameters for the programmer can be set according to the procedure <a href="#define-a-specific-programmer-for-a-new-board">Define a specific programmer for a new board</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</p>
+<h3 id="define-a-specific-programmer-for-a-new-board">Define a specific programmer for a new board<a class="headerlink" href="#define-a-specific-programmer-for-a-new-board" title="Permanent link">&para;</a></h3>
+<p>The Arduino IDE includes the central file <code>boards.txt</code> contains all the parameters of the boards.</p>
+<h3 id="set-programmer-options">Set programmer options<a class="headerlink" href="#set-programmer-options" title="Permanent link">&para;</a></h3>
+<p>Only specify the parameters when the values are different from the default ones.</p>
+<ul>
+<li><code>AVRDUDE_SPECIAL</code> states that a specific configuration is set for the programmer. Otherwise, comment the line.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">AVRDUDE_SPECIAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
+</code></pre></div></body></html></p>
+<ul>
+<li><code>AVRDUDE_PROGRAMMER</code> provides the name of the specific programmer. Otherwise, the variable isn&rsquo;t required: just comment the line.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">AVRDUDE_PROGRAMMER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">usbtiny</span>
+</code></pre></div></body></html></p>
+<ul>
+<li><code>AVRDUDE_BAUDRATE</code> provides the speed for upload. If the speed differs from the default setting, specify it. Otherwise, the variable isn&rsquo;t required: just comment the line.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">AVRDUDE_BAUDRATE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">9600</span>
+</code></pre></div></body></html></p>
+<ul>
+<li><code>AVRDUDE_OTHER_OPTIONS</code> provides a free variable, for example for selecting verbose output or erasing flash.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">AVRDUDE_OTHER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-v</span>
+</code></pre></div></body></html></p>
+<ul>
+<li>If the programmer doesn&rsquo;t feature a serial port, set <code>AVRDUDE_NO_SERIAL_PORT</code> to 1.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">AVRDUDE_NO_SERIAL_PORT</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
+</code></pre></div></body></html></p>
+<ul>
+<li>Otherwise, set <code>AVRDUDE_NO_SERIAL_PORT</code> to O or comment the line. The port to be used is defined by <code>BOARD_PORT</code>.</li>
+</ul>
+<h3 id="define-boot-loader-options">Define boot-loader options<a class="headerlink" href="#define-boot-loader-options" title="Permanent link">&para;</a></h3>
+<p>Only specify the parameters when the values are different from the default ones.</p>
+<ul>
+<li>If the specific boot-loader is already supported like <code>MiniCore</code> for AVR MCUs, set <code>BOOTLOADER</code> to its name.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">BOOTLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">minicore</span>
+</code></pre></div></body></html></p>
+<ul>
+<li>Otherwise, set the <code>AVRDUDE_CONF</code> variable to the specific avrdude.conf.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">AVRDUDE_CONF</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">$(HOME)/Library/Arduino15/packages/MiniCore/hardware/avr/1.0.3/avrdude.conf</span>
+</code></pre></div></body></html></p>
+<p>For more information on how to install the MiniCore boot-loader,</p>
+<ul>
+<li>Please refer to <a href="../../Advanced/Specific-2/#change-boot-loader-for-avr-based-arduino-boards">Change Boot-Loader for AVR-Based Arduino Boards</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</li>
+</ul>
+<h3 id="define-compatible-mcu">Define compatible MCU<a class="headerlink" href="#define-compatible-mcu" title="Permanent link">&para;</a></h3>
+<p>Some boards are not listed but are compatible with another listed board.</p>
+<p>For example, the ATmega328 is compatible with the ATmega328P. However, Arduino doesn&rsquo;t support the ATmega328 but supports the ATmega328P.</p>
+<ul>
+<li>If the speed is different, just define <code>F_CPU</code>, otherwise comment the line to use the default value provided by the IDE.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">F_CPU</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">20000000L</span>
+</code></pre></div></body></html></p>
+<p>However, each MCU has a unique signature required by the programmer. For example, the signature of the ATmega328 is <code>0x1e 0x95 0x14</code> while the compatible ATmega328P has <code>0x1e 0x95 0x0f</code>.</p>
+<p>The programmer checks the signature of the MCU, so the exact reference of the MCU needs to be specified to <strong>AVRDUDE</strong>.</p>
+<p>In that case,</p>
+<ul>
+<li>Specify <code>AVRDUDE_MCU</code> as the MCU for the programmer only:</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">AVRDUDE_MCU</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">atmega328</span>
+</code></pre></div></body></html></p>
+<h3 id="set-fuses-options">Set fuses options<a class="headerlink" href="#set-fuses-options" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Optionally, fuses can be set, including <code>ISP_LOCK_FUSE_PRE</code>, <code>ISP_LOCK_FUSE_POST</code>, <code>ISP_HIGH_FUSE</code>, <code>ISP_LOW_FUSE</code> and <code>ISP_EXT_FUSE</code>.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">ISP_LOCK_FUSE_PRE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0x3f</span>
+<span class="err">ISP_LOCK_FUSE_POST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0x0f</span>
+<span class="err">ISP_HIGH_FUSE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0xde</span>
+<span class="err">ISP_LOW_FUSE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0xff</span>
+<span class="err">ISP_EXT_FUSE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0x05</span>
+</code></pre></div></body></html></p>
+<p>If those variables aren&rsquo;t defined on the board configuration file, default values are provided by the IDE.</p>
+<ul>
+<li>To by-pass the fuses, set <code>AVR_IGNORE_FUSES</code> to <code>1</code>, otherwise set the value to <code>0</code> or comment the line.</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">AVR_IGNORE_FUSES</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
+</code></pre></div></body></html></p>
+<ul>
+<li>Please refer to the documentation of the MCUs for the correct values. Incorrect values may damage the MCU.</li>
+</ul>
+<p>You may also need to update the FTDI drivers to use a programmer.</p>
+<ul>
+<li>Please refer to the documentation of the programmer for the available options, for example the <a href="http://ftp://gnu.mirrors.pair.com/savannah/avrdude/avrdude-doc-5.5.pdf">AVRDUDE - AVR Downloader Uploader</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> manual.</li>
+</ul>
+<p>Some options, as the values for the fuses, are critical and may freeze the MCU.</p>
+<ul>
+<li>Please refer to the documentation provided by the manufacturers for the correct values, for example the <a href="http://www.atmel.com/products/microcontrollers/avr/default.aspx">Atmel</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> website.</li>
+</ul>
+<p>These options have been tested with the <a href="https://www.sparkfun.com/products/9716">5V FTDI basic programmer</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> from Sparkfun, the <a href="http://www.adafruit.com/products/46">USB tinyISP AVR programmer kit</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> from Adafruit and the <a href="http://www.protostack.com/accessories/usbasp-avr-programmer">USB ASP programmer</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> from Protostack.</p>
+<h2 id="edit-the-cc-properties-file-of-the-project">Edit the C/C++ properties file of the project<a class="headerlink" href="#edit-the-cc-properties-file-of-the-project" title="Permanent link">&para;</a></h2>
+<p>Back to the project,</p>
+<ul>
+<li>
+<p>Open the <code>c_cpp_properties.json</code> under the <code>.vscode</code> folder;</p>
+</li>
+<li>
+<p>Add the following lines</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><span class="filename">c_cpp_properties.json</span><pre><span></span><code><span class="err">{</span>
+<span class="w">    </span><span class="err">"configurations":</span><span class="w"> </span><span class="err">[</span>
+<span class="w">        </span><span class="err">{</span>
+<span class="w">            </span><span class="err">"name":</span><span class="w"> </span><span class="err">"Raspberry_Pi_Pico_RP2040_DebugProbe_CMSIS_DAP",</span>
+<span class="w">            </span><span class="err">"includePath":</span><span class="w"> </span><span class="err">[</span>
+<span class="w">                </span><span class="err">"${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.3.0/**",</span>
+<span class="w">                </span><span class="err">"${env:HOME}/Projets/Arduino/libraries/**",</span>
+<span class="w">                </span><span class="err">"${workspaceFolder}/**"</span>
+<span class="w">            </span><span class="err">],</span>
+<span class="w">            </span><span class="err">"browse":</span><span class="w"> </span><span class="err">{</span>
+<span class="w">                </span><span class="err">"limitSymbolsToIncludedHeaders":</span><span class="w"> </span><span class="err">true,</span>
+<span class="w">                </span><span class="err">"databaseFilename":</span><span class="w"> </span><span class="err">"",</span>
+<span class="w">                </span><span class="err">"path":</span><span class="w"> </span><span class="err">[</span>
+<span class="w">                    </span><span class="err">"${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.3.0/**",</span>
+<span class="w">                    </span><span class="err">"${env:HOME}/Projets/Arduino/libraries/**",</span>
+<span class="w">                    </span><span class="err">"${workspaceFolder}/**"</span>
+<span class="w">                </span><span class="err">]</span>
+<span class="w">            </span><span class="err">},</span>
+<span class="w">            </span><span class="err">"intelliSenseMode":</span><span class="w"> </span><span class="err">"${default}",</span>
+<span class="w">            </span><span class="err">"compilerPath":</span><span class="w"> </span><span class="err">"${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/1.5.0-b-c7bab52/bin/arm-none-eabi-g++",</span>
+<span class="w">            </span><span class="err">"cStandard":</span><span class="w"> </span><span class="err">"c17",</span>
+<span class="w">            </span><span class="err">"cppStandard":</span><span class="w"> </span><span class="err">"c++17",</span>
+<span class="w">            </span><span class="err">"defines":</span><span class="w"> </span><span class="err">[</span>
+<span class="w">                </span><span class="err">"EMCODE=11011",</span>
+<span class="w">                </span><span class="err">"ARDUINO=10813"</span>
+<span class="w">            </span><span class="err">],</span>
+<span class="w">            </span><span class="err">"forcedInclude":</span><span class="w"> </span><span class="err">[</span>
+<span class="w">                </span><span class="err">"${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.3.0/cores/rp2040/Arduino.h",</span>
+<span class="w">                </span><span class="err">"${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.3.0/variants/rpipico/pins_arduino.h"</span>
+<span class="w">            </span><span class="err">]</span>
+<span class="w">        </span><span class="err">},</span>
+<span class="w">    </span><span class="err">]</span>
+<span class="err">}</span>
+</code></pre></div></body></html></p>
+<h3 id="set-the-path-to-the-board-package">Set the path to the board package<a class="headerlink" href="#set-the-path-to-the-board-package" title="Permanent link">&para;</a></h3>
+<p>The <code>includePath</code> section includes the aboslute path where the board package is installed by the Arduino CLI or IDE.</p>
+<p>The <code>browse</code> section duplicates the information.</p>
+<h3 id="set-the-path-to-the-compiler">Set the path to the compiler<a class="headerlink" href="#set-the-path-to-the-compiler" title="Permanent link">&para;</a></h3>
+<p>The following variables are required by Visual Studio Code for</p>
+<p>The <code>compilerPath</code> variable points to the absolute path of the compiler.</p>
+<p>The <code>cStandard</code> and <code>cppStandard</code> variables set the version for C and C++.</p>
+<p>The <code>defines</code> variables provide the versions of Arduino and emCode.</p>
+<h3 id="set-the-path-to-the-board-files">Set the path to the board files<a class="headerlink" href="#set-the-path-to-the-board-files" title="Permanent link">&para;</a></h3>
+<p>The <code>forcedIncludeforcedInclude</code> section lists two files: <code>Arduino.h</code> and <code>pins_arduino.h</code>.</p>
+<p><code>Arduino.h</code> provides the entry to the Arduino SDK and <code>pins_arduino.h</code> defines the pins and ports.</p>
+<h3 id="add-the-new-boards-to-the-template">Add the new boards to the template<a class="headerlink" href="#add-the-new-boards-to-the-template" title="Permanent link">&para;</a></h3>
+<p>To add a board to the template,</p>
+<ul>
+<li>Update the <code>c_cpp_properties.json</code> file of the emCode template with the <code>c_cpp_properties.json</code> of the project.</li>
+</ul>
+<h2 id="edit-the-tasks-file-for-debug">Edit the tasks file for debug<a class="headerlink" href="#edit-the-tasks-file-for-debug" title="Permanent link">&para;</a></h2>
+<p>Below is an example of the configuration of the tasks file <code>tasks.json</code> for debugging against the Raspberry Pi Pico with the external Raspberry Pi Debug Probe CMSIS-DAP.</p>
+<p><html><body><div class="* highlight"><span class="filename">tasks.json</span><pre><span></span><code><span class="err">{</span>
+<span class="w">    </span><span class="err">"version":</span><span class="w"> </span><span class="err">"0.2.0",</span>
+<span class="w">    </span><span class="err">"configurations":</span><span class="w"> </span><span class="err">[</span>
+<span class="w">        </span><span class="err">{</span>
+<span class="w">            </span><span class="err">"type":</span><span class="w"> </span><span class="err">"cortex-debug",</span>
+<span class="w">            </span><span class="err">"request":</span><span class="w"> </span><span class="err">"launch",</span>
+<span class="w">            </span><span class="err">"name":</span><span class="w"> </span><span class="err">"DebugProbe</span><span class="w"> </span><span class="err">CMSIS-DAP",</span>
+<span class="w">            </span><span class="err">"servertype":</span><span class="w"> </span><span class="err">"openocd",</span>
+<span class="w">            </span><span class="err">"serverpath":</span><span class="w"> </span><span class="err">"${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd",</span>
+<span class="w">            </span><span class="err">"cwd":</span><span class="w"> </span><span class="err">"${workspaceRoot}",</span>
+<span class="w">            </span><span class="err">"executable":</span><span class="w"> </span><span class="err">"${workspaceRoot}/.builds/embeddedcomputing.elf",</span>
+<span class="w">            </span><span class="err">"interface":</span><span class="w"> </span><span class="err">"swd",</span>
+<span class="w">            </span><span class="err">"gdbPath":</span><span class="w"> </span><span class="err">"/usr/bin/gdb-multiarch",</span>
+<span class="w">            </span><span class="err">"device":</span><span class="w"> </span><span class="err">"RP2040",</span>
+<span class="w">            </span><span class="err">"serverArgs":</span><span class="w"> </span><span class="err">[</span>
+<span class="w">                </span><span class="err">"-c",</span><span class="w"> </span><span class="err">"adapter</span><span class="w"> </span><span class="err">speed</span><span class="w"> </span><span class="err">5000",</span>
+<span class="w">                </span><span class="err">"-f",</span><span class="w"> </span><span class="err">"target/rp2040.cfg",</span>
+<span class="w">                </span><span class="err">"-s",</span><span class="w"> </span><span class="err">"${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts",</span>
+<span class="w">            </span><span class="err">],</span>
+<span class="w">            </span><span class="err">"configFiles":</span><span class="w"> </span><span class="err">[</span>
+<span class="w">                </span><span class="err">"interface/cmsis-dap.cfg"</span>
+<span class="w">            </span><span class="err">],</span>
+<span class="w">            </span><span class="err">"svdFile":</span><span class="w"> </span><span class="err">"${env:HOME}/Projets/emCode/Tools/SVD/rp2040.svd",</span>
+<span class="w">        </span><span class="err">}</span>
+<span class="w">    </span><span class="err">]</span>
+<span class="err">}</span>
+</code></pre></div></body></html></p>
+<p>Most of the parameters are related to the Cortex Debug extension. For more information,</p>
+<ul>
+<li>Please refer to the <a href="https://github.com/Marus/cortex-debug/wiki">Cortex-Debug</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> wiki.</li>
+</ul>
+<p>The <code>serverpath</code> variable defines the path to the GDB server, provided by the the Raspberry Pi Pico boards package. </p>
+<p>The <code>gdbPath</code> variable defines the path to the GDB client. The recommended GDB client is <code>gdb-multiarch</code>, as the GDB client of the tools-chain of the Raspberry Pi Pico boards package does not meet the minimum version required by Visual Studio Code.</p>
+<p>To install <code>gdb-multiarch</code>, </p>
+<ul>
+<li>Please refer to the section <a href="../../Install/Code/#install-the-extensions-for-debugging">Install the extensions for debugging</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</li>
+</ul>
+<p>The optional <code>svdFile</code> variable allows to attach a CMSIS System View Description profile.</p>
+<p>For more infirmation on the CMSIS System View Description,</p>
+<ul>
+<li>Please refer to the <a href="https://www.keil.com/pack/doc/CMSIS/SVD/html/index.html">CMSIS System View Description</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> documentation.</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Teensy/Teensy/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Teensy" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Teensy
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Issues/" class="md-footer__link md-footer__link--next" aria-label="Next: Find solutions to issues" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Find solutions to issues
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Rei Vilo, 2010-2023 &bull; All rights reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.1.2"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
