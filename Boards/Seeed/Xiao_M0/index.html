@@ -2009,26 +2009,38 @@
 <h1 id="manage-the-seeed-xiao-m0-and-wio-terminal-boards">Manage the Seeed Xiao M0 and Wio Terminal boards<a class="headerlink" href="#manage-the-seeed-xiao-m0-and-wio-terminal-boards" title="Permanent link">&para;</a></h1>
 <p>The Seeed SAMD platform includes two main lines of boards: the compact Xiao and the Wio Terminal.</p>
 <h2 id="install-the-seeed-xiao-samd">Install the Seeed Xiao SAMD<a class="headerlink" href="#install-the-seeed-xiao-samd" title="Permanent link">&para;</a></h2>
+<p>To install the Seeed Xiao SAMD board, </p>
 <ul>
 <li>
-<p>Ensure <strong>Arduino-CLI</strong> is installed.</p>
+<p>Ensure the Arduino tools, CLI or IDE, are installed.</p>
 </li>
 <li>
-<p>Open a <strong>Terminal</strong> window.</p>
-</li>
-<li>
-<p>Run</p>
+<p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>Seeeduino:samd
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<p><html><body><div class="* highlight"><pre><span></span><code>https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```
+
++ Open a **Terminal** window.
+
++ Run
+
+``` bash dollar
+arduino-cli core install Seeeduino:samd
+</code></pre></div></body></html></p>
 <h2 id="install-the-seeed-wio-terminal">Install the Seeed Wio Terminal<a class="headerlink" href="#install-the-seeed-wio-terminal" title="Permanent link">&para;</a></h2>
 <p>The Wio Terminal includes two MCUs: a SAMD51 Cortex-M4 MCU for general purpose, and an Ameba RTL8720DN for Wifi and Bluetooth radio.</p>
 <h3 id="install-the-samd-platform-for-the-wio-terminal-board">Install the SAMD platform for the Wio Terminal board<a class="headerlink" href="#install-the-samd-platform-for-the-wio-terminal-board" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Ensure <strong>Arduino-CLI</strong> is installed.</p>
+<p>Ensure the Arduino tools, CLI or IDE, are installed.</p>
 </li>
+<li>
+<p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```</span>
+</code></pre></div></body></html></p>
+<ul>
 <li>
 <p>Open a <strong>Terminal</strong> window.</p>
 </li>
@@ -2085,6 +2097,24 @@
 <h3 id="install-the-ameba-rtl8720dn-platform-for-the-wio-terminal-board">Install the Ameba RTL8720DN platform for the Wio Terminal board<a class="headerlink" href="#install-the-ameba-rtl8720dn-platform-for-the-wio-terminal-board" title="Permanent link">&para;</a></h3>
 <p>Apart from the main SAMD51 MCU, the Seeed SAMD Wio Terminal board includes another MCU, RTL8720DN, in charge of WiFi and Bluetooth.</p>
 <p>To install the RTL8720DN of the Wio Terminal board,</p>
+<ul>
+<li>
+<p>Ensure the Arduino tools, CLI or IDE, are installed.</p>
+</li>
+<li>
+<p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```</span>
+</code></pre></div></body></html></p>
+<ul>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Run</p>
+</li>
+</ul>
 <p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>realtek:AmebaD
 </span></code></pre></div></td></tr></table></div></body></html></p>
 <p>For more information on the installation process,</p>
@@ -2105,8 +2135,27 @@
 <p>Download the <a href="https://wiki.seeedstudio.com/Wio-Terminal-Network-Overview/#step-1-arduino-configuration">rtl8720_update</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> or <a href="https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook">WioTerminal_USB2Serial_Burn8720</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> on the Seeed Studio website.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_seeeduino_boards_index.json</span>
+<p>To install the Seeed Xiao nRF52840 board, </p>
+<ul>
+<li>
+<p>Ensure the Arduino tools, CLI or IDE, are installed.</p>
+</li>
+<li>
+<p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//files.seeedstudio.com/arduino/package_seeeduino_boards_index.json</span>
 </code></pre></div></body></html></p>
+<ul>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Run</p>
+</li>
+</ul>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>realtek:AmebaD<span class="w"> </span>
+</span></code></pre></div></td></tr></table></div></body></html></p>
 <ul>
 <li>Select the boards and click on <strong>Install</strong>.</li>
 </ul>

@@ -1794,7 +1794,7 @@ Enter 'help' for a list of built-in commands.
 <p>Click on <strong>OK</strong> to validate or <strong>Cancel</strong> to cancel.</p>
 </li>
 </ul>
-<p>When validated, the IP address and the password are saved on the board configuration file <code>Arduino Y&amp;uacute;n (WiFi Ethernet)</code> in the project.</p>
+<p>When validated, the IP address is saved on the main <code>Makefile</code> of the project.</p>
 <p><center><img alt="" src="img/334-03-360.png" /></center></p>
 <p>The IP address and the password are only asked once.</p>
 <ul>
@@ -1802,7 +1802,7 @@ Enter 'help' for a list of built-in commands.
 <p>To erase the IP address, just delete the whole line.</p>
 </li>
 <li>
-<p>To edit the IP address, just change the left part after <code>SSH_ADDRESS =</code> on the corresponding line.</p>
+<p>To edit the IP address, just change the value of the macro <code>SSH_ADDRESS</code>.</p>
 </li>
 </ul>
 <div class="admonition warning">
@@ -1814,7 +1814,7 @@ Enter 'help' for a list of built-in commands.
 <p>To erase the password, just delete the whole line.</p>
 </li>
 <li>
-<p>To edit the password, just change the left part after <code>SSH_PASSWORD =</code> on the corresponding line.</p>
+<p>To edit the password, just change the value of the macro <code>SSH_PASSWORD</code>.</p>
 </li>
 </ul>
 <p>For more information about the Arduino Y&uacute;n installation and over-the-air upload,</p>

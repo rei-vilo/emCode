@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#espressif-esp32-boards" class="md-skip">
+        <a href="#manage-the-espressif-esp32-boards" class="md-skip">
           Skip to content
         </a>
       
@@ -1006,18 +1006,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#upload-to-esp32-boards-with-the-esp-prog-programmer-debugger" class="md-nav__link">
-    Upload to ESP32 boards with the ESP-Prog programmer-debugger
+  <a href="#upload-with-the-esp-prog-programmer-debugger" class="md-nav__link">
+    Upload with the ESP-Prog programmer-debugger
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#upload-to-esp32-boards-using-wifi" class="md-nav__link">
-    Upload to ESP32 boards using WiFi
+  <a href="#upload-with-wifi" class="md-nav__link">
+    Upload with WiFi
   </a>
   
-    <nav class="md-nav" aria-label="Upload to ESP32 boards using WiFi">
+    <nav class="md-nav" aria-label="Upload with WiFi">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1776,18 +1776,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#upload-to-esp32-boards-with-the-esp-prog-programmer-debugger" class="md-nav__link">
-    Upload to ESP32 boards with the ESP-Prog programmer-debugger
+  <a href="#upload-with-the-esp-prog-programmer-debugger" class="md-nav__link">
+    Upload with the ESP-Prog programmer-debugger
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#upload-to-esp32-boards-using-wifi" class="md-nav__link">
-    Upload to ESP32 boards using WiFi
+  <a href="#upload-with-wifi" class="md-nav__link">
+    Upload with WiFi
   </a>
   
-    <nav class="md-nav" aria-label="Upload to ESP32 boards using WiFi">
+    <nav class="md-nav" aria-label="Upload with WiFi">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1870,7 +1870,7 @@
 
 
 
-<h1 id="espressif-esp32-boards">Espressif ESP32 boards<a class="headerlink" href="#espressif-esp32-boards" title="Permanent link">&para;</a></h1>
+<h1 id="manage-the-espressif-esp32-boards">Manage the Espressif ESP32 boards<a class="headerlink" href="#manage-the-espressif-esp32-boards" title="Permanent link">&para;</a></h1>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>To install the ESP32 boards,</p>
 <ul>
@@ -1881,7 +1881,7 @@
 <p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json</span>
 </code></pre></div></body></html></p>
 <ul>
 <li>
@@ -1899,10 +1899,10 @@
 </ul>
 <p>Additionally, the ESP32 boards supports JTAG debugging with the ESP-Prog programmer-debugger and a specific version of OpenOCD.</p>
 <ul>
-<li>Please refer to the section <a href="../../Install/Section4/#install-the-openocd-driver-for-esp32-driver">Install the OpenOCD driver for ESP32 driver</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</li>
+<li>Please refer to <a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#setup-of-openocd">Setup of OpenOCD</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> and <a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#configuring-esp32-target">Configuring ESP32 Target</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> on the Espressif website.</li>
 </ul>
 <h2 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h2>
-<h2 id="upload-to-esp32-boards-with-the-esp-prog-programmer-debugger">Upload to ESP32 boards with the ESP-Prog programmer-debugger<a class="headerlink" href="#upload-to-esp32-boards-with-the-esp-prog-programmer-debugger" title="Permanent link">&para;</a></h2>
+<h2 id="upload-with-the-esp-prog-programmer-debugger">Upload with the ESP-Prog programmer-debugger<a class="headerlink" href="#upload-with-the-esp-prog-programmer-debugger" title="Permanent link">&para;</a></h2>
 <p>The ESP-Prog programmer-debugger provides JTAG debugging and re-routes the serial console.</p>
 <p>Proceed as follow:</p>
 <ul>
@@ -1913,14 +1913,8 @@
 <p>Follow the table at <a href="https://docs.espressif.com/projects/esp-idf/en/stable/api-guides/jtag-debugging/configure-other-jtag.html">Configure Other JTAG Interface</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> and connect power <code>+3.3V</code> and <code>Ground</code>, JTAG <code>TMS</code>, <code>TDI</code>, <code>TCK</code>, <code>TDO</code> and <code>RESET</code>, serial <code>TXD</code> and <code>RXD</code> pins of the board to the corresponding pins of the ESP-Prog programmer-debugger.</p>
 </li>
 <li>
-<p>Open a <strong>Terminal</strong> and launch the command</p>
+<p>Connect the external programmer to the USB port.</p>
 </li>
-</ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>kextunload<span class="w"> </span>-b<span class="w"> </span>com.FTDI.driver.FTDIUSBSerialDriver
-</span></code></pre></div></td></tr></table></div></body></html></p>
-<p>This command prevents macOS from enumerating all the ports of the ESP-Prog programmer-debugger as serial ports.</p>
-<ul>
-<li>Connect the external programmer to the USB port.</li>
 </ul>
 <p>In case the following message is displayed on the serial console,</p>
 <p><html><body><div class="* highlight"><pre><span></span><code>Brownout<span class="w"> </span>detector<span class="w"> </span>was<span class="w"> </span>triggered
@@ -1932,19 +1926,6 @@
 <ul>
 <li>Power the ESP32 board with an external power supply.</li>
 </ul>
-<p>At the end of the session,</p>
-<ul>
-<li>Open a <strong>Terminal</strong> and launch the command</li>
-</ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>kextload<span class="w"> </span>-b<span class="w"> </span>com.FTDI.driver.FTDIUSBSerialDriver
-</span></code></pre></div></td></tr></table></div></body></html></p>
-<p>This command allows macOS to automatically enumerate all the ports as serial ports again.</p>
-<p>To check whether the FTDI driver is loaded,</p>
-<ul>
-<li>Open a <strong>Terminal</strong> and launch the command</li>
-</ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">kextstat<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>FTDI
-</span></code></pre></div></td></tr></table></div></body></html></p>
 <p>For more information on the ESP-Prog,</p>
 <ul>
 <li>Please refer to <a href="https://github.com/espressif/esp-iot-solution/blob/master/documents/evaluation_boards/ESP-Prog_guide_en.md">Introduction to the ESP-Prog Board</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> and <a href="https://docs.espressif.com/projects/esp-idf/en/stable/api-guides/jtag-debugging/index.html#">Introduction to the ESP32 JTAG Debugging</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> on the Espressif website.</li>
@@ -1953,8 +1934,8 @@
 <ul>
 <li>Please refer to the pages <a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/configure-wrover.html#macos">MacOS</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> and <a href="https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/configure-wrover.html#manually-unloading-the-driver">Manually unloading the driver </a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> on the Espressif website.</li>
 </ul>
-<h2 id="upload-to-esp32-boards-using-wifi">Upload to ESP32 boards using WiFi<a class="headerlink" href="#upload-to-esp32-boards-using-wifi" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="../img/Logo-064-Espressif-Systems.png" /> Although the ESP32 boards require no specific procedure for an over-the-air upload, the WiFi network needs to be installed and configured successfully before any upload.</p>
+<h2 id="upload-with-wifi">Upload with WiFi<a class="headerlink" href="#upload-with-wifi" title="Permanent link">&para;</a></h2>
+<p>Although the ESP32 boards require no specific procedure for an over-the-air upload, the WiFi network needs to be installed and configured successfully before any upload.</p>
 <p>Over-the-air upload requires that a sketch based on the ArduinoOTA library has been installed previously and is currently running. Otherwise,</p>
 <ul>
 <li>Build and upload the <code>BasicOTA</code> example using the <strong>Arduino IDE</strong>.</li>
@@ -1966,6 +1947,9 @@
 </li>
 <li>
 <p>It is recommended to proceed with a test of the WiFi connection. Either try pinging the board on the <strong>Terminal</strong>, or uploading a sketch from the Arduino IDE.</p>
+</li>
+<li>
+<p>Ensure the firewall allows port <code>3232</code>.</p>
 </li>
 </ul>
 <h3 id="check-the-running-sketch">Check the running sketch<a class="headerlink" href="#check-the-running-sketch" title="Permanent link">&para;</a></h3>
@@ -1994,19 +1978,21 @@
 </li>
 </ul>
 <p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arp<span class="w"> </span>-a
-</span><span class="">esp_a1b2c3<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.240.1<span class="o">)</span><span class="w"> </span>at<span class="w"> </span><span class="m">12</span>:ef:34:a1:b2:c3<span class="w"> </span>on<span class="w"> </span>en0<span class="w"> </span>ifscope<span class="w"> </span><span class="o">[</span>ethernet<span class="o">]</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arp<span class="w"> </span>-a
+</span>esp_a1b2c3<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.240.1<span class="o">)</span><span class="w"> </span>at<span class="w"> </span><span class="m">12</span>:ef:34:a1:b2:c3<span class="w"> </span>on<span class="w"> </span>en0<span class="w"> </span>ifscope<span class="w"> </span><span class="o">[</span>ethernet<span class="o">]</span>
+</code></pre></div></td></tr></table></div></body></html></p>
 <p>The address <code>192.168.240.1</code> gives access to the board.</p>
 <ul>
 <li>Test the board is connected with ping.</li>
 </ul>
 <p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ping<span class="w"> </span><span class="m">192</span>.168.240.1
 </span></code></pre></div></td></tr></table></div></body></html></p>
+<ul>
+<li>Ensure the firewall allows port <code>3232</code>.</li>
+</ul>
 <h3 id="enter-ip-address">Enter IP address<a class="headerlink" href="#enter-ip-address" title="Permanent link">&para;</a></h3>
 <p>During the first compilation, emCode looks for the ESP32 board.</p>
 <p>If the ESP32 board isn&rsquo;t found on the network, a window asks for the IP address.</p>
-<p><center><img alt="" src="img/359-03-360.png" /></center></p>
 <ul>
 <li>
 <p>Enter the IP address of the ESP32 board.</p>
@@ -2015,7 +2001,7 @@
 <p>Click on <strong>OK</strong> to validate or <strong>Cancel</strong> to cancel.</p>
 </li>
 </ul>
-<p>When validated, the IP address is saved on the board configuration file <code>Adafruit Huzzah ESP32 (WiFi)</code> or <code>ESP32 DevKitC (WiFi)</code> in the project.</p>
+<p>When validated, the IP address is saved on the main <code>Makefile</code> of the project.</p>
 <p><html><body><div class="* highlight"><pre><span></span><code><span class="err">SSH_ADDRESS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">192.168.240.1</span>
 </code></pre></div></body></html></p>
 <p>The IP address is only asked once.</p>
@@ -2024,7 +2010,7 @@
 <p>To erase the IP address, just delete the whole line.</p>
 </li>
 <li>
-<p>To edit the IP address, just change the left part after <code>SSH_ADDRESS =</code> on the corresponding line.</p>
+<p>To edit the IP address, just change the value of the macro <code>SSH_ADDRESS</code>.</p>
 </li>
 </ul>
 <p>Password isn&rsquo;t implemented.</p>

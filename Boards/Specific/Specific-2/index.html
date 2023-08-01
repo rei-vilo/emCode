@@ -1790,15 +1790,19 @@
 <ul>
 <li>Connect and define the interface, device and speed.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>J-Link&gt;connect
-J-Link&gt;selectinterface<span class="w"> </span>swd
-J-Link&gt;device<span class="w"> </span>ATSAMD21G18
-J-Link&gt;speed<span class="w"> </span><span class="m">400080</span>
-</code></pre></div></body></html></p>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
+<span class="normal">J-Link&gt;</span>
+<span class="normal">J-Link&gt;</span>
+<span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">connect
+</span><span class="">selectinterface<span class="w"> </span>swd
+</span><span class="">device<span class="w"> </span>ATSAMD21G18
+</span><span class="">speed<span class="w"> </span><span class="m">400080</span>
+</span></code></pre></div></td></tr></table></div></body></html></p>
 <p>Upload the boot-loader and quit.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>J-Link&gt;loadfile<span class="w"> </span>~/Downloads/featherm0bootloader_160305.hex
-J-Link&gt;exit
-</code></pre></div></body></html></p>
+<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
+<span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">loadfile<span class="w"> </span>~/Downloads/featherm0bootloader_160305.hex
+</span><span class=""><span class="nb">exit</span>
+</span></code></pre></div></td></tr></table></div></body></html></p>
 <p>You can now upload the sketch to the Adafruit Feather M0 board using the standard USB connection again.</p>
 <p>For more information,</p>
 <ul>
