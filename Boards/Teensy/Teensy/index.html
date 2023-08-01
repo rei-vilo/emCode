@@ -762,8 +762,6 @@
         
           
         
-          
-        
       
       
         
@@ -836,20 +834,6 @@
     <li class="md-nav__item">
       <a href="../../Arduino/SAMD/" class="md-nav__link">
         Arduino SAMD
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Arduino/ESP32/" class="md-nav__link">
-        Arduino ESP32
       </a>
     </li>
   
@@ -1850,8 +1834,15 @@
 <p>To install the Teensy ARM boards,</p>
 <ul>
 <li>
-<p>Ensure <strong>Arduino-CLI</strong> is installed.</p>
+<p>Ensure the Arduino tools, CLI or IDE, are installed.</p>
 </li>
+<li>
+<p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
+</li>
+</ul>
+<p><html><body><div class="* highlight"><pre><span></span><code>https://www.pjrc.com/teensy/package_teensy_index.json
+</code></pre></div></body></html></p>
+<ul>
 <li>
 <p>Open a <strong>Terminal</strong> window.</p>
 </li>

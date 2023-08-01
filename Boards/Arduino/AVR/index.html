@@ -764,8 +764,6 @@
         
           
         
-          
-        
       
       
         
@@ -888,20 +886,6 @@
     <li class="md-nav__item">
       <a href="../SAMD/" class="md-nav__link">
         Arduino SAMD
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ESP32/" class="md-nav__link">
-        Arduino ESP32
       </a>
     </li>
   
@@ -1767,10 +1751,10 @@
 <p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
 </span></code></pre></div></td></tr></table></div></body></html></p>
 <h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="img/Logo-064-Arduino-IDE.png" /> The Arduino Leonardo doesn&rsquo;t rely on an external circuit for the serial over USB connection.</p>
+<p>The Arduino Leonardo doesn&rsquo;t rely on an external circuit for the serial over USB connection.</p>
 <p>There are two steps for upload the executable to the board. First, the main computer turns the serial connection to 1200 bps to trigger the boot-loader. Then, the main computer enumerates the available serial ports and starts uploading.</p>
 <p>The delay between the two steps can be adjusted. The default value is set to one second.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>DELAY_BEFORE_UPLOAD = 1
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">DELAY_BEFORE_UPLOAD</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
 </code></pre></div></body></html></p>
 <ul>
 <li>
@@ -1780,7 +1764,7 @@
 <p>Edit the line with <code>DELAY_BEFORE_UPLOAD</code> and change the value.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>DELAY_BEFORE_UPLOAD = 2
+<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">DELAY_BEFORE_UPLOAD</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">2</span>
 </code></pre></div></body></html></p>
 <p>The values reported as successful are between one and three seconds.</p>
 <ul>
