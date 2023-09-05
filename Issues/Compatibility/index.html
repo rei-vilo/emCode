@@ -2660,27 +2660,27 @@
 <p>The standard Arduino IDE requires including all the libraries in the main sketch, even those not used by the main sketch but used in libraries, while emCode allows naming only the libraries which are directly called by the main sketch.</p>
 <p>In order to ensure compatibility with the standard Arduino IDE, including all the libraries in the main sketch is thus highly recommended, as the standard Arduino IDE requires it. It doesn&rsquo;t affect emCode.</p>
 <ul>
-<li>Please refer to <a href="../../Develop/Libraries/">Use the libraries</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</li>
+<li>Please refer to <a href="../../Develop/Libraries/">Use the libraries</a>.</li>
 </ul>
 <h3 id="list-all-the-used-libraries-in-main-makefile">List all the used libraries in main Makefile<a class="headerlink" href="#list-all-the-used-libraries-in-main-makefile" title="Permanent link">&para;</a></h3>
 <p>The standard Arduino IDE includes an automatic procedure to list the libraries used by a project, while emCode requires a list of those libraries in the main <code>Makefile</code>.</p>
 <p>Three variable are provided: the <code>APP_LIBS_LIST</code> variable lists the application libraries, the <code>USER_LIBS_LIST</code> variable the user&rsquo;s libraries, and the <code>LOCAL_LIBS_LIST</code> variable selects the local libraries, if they are located inside sub-folders on the project folder.</p>
 <ul>
-<li>Please refer to <a href="../../Develop/Libraries/">Use the libraries</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</li>
+<li>Please refer to <a href="../../Develop/Libraries/">Use the libraries</a>.</li>
 </ul>
 <h2 id="ensure-compatibility-for-libraries">Ensure compatibility for libraries<a class="headerlink" href="#ensure-compatibility-for-libraries" title="Permanent link">&para;</a></h2>
 <h3 id="manage-local-libraries">Manage local libraries<a class="headerlink" href="#manage-local-libraries" title="Permanent link">&para;</a></h3>
 <p>The standard Arduino IDE does not manage sub-folders for libraries. The content of the sub-folders should be moved to the main folder of the project.</p>
 <p>For more information on using local libraries,</p>
 <ul>
-<li>Please refer to <a href=".Develop/Libraries/#use-the-local-libraries">Use the local libraries</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</li>
+<li>Please refer to <a href=".Develop/Libraries/#use-the-local-libraries">Use the local libraries</a>.</li>
 </ul>
 <h3 id="manage-pre-compiled-libraries">Manage pre-compiled libraries<a class="headerlink" href="#manage-pre-compiled-libraries" title="Permanent link">&para;</a></h3>
 <p>emCode allows to include pre-compiled libraries with extension <code>.a</code> along with their header files for both user&rsquo;s and local libraries.</p>
 <p>The standard Arduino IDE now manages pre-compiled user&rsquo;s libraries but not pre-compiled local library. The pre-compiled local library should be unarchived by running the <strong>Unarchive</strong> target to obtain the source code files.</p>
 <p>For more information on pre-compiled libraries,</p>
 <ul>
-<li>Please refer to <a href="../../Develop/Libraries/#manage-pre-compiled-libraries">Manage pre-compiled libraries</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span>.</li>
+<li>Please refer to <a href="../../Develop/Libraries/#manage-pre-compiled-libraries">Manage pre-compiled libraries</a>.</li>
 </ul>
 <h3 id="manage-hpp-extension-for-header-files">Manage <code>.hpp</code> extension for header files<a class="headerlink" href="#manage-hpp-extension-for-header-files" title="Permanent link">&para;</a></h3>
 <p>emCode supports the <code>.hpp</code> extension for header files.</p>
@@ -2883,7 +2883,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2023</span>
       
         <br>
         Created:
