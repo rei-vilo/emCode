@@ -22,8 +22,9 @@ BOARD_TAG1 = arduino_nano_connect.menu.flash.16777216_0
 # Speed nominal = 133
 BOARD_TAG2 = arduino_nano_connect.menu.freq.125
 # Serial port, requires TinyUSB
-BOARD_TAG3 = arduino_nano_connect.menu.dbgport.Serial
-# Debug
+BOARD_TAG3 = arduino_nano_connect.menu.dbgport.Disabled
+# BOARD_TAG3 = arduino_nano_connect.menu.dbgport.Serial
+# Debug level
 BOARD_TAG4 = arduino_nano_connect.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = arduino_nano_connect.menu.usbstack.tinyusb

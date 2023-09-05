@@ -25,9 +25,10 @@ BOARD_TAG = rpipico
 BOARD_TAG1 = rpipico.menu.flash.2097152_0
 # Speed nominal = 133
 BOARD_TAG2 = rpipico.menu.freq.125
-# Serial port, requires TinyUSB
-BOARD_TAG3 = rpipico.menu.dbgport.Serial
-# Debug
+# Debug port, requires TinyUSB
+BOARD_TAG3 = rpipico.menu.dbgport.Disabled
+# BOARD_TAG3 = rpipico.menu.dbgport.Serial
+# Debug level
 BOARD_TAG4 = rpipico.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = rpipico.menu.usbstack.tinyusb

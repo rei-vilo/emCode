@@ -23,7 +23,7 @@ BOARD_TAG1 = rpipicow.menu.flash.2097152_262144
 BOARD_TAG2 = rpipicow.menu.freq.125
 # Serial port, requires TinyUSB or PicoUSB
 BOARD_TAG3 = rpipicow.menu.dbgport.Serial
-# Debug
+# Debug level
 BOARD_TAG4 = rpipicow.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = rpipicow.menu.usbstack.tinyusb

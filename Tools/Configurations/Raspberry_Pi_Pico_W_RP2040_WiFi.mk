@@ -22,9 +22,10 @@ BOARD_TAG = rpipicow
 BOARD_TAG1 = rpipicow.menu.flash.2097152_1048576
 # Speed nominal = 133
 BOARD_TAG2 = rpipicow.menu.freq.125
-# Serial port, requires TinyUSB
-BOARD_TAG3 = rpipicow.menu.dbgport.Serial
-# Debug
+# Debug port, requires TinyUSB
+BOARD_TAG3 = rpipicow.menu.dbgport.Disabled
+# BOARD_TAG3 = rpipicow.menu.dbgport.Serial
+# Debug level
 BOARD_TAG4 = rpipicow.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = rpipicow.menu.usbstack.tinyusb

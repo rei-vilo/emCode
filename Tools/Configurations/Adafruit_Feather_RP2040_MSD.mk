@@ -22,8 +22,9 @@ BOARD_TAG1 = adafruit_feather.menu.flash.8388608_0
 # Speed nominal = 133
 BOARD_TAG2 = adafruit_feather.menu.freq.125
 # Serial port, requires TinyUSB
-BOARD_TAG3 = adafruit_feather.menu.dbgport.Serial
-# Debug
+BOARD_TAG3 = adafruit_feather.menu.dbgport.Disabled
+# BOARD_TAG3 = adafruit_feather.menu.dbgport.Serial
+# Debug level
 BOARD_TAG4 = adafruit_feather.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = adafruit_feather.menu.usbstack.tinyusb
