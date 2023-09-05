@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2023
 # All rights reserved
 #
-# Last update: 12 Jan 2023 release 12.1.21
+# Last update: 04 Sep 2023 release 14.2.0
 #
 
 include $(MAKEFILE_PATH)/Step0.mk
@@ -66,13 +66,21 @@ ifeq ($(BUILDS_PATH),)
 endif # BUILDS_PATH
 $(shell mkdir -p $(BUILDS_PATH))
 
+ifeq ($(MAKECMDGOALS),)
+    $(info Syntax            make <target> SELECTED_BOARD=<board name>)
+    $(info Error             <target> not defined)
+
+    $(error MAKECMDGOALS not defined)
+
+endif
+
 # Board selection
 # ----------------------------------
 # Board specifics defined in .xconfig file
 # BOARD_TAG and AVRDUDE_PORT
 #
 BOOL_SELECT_BOARD := 0
-ifneq ($(filter $(MAKECMDGOALS),all build make fast debug archive unarchive upload serial),)
+ifneq ($(filter $(MAKECMDGOALS),all build core make fast debug archive unarchive upload serial),)
     BOOL_SELECT_BOARD := 1
 endif # MAKECMDGOALS
 BOOL_SELECT_SERIAL := 0
@@ -85,8 +93,11 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     include $(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk
 
     ifndef BOARD_TAG
+        $(info Syntax            make <target> SELECTED_BOARD=<board name>)
+        $(info Error             <board name> not defined)
         $(error BOARD_TAG not defined)
     endif # BOARD_TAG
+
 endif # BOOL_SELECT_BOARD
 
 ifndef BOARD_PORT
@@ -257,49 +268,8 @@ SPARK_PATH = $(SPARK_APP)
 # Check at least one IDE installed
 #
 ifeq ($(wildcard $(ARDUINO_APP)),)
-ifeq ($(wildcard $(ESP8266_APP)),)
-ifeq ($(wildcard $(LINKIT_ARM_APP)),)
-ifeq ($(wildcard $(WIRING_APP)),)
-    ifeq ($(wildcard $(ENERGIA_APP)),)
-    ifeq ($(wildcard $(MAPLE_APP)),)
-#    ifeq ($(wildcard $(TEENSY_APP)),)
-#    ifeq ($(wildcard $(GLOWDECK_APP)),)
-        ifeq ($(wildcard $(DIGISTUMP_APP)),)
-        ifeq ($(wildcard $(MICRODUINO_APP)),)
-        ifeq ($(wildcard $(LIGHTBLUE_APP)),)
-        ifeq ($(wildcard $(INTEL_APP)),)
-#            ifeq ($(wildcard $(ROBOTIS_APP)),)
-            ifeq ($(wildcard $(RFDUINO_APP)),)
-            ifeq ($(wildcard $(REDBEARLAB_APP)),)
-#            ifeq ($(wildcard $(LITTLEROBOTFRIENDS_APP)),)
-                ifeq ($(wildcard $(PANSTAMP_AVR_APP)),)
-                ifeq ($(wildcard $(MBED_APP)/*),)
-#                ifeq ($(wildcard $(EDISON_YOCTO_APP)/*),)
-#                ifeq ($(wildcard $(EDISON_MCU_APP)/*),)
-                    ifeq ($(wildcard $(SPARK_APP)/*),)
-                    ifeq ($(wildcard $(ADAFRUIT_AVR_APP)),)
-                        $(error Error: no application found)
-                    endif # ADAFRUIT_AVR_APP
-                    endif # SPARK_APP
-#                endif # EDISON_MCU_APP
-#                endif # EDISON_YOCTO_APP
-                endif # MBED_APP
-                endif # PANSTAMP_AVR_APP
-#            endif # LITTLEROBOTFRIENDS_APP
-            endif # REDBEARLAB_APP
-            endif # RFDUINO_APP
-#            endif # ROBOTIS_APP
-        endif # INTEL_APP
-        endif # LIGHTBLUE_APP
-        endif # MICRODUINO_APP
-        endif # DIGISTUMP_APP
-#    endif # GLOWDECK_APP
-#    endif # TEENSY_APP
-    endif # MAPLE_APP   
-    endif # ENERGIA_APP
-endif # WIRING_APP  
-endif # LINKIT_ARM_APP
-endif # ESP8266_APP
+    $(info Arduino CLI or IDE required)
+    $(error Error: no application found)
 endif # ARDUINO_APP
 
 # # Arduino-related nightmares
@@ -418,6 +388,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             -include $(MAKEFILE_PATH)/ArduinoSAMD.mk
             -include $(MAKEFILE_PATH)/ArduinoMBED_giga.mk
             -include $(MAKEFILE_PATH)/ArduinoMBED_nano.mk
+            -include $(MAKEFILE_PATH)/ArduinoESP32.mk
 #            -include $(MAKEFILE_PATH)/ArduinoMBED_pico.mk
 
             # . Others boards for Arduino 1.8.0
@@ -493,7 +464,6 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 # Information on makefile
 #
     $(eval MAKEFILE_RELEASE = $(shell grep $(MAKEFILE_PATH)/$(MAKEFILE_NAME).mk -e '^# Last update' | xargs | rev | cut -d\  -f1-2 | rev ))
-
 endif # BOOL_SELECT_BOARD
 
 # Step 2

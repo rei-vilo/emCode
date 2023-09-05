@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2023
 # All rights reserved
 #
-# Last update: 22 May 2023 release 14.0.8
+# Last update: 04 Sep 2023 release 14.2.0
 #
 
 # General table of messages
@@ -46,6 +46,13 @@ MESSAGE_TASK := $(shell echo $(MAKECMDGOALS) | sed -r 's/\b(.)/\u\1/g')
 CONFIGURATIONS_PATH_SPACE := $(CURRENT_DIR_SPACE)/Configurations
 EMCODE_REFERENCE = emCode
 
+# Executables
+#
+REMOVE = rm
+MV = mv -f
+CAT = cat
+ECHO = echo
+
 # Core archives
 # 
 TARGET_CORE_A = $(EMCODE_TOOLS)/Cores/$(SELECTED_BOARD)_$(RELEASE_CORE).a
@@ -60,7 +67,7 @@ endif # BOOL_SELECT_BOARD
 #
 ifeq ($(MAKECMDGOALS),build)
 ifneq ($(wildcard $(OBJDIR)/*),)
-    $(shell rm -r $(OBJDIR)/*)
+    $(shell $(REMOVE) -rf $(OBJDIR)/*)
 endif # OBJDIR
 endif # MAKECMDGOALS
 
@@ -144,20 +151,20 @@ else
             ifeq ($(UPLOADER),DSLite)
                 $(shell ls -1 $(BOARD_PORT) > $(BUILDS_PATH)/serial.txt)
 
-            else ifeq ($(UPLOADER),lightblue_loader_cli)
-#    lightblue CLI uploader in charge
-                $(eval BOARD_FILE = $(shell grep -rl $(CURRENT_DIR)/Configurations -e '$(BOARD_TAG)$$'))
-                $(eval BEAN_NAME = $(shell grep ^BEAN_NAME '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
-                ifeq ($(BEAN_NAME),)
-                    $(info .)
-                    $(info ---- Scanning for LightBlue boards ----)
-                    $(shell bean scan | grep Name | cut -d: -f2 > $(BUILDS_PATH)/serial.txt)
-                    $(eval TEXT = $(shell cat '$(BUILDS_PATH)/serial.txt'))
-                    $(info $(TEXT))
-                    $(info ---- LightBlue boards scanned ----)
-                else
-                    $(shell echo $(BEAN_NAME) > $(BUILDS_PATH)/serial.txt)
-                endif
+#             else ifeq ($(UPLOADER),lightblue_loader_cli)
+# #    lightblue CLI uploader in charge
+#                 $(eval BOARD_FILE = $(shell grep -rl $(CURRENT_DIR)/Configurations -e '$(BOARD_TAG)$$'))
+#                 $(eval BEAN_NAME = $(shell grep ^BEAN_NAME '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
+#                 ifeq ($(BEAN_NAME),)
+#                     $(info .)
+#                     $(info ---- Scanning for LightBlue boards ----)
+#                     $(shell bean scan | grep Name | cut -d: -f2 > $(BUILDS_PATH)/serial.txt)
+#                     $(eval TEXT = $(shell cat '$(BUILDS_PATH)/serial.txt'))
+#                     $(info $(TEXT))
+#                     $(info ---- LightBlue boards scanned ----)
+#                 else
+#                     $(shell echo $(BEAN_NAME) > $(BUILDS_PATH)/serial.txt)
+#                 endif
 
             else ifeq ($(UPLOADER),cp_uf2)
                 ifneq ($(BEFORE_VOLUME_PORT),)
@@ -190,8 +197,6 @@ else
             else ifeq ($(UPLOADER),spark_usb)
 #                        $(shell ls -1 $(BOARD_PORT) > $(BUILDS_PATH)/serial.txt)
 # To be commented for initial scan of serial port
-#            else ifeq ($(UPLOADER),glowdeck_flash)
-#            else ifeq ($(UPLOADER),glowdeck_bluetooth)
 
             else ifeq ($(UPLOADER),jlink)
 
@@ -337,7 +342,8 @@ ifdef CORE_LIB_PATH
 #    s210 = $(filter-out %main.cpp, $(wildcard $(CORE_LIB_PATH)/*.cpp $(CORE_LIB_PATH)/*/*.cpp $(CORE_LIB_PATH)/*/*/*.cpp $(CORE_LIB_PATH)/*/*/*/*.cpp))
     s210 = $(shell find $(CORE_LIB_PATH) -name \*.cpp)
 
-    CORE_CPP_SRCS = $(filter-out %/$(EXCLUDE_LIST),$(s210))
+    s210b = $(filter-out %/main.cpp,$(s210))
+    CORE_CPP_SRCS = $(filter-out %/$(EXCLUDE_LIST),$(s210b))
     CORE_AS1_SRCS_OBJ = $(patsubst %.S,%.S.o,$(filter %S, $(CORE_AS_SRCS)))
     CORE_AS2_SRCS_OBJ = $(patsubst %.s,%.s.o,$(filter %s, $(CORE_AS_SRCS)))
 
@@ -465,6 +471,22 @@ INFO_USER_UNARCHIVES_LIST = $(filter-out $(INFO_USER_ARCHIVES_LIST),$(USER_LIBS_
 LOCAL_LIB_PATH = .
 # LOCAL_LIB_PATH = $(CURRENT_DIR)
 
+# ifneq ($(strip $(LOCAL_LIBS_LIST)),0)
+# 
+#     s220a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
+#     s220b := $(subst ./,,$(s220a))
+#     s220c := $(filter-out $(s220b),$(LOCAL_LIBS_LIST))
+#     $(info s220a $(s220a))
+#     $(info s220b $(s220b))
+#     $(info s220c $(s220c))
+# 
+# ifneq ($(strip $(s220c)),)
+#     $(error Missing local libraries $(s220c))
+# endif
+# 
+#     $(error STOP)
+# endif
+
 ifndef LOCAL_LIBS_LIST
     s206 = $(dir $(shell find $(LOCAL_LIB_PATH) -name \*.h -o -name \*.hpp))
     s212 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(sort $(s206))))
@@ -551,12 +573,14 @@ ifeq ($(REMOTE_OBJS),)
 #     OBJS_CORE = $(CORE_OBJS) $(BUILD_CORE_OBJS)  
 #     REMOTE_OBJS = $(sort $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(USER_OBJS)) 
 # NOW VARIANT_OBJS in REMOTE_OBJS 
-# Option 1 - Works0
+# Option 1 - Works
     OBJS_CORE = $(CORE_OBJS) $(BUILD_CORE_OBJS) 
+    # OBJS_CORE = $(filter-out %/main.cpp.o,$(CORE_OBJS))) $(BUILD_CORE_OBJS) 
+
     REMOTE_OBJS = $(sort $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(USER_OBJS) $(VARIANT_OBJS)) 
 # # Option 2 - No impact
 #     OBJS_CORE = $(CORE_OBJS) $(BUILD_CORE_OBJS) $(BUILD_APP_LIB_OBJS)
-#     REMOTE_OBJS = $(sort $(APP_LIB_OBJS)  $(USER_OBJS) $(VARIANT_OBJS)) 
+#     REMOTE_OBJS = $(sort $(APP_LIB_OBJS) $(USER_OBJS) $(VARIANT_OBJS)) 
 # End of options
     # REMOTE_OBJS = $(sort $(CORE_OBJS) $(BUILD_CORE_OBJS) $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(VARIANT_OBJS) $(USER_OBJS))
 endif # REMOTE_OBJS
@@ -661,6 +685,8 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
 endif # BOOL_SELECT_BOARD
 
+ifneq ($(MAKECMDGOALS),upload)
+
 # Work before building and linking
 # ----------------------------------
 #
@@ -692,9 +718,18 @@ ifneq ($(wildcard $(UTILITIES_PATH)/emCode_prepare),)
 endif # UTILITIES_PATH
 $(info ==== End of initial tasks ====)
 
+endif # MAKECMDGOALS upload
+
 ifeq ($(MAKECMDGOALS),upload)
     HIDE_INFO ?= true
 endif # MAKECMDGOALS upload
+
+ifneq ($(MESSAGE_CRITICAL),)
+    $(info CRITICAL         $(MESSAGE_CRITICAL))
+    $(shell zenity --width=240 --title "emCode" --text "$(MESSAGE_CRITICAL)" --warning)
+
+# $(shell export SUBTITLE='Warning' ; export MESSAGE='$(MESSAGE_WARNING)' ; $(UTILITIES_PATH)/Notify.app/Contents/MacOS/applet)
+endif # MESSAGE_CRITICAL
 
 ifneq ($(HIDE_INFO),true)
 ifeq ($(UNKNOWN_BOARD),1)
@@ -707,6 +742,7 @@ endif # UNKNOWN_BOARD
 ifeq ($(BOOL_SELECT_BOARD),1)
     $(info .)
     $(info ==== Info ====)
+    $(info Date Time         $(shell date '+%F %T'))
     $(info ---- Project ----)
     $(info Target            $(MAKECMDGOALS))
     $(info Name              $(PROJECT_NAME_AS_IDENTIFIER) ($(SKETCH_EXTENSION)))
@@ -814,6 +850,21 @@ ifeq ($(BOOL_SELECT_BOARD),1)
         $(info Archives          $(INFO_USER_ARCHIVES_LIST))
     endif # INFO_USER_ARCHIVES_LIST
 
+    ifneq ($(strip $(USER_LIBS_LIST)),0) # none
+    ifneq ($(strip $(USER_LIBS_LIST)),) # all
+
+        # s230a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
+        s230a := $(shell find $(USER_LIB_PATH) -type d)
+        s230b := $(subst $(USER_LIB_PATH)/,,$(s230a))
+        s230c := $(filter-out $(s230b),$(USER_LIBS_LIST))
+
+        ifneq ($(strip $(s230c)),)
+            $(info Missing folders   $(s230c))
+            $(error Stop)            
+        endif
+    endif # USER_LIBS_LIST
+    endif # USER_LIBS_LIST
+
 #     $(info ---- Local libraries ----)
 #     $(info From              $(CURRENT_DIR))
 # 
@@ -864,6 +915,21 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
         $(info Archives          $(INFO_LOCAL_ARCHIVES_LIST))
     endif # INFO_USER_ARCHIVES_LIST
+
+    ifneq ($(strip $(LOCAL_LIBS_LIST)),0) # none
+    ifneq ($(strip $(LOCAL_LIBS_LIST)),) # all
+
+        # s220a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
+        s220a := $(shell find $(LOCAL_LIB_PATH) -type d)
+        s220b := $(subst ./,,$(s220a))
+        s220c := $(filter-out $(s220b),$(LOCAL_LIBS_LIST))
+
+        ifneq ($(strip $(s220c)),)
+            $(info Missing folders   $(s220c))
+            $(error Stop)            
+        endif
+    endif # LOCAL_LIBS_LIST
+    endif # LOCAL_LIBS_LIST
 
     $(info ==== Info done ====)
     $(info .)
@@ -941,7 +1007,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     $(info Build folder      $(BUILDS_PATH))
     $(info Binary name       $(BINARY_SPECIFIC_NAME))
 
-    ifneq ($(KEEP_MAIN),true)
+    ifneq ($(strip $(KEEP_MAIN)),true)
         $(info main.cpp          updated)
     else
         $(info main.cpp          unchanged)
@@ -1006,13 +1072,6 @@ endif # TARGET_EEP
 # List of dependencies
 #
 DEP_FILE = $(OBJDIR)/depends.mk
-
-# Executables
-#
-REMOVE = rm -r
-MV = mv -f
-CAT = cat
-ECHO = echo
 
 # General arguments
 #
@@ -1420,16 +1479,16 @@ $(OBJDIR)/%.sym: $(OBJDIR)/%.elf
 
 	$(QUIET)$(NM) -n "$<" > $@
 
-#$(OBJDIR)/%.txt: $(OBJDIR)/%.out
-#	$(call SHOW,"6.8-COPY","$@","$<")
-#
-#	echo ' -boot -sci8 -a "$<" -o $@'
-#	$(QUIET)$(OBJCOPY) -boot -sci8 -a "$<" -o $@
+# $(OBJDIR)/%.txt: $(OBJDIR)/%.out
+# 	$(call SHOW,"6.8-COPY","$@","$<")
+# 
+# 	echo ' -boot -sci8 -a "$<" -o $@'
+# 	$(QUIET)$(OBJCOPY) -boot -sci8 -a "$<" -o $@
 
 $(OBJDIR)/%.mcu: $(OBJDIR)/%.elf
 	$(call SHOW,"6.10-COPY MCU","$@","$<")
 
-	@rm -f $(OBJDIR)/intel_mcu.*
+	@$(REMOVE) -f $(OBJDIR)/intel_mcu.*
 	@cp $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf $(OBJDIR)/intel_mcu.elf
 	@cd $(OBJDIR) ; export TOOLCHAIN_PATH=$(APP_TOOLS_PATH) ; $(UTILITIES_PATH)/generate_mcu.sh
 
@@ -1608,10 +1667,10 @@ include $(MAKEFILE_PATH)/About.mk
 # Rules
 # ----------------------------------
 #
-all: start_message clean compile reset raw_upload serial prepare
+all: start_message clean before_compile compile after_compile reset raw_upload serial
 	@echo "==== $(MESSAGE_TASK) done ===="
 
-build: start_message compile prepare
+build: start_message before_compile compile after_compile
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 compile: message_compile $(OBJDIR) $(TARGET_HEXBIN) $(TARGET_EEP) size
@@ -1643,11 +1702,6 @@ compile: message_compile $(OBJDIR) $(TARGET_HEXBIN) $(TARGET_EEP) size
 		@echo '---- Final ----'
 		$(QUIET)$(COMMAND_FINAL)
     endif # COMMAND_FINAL
-
-prepare:
-#		echo $(SCOPE_FLAG) ;
-#		@if [ -f $(UTILITIES_PATH)/emCode_prepare ]; then sleep 2; echo "." ; $(UTILITIES_PATH)/emCode_prepare $(SCOPE_FLAG) "$(USER_LIB_PATH)"; fi;
-#		if [ -f $(UTILITIES_PATH)/emCode_prepare ]; then sleep 2; echo "." ; $(UTILITIES_PATH)/emCode_prepare $(CURRENT_DIR); fi;
 
 $(OBJDIR):
 	@echo "---- Build ----"
@@ -1762,11 +1816,11 @@ ifneq ($(COMMAND_PREPARE),)
 endif # COMMAND_PREPARE
 
 ifeq ($(UPLOADER),lightblue_loader_cli)
-	$(call SHOW,"10.2-UPLOAD",$(UPLOADER))
-    ifeq ($(BEAN_NAME),)
-		$(eval BEAN_NAME = $(shell grep ^BEAN_NAME '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
-    endif # BEAN_NAME
-	$(QUIET)$(COMMAND_UPLOAD)
+# 	$(call SHOW,"10.2-UPLOAD",$(UPLOADER))
+#     ifeq ($(BEAN_NAME),)
+# 		$(eval BEAN_NAME = $(shell grep ^BEAN_NAME '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
+#     endif # BEAN_NAME
+# 	$(QUIET)$(COMMAND_UPLOAD)
 
 else ifeq ($(strip $(COMMAND_UPLOAD)),0)
 	$(call SHOW,"10.0-UPLOAD",$(UPLOADER))
@@ -1797,15 +1851,16 @@ else ifeq ($(BOARD_PORT),pgm)
 else ifeq ($(BOARD_PORT),ssh)
 	$(call SHOW,"10.4-UPLOAD",$(UPLOADER))
 
-#	$(eval BOARD_FILE = $(shell grep -rl $(CURRENT_DIR)/Configurations -e '$(BOARD_TAG) \| ssh'))
-	$(eval BOARD_FILE = $(shell grep -rl $(CURRENT_DIR)/Configurations -e '$(BOARD_TAG)_ssh'))
+    ifeq ($(SSH_ADDRESS),)
+		$(eval SSH_ADDRESS = $(shell grep ^SSH_ADDRESS '$(CURRENT_DIR)/Makefile' | cut -d= -f 2- | sed 's/^ //'))
+    endif # SSH_ADDRESS
 
     ifeq ($(SSH_ADDRESS),)
-		$(eval SSH_ADDRESS = $(shell grep ^SSH_ADDRESS '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
+    SSH_ADDRESS := $(shell zenity --width=240 --entry --title "emCode" --text "Enter IP address" --entry-text "192.168.1.11")
     endif # SSH_ADDRESS
 
     ifeq ($(SSH_PASSWORD),)
-		$(eval SSH_PASSWORD = $(shell grep ^SSH_PASSWORD '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
+		$(eval SSH_ADDRESS = $(shell grep ^SSH_PASSWORD '$(CURRENT_DIR)/Makefile' | cut -d= -f 2- | sed 's/^ //'))
     endif # SSH_PASSWORD
 
     ifeq ($(SSH_ADDRESS),)
@@ -1894,7 +1949,7 @@ else ifeq ($(BOARD_PORT),ssh)
 
 		osascript -e 'tell application "Terminal" to do script "cd $(CURRENT_DIR); $(UTILITIES_PATH)/uploader_mcu.sh $(SSH_ADDRESS) $(SSH_PASSWORD) /lib/firmware $(OBJDIR)/intel_mcu.bin \"$(MCU_CONFIGURATION)\""'
 #		echo "-- 1/3 Preparing"
-#		$(UTILITIES_PATH)/ssh_password $(SSH_ADDRESS) $(SSH_PASSWORD) rm /lib/firmware/intel_mcu.bin
+#		$(UTILITIES_PATH)/ssh_password $(SSH_ADDRESS) $(SSH_PASSWORD) $(REMOVE) /lib/firmware/intel_mcu.bin
 
 #		echo "-- 2/3 Uploading"
 #		$(UTILITIES_PATH)/scp_password $(SSH_ADDRESS) $(SSH_PASSWORD) $(BUILDS)/intel_mcu.bin /lib/firmware/intel_mcu.bin
@@ -2005,7 +2060,7 @@ else ifeq ($(UPLOADER),cc3200serial)
 		-killall openocd
 #		@cp -r $(APP_TOOLS_PATH)/dll ./dll
 		$(UPLOADER_EXEC) $(USED_SERIAL_PORT) $(TARGET_BIN)
-#		@if [ -d ./dll ]; then rm -R ./dll; fi
+#		@if [ -d ./dll ]; then $(REMOVE) -r ./dll; fi
     endif # MAKECMDGOALS debug
 
 else ifeq ($(UPLOADER),DSLite)
@@ -2014,7 +2069,7 @@ else ifeq ($(UPLOADER),DSLite)
 
 #		-killall openocd
 		$(UPLOADER_EXEC) $(UPLOADER_OPTS) $(TARGET_ELF)
-#		@if [ -d ./dll ]; then rm -R ./dll; fi
+#		@if [ -d ./dll ]; then $(REMOVE) -r ./dll; fi
 #    endif
 
 else ifeq ($(UPLOADER),serial_loader2000)
@@ -2214,9 +2269,9 @@ ifeq ($(UPLOADER),avrdude)
 endif # UPLOADER avrdude
 
 serial: reset
-	@echo "---- Serial ----"
 ifneq ($(NO_SERIAL_CONSOLE),1)
 ifneq ($(NO_SERIAL_CONSOLE),true)
+	@echo "---- Serial ----"
     ifneq ($(DELAY_BEFORE_SERIAL),)
 		@sleep $(DELAY_BEFORE_SERIAL)
     endif # DELAY_BEFORE_SERIAL
@@ -2237,9 +2292,6 @@ ifneq ($(NO_SERIAL_CONSOLE),true)
 
     else ifeq ($(AVRDUDE_NO_SERIAL_PORT),1)
 		@echo "The programmer provides no serial port"
-
-#    else ifeq ($(UPLOADER),glowdeck_flash)
-#		$(call SHOW,"11.8-SERIAL",$(UPLOADER))
 
     else ifeq ($(UPLOADER),teensy_flash)
 		$(call SHOW,"11.2-SERIAL",$(UPLOADER))
@@ -2297,7 +2349,7 @@ clean:
 	@echo "nil" > $(OBJDIR)/nil
 	@echo "---- Clean ----"
 	@if [ -f $(OBJDIR)/Serial.txt ] ; then cp $(OBJDIR)/Serial.txt ./Serial.txt ; fi
-	-@rm -r $(OBJDIR)/*
+	-@$(REMOVE) -r $(OBJDIR)/*
 	@mkdir -p $(OBJDIR)
 	@if [ -f ./Serial.txt ] ; then mv ./Serial.txt $(OBJDIR)/Serial.txt ; fi
 
@@ -2307,17 +2359,17 @@ ifeq ($(BOOL_CHANGED_BOARD),1)
 	@if [ ! -d $(OBJDIR) ]; then mkdir $(OBJDIR); fi
 	@echo "nil" > $(OBJDIR)/nil
 	@if [ -f $(OBJDIR)/Serial.txt ] ; then cp $(OBJDIR)/Serial.txt ./Serial.txt ; fi
-	@$(REMOVE) $(OBJDIR)/*
+	@$(REMOVE) -r $(OBJDIR)/*
 	@mkdir -p $(OBJDIR)
 	@if [ -f ./Serial.txt ] ; then mv ./Serial.txt $(OBJDIR)/Serial.txt ; fi
 	-@killall $(SERIAL_EXEC)
 	@echo "Remove all"
 else
 #		$(REMOVE) $(LOCAL_OBJS)
-	@for f in $(LOCAL_OBJS) ; do if [ -f $$f ] ; then rm $$f ; fi ; done
-	@for d in $(LOCAL_LIBS_LIST) ; do if [ -d $(BUILDS_PATH)/$$d ] ; then rm -R $(BUILDS_PATH)/$$d ; fi ; done
+	@for f in $(LOCAL_OBJS) ; do if [ -f $$f ] ; then $(REMOVE) $$f ; fi ; done
+	@for d in $(LOCAL_LIBS_LIST) ; do if [ -d $(BUILDS_PATH)/$$d ] ; then $(REMOVE) -r $(BUILDS_PATH)/$$d ; fi ; done
 	@echo "Remove local only"
-	@if [ -f $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf ] ; then rm $(OBJDIR)/$(BINARY_SPECIFIC_NAME).* ; fi ;
+	@if [ -f $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf ] ; then $(REMOVE) $(OBJDIR)/$(BINARY_SPECIFIC_NAME).* ; fi ;
 endif # BOOL_CHANGED_BOARD
 
 depends: $(DEPS)
@@ -2375,7 +2427,7 @@ unarchive:
 # #		@for f in $(LOCAL_LIBS_LIST) ; do find $$f/ -name '*._c' -exec sh -c 'echo "$$0" to "$${0%._c}.c"' {} \; ; done ;
 # 		@for f in $(LOCAL_LIBS_LIST) ; do find $$f/ -name '*._c' -exec sh -c 'mv "$$0" "$${0%._c}.c"' {} \; ; done ;
 # New		
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $$f/src/$(MCU) ] ; then rm -r $$f/src/$(MCU) ; printf '%-16s  %s\r\n' "7.4-UNARCHIVE" $$f/src/$(MCU) ; fi ; done ;
+	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $$f/src/$(MCU) ] ; then $(REMOVE) -r $$f/src/$(MCU) ; printf '%-16s  %s\r\n' "7.4-UNARCHIVE" $$f/src/$(MCU) ; fi ; done ;
 	@echo "---- Update ----"
 	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -f $$f/library.properties ] ; then printf '%-16s  %s\r\n' "7.5-UNARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
 	@echo "==== Unarchive done ===="
@@ -2389,20 +2441,28 @@ unarchive:
 message_compile:
 	@echo "---- Compile -----"
 
+before_compile:
 ifneq ($(COMMAND_BEFORE_COMPILE),)
-	$(call SHOW,"1.0-BEFORE",,)
+	$(call SHOW,"1.0-BEFORE",$(MESSAGE_BEFORE))
         
 	$(QUIET)$(COMMAND_BEFORE_COMPILE)
 endif
 
-fast: start_message changed compile reset raw_upload serial prepare
+after_compile:
+ifneq ($(COMMAND_AFTER_COMPILE),)
+	$(call SHOW,"1.1-AFTER",$(MESSAGE_AFTER))
+        
+	$(QUIET)$(COMMAND_AFTER_COMPILE)
+endif
+
+fast: start_message changed before_compile compile after_compile reset raw_upload serial
 	@echo "==== $(MESSAGE_TASK) done ===="
 
-make: start_message changed compile prepare
+make: start_message changed before_compile compile after_compile
 	@echo "==== $(MESSAGE_TASK) done ===="
 
-# archive: start_message changed compile do_archive prepare
-archive: start_message do_archive prepare
+# archive: start_message changed compile do_archive
+archive: start_message do_archive
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 start_message:
@@ -2416,6 +2476,29 @@ update:
 	arduino-cli upgrade
 	@echo "==== $(MESSAGE_TASK) ===="
 
+message_core:
+	@echo "==== Core ===="
+
+#	if [ -f $(TARGET_CORE_A) ] ; then rm $(TARGET_CORE_A) ; fi
+
+changed_core:
+	@echo "---- Clean core ----"
+	@if [ -d $(OBJDIR) ]; then $(REMOVE) -r $(OBJDIR); fi
+	@mkdir $(OBJDIR)
+	@echo "---- Compile core -----"
+
+core: message_core changed_core before_compile $(OBJDIR) $(CORE_OBJS) $(BUILD_CORE_OBJS)
+
+ifneq ($(FIRST_O_IN_CORE_A),)
+	$(QUIET)$(AR) rcs $(TARGET_CORE_A) $(FIRST_O_IN_CORE_A)
+endif # FIRST_O_IN_CORE_A
+
+	@echo "---- Archive core -----"
+	$(call SHOW,"1.9-CORE AR",$(TARGET_CORE_A))
+
+	$(QUIET)$(AR) rcs $(TARGET_CORE_A) $(patsubst %,"%",$(OBJS_CORE))
+	@echo "==== $(MESSAGE_TASK) done ===="
+
 # debug:
 # 		cd $(CURRENT_DIR); $(UTILITIES_PATH)/uploader_raspi_ssh.sh $(SSH_ADDRESS) $(SSH_PASSWORD) $(REMOTE_FOLDER) $(BINARY_SPECIFIC_NAME) $(BUILDS_PATH) -debug
 
@@ -2425,4 +2508,4 @@ update:
 #.NOTPARALLEL:
 
 # cat Step2.mk | grep -e "^[A-z]\+:" | cut -d: -f1
-.PHONY: all boards build changed clean compile depends fast info ispload make start_message message_compile prepare raw_upload reset serial size upload archive do_archive unarchive arguments update
+.PHONY: all after_compile before_compile boards build changed clean compile depends fast info ispload make start_message message_compile raw_upload reset serial size upload archive do_archive unarchive arguments update

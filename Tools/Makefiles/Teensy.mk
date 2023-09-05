@@ -22,9 +22,6 @@ ifneq ($(wildcard $(TEENSY_INITIAL)/hardware/avr),)
     TEENSY_BOARDS = $(TEENSY_APP)/hardware/avr/$(TEENSY_RELEASE)/boards.txt
 endif
 
-# ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(TEENSY_BOARDS)),)
-# else ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(GLOWDECK_BOARDS)),)
-
 BOARD_CHECK := 0
 ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(TEENSY_BOARDS)),)
     BOARD_CHECK := 1
@@ -38,13 +35,8 @@ READY_FOR_EMCODE_NEXT = 1
 # Teensy specifics
 # ----------------------------------
 #
-# ifeq ($(BOARD_TAG),glowdeck)
-#     PLATFORM := Glowdeck
-#     APPLICATION_PATH := $(GLOWDECK_PATH)
-# else
-    PLATFORM := Teensy
-    APPLICATION_PATH := $(TEENSY_PATH)
-# endif # BOARD_TAG
+PLATFORM := Teensy
+APPLICATION_PATH := $(TEENSY_PATH)
 PLATFORM_TAG = ARDUINO=$(RELEASE_ARDUINO) TEENSY_CORE EMCODE=$(RELEASE_NOW) ARDUINO_$(call PARSE_BOARD,$(BOARD_TAG),build.board)
 
 # t001 = $(APPLICATION_PATH)/lib/teensyduino.txt
@@ -62,15 +54,6 @@ PLATFORM_VERSION := $(TEENSY_RELEASE) for Arduino $(ARDUINO_IDE_RELEASE)
 #         $(error Teensyduino release $(REQUIRED_TEENSY_RELEASE) or later is required, $(TEENSY_RELEASE) installed.)
 #     endif
 #     PLATFORM_VERSION := $(TEENSY_RELEASE) for Arduino $(MODIFIED_ARDUINO_VERSION)
-# endif
-
-# ifeq ($(PLATFORM),Glowdeck)
-#     REQUIRED_GLOWDECK_RELEASE = 1.34
-#     GLOWDECK_RELEASE = $(shell if [ -f $(t001) ] ; then cat $(t001) ; fi)
-#     ifeq ($(shell if [[ '$(GLOWDECK_RELEASE)' > '$(REQUIRED_GLOWDECK_RELEASE)' ]] || [[ '$(GLOWDECK_RELEASE)' = '$(REQUIRED_GLOWDECK_RELEASE)' ]]; then echo 1 ; else echo 0 ; fi ),0)
-#         $(error Glowduino release $(REQUIRED_GLOWDECK_RELEASE) or later is required, $(GLOWDECK_RELEASE) installed.)
-#     endif
-#     PLATFORM_VERSION := $(GLOWDECK_RELEASE) for Arduino $(MODIFIED_ARDUINO_VERSION)
 # endif
 
 # Complicated menu system for Arduino 1.5

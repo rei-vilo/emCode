@@ -24,6 +24,7 @@ SKETCH_EXTENSION ?= ino
 # 
 HIDE_NUMBER ?= false
 HIDE_COMMAND ?= true
+HIDE_INFO ?= false
 
 # For building, keep main and tasks unchanged, false or true, default = false
 #
@@ -34,7 +35,7 @@ KEEP_TASKS ?= false
 # 
 USE_ARCHIVES ?= true
 
-# For building, set optiomisation 
+# For building, set optimisation 
 # 
 OPTIMISATION ?= -Os -g3
 
@@ -50,6 +51,7 @@ EMCODE_EDITION ?= emCode
 # 
 APPLICATIONS_PATH ?= $(HOME)/Applications
 SEGGER_PATH ?= /opt/SEGGER
+STM32_CUBE_PATH ?= $(HOME)/Applications/STM32CubeProgrammer
 
 # Explicit check
 # 
