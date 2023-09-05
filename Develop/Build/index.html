@@ -475,6 +475,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -762,6 +764,26 @@
   
   <span class="md-ellipsis">
     Run and debug the project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Other/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use the other targets
   </span>
   
 
@@ -2420,10 +2442,13 @@
 
 
 <h1 id="build-and-upload-the-project">Build and upload the project<a class="headerlink" href="#build-and-upload-the-project" title="Permanent link">&para;</a></h1>
-<p>emCode includes nine targets.</p>
+<p>emCode includes ten targets, called tasks by Visual Studio Code.</p>
 <ul>
 <li>
 <p><strong>Build</strong> cleans the files from a previous compilation, compiles and links.</p>
+</li>
+<li>
+<p><strong>Fast</strong> compiles only the main sketch and the local libraries, links, uploads and opens a serial window in Terminal.</p>
 </li>
 <li>
 <p><strong>Upload</strong> uploads the resulting HEX or BIN executable file to the board.</p>
@@ -2435,19 +2460,19 @@
 <p><strong>Clean</strong> erases the files generated from a previous compilation.</p>
 </li>
 <li>
-<p><strong>Fast</strong> compiles only the main sketch and the local libraries, links, uploads and opens a serial window in Terminal.</p>
-</li>
-<li>
 <p><strong>Make</strong> compiles only the main sketch and the local libraries, and links.</p>
-</li>
-<li>
-<p><strong>Document</strong> builds the documentation.</p>
 </li>
 <li>
 <p><strong>Archive</strong> prepares archives for the local libraries.</p>
 </li>
 <li>
 <p><strong>Unarchive</strong> erases the archives for the local libraries.</p>
+</li>
+<li>
+<p><strong>Core</strong> generates the pre-compiled board core archive.</p>
+</li>
+<li>
+<p><strong>Document</strong> builds the documentation.</p>
 </li>
 </ul>
 <h2 id="compare-the-targets">Compare the targets<a class="headerlink" href="#compare-the-targets" title="Permanent link">&para;</a></h2>
