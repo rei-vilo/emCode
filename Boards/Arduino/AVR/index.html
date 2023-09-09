@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2304,14 +2304,14 @@
 <p>Run</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
+</span></code></pre></div></td></tr></table></div></body></html>
 <h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">&para;</a></h2>
 <p>The Arduino Leonardo doesn&rsquo;t rely on an external circuit for the serial over USB connection.</p>
 <p>There are two steps for upload the executable to the board. First, the main computer turns the serial connection to 1200 bps to trigger the boot-loader. Then, the main computer enumerates the available serial ports and starts uploading.</p>
 <p>The delay between the two steps can be adjusted. The default value is set to one second.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">DELAY_BEFORE_UPLOAD</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">DELAY_BEFORE_UPLOAD</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
+</code></pre></div></body></html>
 <ul>
 <li>
 <p>Open the <code>Arduino Leonardo.xcconfig</code> board configuration file.</p>
@@ -2320,8 +2320,8 @@
 <p>Edit the line with <code>DELAY_BEFORE_UPLOAD</code> and change the value.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">DELAY_BEFORE_UPLOAD</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">2</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">DELAY_BEFORE_UPLOAD</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">2</span>
+</code></pre></div></body></html>
 <p>The values reported as successful are between one and three seconds.</p>
 <ul>
 <li>
@@ -2435,10 +2435,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

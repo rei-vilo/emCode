@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2289,7 +2289,7 @@
 <li>Give a name to the task, <code>TaskCode</code> is proposed by default.</li>
 </ul>
 <p>The new task contains two functions, <code>setup_TaskCode()</code> and <code>loop_TaskCode()</code>, based on the name of the task <code>TaskCode.ino</code>.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Setup</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Setup</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setup_TaskCode</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="p">;</span>
@@ -2300,14 +2300,14 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h3 id="add-functions-to-main-sketch">Add functions to main sketch<a class="headerlink" href="#add-functions-to-main-sketch" title="Permanent link">&para;</a></h3>
 <p>An alternative solution simply adds the functions of the new task to the default main <code>.ino</code> sketch file.</p>
 <p>To add a task to the default main <code>.ino</code> file, for example <code>task2</code>,</p>
 <ul>
 <li>Define two new functions <code>setupTask2()</code> and <code>loopTask2()</code> on the existing main sketch.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">setupTask2</span><span class="p">()</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">setupTask2</span><span class="p">()</span>
 <span class="p">{</span>
 
 <span class="p">}</span>
@@ -2316,7 +2316,7 @@
 <span class="p">{</span>
 
 <span class="p">}</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h3 id="check-new-task-functions-names">Check new task functions names<a class="headerlink" href="#check-new-task-functions-names" title="Permanent link">&para;</a></h3>
 <p>Here are the requirements for naming the <code>setup()</code> and <code>loop()</code> functions of the new task.</p>
 <ul>
@@ -2330,17 +2330,17 @@
 <p>Include <code>setup</code> in the name of the <code>setup()</code> function of a task.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_setup</span><span class="p">()</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_setup</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setupTaskCode</span><span class="p">()</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Include <code>loop</code> in the name of the <code>loop()</code> function of a task.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_loop</span><span class="p">()</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_loop</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">loopTaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">loop_TaskCode</span><span class="p">()</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The latest release of Energia requires <code>setup</code> and <code>loop</code> to be mentioned as prefixes in the names of the functions, when embedXcode allows any combinations.</p>
@@ -2348,9 +2348,9 @@
 <ul>
 <li>Check the <code>setup()</code> and <code>loop()</code> functions share the same name inside the task, here <code>TaskCode</code>.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">loop_TaskCode</span><span class="p">()</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Check each <code>setup()</code> function and each <code>loop()</code> function has a unique name across the whole project.</li>
 </ul>
@@ -2366,17 +2366,17 @@
 <p>During compilation and linking, embedXcode parses the different <code>.ino</code> files, selects the <code>setup()</code> and <code>loop()</code> functions, and generates the <code>rtosTasks.h</code> file automatically.</p>
 <p>This file describes the different tasks. It includes calls to each <code>.ino</code> sketch files, except the default main <code>.ino</code> sketch file of the project, declares the tasks with their <code>setup()</code> and <code>loop()</code> functions, and lists the names of the tasks.</p>
 <p>There is no <code>#include</code> for the default <code>embed1.ino</code> file of the <code>embed1</code> project, because the <code>main.cpp</code> file already mentions it. If one function is missing, an error is raised.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span>Check<span class="w"> </span>project<span class="w"> </span><span class="nv">embed1</span><span class="w"> </span><span class="o">====</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span>Check<span class="w"> </span>project<span class="w"> </span><span class="nv">embed1</span><span class="w"> </span><span class="o">====</span>
 ERROR<span class="w">   </span>Different<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>setup<span class="o">()</span><span class="w"> </span>and<span class="w"> </span>loop<span class="o">()</span>
 ERROR<span class="w">   </span>TaskCode.ino:<span class="w"> </span>no<span class="w"> </span>setup<span class="o">()</span><span class="w"> </span><span class="k">function</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>It is a good idea to have a look at it to check that all the tasks are correctly mentioned. Do not edit this file as it is generated automatically at each compilation.</p>
 <p>For more information about Energia MT,</p>
 <ul>
 <li>Please refer to the <a href="http://energia.nu/guide/multitasking/">Multi-tasking page</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> at the Energia website.</li>
 </ul>
 <p>Here is an example of a populated <code>rtosTasks.h</code> file.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">//</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">//</span>
 <span class="c1">// rtosTasks.h</span>
 <span class="c1">// Header file</span>
 <span class="c1">// ----------------------------------</span>
@@ -2420,21 +2420,21 @@ ERROR<span class="w">   </span>TaskCode.ino:<span class="w"> </span>no<span clas
 <span class="w"> </span><span class="s">"loop_TaskCode"</span><span class="p">,</span>
 <span class="w"> </span><span class="s">"loop"</span><span class="p">,</span>
 <span class="p">};</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h2 id="add-global-variables-and-main-setup-function">Add global variables and main setup function<a class="headerlink" href="#add-global-variables-and-main-setup-function" title="Permanent link">&para;</a></h2>
 <p>An optional file <code>rtosGlobals.h</code> contains global variables and a optional main setup function <code>setupRtos()</code>.</p>
 <p>This main setup function <code>setupRtos()</code> runs before all other <code>setup()</code> functions of the tasks.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Add optional setupRTOS function</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Add optional setupRTOS function</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">setupRtos</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>This is especially useful for initialising shared resources like Serial, I&sup2;C and SPI ports, and shared RTOS elements like clock, mailbox, semaphore.</p>
 <p>All tasks in the <code>.ino</code> files need to include <code>rtosGlobals.h</code>.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"rtosGlobals.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This feature is specific to embedXcode and is not supported by the Energia IDE.</p>
@@ -2505,10 +2505,10 @@ ERROR<span class="w">   </span>TaskCode.ino:<span class="w"> </span>no<span clas
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

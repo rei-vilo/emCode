@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2444,8 +2444,8 @@
 <p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```</span>
+</code></pre></div></body></html>
 <ul>
 <li>
 <p>Open a <strong>Terminal</strong> window.</p>
@@ -2454,15 +2454,15 @@
 <p>Run</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>Seeeduino:nrf52@1.1.1
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>Seeeduino:nrf52@1.1.1
+</span></code></pre></div></td></tr></table></div></body></html>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Release <code>1.1.3</code> does not work. Use release <code>1.1.1</code> instead.</p>
 </div>
 <p>To install the library for Bluetooth, run</p>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>install<span class="w"> </span>ArduinoBLE
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>install<span class="w"> </span>ArduinoBLE
+</span></code></pre></div></td></tr></table></div></body></html>
 <h2 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h2>
 <h3 id="use-the-built-in-leds">Use the built-in LEDs<a class="headerlink" href="#use-the-built-in-leds" title="Permanent link">&para;</a></h3>
 <p>Built-in LEDs use reverse logic.</p>
@@ -2474,31 +2474,31 @@
 <ul>
 <li>Edit the main <code>Makefile</code> to list the required libraries for the serial port.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">+=</span><span class="w"> </span><span class="err">Adafruit_TinyUSB_Arduino</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">+=</span><span class="w"> </span><span class="err">Adafruit_TinyUSB_Arduino</span>
+</code></pre></div></body></html>
 <ul>
 <li>Add to the main sketch</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Adafruit_TinyUSB.h"</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Adafruit_TinyUSB.h"</span>
+</code></pre></div></body></html>
 <h3 id="use-the-libraries-for-imu">Use the libraries for IMU<a class="headerlink" href="#use-the-libraries-for-imu" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Edit the main <code>Makefile</code> to list the required libraries for the LSM6DS3.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Seeed_Arduino_LSM6DS3</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Seeed_Arduino_LSM6DS3</span>
+</code></pre></div></body></html>
 <h3 id="use-the-libraries-for-microphone">Use the libraries for microphone<a class="headerlink" href="#use-the-libraries-for-microphone" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Seeed_Arduino_Mic</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Seeed_Arduino_Mic</span>
+</code></pre></div></body></html>
 <h3 id="use-the-libraries-for-bluetooth">Use the libraries for Bluetooth<a class="headerlink" href="#use-the-libraries-for-bluetooth" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Edit the main <code>Makefile</code> to list the required libraries.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">ArduinoBLE</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">ArduinoBLE</span>
+</code></pre></div></body></html>
 <h3 id="use-the-libraries-for-sd">Use the libraries for SD<a class="headerlink" href="#use-the-libraries-for-sd" title="Permanent link">&para;</a></h3>
 <h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
 <div class="admonition critical">
@@ -2549,33 +2549,33 @@
 <table>
 <thead>
 <tr>
-<th align="left"><img alt="" src="../img/Logo-064-Seeed.png" /></th>
+<th style="text-align: left;"><img alt="" src="../img/Logo-064-Seeed.png" /></th>
 <th><strong>Seeeduino</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">IDE</td>
+<td style="text-align: left;">IDE</td>
 <td>Arduino CLI or IDE</td>
 </tr>
 <tr>
-<td align="left">Website</td>
+<td style="text-align: left;">Website</td>
 <td><a href="https://www.seeedstudio.com">https://www.seeedstudio.com</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Download</td>
+<td style="text-align: left;">Download</td>
 <td><a href="http://wiki.seeed.cc/Seeed_Arduino_Boards">http://wiki.seeed.cc/Seeed_Arduino_Boards</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Wiki</td>
+<td style="text-align: left;">Wiki</td>
 <td><a href="http://wiki.seeed.cc/Seeeduino_v4.2/">http://wiki.seeed.cc/Seeeduino_v4.2/</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Xiao nRF52840</td>
+<td style="text-align: left;">Xiao nRF52840</td>
 <td><a href="https://wiki.seeedstudio.com/XIAO_BLE/">https://wiki.seeedstudio.com/XIAO_BLE/</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Forum</td>
+<td style="text-align: left;">Forum</td>
 <td><a href="https://forum.seeedstudio.com/">https://forum.seeedstudio.com/</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 </tbody>
@@ -2684,10 +2684,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

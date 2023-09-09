@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2333,24 +2333,24 @@
 <p>Open a <strong>Terminal</strong> window and launch <strong>JLinkExe</strong>.</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Connect and define the interface, device and speed.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
 <span class="normal">J-Link&gt;</span>
 <span class="normal">J-Link&gt;</span>
 <span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">connect
 </span><span class="">selectinterface<span class="w"> </span>swd
 </span><span class="">device<span class="w"> </span>ATSAMD21G18
 </span><span class="">speed<span class="w"> </span><span class="m">400080</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>Upload the boot-loader and quit.</p>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
 <span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">loadfile<span class="w"> </span>~/Downloads/featherm0bootloader_160305.hex
 </span><span class=""><span class="nb">exit</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>You can now upload the sketch to the Adafruit Feather M0 board using the standard USB connection again.</p>
 <p>For more information,</p>
 <ul>
@@ -2402,8 +2402,8 @@
 <p>Add the reference to Arduino, as per the procedure <a href="../../Install/Section4/#add-urls-for-new-boards">Add URLs for new boards</a>.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
+</code></pre></div></body></html>
 <ul>
 <li>
 <p>Download and install the MiniCore package, as per the procedure <a href="../../Install/Section4/#install-additional-boards-on-arduino">Install additional boards on Arduino</a>.</p>
@@ -2416,8 +2416,8 @@
 <ul>
 <li>Edit the Arduino Uno board or the My Board configuration file, and add</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">BOOTLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">minicore</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">BOOTLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">minicore</span>
+</code></pre></div></body></html>
 <ul>
 <li>Select it.</li>
 </ul>
@@ -2591,11 +2591,11 @@
 <p>Check the ReadMe file: it provides the list of the binary files to upload and the addresses to target.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>download:
+<html><body><div class="* highlight"><pre><span></span><code>download:
 boot_v1.2+.bin     0x00000
 user1.512.new.bin  0x01000
 blank.bin          0x3e000 &amp; 0x7e000
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Locate on the sub-folders the different binaries mentioned on the <code>ReadMe</code> file.</li>
 </ul>
@@ -2603,8 +2603,8 @@ blank.bin          0x3e000 &amp; 0x7e000
 <ul>
 <li>Open a <strong>Terminal</strong> window and launch the upload command.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">esptool.py<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-12345678<span class="w"> </span>--baud<span class="w"> </span><span class="m">115200</span><span class="w"> </span>write_flash<span class="w"> </span>0x00000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/boot_v1.2.bin<span class="w"> </span>0x01000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/at/user1.512.new.bin<span class="w"> </span>0x3e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin<span class="w"> </span>0x7e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">esptool.py<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-12345678<span class="w"> </span>--baud<span class="w"> </span><span class="m">115200</span><span class="w"> </span>write_flash<span class="w"> </span>0x00000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/boot_v1.2.bin<span class="w"> </span>0x01000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/at/user1.512.new.bin<span class="w"> </span>0x3e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin<span class="w"> </span>0x7e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>
 <p>In case the binary files and target addresses are different, adapt the upload command accordingly.</p>
@@ -2692,10 +2692,10 @@ blank.bin          0x3e000 &amp; 0x7e000
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

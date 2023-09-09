@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2280,21 +2280,15 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-<nav class="md-tags" >
-  
-    
-    
-    
-      <a href="../../Appendixes/Indexes/#legacy" class="md-tag">Legacy</a>
-    
-  
-</nav>
-
 
   
   
 
+
+<!-- ---
+tags:
+    - Legacy
+--- -->
 
 <p>http://s3.amazonaws.com/energiaUS/packages/package_cc13x2_index.json
 http://s3.amazonaws.com/energiaUS/packages/package_msp432p_index.json
@@ -2350,13 +2344,13 @@ http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json</p>
 <p>On the folder, open a Terminal and launch</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>mv<span class="w"> </span>/71-ti-permissions.rules<span class="w"> </span>/etc/udev/rules.d/
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>mv<span class="w"> </span>/71-ti-permissions.rules<span class="w"> </span>/etc/udev/rules.d/
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Relaunch the device service with</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>service<span class="w"> </span>udev<span class="w"> </span>restart
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>service<span class="w"> </span>udev<span class="w"> </span>restart
+</span></code></pre></div></td></tr></table></div></body></html>
 <h2 id="install-previous-msp430-package-for-more-compact-code">Install previous MSP430 package for more compact code<a class="headerlink" href="#install-previous-msp430-package-for-more-compact-code" title="Permanent link">&para;</a></h2>
 <p>The code built with the MSP430 board package from Energia 0101E12 is more compact than the code obtained with Energia 1.6.10E18.</p>
 <p>This is especially important for the MSP430G2553 MCU, which includes 512 bytes of RAM only. The special board LaunchPad MSP430G2553 (compact) calls the MSP430 board package from Energia 12.</p>
@@ -2385,8 +2379,8 @@ http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json</p>
 <p>Uncomment the line containing <code>ENERGIA_GCC_MSP_LARGE_RELEASE</code>.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>ENERGIA_GCC_MSP_LARGE_RELEASE   = 7.3.1.24
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>ENERGIA_GCC_MSP_LARGE_RELEASE   = 7.3.1.24
+</code></pre></div></body></html>
 <p>The boards with large memory model are: MSP430FR5969 (64 kB), MSP430FR5994 (256 kB), MSP430FR6989 (128 kB), MSP430F5529 (128 kB).</p>
 <p>For more information on the installation of release 7.3.1 of the GCC tool-chain for MSP430,</p>
 <ul>
@@ -2465,21 +2459,21 @@ http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json</p>
 <p>Launch the following command to install <strong>Homebrew</strong>.</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">/usr/bin/ruby<span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">/usr/bin/ruby<span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span>
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Launch the following command to install <strong>OpenOCD</strong> and its dependencies.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">brew<span class="w"> </span>install<span class="w"> </span>openocd
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">brew<span class="w"> </span>install<span class="w"> </span>openocd
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>Some LaunchPad boards require a specific installation of <strong>OpenOCD</strong>. This is done by specifying options during installation.</p>
 <p>For example, the CC3200 LaunchPad requires the <code>--enable-ft2232_libftdi --enable-stlink</code> options with OpenOCD version 0.9.0, but no longer with OpenOCD version 0.10.0.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Homebrew release prior to 2.0</label><label for="__tabbed_1_2">Homebrew release 2.0 and later</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>With <strong>Homebrew</strong> release prior to 2.0, the options were listed on the installation command line, tested in this example on OpenOCD version 0.9.0:</p>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">brew<span class="w"> </span>install<span class="w"> </span>openocd<span class="w"> </span>--enable-ft2232_libftdi<span class="w"> </span>--enable-stlink
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">brew<span class="w"> </span>install<span class="w"> </span>openocd<span class="w"> </span>--enable-ft2232_libftdi<span class="w"> </span>--enable-stlink
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>Those options can be combined with those for other boards.</p>
 </div>
 <div class="tabbed-block">
@@ -2487,14 +2481,14 @@ http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json</p>
 <ul>
 <li>On a <strong>Terminal</strong> window, launch to open the default editor.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>brew<span class="w"> </span>edit<span class="w"> </span>openocd
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>brew<span class="w"> </span>edit<span class="w"> </span>openocd
+</code></pre></div></body></html>
 <ul>
 <li>To use a specific editor, define the <code>HOMEBREW_EDITOR</code> variable before.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>%<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">HOMEBREW_EDITOR</span><span class="o">=</span>/usr/local/bin/nano
+<html><body><div class="* highlight"><pre><span></span><code>%<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">HOMEBREW_EDITOR</span><span class="o">=</span>/usr/local/bin/nano
 %<span class="w"> </span>brew<span class="w"> </span>edit<span class="w"> </span>openocd
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Add the options, then save and close the editor.</li>
 </ul>
@@ -2502,8 +2496,8 @@ http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json</p>
 <ul>
 <li>Now, launch the installation of <strong>OpenOCD</strong>:</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>%<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>openocd
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>%<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>openocd
+</code></pre></div></body></html>
 </div>
 </div>
 </div>
@@ -2571,8 +2565,8 @@ http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json</p>
 </ul>
 <h2 id="add-urls-for-new-boards">Add URLs for new boards<a class="headerlink" href="#add-urls-for-new-boards" title="Permanent link">&para;</a></h2>
 <p>The <strong>Boards Manager</strong> lists the boards based on a set of URLs. To add a new board, the relevant URL should be added. The URL corresponds to a JSON file.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>https://www.adafruit.com/package_adafruit_index.json
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>https://www.adafruit.com/package_adafruit_index.json
+</code></pre></div></body></html>
 <ul>
 <li>Call the menu <strong>Energia &gt; Preferences</strong>.</li>
 </ul>
@@ -2756,49 +2750,49 @@ http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json</p>
 <table>
 <thead>
 <tr>
-<th align="left"><img alt="" src="img/Logo-064-Launchpad.png" /></th>
+<th style="text-align: left;"><img alt="" src="img/Logo-064-Launchpad.png" /></th>
 <th><strong>LaunchPad</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">IDE</td>
+<td style="text-align: left;">IDE</td>
 <td>Energia and Energia MT</td>
 </tr>
 <tr>
-<td align="left">Website</td>
+<td style="text-align: left;">Website</td>
 <td><a href="http://www.ti.com/ww/en/launchpad">http://www.ti.com/ww/en/launchpad</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Download</td>
+<td style="text-align: left;">Download</td>
 <td><a href="http://energia.nu/download">http://energia.nu/download</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Wiki</td>
+<td style="text-align: left;">Wiki</td>
 <td><a href="http://energia.nu">http://energia.nu</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Blog</td>
+<td style="text-align: left;">Blog</td>
 <td><a href="http://energia.nu/blog">http://energia.nu/blog</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Forum</td>
+<td style="text-align: left;">Forum</td>
 <td><a href="http://forum.43oh.com/forum/28-energia/">http://forum.43oh.com/forum/28-energia/</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Multi-tasking</td>
+<td style="text-align: left;">Multi-tasking</td>
 <td><a href="http://energia.nu/guide/multitasking">http://energia.nu/guide/multitasking</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Galaxia library</td>
+<td style="text-align: left;">Galaxia library</td>
 <td><a href="https://github.com/rei-vilo/GalaxiaLibrary">https://github.com/rei-vilo/GalaxiaLibrary</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Documentation</td>
+<td style="text-align: left;">Documentation</td>
 <td><a href="http://embeddedcomputing.weebly.com/exploring-rtos-with-galaxia.html">http://embeddedcomputing.weebly.com/exploring-rtos-with-galaxia.html</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Forum</td>
+<td style="text-align: left;">Forum</td>
 <td><a href="http://forum.43oh.com/topic/8620-energia-library-rtos-libraries-for-msp432-on-energia-mt">http://forum.43oh.com/topic/8620-energia-library-rtos-libraries-for-msp432-on-energia-mt</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 </tbody>
@@ -2869,10 +2863,10 @@ http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

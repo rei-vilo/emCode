@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2467,28 +2467,28 @@
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">U8g2</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Edit the main sketch.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"U8x8lib.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h3 id="use-the-libraries-for-clock">Use the libraries for clock<a class="headerlink" href="#use-the-libraries-for-clock" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">U8g2</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"PCF8563.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h3 id="use-the-libraries-for-buzzer">Use the libraries for buzzer<a class="headerlink" href="#use-the-libraries-for-buzzer" title="Permanent link">&para;</a></h3>
 <p>No library is required.</p>
 <p>The buzzer is connected to pin <code>A3</code>.</p>
@@ -2498,42 +2498,42 @@
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Adafruit_Zero_DMA</span><span class="w"> </span><span class="err">Seeed_Arduino_FS</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Seeed_Arduino_FS.h"</span>
 
-<span class="n">or</span>
+<span class="k">or</span>
 
 <span class="o">+</span><span class="w"> </span><span class="n">Add</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="err">`</span><span class="n">Makefile</span><span class="err">`</span><span class="p">;</span>
 
 <span class="err">```</span><span class="w"> </span><span class="n">CMake</span>
 <span class="n">APP_LIBS_LIST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SPI</span>
 <span class="n">USER_LIBS_LIST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Adafruit_Zero_DMA</span><span class="w"> </span><span class="n">SD</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"SD.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>For the Xiao nRF52840,</p>
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SdFat</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"SdFat.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
 <p>The Seeed Xiao expansion board expose the SWD clock and data signals; the serial RX and TX signals; and the +5V, +3.3V and ground lines.; to connect a Segger J-Link programmer-debugger.</p>
 <p>The debugging features seems to work only against the Xiao M0.</p>
@@ -2541,25 +2541,25 @@
 <table>
 <thead>
 <tr>
-<th align="left"><img alt="" src="../img/Logo-064-Seeed.png" /></th>
+<th style="text-align: left;"><img alt="" src="../img/Logo-064-Seeed.png" /></th>
 <th><strong>Seeed</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Website</td>
+<td style="text-align: left;">Website</td>
 <td><a href="https://www.seeedstudio.com">https://www.seeedstudio.com</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Download</td>
+<td style="text-align: left;">Download</td>
 <td><a href="http://wiki.seeed.cc/Seeed_Arduino_Boards">http://wiki.seeed.cc/Seeed_Arduino_Boards</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Wiki</td>
+<td style="text-align: left;">Wiki</td>
 <td><a href="https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board/">https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board/</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 <tr>
-<td align="left">Forum</td>
+<td style="text-align: left;">Forum</td>
 <td><a href="https://forum.seeedstudio.com/">https://forum.seeedstudio.com/</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></td>
 </tr>
 </tbody>
@@ -2668,10 +2668,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

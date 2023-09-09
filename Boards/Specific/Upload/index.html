@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2369,8 +2369,8 @@
 <li>Press <span class="keys"><kbd class="key-reset">Reset</kbd></span> to run the executable.</li>
 </ul>
 <p>In case the following message is displayed on the serial console,</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>Brownout detector was triggered
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>Brownout detector was triggered
+</code></pre></div></body></html>
 <ul>
 <li>Power the ESP32 board through the +5V pin instead of the +3.3V pin.</li>
 </ul>
@@ -2394,10 +2394,10 @@
 <p>Open a <strong>Terminal</strong> window and launch <code>lsusb</code>, a utility that lists the connected USB devices.</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">~/.emCode/Tools/Utilities/lsusb
 </span>Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Device<span class="w"> </span><span class="m">007</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0451</span>:bef3<span class="w"> </span>Texas<span class="w"> </span>Instruments<span class="w"> </span>XDS110<span class="w"> </span><span class="o">(</span><span class="m">02</span>.03.00.18<span class="o">)</span><span class="w"> </span>Embed<span class="w"> </span>with<span class="w"> </span>CMSIS-DAP<span class="w">  </span>Serial:<span class="w"> </span>L41009S9
-</code></pre></div></td></tr></table></div></body></html></p>
+</code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>
 <p>Note the serial number for the first board, here <code>L41009S9</code> for the sensor.</p>
@@ -2409,12 +2409,12 @@
 <p>Perform the same <code>lsusb</code>.</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal"></span>
 <span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">~/Library/embedXcode/Tools/Utilities/lsusb
 </span>Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Device<span class="w"> </span><span class="m">007</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0451</span>:bef3<span class="w"> </span>Texas<span class="w"> </span>Instruments<span class="w"> </span>XDS110<span class="w"> </span><span class="o">(</span><span class="m">02</span>.03.00.18<span class="o">)</span><span class="w"> </span>Embed<span class="w"> </span>with<span class="w"> </span>CMSIS-DAP<span class="w">  </span>Serial:<span class="w"> </span>L41009S9
 Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Device<span class="w"> </span><span class="m">006</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0451</span>:bef3<span class="w"> </span>Texas<span class="w"> </span>Instruments<span class="w"> </span>XDS110<span class="w"> </span><span class="o">(</span><span class="m">02</span>.03.00.18<span class="o">)</span><span class="w"> </span>Embed<span class="w"> </span>with<span class="w"> </span>CMSIS-DAP<span class="w">  </span>Serial:<span class="w"> </span>L41009PJ
-</code></pre></div></td></tr></table></div></body></html></p>
+</code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Note the serial number for the second board, here <code>L41009PJ</code> for the central hub.</li>
 </ul>
@@ -2427,8 +2427,8 @@ Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Dev
 <p>Edit the main <code>Makefile</code> or the board configuration file of each project, here <code>LaunchPad CC1312 EMT.xcconfig</code>, and set the uploader to <code>xds110</code>.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
+</code></pre></div></body></html>
 <p>On the project for the sensor node board,</p>
 <ul>
 <li>
@@ -2451,9 +2451,9 @@ Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Dev
 <p>Set the serial number to <code>L41009S9</code>.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
 <span class="err">XDS110_SERIAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">L41009S9</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>On the project for the central hub board,</p>
 <ul>
 <li>
@@ -2476,12 +2476,12 @@ Bus<span class="w"> </span><span class="m">020</span><span class="w"> </span>Dev
 <p>Set the serial number to <code>L41009PJ</code>.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">UPLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">xds110</span>
 <span class="err">XDS110_SERIAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">L41009PJ</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>If no board corresponds to the serial number, an error message is displayed.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>XDS110 L41009PJ not found among connected L41009S9 M4111016 E0071009
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>XDS110 L41009PJ not found among connected L41009S9 M4111016 E0071009
+</code></pre></div></body></html>
 <p>If two LaunchPad boards with an XDS110 programmer-debugger share the same serial number, the serial number of one board needs to be changed to make it unique.</p>
 <p>To change the serial number of one board,</p>
 <ul>
@@ -2502,8 +2502,8 @@ Here, <code>12345678</code> is the new serial number.</p>
 <ul>
 <li>Check with</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>xdsdfu<span class="w"> </span>-e
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>xdsdfu<span class="w"> </span>-e
+</code></pre></div></body></html>
 <p>For more information on the XDS110 programmer-debugger and related software, and on how to change the serial number,</p>
 <ul>
 <li>Please refer to the <a href="http://www.ti.com/lit/ug/sprui94/sprui94.pdf">XDS110 Debug Probe User&rsquo;s Guide</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
@@ -2846,16 +2846,16 @@ Here, <code>12345678</code> is the new serial number.</p>
 <p>Run the following command.</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arp<span class="w"> </span>-a
 </span><span class="">esp_a1b2c3<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.1.209<span class="o">)</span><span class="w"> </span>at<span class="w"> </span><span class="m">12</span>:ef:34:a1:b2:c3<span class="w"> </span>on<span class="w"> </span>en0<span class="w"> </span>ifscope<span class="w"> </span><span class="o">[</span>ethernet<span class="o">]</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>The address <code>192.168.1.209</code> gives access to the board.</p>
 <ul>
 <li>Test the board is connected with ping.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ping<span class="w"> </span><span class="m">192</span>.168.1.209
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ping<span class="w"> </span><span class="m">192</span>.168.1.209
+</span></code></pre></div></td></tr></table></div></body></html>
 <h3 id="enter-ip-address">Enter IP address<a class="headerlink" href="#enter-ip-address" title="Permanent link">&para;</a></h3>
 <p>During the first compilation, emCode looks for the ESP8266 or NodeMCU board.</p>
 <p>If the ESP8266 or NodeMCU board isn&rsquo;t found on the network, a window asks for the IP address.</p>
@@ -2969,10 +2969,10 @@ Here, <code>12345678</code> is the new serial number.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

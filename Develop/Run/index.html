@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2440,18 +2440,18 @@
 <p>Set the variable <code>NO_SERIAL_CONSOLE</code> in the main <code>Makefile</code> to <code>true</code>.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># Serial console for Fast target</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Serial console for Fast target</span>
 <span class="c"># ----------------------------------</span>
 <span class="c"># For Fast target, open serial console, false or true</span>
 <span class="c">#</span>
 <span class="err">NO_SERIAL_CONSOLE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">true</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Otherwise, comment the line with a leading <code>#</code>, set the value to <code>false</code> or leave it empty.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">NO_SERIAL_CONSOLE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">false</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">NO_SERIAL_CONSOLE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">false</span>
 <span class="err">NO_SERIAL_CONSOLE</span><span class="w"> </span><span class="err">=</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h3 id="use-external-serial-console-applications">Use external serial console applications<a class="headerlink" href="#use-external-serial-console-applications" title="Permanent link">&para;</a></h3>
 <p>As an alternative to the serial console on a Terminal window, I recommend <a href="http://freeware.the-meiers.org">CoolTerm</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> and <a href="https://www.putty.org/">PuTTY</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</p>
 <p>The variable <code>NO_SERIAL_CONSOLE</code> option only affects the <strong>Fast</strong> target. The <strong>All</strong> and <strong>Serial</strong> targets are not concerned.</p>
@@ -2487,25 +2487,25 @@
 <ul>
 <li>On the main <code>Makefile</code>, set the variable <code>JLINK_POWER</code> to <code>1</code>.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">JLINK_POWER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">JLINK_POWER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
+</code></pre></div></body></html>
 <ul>
 <li>Alternatively, launch <strong>JLinkExe</strong>.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Enter the corresponding command.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
 <span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="w"> </span>power<span class="w"> </span>on
 </span><span class=""><span class="w"> </span><span class="nb">exit</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Or enter the corresponding command on <strong>Ozone</strong>.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>Edit.SysVar<span class="o">(</span>VAR_TARGET_POWER_ON,1<span class="o">)</span><span class="p">;</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code>Edit.SysVar<span class="o">(</span>VAR_TARGET_POWER_ON,1<span class="o">)</span><span class="p">;</span>
+</code></pre></div></body></html>
 <p>For more information,</p>
 <ul>
 <li>Please refer to the section JTAG Interface Connection (20 pin) on the page <a href="https://www.segger.com/products/debug-probes/j-link/technology/interface-description/">Interface Description</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
@@ -2543,21 +2543,21 @@
 <p>Launch J-Link.</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Run the following commands after the <code>J-Link&gt;</code> prompt.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
 <span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">vcom<span class="w"> </span><span class="nb">enable</span>
 </span><span class=""><span class="nb">exit</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>If the probe has the serial number <code>123456789</code>, the serial port is re-routed to <code>/dev/tty.usbmodem000123456789</code>.</p>
 <ul>
 <li>Just open a <strong>Terminal</strong> window and launch the following command with the correct speed.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">screen<span class="w"> </span>/dev/tty.usbmodem000123456789<span class="w"> </span><span class="m">9600</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">screen<span class="w"> </span>/dev/tty.usbmodem000123456789<span class="w"> </span><span class="m">9600</span>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>To disable it,</p>
 <ul>
 <li>Proceed as before, but select <strong>Disable</strong> below <strong>Virtual COM-Port</strong> instead.</li>
@@ -2571,15 +2571,15 @@
 <p>Launch J-Link.</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Run the following commands after the <code>J-Link&gt;</code> prompt.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
 <span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="w"> </span>vcom<span class="w"> </span>disable
 </span><span class=""><span class="w"> </span><span class="nb">exit</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>For more information,</p>
 <ul>
 <li>Please refer to the section VCOM Functionality on the page <a href="https://www.segger.com/products/debug-probes/j-link">J-Link Debug Probes</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
@@ -2725,10 +2725,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

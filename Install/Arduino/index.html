@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2536,26 +2536,26 @@
 <p>Run</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">cd</span><span class="w"> </span>~/.local
 </span><span class="">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Ensure that <code>~/.local/bin</code> is listed in <code>$PATH</code>.</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>Otherwise,</p>
 <ul>
 <li>Edit  <code>~/.bashrc</code></li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.bashrc
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.bashrc
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Add <code>~/.local/bin</code> to <code>$PATH</code></li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">export</span><span class="w"> </span><span class="err">PATH=$PATH:~/.local/bin</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">export</span><span class="w"> </span><span class="err">PATH=$PATH:~/.local/bin</span>
+</code></pre></div></body></html>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
 </ul>
@@ -2573,20 +2573,20 @@
 <p>Run</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>config<span class="w"> </span>init
 </span>Config<span class="w"> </span>file<span class="w"> </span>written<span class="w"> </span>to:<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</code></pre></div></td></tr></table></div></body></html></p>
+</code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Edit it with</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Set the sketchbook folder;</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/Projects/Arduino</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/Projects/Arduino</span>
+</code></pre></div></body></html>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
 </ul>
@@ -2603,19 +2603,19 @@
 <p>Run</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>The parameter <code>arduino:avr</code> refers to the name of the boards.</p>
 <h3 id="add-urls-for-new-boards">Add URLs for new boards<a class="headerlink" href="#add-urls-for-new-boards" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Open the configuration file <code>arduino-cli.yaml</code>;</li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Add the other boards;</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="nt">board_manager</span><span class="p">:</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="nt">board_manager</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">additional_urls</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://adafruit.github.io/arduino-board-index/package_adafruit_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://downloads.arduino.cc/packages/package_mbed_index.json</span>
@@ -2625,7 +2625,7 @@
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.pjrc.com/teensy/package_teensy_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/ambiot/ambd_arduino/raw/master/Arduino_package/package_realtek.com_amebad_index.json</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
 </ul>
@@ -2638,8 +2638,8 @@
 <p>Run</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>install<span class="w"> </span>ArduinoBLE
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>install<span class="w"> </span>ArduinoBLE
+</span></code></pre></div></td></tr></table></div></body></html>
 <h3 id="check-and-update-the-boards">Check and update the boards<a class="headerlink" href="#check-and-update-the-boards" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -2649,10 +2649,10 @@
 <p>Check the cores</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>update-index
 </span><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>upgrade
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <h3 id="check-and-update-the-libraries">Check and update the libraries<a class="headerlink" href="#check-and-update-the-libraries" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -2662,10 +2662,10 @@
 <p>Check the libraries.</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>update-index
 </span><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>upgrade
-</span></code></pre></div></td></tr></table></div></body></html></p>
+</span></code></pre></div></td></tr></table></div></body></html>
 <h2 id="use-the-arduino-ide">Use the Arduino IDE<a class="headerlink" href="#use-the-arduino-ide" title="Permanent link">&para;</a></h2>
 <h3 id="install-the-arduino-ide">Install the Arduino IDE<a class="headerlink" href="#install-the-arduino-ide" title="Permanent link">&para;</a></h3>
 <p><img alt="" src="../img/icon-Arduino-IDE.png" /> To install the Arduino IDE,</p>
@@ -2733,7 +2733,7 @@
 </ul>
 <h3 id="add-urls-for-new-boards_1">Add URLs for new boards<a class="headerlink" href="#add-urls-for-new-boards_1" title="Permanent link">&para;</a></h3>
 <p>The <strong>Boards Manager</strong> lists the boards based on a set of URLs. To add a new board, the relevant URL should be added. The URL corresponds to a JSON file.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+<html><body><div class="* highlight"><pre><span></span><code>https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
 http://downloads.arduino.cc/packages/package_mbed_index.json
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
@@ -2741,7 +2741,7 @@ https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
 https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
 https://www.pjrc.com/teensy/package_teensy_index.json
 https://github.com/ambiot/ambd_arduino/raw/master/Arduino_package/package_realtek.com_amebad_index.json
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Call the menu <strong>Arduino &gt; Preferences</strong> or press <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-comma">,</kbd></span>.</li>
 </ul>
@@ -2932,10 +2932,10 @@ https://github.com/ambiot/ambd_arduino/raw/master/Arduino_package/package_realte
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

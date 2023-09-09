@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2613,7 +2613,7 @@
 <p>Just like any other IDE, using a library in a project requires  specifying an <code>#include</code> statement on the main sketch.</p>
 <p>Additionally, the library needs to be mentioned on the main <code>Makefile</code> to be compiled.</p>
 <p>By default, the main <code>Makefile</code> lists&hellip;</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
 <span class="c">#</span>
 <span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0</span>
 
@@ -2624,7 +2624,7 @@
 <span class="c"># Local libraries</span>
 <span class="c">#</span>
 <span class="err">LOCAL_LIBS_LIST</span><span class="w"> </span><span class="err">=</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>&hellip;with the following options:</p>
 <ul>
 <li>
@@ -2647,9 +2647,9 @@
 <ul>
 <li>Add the <code>#include "Arduino.h"</code> statement on the main sketch or the header file.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// SDK</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// SDK</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Arduino.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This <code>#include "Arduino.h"</code> statement is compulsory for emCode.</p>
@@ -2660,17 +2660,17 @@
 <ul>
 <li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Mention the name of the folder of the library to the variable <code>APP_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
 <span class="c"># default = 0 = none</span>
 <span class="c">#</span>
 <span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Set <code>APP_LIBS_LIST</code> to <code>0</code> to include no application library.</li>
 </ul>
@@ -2678,50 +2678,50 @@
 <ul>
 <li>Mention one include with the name of the header file per line.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Separate the names of the folders of the libraries with a space.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
 <span class="c">#</span>
 <span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span><span class="w"> </span><span class="err">SPI</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h3 id="use-the-users-libraries">Use the user&rsquo;s libraries<a class="headerlink" href="#use-the-users-libraries" title="Permanent link">&para;</a></h3>
 <p>The user’s libraries require to be explicitly mentioned with the <code>#include</code> statement on the main sketch and listed on the main <code>Makefile</code>.</p>
 <p>To use a user&rsquo;s library,</p>
 <ul>
 <li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Ethernet.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Mention the name of the folder of the library to the variable <code>USER_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># User's libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># User's libraries</span>
 <span class="c"># default = empty = all</span>
 <span class="c">#</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Ethernet</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>In case of multiple user&rsquo;s libraries,</p>
 <ul>
 <li>Mention one include with the name of the header file per line.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Ethernet.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"JSON.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Separate the names of the folders of the libraries with a space.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># User's libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># User's libraries</span>
 <span class="c"># default = empty = all</span>
 <span class="c">#</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Ethernet</span><span class="w"> </span><span class="err">JSON</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>Remember, only the specified libraries are compiled.</p>
 <ul>
 <li>
@@ -2744,42 +2744,42 @@
 <p>Set <code>USE_ARCHIVES</code> to <code>false</code>.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># For building, use available archives, false or true, default = true</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># For building, use available archives, false or true, default = true</span>
 <span class="err">USE_ARCHIVES</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">false</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h3 id="use-the-local-libraries">Use the local libraries<a class="headerlink" href="#use-the-local-libraries" title="Permanent link">&para;</a></h3>
 <p>The local libraries require to be explicitly mentioned with the <code>#include</code> statement on the main sketch and listed on the main <code>Makefile</code>.</p>
 <p>To use a local library,</p>
 <ul>
 <li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"LocalLibrary.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Mention the name of the folder of the library to the variable <code>LOCAL_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># Local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Local libraries</span>
 <span class="c"># default = empty = all</span>
 <span class="c">#</span>
 <span class="err">LOCAL_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">LocalLibrary</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>In case of multiple local libraries,</p>
 <ul>
 <li>Mention one include with the name of the header file per line.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"LocalLibrary.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"AnotherLibrary.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Separate the names of the folders of the libraries with a space.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># Local libraries</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Local libraries</span>
 <span class="c"># default = empty = all</span>
 <span class="c">#</span>
 <span class="err">LOCAL_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">LocalLibrary</span><span class="w"> </span><span class="err">AnotherLibrary</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>Remember, only the specified libraries are compiled.</p>
 <ul>
 <li>
@@ -2808,7 +2808,7 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>The <a href="https://github.com/Bodmer/TFT_eSPI">TFT_eSPI library</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> includes header and code files in all those sub-folders.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>TFT_eSPI/
+<html><body><div class="* highlight"><pre><span></span><code>TFT_eSPI/
 ├── docs
 │   ├── ESP32 UNO board mod
 │   ├── ESP-IDF
@@ -2839,22 +2839,22 @@
 │   ├── Create_Smooth_Font
 │   └── Screenshot_client
 └── User_Setups
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 </div>
 <ul>
 <li>List all the sub-folders after <code>USER_LIBS_LIST</code>.</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">​TFT_eSPI</span><span class="w"> </span><span class="err">TFT_eSPI/Extensions</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/Custom</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/GFXFF</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/TrueType</span><span class="w"> </span><span class="err">TFT_eSPI/TFT_Drivers</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">​TFT_eSPI</span><span class="w"> </span><span class="err">TFT_eSPI/Extensions</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/Custom</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/GFXFF</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/TrueType</span><span class="w"> </span><span class="err">TFT_eSPI/TFT_Drivers</span>
+</code></pre></div></body></html>
 </div>
 <h3 id="exclude-non-standard-folders">Exclude non-standard folders<a class="headerlink" href="#exclude-non-standard-folders" title="Permanent link">&para;</a></h3>
 <p>Some libraries include additional folders and files which are not related with the Wiring / Arduino project and may interfere with the compilation.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>The <a href="https://github.com/bblanchon/ArduinoJson">ArduinoJSON library</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span> contains the usual folders <code>src</code> and <code>examples</code>, which are consistent with the <a href="https://arduino.github.io/arduino-cli/0.33/library-specification/">Arduino IDE 1.5 Library Specification</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>ArduinoJson/
+<html><body><div class="* highlight"><pre><span></span><code>ArduinoJson/
 ├── examples
 │   ├── JsonConfigFile
 │   ├── JsonFilterExample
@@ -2872,7 +2872,7 @@
 ├── tests
 └── src
     └── ArduinoJson
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>However, the same library also contains the additional folders <code>fuzzing</code>, <code>scripts</code>, <code>third-party</code> and <code>test</code>, which may interfere with the normal compilation.</p>
 <p>On a more recent version of this library, the non-standard folders have migrated under the <code>extras</code> folder.</p>
 </div>
@@ -2901,18 +2901,18 @@
 <ul>
 <li>Mention its name <code>WiFi</code> after the variable <code>EXCLUDE_LIBS</code>.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="c"># List the libraries to be excluded</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># List the libraries to be excluded</span>
 <span class="c"># For example, WiFi may crash on Arduino 1.0.2</span>
 <span class="c">#</span>
 <span class="err">EXCLUDE_LIBS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">WiFi</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 </div>
 <p>To use all the libraries,</p>
 <ul>
 <li>Leave the line empty after the <code>EXCLUDE_LIBS</code> variable.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">EXCLUDE_LIBS</span><span class="w"> </span><span class="err">=</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">EXCLUDE_LIBS</span><span class="w"> </span><span class="err">=</span>
+</code></pre></div></body></html>
 <p>By default, the <code>EXCLUDE_LIBS</code> is empty and the line has a leading <code>#</code> to comment it.</p>
 <p>The parameter impacts all libraries, core, application, user and local.</p>
 <h2 id="manage-pre-compiled-libraries">Manage pre-compiled libraries<a class="headerlink" href="#manage-pre-compiled-libraries" title="Permanent link">&para;</a></h2>
@@ -2921,12 +2921,12 @@
 <ul>
 <li>Check the header and code files are inside a sub-folder.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
+<html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
 ├──<span class="w"> </span>library.properties
 └──<span class="w"> </span>src
 <span class="w">    </span>├──<span class="w"> </span>LocalLibrary.cpp
 <span class="w">    </span>└──<span class="w"> </span>LocalLibrary.h
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>In the example above, <code>LocalLibrary.h</code> and <code>LocalLibrary.cpp</code> are inside the sub-folder <code>LocalLibrary</code>.</p>
 <p>To generate a pre-compiled library,</p>
 <ul>
@@ -2937,26 +2937,26 @@
 <p>Select the <strong>Archive</strong> target and launch it.</p>
 </li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span><span class="nv">Archive</span><span class="w"> </span><span class="o">====</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span><span class="nv">Archive</span><span class="w"> </span><span class="o">====</span>
 ----<span class="w"> </span>Generate<span class="w"> </span>----
 <span class="m">7</span>.1-ARCHIVE<span class="w">       </span>LocalLibrary/src/cortex-m0plus
 ----<span class="w"> </span>Update<span class="w"> </span>----
 <span class="m">7</span>.3-ARCHIVE<span class="w">       </span>LocalLibrary/library.properties
 <span class="o">====</span><span class="w"> </span>Archive<span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="o">====</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>In the library sub-folder, the new folder <code>cortex-m0plus</code> has been created cortex-m0plus to include the new file <code>LocalLibrary.a</code>. This is the pre-compiled library.</p>
-<p><html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
+<html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
 ├──<span class="w"> </span>library.properties
 └──<span class="w"> </span>src
 <span class="w">    </span>├──<span class="w"> </span>cortex-m0plus
 <span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>libLocalLibrary.a
 <span class="w">    </span>├──<span class="w"> </span>LocalLibrary.cpp
 <span class="w">    </span>└──<span class="w"> </span>LocalLibrary.h
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>The <code>library.properties</code> file has been updated with</p>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">precompiled=true</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">precompiled=true</span>
 <span class="err">ldflags=-lLocalLibrary</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>The folder <code>cortex-m0plus</code> is specific for the Cortex-M0+: the pre-compiled library is valid for the board or MCU it has been compiled against. However, it may not work properly on other Cortex-M0+-based MCUs.</p>
 <p>For more information,</p>
 <ul>
@@ -2975,34 +2975,34 @@
 <ul>
 <li>Check the header and code files are inside a sub-folder.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
+<html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
 ├──<span class="w"> </span>library.properties
 └──<span class="w"> </span>src
 <span class="w">    </span>├──<span class="w"> </span>cortex-m0plus
 <span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>libLocalLibrary.a
 <span class="w">    </span>├──<span class="w"> </span>LocalLibrary.cpp
 <span class="w">    </span>└──<span class="w"> </span>LocalLibrary.h
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>In the example above, the sub-folder <code>LocalLibrary</code> should contain <code>LocalLibrary.h</code> and <code>LocalLibrary.cpp</code>.</p>
 <ul>
 <li>Presss <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span> and type <code>Tasks: Run Task</code>.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span><span class="nv">Unarchive</span><span class="w"> </span><span class="o">====</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span><span class="nv">Unarchive</span><span class="w"> </span><span class="o">====</span>
 ----<span class="w"> </span>Remove<span class="w"> </span>----
 <span class="m">7</span>.4-UNARCHIVE<span class="w">     </span>LocalLibrary/src/cortex-m0plus
 ----<span class="w"> </span>Update<span class="w"> </span>----
 <span class="m">7</span>.5-UNARCHIVE<span class="w">     </span>LocalLibrary/library.properties
 <span class="o">====</span><span class="w"> </span>Unarchive<span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="o">====</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <ul>
 <li>Select the <strong>Unarchive</strong> target and launch it.</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
+<html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
 ├──<span class="w"> </span>library.properties
 └──<span class="w"> </span>src
 <span class="w">    </span>├──<span class="w"> </span>LocalLibrary.cpp
 <span class="w">    </span>└──<span class="w"> </span>LocalLibrary.h
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <p>The archive <code>LocalLibrary.a</code> has been removed and the <code>library.properties</code> file has been updated back to its initial content.</p>
 
   <hr>
@@ -3108,10 +3108,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

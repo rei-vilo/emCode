@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2415,81 +2415,81 @@
 <p>Run</p>
 </li>
 </ul>
-<p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:nrf52
-</span></code></pre></div></td></tr></table></div></body></html></p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:nrf52
+</span></code></pre></div></td></tr></table></div></body></html>
 <h2 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h2>
 <h3 id="use-the-bluetooth-library">Use the Bluetooth library<a class="headerlink" href="#use-the-bluetooth-library" title="Permanent link">&para;</a></h3>
 <p>To use the Bluetooth library provided with the boards package,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">BLE</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">BLE</span>
+</code></pre></div></body></html>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"BLECentralRole.h"</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"BLECentralRole.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"BLEPeripheral.h"</span>
-</code></pre></div></body></html></p>
+</code></pre></div></body></html>
 <h3 id="use-the-low-power-library">Use the low-power library<a class="headerlink" href="#use-the-low-power-library" title="Permanent link">&para;</a></h3>
 <p>To use the Arduino Low-Power library,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Arduino_Low_Power</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Arduino_Low_Power</span>
+</code></pre></div></body></html>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"ArduinoLowPower.h"</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"ArduinoLowPower.h"</span>
+</code></pre></div></body></html>
 <h3 id="use-the-real-time-clock-library">Use the real-time clock library<a class="headerlink" href="#use-the-real-time-clock-library" title="Permanent link">&para;</a></h3>
 <p>To use the RTC library provided with the boards package,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">RTCInt</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">RTCInt</span>
+</code></pre></div></body></html>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"RTCInt.h"</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"RTCInt.h"</span>
+</code></pre></div></body></html>
 <p>To use the RTC Zero library,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">RTCZero</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">RTCZero</span>
+</code></pre></div></body></html>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"RTCZero.h"</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"RTCZero.h"</span>
+</code></pre></div></body></html>
 <h3 id="use-the-nfc-library">Use the NFC library<a class="headerlink" href="#use-the-nfc-library" title="Permanent link">&para;</a></h3>
 <p>To use the NFC library provided with the boards package,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">NFC</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">NFC</span>
+</code></pre></div></body></html>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"NFC.h"</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"NFC.h"</span>
+</code></pre></div></body></html>
 <h3 id="use-the-sensors-library-on-the-primo-core-board">Use the sensors library on the Primo Core board<a class="headerlink" href="#use-the-sensors-library-on-the-primo-core-board" title="Permanent link">&para;</a></h3>
 <p>To use the NFC library provided with the boards package,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">CoreSensors</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">CoreSensors</span>
+</code></pre></div></body></html>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<p><html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"CoreSensors.h"</span>
-</code></pre></div></body></html></p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"CoreSensors.h"</span>
+</code></pre></div></body></html>
 <h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">&para;</a></h2>
 <h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
 
@@ -2596,10 +2596,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.0"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.2.2"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>
