@@ -1,0 +1,289 @@
+site_name: emCode User Manual
+copyright: Copyright &copy; Rei Vilo, 2010-2023 &bull; All rights reserved
+site_description: embedXcode User Manual
+site_author: Rei Vilo
+# copyright: (c) All rights reserved
+# site_url is required for sitemap.xml
+# site_url: https://embedxcode.000webhostapp.com/site
+# site_url: http://embedxcode.epizy.com/site/
+# site_url: https://embedxcode.com/site/
+# With sudo chown -R $USER:$USER /var/www
+# and sudo chmod 777 /var/www/html -R
+site_dir: /home/reivilo/Sites/eC
+# site_dir: /home/reivilo/Sites/Ionos/public_html/site
+# /home/reivilo/Projets/embedXcode/Site
+# site_dir: "/Users/ReiVilo/Documents/embedXcode/MkDocs/Site 1&1/site"
+# repo_url: https://embedxcode.weebly.com/download.html
+# repo_name: "Download"
+
+# repo_name: '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="9H8EV2RV4QHJG"><input type="image" src="https://embedxcode.com/site/img/donate-logo-large-en-2x.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form>'
+# repo_url: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9H8EV2RV4QHJG'
+
+# Force release 6.2.8 with pip install mkdocs-material==6.2.8
+
+nav:
+    - Table of contents: index.md
+    - Forewords:
+        - Forewords/index.md
+    - Install emCode:
+        - Install/index.md
+        - Install Visual Studio Code: Install/Code.md
+        - Install the Arduino tools: Install/Arduino.md
+        - Install emCode: Install/emCode.md
+    - Develop a project:
+        - Develop/index.md
+        - Create a new project: Develop/New.md
+        - Import an existing project: Develop/Import.md
+        - Write the project: Develop/Write.md
+        - Add libraries to the project: Develop/Libraries.md
+        - Build and upload the project: Develop/Build.md
+        - Run and debug the project: Develop/Run.md
+    - Manage the boards:
+        - Boards/index.md
+        - Adafruit:
+            - Boards/Adafruit/index.md
+            - Feather ESP8266: Boards/Adafruit/ESP8266.md
+            - Feather ESP32: Boards/Adafruit/ESP32.md
+            - Feather nRF52832 and nRF52840: Boards/Adafruit/nRF52.md
+            - Feather M0 and M4: Boards/Adafruit/Cortex-M.md
+            - Feather RP2040: Boards/Adafruit/RP2040.md
+            - Trinket and Trinket Pro AVR: Boards/Adafruit/AVR.md
+        - Arduino:
+            - Boards/Arduino/index.md
+            - Arduino AVR: Boards/Arduino/AVR.md
+            - Arduino MegaAVR: Boards/Arduino/MegaAVR.md
+            - Arduino SAM: Boards/Arduino/SAM.md
+            - Arduino SAMD: Boards/Arduino/SAMD.md
+            - Arduino ESP32: Boards/Arduino/ESP32.md
+            - Arduino nRF52: Boards/Arduino/nRF52.md
+            - Arduino RP2040: Boards/Arduino/RP2040.md
+            - Arduino Mbed-OS: Boards/Arduino/Mbed.md
+        - Espressif:
+            - Boards/Espressif/index.md
+            - Espressif ESP8266: Boards/Espressif/ESP8266.md
+            - Espressif ESP32: Boards/Espressif/ESP32.md
+        - Seeed:
+            - Boards/Seeed/index.md
+            - Grove Beginner Kit for Arduino: Boards/Seeed/Grove_AVR.md
+            - Xiao ESP32-C3: Boards/Seeed/Xiao_ESP32.md
+            - Xiao nRF52840: Boards/Seeed/Xiao_nRF.md
+            - Xiao nRF52840 Mbed-OS: Boards/Seeed/Xiao_mbed.md
+            - Xiao RP2040: Boards/Seeed/Xiao_RP2040.md
+            - Xiao M0 and Wio Terminal: Boards/Seeed/Xiao_M0.md
+            - SenseCAP Indicator: Boards/Seeed/SenseCAP.md
+        - Raspberry Pi Pico:
+            - Boards/RP2040/index.md
+            - Raspberry Pi Pico RP2040: Boards/RP2040/RP2040.md
+        - STM32duino:
+            - Boards/STM32/index.md
+            - STM32: Boards/STM32/STM32.md
+        - Teensy:
+            - Boards/Teensy/index.md
+            - Teensy: Boards/Teensy/Teensy.md
+        # - ATtinyCore: Boards/ATtiny.md
+        # - DFRobot: Boards/DFRobot.md
+        # - Microsoft: Boards/Microsoft.md
+        # - Moteino: Boards/Moteino.md
+        # - NodeMCU: Boards/NodeMCU.md
+        # - BBC microbit: Boards/microbit.md
+        # - nRF5: Boards/nRF51.md
+        # - RasPiArduino: Boards/RasPiArduino.md
+
+        - Add a board:
+            - Boards/Other/index.md
+    - Find solutions to issues:
+        - Issues/index.md
+        - Compatibility with Arduino: Issues/Compatibility.md
+        - Solutions to common issues: Issues/Common.md
+    - Appendixes:
+        - Appendixes/index.md
+        - Release notes: Appendixes/Notes.md
+        - Release history: Appendixes/History.md
+        # - Visit the official websites: Appendixes/Section3.md
+        # - References: Appendixes/References.md
+        # - Check the tests: Appendixes/Section6.md
+        - Glossary: Appendixes/Glossary.md
+        - Index of boards and platforms: Appendixes/Indexes.md
+        - Changes by emCode: Appendixes/Changes.md
+        - Legal notice: Appendixes/Legal.md
+
+theme:
+#    name: readthedocs
+#    name: windmill
+    name: 'material'
+#    custom_dir: theme
+#
+    palette:
+       - scheme: default
+         primary: red
+         accent: pink
+         toggle:
+            icon: material/brightness-7
+            # icon: material/toggle-switch-off-outline
+            name: Switch to dark mode
+       - scheme: slate
+         primary: red
+         accent: pink
+         toggle:
+            icon: material/brightness-4
+            # icon: material/toggle-switch
+            name: Switch to light mode
+#    features:
+#        - header.autohide
+#        - tabs
+#        instant: true
+# Solution from Add support for sections with pages #1008
+# https://github.com/squidfunk/mkdocs-material/issues/1008
+#    section_page_name: chapter_page
+
+    logo: img/Logo-256-eC-Website-white.png
+    favicon: img/favicon.ico
+    features:
+        - content.code.copy
+        - navigation.footer
+        - navigation.indexes
+        - navigation.top
+        - navigation.tracking
+#        - navigation.tabs
+#        - navigation.tabs.sticky
+#        - navigation.sections
+        - content.code.annotate
+# For GDPR concerns, false=avoid Google fonts
+    font: false
+# or use Ubuntu fonts
+#    font:
+#        text: 'Ubuntu'
+#        code: 'Ubuntu Mono'
+# icon: doesn't work yet with confused explanations
+#    icon:
+#        logo: img/Logo-256-eX-Website-white
+#        repo: fontawesome/brands/git-alt
+#        favicon: img/favicon.ico
+
+# For release 6
+# google_analytics:
+#     - G-L8GYGH8EGF
+#     - auto
+
+extra:
+    # For release 7+
+    analytics:
+        provider: google
+        property: G-L8GYGH8EGF
+    logo: img/Logo-256-eX.png
+    history_buttons: true
+
+#    repo_icon: 'paypal'
+# type: 'globe' references to fa-globe as icon
+    social:
+#        - icon: fontawesome/solid/globe
+#          link: 'https://embedxcode.weebly.com'
+#        - icon: fontawesome/solid/download
+#          link: 'https://embedxcode.weebly.com/download'
+#        - icon: fontawesome/brands/cc-paypal
+#          link: 'https://embedxcode.weebly.com/about.html'
+#         - icon: fontawesome/solid/ticket-alt
+#           link: 'https://embedxcode.freshdesk.com'
+#        - icon: fontawesome/solid/envelope-open
+#          link: 'https://weebly.us13.list-manage.com/subscribe?u=d3850dea1d2afd003a8516d3f&id=54be6d0117'
+#        - icon: fontawesome/solid/rss
+#          link: 'https://embedxcode.weebly.com/1/feed'
+#        - icon: fontawesome/brands/twitter
+#          link: 'https://twitter.com/#!/rei_vilo'
+#        - icon: fontawesome/brands/linkedin
+#          link: 'https://www.linkedin.com/in/rei-vilo-02490555'
+    history_buttons: true
+
+    version: 14.1.2
+
+markdown_extensions:
+# Now ready for FontAwesome https://fontawesome.com/icons?d=gallery&m=free
+# : fa-link: :octicons-link: :fontawesome-solid-link:
+# : fa-external-link: :octicons-link-external: :fontawesome-solid-external-link-alt:
+# : fa-plus-square: :octicons-diff-added: :fontawesome-regular-plus-square:
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+    - codehilite
+    - toc:
+        permalink: true
+        title: On this page
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.tabbed:
+        alternate_style: true
+    - attr_list
+    - pymdownx.caret
+    - pymdownx.tilde
+    - smarty
+    - pymdownx.mark
+# Extras, https://pypi.org/project/mkdocs-pymdownx-material-extras/
+# pip install mkdocs-pymdownx-material-extras
+    - pymdownx.smartsymbols
+    - pymdownx.critic
+#    - fontawesome_markdown
+
+plugins:
+# If plugins: added, - search needs to be specified
+    - search
+# To check progress, https://pypi.org/project/mkdocs-plugin-progress/
+# pip install mkdocs-plugin-progress
+    - progress
+# To define variables, https://pypi.org/project/mkdocs-macros-plugin/
+# pip install mkdocs-macros-plugin
+    - macros
+#    - enumerate-headings:
+#        toc_depth: 1
+#        strict: true
+# # To check external links
+#     - htmlproofer
+# To add revision date
+# https://pypi.org/project/mkdocs-git-revision-date-localized-plugin/
+    - git-revision-date-localized:
+        # type: timeago
+        custom_format: "%d. %B %Y"
+        timezone: Europe/Amsterdam
+        locale: en
+        fallback_to_build_date: false
+        enable_creation_date: true
+        exclude:
+            - index.md
+        enabled: true
+        strict: true
+# # To avoid listing the pages on nav: section
+#    - awesome-pages
+# # To optimise html size
+#    - minify:
+#        minify_html: true
+#        minify_js: true
+# # * To export one PDF per page
+# # 1. mkdocs-pdf-export-plugin
+# # https://github.com/zhaoterryy/mkdocs-pdf-export-plugin
+# # Check the FontAwesome fonts are installed
+#    - pdf-export:
+#        verbose: true
+#        media_type: print
+#        combined: true
+# # To prepare one PDF for the whole site
+# # 2. mkdocs-print-site-plugin
+# # https://github.com/timvink/mkdocs-print-site-plugin/
+#    - print-site:
+#        add_table_of_contents: false
+# # 3. mkdocs-with-pdf
+# # https://github.com/orzih/mkdocs-with-pdf
+#    - with-pdf
+    - tags:
+        tags_file: Appendixes/Indexes.md
+# pip install mkdocs-page-pdf
+# https://pypi.org/project/mkdocs-page-pdf/
+# page-to-pdf should be the last plug-in listed.   
+#     - page-to-pdf
+
+# extra_css:
+#     - css/extra.css
+#     - css/font-awesome.min.css
+

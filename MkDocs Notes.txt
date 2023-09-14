@@ -1,0 +1,486 @@
+
+
++ Summary
+
+Force release 6.2.8 with
+
+pip3 install --user mkdocs-material==6.2.8
+
+Add folder in $PATH
+
+cd ~
+touch .zshrc
+nano .zshrc
+export PATH=$PATH:/Users/OlS/Library/Python/3.8/bin
+
+source .zshrc
+
+Otherwise
+
+pip3 install --upgrade --upgrade-strategy only-if-needed mkdocs-material
+
+Useful list of MkDocs plug-ins
+
+https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins
+
+>>> After updating, check base.html from
+
+/usr/local/lib/python3.7/site-packages/material/base.html
+
+and
+
+/Users/ReiVilo/Documents/embedXcode/MkDocs/theme/base.html
+
+$
+open /usr/local/lib/python3.7/site-packages/material/
+open /Users/ReiVilo/Documents/embedXcode/MkDocs/theme
+
++ Default text colours based on primary colours
+
+See palette.scss
+https://github.com/squidfunk/mkdocs-material/blob/a98cba6a5364068fc04d842e2a695d52c71cf62e/src/assets/stylesheets/palette.scss#L71-L78
+
++ Install Font Awesome
+
+Download and install fontawesome-webfont.ttf from https://github.com/beakerbrowser/beakerbrowser.com/blob/master/fonts/fontawesome-webfont.ttf
+
++ Install pip
+
+$
+sudo easy_install pip
+pip install --user --upgrade pip
+
+Avoid sudo with pip as much as possible
+
+sudo pip install --upgrade pip
+
++ Update
+
+pip3 install --upgrade --upgrade-strategy only-if-needed mkdocs
+
+pip3 install --upgrade --upgrade-strategy only-if-needed mkdocs-material
+
+pip3 install --upgrade --upgrade-strategy only-if-needed fontawesome_markdown
+
+pip3 install --upgrade --upgrade-strategy only-if-needed pymdown-extensions
+
+pip3 install --upgrade --upgrade-strategy only-if-needed mkdocs-material-extensions
+
+pip3 install --upgrade --upgrade-strategy only-if-needed mkdocs-macros-plugin
+
+pip3 install --upgrade --upgrade-strategy only-if-needed mkdocs-print-site-plugin
+
+pip3 install --upgrade mkdocs mkdocs-material
+
++ Previous update procedure
+
+sudo easy_install pip
+sudo pip install --upgrade pip
+
+mkdocs --version
+
+pip install --user --upgrade --upgrade-strategy only-if-needed mkdocs
+
+pip install --user --upgrade --upgrade-strategy only-if-needed mkdocs-material
+
+pip install --user --upgrade --upgrade-strategy only-if-needed fontawesome_markdown
+
+pip install --user --upgrade --upgrade-strategy only-if-needed pymdown-extensions
+
+pip install --user --upgrade --upgrade-strategy only-if-needed mkdocs-plugin-progress
+
+pip install --user --upgrade mkdocs mkdocs-material
+
+Avoid sudo with pip as much as possible
+
+sudo pip install --upgrade --upgrade-strategy only-if-needed mkdocs
+
+sudo pip install --upgrade --upgrade-strategy only-if-needed mkdocs-material
+
+sudo pip install --upgrade --upgrade-strategy only-if-needed fontawesome_markdown
+
+sudo pip install --upgrade --upgrade-strategy only-if-needed pymdown-extensions
+
+sudo pip install --upgrade mkdocs mkdocs-material
+
+Alternatively,
+
+. Use sudo -H instead of sudo
+
++ mkdocs-pdf-export-plugin
+
+!!! Not compatible with MkDocs 1.1.0
+
+Either 1. Perform pip3 install --upgrade mkdocs==1.0.4 before
+Or 2. Download https://github.com/zhaoterryy/mkdocs-pdf-export-plugin.git, edit requirements.txt and add
+git+https://github.com/zhaoterryy/mkdocs-pdf-export-plugin.git@master
+
+brew install python
+brew install pango
+brew install cairo
+brew install GDK-PixBuf
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+
+pip install mkdocs-pdf-export-plugin
+pip install weasyprint
+
+https://github.com/zhaoterryy/mkdocs-pdf-export-plugin
+https://weasyprint.org
+
+weasyprint https://embedxcode.com/site/ eX.pdf
+
++ Clean the files from invalid characters
+
+iconv -c -t UTF-8 < input.txt > output.txt
+tr -dc '\0-\177' <  input.txt > output.txt
+tr -cs '\0-\177' ' ' <  input.txt > output.txt
+
+https://www.computerhope.com/unix/utr.htm
+
++ Incase of error like
+
+ModuleNotFoundError: No module named 'pip._internal'
+
+Try
+
+python3 get-pip.py --force-reinstall --user
+
+https://github.com/pypa/pip/issues/5373
+
++ Perform a clean install
+
+sudo pip uninstall mkdocs mkdocs-material fontawesome_markdown pymdown-extensions
+
+sudo pip install mkdocs mkdocs-material fontawesome_markdown pymdown-extensions
+
+Link to sub-page
+
++ Please refer to the [What Has Been Tested](../Appendixes/Glossary/#what-has-been-tested) section.
+
+http://localhost:8888/Appendixes/Glossary/#what-has-been-tested
+                   ../Appendixes/Glossary/#what-has-been-tested
+
+http://localhost:8888/Appendixes/Glossary/#ides-boards-and-plug-ins-versions
+
+http://localhost:8888/Install/Section4/
+
+$ cd /Users/ReiVilo/Desktop/MkDocs
+
+$ ls
+Archive				custom_theme
+MAMP alias			docs
+MAMP alias 2			embedXcode User Manual.iba
+MkDoc.numbers			mkdocs.yml
+MkDocs Notes.txt		site
+
+$ mkdir custom_theme
+$ cd custom_theme/
+$ git clone https://github.com/gristlabs/mkdocs-windmill
+
+Edit mkdocs.yml
+
+theme_dir: 'mkdocs-windmill/mkdocs_windmill'
+
+pip install pymdown-extensions
+
+As per https://github.com/gristlabs/mkdocs-windmill
+https://gristlabs.github.io/mkdocs-windmill/#
+
+$ sudo su
+Password:
+
+$ pip install mkdocs-windmill
+Collecting mkdocs-windmill
+  Downloading mkdocs_windmill-0.1.2-py2-none-any.whl (981kB)
+    100% |████████████████████████████████| 983kB 773kB/s
+Installing collected packages: mkdocs-windmill
+Successfully installed mkdocs-windmill-0.1.2
+
+$ exit
+
+extra:
+    logo: 'img/Logo-128-eX.png'
+    version: 8.0.4
+
+FontAwesome
+
+sudo su
+pip install https://github.com/bmcorser/fontawesome-markdown/archive/master.zip
+
+https://github.com/bmcorser/fontawesome-markdown
+http://fontawesome.io/icon
+http://bwmarrin.github.io/MkDocsPlus/fontawesome/
+
+markdown_extensions:
+    - fontawesome_markdown
+
+:octicons-link-external-16:
+
+:octicons-link:
+
++ To install Python
+
+brew install python@2
+brew install python
+
++ To get pip
+
+$
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python get-pip.py
+
++ Interesting plug-ins
+
+https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins
+
++ Remove package and requirements
+
+for dep in $(pip show PACKAGE | grep Requires | sed 's/Requires: //g; s/,//g') ; do pip uninstall -y $dep ; done
+
+pip-autoremove PACKAGE
+
++ Button
+
+<script>
+document.body.dataset.mdColorPrimary = "blue-grey";
+document.body.dataset.mdColorAccent = "blue-grey";
+</script>
+<style>
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-button { color: #546D78; }
+</style>
+
+[Subscribe to embedXcode Newsletter](https://weebly.us13.list-manage.com/subscribe?u=d3850dea1d2afd003a8516d3f&id=54be6d0117){: .md-button }
+
+[Subscribe to embedXcode Newsletter](https://weebly.us13.list-manage.com/subscribe?u=d3850dea1d2afd003a8516d3f&id=54be6d0117){: .md-button .md-button--primary }
+
+[embedXcode 11 LTS](https://embedxcode.com/forefront/download_L0qdfvZjmZY24Zgnd.php){: .md-button .md-button--primary }
+
+---
+
+Platforms
+
+---
+
+Active platforms | . | . | . | . | .
+:----: | :----: | :----: | :----: | :----: | :----:
+![](img/Logo-064-Adafruit.png) | ![](img/Logo-064-ArduinoCC-TM.png) | ![](img/Logo-064-BBC-micro-bit.png) | ![](img/Logo-064-DFRobot.png) | ![](img/Logo-064-Espressif-Systems.png) | ![](img/Logo-064-Intel-IDE.png)
+[Adafruit](../../Install/Section4/Adafruit) :octicons-link-16: | [Arduino](../../Install/Section4/Arduino) :octicons-link-16: | [BBC micro:bit](../../Install/Section4/Page10) :octicons-link-16: | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) :octicons-link-16: | [Espressif](../../Install/Section4/Espressif) :octicons-link-16: | [Intel](../../Legacy/Section4/#install-the-intel-platform_1) :octicons-link-16:
+![](img/Logo-064-Launchpad.png) | ![](img/Logo-064-Microsoft.png) | ![](img/Logo-064-Moteino.png) | ![](img/Logo-064-NodeMCU.png) | ![](img/Logo-064-Nordic.png) | ![](img/Logo-064-Raspberry-Pi.png)
+[LaunchPad](../../Install/Section4/LaunchPad) :octicons-link-16: | [Microsoft](../../Install/Section4/Microsoft) :octicons-link-16: | [Moteino](../../Install/Section4/Moteino) :octicons-link-16: | [NodeMCU](../../Install/Section4/#install-the-nodemcu-board) :octicons-link-16: | [nRF5 boards](../../Install/Section4/Page11) :octicons-link-16: | [Raspberry Pi](../../Install/Section4/Page13) :octicons-link-16:
+![](img/Logo-064-Raspberry-Pi.png) | ![](img/Logo-064-Seeed.png) | ![](img/Logo-064-STM32duino.png) | ![](img/Logo-064-Teensy-2.png) | | ![](img/Logo-064-Processing.png)
+[Raspberry Pi Pico](../../Install/Section4/#install-the-raspberry-pi-pico-rp2040-platform) :octicons-link-16: | [Seeeduino](../../Install/Section4/Seeeduino) :octicons-link-16: | [STM32duino](../../Install/Section4/STM32duino) :octicons-link-16: | [Teensy](../../Install/Section4/Teensy) :octicons-link-16: | | [Other](../../Install/Section4/Page17) :octicons-link-16:
+
+---
+
+Check connected board
+
+cd <path to project>
+
+$
+arduino-cli board attach serial:///dev/ttyACM0
+Board found: Raspberry Pi Pico...
+Selected fqbn: rp2040:rp2040:rpipico
+
+Check libraries
+
+List all boards
+
+$
+arduino-cli board listall
+
+fqbn = Fully Qualified Board Name
+
+Build
+
+Ensure library.properties includes
+
+dot_a_linkage=true
+
+Some fqdn
+esp32:esp32:esp32:PSRAM=disabled
+rp2040:rp2040:rpipico
+
+$
+cd <path to project>
+
+cd ~/Projets/ArduinoCLI/ePaper_EXT3_Advanced_Library/
+
+rm builds/compile_commands.json
+arduino-cli compile -b rp2040:rp2040:rpipico --build-path ./builds --output-dir ./output --export-binaries --verbose --log-file log.log
+
+arduino-cli compile -b esp32:esp32:esp32:PSRAM=disabled --build-path ./builds --output-dir ./output --export-binaries --verbose --log-file log.log
+
+find builds/ -name *.a -exec cp {} libs/ \;
+
+ar -t <lib>.a
+
+for f in * ; do arduino-cli compile -b rp2040:rp2040:rpipico $f --export-binaries ; done
+
+Edit library.properties
+
+Remove
+
+dot_a_linkage=true
+
+Add
+
+precompiled=true
+ldflags=-l<name>
+
+## Set the boards
+
+curl -fsSL https://raw.githubusercontent.com/arduino/arduino-lint/main/etc/install.sh | sh
+
+---
+
+embedXcode supports the most popular boards running on the Wiring / Arduino framework.
+
+<center>![](img/Logo-064-eX-All.png) ![](img/Logo-064-eX+-All.png)</center>
+
+The IDEs of the boards support different boards thanks to the **Boards Manager**, and bring all the tools and libraries related to them.
+
+<center>![](img/036-01-420.png)</center>
+
+Using the IDEs of the boards allows an easy and safe installation for embedXcode.
+
+The IDEs include the tool-chain and the framework, all the core and application libraries and the required utilities.
+
+For each platform,
+
++ First install the IDEs of the boards under the `/Applications` folder.
+
++ Then launch the IDEs and define the path of the sketchbook folder in the menu **IDE > Preferences > Sketchbook** location.
+
++ Avoid spaces in the name and path of the sketchbook folder.
+
+For more information about the Wiring / Arduino framework,
+
++ Please refer to [Check the IDE and plug-in options](../../Install/Section4/#check-the-ide-and-plug-in-options) :octicons-link-16:.
+
+Some platforms and boards may be discontinued.
+
++ Please check the boards and platforms at [Use discontinued Wiring / Arduino frameworks](../../Legacy/Section4/) :octicons-link-16:.
+
+## Select your platform
+
+Active platforms | . | . | . | . | .
+:----: | :----: | :----: | :----: | :----: | :----:
+![](img/Logo-064-Adafruit.png) | ![](img/Logo-064-ArduinoCC-TM.png) | ![](img/Logo-064-BBC-micro-bit.png) | ![](img/Logo-064-DFRobot.png) | ![](img/Logo-064-Espressif-Systems.png) | ![](img/Logo-064-Intel-IDE.png)
+[Adafruit](../../Install/Section4/Adafruit) :octicons-link-16: | [Arduino](../../Install/Section4/Arduino) :octicons-link-16: | [BBC micro:bit](../../Install/Section4/Page10) :octicons-link-16: | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) :octicons-link-16: | [Espressif](../../Install/Section4/Espressif) :octicons-link-16: | [Intel](../../Legacy/Section4/#install-the-intel-platform_1) :octicons-link-16:
+![](img/Logo-064-Launchpad.png) | ![](img/Logo-064-Microsoft.png) | ![](img/Logo-064-Moteino.png) | ![](img/Logo-064-NodeMCU.png) | ![](img/Logo-064-Nordic.png) | ![](img/Logo-064-Raspberry-Pi.png)
+[LaunchPad](../../Install/Section4/LaunchPad) :octicons-link-16: | [Microsoft](../../Install/Section4/Microsoft) :octicons-link-16: | [Moteino](../../Install/Section4/Moteino) :octicons-link-16: | [NodeMCU](../../Install/Section4/#install-the-nodemcu-board) :octicons-link-16: | [nRF5 boards](../../Install/Section4/Page11) :octicons-link-16: | [Raspberry Pi](../../Install/Section4/Page13) :octicons-link-16:
+![](img/Logo-064-Raspberry-Pi.png) | ![](img/Logo-064-Seeed.png) | ![](img/Logo-064-STM32duino.png) | ![](img/Logo-064-Teensy-2.png) | | ![](img/Logo-064-Processing.png)
+[Raspberry Pi Pico](../../Install/Section4/#install-the-raspberry-pi-pico-rp2040-platform) :octicons-link-16: | [Seeeduino](../../Install/Section4/Seeeduino) :octicons-link-16: | [STM32duino](../../Install/Section4/STM32duino) :octicons-link-16: | [Teensy](../../Install/Section4/Teensy) :octicons-link-16: | | [Other](../../Install/Section4/Page17) :octicons-link-16:
+
+## Install legacy platforms and other frameworks
+
+For other legacy Wiring / Arduino platforms and for other frameworks,
+
+Legacy platforms | . | . | . | . | .
+:----: | :----: | :----: | :----: | :----: | :----:
+![](img/Logo-064-ArduCAM.png) | ![](img/Logo-064-chipKIT.png) | ![](img/Logo-064-4D-Systems.png) | ![](img/Logo-064-Cosa.png) | ![](img/Logo-064-Digistump-3.png) | ![](img/Logo-064-ftDuino.png)
+[ArduCAM](../../Legacy/Section4/Page1) :octicons-link-16: | [chipKIT](../../Legacy/Section4/Page2) :octicons-link-16: | [4D Systems](../../Legacy/Section4/Page3) :octicons-link-16: | [Cosa](../../Legacy/Section6/#install-the-cosa-framework) | [Digistump](../../Legacy/Section4/Page5) :octicons-link-16: | [ftduino](../../Legacy/Section4/Page7) :octicons-link-16:
+![](img/Logo-064-Glowdeck.png) | ![](img/Logo-064-Intel-IDE.png) | ![](img/Logo-064-Yocto-white.png) | ![](img/Logo-064-Intel-MCU-SDK.png) | ![](img/Logo-064-Launchpad.png) | ![](img/Logo-064-LightBlue.png)
+[Glowdeck](../../Legacy/Section4/Page6) :octicons-link-16: | [Intel](../../Legacy/Section4/#install-the-intel-platform_1) :octicons-link-16: | [Yocto](../../Legacy/Section4/Page8) :octicons-link-16: | [MCU SDK](../../Legacy/Section4/Page8) :octicons-link-16: | [LaunchPad](../../Legacy/Section4/#install-boards-from-previous-releases-of-energia) :octicons-link-16: | [LightBlue](../../Legacy/Section4/Page4) :octicons-link-16:
+![](img/Logo-064-Little-Robot-Friend.png) | ![](img/Logo-064-Maple.png) | ![](img/Logo-064-LinkIt.png) | ![](img/Logo-064-Microduino.png) | ![](img/Logo-064-panStamp.png) | ![](img/Logo-064-Spark.png)
+[Little Robot Friends](../../Legacy/Section4/Page10) :octicons-link-16: | [Maple](../../Legacy/Section4/Page11) :octicons-link-16: | [MediaTek](../../Install/Section4/#install-the-mediatek-linkit-platform) :octicons-link-16: | [Microduino](../../Install/Section4/#install-the-microduino-platform) :octicons-link-16: | [panStamp](../../Legacy/Section4/Page14) :octicons-link-16: | [Particle](../../Legacy/Section4/Page15) :octicons-link-16:
+![](img/Logo-064-RedBearLab-no-brand.png) | ![](img/Logo-064-RFduino.png) | ![](img/Logo-064-Robotis.png) | ![](img/Logo-064-Simblee.png) | ![](img/Logo-064-TinyCircuits.png) | ![](img/Logo-064-UDOO.png)
+[RedBear](../../Legacy/Section4/Page16) :octicons-link-16: | [RFduino](../../Legacy/Section4/Page17) :octicons-link-16: | [Robotis](../../Legacy/Section4/Page18) :octicons-link-16: | [Simblee](../../Legacy/Section4/Page19) :octicons-link-16: | [TinyCircuits](../../Install/Section4/#install-the-tinycircuits-platform) :octicons-link-16: | [Udoo Neo](../../Install/Section4/#install-the-udoo-neo-platform) :octicons-link-16:
+![](img/Logo-064-Wiring.png) | | | | |
+[Wiring](../../Legacy/Section4/Page23) :octicons-link-16: | | | | |
+
+## Check the IDE and plug-in options
+
+The Wiring / Arduino framework is used by many different platforms, resulting in a complex set of IDEs, plug-ins, add-ons and libraries.
+
+For exact references,
+
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
+
+### Standard IDEs
+
+The standard IDEs are developed by the makers of boards. They are self-contained and used by other platforms, being either modified or complemented with plug-ins and add-ons.
+
+They came with their own specific name.
+
+. | Platform | Version | Name
+---- | ---- | ---- | ----
+![](img/Logo-064-Arduino-IDE.png) | [Arduino](../../Install/Section4/Arduino) :octicons-link-16: | 1.8 | Arduino
+![](img/Logo-064-Energia-1.png) | [LaunchPad](../../Install/Section4/LaunchPad) :octicons-link-16: | 1.6.10E18 | Energia
+![](img/Logo-064-Robotis.png) | [Robotis](../../Legacy/Section4/Page18) :octicons-link-16: | 1.0.2 | ROBOTIS_OpenCM
+![](img/Logo-064-Teensy-2.png) | [Teensy](../../Install/Section4/Teensy) :octicons-link-16: | Arduino 1.8 | Teensyduino
+
+### Arduino Boards Manager
+
+The Arduino 1.8.1 IDE downloads and installs those platforms through the **Boards Manager**.
+
+. | Platform | Boards | Boards for
+---- | ---- | ---- | ----
+![](img/Logo-064-Adafruit.png) | [Adafruit](../../Install/Section4/Adafruit) :octicons-link-16: | AVR, SAMD | Arduino
+![](img/Logo-064-ArduinoCC-TM.png) | [Arduino](../../Install/Section4/Arduino) :octicons-link-16: | AVR, SAM, SAMD, nRF52 | Arduino
+![](img/Logo-064-chipKIT-1.png) | [chipKIT](../../Install/Section4/#install-the-chipkit-platform) :octicons-link-16: | PIC32 | Arduino
+![](img/Logo-064-Espressif-Systems.png) | [Espressif](../../Install/Section4/Espressif) :octicons-link-16: | ESP8266 | Arduino
+![](img/Logo-064-Microsoft.png) | [Microsoft](../../Install/Section4/Microsoft) :octicons-link-16: | | Arduino
+![](img/Logo-064-LinkIt.png) | [MediaTek](../../Install/Section4/#install-the-mediatek-linkit-platform) :octicons-link-16: | One, Duo, ARM | Arduino
+![](img/Logo-064-Moteino.png) | [Moteino](../../Install/Section4/Moteino) :octicons-link-16: | AVR | Arduino
+![](img/Logo-064-Nordic.png) | [nRF5 boards](../../Install/Section4/Page11) :octicons-link-16: | nRF51, nRF52 | Arduino
+![](img/Logo-064-panStamp.png) | [panStamp](../../Install/Section4/#install-the-panstamp-platform) :octicons-link-16: | AVR, MSP430 | Arduino
+![](img/Logo-064-UDOO.png) | [Udoo Neo](../../Install/Section4/#install-the-udoo-neo-platform) :octicons-link-16: | | Arduino 1.6.5
+
+For exact references,
+
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
+
+### Arduino hardware sub-folder
+
+As an alternative to the **Boards Manager**, the Arduino 1.8.1 IDE manages the boards packages installed under the `hardware` sub-folder of the Arduino sketchbook folder.
+
+. | Platform | Boards | Boards for
+---- | ---- | ---- | ----
+![](img/Logo-064-Raspberry-Pi.png) | [RasPiArduino](../../Install/Section4/Page13) :octicons-link-16: | Raspberry Pi | Arduino
+
+### Energia Boards Manager
+
+The Energia 1.6.10E18 IDE downloads and installs those platforms through the **Boards Manager**.
+
+. | Platform | Boards | Boards for
+---- | ---- | ---- | ----
+![](img/Logo-064-Energia-1.png) | [LaunchPad](../../Install/Section4/LaunchPad) :octicons-link-16: | CC1310, CC3200, MSP432, Tiva C | Energia 1.6.10E18
+
+For exact references,
+
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
+
+### Plug-ins and add-ons
+
+For those platforms, a standard IDE is modified with a plug-in or an add-on. However, the modified IDE can be renamed to avoid possible conflicts.
+
+. | Platform | Plug-in for | Suggested name
+---- | ---- | ---- | ----
+![](img/Logo-064-Microduino.png) | [Microduino](../../Install/Section4/#install-the-microduino-platform) :octicons-link-16: | Arduino 1.0 | Microduino
+![](img/Logo-064-Microduino.png) | [Microduino](../../Install/Section4/#install-the-microduino-platform) :octicons-link-16: | Maple 0.0.12 | MapleIDE
+
+embedXcode finds the installation automatically, either as a plug-in or as a standalone IDE with the suggested name.
+
+For exact references,
+
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
+
+### IDE-less platforms
+
+Some boards only require a library for a standard IDE. Other boards are IDE-less and rely on a whole SDK managed directly by embedXcode.
+
+. | Platform | Standalone IDE | Library for
+---- | ---- | ---- | ----
+![](img/Logo-064-4D-Systems.png) | [4D Systems](../../Install/Section4/#install-the-4d-systems-platform) :octicons-link-16: | - | chipKIT
+![](img/Logo-064-DFRobot.png) | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) :octicons-link-16: | - | Arduino 1.6.5
+
+For exact references,
+
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
+
+For the legacy Particle platform,
+
++ Please refer to [Install the Particle platform](../../Legacy/Section4/Page15) :octicons-link-16:
