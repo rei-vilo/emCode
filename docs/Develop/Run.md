@@ -72,14 +72,17 @@ Some Segger J-Link debug probes can power the board with +5 V (300mA maximum, pi
 JLINK_POWER = 1
 ```
 
-+ Alternatively, enter the corresponding command on **JLinkExe**.
++ Alternatively, launch **JLinkExe**.
 
-``` bash
-$ JLinkExe
+``` bash dollar
+JLinkExe
+```
 
-J-Link> power on
++ Enter the corresponding command.
 
-J-Link> exit
+``` bash prefix="J-Link>"
+ power on
+ exit
 ```
 
 + Or enter the corresponding command on **Ozone**.
@@ -116,23 +119,25 @@ Alternatively,
 
 + Open a **Terminal** window,
 
-+ Launch the following commands after the `J-Link>` prompt.
++ Launch J-Link.
 
-``` bash
-$ JLinkExe
+``` bash dollar
+JLinkExe
+```
 
-J-Link> vcom enable
-The new configuration applies after power cycling the debug probe.
++ Run the following commands after the `J-Link>` prompt.
 
-J-Link> exit
+``` bash prefix="J-Link>"
+vcom enable
+exit
 ```
 
 If the probe has the serial number `123456789`, the serial port is re-routed to `/dev/tty.usbmodem000123456789`.
 
 + Just open a **Terminal** window and launch the following command with the correct speed.
 
-``` bash
-$ screen /dev/tty.usbmodem000123456789 9600
+``` bash dollar
+screen /dev/tty.usbmodem000123456789 9600
 ```
 
 To disable it,
@@ -143,15 +148,17 @@ Alternatively,
 
 + Open a **Terminal** window,
 
-+ Launch the following commands after the `J-Link>` prompt.
++ Launch J-Link.
 
-``` bash
-$ JLinkExe
+``` bash dollar
+JLinkExe
+```
 
-J-Link> vcom disable
-The new configuration applies after power cycling the debug probe.
++ Run the following commands after the `J-Link>` prompt.
 
-J-Link> exit
+``` bash prefix="J-Link>"
+ vcom disable
+ exit
 ```
 
 For more information,
@@ -176,7 +183,7 @@ After the first time,
 
 Some boards require a specific procedure.
 
-+ Please refer to the **Debug** section for the board under [Manage the boards](../../Boards/) :octicons-link-16:.
++ Please refer to the **Debug** section for the board under [Manage the boards](../../Boards/).
 
 ## Debug the project with Ozone
 

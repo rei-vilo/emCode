@@ -17,8 +17,7 @@ To install the Arduino nRF52840 boards,
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install arduino:nrf52
 ```
 
@@ -34,6 +33,8 @@ To use the Bluetooth library provided with the boards package,
 APP_LIBS_LIST = BLE
 ```
 
++ Include in the main sketch
+
 ``` CPP
 #include "BLECentralRole.h"
 #include "BLEPeripheral.h"
@@ -41,7 +42,7 @@ APP_LIBS_LIST = BLE
 
 ### Use the low-power library
 
-To use the Arduino Low-Power library,  
+To use the Arduino Low-Power library,
 
 + Edit the main `M̀akefile` with
 
@@ -62,7 +63,7 @@ To use the RTC library provided with the boards package,
 + Edit the main `M̀akefile` with
 
 ``` CMake
-APP_LIBS_LIST = RTCInt 
+APP_LIBS_LIST = RTCInt
 ```
 
 + Include in the main sketch
@@ -76,7 +77,7 @@ To use the RTC Zero library,
 + Edit the main `M̀akefile` with
 
 ``` CMake
-USER_LIBS_LIST = RTCZero 
+USER_LIBS_LIST = RTCZero
 ```
 
 + Include in the main sketch

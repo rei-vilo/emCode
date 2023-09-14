@@ -10,9 +10,7 @@ The 4D Systems boards combine a colour touch screen with a controller.
 
 + The PICadillo-35T board combines a PIC32 MCU with a 480x320 TFT screen. The IDE used to be MPIDE with additional files and the specific TFT display library. As MPIDE is deprecated, the board is supported by the Arduino IDE with the chipKIT boards package.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:,  [chipKIT](../../Appendixes/Glossary/#chipkit) :octicons-link-16:, [MPIDE](../../Appendixes/Glossary/#mpide) :octicons-link-16:
->
->*Install*: [Install the chipKIT platform](../../Legacy/Section4/Page2) :octicons-link-16:, [Install the 4D Systems platform](../../Legacy/Section4/Page3) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards),  [chipKIT](#chipkit), [MPIDE](#mpide)
 
 ## Adafruit
 
@@ -20,13 +18,13 @@ Adafruit offers a large range of highly-compact boards based on the ATtiny85x an
 
 The installation of the Adafruit boards is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards)
 >
->*Install*: [Install the Adafruit platform](../../Install/Section4/Adafruit) :octicons-link-16:
+>*Install*: [Install the Adafruit platform](../../Install/Section4/Adafruit)
 >
->*Upload*: [Upload to Adafruit Trinket and Pro Trinket boards](../../Advanced/Specific-1/#upload-to-adafruit-trinket-and-pro-trinket-boards) :octicons-link-16:, [Upload to Feather M0 and M4 boards](../../Advanced/Specific-1/#upload-to-feather-m0-and-m4-boards) :octicons-link-16:
+>*Upload*: [Upload to Adafruit Trinket and Pro Trinket boards](../../Boards/Adafruit/AVR/#upload), [Upload to Feather nRF52](../../Boards/Adafruit/nRF52/#upload), [Upload to Feather M0 and M4 boards](../../Boards/Adafruit/Cortex-M/#upload)
 >
->*Debug*: [Check the configuration](../../Debug/Section3/) :octicons-link-16:
+>*Debug*: [Debug Feather nRF52](../../Boards/Adafruit/nRF52/#debug), [Debug Feather M0 and M4](../../Boards/Adafruit/Cortex-M/#debug)
 
 ## Application libraries
 
@@ -40,7 +38,7 @@ They require to be explicitly mentioned with the `#include` statement on the mai
 
 The embedXcode+ edition lists all the application libraries for the selected platform on the main `Makefile`.
 
->*Related entries*: [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [Libraries](../../Appendixes/Glossary/#libraries) :octicons-link-16:
+>*Related entries*: [Framework](#framework), [Libraries](#libraries)
 
 ## Architecture
 
@@ -58,7 +56,7 @@ Other characteristics include the structure of the hardware and the instruction 
 
 Each architecture requires its dedicated tool-chain.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [MCU](../../Appendixes/Glossary/#mcu) :octicons-link-16:, [Particle](../../Appendixes/Glossary/#particle) :octicons-link-16:, [Platform](../../Appendixes/Glossary/#platform) :octicons-link-16:, [Tool-chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [MCU](#mcu), [Particle](#particle), [Platform](#platform), [Tool-chain](#tool-chain)
 
 ## ArduCAM
 
@@ -68,11 +66,11 @@ The ArduCAM CC3200 is based on the CC3200 and runs on Energia.
 
 The ArduCAM ESP8266 is based on ESP8266 and runs on Arduino 1.6 IDE. The installation is performed with the **Boards Manager**.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Energia](../../Appendixes/Glossary/#energia) :octicons-link-16:, [ESP8266](../../Appendixes/Glossary/#esp8266) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [Energia](#energia), [ESP8266](#esp8266)
+<!-- >
+>*Install*: [Install the ArduCAM platform](../../Legacy/Section4/Page1)
 >
->*Install*: [Install the ArduCAM platform](../../Legacy/Section4/Page1) :octicons-link-16:
->
->*Upload*: [Upload to ArduCAM CC3200 Board](../../Legacy/Section4/#upload-to-arducam-cc3200-board) :octicons-link-16:
+>*Upload*: [Upload to ArduCAM CC3200 Board](../../Legacy/Section4/#upload-to-arducam-cc3200-board) -->
 
 ## Arduino
 
@@ -96,13 +94,13 @@ The boards are based on two major architectures, one 8-bit, others 32-bit:
 
 The Arduino IDE version 1.8 now supports all the boards from previous organisations and IDEs, Arduino.CC with IDE version 1.6 and Arduino.ORG with IDE version 1.7.
 
->*Related entries*: [4D Systems](../../Appendixes/Glossary/#4d-systems) :octicons-link-16:, [Adafruit](../../Appendixes/Glossary/#adafruit) :octicons-link-16:, [Architecture](../../Appendixes/Glossary/#architecture) :octicons-link-16:, [ArduCAM](../../Appendixes/Glossary/#arduCAM) :octicons-link-16:, [ARM mbed](../../Appendixes/Glossary/#arm-mbed) :octicons-link-16:, [ATTinyCore](../../Appendixes/Glossary/#attinycore) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [DFRobot](../../Appendixes/Glossary/#dFRobot) :octicons-link-16:, [ESP32](../../Appendixes/Glossary/#esp32) :octicons-link-16:, [ESP8266](../../Appendixes/Glossary/#esp8266) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [Glowdeck](../../Appendixes/Glossary/#glowdeck) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Intel](../../Appendixes/Glossary/#intel) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:, [LightBlue Bean](../../Appendixes/Glossary/#lightBlue Bean) :octicons-link-16:, [Little Robot Friends](../../Appendixes/Glossary/#little Robot Friends) :octicons-link-16:, [MediaTek LinkIt](../../Appendixes/Glossary/#mediaTek LinkIt) :octicons-link-16:, [Microduino](../../Appendixes/Glossary/#microduino) :octicons-link-16:, [Microsoft](../../Appendixes/Glossary/#microsoft) :octicons-link-16:, [Moteino](../../Appendixes/Glossary/#moteino) :octicons-link-16:, [MPIDE](../../Appendixes/Glossary/#mpide) :octicons-link-16:, [panStamp](../../Appendixes/Glossary/#panStamp) :octicons-link-16:, [Particle](../../Appendixes/Glossary/#particle) :octicons-link-16:, [RedBear](../../Appendixes/Glossary/#redbear) :octicons-link-16:, [RFduino](../../Appendixes/Glossary/#rfduino) :octicons-link-16:, [Seeeduino](../../Appendixes/Glossary/#seeeduino) :octicons-link-16:, [Simblee](../../Appendixes/Glossary/#simblee) :octicons-link-16:, [TinyCircuits](../../Appendixes/Glossary/#tinyCircuits) :octicons-link-16:, [Udoo Neo](../../Appendixes/Glossary/#udoo-neo) :octicons-link-16:
+>*Related entries*: [4D Systems](#4d-systems), [Adafruit](#adafruit), [Architecture](#architecture), [ArduCAM](#arduCAM), [ARM mbed](#arm-mbed), [ATTinyCore](#attinycore), [Boards](#boards), [DFRobot](#dFRobot), [ESP32](#esp32), [ESP8266](#esp8266), [Framework](#framework), [Glowdeck](#glowdeck), [IDE](#ide), [Intel](#intel), [Internet of Things](#internet-of-things), [LightBlue Bean](#lightblue-bean), [Little Robot Friends](#little-robot-friends), [MediaTek LinkIt](#mediatek-linkit), [Microduino](#microduino), [Microsoft](#microsoft), [Moteino](#moteino), [MPIDE](#mpide), [panStamp](#panstamp), [Particle](#particle), [RedBear](#redbear), [RFduino](#rfduino), [Seeeduino](#seeeduino), [Simblee](#simblee), [TinyCircuits](#tinyCircuits), [Udoo Neo](#udoo-neo)
 >
->*Install*: [Install the Arduino platform](../../Install/Section4/Arduino) :octicons-link-16:
+>*Install*: [Install the Arduino platform](../../Install/Section4/Arduino)
 >
->*Upload*: [Upload to Arduino Leonardo](../../Advanced/Specific-1/#upload-to-arduino-leonardo) :octicons-link-16:, [Upload to Arduino Y&uacute;n using Ethernet or WiFi](../../Advanced/Specific-1/#upload-to-arduino-yn-using-ethernet-or-wifi) :octicons-link-16:, [Upload to Arduino M0 Pro](../../Advanced/Specific-1/#upload-to-arduino-m0-pro) :octicons-link-16:, [Upload to Arduino Zero](../../Advanced/Specific-1/#upload-to-arduino-zero) :octicons-link-16:
+>*Upload*: [Upload to Arduino Leonardo](../../Advanced/Specific-1/#upload-to-arduino-leonardo), [Upload to Arduino Y&uacute;n using Ethernet or WiFi](../../Advanced/Specific-1/#upload-to-arduino-yn-using-ethernet-or-wifi), [Upload to Arduino M0 Pro](../../Advanced/Specific-1/#upload-to-arduino-m0-pro), [Upload to Arduino Zero](../../Advanced/Specific-1/#upload-to-arduino-zero)
 >
->*Debug*: [Check the configuration](../../Debug/Section3/) :octicons-link-16:, [Connect the Segger J-Link to the Arduino Due](../../Debug/Section3/#connect-the-segger-j-link-to-the-arduino-due) :octicons-link-16:, [Select the USB Port for the Arduino M0 Pro](../../Debug/Section3/#select-the-usb-port-for-the-arduino-m0-pro) :octicons-link-16:
+>*Debug*: [Check the configuration](../../Debug/Section3/), [Connect the Segger J-Link to the Arduino Due](../../Debug/Section3/#connect-the-segger-j-link-to-the-arduino-due), [Select the USB Port for the Arduino M0 Pro](../../Debug/Section3/#select-the-usb-port-for-the-arduino-m0-pro)
 
 ## ARM mbed
 
@@ -120,11 +118,11 @@ The Mbed-OS is also used as an underlying SDK for the Arduino framework, for exa
 
 The Nucleo boards are now supported by the STM32duino platform.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [Freedom](../../Appendixes/Glossary/#freedom) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [Nordic](../../Appendixes/Glossary/#nordic) :octicons-link-16:, [Nucleo](../../Appendixes/Glossary/#nucleo) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:, [RedBear](../../Appendixes/Glossary/#redbear) :octicons-link-16:,  [STM32duino](../../Appendixes/Glossary/#stm32duino) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [C++ language](#c-language), [Framework](#framework), [Freedom](#freedom), [GCC GNU Compiler Collection](#gnu-compiler-collection), [Nordic](#nordic), [Nucleo](#nucleo), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger), [RedBear](#redbear),  [STM32duino](#stm32duino)
+<!-- >
+>*Install*: [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework)
 >
->*Install*: [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework) :octicons-link-16:
->
->*Upload*: [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards) :octicons-link-16:
+>*Upload*: [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards) -->
 
 ## ATtinyCore
 
@@ -132,19 +130,19 @@ The ATtinyCore supports the ATtiny MCUs.
 
 The installation of the ATtinyCore boards is  performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards)
 >
->*Install*: [Install the ATtinyCore platform](../../Install/Section4/#install-the-attinycore-platform) :octicons-link-16:
+>*Install*: [Install the ATtinyCore platform](../../Install/Section4/#install-the-attinycore-platform)
 
 ## BBC micro:bit
 
 The BBC micro:bit is built around the Nordic nRF51 with a Bluetooth radio. It also features a hardware debugger.
 
->*Related entries*: [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:
+>*Related entries*: [Boards](#boards), [Debugger](#debugger)
 >
->*Install*: [Install the BBC micro:bit board](../../Install/Section4/Page10) :octicons-link-16:
+>*Install*: [Install the BBC micro:bit board](../../Install/Section4/Page10)
 >
->*Upload*: [Reset the BBC micro:bit board to factory default](../../Advanced/Specific-2/#reset-the-bbc-microbit-board-to-factory-default) :octicons-link-16:
+>*Upload*: [Reset the BBC micro:bit board to factory default](../../Advanced/Specific-2/#reset-the-bbc-microbit-board-to-factory-default)
 
 ## BeagleBone
 
@@ -152,11 +150,11 @@ The BeagleBone is a board featuring a Cortex-A8 AM3358 processor from Texas Inst
 
 Support for the BeagleBone board has been discontinued since embedXcode release 5.0.
 
->*Related entries*: [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:
+>*Related entries*: [Boards](#boards)
+<!-- >
+>*Install*: [Install the BeagleBone board](../../Legacy/Section7/#install-the-beaglebone-board)
 >
->*Install*: [Install the BeagleBone board](../../Legacy/Section7/#install-the-beaglebone-board) :octicons-link-16:
->
->*Upload*: [Upload to BeagleBone board](../../Legacy/Section7/#upload-to-beaglebone-board) :octicons-link-16:
+>*Upload*: [Upload to BeagleBone board](../../Legacy/Section7/#upload-to-beaglebone-board) -->
 
 ## Boards
 
@@ -172,7 +170,7 @@ The IDE includes the tool-chain specific to the boards.
 
 For the mbed framework, the boards feature an ARM Cortex-M0, -M0+, M3 or M4, use the same mbed SDK on the GCC tool-chain.
 
->*Related entries*: [4D Systems](../../Appendixes/Glossary/#4d-systems) :octicons-link-16:, [Adafruit](../../Appendixes/Glossary/#adafruit) :octicons-link-16:, [Architecture](../../Appendixes/Glossary/#architecture) :octicons-link-16:, [ArduCAM](../../Appendixes/Glossary/#arduCAM) :octicons-link-16:, [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [ARM mbed](../../Appendixes/Glossary/#arm-mbed) :octicons-link-16:, [ATTinyCore](../../Appendixes/Glossary/#attinycore) :octicons-link-16:, [BBC micro:bit](../../Appendixes/Glossary/#bbc-microbit) :octicons-link-16:, [BeagleBone](../../Appendixes/Glossary/#beagleBone) :octicons-link-16:, [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [chipKIT](../../Appendixes/Glossary/#chipkit) :octicons-link-16:, [DFRobot](../../Appendixes/Glossary/#dFRobot) :octicons-link-16:, [Digistump](../../Appendixes/Glossary/#digistump) :octicons-link-16:, [ESP32](../../Appendixes/Glossary/#esp32) :octicons-link-16:, [ESP8266](../../Appendixes/Glossary/#esp8266) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [Freedom](../../Appendixes/Glossary/#freedom) :octicons-link-16:, [Glowdeck](../../Appendixes/Glossary/#glowdeck) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Intel](../../Appendixes/Glossary/#intel) :octicons-link-16:, [LaunchPad](../../Appendixes/Glossary/#launchPad) :octicons-link-16:, [LightBlue Bean](../../Appendixes/Glossary/#lightBlue Bean) :octicons-link-16:, [Little Robot Friends](../../Appendixes/Glossary/#little Robot Friends) :octicons-link-16:, [Maple](../../Appendixes/Glossary/#maple) :octicons-link-16:, [MCU](../../Appendixes/Glossary/#mcu) :octicons-link-16:, [MediaTek LinkIt](../../Appendixes/Glossary/#mediaTek LinkIt) :octicons-link-16:, [Microduino](../../Appendixes/Glossary/#microduino) :octicons-link-16:, [Microsoft](../../Appendixes/Glossary/#microsoft) :octicons-link-16:, [Moteino](../../Appendixes/Glossary/#moteino) :octicons-link-16:, [Nordic](../../Appendixes/Glossary/#nordic) :octicons-link-16:, [Nucleo](../../Appendixes/Glossary/#nucleo) :octicons-link-16:, [panStamp](../../Appendixes/Glossary/#panStamp) :octicons-link-16:, [Particle](../../Appendixes/Glossary/#particle) :octicons-link-16:, [Platform](../../Appendixes/Glossary/#platform) :octicons-link-16:, [RedBear](../../Appendixes/Glossary/#redbear) :octicons-link-16:, [RFduino](../../Appendixes/Glossary/#rfduino) :octicons-link-16:, [Robotis](../../Appendixes/Glossary/#robotis) :octicons-link-16:, [Seeeduino](../../Appendixes/Glossary/#seeeduino) :octicons-link-16:, [Simblee](../../Appendixes/Glossary/#simblee) :octicons-link-16:, [Teensy](../../Appendixes/Glossary/#teensy) :octicons-link-16:, [TinyCircuits](../../Appendixes/Glossary/#tinyCircuits) :octicons-link-16:, [Udoo Neo](../../Appendixes/Glossary/#udoo-neo) :octicons-link-16:, [Wiring](../../Appendixes/Glossary/#wiring) :octicons-link-16:
+>*Related entries*: [4D Systems](#4d-systems), [Adafruit](#adafruit), [Architecture](#architecture), [ArduCAM](#arduCAM), [Arduino](#arduino), [ARM mbed](#arm-mbed), [ATTinyCore](#attinycore), [BBC micro:bit](#bbc-microbit), [BeagleBone](#beagleBone), [C++ language](#c-language), [chipKIT](#chipkit), [DFRobot](#dFRobot), [Digistump](#digistump), [ESP32](#esp32), [ESP8266](#esp8266), [Framework](#framework), [Freedom](#freedom), [Glowdeck](#glowdeck), [IDE](#ide), [Intel](#intel), [LaunchPad](#launchpad), [LightBlue Bean](#lightBlue-Bean), [Little Robot Friends](#little-robot-friends), [Maple](#maple), [MCU](#mcu), [MediaTek LinkIt](#mediatek-linkit), [Microduino](#microduino), [Microsoft](#microsoft), [Moteino](#moteino), [Nordic](#nordic), [Nucleo](#nucleo), [panStamp](#panstamp), [Particle](#particle), [Platform](#platform), [RedBear](#redbear), [RFduino](#rfduino), [Robotis](#robotis), [Seeeduino](#seeeduino), [Simblee](#simblee), [Teensy](#teensy), [TinyCircuits](#tinyCircuits), [Udoo Neo](#udoo-neo), [Wiring](#wiring)
 
 ## C++ language
 
@@ -180,7 +178,7 @@ The C++ is a programming language based on the C language. It features object-or
 
 It is used for programming the embedded computing boards.
 
->*Related entries*: [ARM mbed](../../Appendixes/Glossary/#arm mbed) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [File .cpp](../../Appendixes/Glossary/#file-cpp) :octicons-link-16:, [File .h](../../Appendixes/Glossary/#file-h) :octicons-link-16:, [File .hpp](../../Appendixes/Glossary/#file-hpp) :octicons-link-16:, [File .ino](../../Appendixes/Glossary/#file-ino) :octicons-link-16:, [File .pde](../../Appendixes/Glossary/#file-pde) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Sketch](../../Appendixes/Glossary/#sketch) :octicons-link-16:, [Tool-Chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:
+>*Related entries*: [ARM mbed](#arm mbed), [Boards](#boards), [File `.cpp`](#file-cpp), [File `.h`](#file-h), [File `.hpp`](#file-hpp), [File `.ino`](#file-ino), [File `.pde`](#file-pde), [Framework](#framework), [IDE](#ide), [Sketch](#sketch), [Tool-Chain](#tool-chain)
 
 ## chipKIT
 
@@ -190,13 +188,13 @@ The IDE used to be MPIDE. The installation of the chipKIT board is now performed
 
 An optional chipKIT PGM provides an external programmer-debugger to the chipKIT boards.
 
->*Related entries*: [4D Systems](../../Appendixes/Glossary/#4d-systems) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:, [MPIDE](../../Appendixes/Glossary/#mpide) :octicons-link-16:
+>*Related entries*: [4D Systems](#4d-systems), [Boards](#boards), [Debugger](#debugger), [MPIDE](#mpide)
+<!-- >
+>*Install*: [Install the chipKIT platform](../../Legacy/Section4/Page2)
 >
->*Install*: [Install the chipKIT platform](../../Legacy/Section4/Page2) :octicons-link-16:
+>*Upload*: [Upload to chipKIT boards using a programmer-debugger](../../Legacy/Section4/#upload-to-chipkit-boards-using-a-programmer-debugger)
 >
->*Upload*: [Upload to chipKIT boards using a programmer-debugger](../../Legacy/Section4/#upload-to-chipkit-boards-using-a-programmer-debugger) :octicons-link-16:
->
-> *Debug*: [Debug the chipKIT boards with MDB](../../Legacy/Section4/#debug-the-chipkit-boards-with-mdb) :octicons-link-16:
+> *Debug*: [Debug the chipKIT boards with MDB](../../Legacy/Section4/#debug-the-chipkit-boards-with-mdb) -->
 
 ## Core libraries
 
@@ -214,7 +212,7 @@ This is done with
 
 + the `#include "WProgram.h"` for the chipKIT MPIDE and Maple IDE platforms.
 
->*Related entries*: [File .h](../../Appendixes/Glossary/#file-h) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [Libraries](../../Appendixes/Glossary/#libraries) :octicons-link-16:
+>*Related entries*: [File `.h`](#file-h), [Framework](#framework), [Libraries](#libraries)
 
 ## Cosa
 
@@ -222,9 +220,9 @@ Cosa is an object-oriented framework compatible with Arduino for the AVR-based b
 
 The installation of the Cosa framework is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:
->
->*Install*: [Install the Cosa framework](../../Legacy/Section6/#install-the-cosa-framework) :octicons-link-16:
+>*Related entries*: [Framework](#framework)
+<!-- >
+>*Install*: [Install the Cosa framework](../../Legacy/Section6/#install-the-cosa-framework) -->
 
 ## Debugger
 
@@ -242,7 +240,7 @@ To use the hardware debugger, two external applications are required, based on a
 
 The chipKIT PGM provides an external programmer-debugger to the chipKIT boards.
 
->*Related entries*: [BBC micro:bit](../../Appendixes/Glossary/#bbc-microbit) :octicons-link-16:, [chipKIT](../../Appendixes/Glossary/#chipkit) :octicons-link-16:, [Energia](../../Appendixes/Glossary/#energia) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [LaunchPad](../../Appendixes/Glossary/#launchPad) :octicons-link-16:, [GDB GNU Debugger](../../Appendixes/Glossary/#gnu-debugger) :octicons-link-16:,  [MPIDE](../../Appendixes/Glossary/#mpide) :octicons-link-16:, [MSPDebug](../../Appendixes/Glossary/#mspdebug) :octicons-link-16:, [Segger J-Link programmer-debugger](../../Appendixes/Glossary/#segger-j-link-programmer-debugger) :octicons-link-16:, [Tool-chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:, [XDS110 programmer-debugger](../../Appendixes/Glossary/#xds110-programmer-debugger) :octicons-link-16:
+>*Related entries*: [BBC micro:bit](#bbc-microbit), [chipKIT](#chipkit), [Energia](#energia), [IDE](#ide), [LaunchPad](#launchpad), [GDB GNU Debugger](#gnu-debugger),  [MPIDE](#mpide), [MSPDebug](#mspdebug), [Segger J-Link programmer-debugger](#segger-j-link-programmer-debugger), [Tool-chain](#tool-chain), [XDS110 programmer-debugger](#xds110-programmer-debugger)
 
 ## DFRobot
 
@@ -252,9 +250,9 @@ The BLuno board integrates Bluetooth 4.0 or BLE into a standard Arduino Uno boar
 
 The BLuno board is considered as a standard Arduino Uno board and the Wido board as a standard Arduino Leonardo board, so no specific plug-in is required.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards)
 >
->*Install*: [Install the DFRobot platform](../../Install/Section4/#install-the-dfrobot-platform) :octicons-link-16:
+>*Install*: [Install the DFRobot platform](../../Install/Section4/#install-the-dfrobot-platform)
 
 ## Digistump
 
@@ -268,13 +266,15 @@ The coming Oak is based on the popular ESP8266.
 
 The installation of the Digistump boards is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:
+>*Related entries*: [Boards](#boards)
+<!-- >
+>*Install*: [Install the Digistump platform](../../Legacy/Section4/Page5)
 >
->*Install*: [Install the Digistump platform](../../Legacy/Section4/Page5) :octicons-link-16:
->
->*Upload*: [Upload to Digistump boards](../../Legacy/Section4/#upload-to-digistump-boards) :octicons-link-16:
+>*Upload*: [Upload to Digistump boards](../../Legacy/Section4/#upload-to-digistump-boards) -->
 
 ## embedXcode
+
+embedXcode is deprecated and replaced by emCode.
 
 embedXcode is a template for Xcode. It eases development for the most popular embedded computing boards.
 
@@ -282,31 +282,45 @@ It comes in two editions. The embedXcode standard edition focuses on core featur
 
 Just like embedXcode for the boards running on the Wiring / Arduino framework, embedXcode relies on the IDEs of the boards for the frameworks and tool-chains.
 
-The features specific to each edition are listed at [Compare the editions](../Appendixes/Section1/#compare-the-editions) :octicons-link-16:.
+The features specific to each edition are listed at [Compare the editions](../Appendixes/Section1/#compare-the-editions).
 
 embedXcode relies on the IDEs of the boards for the frameworks and tool-chains.
 
->*Related entries*: [embedXcode standard edition](../../Appendixes/Glossary/#embedxcode-standard-edition) :octicons-link-16:, [embedXcode+ edition](../../Appendixes/Glossary/#embedxcode-edition) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Xcode](../../Appendixes/Glossary/#xcode) :octicons-link-16:
+>*Related entries*: [embedXcode standard edition](#embedxcode-standard-edition), [embedXcode+ edition](#embedxcode-edition), [emCode](#emcode), [Framework](#framework), [IDE](#ide), [Visual Studio Code](#visual-studio-code), [Xcode](#xcode)
 
 ## embedXcode standard edition
+
+embedXcode is deprecated and replaced by emCode.
 
 embedXcode is a template for Xcode. It eases development for the most popular embedded computing boards.
 
 The embedXcode standard edition focuses on core features.
 
-The features specific the embedXcode standard edition are listed at [Compare the editions](../Appendixes/Section1/#compare-the-editions) :octicons-link-16:.
+The features specific the embedXcode standard edition are listed at [Compare the editions](../Appendixes/Section1/#compare-the-editions).
 
->*Related entries*: [embedXcode](../../Appendixes/Glossary/#embedxcode) :octicons-link-16:, [embedXcode+ edition](../../Appendixes/Glossary/#embedxcode-edition) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Xcode](../../Appendixes/Glossary/#xcode) :octicons-link-16:
+>*Related entries*: [embedXcode](#embedxcode), [embedXcode+ edition](#embedxcode-edition), [emCode](#emcode), [Framework](#framework), [IDE](#ide), [Visual Studio Code](#visual-studio-code), [Xcode](#xcode)
 
 ## embedXcode+ edition
+
+embedXcode is deprecated and replaced by emCode.
 
 embedXcode is a template for Xcode. It eases development for the most popular embedded computing boards.
 
 The embedXcode+ edition provides extended functionalities like project sharing and external debugging.
 
-The features specific the embedXcode+ edition are listed at [Compare the editions](../Appendixes/Section1/#compare-the-editions) :octicons-link-16:.
+The features specific the embedXcode+ edition are listed at [Compare the editions](../Appendixes/Section1/#compare-the-editions).
 
->*Related entries*: [embedXcode](../../Appendixes/Glossary/#embedxcode) :octicons-link-16:, [embedXcode standard edition](../../Appendixes/Glossary/#embedxcode-standard-edition) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Xcode](../../Appendixes/Glossary/#xcode) :octicons-link-16:
+>*Related entries*: [embedXcode](#embedxcode), [embedXcode standard edition](#embedxcode-standard-edition), [emCode](#emcode), [Framework](#framework), [IDE](#ide), [Visual Studio Code](#visual-studio-code), [Xcode](#xcode)
+
+## emCode
+
+emCode is a set of tools to ease development for the most popular embedded computing boards.
+
+emCode still relies on the Arduino SDK but no longer targets Apple hardware and software. Instead, it is designed to be used with the excellent Visual Studio Code IDE on Linux or Windows Linux Sub-system (WSL).
+
+>*Related entries*: [IDE](#ide), [Visual Studio Code](#visual-studio-code)
+>
+>*Install*: [Install emCode](../Install/index.md)
 
 ## Energia
 
@@ -316,7 +330,7 @@ Although all the LaunchPad line of boards managed by Energia include a hardware 
 
 So embedXcode uses two external applications and tools for debugging: GDB, or GNU debugger, already included in the GCC tool-chain, and OpenOCD, or Open On-Chip Debugger.
 
->*Related entries*: [ArduCAM](../../Appendixes/Glossary/#arduCAM) :octicons-link-16:, [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:, [Energia MT](../../Appendixes/Glossary/#energia MT) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [LaunchPad](../../Appendixes/Glossary/#launchPad) :octicons-link-16:, [Open On- Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:, [RedBear](../../Appendixes/Glossary/#redbear) :octicons-link-16:, [XDS110 programmer-debugger](../../Appendixes/Glossary/#xds110-programmer-debugger) :octicons-link-16:
+>*Related entries*: [ArduCAM](#arduCAM), [Debugger](#debugger), [Energia MT](#energia MT), [GCC GNU Compiler Collection](#gnu-compiler-collection), [IDE](#ide), [LaunchPad](#launchpad), [Open On- Chip Debugger](#open-on-chip-debugger), [RedBear](#redbear), [XDS110 programmer-debugger](#xds110-programmer-debugger)
 
 ## Energia MT
 
@@ -324,7 +338,7 @@ Energia Multi-Tasking or Energia MT is an extension of Energia based on TI-RTOS,
 
 The Galaxia Library provides the main RTOS elements encapsulated in easy-to-use objects.
 
->*Related entries*: [Energia](../../Appendixes/Glossary/#energia) :octicons-link-16:, [LaunchPad](../../Appendixes/Glossary/#launchPad) :octicons-link-16:
+>*Related entries*: [Energia](#energia), [LaunchPad](#launchpad)
 
 ## ESP32
 
@@ -334,13 +348,13 @@ There are many boards based on the ESP32, to be programmed using the Wiring / Ar
 
 The installation of the ESP32 board is performed with the **Boards Manager** on the Arduino IDE with a modified file and specific libraries for WiFi and Bluetooth.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [ESP8266](../../Appendixes/Glossary/#esp8266) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [ESP8266](#esp8266), [IDE](#ide), [Internet of Things](#internet-of-things)
 >
->*Install*: [Install the Espressif platform](../../Install/Section4/Espressif) :octicons-link-16:
+>*Install*: [Install the Espressif platform](../../Install/Section4/Espressif)
 >
-> *Upload*: [Upload to ESP32 boards using WiFi](../../Advanced/Specific-1/#upload-to-esp32-boards-using-wifi) :octicons-link-16:
+> *Upload*: [Upload to ESP32 boards using WiFi](../../Advanced/Specific-1/#upload-to-esp32-boards-using-wifi)
 >
-> *Debug*: [Install the OpenOCD driver for ESP32](../../Install/Section4/#install-the-openocd-driver-for-esp32) :octicons-link-16:, [Connect the ESP-Prog to the ESP32 board](../../Debug/Section3/#connect-the-esp-prog-to-the-esp32-board) :octicons-link-16:
+> *Debug*: [Install the OpenOCD driver for ESP32](../../Install/Section4/#install-the-openocd-driver-for-esp32), [Connect the ESP-Prog to the ESP32 board](../../Debug/Section3/#connect-the-esp-prog-to-the-esp32-board)
 
 ## ESP8266
 
@@ -352,13 +366,13 @@ The NodeMCU boards support over-the-air upload.
 
 The installation of the ESP8266 board is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [ArduCAM](../../Appendixes/Glossary/#arduCAM) :octicons-link-16:, [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [ESP32](../../Appendixes/Glossary/#esp32) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
+>*Related entries*: [ArduCAM](#arduCAM), [Arduino](#arduino), [Boards](#boards), [ESP32](#esp32), [IDE](#ide), [Internet of Things](#internet-of-things)
 >
->*Install*: [Install the Espressif platform](../../Install/Section4/Espressif) :octicons-link-16:, [Install the NodeMCU platform](../../Install/Section4/#install-the-nodemcu-board) :octicons-link-16:
+>*Install*: [Install the Espressif platform](../../Install/Section4/Espressif), [Install the NodeMCU platform](../../Install/Section4/#install-the-nodemcu-board)
 >
->*Upload*: [Upload to NodeMCU 1.0 board](../../Advanced/Specific-1/#upload-to-nodemcu-10-board) :octicons-link-16:, [Upload to ESP8266 NodeMCU boards using WiFi](../../Advanced/Specific-1/#upload-to-esp8266-nodemcu-boards-using-wifi) :octicons-link-16:
+>*Upload*: [Upload to NodeMCU 1.0 board](../../Advanced/Specific-1/#upload-to-nodemcu-10-board), [Upload to ESP8266 NodeMCU boards using WiFi](../../Advanced/Specific-1/#upload-to-esp8266-nodemcu-boards-using-wifi)
 
-## File .cpp
+## File `.cpp`
 
 File extension for C++ code file.
 
@@ -366,15 +380,15 @@ The `.cpp` C++ code file defines the classes and functions declared in a `.h` he
 
 The files with `.pde` or `.ino` extensions are actually C++ code.
 
->*Related entries*: [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [File .h](../../Appendixes/Glossary/#file-h) :octicons-link-16:, [File .hpp](../../Appendixes/Glossary/#file-hpp) :octicons-link-16:, [File .ino](../../Appendixes/Glossary/#file-ino) :octicons-link-16:, [File .pde](../../Appendixes/Glossary/#file-pde) :octicons-link-16:, [Sketch](../../Appendixes/Glossary/#sketch) :octicons-link-16:
+>*Related entries*: [C++ language](#c-language), [File `.h`](#file-h), [File `.hpp`](#file-hpp), [File `.ino`](#file-ino), [File `.pde`](#file-pde), [Sketch](#sketch)
 
-## File .docset
+## File `.docset`
 
 File extension for documentation set, Apple's proprietary format for Xcode help.
 
->*Related entries*: [File .tex](../../Appendixes/Glossary/#file-tex) :octicons-link-16:
+>*Related entries*: [File `.tex`](#file-tex)
 
-## File .h
+## File `.h`
 
 File extension for header file.
 
@@ -384,9 +398,9 @@ A header file also lists the required libraries with `#include` statements.
 
 Among other libraries, it is highly recommended to mention the core libraries. This is done using one single `#include` statement.
 
->*Related entries*: [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [Core libraries](../../Appendixes/Glossary/#core-libraries) :octicons-link-16:, [File .cpp](../../Appendixes/Glossary/#file-cpp) :octicons-link-16:, [File .hpp](../../Appendixes/Glossary/#file-hpp) :octicons-link-16:, [Libraries](../../Appendixes/Glossary/#libraries) :octicons-link-16:
+>*Related entries*: [C++ language](#c-language), [Core libraries](#core-libraries), [File `.cpp`](#file-cpp), [File `.hpp`](#file-hpp), [Libraries](#libraries)
 
-## File .hpp
+## File `.hpp`
 
 Same as `.h`, but aimed at a `.cpp` C++ code file.
 
@@ -396,9 +410,9 @@ The embedXcode+ edition accepts both `.h` and `.hpp` header files.
 
 However, `.hpp` header files may not be compatible with standard IDEs.
 
->*Related entries*: [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [Core libraries](../../Appendixes/Glossary/#core-libraries) :octicons-link-16:, [File .cpp](../../Appendixes/Glossary/#file-cpp) :octicons-link-16:, [File .h](../../Appendixes/Glossary/#file-h) :octicons-link-16:, [Libraries](../../Appendixes/Glossary/#libraries) :octicons-link-16:
+>*Related entries*: [C++ language](#c-language), [Core libraries](#core-libraries), [File `.cpp`](#file-cpp), [File `.h`](#file-h), [Libraries](#libraries)
 
-## File .ino
+## File `.ino`
 
 File extension for the sketch, the main part of a program.
 
@@ -408,9 +422,9 @@ It replaces the `.pde` extension.
 
 The `.pde` and `.ino` files aren't recognised as C++ code by Xcode. During the first compilation, the project is prepared by embedXcode: the files are recognised as C++ code to allow code-sense.
 
->*Related entries*: [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [File .cpp](../../Appendixes/Glossary/#file-cpp) :octicons-link-16:, [File .pde](../../Appendixes/Glossary/#file-pde) :octicons-link-16:, [Sketch](../../Appendixes/Glossary/#sketch) :octicons-link-16:
+>*Related entries*: [C++ language](#c-language), [File `.cpp`](#file-cpp), [File `.pde`](#file-pde), [Sketch](#sketch)
 
-## File .pde
+## File `.pde`
 
 File extension for the sketch, the main part of a program.
 
@@ -420,15 +434,15 @@ It has been superseded by the `.ino` extension.
 
 The `.pde` and `.ino` files aren't recognised as C++ code by Xcode. During the first compilation, the project is prepared by embedXcode: the files are recognised as C++ code to allow code-sense.
 
->*Related entries*: [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [File .cpp](../../Appendixes/Glossary/#file-cpp) :octicons-link-16:, [File .ino](../../Appendixes/Glossary/#file-ino) :octicons-link-16:, [Sketch](../../Appendixes/Glossary/#sketch) :octicons-link-16:
+>*Related entries*: [C++ language](#c-language), [File `.cpp`](#file-cpp), [File `.ino`](#file-ino), [Sketch](#sketch)
 
-## File .tex
+## File `.tex`
 
 File extension for LaTeX file, a language for documents with high quality formatting.
 
 The LaTeX files are generated by Doxygen and converted into PDF documents.
 
->*Related entries*: [File .docset](../../Appendixes/Glossary/#file-docset) :octicons-link-16:
+>*Related entries*: [File `.docset`](#file-docset)
 
 ## Framework
 
@@ -442,7 +456,7 @@ The framework for the boards is mostly written in C and C++.
 
 The two references are Wiring and Arduino.
 
->*Related entries*: [Application libraries](../../Appendixes/Glossary/#application-libraries) :octicons-link-16:, [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [ARM mbed](../../Appendixes/Glossary/#arm mbed) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [Core libraries](../../Appendixes/Glossary/#core-libraries) :octicons-link-16:, [Cosa](../../Appendixes/Glossary/#cosa) :octicons-link-16:, [embedXcode](../../Appendixes/Glossary/#embedxcode) :octicons-link-16:, [embedXcode+](../../Appendixes/Glossary/#embedxcode_1) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Libraries](../../Appendixes/Glossary/#libraries) :octicons-link-16:, [MCU](../../Appendixes/Glossary/#mcu) :octicons-link-16:, [Platform](../../Appendixes/Glossary/#platform) :octicons-link-16:, [Tool-chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:, [Wiring](../../Appendixes/Glossary/#wiring) :octicons-link-16:
+>*Related entries*: [Application libraries](#application-libraries), [Arduino](#arduino), [ARM mbed](#arm mbed), [Boards](#boards), [C++ language](#c-language), [Core libraries](#core-libraries), [Cosa](#cosa), [embedXcode](#embedxcode), [embedXcode+](#embedxcode_1), [IDE](#ide), [Libraries](#libraries), [MCU](#mcu), [Platform](#platform), [Tool-chain](#tool-chain), [Wiring](#wiring)
 
 ## Freedom
 
@@ -450,23 +464,24 @@ The Freedom boards feature ARM MCUs from Freescale and run the mbed SDK with the
 
 Support for the mbed SDK is discontinued.
 
->*Related entries*: [ARM mbed](../../Appendixes/Glossary/#arm mbed) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:
+>*Related entries*: [ARM mbed](#arm mbed), [Boards](#boards), [GCC GNU Compiler Collection](#gnu-compiler-collection), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger)
+<!-- >
+>*Install*: [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework), [Install the Freedom platform](../../Legacy/Section8/#install-the-freedom-platform)
 >
->*Install*: [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework) :octicons-link-16:, [Install the Freedom platform](../../Legacy/Section8/#install-the-freedom-platform) :octicons-link-16:
->
->*Upload*: [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards) :octicons-link-16:, [Upload to the Freedom K64F board](../../Legacy/Section8/#upload-to-the-freedom-k64f-board) :octicons-link-16:
+>*Upload*: [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards), [Upload to the Freedom K64F board](../../Legacy/Section8/#upload-to-the-freedom-k64f-board) -->
 
+<!-- >
 ## Glowdeck
 
 The Glowdeck board can also be used as a development board. It relies on a 32-bit ARM architecture.
 
 The Glowdeck board requires a plug-in for the Arduino IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:,
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide)
+
+>*Install*: [Install the Glowdeck platform](../../Legacy/Section4/Page6)
 >
->*Install*: [Install the Glowdeck platform](../../Legacy/Section4/Page6) :octicons-link-16:
->
->*Upload*: [Upload to Glowdeck Board](../../Legacy/Section4/#upload-to-glowdeck-board) :octicons-link-16:
+>*Upload*: [Upload to Glowdeck Board](../../Legacy/Section4/#upload-to-glowdeck-board) -->
 
 ## GNU Compiler Collection
 
@@ -474,7 +489,7 @@ The GCC or GNU Compiler Collection is *de facto* standard for many micro-control
 
 A specific version is available for the ARM MCUs.
 
->*Related entries*: [ARM mbed](../../Appendixes/Glossary/#arm mbed) :octicons-link-16:, [Energia](../../Appendixes/Glossary/#energia) :octicons-link-16:, [Freedom](../../Appendixes/Glossary/#freedom) :octicons-link-16:, [GDB GNU Debugger](../../Appendixes/Glossary/#gnu-debugger) :octicons-link-16:,  [Nordic](../../Appendixes/Glossary/#nordic) :octicons-link-16:, [Nucleo](../../Appendixes/Glossary/#nucleo) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:, [Particle](../../Appendixes/Glossary/#particle) :octicons-link-16:, [Tool-Chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:
+>*Related entries*: [ARM mbed](#arm mbed), [Energia](#energia), [Freedom](#freedom), [GDB GNU Debugger](#gnu-debugger),  [Nordic](#nordic), [Nucleo](#nucleo), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger), [Particle](#particle), [Tool-Chain](#tool-chain)
 
 ## GNU Debugger
 
@@ -482,7 +497,7 @@ The GDB or GNU Debugger is *de facto* standard debugging tools for many micro-co
 
 It is based on a client-server model. The client runs on GDB, and the server is a proprietary or open-source driver, and includes MSPDebug, Segger J-Link, ST-Link or OpenOCD.
 
->*Related entries*:  [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:,  [MSPDebug](../../Appendixes/Glossary/#mspdebug) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:, [Segger J-Link programmer-debugger](../../Appendixes/Glossary/#segger-j-link-programmer-debugger) :octicons-link-16:, [ST-Link](Appendixes/Glossary/#st-link-programmer-debugger) :octicons-link-16:,[Tool-Chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:
+>*Related entries*:  [GCC GNU Compiler Collection](#gnu-compiler-collection),  [MSPDebug](#mspdebug), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger), [Segger J-Link programmer-debugger](#segger-j-link-programmer-debugger), [ST-Link](Appendixes/Glossary/#st-link-programmer-debugger),[Tool-Chain](#tool-chain)
 
 ## IDE
 
@@ -494,9 +509,9 @@ They feature a text editor and runs on Windows, Linux or Mac OS X. They use on t
 
 They are used to develop programs to be run on different boards. Each board has its own version of the IDE, differentiated by the colours of the interface.
 
-Another example of IDE is Xcode.
+Another examples of IDE are Xcode and Visual Studio Code.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:, [embedXcode](../../Appendixes/Glossary/#embedxcode) :octicons-link-16:, [embedXcode+](../../Appendixes/Glossary/#embedxcode_1) :octicons-link-16:, [Energia](../../Appendixes/Glossary/#energia) :octicons-link-16:, [ESP32](../../Appendixes/Glossary/#esp32) :octicons-link-16:, [ESP8266](../../Appendixes/Glossary/#esp8266) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [Glowdeck](../../Appendixes/Glossary/#glowdeck) :octicons-link-16:, [Intel](../../Appendixes/Glossary/#intel) :octicons-link-16:, [LightBlue Bean](../../Appendixes/Glossary/#lightBlue Bean) :octicons-link-16:, [Maple IDE](../../Appendixes/Glossary/#maple-ide) :octicons-link-16:, [MediaTek LinkIt](../../Appendixes/Glossary/#mediaTek LinkIt) :octicons-link-16:, [Microduino](../../Appendixes/Glossary/#microduino) :octicons-link-16:, [MPIDE](../../Appendixes/Glossary/#mpide) :octicons-link-16:, [panStamp](../../Appendixes/Glossary/#panStamp) :octicons-link-16:, [Platform](../../Appendixes/Glossary/#platform) :octicons-link-16:, [Processing](../../Appendixes/Glossary/#processing) :octicons-link-16:, [RFduino](../../Appendixes/Glossary/#rfduino) :octicons-link-16:, [Robotis OpenCM](../../Appendixes/Glossary/#robotis-opencm) :octicons-link-16:, [Seeeduino](../../Appendixes/Glossary/#seeeduino) :octicons-link-16:, [Simblee](../../Appendixes/Glossary/#simblee) :octicons-link-16:, [Teensyduino](../../Appendixes/Glossary/#teensyduino) :octicons-link-16:, [TinyCircuits](../../Appendixes/Glossary/#tinyCircuits) :octicons-link-16:, [Tool-chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:, [Udoo Neo](../../Appendixes/Glossary/#udoo-neo) :octicons-link-16:, [Wiring](../../Appendixes/Glossary/#wiring) :octicons-link-16:, [Xcode](../../Appendixes/Glossary/#xcode) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [C++ language](#c-language), [Debugger](#debugger), [embedXcode](#embedxcode), [embedXcode+](#embedxcode_1), [Energia](#energia), [ESP32](#esp32), [ESP8266](#esp8266), [Framework](#framework), [Glowdeck](#glowdeck), [Intel](#intel), [LightBlue Bean](#lightblue-bean), [Maple IDE](#maple-ide), [MediaTek LinkIt](#mediatek-linkit), [Microduino](#microduino), [MPIDE](#mpide), [panStamp](#panstamp), [Platform](#platform), [Processing](#processing), [RFduino](#rfduino), [Robotis OpenCM](#robotis-opencm), [Seeeduino](#seeeduino), [Simblee](#simblee), [Teensyduino](#teensyduino), [TinyCircuits](#tinyCircuits), [Tool-chain](#tool-chain), [Udoo Neo](#udoo-neo), [Visual Studio Code](#visual-studio-code) [Wiring](#wiring), [Xcode](#xcode)
 
 ## Intel
 
@@ -516,11 +531,11 @@ Contrary to other boards, the Galileo is not powered through USB.
 
 Powering the board directly through USB may damage the board.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [Internet of Things](#internet-of-things)
+<!-- >
+>*Install*: [Install the Intel platform](../../Legacy/Section4/#install-the-intel-platform), [Install the Yocto SDK for Intel Edison](../../Legacy/Section4/#install-the-intel-edison-for-yocto-sdk), [Install the MCU SDK for Intel Edison](../../Legacy/Section4/Page8)
 >
->*Install*: [Install the Intel platform](../../Legacy/Section4/#install-the-intel-platform) :octicons-link-16:, [Install the Yocto SDK for Intel Edison](../../Legacy/Section4/#install-the-intel-edison-for-yocto-sdk), [Install the MCU SDK for Intel Edison](../../Legacy/Section4/Page8)
->
->*Upload*: [Upload to Intel Edison Using WiFi or Ethernet over USB](../../Legacy/Section4/#upload-to-intel-edison-using-wifi-or-ethernet-over-usb) :octicons-link-16:
+>*Upload*: [Upload to Intel Edison Using WiFi or Ethernet over USB](../../Legacy/Section4/#upload-to-intel-edison-using-wifi-or-ethernet-over-usb) -->
 
 ## Internet of Things
 
@@ -532,7 +547,7 @@ The network can be local &ndash;LAN or local area network&ndash;, or wide &ndash
 
 Connection is done through Bluetooth, Bluetooth Low Energy, WiFi, Ethernet, sub-1 GHz, LoRa, among other protocols.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [ESP32](../../Appendixes/Glossary/#esp32) :octicons-link-16:, [ESP8266](../../Appendixes/Glossary/#esp8266) :octicons-link-16:, [Intel](../../Appendixes/Glossary/#intel) :octicons-link-16:, [LaunchPad](../../Appendixes/Glossary/#launchPad) :octicons-link-16:, [LightBlue Bean](../../Appendixes/Glossary/#lightblue-bean) :octicons-link-16:, [MediaTek LinkIt](../../Appendixes/Glossary/#mediaTek LinkIt) :octicons-link-16:, [Microsoft](../../Appendixes/Glossary/#microsoft) :octicons-link-16:, [Moteino](../../Appendixes/Glossary/#moteino) :octicons-link-16:, [panStamp](../../Appendixes/Glossary/#panStamp) :octicons-link-16:, [Particle](../../Appendixes/Glossary/#particle) :octicons-link-16:, [RedBear](../../Appendixes/Glossary/#redbear) :octicons-link-16:, [RFduino](../../Appendixes/Glossary/#rfduino) :octicons-link-16:, [Simblee](../../Appendixes/Glossary/#simblee) :octicons-link-16:, [Udoo Neo](../../Appendixes/Glossary/#udoo-neo) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [ESP32](#esp32), [ESP8266](#esp8266), [Intel](#intel), [LaunchPad](#launchpad), [LightBlue Bean](#lightblue-bean), [MediaTek LinkIt](#mediatek-linkit), [Microsoft](#microsoft), [Moteino](#moteino), [panStamp](#panstamp), [Particle](#particle), [RedBear](#redbear), [RFduino](#rfduino), [Simblee](#simblee), [Udoo Neo](#udoo-neo)
 
 ## LaunchPad
 
@@ -558,15 +573,15 @@ The IDE is Energia, with the RTOS-based Energia Multi-Tasking extension for sele
 
 All the LaunchPad boards include a programmer-debugger, to be used with MSPDebug, DSLite or OpenOCD.
 
->*Related entries*: [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:, [Energia](../../Appendixes/Glossary/#energia) :octicons-link-16:, [Energia MT](../../Appendixes/Glossary/#energia MT) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:, [XDS110 programmer-debugger](../../Appendixes/Glossary/#xds110-programmer-debugger) :octicons-link-16:
+>*Related entries*: [Boards](#boards), [Debugger](#debugger), [Energia](#energia), [Energia MT](#energia MT), [Internet of Things](#internet-of-things), [XDS110 programmer-debugger](#xds110-programmer-debugger)
 >
->*Install*: [Install the LaunchPad platform](../../Install/Section4/LaunchPad) :octicons-link-16:
+>*Install*: [Install the LaunchPad platform](../../Install/Section4/LaunchPad)
 >
->*Configure*: [Set options for selected LaunchPad boards](../../Develop/Section2/#set-options-for-selected-launchpad-boards) :octicons-link-16:
+>*Configure*: [Set options for selected LaunchPad boards](../../Develop/Section2/#set-options-for-selected-launchpad-boards)
 >
->*Upload*: [Upload to LaunchPad C2000](../../Advanced/Specific-1/#upload-to-launchpad-c2000) :octicons-link-16:, [Upload to LaunchPad CC3200 WiFi](../../Advanced/Specific-1/#upload-to-launchpad-cc3200-wifi) :octicons-link-16:, [Upload to LaunchPad MSP430F5529 and MSP430FR5969](../../Advanced/Specific-1/#upload-to-launchpad-msp430f5529-and-msp430fr5969) :octicons-link-16:
+>*Upload*: [Upload to LaunchPad C2000](../../Advanced/Specific-1/#upload-to-launchpad-c2000), [Upload to LaunchPad CC3200 WiFi](../../Advanced/Specific-1/#upload-to-launchpad-cc3200-wifi), [Upload to LaunchPad MSP430F5529 and MSP430FR5969](../../Advanced/Specific-1/#upload-to-launchpad-msp430f5529-and-msp430fr5969)
 >
->*Debug*: [Check the configuration](../../Debug/Section3/) :octicons-link-16:, [Configure the LaunchPad CC3200 WiFi](../../Debug/Section3/#configure-the-launchpad-cc3200-wifi) :octicons-link-16:
+>*Debug*: [Check the configuration](../../Debug/Section3/), [Configure the LaunchPad CC3200 WiFi](../../Debug/Section3/#configure-the-launchpad-cc3200-wifi)
 
 ## Libraries
 
@@ -586,7 +601,7 @@ The embedXcode+ edition introduces a variant for the local libraries, the pre-co
 
 Libraries are managed with an `#include` statement on the main sketch and header files and with variables on the main `Makefile`.
 
->*Related entries*: [Application libraries](../../Appendixes/Glossary/#application-libraries) :octicons-link-16:, [Core libraries](../../Appendixes/Glossary/#core-libraries) :octicons-link-16:, [File .h](../../Appendixes/Glossary/#file-h) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [Local libraries](../../Appendixes/Glossary/#local-libraries) :octicons-link-16:, [User's libraries](../../Appendixes/Glossary/#users-libraries) :octicons-link-16:
+>*Related entries*: [Application libraries](#application-libraries), [Core libraries](#core-libraries), [File `.h`](#file-h), [Framework](#framework), [Local libraries](#local-libraries), [User's libraries](#users-libraries)
 
 ## LightBlue Bean
 
@@ -598,11 +613,11 @@ LightBlue provides a plug-in to be installed on top of the Arduino IDE. Please r
 
 Upload and serial console are performed over-the-air through Bluetooth.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [Internet of Things](#internet-of-things)
+<!-- >
+>*Install*: [Install the LightBlue platform](../../Legacy/Section4/Page4)
 >
->*Install*: [Install the LightBlue platform](../../Legacy/Section4/Page4) :octicons-link-16:
->
->*Upload*: [Upload to LightBlue Bean using Bluetooth](../../Legacy/Section4/#upload-to-lightblue-bean-using-bluetooth) :octicons-link-16:
+>*Upload*: [Upload to LightBlue Bean using Bluetooth](../../Legacy/Section4/#upload-to-lightblue-bean-using-bluetooth) -->
 
 ## Little Robot Friends
 
@@ -612,9 +627,9 @@ First generation ran on an ATmega328P and required a plug-in for the Arduino IDE
 
 Second generation features an SAMD MCU. The installation of the Little Robot Friends SAMD board is performed manually but requires the Arduino 1.8 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:
->
->*Install*: [Install the Little Robot Friends Platform](../../Legacy/Section4/Page10) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards)
+<!-- >
+>*Install*: [Install the Little Robot Friends Platform](../../Legacy/Section4/Page10) -->
 
 ## Local libraries
 
@@ -626,15 +641,15 @@ By default, all the local libraries are included.
 
 The embedXcode+ edition allows to create folders for local libraries and select them after the `USER_LIBS_LIST` variable on the main `Makefile`.
 
->*Related entries*: [Libraries](../../Appendixes/Glossary/#libraries) :octicons-link-16:, [Pre-compiled libraries](../../Appendixes/Glossary/#pre-compiled libraries) :octicons-link-16:
+>*Related entries*: [Libraries](#libraries), [Pre-compiled libraries](#pre-compiled libraries)
 
 ## Maple
 
 The Maple boards are based on 32-bit ARM MCUs.
 
->*Related entries*: [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Maple IDE](../../Appendixes/Glossary/#maple-ide) :octicons-link-16:, [Microduino](../../Appendixes/Glossary/#microduino) :octicons-link-16:, [Robotis](../../Appendixes/Glossary/#robotis) :octicons-link-16:
->
->*Install*: [Install the Maple platform](../../Legacy/Section4/Page11) :octicons-link-16:
+>*Related entries*: [Boards](#boards), [Maple IDE](#maple-ide), [Microduino](#microduino), [Robotis](#robotis)
+<!-- >
+>*Install*: [Install the Maple platform](../../Legacy/Section4/Page11) -->
 
 ## Maple IDE
 
@@ -644,7 +659,7 @@ The MapleIDE requires special drivers.
 >
 >The Maple environment misses two important libraries*: `strings.h` and `stream.h`.
 
->*Related entries*: [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Maple](../../Appendixes/Glossary/#maple) :octicons-link-16:, [Microduino](../../Appendixes/Glossary/#microduino) :octicons-link-16:, [Robotis OpenCM](../../Appendixes/Glossary/#robotis-opencm) :octicons-link-16:
+>*Related entries*: [IDE](#ide), [Maple](#maple), [Microduino](#microduino), [Robotis OpenCM](#robotis-opencm)
 
 ## MCU
 
@@ -666,7 +681,7 @@ It also includes general purpose inputs outputs or GPIOs. Some of them can be us
 
 Other extras may include a real-time clock, a FPU or floating-point unit, ...
 
->*Related entries*: [Architecture](../../Appendixes/Glossary/#architecture) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [Platform](../../Appendixes/Glossary/#platform) :octicons-link-16:, [Tool-chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:
+>*Related entries*: [Architecture](#architecture), [Boards](#boards), [Framework](#framework), [Platform](#platform), [Tool-chain](#tool-chain)
 
 ## MediaTek LinkIt
 
@@ -680,9 +695,9 @@ The MediaTek LinkIt 7697 board features WiFi, Bluetooth 2.0 and 4.0 BLE, on an c
 
 The installation of the MediaTek boards is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
->
->*Install*: [Install the MediaTek platform](../../Legacy/Section4/Page12) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [Internet of Things](#internet-of-things)
+<!-- >
+>*Install*: [Install the MediaTek platform](../../Legacy/Section4/Page12) -->
 
 ## Microduino
 
@@ -692,9 +707,9 @@ The 8-bit ATmega architecture includes the Microduino-Core with an ATmega328P at
 
 The 32-bit architecture corresponds to the Microduino-Core STM32 board, and uses the MapleIDE as IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Maple](../../Appendixes/Glossary/#maple) :octicons-link-16:, [Maple IDE](../../Appendixes/Glossary/#maple-ide) :octicons-link-16:
->
->*Install*: [Install the Microduino platform](../../Legacy/Section4/Page13) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [Maple](#maple), [Maple IDE](#maple-ide)
+<!-- >
+>*Install*: [Install the Microduino platform](../../Legacy/Section4/Page13) -->
 
 ## Microsoft
 
@@ -704,11 +719,11 @@ The board combines a Cortex-M4 with WiFi and a large selection of sensors.
 
 The installation of the Microsoft platform is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [Internet of Things](#internet-of-things)
 >
->*Install*: [Install the Microsoft platform](../../Install/Section4/#install-the-microsoft-platform) :octicons-link-16:
+>*Install*: [Install the Microsoft platform](../../Install/Section4/#install-the-microsoft-platform)
 >
->*Upload*: [Upload to Microsoft Azure IoT DevKit](../../Advanced/Specific-1/#upload-to-microsoft-azure-iot-devkit) :octicons-link-16:
+>*Upload*: [Upload to Microsoft Azure IoT DevKit](../../Advanced/Specific-1/#upload-to-microsoft-azure-iot-devkit)
 
 ## Moteino
 
@@ -718,9 +733,9 @@ The installation of the Moteino platform is performed with the **Boards Manager*
 
 The RFM69 sub-1GHz-based board requires the RFM69 library, while the RFM95 LoRa-based board requires the LoRa library from RadioHead.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [Internet of Things](#internet-of-things)
 >
->*Install*: [Install the Moteino platform](../../Install/Section4/Moteino) :octicons-link-16:
+>*Install*: [Install the Moteino platform](../../Install/Section4/Moteino)
 
 ## MPIDE
 
@@ -730,7 +745,7 @@ MPIDE stands for Multi-Platform IDE and targets boards with a PIC32 MCU.
 
 MPIDE is deprecated. Use instead the **Boards Manager** featured by Arduino.CC IDE release 1.6.5.
 
->*Related entries*: [4D Systems](../../Appendixes/Glossary/#4d-systems) :octicons-link-16:, [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [chipKIT](../../Appendixes/Glossary/#chipkit) :octicons-link-16:, [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:
+>*Related entries*: [4D Systems](#4d-systems), [Arduino](#arduino), [chipKIT](#chipkit), [Debugger](#debugger), [IDE](#ide)
 
 ## MSPDebug
 
@@ -738,7 +753,7 @@ MSPDebug is an open-source driver and runs as a server for GDB.
 
 It is used for the LaunchPad boards based on the MSP430 MCUs from Texas Instruments. It is part of the Energia bundle and installed with Energia.
 
->*Related entries*: [GDB GNU Debugger](../../Appendixes/Glossary/#gnu-debugger) :octicons-link-16:
+>*Related entries*: [GDB GNU Debugger](#gnu-debugger)
 
 ## Nordic
 
@@ -748,11 +763,11 @@ The boards run on the mbed SDK with the GCC tool-chain.
 
 Support for the mbed SDK is discontinued.
 
->*Related entries*: [ARM mbed](../../Appendixes/Glossary/#arm mbed) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:
+>*Related entries*: [ARM mbed](#arm mbed), [Boards](#boards), [GCC GNU Compiler Collection](#gnu-compiler-collection), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger)
+<!-- >
+>*Install*: [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework), [Install the Nucleo platform](../../Legacy/Section8/#install-the-nordic-platform)
 >
->*Install*: [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework) :octicons-link-16:, [Install the Nucleo platform](../../Legacy/Section8/#install-the-nordic-platform) :octicons-link-16:
->
->*Upload*: [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards) :octicons-link-16:
+>*Upload*: [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards) -->
 
 ## Nucleo
 
@@ -762,11 +777,11 @@ Support for the mbed SDK is discontinued.
 
 The Nucleo boards are now supported by the STM32duino platform.
 
->*Related entries*: [ARM mbed](../../Appendixes/Glossary/#arm mbed) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:, [STM32duino](../../Appendixes/Glossary/#stm32duino) :octicons-link-16:
+>*Related entries*: [ARM mbed](#arm mbed), [Boards](#boards), [GCC GNU Compiler Collection](#gnu-compiler-collection), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger), [STM32duino](#stm32duino)
+<!-- >
+>*Install*: [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework), [Install the Nucleo platform](../../Legacy/Section8/#install-the-nucleo-platform)
 >
->*Install*: [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework) :octicons-link-16:, [Install the Nucleo platform](../../Legacy/Section8/#install-the-nucleo-platform) :octicons-link-16:
->
->*Upload*: [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards) :octicons-link-16:
+>*Upload*: [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards) -->
 
 ## Open On-Chip Debugger
 
@@ -774,7 +789,7 @@ The Open On-Chip Debugger, or OpenOCD, provides tools for programming and debugg
 
 It requires a hardware programmer-debugger.
 
->*Related entries*: [ARM mbed](../../Appendixes/Glossary/#arm mbed) :octicons-link-16:, [Energia](../../Appendixes/Glossary/#energia) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [GDB GNU Debugger](../../Appendixes/Glossary/#gnu-debugger) :octicons-link-16:, [Tool-chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:
+>*Related entries*: [ARM mbed](#arm mbed), [Energia](#energia), [GCC GNU Compiler Collection](#gnu-compiler-collection), [GDB GNU Debugger](#gnu-debugger), [Tool-chain](#tool-chain)
 
 ## panStamp
 
@@ -782,11 +797,11 @@ The panStamp platform features a sub-1 GHz radio and includes three architecture
 
 The 8-bit architecture corresponds to the panStamp AVR with an ATmega328P at 16 MHz and 5V, while the 16-bit architecture corresponds to the panStamp NG based on the MSP430. Both the panStamp AVR and panStamp NG are discontinued. Finally, the 32-architecture corresponds to the panStamp Quantum based on the STM32L4.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [Internet of Things](#internet-of-things)
+<!-- >
+>*Install*: [Install the panStamp AVR platform](../../Legacy/Section4/#install-the-panstamp-avr-platform), [Install the panStamp NRG platform](../../Legacy/Section4/#install-the-panstamp-nrg-platform), [Install the panStamp Quantum platform](../../Legacy/Section4/#install-the-panstamp-quantum-platform)
 >
->*Install*: [Install the panStamp AVR platform](../../Legacy/Section4/#install-the-panstamp-avr-platform) :octicons-link-16:, [Install the panStamp NRG platform](../../Legacy/Section4/#install-the-panstamp-nrg-platform) :octicons-link-16:, [Install the panStamp Quantum platform](../../Legacy/Section4/#install-the-panstamp-quantum-platform) :octicons-link-16:
->
->*Upload*: [Upload to panStamp AVR board](../../Legacy/Section4/#upload-to-panstamp-avr-board) :octicons-link-16:, [Upload to panStamp NRG board](../../Legacy/Section4/#upload-to-panstamp-nrg-board) :octicons-link-16:, [Upload to panStamp Quantum board](../../Legacy/Section4/#upload-to-panstamp-quantum-board) :octicons-link-16:
+>*Upload*: [Upload to panStamp AVR board](../../Legacy/Section4/#upload-to-panstamp-avr-board), [Upload to panStamp NRG board](../../Legacy/Section4/#upload-to-panstamp-nrg-board), [Upload to panStamp Quantum board](../../Legacy/Section4/#upload-to-panstamp-quantum-board) -->
 
 ## Particle
 
@@ -800,11 +815,11 @@ Up to now, there's only an online IDE. The offline IDE called Particle-Dev and b
 
 Particle was previously Spark.
 
->*Related entries*: [Architecture](../../Appendixes/Glossary/#architecture) :octicons-link-16:, [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:, [Tool-chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:, [Wiring](../../Appendixes/Glossary/#wiring) :octicons-link-16:
+>*Related entries*: [Architecture](#architecture), [Arduino](#arduino), [Boards](#boards), [GCC GNU Compiler Collection](#gnu-compiler-collection), [Internet of Things](#internet-of-things), [Tool-chain](#tool-chain), [Wiring](#wiring)
+<!-- >
+>*Install*: [Install the Particle platform](../../Legacy/Section4/Page15)
 >
->*Install*: [Install the Particle platform](../../Legacy/Section4/Page15) :octicons-link-16:
->
->*Upload*: [Upload to Particle boards](../../Legacy/Section4/#upload-to-particle-boards) :octicons-link-16:
+>*Upload*: [Upload to Particle boards](../../Legacy/Section4/#upload-to-particle-boards) -->
 
 ## Platform
 
@@ -824,7 +839,7 @@ As an example, the Arduino platform includes
 
 + Two tool-chains, one for each architecture.
 
->*Related entries*: [Architecture](../../Appendixes/Glossary/#architecture) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [MCU](../../Appendixes/Glossary/#mcu) :octicons-link-16:, [Tool-chain](../../Appendixes/Glossary/#tool-chain) :octicons-link-16:
+>*Related entries*: [Architecture](#architecture), [Boards](#boards), [Framework](#framework), [IDE](#ide), [MCU](#mcu), [Tool-chain](#tool-chain)
 
 ## Pre-compiled libraries
 
@@ -844,7 +859,7 @@ A folder for a pre-compiled library, for example `LocalLibrary`, includes at lea
 
 The embedXcode+ edition checks the consistency of the pre-compiled libraries with the current target based on the file `.board`, and includes the pre-compiled libraries with extension `.a` during linking.
 
->*Related entries*: [Local libraries](../../Appendixes/Glossary/#local-libraries) :octicons-link-16:
+>*Related entries*: [Local libraries](#local-libraries)
 
 ## Processing
 
@@ -852,27 +867,27 @@ All the boards use the Processing IDE, adapted for C++.
 
 Processing doesn't feature any board. Instead, it runs on the main computer and provides an easy interface for displaying graphs based on data acquired from the board.
 
->*Related entries*: [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:
+>*Related entries*: [IDE](#ide)
 
 ## Raspberry Pi
 
 The Raspberry Pi boards are single-board computers running on Linux. A board package is available for the Arduino IDE.
 
->*Related entries*: [RasPiArduino](../../Appendixes/Glossary/#raspiarduino) :octicons-link-16:
+>*Related entries*: [RasPiArduino](#raspiarduino)
 
 ## RasPiArduino
 
 The RasPiArduino board package brings the Wiring / Arduino SDK to the Raspberry Pi boards. Unless other boards packages, it is not managed by the Board Manager but installed instead on the `hardware` sub-folder of the Arduino sketchbook folder.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Raspberry Pi](../../Appendixes/Glossary/#raspberry-pi) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Raspberry Pi](#raspberry-pi)
 >
->*Install*: [Install the RasPiArduino platform](../../Install/Section4/Page13) :octicons-link-16:, [Install the RasPiArduino boards package](../../Install/Section4/#install-the-raspiarduino-boards-package) :octicons-link-16:, [Install the tools and SDK on the Raspberry Pi](../../Install/Section4/#install-the-tools-and-sdk-on-the-raspberry-pi) :octicons-link-16:
+>*Install*: [Install the RasPiArduino platform](../../Install/Section4/Page13), [Install the RasPiArduino boards package](../../Install/Section4/#install-the-raspiarduino-boards-package), [Install the tools and SDK on the Raspberry Pi](../../Install/Section4/#install-the-tools-and-sdk-on-the-raspberry-pi)
 >
->*Configure*: [Set options for Raspberry Pi](../../Develop/Section2/#set-options-for-raspberry-pi) :octicons-link-16:
+>*Configure*: [Set options for Raspberry Pi](../../Develop/Section2/#set-options-for-raspberry-pi)
 >
->*Upload*: [Enter Raspberry Pi IP address and password](../../Develop/Section2/#enter-raspberry-pi-ip-address-and-password) :octicons-link-16:, [Upload to Raspberry Pi](../../Advanced/Specific-1/#upload-to-raspberry-pi) :octicons-link-16:
+>*Upload*: [Enter Raspberry Pi IP address and password](../../Develop/Section2/#enter-raspberry-pi-ip-address-and-password), [Upload to Raspberry Pi](../../Advanced/Specific-1/#upload-to-raspberry-pi)
 >
->*Debug*: [Connect to the Raspberry Pi](../../Debug/Section3/#connect-to-the-raspberry-pi) :octicons-link-16:
+>*Debug*: [Connect to the Raspberry Pi](../../Debug/Section3/#connect-to-the-raspberry-pi)
 
 ## RedBear
 
@@ -888,11 +903,11 @@ The boards based on the CC3200 feature WiFi. The CC3200 from Texas Instruments c
 
 Support for the mbed SDK is discontinued.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Energia](../../Appendixes/Glossary/#energia) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:, [arm mbed](../../Appendixes/Glossary/#arm-mbed) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [Energia](#energia), [Internet of Things](#internet-of-things), [arm mbed](#arm-mbed), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger)
+<!-- >
+>*Install*: [Install the RedBear platform for Wiring / Arduino](../../Legacy/Section4/Page16), [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework), [Install the RedBear platform for mbed](../../Legacy/Section8/#install-the-redbear-platform-for-mbed)
 >
->*Install*: [Install the RedBear platform for Wiring / Arduino](../../Legacy/Section4/Page16) :octicons-link-16:, [Install the mbed framework](../../Legacy/Section8/#install-the-mbed-framework) :octicons-link-16:, [Install the RedBear platform for mbed](../../Legacy/Section8/#install-the-redbear-platform-for-mbed) :octicons-link-16:
->
->*Upload*: [Upload to RedBear CC3200 Boards](../../Legacy/Section4/#upload-to-redbear-cc3200-boards) :octicons-link-16:, [Upload to RedBear Duo Board](../../Legacy/Section4/#upload-to-redbear-duo-board) :octicons-link-16:, [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards) :octicons-link-16:, [Restore Arduino mode on RedBear boards](../../Legacy/Section4/#restore-arduino-mode-on-redbear-boards) :octicons-link-16:
+>*Upload*: [Upload to RedBear CC3200 Boards](../../Legacy/Section4/#upload-to-redbear-cc3200-boards), [Upload to RedBear Duo Board](../../Legacy/Section4/#upload-to-redbear-duo-board), [Upload to mbed boards](../../Legacy/Section8/#upload-to-mbed-boards), [Restore Arduino mode on RedBear boards](../../Legacy/Section4/#restore-arduino-mode-on-redbear-boards) -->
 
 ## RFduino
 
@@ -900,9 +915,9 @@ RFduino combines a Cortex-M0 MCU with Bluetooth Low Energy on a compact board.
 
 RFduino requires a plug-in for the Arduino IDE 1.5.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:, [Simblee](../../Appendixes/Glossary/#simblee) :octicons-link-16:
->
->*Install*: [Install the RFduino platform](../../Legacy/Section4/Page17) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [Internet of Things](#internet-of-things), [Simblee](#simblee)
+<!-- >
+>*Install*: [Install the RFduino platform](../../Legacy/Section4/Page17) -->
 
 ## Robotis
 
@@ -910,11 +925,11 @@ The Robotis OpenCM9.04 board is based on the 32-bit ARM MCU.
 
 The Robotis OpenCM is the dedicated IDE.
 
->*Related entries*: [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Maple](../../Appendixes/Glossary/#maple) :octicons-link-16:, [Robotis OpenCM](../../Appendixes/Glossary/#robotis-opencm) :octicons-link-16:,
+>*Related entries*: [Boards](#boards), [Maple](#maple), [Robotis OpenCM](#robotis-opencm)
+<!-- >
+>*Install*: [Install the Robotis platform](../../Legacy/Section4/Page18)
 >
->*Install*: [Install the Robotis platform](../../Legacy/Section4/Page18) :octicons-link-16:
->
->*Upload*: [Upload to Robotis OpenCM9.04 Board](../../Legacy/Section5/#upload-to-robotis-opencm904-board) :octicons-link-16:
+>*Upload*: [Upload to Robotis OpenCM9.04 Board](../../Legacy/Section5/#upload-to-robotis-opencm904-board) -->
 
 ## Robotis OpenCM
 
@@ -924,7 +939,7 @@ The Robotis OpenCM requires special drivers.
 >
 >The Robotis environment misses two important libraries*: `strings.h` and `stream.h`.
 
->*Related entries*: [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Maple IDE](../../Appendixes/Glossary/#maple-ide) :octicons-link-16:, [Robotis](../../Appendixes/Glossary/#robotis) :octicons-link-16:, [Wiring](../../Appendixes/Glossary/#wiring) :octicons-link-16:
+>*Related entries*: [IDE](#ide), [Maple IDE](#maple-ide), [Robotis](#robotis), [Wiring](#wiring)
 
 ## Seeeduino
 
@@ -934,13 +949,13 @@ The Seeeduino boards are based on the ATmega 328 or the SAMD compatible with the
 
 The installation of the Seeeduino board is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide)
 >
->*Install*: [Install the Seeeduino AVR platform](../../Install/Section4/#install-the-seeeduino-avr-platform) :octicons-link-16:, [Install the Seeeduino SAMD platform](../../Install/Section4/#install-the-seeeduino-samd-platform) :octicons-link-16:, [Install the Ameba RTL8720DN platform for the Wio Terminal board](../../Install/Section4/#install-the-ameba-rtl8720dn-platform-for-the-wio-terminal-board) :octicons-link-16:
+>*Install*: [Install the Seeeduino AVR platform](../../Install/Section4/#install-the-seeeduino-avr-platform), [Install the Seeeduino SAMD platform](../../Install/Section4/#install-the-seeeduino-samd-platform), [Install the Ameba RTL8720DN platform for the Wio Terminal board](../../Install/Section4/#install-the-ameba-rtl8720dn-platform-for-the-wio-terminal-board)
 >
->*Upload*: [Upload to Seeeduino SAMD boards](../../Advanced/Specific-1/#upload-to-seeeduino-samd-boards) :octicons-link-16:, [Upload to the RTL8720DN MCU of the Wio Terminal](../../Advanced/Specific-1/#upload-to-the-rtl8720dn-mcu-of-the-wio-terminal-board) :octicons-link-16:, [Reflash the RTL8720DN MCU as a network-processor for the Wio Terminal board](../../Advanced/Specific-2/#reflash-the-rtl8720dn-mcu-as-a-network-processor-for-the-wio-terminal-board) :octicons-link-16:
+>*Upload*: [Upload to Seeeduino SAMD boards](../../Advanced/Specific-1/#upload-to-seeeduino-samd-boards), [Upload to the RTL8720DN MCU of the Wio Terminal](../../Advanced/Specific-1/#upload-to-the-rtl8720dn-mcu-of-the-wio-terminal-board), [Reflash the RTL8720DN MCU as a network-processor for the Wio Terminal board](../../Advanced/Specific-2/#reflash-the-rtl8720dn-mcu-as-a-network-processor-for-the-wio-terminal-board)
 >
->*Debug*: [Connect the Segger J-Link to the Seeeduino Xiao M0](../../Debug/Section3/#connect-the-segger-j-link-to-the-seeeduino-xiao-m0) :octicons-link-16:
+>*Debug*: [Connect the Segger J-Link to the Seeeduino Xiao M0](../../Debug/Section3/#connect-the-segger-j-link-to-the-seeeduino-xiao-m0)
 
 ## Segger J-Link programmer-debugger
 
@@ -948,11 +963,11 @@ Segger programmers-debuggers are the *de facto* standard for Cortex-M. The wide 
 
 Segger provides two sets of tools: command-line J-Link and GUI-based Ozone.
 
->*Related entries*: [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:
+>*Related entries*: [Debugger](#debugger)
 >
->*Install*: [Install utilities for Segger debugger](../../Install/Section4/#install-utilities-for-segger-debugger) :octicons-link-16:, [Install the Segger J-Link Software Suite](../../Install/Section4/#install-the-segger-j-link-software-suite) :octicons-link-16:, [Install the Segger Ozone Graphical Debugger](../../Install/Section4/#install-the-segger-ozone-graphical-debugger) :octicons-link-16:.
+>*Install*: [Install utilities for Segger debugger](../../Install/Section4/#install-utilities-for-segger-debugger), [Install the Segger J-Link Software Suite](../../Install/Section4/#install-the-segger-j-link-software-suite), [Install the Segger Ozone Graphical Debugger](../../Install/Section4/#install-the-segger-ozone-graphical-debugger).
 >
->*Debug*: [Debug the boards with Ozone](../../Debug/Section4/#debug-the-boards-with-ozone) :octicons-link-16:, [Debug the boards with GDB](../../Debug/Section3/#debug-the-boards-with-gdb) :octicons-link-16:
+>*Debug*: [Debug the boards with Ozone](../../Debug/Section4/#debug-the-boards-with-ozone), [Debug the boards with GDB](../../Debug/Section3/#debug-the-boards-with-gdb)
 
 ## Simblee
 
@@ -962,9 +977,9 @@ It combines a Cortex-M0 MCU with Bluetooth Low Energy on a compact board.
 
 The installation of the Simblee board is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:, [RFduino](../../Appendixes/Glossary/#rfduino) :octicons-link-16:
->
->*Install*: [Install the Simblee platform](../../Legacy/Section4/Page19) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [Internet of Things](#internet-of-things), [RFduino](#rfduino)
+<!-- >
+>*Install*: [Install the Simblee platform](../../Legacy/Section4/Page19) -->
 
 ## Sketch
 
@@ -972,7 +987,7 @@ A sketch is basically a program written in C++ and based on the Wiring and Ardui
 
 The valid file extensions for a sketch are `.pde` or `.ino`.
 
->*Related entries*: [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [File .cpp](../../Appendixes/Glossary/#file-cpp) :octicons-link-16:, [File .ino](../../Appendixes/Glossary/#file-ino) :octicons-link-16:, [File .pde](../../Appendixes/Glossary/#file-pde) :octicons-link-16:,
+>*Related entries*: [C++ language](#c-language), [File `.cpp`](#file-cpp), [File `.ino`](#file-ino), [File `.pde`](#file-pde)
 
 ## STM32duino
 
@@ -982,11 +997,11 @@ The initial project STM32duino has been renamed Arduino STM32. The new STM32duin
 
 The installation of the Arduino STM32 platform is performed with the **Boards Manager** on the Arduino 1.8 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Arduino STM32](../../Appendixes/Glossary/#arduino-stm32) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [MapleIDE](../../Appendixes/Glossary/#mapleIDE) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Arduino STM32](#arduino-stm32), [Boards](#boards), [IDE](#ide), [MapleIDE](#mapleIDE)
 >
->*Install*: [Install the STM32duino platform](../../Install/Section4/#install-the-stm32duino-platform) :octicons-link-16:
+>*Install*: [Install the STM32duino platform](../../Install/Section4/#install-the-stm32duino-platform)
 >
->*Debug*: [Debug the boards with GDB](../../Debug/Section3/#debug-the-boards-with-gdb) :octicons-link-16:
+>*Debug*: [Debug the boards with GDB](../../Debug/Section3/#debug-the-boards-with-gdb)
 
 ## Arduino STM32
 
@@ -996,9 +1011,9 @@ The installation of the Arduino STM32 platform is performed with the **Boards Ma
 
 It is now superseded by the new STM32duino project maintained by STMicroelectronics.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [MapleIDE](../../Appendixes/Glossary/#mapleIDE) :octicons-link-16:, [STM32duino](../../Appendixes/Glossary/#stm32duino) :octicons-link-16:
->
->*Install*: [Install the Arduino STM32 platform](../../Legacy/Section4/#install-the-arduino-stm32-platform) :octicons-link-16:, [Install the STM32duino platform](../../Install/Section4/#install-the-stm32duino-platform) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [MapleIDE](#mapleIDE), [STM32duino](#stm32duino)
+<!-- >
+>*Install*: [Install the Arduino STM32 platform](../../Legacy/Section4/#install-the-arduino-stm32-platform), [Install the STM32duino platform](../../Install/Section4/#install-the-stm32duino-platform) -->
 
 ## ST-Link programmer-debugger
 
@@ -1006,11 +1021,11 @@ The ST-Link programmer-debugger is specific to STMicroelectronics boards. It inc
 
 Although STMicroelectronics recommends [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) :octicons-link-external-16:, which includes ST-Link but requires Java, embedXcode relies on Texane ST-Link, an open-source and native version of the STMicroelectronics ST-Link tools.
 
->*Related entries*: [GDB GNU Debugger](../../Appendixes/Glossary/#gnu-debugger) :octicons-link-16:,  [STM32duino](../../Appendixes/Glossary/#stm32duino) :octicons-link-16:
+>*Related entries*: [GDB GNU Debugger](#gnu-debugger),  [STM32duino](#stm32duino)
 >
->*Install*: [Install the STM32duino platform](../../Install/Section4/#install-the-stm32duino-platform) :octicons-link-16:
+>*Install*: [Install the STM32duino platform](../../Install/Section4/#install-the-stm32duino-platform)
 >
->*Debug*: [Debug the boards with GDB](../../Debug/Section3/#debug-the-boards-with-gdb) :octicons-link-16:
+>*Debug*: [Debug the boards with GDB](../../Debug/Section3/#debug-the-boards-with-gdb)
 
 ## Teensy
 
@@ -1022,13 +1037,13 @@ Teensy includes two major architectures:
 
 The Teensy boards require Teensyduino, a plug-in for the Arduino IDE.
 
->*Related entries*: [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Teensyduino](../../Appendixes/Glossary/#teensyduino) :octicons-link-16:
+>*Related entries*: [Boards](#boards), [Teensyduino](#teensyduino)
 >
->*Install*: [Install the Teensy platform](../../Install/Section4/Teensy) :octicons-link-16:
+>*Install*: [Install the Teensy platform](../../Install/Section4/Teensy)
 >
->*Configure*: [Set options for Teensy](../../Develop/Section2/#set-options-for-teensy) :octicons-link-16:
+>*Configure*: [Set options for Teensy](../../Develop/Section2/#set-options-for-teensy)
 >
->*Upload*: [Upload to Teensy 3.0 and 3.1 Boards](../../Advanced/Specific-1/#upload-to-teensy-boards) :octicons-link-16:
+>*Upload*: [Upload to Teensy 3.0 and 3.1 Boards](../../Advanced/Specific-1/#upload-to-teensy-boards)
 
 ## Teensyduino
 
@@ -1036,9 +1051,9 @@ Teensyduino is the Arduino 1.8 IDE-compatible plug-in for the Teensy boards.
 
 Please refer to the relevant section for installation to avoid possible conflicts with the Arduino 1.8 IDE.
 
->*Related entries*: [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Teensy](../../Appendixes/Glossary/#teensy) :octicons-link-16:
+>*Related entries*: [IDE](#ide), [Teensy](#teensy)
 >
->*Install*: [Install the Teensy platform](../../Install/Section4/Teensy) :octicons-link-16:
+>*Install*: [Install the Teensy platform](../../Install/Section4/Teensy)
 
 ## TinyCircuits
 
@@ -1046,11 +1061,11 @@ TinyCircuits specialises in very compact circuits. The TinyScreen+ embeds a Cort
 
 The installation of the TinyScreen+ board is performed with the **Boards Manager** and the Lbirary Manager on the Arduino 1.6 IDE.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide)
+<!-- >
+>*Install*: [Install the TinyCircuits platform](../../Legacy/Section4/Page21)
 >
->*Install*: [Install the TinyCircuits platform](../../Legacy/Section4/Page21) :octicons-link-16:
->
->*Upload*: [Upload to TinyScreen+ board](../../Legacy/Section4/#upload-to-tinyscreen-board) :octicons-link-16:
+>*Upload*: [Upload to TinyScreen+ board](../../Legacy/Section4/#upload-to-tinyscreen-board) -->
 
 ## Tool-chain
 
@@ -1064,7 +1079,7 @@ Most of the tool-chains used with the embedded computing boards are based on GCC
 
 Other tools include programmers and debuggers, like OpenOCD, or Open On-Chip Debugger.
 
->*Related entries*: [Architecture](../../Appendixes/Glossary/#architecture) :octicons-link-16:, [C++ language](../../Appendixes/Glossary/#c-language) :octicons-link-16:, [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [GDB GNU Debugger](../../Appendixes/Glossary/#gnu-debugger) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [MCU](../../Appendixes/Glossary/#mcu) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:, [Particle](../../Appendixes/Glossary/#particle) :octicons-link-16:, [Platform](../../Appendixes/Glossary/#platform) :octicons-link-16:
+>*Related entries*: [Architecture](#architecture), [C++ language](#c-language), [Debugger](#debugger), [Framework](#framework), [GCC GNU Compiler Collection](#gnu-compiler-collection), [GDB GNU Debugger](#gnu-debugger), [IDE](#ide), [MCU](#mcu), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger), [Particle](#particle), [Platform](#platform)
 
 ## Udoo Neo
 
@@ -1072,11 +1087,11 @@ The Udoo Neo is a board featuring a Freescale i.MX 6SoloX processor from Freesca
 
 The MCU supports the Wiring / Arduino framework. Installation relies on the **Boards Manager** featured by Arduino.CC IDE release 1.6.5.
 
->*Related entries*: [Arduino](../../Appendixes/Glossary/#arduino) :octicons-link-16:, [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Internet of Things](../../Appendixes/Glossary/#internet-of-things) :octicons-link-16:
+>*Related entries*: [Arduino](#arduino), [Boards](#boards), [IDE](#ide), [Internet of Things](#internet-of-things)
+<!-- >
+>*Install*: [Install the Udoo Neo Platform](../../Legacy/Section4/Page22)
 >
->*Install*: [Install the Udoo Neo Platform](../../Legacy/Section4/Page22) :octicons-link-16:
->
->*Upload*: [Upload to Udoo Neo board](../../Legacy/Section4/#upload-to-udoo-neo-board) :octicons-link-16:
+>*Upload*: [Upload to Udoo Neo board](../../Legacy/Section4/#upload-to-udoo-neo-board) -->
 
 ## User's libraries
 
@@ -1092,7 +1107,17 @@ They require to be
 
 The embedXcode+ edition lists all the user's libraries for the selected platform on the main `Makefile`.
 
->*Related entries*: [Libraries](../../Appendixes/Glossary/#libraries) :octicons-link-16:
+>*Related entries*: [Libraries](#libraries)
+
+## Visual Studio Code
+
+Visual Studio Code is a light IDE developed by Microsoft. Extensions make it highly customisable.
+
+Contrary to embedXcode, emCode relies on Visual Studio Code.
+
+>*Related entries:* [IDE](#ide), [emCode](#emcode)
+>
+>*Install*: [Install Visual Studio Code](../Install/Code.md/#install-visual-studio-code), [Install the recommended extensions](../Install/Code.md/#install-the-recommended-extensions)
 
 ## Wiring
 
@@ -1100,9 +1125,9 @@ Wiring focuses on defining the framework.
 
 Some boards are especially designed for Wiring, as the ATmega64-based Wiring S.
 
->*Related entries*: [Boards](../../Appendixes/Glossary/#boards) :octicons-link-16:, [Framework](../../Appendixes/Glossary/#framework) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:, [Particle](../../Appendixes/Glossary/#particle) :octicons-link-16:, [Robotis OpenCM](../../Appendixes/Glossary/#robotis-opencm) :octicons-link-16:
->
->*Install*: [Install the Wiring platform](../../Legacy/Section4/Page23) :octicons-link-16:
+>*Related entries*: [Boards](#boards), [Framework](#framework), [IDE](#ide), [Particle](#particle), [Robotis OpenCM](#robotis-opencm)
+<!-- >
+>*Install*: [Install the Wiring platform](../../Legacy/Section4/Page23) -->
 
 ## Xcode
 
@@ -1112,7 +1137,9 @@ Xcode versions 9 and 10 are recommended for embedXcode.
 
 For previous versions, consider the legacy releases of embedXcode.
 
->*Related entries:* [embedXcode](../../Appendixes/Glossary/#embedxcode) :octicons-link-16:, [embedXcode+](../../Appendixes/Glossary/#embedxcode_1) :octicons-link-16:, [IDE](../../Appendixes/Glossary/#ide) :octicons-link-16:,
+emCode no longer runs on Xcode but on Visual Studio Code.
+
+>*Related entries:* [embedXcode](#embedxcode), [embedXcode+](#embedxcode_1), [emCode](#emcode), [IDE](#ide), [Visual Studio Code](#visual-studio-code)
 
 ## XDS110 programmer-debugger
 
@@ -1122,13 +1149,13 @@ Most of the boards from the SimpleLink portfolio, including the MSP432, CC32xx, 
 
 Although the default programmer is **DSLite**, the XDS110 accepts the open-source **OpenOCD** or Open On-Chip Debugger utility. **OpenOCD** brings additional features, like selecting one board among multiple connected, as well as debugging, acting as a server for the GDB client, part of the GNU tool-chain.
 
->*Related entries:* [Debugger](../../Appendixes/Glossary/#debugger) :octicons-link-16:, [LaunchPad](../../Appendixes/Glossary/#launchpad) :octicons-link-16:, [GCC GNU Compiler Collection](../../Appendixes/Glossary/#gnu-compiler-collection) :octicons-link-16:, [OpenOCD Open On-Chip Debugger](../../Appendixes/Glossary/#open-on-chip-debugger) :octicons-link-16:
+>*Related entries:* [Debugger](#debugger), [LaunchPad](#launchpad), [GCC GNU Compiler Collection](#gnu-compiler-collection), [OpenOCD Open On-Chip Debugger](#open-on-chip-debugger)
 >
->*Install*: [Install debug tools for the LaunchPad boards](../../Install/Section4/#install-debug-tools-for-the-launchpad-boards) :octicons-link-16:, [Install the OpenOCD driver](../../Install/Section4/#install-the-openocd-driver) :octicons-link-16:
+>*Install*: [Install debug tools for the LaunchPad boards](../../Install/Section4/#install-debug-tools-for-the-launchpad-boards), [Install the OpenOCD driver](../../Install/Section4/#install-the-openocd-driver)
 >
->*Upload*: [Select among multiple boards connected through XDS110](../../Chapter4/Section4/#select-among-multiple-boards-connected-through-xds110) :octicons-link-16:, [Upload to LaunchPad boards with XDS110](../../Advanced/Specific-1/#upload-to-launchpad-boards-with-xds110) :octicons-link-16:
+>*Upload*: [Select among multiple boards connected through XDS110](../../Chapter4/Section4/#select-among-multiple-boards-connected-through-xds110), [Upload to LaunchPad boards with XDS110](../../Advanced/Specific-1/#upload-to-launchpad-boards-with-xds110)
 >
->*Debug*: [Debug the boards with GDB](../../Debug/Section3/#debug-the-boards-with-gdb) :octicons-link-16:
+>*Debug*: [Debug the boards with GDB](../../Debug/Section3/#debug-the-boards-with-gdb)
 
 ## Visit the official websites
 

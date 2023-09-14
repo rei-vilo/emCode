@@ -46,8 +46,8 @@ In the example below, let's consider two projects for two CC1352 LaunchPad board
 
 + Open a **Terminal** window and launch `lsusb`, a utility that lists the connected USB devices.
 
-``` bash
-% ~/Library/embedXcode/Tools/Utilities/lsusb
+``` bash dollar lines="1"
+~/.emCode/Tools/Utilities/lsusb
 Bus 020 Device 007: ID 0451:bef3 Texas Instruments XDS110 (02.03.00.18) Embed with CMSIS-DAP  Serial: L41009S9
 ```
 
@@ -57,8 +57,8 @@ Bus 020 Device 007: ID 0451:bef3 Texas Instruments XDS110 (02.03.00.18) Embed wi
 
 + Perform the same `lsusb`.
 
-``` bash
-% ~/Library/embedXcode/Tools/Utilities/lsusb
+``` bash dollar lines="1"
+~/Library/embedXcode/Tools/Utilities/lsusb
 Bus 020 Device 007: ID 0451:bef3 Texas Instruments XDS110 (02.03.00.18) Embed with CMSIS-DAP  Serial: L41009S9
 Bus 020 Device 006: ID 0451:bef3 Texas Instruments XDS110 (02.03.00.18) Embed with CMSIS-DAP  Serial: L41009PJ
 ```
@@ -428,7 +428,7 @@ If the `ArduinoOTA` object isn't running,
 
 + Build the `BasicOTA` example.
 
-+ Upload using an USB connection as per section [Upload to NodeMCU 1.0 board](../Advanced/Specific-1/#upload-to-nodemcu-10-board) :octicons-link-16:.
++ Upload using an USB connection as per section [Upload to NodeMCU 1.0 board](../Advanced/Specific-1/#upload-to-nodemcu-10-board).
 
 !!! note
     The sketch requires twice its size.
@@ -441,8 +441,8 @@ To identify the IP addresses of the ESP8266 or NodeMCU board,
 
 + Run the following command.
 
-``` bash
-$ arp -a
+``` bash dollar
+arp -a
 esp_a1b2c3 (192.168.1.209) at 12:ef:34:a1:b2:c3 on en0 ifscope [ethernet]
 ```
 
@@ -450,13 +450,13 @@ The address `192.168.1.209` gives access to the board.
 
 + Test the board is connected with ping.
 
-``` bash
-$ ping 192.168.1.209
+``` bash dollar
+ping 192.168.1.209
 ```
 
 ### Enter IP address
 
-During the first compilation, embedXcode looks for the ESP8266 or NodeMCU board.
+During the first compilation, emCode looks for the ESP8266 or NodeMCU board.
 
 If the ESP8266 or NodeMCU board isn't found on the network, a window asks for the IP address.
 
@@ -466,15 +466,13 @@ If the ESP8266 or NodeMCU board isn't found on the network, a window asks for th
 
 + Click on **OK** to validate or **Cancel** to cancel.
 
-When validated, the IP address is saved on the board configuration file `NodeMCU 0.9 ESP-12 (WiFi)` or `NodeMCU 1.0 ESP-12E (WiFi)` in the project.
-
-<center>![](img/359-02-360.png)</center>
+When validated, the IP address is saved on the main `Makefile` of the project.
 
 The IP address is only asked once.
 
 + To erase the IP address, just delete the whole line.
 
-+ To edit the IP address, just change the left part after `SSH_ADDRESS =` on the corresponding line.
++ To edit the IP address, just change the value of the macro `SSH_ADDRESS`.
 
 Password isn't implemented.
 
@@ -503,4 +501,4 @@ For more information about the installation and use of the over-the-air upload,
 
 ![](img/Logo-064-Raspberry-Pi.png) The Raspberry Pi board provides over-the-air connection through Ethernet or WiFi for upload, console and debugging. The connection is protected by a password defined during the installation of the board.
 
-+ Please refer to the procedure [Install the RasPiArduino platform](../../Install/Section4/Page13) :octicons-link-16: for installation and [Enter Raspberry Pi IP address and password](../../Develop/Section2/#enter-raspberry-pi-ip-address-and-password) :octicons-link-16: for configuration.
++ Please refer to the procedure [Install the RasPiArduino platform](../../Install/Section4/Page13) for installation and [Enter Raspberry Pi IP address and password](../../Develop/Section2/#enter-raspberry-pi-ip-address-and-password) for configuration.

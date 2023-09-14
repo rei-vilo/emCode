@@ -1,6 +1,6 @@
 # Release history
 
-Details of the latest release are available at the [emCode release notes](../../Appendixes/Notes/) :octicons-link-16:.
+Details of the latest release are available at the [emCode release notes](../../Appendixes/Release/).
 
 ## Go to release 14
 
@@ -10,6 +10,10 @@ Date | Release | Comment
 08 Sep 2023 | 14.2.2 | Updated support for RP2040 boards
 08 Sep 2023 | 14.2.1 | Updated support for ESP32 boards
 04 Sep 2023 | 14.2.0 | Added core target
+04 Sep 2023 | 14.1.8 | Updated support for Raspberry Pi Pico boards
+15 Aug 2023 | 14.1.7 | Improved general stability
+31 Jul 2023 | 14.1.6 | Initial public release
+19 Jul 2023 | 14.1.5 | Added TyTools for Teensy boards
 03 Jul 2023 | 14.1.4 | Added preliminary support for Seeed nRF52840 Mbed-OS boards
 19 Jun 2023 | 14.1.3 | Updated support for Raspberry Pi Pico RP2040 boards
 05 Jun 2023 | 14.1.2 | Updated support for Teensy boards
@@ -20,7 +24,7 @@ Date | Release | Comment
 16 May 2023 | 14.0.7 | Improved stability for LaunchPad CC1352 boards
 11 May 2023 | 14.0.6 | Added support for Raspberry Pi Debug Probe CMSIS-DAP
 09 Apr 2023 | 14.0.5 | Updated support for Raspberry Pi Pico RP2040 boards
-02 May 2023 | 14.0.4 | Initial release
+02 May 2023 | 14.0.4 | Enhanced stability
 24 Apr 2023 | 14.0.3 | Updated support for Teensy boards
 24 Apr 2023 | 14.0.2 | Updated support for Raspberry Pi Pico RP2040 boards
 24 Apr 2023 | 14.0.1 | Updated support for ESP32 boards

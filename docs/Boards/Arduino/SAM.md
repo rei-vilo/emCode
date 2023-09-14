@@ -7,7 +7,7 @@ tags:
 
 The Arduino SAM platform includes the Arduino Due.
 
-## Upload to Arduino Due
+## Install
 
 To install the Arduino SAM boards,
 
@@ -17,12 +17,9 @@ To install the Arduino SAM boards,
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install arduino:sam
 ```
-
-## Install
 
 ## Develop
 
@@ -36,7 +33,7 @@ arduino-cli core install arduino:sam
 
 If the software suite for the Segger J-Link isn't installed,
 
-+ Follow the procedure at [Install the Segger J-Link Software Suite](../../Install/Section4/#install-the-segger-j-link-software-suite) :octicons-link-16:.
++ Follow the procedure at [Install the Segger J-Link Software Suite](../../Install/Section4/#install-the-segger-j-link-software-suite).
 
 + Double-check the orientation of the SWD connector on the Arduino Due schematics.
 

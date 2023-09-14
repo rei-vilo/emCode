@@ -19,8 +19,7 @@ The Seeed Xiao nRF52840 Mbed-OS platform includes two boards: the Xiao nRF52840 
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install Seeeduino:nrf52@1.1.1
 ```
 
@@ -29,8 +28,7 @@ arduino-cli core install Seeeduino:nrf52@1.1.1
 
 To install the library for Bluetooth, run
 
-``` bash
-$
+``` bash dollar
 arduino-cli lib install ArduinoBLE
 
 ```
@@ -46,7 +44,7 @@ Built-in LEDs use reverse logic.
 
 ### Use the libraries for Serial port
 
-Edit the main `Makefile` to list the required libraries for the serial port.
++ Edit the main `Makefile` to list the required libraries for the serial port.
 
 ```
 APP_LIBS_LIST += Adafruit_TinyUSB_Arduino
@@ -60,7 +58,7 @@ APP_LIBS_LIST += Adafruit_TinyUSB_Arduino
 
 ### Use the libraries for IMU
 
-Edit the main `Makefile` to list the required libraries for the LSM6DS3.
++ Edit the main `Makefile` to list the required libraries for the LSM6DS3.
 
 ```
 USER_LIBS_LIST = Seeed_Arduino_LSM6DS3
@@ -68,7 +66,7 @@ USER_LIBS_LIST = Seeed_Arduino_LSM6DS3
 
 ### Use the libraries for microphone
 
-Edit the main `Makefile` to list the required libraries for the microphone.
++ Add to the main sketch.
 
 ```
 USER_LIBS_LIST = Seeed_Arduino_Mic
@@ -76,7 +74,7 @@ USER_LIBS_LIST = Seeed_Arduino_Mic
 
 ### Use the libraries for Bluetooth
 
-Edit the main `Makefile` to list the required libraries.
++ Edit the main `Makefile` to list the required libraries.
 
 ```
 USER_LIBS_LIST = ArduinoBLE
@@ -88,7 +86,7 @@ USER_LIBS_LIST = ArduinoBLE
 
 The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
 
-| | Platform | IDE | Package | Date | Comment
+| | Platform | IDE | Package | Comment
 ---- | ---- | ---- | ---- | ---- | ----
 ![](img/Logo-064-Seeeduino.png) | **Seeeduino** | Arduino 1.8 | AVR 1.3.0 | | For Seeed and Seeed Grove Beginner Kit
 | | | | SAMD 1.8.0 | | For Xiao SAMD and Wio Terminal boards
@@ -98,7 +96,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 ![](img/Logo-064-Seeed.png) | **Seeeduino**
 :---- | ----
-IDE | Arduino CLI or 2.0 IDE
+IDE | Arduino CLI or IDE
 Website | <https://www.seeedstudio.com> :octicons-link-external-16:
 Download | <http://wiki.seeed.cc/Seeed_Arduino_Boards> :octicons-link-external-16:
 Wiki | <http://wiki.seeed.cc/Seeeduino_v4.2/> :octicons-link-external-16:

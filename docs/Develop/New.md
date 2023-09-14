@@ -42,7 +42,7 @@ The board can be changed afterwards with the same procedure.
 
 If your board is not listed, you can create a configuration file.
 
-+ Please refer to the section [Add a board](../../Boards/Other) :octicons-link-16:.
++ Please refer to the section [Add a board](../../Boards/Other).
 
 ## Customise the project
 

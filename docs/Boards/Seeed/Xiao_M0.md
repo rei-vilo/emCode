@@ -1,6 +1,6 @@
 ---
 tags:
-    - Active
+    - On hold
 ---
 
 # Manage the Seeed Xiao M0 and Wio Terminal boards
@@ -9,14 +9,20 @@ The Seeed SAMD platform includes two main lines of boards: the compact Xiao and 
 
 ## Install the Seeed Xiao SAMD
 
-+ Ensure **Arduino-CLI** is installed.
+To install the Seeed Xiao SAMD board,
+
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+```
+https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```
 
 + Open a **Terminal** window.
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install Seeeduino:samd
 ```
 
@@ -26,14 +32,19 @@ The Wio Terminal includes two MCUs: a SAMD51 Cortex-M4 MCU for general purpose, 
 
 ### Install the SAMD platform for the Wio Terminal board
 
-+ Ensure **Arduino-CLI** is installed.
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+``` json
+https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```
+```
 
 + Open a **Terminal** window.
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install Seeeduino:samd
 ```
 
@@ -75,8 +86,19 @@ Apart from the main SAMD51 MCU, the Seeed SAMD Wio Terminal board includes anoth
 
 To install the RTL8720DN of the Wio Terminal board,
 
-``` bash
-$
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+``` json
+https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```
+```
+
++ Open a **Terminal** window.
+
++ Run
+
+``` bash dollar
 arduino-cli core install realtek:AmebaD
 ```
 
@@ -92,8 +114,22 @@ Using the RTL8720DN requires a utility running on the SAMD51 to provide a bridge
 
 + Download the [rtl8720_update](https://wiki.seeedstudio.com/Wio-Terminal-Network-Overview/#step-1-arduino-configuration) :octicons-link-external-16: or [WioTerminal_USB2Serial_Burn8720](https://github.com/Seeed-Studio/Seeed_Arduino_Sketchbook) :octicons-link-external-16: on the Seeed Studio website.
 
-``` CMake
-https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_seeeduino_boards_index.json
+To install the Seeed Xiao nRF52840 board,
+
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+``` json
+https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
+```
+
++ Open a **Terminal** window.
+
++ Run
+
+``` bash dollar
+arduino-cli core install realtek:AmebaD
 ```
 
 + Select the boards and click on **Install**.
@@ -108,7 +144,7 @@ The Seeed SAMD Xiao board includes the compact Xiao board and the IoT-enabled Wi
 
 To install the Seeed SAMD platform,
 
-+ Download and install the supported versions of the Arduino IDE under the `/Applications` folder, as described in the section [Install the Arduino platform](../../Install/Section4/Arduino) :octicons-link-16:.
++ Download and install the supported versions of the Arduino IDE under the `/Applications` folder, as described in the section [Install the Arduino platform](../../Install/Section4/Arduino).
 
 + Launch it.
 
@@ -116,7 +152,7 @@ To install the Seeed SAMD platform,
 
 + Avoid spaces in the name and path of the sketchbook folder.
 
-+ Follow the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino) :octicons-link-16:.
++ Follow the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino).
 
 + Call the **Boards Manager** and check the Seeed SAMD boards are listed.
 
@@ -126,7 +162,7 @@ If the Seeed boards aren't listed on the **Boards Manager**,
 
 + Open the **Preferences**.
 
-+ Add the following URL on a separate line, as described in section [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards) :octicons-link-16:.
++ Add the following URL on a separate line, as described in section [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards).
 
 ``` CMake
 https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_seeeduino_boards_index.json
@@ -140,7 +176,7 @@ For more information on the installation process,
 
 The boards package does not include the utilities for the UF2 upload.
 
-+ Please install them from the [Adafruit Feather nRF52](../../Install/Section4/Adafruit) :octicons-link-16: package.
++ Please install them from the [Adafruit Feather nRF52](../../Install/Section4/Adafruit) package.
 
 ## Develop
 
@@ -148,7 +184,7 @@ The boards package does not include the utilities for the UF2 upload.
 
 ### Use the libraries for Bluetooth
 
-Edit the main `Makefile` to list the required libraries.
++ Edit the main `Makefile` to list the required libraries.
 
 ``` CMake
 USER_LIBS_LIST = ArduinoBLE
@@ -160,7 +196,7 @@ USER_LIBS_LIST = ArduinoBLE
 
 The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
 
-| | Platform | IDE | Package | Date | Comment
+| | Platform | IDE | Package | Comment
 ---- | ---- | ---- | ---- | ---- | ----
 ![](img/Logo-064-Seeeduino.png) | **Seeeduino** | Arduino 1.8 | AVR 1.3.0 | | For Seeed and Seeed Grove Beginner Kit
 | | | | SAMD 1.8.0 | | For Xiao SAMD and Wio Terminal boards
@@ -170,7 +206,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 ![](img/Logo-064-Seeed.png) | **Seeeduino**
 :---- | ----
-IDE | Arduino CLI or 2.0 IDE
+IDE | Arduino CLI or IDE
 Website | <https://www.seeedstudio.com> :octicons-link-external-16:
 Download | <http://wiki.seeed.cc/Seeed_Arduino_Boards> :octicons-link-external-16:
 Wiki | <http://wiki.seeed.cc/Seeeduino_v4.2/> :octicons-link-external-16:
@@ -194,13 +230,13 @@ Unfortunately, the boards package supplied by Seeeduino doesn't include the util
 
 For more information,
 
-+ Please refer to [Upload to Adafruit Feather M0 and M4 boards using UF2](../../Advanced/Specific-1/#upload-to-adafruit-feather-m0-and-m4-boards-using-uf2) :octicons-link-16:.
++ Please refer to [Upload to Adafruit Feather M0 and M4 boards using UF2](../../Advanced/Specific-1/#upload-to-adafruit-feather-m0-and-m4-boards-using-uf2).
 
 The last option leverages the exposed pads SWCLK and SWDIO for SWD signal. It is designed specifically for debugging. It has been explored with the Xiao M0 board.
 
 For more information,
 
-+ Please refer to [Connect the Segger J-Link to the Seeeduino Xiao M0](../../Debug/Section3/#connect-the-segger-j-link-to-the-seeeduino-xiao-m0) :octicons-link-16:.
++ Please refer to [Connect the Segger J-Link to the Seeeduino Xiao M0](../../Debug/Section3/#connect-the-segger-j-link-to-the-seeeduino-xiao-m0).
 
 ### Upload to the RTL8720DN MCU of the Wio Terminal board
 
@@ -225,3 +261,43 @@ Cables and pins should be soldered to connect the Segger J-Link programmer-debug
 For more information,
 
 + Please refer to the [Seeeduino Xiao wiki](http://wiki.seeedstudio.com/Seeeduino-XIAO/) :octicons-link-external-16:.
+
+### Use a Xiao M0 as DAP-Link debugger
+
+The Xiao M0 can be used as a CMSIS-DAP probe to debug another Xiao M0.
+
+For more information on using a Xiao M0 as a CMSIS-DAP probe,
+
++ Please refer to [Build a DAPLink Device using Seeed Studio XIAO SAMD21](https://wiki.seeedstudio.com/Seeeduino-XIAO-DAPLink/) :octicons-link-external-16:.
+
+Below is an example of the configuration of the tasks file `tasks.json` for debugging against the Xiao M0 with an addtional Xiao M0 as CMSIS-DAP debugger.
+
+``` json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Xiao M0 CMSIS-DAP",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "device": "at91samdXX",
+            "serverArgs": [
+                "-s", "/usr/share/openocd/",
+                "-c", "adapter speed 2000",
+                "-f", "target/at91samdXX.cfg",
+            ],
+            "configFiles": [
+                "interface/cmsis-dap.cfg"
+            ],
+            }
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Make"
+        }
+    ]
+}
+```

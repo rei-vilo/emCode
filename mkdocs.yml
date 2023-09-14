@@ -1,6 +1,6 @@
 site_name: emCode User Manual
 copyright: Copyright &copy; Rei Vilo, 2010-2023 &bull; All rights reserved
-site_description: embedXcode User Manual
+site_description: emCode User Manual
 site_author: Rei Vilo
 # copyright: (c) All rights reserved
 # site_url is required for sitemap.xml
@@ -13,7 +13,7 @@ site_dir: /home/reivilo/Sites/eC
 # site_dir: /home/reivilo/Sites/Ionos/public_html/site
 # /home/reivilo/Projets/embedXcode/Site
 # site_dir: "/Users/ReiVilo/Documents/embedXcode/MkDocs/Site 1&1/site"
-# repo_url: https://embedxcode.weebly.com/download.html
+repo_url: https://github.com/rei-vilo/emCode/
 # repo_name: "Download"
 
 # repo_name: '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="9H8EV2RV4QHJG"><input type="image" src="https://embedxcode.com/site/img/donate-logo-large-en-2x.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form>'
@@ -38,12 +38,13 @@ nav:
         - Add libraries to the project: Develop/Libraries.md
         - Build and upload the project: Develop/Build.md
         - Run and debug the project: Develop/Run.md
+        - Use the other targets: Develop/Other.md
     - Manage the boards:
         - Boards/index.md
         - Adafruit:
             - Boards/Adafruit/index.md
-            - Feather ESP8266: Boards/Adafruit/ESP8266.md
             - Feather ESP32: Boards/Adafruit/ESP32.md
+            - Feather ESP8266: Boards/Adafruit/ESP8266.md
             - Feather nRF52832 and nRF52840: Boards/Adafruit/nRF52.md
             - Feather M0 and M4: Boards/Adafruit/Cortex-M.md
             - Feather RP2040: Boards/Adafruit/RP2040.md
@@ -51,26 +52,30 @@ nav:
         - Arduino:
             - Boards/Arduino/index.md
             - Arduino AVR: Boards/Arduino/AVR.md
-            - Arduino MegaAVR: Boards/Arduino/MegaAVR.md
-            - Arduino SAM: Boards/Arduino/SAM.md
-            - Arduino SAMD: Boards/Arduino/SAMD.md
             - Arduino ESP32: Boards/Arduino/ESP32.md
+            - Arduino MegaAVR: Boards/Arduino/MegaAVR.md
+            - Arduino Mbed-OS: Boards/Arduino/Mbed.md
             - Arduino nRF52: Boards/Arduino/nRF52.md
             - Arduino RP2040: Boards/Arduino/RP2040.md
-            - Arduino Mbed-OS: Boards/Arduino/Mbed.md
+            - Arduino SAM: Boards/Arduino/SAM.md
+            - Arduino SAMD: Boards/Arduino/SAMD.md
         - Espressif:
             - Boards/Espressif/index.md
             - Espressif ESP8266: Boards/Espressif/ESP8266.md
             - Espressif ESP32: Boards/Espressif/ESP32.md
+        - Microsoft: 
+            - Boards/Microsoft/index.md
+            - Microsoft AZ3166: Boards/Microsoft/AZ3166.md
         - Seeed:
             - Boards/Seeed/index.md
             - Grove Beginner Kit for Arduino: Boards/Seeed/Grove_AVR.md
+            - SenseCAP Indicator: Boards/Seeed/SenseCAP.md
             - Xiao ESP32-C3: Boards/Seeed/Xiao_ESP32.md
+            - Xiao M0 and Wio Terminal: Boards/Seeed/Xiao_M0.md
             - Xiao nRF52840: Boards/Seeed/Xiao_nRF.md
             - Xiao nRF52840 Mbed-OS: Boards/Seeed/Xiao_mbed.md
             - Xiao RP2040: Boards/Seeed/Xiao_RP2040.md
-            - Xiao M0 and Wio Terminal: Boards/Seeed/Xiao_M0.md
-            - SenseCAP Indicator: Boards/Seeed/SenseCAP.md
+            - Xiao expansion board: Boards/Seeed/Xiao_Expansion.md
         - Raspberry Pi Pico:
             - Boards/RP2040/index.md
             - Raspberry Pi Pico RP2040: Boards/RP2040/RP2040.md
@@ -82,7 +87,6 @@ nav:
             - Teensy: Boards/Teensy/Teensy.md
         # - ATtinyCore: Boards/ATtiny.md
         # - DFRobot: Boards/DFRobot.md
-        # - Microsoft: Boards/Microsoft.md
         # - Moteino: Boards/Moteino.md
         # - NodeMCU: Boards/NodeMCU.md
         # - BBC microbit: Boards/microbit.md
@@ -95,16 +99,16 @@ nav:
         - Issues/index.md
         - Compatibility with Arduino: Issues/Compatibility.md
         - Solutions to common issues: Issues/Common.md
+        - Transition to emCode: Issues/Changes.md
     - Appendixes:
         - Appendixes/index.md
-        - Release notes: Appendixes/Notes.md
+        - Release notes: Appendixes/Release.md
         - Release history: Appendixes/History.md
         # - Visit the official websites: Appendixes/Section3.md
         # - References: Appendixes/References.md
         # - Check the tests: Appendixes/Section6.md
         - Glossary: Appendixes/Glossary.md
         - Index of boards and platforms: Appendixes/Indexes.md
-        - Changes by emCode: Appendixes/Changes.md
         - Legal notice: Appendixes/Legal.md
 
 theme:
@@ -206,14 +210,24 @@ markdown_extensions:
         emoji_generator: !!python/name:materialx.emoji.to_svg
     - admonition
     - pymdownx.details
-    - pymdownx.superfences
+# See https://github.com/squidfunk/mkdocs-material/discussions/3427
+# and https://github.com/flynneva/mkdocs-custom-superfence-example
+    - pymdownx.superfences:
+        custom_fences:
+            - name: '*'
+              class: '*'
+              format: !!python/name:superfences_examples.prefix.formatter
+              validator: !!python/name:superfences_examples.prefix.validator
     - codehilite
     - toc:
         permalink: true
         title: On this page
     - pymdownx.keys
     - pymdownx.mark
+# Extras, https://pypi.org/project/mkdocs-pymdownx-material-extras/
+# pip install mkdocs-pymdownx-material-extras
     - pymdownx.smartsymbols
+    - pymdownx.critic
     - pymdownx.tabbed:
         alternate_style: true
     - attr_list
@@ -221,10 +235,6 @@ markdown_extensions:
     - pymdownx.tilde
     - smarty
     - pymdownx.mark
-# Extras, https://pypi.org/project/mkdocs-pymdownx-material-extras/
-# pip install mkdocs-pymdownx-material-extras
-    - pymdownx.smartsymbols
-    - pymdownx.critic
 #    - fontawesome_markdown
 
 plugins:
@@ -280,7 +290,7 @@ plugins:
         tags_file: Appendixes/Indexes.md
 # pip install mkdocs-page-pdf
 # https://pypi.org/project/mkdocs-page-pdf/
-# page-to-pdf should be the last plug-in listed.   
+# page-to-pdf should be the last plug-in listed.
 #     - page-to-pdf
 
 # extra_css:

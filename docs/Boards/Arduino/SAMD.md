@@ -17,8 +17,7 @@ To install the Arduino SAMD boards,
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install arduino:samd
 ```
 
@@ -53,3 +52,34 @@ However, the programming port offers a better stability and is required for debu
 <center>![](img/410-01-420.png)</center>
 
 + Use the USB Programming port
+
+### Declare the Arduino Zero CMSIS-DAP device
+
+On Linux, the Arduino Zero CMSIS-DAP device may need to be declared.
+
++ Open a **Terminal** window and run
+
+``` bash dollar
+sudo nano /etc/udev/rules.d/98-openocd.rules
+```
+
++ Edit
+
+``` bash
+ACTION!="add|change", GOTO="openocd_rules_end"
+SUBSYSTEM!="usb|tty|hidraw", GOTO="openocd_rules_end"
+ATTRS{product}=="*CMSIS-DAP*", MODE="664", GROUP="plugdev"
+LABEL="openocd_rules_end"
+```
+
++ Save and close with ++ctl+o++ ++ctrl+x++;
+
++ Update with
+
+``` bash dollar
+sudo udevadm control --reload
+```
+
+For more information on CMSIS-DAP,
+
++ Please refer to [Arduino Zero error: unable to find CMSIS-DAP device](https://arduino.stackexchange.com/questions/28566/arduino-zero-error-unable-to-find-cmsis-dap-device)

@@ -9,7 +9,7 @@ To install Visual Studio Code,
 
 + Download [Visual Studio Code](https://code.visualstudio.com/download) :octicons-link-external-16:.
 
-+ Install it.
++ Install it.em
 
 For more information on Visual Studio Code,
 
@@ -23,8 +23,7 @@ Visual Studio Code is based on extensions.
 
 To install an extension using the command line:
 
-``` bash
-$
+``` bash dollar
 code --install-extension ms-vscode.cpptools
 ```
 
@@ -136,10 +135,38 @@ For download and documentation, please refer to
 
 + [Texane ST-Util](https://github.com/stlink-org/stlink) :octicons-link-external-16:.
 
-The **Cortex Debug extension** requires a modern GDB client, version `9` or later. Some boards packages include older versions of the GDB client.
+The Segger J-Link probe may need
+
+``` bash dollar
+nano 99-segger-vcom.rules
+```
 
 ``` bash
-$
+ACTION!="add", SUBSYSTEM!="usb_device", GOTO="segger_rules_end"
+ATTRS{idVendor}=="1366" ENV{ID_MM_DEVICE_IGNORE}="1"
+#ATTRS{idVendor}=="1366" ATTRS{idProduct}=="0105", ENV{ID_MM_DEVICE_IGNORE}="1"
+LABEL="segger_rules_end"
+```
+
+Save and close with ++ctrl+o++ ++ctrl+x++
+
+``` bash dollar
+sudo su
+```
+
+``` bash hash
+chown root 99-segger-vcom.rules
+chmod u=rw 99-segger-vcom.rules
+chmod a+r 99-segger-vcom.rules
+ls -l 99-segger-vcom.rules
+cp 99-segger-vcom.rules /etc/udev/rules.d/99-segger-vcom.rules
+udevadm control --reload-rules
+exit
+```
+
+The **Cortex Debug extension** requires a modern GDB client, version `9` or later. Some boards packages include older versions of the GDB client.
+
+``` bash dollar
 sudo apt update
 sudo apt install gdb-multiarch
 ```

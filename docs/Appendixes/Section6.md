@@ -14,7 +14,7 @@ This section provides the versions of the operating system, IDEs and plug-ins, a
 
 For more information on macOS 11 and Xcode 12,
 
-+ Please refer to [Assessing macOS 11 and Xcode 12](../../Appendixes/Section11/#assessing-macos-11-and-xcode-12) :octicons-link-16:.
++ Please refer to [Assessing macOS 11 and Xcode 12](../../Appendixes/Section11/#assessing-macos-11-and-xcode-12).
 
 ## IDEs, boards and plug-ins versions
 
@@ -22,7 +22,7 @@ For more information on macOS 11 and Xcode 12,
 
 The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
 
-| | Platform | IDE | Package | Date | Comment
+| | Platform | IDE | Package | Comment
 ---- | ---- | ---- | ---- | ---- | ----
 ![](img/Logo-064-Adafruit.png) | **Adafruit** | Arduino 1.8 | AVR 1.4.14 | |
 | | | | nRF52 1.3.0 | | For Feather nRF52832 and nRF52840 boards
@@ -63,7 +63,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 Support for the following platforms is either put on hold or discontinued.
 
-| | Platform | IDE | Package | Date | Comment
+| | Platform | IDE | Package | Comment
 | ---- | ---- | ---- | ---- | ---- | ----
 ![](img/Logo-064-Arduino-IDE.png) | **Arduino** | Arduino 1.8 | STM32F4 1.0.1 | | For never released Star Otto board
 ![](img/Logo-064-ArduCAM.png) | **Arducam**| Arduino 1.6.5 | ESP8266 2.2.0 | | For ArduCAM ESP8266 board
@@ -180,15 +180,15 @@ Release 1.8.7E21 of Energia isn't self-contained and requires the installation o
 
 For the conversion table and the update procedure,
 
-+ Please refer to section [Energia old and new boards tags](../../Appendixes/Section6/#energia-old-and-new-boards-tags) :octicons-link-16:.
++ Please refer to section [Energia old and new boards tags](../../Appendixes/Section6/#energia-old-and-new-boards-tags).
 
 For the installation and use of Energia release 0101E0017 for CC2650 SensorTag and C2000 LaunchPad boards,
 
-+ Please refer to section [Install the C2000 LaunchPad Platform](../../Install/Section4/#install-the-launchpad-c2000-boards) :octicons-link-16:.
++ Please refer to section [Install the C2000 LaunchPad Platform](../../Install/Section4/#install-the-launchpad-c2000-boards).
 
 To install Java 8,
 
-+ Please refer to section [Install Java 8](../../Appendixes/Section6/#install-java-8) :octicons-link-16:.
++ Please refer to section [Install Java 8](../../Appendixes/Section6/#install-java-8).
 
 ### Energia old and new boards tags
 

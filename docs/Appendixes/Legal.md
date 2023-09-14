@@ -8,7 +8,7 @@ All rights reserved
 
 ## Licence
 
-emCode is under the Creative Common licence [Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://github.com/rei-vilo/PDLS_EXT3_Python_Touch/blob/main/LICENCE.md) :octicons-link-external-16:.
+emCode is under the Creative Common licence [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/) :octicons-link-external-16:.
 
 ![CC BY NC SA](img/cc-by-nc-sa.png)
 
@@ -20,13 +20,11 @@ The emCode software, including the related documentation, is provided to you "*a
 
 All brand names and trademarks mentioned in this website are the property of their respective owners.
 
-None of the brands mentioned in this website sponsor, authorise, or endorse embedXcode. Similarly, embedXcode does not sponsor, authorise, or endorse any of the brands mentioned in this website.
+None of the brands mentioned in this website sponsor, authorise, or endorse emCode. Similarly, emCode does not sponsor, authorise, or endorse any of the brands mentioned in this website.
 
 ## External links
 
 This website may contain links to external websites that are not provided or maintained by or in any way affiliated with it. Similarly, this website does not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.
-
-None of the brands mentioned in this website sponsor, authorise, or endorse emCode. Similarly, emCode does not sponsor, authorise, or endorse any of the brands mentioned in this website.
 
 emCode has no affiliate partnerships and does not earn any commission on products purchased through links. The absence of partnerships keep the editorial content free from any influence.
 

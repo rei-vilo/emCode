@@ -247,7 +247,7 @@ Remember, only the specified libraries are compiled.
 
 For more information on how to generate a pre-compiled library,
 
-+ Please refer to [Generate a pre-compiled library](#generate-a-pre-compiled-library) :octicons-link-16:.
++ Please refer to [Generate a pre-compiled library](#generate-a-pre-compiled-library).
 
 ## Manage non-standard libraries
 

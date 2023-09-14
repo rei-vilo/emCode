@@ -166,18 +166,21 @@ http://localhost:8888/Appendixes/Glossary/#ides-boards-and-plug-ins-versions
 
 http://localhost:8888/Install/Section4/
 
-$ cd /Users/ReiVilo/Desktop/MkDocs
+$
+cd /Users/ReiVilo/Desktop/MkDocs
 
-$ ls
+$
+ls
 Archive				custom_theme
 MAMP alias			docs
 MAMP alias 2			embedXcode User Manual.iba
 MkDoc.numbers			mkdocs.yml
 MkDocs Notes.txt		site
 
-$ mkdir custom_theme
-$ cd custom_theme/
-$ git clone https://github.com/gristlabs/mkdocs-windmill
+$
+mkdir custom_theme
+cd custom_theme/
+git clone https://github.com/gristlabs/mkdocs-windmill
 
 Edit mkdocs.yml
 
@@ -188,17 +191,20 @@ pip install pymdown-extensions
 As per https://github.com/gristlabs/mkdocs-windmill
 https://gristlabs.github.io/mkdocs-windmill/#
 
-$ sudo su
+$
+sudo su
 Password:
 
-$ pip install mkdocs-windmill
+$
+pip install mkdocs-windmill
 Collecting mkdocs-windmill
   Downloading mkdocs_windmill-0.1.2-py2-none-any.whl (981kB)
     100% |████████████████████████████████| 983kB 773kB/s
 Installing collected packages: mkdocs-windmill
 Successfully installed mkdocs-windmill-0.1.2
 
-$ exit
+$
+exit
 
 extra:
     logo: 'img/Logo-128-eX.png'
@@ -266,11 +272,11 @@ Platforms
 Active platforms | . | . | . | . | .
 :----: | :----: | :----: | :----: | :----: | :----:
 ![](img/Logo-064-Adafruit.png) | ![](img/Logo-064-ArduinoCC-TM.png) | ![](img/Logo-064-BBC-micro-bit.png) | ![](img/Logo-064-DFRobot.png) | ![](img/Logo-064-Espressif-Systems.png) | ![](img/Logo-064-Intel-IDE.png)
-[Adafruit](../../Install/Section4/Adafruit) :octicons-link-16: | [Arduino](../../Install/Section4/Arduino) :octicons-link-16: | [BBC micro:bit](../../Install/Section4/Page10) :octicons-link-16: | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) :octicons-link-16: | [Espressif](../../Install/Section4/Espressif) :octicons-link-16: | [Intel](../../Legacy/Section4/#install-the-intel-platform_1) :octicons-link-16:
+[Adafruit](../../Install/Section4/Adafruit) | [Arduino](../../Install/Section4/Arduino) | [BBC micro:bit](../../Install/Section4/Page10) | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) | [Espressif](../../Install/Section4/Espressif) | [Intel](../../Legacy/Section4/#install-the-intel-platform_1)
 ![](img/Logo-064-Launchpad.png) | ![](img/Logo-064-Microsoft.png) | ![](img/Logo-064-Moteino.png) | ![](img/Logo-064-NodeMCU.png) | ![](img/Logo-064-Nordic.png) | ![](img/Logo-064-Raspberry-Pi.png)
-[LaunchPad](../../Install/Section4/LaunchPad) :octicons-link-16: | [Microsoft](../../Install/Section4/Microsoft) :octicons-link-16: | [Moteino](../../Install/Section4/Moteino) :octicons-link-16: | [NodeMCU](../../Install/Section4/#install-the-nodemcu-board) :octicons-link-16: | [nRF5 boards](../../Install/Section4/Page11) :octicons-link-16: | [Raspberry Pi](../../Install/Section4/Page13) :octicons-link-16:
+[LaunchPad](../../Install/Section4/LaunchPad) | [Microsoft](../../Install/Section4/Microsoft) | [Moteino](../../Install/Section4/Moteino) | [NodeMCU](../../Install/Section4/#install-the-nodemcu-board) | [nRF5 boards](../../Install/Section4/Page11) | [Raspberry Pi](../../Install/Section4/Page13)
 ![](img/Logo-064-Raspberry-Pi.png) | ![](img/Logo-064-Seeed.png) | ![](img/Logo-064-STM32duino.png) | ![](img/Logo-064-Teensy-2.png) | | ![](img/Logo-064-Processing.png)
-[Raspberry Pi Pico](../../Install/Section4/#install-the-raspberry-pi-pico-rp2040-platform) :octicons-link-16: | [Seeeduino](../../Install/Section4/Seeeduino) :octicons-link-16: | [STM32duino](../../Install/Section4/STM32duino) :octicons-link-16: | [Teensy](../../Install/Section4/Teensy) :octicons-link-16: | | [Other](../../Install/Section4/Page17) :octicons-link-16:
+[Raspberry Pi Pico](../../Install/Section4/#install-the-raspberry-pi-pico-rp2040-platform) | [Seeeduino](../../Install/Section4/Seeeduino) | [STM32duino](../../Install/Section4/STM32duino) | [Teensy](../../Install/Section4/Teensy) | | [Other](../../Install/Section4/Page17)
 
 ---
 
@@ -357,22 +363,22 @@ For each platform,
 
 For more information about the Wiring / Arduino framework,
 
-+ Please refer to [Check the IDE and plug-in options](../../Install/Section4/#check-the-ide-and-plug-in-options) :octicons-link-16:.
++ Please refer to [Check the IDE and plug-in options](../../Install/Section4/#check-the-ide-and-plug-in-options).
 
 Some platforms and boards may be discontinued.
 
-+ Please check the boards and platforms at [Use discontinued Wiring / Arduino frameworks](../../Legacy/Section4/) :octicons-link-16:.
++ Please check the boards and platforms at [Use discontinued Wiring / Arduino frameworks](../../Legacy/Section4/).
 
 ## Select your platform
 
 Active platforms | . | . | . | . | .
 :----: | :----: | :----: | :----: | :----: | :----:
 ![](img/Logo-064-Adafruit.png) | ![](img/Logo-064-ArduinoCC-TM.png) | ![](img/Logo-064-BBC-micro-bit.png) | ![](img/Logo-064-DFRobot.png) | ![](img/Logo-064-Espressif-Systems.png) | ![](img/Logo-064-Intel-IDE.png)
-[Adafruit](../../Install/Section4/Adafruit) :octicons-link-16: | [Arduino](../../Install/Section4/Arduino) :octicons-link-16: | [BBC micro:bit](../../Install/Section4/Page10) :octicons-link-16: | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) :octicons-link-16: | [Espressif](../../Install/Section4/Espressif) :octicons-link-16: | [Intel](../../Legacy/Section4/#install-the-intel-platform_1) :octicons-link-16:
+[Adafruit](../../Install/Section4/Adafruit) | [Arduino](../../Install/Section4/Arduino) | [BBC micro:bit](../../Install/Section4/Page10) | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) | [Espressif](../../Install/Section4/Espressif) | [Intel](../../Legacy/Section4/#install-the-intel-platform_1)
 ![](img/Logo-064-Launchpad.png) | ![](img/Logo-064-Microsoft.png) | ![](img/Logo-064-Moteino.png) | ![](img/Logo-064-NodeMCU.png) | ![](img/Logo-064-Nordic.png) | ![](img/Logo-064-Raspberry-Pi.png)
-[LaunchPad](../../Install/Section4/LaunchPad) :octicons-link-16: | [Microsoft](../../Install/Section4/Microsoft) :octicons-link-16: | [Moteino](../../Install/Section4/Moteino) :octicons-link-16: | [NodeMCU](../../Install/Section4/#install-the-nodemcu-board) :octicons-link-16: | [nRF5 boards](../../Install/Section4/Page11) :octicons-link-16: | [Raspberry Pi](../../Install/Section4/Page13) :octicons-link-16:
+[LaunchPad](../../Install/Section4/LaunchPad) | [Microsoft](../../Install/Section4/Microsoft) | [Moteino](../../Install/Section4/Moteino) | [NodeMCU](../../Install/Section4/#install-the-nodemcu-board) | [nRF5 boards](../../Install/Section4/Page11) | [Raspberry Pi](../../Install/Section4/Page13)
 ![](img/Logo-064-Raspberry-Pi.png) | ![](img/Logo-064-Seeed.png) | ![](img/Logo-064-STM32duino.png) | ![](img/Logo-064-Teensy-2.png) | | ![](img/Logo-064-Processing.png)
-[Raspberry Pi Pico](../../Install/Section4/#install-the-raspberry-pi-pico-rp2040-platform) :octicons-link-16: | [Seeeduino](../../Install/Section4/Seeeduino) :octicons-link-16: | [STM32duino](../../Install/Section4/STM32duino) :octicons-link-16: | [Teensy](../../Install/Section4/Teensy) :octicons-link-16: | | [Other](../../Install/Section4/Page17) :octicons-link-16:
+[Raspberry Pi Pico](../../Install/Section4/#install-the-raspberry-pi-pico-rp2040-platform) | [Seeeduino](../../Install/Section4/Seeeduino) | [STM32duino](../../Install/Section4/STM32duino) | [Teensy](../../Install/Section4/Teensy) | | [Other](../../Install/Section4/Page17)
 
 ## Install legacy platforms and other frameworks
 
@@ -381,15 +387,15 @@ For other legacy Wiring / Arduino platforms and for other frameworks,
 Legacy platforms | . | . | . | . | .
 :----: | :----: | :----: | :----: | :----: | :----:
 ![](img/Logo-064-ArduCAM.png) | ![](img/Logo-064-chipKIT.png) | ![](img/Logo-064-4D-Systems.png) | ![](img/Logo-064-Cosa.png) | ![](img/Logo-064-Digistump-3.png) | ![](img/Logo-064-ftDuino.png)
-[ArduCAM](../../Legacy/Section4/Page1) :octicons-link-16: | [chipKIT](../../Legacy/Section4/Page2) :octicons-link-16: | [4D Systems](../../Legacy/Section4/Page3) :octicons-link-16: | [Cosa](../../Legacy/Section6/#install-the-cosa-framework) | [Digistump](../../Legacy/Section4/Page5) :octicons-link-16: | [ftduino](../../Legacy/Section4/Page7) :octicons-link-16:
+[ArduCAM](../../Legacy/Section4/Page1) | [chipKIT](../../Legacy/Section4/Page2) | [4D Systems](../../Legacy/Section4/Page3) | [Cosa](../../Legacy/Section6/#install-the-cosa-framework) | [Digistump](../../Legacy/Section4/Page5) | [ftduino](../../Legacy/Section4/Page7)
 ![](img/Logo-064-Glowdeck.png) | ![](img/Logo-064-Intel-IDE.png) | ![](img/Logo-064-Yocto-white.png) | ![](img/Logo-064-Intel-MCU-SDK.png) | ![](img/Logo-064-Launchpad.png) | ![](img/Logo-064-LightBlue.png)
-[Glowdeck](../../Legacy/Section4/Page6) :octicons-link-16: | [Intel](../../Legacy/Section4/#install-the-intel-platform_1) :octicons-link-16: | [Yocto](../../Legacy/Section4/Page8) :octicons-link-16: | [MCU SDK](../../Legacy/Section4/Page8) :octicons-link-16: | [LaunchPad](../../Legacy/Section4/#install-boards-from-previous-releases-of-energia) :octicons-link-16: | [LightBlue](../../Legacy/Section4/Page4) :octicons-link-16:
+[Glowdeck](../../Legacy/Section4/Page6) | [Intel](../../Legacy/Section4/#install-the-intel-platform_1) | [Yocto](../../Legacy/Section4/Page8) | [MCU SDK](../../Legacy/Section4/Page8) | [LaunchPad](../../Legacy/Section4/#install-boards-from-previous-releases-of-energia) | [LightBlue](../../Legacy/Section4/Page4)
 ![](img/Logo-064-Little-Robot-Friend.png) | ![](img/Logo-064-Maple.png) | ![](img/Logo-064-LinkIt.png) | ![](img/Logo-064-Microduino.png) | ![](img/Logo-064-panStamp.png) | ![](img/Logo-064-Spark.png)
-[Little Robot Friends](../../Legacy/Section4/Page10) :octicons-link-16: | [Maple](../../Legacy/Section4/Page11) :octicons-link-16: | [MediaTek](../../Install/Section4/#install-the-mediatek-linkit-platform) :octicons-link-16: | [Microduino](../../Install/Section4/#install-the-microduino-platform) :octicons-link-16: | [panStamp](../../Legacy/Section4/Page14) :octicons-link-16: | [Particle](../../Legacy/Section4/Page15) :octicons-link-16:
+[Little Robot Friends](../../Legacy/Section4/Page10) | [Maple](../../Legacy/Section4/Page11) | [MediaTek](../../Install/Section4/#install-the-mediatek-linkit-platform) | [Microduino](../../Install/Section4/#install-the-microduino-platform) | [panStamp](../../Legacy/Section4/Page14) | [Particle](../../Legacy/Section4/Page15)
 ![](img/Logo-064-RedBearLab-no-brand.png) | ![](img/Logo-064-RFduino.png) | ![](img/Logo-064-Robotis.png) | ![](img/Logo-064-Simblee.png) | ![](img/Logo-064-TinyCircuits.png) | ![](img/Logo-064-UDOO.png)
-[RedBear](../../Legacy/Section4/Page16) :octicons-link-16: | [RFduino](../../Legacy/Section4/Page17) :octicons-link-16: | [Robotis](../../Legacy/Section4/Page18) :octicons-link-16: | [Simblee](../../Legacy/Section4/Page19) :octicons-link-16: | [TinyCircuits](../../Install/Section4/#install-the-tinycircuits-platform) :octicons-link-16: | [Udoo Neo](../../Install/Section4/#install-the-udoo-neo-platform) :octicons-link-16:
+[RedBear](../../Legacy/Section4/Page16) | [RFduino](../../Legacy/Section4/Page17) | [Robotis](../../Legacy/Section4/Page18) | [Simblee](../../Legacy/Section4/Page19) | [TinyCircuits](../../Install/Section4/#install-the-tinycircuits-platform) | [Udoo Neo](../../Install/Section4/#install-the-udoo-neo-platform)
 ![](img/Logo-064-Wiring.png) | | | | |
-[Wiring](../../Legacy/Section4/Page23) :octicons-link-16: | | | | |
+[Wiring](../../Legacy/Section4/Page23) | | | | |
 
 ## Check the IDE and plug-in options
 
@@ -397,7 +403,7 @@ The Wiring / Arduino framework is used by many different platforms, resulting in
 
 For exact references,
 
-+ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions).
 
 ### Standard IDEs
 
@@ -407,10 +413,10 @@ They came with their own specific name.
 
 . | Platform | Version | Name
 ---- | ---- | ---- | ----
-![](img/Logo-064-Arduino-IDE.png) | [Arduino](../../Install/Section4/Arduino) :octicons-link-16: | 1.8 | Arduino
-![](img/Logo-064-Energia-1.png) | [LaunchPad](../../Install/Section4/LaunchPad) :octicons-link-16: | 1.6.10E18 | Energia
-![](img/Logo-064-Robotis.png) | [Robotis](../../Legacy/Section4/Page18) :octicons-link-16: | 1.0.2 | ROBOTIS_OpenCM
-![](img/Logo-064-Teensy-2.png) | [Teensy](../../Install/Section4/Teensy) :octicons-link-16: | Arduino 1.8 | Teensyduino
+![](img/Logo-064-Arduino-IDE.png) | [Arduino](../../Install/Section4/Arduino) | 1.8 | Arduino
+![](img/Logo-064-Energia-1.png) | [LaunchPad](../../Install/Section4/LaunchPad) | 1.6.10E18 | Energia
+![](img/Logo-064-Robotis.png) | [Robotis](../../Legacy/Section4/Page18) | 1.0.2 | ROBOTIS_OpenCM
+![](img/Logo-064-Teensy-2.png) | [Teensy](../../Install/Section4/Teensy) | Arduino 1.8 | Teensyduino
 
 ### Arduino Boards Manager
 
@@ -418,20 +424,20 @@ The Arduino 1.8.1 IDE downloads and installs those platforms through the **Board
 
 . | Platform | Boards | Boards for
 ---- | ---- | ---- | ----
-![](img/Logo-064-Adafruit.png) | [Adafruit](../../Install/Section4/Adafruit) :octicons-link-16: | AVR, SAMD | Arduino
-![](img/Logo-064-ArduinoCC-TM.png) | [Arduino](../../Install/Section4/Arduino) :octicons-link-16: | AVR, SAM, SAMD, nRF52 | Arduino
-![](img/Logo-064-chipKIT-1.png) | [chipKIT](../../Install/Section4/#install-the-chipkit-platform) :octicons-link-16: | PIC32 | Arduino
-![](img/Logo-064-Espressif-Systems.png) | [Espressif](../../Install/Section4/Espressif) :octicons-link-16: | ESP8266 | Arduino
-![](img/Logo-064-Microsoft.png) | [Microsoft](../../Install/Section4/Microsoft) :octicons-link-16: | | Arduino
-![](img/Logo-064-LinkIt.png) | [MediaTek](../../Install/Section4/#install-the-mediatek-linkit-platform) :octicons-link-16: | One, Duo, ARM | Arduino
-![](img/Logo-064-Moteino.png) | [Moteino](../../Install/Section4/Moteino) :octicons-link-16: | AVR | Arduino
-![](img/Logo-064-Nordic.png) | [nRF5 boards](../../Install/Section4/Page11) :octicons-link-16: | nRF51, nRF52 | Arduino
-![](img/Logo-064-panStamp.png) | [panStamp](../../Install/Section4/#install-the-panstamp-platform) :octicons-link-16: | AVR, MSP430 | Arduino
-![](img/Logo-064-UDOO.png) | [Udoo Neo](../../Install/Section4/#install-the-udoo-neo-platform) :octicons-link-16: | | Arduino 1.6.5
+![](img/Logo-064-Adafruit.png) | [Adafruit](../../Install/Section4/Adafruit) | AVR, SAMD | Arduino
+![](img/Logo-064-ArduinoCC-TM.png) | [Arduino](../../Install/Section4/Arduino) | AVR, SAM, SAMD, nRF52 | Arduino
+![](img/Logo-064-chipKIT-1.png) | [chipKIT](../../Install/Section4/#install-the-chipkit-platform) | PIC32 | Arduino
+![](img/Logo-064-Espressif-Systems.png) | [Espressif](../../Install/Section4/Espressif) | ESP8266 | Arduino
+![](img/Logo-064-Microsoft.png) | [Microsoft](../../Install/Section4/Microsoft) | | Arduino
+![](img/Logo-064-LinkIt.png) | [MediaTek](../../Install/Section4/#install-the-mediatek-linkit-platform) | One, Duo, ARM | Arduino
+![](img/Logo-064-Moteino.png) | [Moteino](../../Install/Section4/Moteino) | AVR | Arduino
+![](img/Logo-064-Nordic.png) | [nRF5 boards](../../Install/Section4/Page11) | nRF51, nRF52 | Arduino
+![](img/Logo-064-panStamp.png) | [panStamp](../../Install/Section4/#install-the-panstamp-platform) | AVR, MSP430 | Arduino
+![](img/Logo-064-UDOO.png) | [Udoo Neo](../../Install/Section4/#install-the-udoo-neo-platform) | | Arduino 1.6.5
 
 For exact references,
 
-+ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions).
 
 ### Arduino hardware sub-folder
 
@@ -439,7 +445,7 @@ As an alternative to the **Boards Manager**, the Arduino 1.8.1 IDE manages the b
 
 . | Platform | Boards | Boards for
 ---- | ---- | ---- | ----
-![](img/Logo-064-Raspberry-Pi.png) | [RasPiArduino](../../Install/Section4/Page13) :octicons-link-16: | Raspberry Pi | Arduino
+![](img/Logo-064-Raspberry-Pi.png) | [RasPiArduino](../../Install/Section4/Page13) | Raspberry Pi | Arduino
 
 ### Energia Boards Manager
 
@@ -447,11 +453,11 @@ The Energia 1.6.10E18 IDE downloads and installs those platforms through the **B
 
 . | Platform | Boards | Boards for
 ---- | ---- | ---- | ----
-![](img/Logo-064-Energia-1.png) | [LaunchPad](../../Install/Section4/LaunchPad) :octicons-link-16: | CC1310, CC3200, MSP432, Tiva C | Energia 1.6.10E18
+![](img/Logo-064-Energia-1.png) | [LaunchPad](../../Install/Section4/LaunchPad) | CC1310, CC3200, MSP432, Tiva C | Energia 1.6.10E18
 
 For exact references,
 
-+ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions).
 
 ### Plug-ins and add-ons
 
@@ -459,14 +465,14 @@ For those platforms, a standard IDE is modified with a plug-in or an add-on. How
 
 . | Platform | Plug-in for | Suggested name
 ---- | ---- | ---- | ----
-![](img/Logo-064-Microduino.png) | [Microduino](../../Install/Section4/#install-the-microduino-platform) :octicons-link-16: | Arduino 1.0 | Microduino
-![](img/Logo-064-Microduino.png) | [Microduino](../../Install/Section4/#install-the-microduino-platform) :octicons-link-16: | Maple 0.0.12 | MapleIDE
+![](img/Logo-064-Microduino.png) | [Microduino](../../Install/Section4/#install-the-microduino-platform) | Arduino 1.0 | Microduino
+![](img/Logo-064-Microduino.png) | [Microduino](../../Install/Section4/#install-the-microduino-platform) | Maple 0.0.12 | MapleIDE
 
 embedXcode finds the installation automatically, either as a plug-in or as a standalone IDE with the suggested name.
 
 For exact references,
 
-+ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions).
 
 ### IDE-less platforms
 
@@ -474,13 +480,13 @@ Some boards only require a library for a standard IDE. Other boards are IDE-less
 
 . | Platform | Standalone IDE | Library for
 ---- | ---- | ---- | ----
-![](img/Logo-064-4D-Systems.png) | [4D Systems](../../Install/Section4/#install-the-4d-systems-platform) :octicons-link-16: | - | chipKIT
-![](img/Logo-064-DFRobot.png) | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) :octicons-link-16: | - | Arduino 1.6.5
+![](img/Logo-064-4D-Systems.png) | [4D Systems](../../Install/Section4/#install-the-4d-systems-platform) | - | chipKIT
+![](img/Logo-064-DFRobot.png) | [DFRobot](../../Install/Section4/#install-the-dfrobot-platform) | - | Arduino 1.6.5
 
 For exact references,
 
-+ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions) :octicons-link-16:.
++ Please refer to [IDEs, boards and plug-ins versions](../../Appendixes/Section6/#ides-boards-and-plug-ins-versions).
 
 For the legacy Particle platform,
 
-+ Please refer to [Install the Particle platform](../../Legacy/Section4/Page15) :octicons-link-16:
++ Please refer to [Install the Particle platform](../../Legacy/Section4/Page15)

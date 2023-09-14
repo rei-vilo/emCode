@@ -17,8 +17,7 @@ To install the Arduino MegaAVR boards,
 
 + Run
 
-``` bash
-*
+``` bash dollar
 arduino-cli core install arduino:megaavr
 ```
 

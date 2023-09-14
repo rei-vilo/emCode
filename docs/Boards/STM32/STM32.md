@@ -15,32 +15,58 @@ For an exact list of the supproted boards,
 
 To install the STM32 boards,
 
-+ Ensure **Arduino-CLI** is installed.
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+``` json
+https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
+```
 
 + Open a **Terminal** window.
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install STMicroelectronics:stm32
 ```
+
+For more information,
 
 + Please refer to the [Getting Started](https://github.com/stm32duino/wiki/wiki/Getting-Started) :octicons-link-external-16: page and the [Add STM32 boards support to Arduino](https://github.com/stm32duino/wiki/wiki/Getting-Started#add-stm32-boards-support-to-arduino) :octicons-link-external-16: section on the GitHub repository.
 
 ### Install the uploader and debugger utilities
 
-STMicroelectronics recommends **ST-Link**, part of the  [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) :octicons-link-external-16: package. However, it requires Java.
+STMicroelectronics recommends **ST-Link**, part of the  [STM32CubeProgrammer software for all STM32](https://www.st.com/en/development-tools/stm32cubeprog.html) :octicons-link-external-16: package. However, it requires Java.
+
++ Download and install **STM32CubeProgrammer**.
+
+To update the PATH environmnent variable,
+
++ Open `.bashrc`.
+
+
+``` bash dollar
+nano ~/.bashrc
+```
+
++ Add
+
+``` bash
+export PATH=$PATH:~/Applications/STM32CubeProgrammer/bin
+```
+
++ Save and close with ++ctrl+o++ ++ctrl+x++.
 
 Two open-source alternatives include **OpenOCD** for Open On-Chip Debugger, the **Arduino Tools** from STM3232duino, and **Texane ST-Link**, a native version of the STMicroelectronics ST-Link tools.
 
 Please refer to
 
-+ [Install the OpenOCD driver](../../Install/Section4/#install-the-openocd-driver) :octicons-link-16:;
++ [Install the OpenOCD driver](../../Install/Section4/#install-the-openocd-driver);
 
 + [STM3232duino Arduino Tools](https://github.com/stm32duino/Arduino_Tools) :octicons-link-external-16: with the upload tools for the STM32-based boards and some other usefull scripts;
 
-+ [Install the Texane ST-Link driver](../../Install/Section4/#install-the-texane-st-link-driver) :octicons-link-16:.
++ [Install the Texane ST-Link driver](../../Install/Section4/#install-the-texane-st-link-driver).
 
 ### Update the firmware of the boards
 

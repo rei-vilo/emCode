@@ -1,23 +1,23 @@
----
+<!-- ---
 tags:
     - Legacy
----
+--- -->
 
 # Manage the Arduino Y&uacute; boards
 
 ## Upload to Arduino Y&uacute;n using Ethernet or WiFi
 
-![](img/Logo-064-Arduino-IDE.png) Although the Arduino Y&uacute;n requires no specific procedure, the Ethernet or WiFi network needs to be installed and configured successfully before any upload, and the RSA key fingerprint of the Arduino Y&uacute;n needs to be known by the Mac.
+Although the Arduino Y&uacute;n requires no specific procedure, the Ethernet or WiFi network needs to be installed and configured successfully before any upload, and the RSA key fingerprint of the Arduino Y&uacute;n needs to be known.
 
 + Check that the router has discovered the Arduino Y&uacute;n and note the IP address.
 
-+ Check the Mac knows the RSA key fingerprint of the Arduino Y&uacute;n.
++ Check the main computer knows the RSA key fingerprint of the Arduino Y&uacute;n.
 
 + Also, keep the password of the Arduino Y&uacute;n at hand.
 
 + Disconnect all the SPI devices from the ICSP connector as the WiFi module uses SPI to communicate with the Arduino.
 
-It is recommended to proceed with a test of the over-the-air upload with the Arduino IDE, through Ethernet or WiFi, to be sure that the Mac recognises the board and knows the RSA key fingerprint of the Arduino Y&uacute;n.
+It is recommended to proceed with a test of the over-the-air upload with the Arduino IDE, through Ethernet or WiFi, to be sure that the main computer recognises the board and knows the RSA key fingerprint of the Arduino Y&uacute;n.
 
 ### Check the SSH connection
 
@@ -31,17 +31,17 @@ The Arduino Y&uacute;n board should appear as `arduino.local` but often has a di
 
 The default address should be `192.168.240.1` but may differ according to the settings of the network.
 
-To check the Mac knows the RSA key fingerprint of the board,
+To check the main computer knows the RSA key fingerprint of the board,
 
 + Open a **Terminal** window and type the command `ssh root@` followed by the IP address of the board, `192.168.240.1` in the example.
 
-``` bash
-$ ssh root@192.168.240.1
+``` bash dollar
+ssh root@192.168.240.1
 ```
 
 If the board is unknown, a message asks for confirmation of the RSA key fingerprint.
 
-```
+``` bash
 The authenticity of host '192.168.240.1 (192.168.240.1)' can't be established.
 RSA key fingerprint is 00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -101,7 +101,7 @@ A message box asks for the password.
 
 + Click on **OK** to validate or **Cancel** to cancel.
 
-When validated, the IP address and the password are saved on the board configuration file `Arduino Y&uacute;n (WiFi Ethernet)` in the project.
+When validated, the IP address is saved on the main `Makefile` of the project.
 
 <center>![](img/334-03-360.png)</center>
 
@@ -109,14 +109,14 @@ The IP address and the password are only asked once.
 
 + To erase the IP address, just delete the whole line.
 
-+ To edit the IP address, just change the left part after `SSH_ADDRESS =` on the corresponding line.
++ To edit the IP address, just change the value of the macro `SSH_ADDRESS`.
 
 !!! warning
     The password is not encrypted.
 
 + To erase the password, just delete the whole line.
 
-+ To edit the password, just change the left part after `SSH_PASSWORD =` on the corresponding line.
++ To edit the password, just change the value of the macro `SSH_PASSWORD`.
 
 For more information about the Arduino Y&uacute;n installation and over-the-air upload,
 

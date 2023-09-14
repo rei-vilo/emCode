@@ -1,22 +1,22 @@
 <p>
-<img src="img/Logo-256-emCode.png" alt="emCode" style="float:right;width:128px;height:128px;">
+<img src="img/Logo-256-eC.png" alt="emCode" style="float:right;width:128px;height:128px;">
 <div style="font-size: 200%; font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif">
 <strong>emCode User Manual</strong></div>
 </p>
 
 # Table of contents
 
-[Forewords](./Forewords) :octicons-link-16:
+[Forewords](./Forewords/index.md)
 
-1. [Install emCode](./Install) :octicons-link-16:
+* [Install emCode](./Install/index.md)
 
-1. [Develop a project](./Develop) :octicons-link-16:
+* [Develop a project](./Develop/index.md)
 
-1. [Manage the boards](./Boards) :octicons-link-16:
+* [Manage the boards](./Boards/index.md)
 
-1. [Find solutions to issues](./Issues) :octicons-link-16:
+* [Find solutions to issues](./Issues/index.md)
 
-[Appendixes](./Appendixes) :octicons-link-16:
+[Appendixes](./Appendixes/index.md)
 
 <!--
 ----

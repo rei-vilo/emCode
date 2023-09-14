@@ -4,21 +4,21 @@ Some sections in this chapter require embedXcode+.
 
 This section provides the procedures for restoring the initial mode on specific boards.
 
-+ Burn the boot-loader on the [Adafruit Feather M0 boards](../../Advanced/Specific-2/#burn-the-boot-loader-for-adafruit-feather-m0-boards) :octicons-link-16: to use the standard USB uploader after the programmer,
++ Burn the boot-loader on the [Adafruit Feather M0 boards](../../Advanced/Specific-2/#burn-the-boot-loader-for-adafruit-feather-m0-boards) to use the standard USB uploader after the programmer,
 
-+ Upload Python to the [Adafruit Feather M4 boards](../../Advanced/Specific-2/#upload-python-to-the-adafruit-feather-m4-boards) :octicons-link-16: to use the standard USB uploader after the programmer,
++ Upload Python to the [Adafruit Feather M4 boards](../../Advanced/Specific-2/#upload-python-to-the-adafruit-feather-m4-boards) to use the standard USB uploader after the programmer,
 
-+ Burn the boot-loader on the [Arduino boards](../../Advanced/Specific-2/#burn-the-boot-loader-after-using-a-programmer-for-arduino-boards) :octicons-link-16: to use the standard USB uploader after the programmer,
++ Burn the boot-loader on the [Arduino boards](../../Advanced/Specific-2/#burn-the-boot-loader-after-using-a-programmer-for-arduino-boards) to use the standard USB uploader after the programmer,
 
-+ Reset the [BBC micro:bit board](../../Advanced/Specific-2/#reset-the-bbc-microbit-board-to-factory-default) :octicons-link-16: to factory defaults.
++ Reset the [BBC micro:bit board](../../Advanced/Specific-2/#reset-the-bbc-microbit-board-to-factory-default) to factory defaults.
 
-+ Burn the boot-loader on the [chipKIT boards](../../Advanced/Specific-2/#burn-the-boot-loader-after-using-a-programmer-on-chipkit-boards) :octicons-link-16: to use the standard USB uploader after the programmer,
++ Burn the boot-loader on the [chipKIT boards](../../Advanced/Specific-2/#burn-the-boot-loader-after-using-a-programmer-on-chipkit-boards) to use the standard USB uploader after the programmer,
 
-+ Change the jumpers for the [LaunchPad CC3200 WiFi](../../Advanced/Specific-1/#upload-to-launchpad-cc3200-wifi) :octicons-link-16: board.
++ Change the jumpers for the [LaunchPad CC3200 WiFi](../../Advanced/Specific-1/#upload-to-launchpad-cc3200-wifi) board.
 
-+ Restore the initial WiFi mode with AT commands after using the [ESP8266 board](../../Advanced/Specific-2/#restore-initial-wifi-mode-on-esp8266-boards) :octicons-link-16: with the Wiring / Arduino framework, and
++ Restore the initial WiFi mode with AT commands after using the [ESP8266 board](../../Advanced/Specific-2/#restore-initial-wifi-mode-on-esp8266-boards) with the Wiring / Arduino framework, and
 
-+ [Reflash the RTL8720DN MCU as a network-processor for the Wio Terminal board](../../Advanced/Specific-2/#reflash-the-rtl8720dn-mcu-as-a-network-processor-for-the-wio-terminal-board) :octicons-link-16:
++ [Reflash the RTL8720DN MCU as a network-processor for the Wio Terminal board](../../Advanced/Specific-2/#reflash-the-rtl8720dn-mcu-as-a-network-processor-for-the-wio-terminal-board)
 
 ## Burn the boot-loader for Adafruit Feather M0 boards
 
@@ -30,22 +30,30 @@ To burn the boot-loader again,
 
 + Unzip `featherm0bootloader_160305.hex from featherm0bootloader_160305.zip`.
 
-+ Download and install the [J-Link Software and Documentation Pack for Mac OS X](https://www.segger.com/downloads/jlin) :octicons-link-external-16: version 6.00g or later from the Segger website.
++ Download and install the [J-Link Software and Documentation Pack for Linux](https://www.segger.com/downloads/jlink) :octicons-link-external-16: version 6.00g or later from the Segger website.
 
-+ Follow the procedure detailed at section [Install utilities for Segger debugger](../../Install/Section4/#install-utilities-for-segger-debugger) :octicons-link-16:.
++ Follow the procedure detailed at section [Install utilities for Segger debugger](../../Install/Section4/#install-utilities-for-segger-debugger).
 
 + Open a **Terminal** window and launch **JLinkExe**.
 
-``` bash
-$ /Applications/IDE/SEGGER/JLink_V60g/JLinkExe
-Connect and define the interface, device and speed.
-J-Link>connect
-J-Link>selectinterface swd
-J-Link>device ATSAMD21G18
-J-Link>speed 400080
+``` bash dollar
+JLinkExe
+```
+
++ Connect and define the interface, device and speed.
+
+``` bash prefix="J-Link>"
+connect
+selectinterface swd
+device ATSAMD21G18
+speed 400080
+```
+
 Upload the boot-loader and quit.
-J-Link>loadfile ~/Downloads/featherm0bootloader_160305.hex
-J-Link>exit
+
+``` bash prefix="J-Link>"
+loadfile ~/Downloads/featherm0bootloader_160305.hex
+exit
 ```
 
 You can now upload the sketch to the Adafruit Feather M0 board using the standard USB connection again.
@@ -100,13 +108,13 @@ The same procedure applies for changing the boot-loader. For example, for using 
 
 + Launch the standard **Arduino IDE**.
 
-+ Add the reference to Arduino, as per the procedure [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards) :octicons-link-16:.
++ Add the reference to Arduino, as per the procedure [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards).
 
 ```
 https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
 ```
 
-+ Download and install the MiniCore package, as per the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino) :octicons-link-16:.
++ Download and install the MiniCore package, as per the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino).
 
 + Flash the MiniCore boot-loader on the Arduino Uno with USBtinyISP or similar.
 
@@ -130,7 +138,7 @@ The two boards, Arduino Zero and Arduino M0 Pro, are very similar but require di
 
 For the Arduino M0 Pro board,
 
-+ Please refer to the [Restore boot-loader for Arduino M0 Pro](../../Advanced/Specific-2/#restore-boot-loader-for-arduino-m0-pro) :octicons-link-16: procedure.
++ Please refer to the [Restore boot-loader for Arduino M0 Pro](../../Advanced/Specific-2/#restore-boot-loader-for-arduino-m0-pro) procedure.
 
 To burn the boot-loader on the Arduino Zero board again,
 
@@ -208,7 +216,7 @@ To burn the boot-loader again,
 
 + Download and unzip the boot-loaders from the GitHub repository [PIC32 AVRdude Boot-Loaders](http://github.com/chipKIT32/PIC32-avrdude-bootloader) :octicons-link-external-16:.
 
-+ Connect the programmer to the Mac and the chipKIT board.
++ Connect the programmer to the main computer and the chipKIT board.
 
 + Launch **mplab_ipe**.
 
@@ -230,7 +238,7 @@ uC32 | PIC32MX340F512H
 
 + If you wish to verify, press **Verify**.
 
-+ Remove the programmer and connect the board to the Mac.
++ Remove the programmer and connect the board to the main computer.
 
 You can upload the sketch to the board using the standard USB connection again.
 
@@ -271,8 +279,8 @@ blank.bin          0x3e000 & 0x7e000
 
 + Open a **Terminal** window and launch the upload command.
 
-``` bash
-$ esptool.py --port /dev/tty.usbserial-12345678 --baud 115200 write_flash 0x00000 esp_iot_sdk_v1.0.0/bin/boot_v1.2.bin 0x01000 esp_iot_sdk_v1.0.0/bin/at/user1.512.new.bin 0x3e000 esp_iot_sdk_v1.0.0/bin/blank.bin 0x7e000 esp_iot_sdk_v1.0.0/bin/blank.bin
+``` bash dollar
+esptool.py --port /dev/tty.usbserial-12345678 --baud 115200 write_flash 0x00000 esp_iot_sdk_v1.0.0/bin/boot_v1.2.bin 0x01000 esp_iot_sdk_v1.0.0/bin/at/user1.512.new.bin 0x3e000 esp_iot_sdk_v1.0.0/bin/blank.bin 0x7e000 esp_iot_sdk_v1.0.0/bin/blank.bin
 ```
 
 + In case the binary files and target addresses are different, adapt the upload command accordingly.

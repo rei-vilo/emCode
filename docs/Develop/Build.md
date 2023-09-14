@@ -1,8 +1,10 @@
 # Build and upload the project
 
-emCode includes nine targets.
+emCode includes ten targets, called tasks by Visual Studio Code.
 
 + **Build** cleans the files from a previous compilation, compiles and links.
+
++ **Fast** compiles only the main sketch and the local libraries, links, uploads and opens a serial window in Terminal.
 
 + **Upload** uploads the resulting HEX or BIN executable file to the board.
 
@@ -10,15 +12,15 @@ emCode includes nine targets.
 
 + **Clean** erases the files generated from a previous compilation.
 
-+ **Fast** compiles only the main sketch and the local libraries, links, uploads and opens a serial window in Terminal.
-
 + **Make** compiles only the main sketch and the local libraries, and links.
-
-+ **Document** builds the documentation.
 
 + **Archive** prepares archives for the local libraries.
 
 + **Unarchive** erases the archives for the local libraries.
+
++ **Core** generates the pre-compiled board core archive.
+
++ **Document** builds the documentation.
 
 ## Compare the targets
 
@@ -280,7 +282,7 @@ To upload,
 
 Some boards require specific procedures.
 
-+ Please refer to [Manage boards](../Boards/) :octicons-link-16:.
++ Please refer to [Manage boards](../Boards/).
 
 ### Customise the serial port
 
@@ -306,8 +308,7 @@ To know the USB port name of the active board, proceed as follow:
 
 + Run the following command and note the name of the port.
 
-``` bash
-$
+``` bash dollar lines="1"
 ls /dev/ttyACM*
 /dev/tty.usbACM1
 ```
@@ -329,4 +330,4 @@ SERIAL_BAUDRATE = 230400
 
 Some boards require a specific procedure.
 
-+ Please refer to the **Upload** section for the board under [Manage the boards](../../Boards/) :octicons-link-16:.
++ Please refer to the **Upload** section for the board under [Manage the boards](../../Boards/).

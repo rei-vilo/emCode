@@ -1,6 +1,6 @@
 ---
 tags:
-    - Active
+    - On hold
 ---
 
 # Manage the Seeed Xiao RP2040 boards
@@ -9,7 +9,7 @@ tags:
 
 For the Xiao board based on the RP2040,
 
-+ Please refer to [Install the Raspberry Pi Pico RP2040 platform](../RP2040/index.md) :octicons-link-16:.
++ Please refer to [Install the Raspberry Pi Pico RP2040 platform](../RP2040/index.md).
 
 ## Develop
 
@@ -23,7 +23,7 @@ For the Xiao board based on the RP2040,
 
 The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
 
-| | Platform | IDE | Package | Date | Comment
+| | Platform | IDE | Package | Comment
 ---- | ---- | ---- | ---- | ---- | ----
 ![](img/Logo-064-Seeeduino.png) | **Seeeduino** | Arduino 1.8 | AVR 1.3.0 | | For Seeed and Seeed Grove Beginner Kit
 | | | | SAMD 1.8.0 | | For Xiao SAMD and Wio Terminal boards
@@ -33,7 +33,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 ![](img/Logo-064-Seeed.png) | **Seeeduino**
 :---- | ----
-IDE | Arduino CLI or 2.0 IDE
+IDE | Arduino CLI or IDE
 Website | <https://www.seeedstudio.com> :octicons-link-external-16:
 Download | <http://wiki.seeed.cc/Seeed_Arduino_Boards> :octicons-link-external-16:
 Wiki | <http://wiki.seeed.cc/Seeeduino_v4.2/> :octicons-link-external-16:
@@ -44,7 +44,7 @@ Forum | <https://forum.seeedstudio.com/> :octicons-link-external-16:
 
 For the Xiao boards based on the ESP32,
 
-+ Please refer to [Install the Espressif platform](./Espressif.md) :octicons-link-16:.
++ Please refer to [Install the Espressif platform](./Espressif.md).
 
 ## Install the Seeed Wio Terminal
 
@@ -58,8 +58,7 @@ The Wio Terminal includes two MCUs: a SAMD51 Cortex-M4 MCU for general purpose, 
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install Seeeduino:samd
 ```
 
@@ -101,12 +100,11 @@ Apart from the main SAMD51 MCU, the Seeed SAMD Wio Terminal board includes anoth
 
 To install the RTL8720DN of the Wio Terminal board,
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install realtek:AmebaD
 ```
 
-+ Download and install the supported versions of the Arduino IDE under the `/Applications` folder, as described in the section [Install the Arduino platform](../../Install/Section4/Arduino) :octicons-link-16:.
++ Download and install the supported versions of the Arduino IDE under the `/Applications` folder, as described in the section [Install the Arduino platform](../../Install/Section4/Arduino).
 
 + Launch it.
 
@@ -114,7 +112,7 @@ arduino-cli core install realtek:AmebaD
 
 + Avoid spaces in the name and path of the sketchbook folder.
 
-+ Follow the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino) :octicons-link-16:.
++ Follow the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino).
 
 + Call the **Boards Manager** and check the Seeed SAMD boards are listed.
 
@@ -124,7 +122,7 @@ If the Seeed boards aren't listed on the **Boards Manager**,
 
 + Open the **Preferences**.
 
-+ Add the following URL on a separate line, as described in section [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards) :octicons-link-16:.
++ Add the following URL on a separate line, as described in section [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards).
 
 ```
 https://github.com/ambiot/ambd_arduino/raw/master/Arduino_package/package_realtek.com_amebad_index.json
@@ -152,8 +150,7 @@ Using the RTL8720DN requires a utility running on the SAMD51 to provide a bridge
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install Seeeduino:avr
 arduino-cli core install Seeeduino:nrf52
 arduino-cli core install Seeeduino:samd
@@ -168,7 +165,7 @@ arduino-cli core install Seeeduino:samd
 
 To install the Seeed AVR boards,
 
-+ Download and install the supported versions of the Arduino IDE under the `/Applications` folder, as described in the section [Install the Arduino platform](../../Install/Section4/Arduino) :octicons-link-16:.
++ Download and install the supported versions of the Arduino IDE under the `/Applications` folder, as described in the section [Install the Arduino platform](../../Install/Section4/Arduino).
 
 + Launch it.
 
@@ -176,7 +173,7 @@ To install the Seeed AVR boards,
 
 + Avoid spaces in the name and path of the sketchbook folder.
 
-+ Follow the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino) :octicons-link-16:.
++ Follow the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino).
 Call the **Boards Manager** and check the Seeed AVR boards are listed.
 
 <center>![](img/131-01-420.png)</center>
@@ -185,7 +182,7 @@ If the Seeed boards aren't listed on the **Boards Manager**,
 
 + Open the **Preferences**.
 
-+ Add the following URL on a separate line, as described in section [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards) :octicons-link-16:.
++ Add the following URL on a separate line, as described in section [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards).
 
 ``` CMake
 https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_seeeduino_boards_index.json
@@ -203,7 +200,7 @@ The Seeed SAMD Xiao board includes the compact Xiao board and the IoT-enabled Wi
 
 To install the Seeed SAMD platform,
 
-+ Download and install the supported versions of the Arduino IDE under the `/Applications` folder, as described in the section [Install the Arduino platform](../../Install/Section4/Arduino) :octicons-link-16:.
++ Download and install the supported versions of the Arduino IDE under the `/Applications` folder, as described in the section [Install the Arduino platform](../../Install/Section4/Arduino).
 
 + Launch it.
 
@@ -211,7 +208,7 @@ To install the Seeed SAMD platform,
 
 + Avoid spaces in the name and path of the sketchbook folder.
 
-+ Follow the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino) :octicons-link-16:.
++ Follow the procedure [Install additional boards on Arduino](../../Install/Section4/#install-additional-boards-on-arduino).
 
 + Call the **Boards Manager** and check the Seeed SAMD boards are listed.
 
@@ -221,7 +218,7 @@ If the Seeed boards aren't listed on the **Boards Manager**,
 
 + Open the **Preferences**.
 
-+ Add the following URL on a separate line, as described in section [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards) :octicons-link-16:.
++ Add the following URL on a separate line, as described in section [Add URLs for new boards](../../Install/Section4/#add-urls-for-new-boards).
 
 ``` CMake
 https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_seeeduino_boards_index.json
@@ -235,7 +232,7 @@ For more information on the installation process,
 
 The boards package does not include the utilities for the UF2 upload.
 
-+ Please install them from the [Adafruit Feather nRF52](../../Install/Section4/Adafruit) :octicons-link-16: package.
++ Please install them from the [Adafruit Feather nRF52](../../Install/Section4/Adafruit) package.
 
 ## Develop
 
@@ -243,7 +240,7 @@ The boards package does not include the utilities for the UF2 upload.
 
 ### Use the libraries for Bluetooth
 
-Edit the main `Makefile` to list the required libraries.
++ Edit the main `Makefile` to list the required libraries.
 
 ``` CMake
 USER_LIBS_LIST = ArduinoBLE
@@ -251,28 +248,4 @@ USER_LIBS_LIST = ArduinoBLE
 
 ### Use the libraries for SD
 
-## Check the tests
-
-The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
-
-| | Platform | IDE | Package | Date | Comment
----- | ---- | ---- | ---- | ---- | ----
-![](img/Logo-064-Seeeduino.png) | **Seeeduino** | Arduino 1.8 | AVR 1.3.0 | | For Seeed and Seeed Grove Beginner Kit
-| | | | SAMD 1.8.0 | | For Xiao SAMD and Wio Terminal boards
-| | | | Realtek 3.0.7 | | For RTL8720DN on Wio Terminal board
-
-## Visit the official websites
-
-![](img/Logo-064-Seeed.png) | **Seeeduino**
-:---- | ----
-IDE | Arduino CLI or 2.0 IDE
-Website | <https://www.seeedstudio.com> :octicons-link-external-16:
-Download | <http://wiki.seeed.cc/Seeed_Arduino_Boards> :octicons-link-external-16:
-Wiki | <http://wiki.seeed.cc/Seeeduino_v4.2/> :octicons-link-external-16:
-Xiao M0 | <https://wiki.seeedstudio.com/Seeeduino-XIAO/> :octicons-link-external-16:
-Xiao RP2040 | <https://wiki.seeedstudio.com/XIAO-RP2040/> :octicons-link-external-16:
-Xiao nRF52840 | <https://wiki.seeedstudio.com/XIAO_BLE/> :octicons-link-external-16:
-Xiao ESP32C3 | <https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/> :octicons-link-external-16:
-Xiao ESP32S3 | <https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/> :octicons-link-external-16:
-Wio Terminal | <https://wiki.seeedstudio.com/Wio-Terminal-Getting-Started/> :octicons-link-external-16:
-Forum | <https://forum.seeedstudio.com/> :octicons-link-external-16:
+## Debug

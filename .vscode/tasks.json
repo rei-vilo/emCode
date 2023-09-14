@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "make",
             "args": [
-                "all"
+                "build"
             ],
             "group": {
                 "kind": "build",
@@ -16,7 +16,8 @@
             },
             "presentation": {
                 "reveal": "always"
-            }
+            },
+            "problemMatcher": []
         },
         {
             "label": "Serve",
@@ -44,6 +45,22 @@
             "presentation": {
                 "reveal": "always"
             }
+        },
+        {
+            "label": "Upload",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "github"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
         }
     ]
 }

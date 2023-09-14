@@ -78,7 +78,7 @@ The standard Arduino IDE requires including all the libraries in the main sketch
 
 In order to ensure compatibility with the standard Arduino IDE, including all the libraries in the main sketch is thus highly recommended, as the standard Arduino IDE requires it. It doesn't affect emCode.
 
-+ Please refer to [Use the libraries](../Develop/Libraries.md) :octicons-link-16:.
++ Please refer to [Use the libraries](../Develop/Libraries.md).
 
 ### List all the used libraries in main Makefile
 
@@ -86,7 +86,7 @@ The standard Arduino IDE includes an automatic procedure to list the libraries u
 
 Three variable are provided: the `APP_LIBS_LIST` variable lists the application libraries, the `USER_LIBS_LIST` variable the user's libraries, and the `LOCAL_LIBS_LIST` variable selects the local libraries, if they are located inside sub-folders on the project folder.
 
-+ Please refer to [Use the libraries](../Develop/Libraries.md) :octicons-link-16:.
++ Please refer to [Use the libraries](../Develop/Libraries.md).
 
 ## Ensure compatibility for libraries
 
@@ -96,7 +96,7 @@ The standard Arduino IDE does not manage sub-folders for libraries. The content 
 
 For more information on using local libraries,
 
-+ Please refer to [Use the local libraries](.Develop/Libraries/#use-the-local-libraries) :octicons-link-16:.
++ Please refer to [Use the local libraries](.Develop/Libraries/#use-the-local-libraries).
 
 ### Manage pre-compiled libraries
 
@@ -106,7 +106,7 @@ The standard Arduino IDE now manages pre-compiled user's libraries but not pre-c
 
 For more information on pre-compiled libraries,
 
-+ Please refer to [Manage pre-compiled libraries](../../Develop/Libraries/#manage-pre-compiled-libraries) :octicons-link-16:.
++ Please refer to [Manage pre-compiled libraries](../../Develop/Libraries/#manage-pre-compiled-libraries).
 
 ### Manage `.hpp` extension for header files
 

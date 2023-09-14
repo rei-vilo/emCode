@@ -10,17 +10,23 @@ The Seeed platform includes two main lines of boards: the compact Xiao and the W
 !!! warning
     The software for the Seeed Xiao nRF51840 board is not stable enough. Support has been put on hold.
 
-<!--
 ## Install the Seeed Xiao nRF52840
 
-+ Ensure **Arduino-CLI** is installed.
+To install the Seeed Xiao nRF52840 board,
+
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+``` json
+https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json```
+```
 
 + Open a **Terminal** window.
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install Seeeduino:nrf52@1.1.1
 ```
 
@@ -29,8 +35,7 @@ arduino-cli core install Seeeduino:nrf52@1.1.1
 
 To install the library for Bluetooth, run
 
-``` bash
-$
+``` bash dollar
 arduino-cli lib install ArduinoBLE
 
 ```
@@ -46,9 +51,9 @@ Built-in LEDs use reverse logic.
 
 ### Use the libraries for Serial port
 
-Edit the main `Makefile` to list the required libraries for the serial port.
++ Edit the main `Makefile` to list the required libraries for the serial port.
 
-```
+``` CMake
 APP_LIBS_LIST += Adafruit_TinyUSB_Arduino
 ```
 
@@ -60,48 +65,31 @@ APP_LIBS_LIST += Adafruit_TinyUSB_Arduino
 
 ### Use the libraries for IMU
 
-Edit the main `Makefile` to list the required libraries for the LSM6DS3.
++ Edit the main `Makefile` to list the required libraries for the LSM6DS3.
 
-```
+``` CMake
 USER_LIBS_LIST = Seeed_Arduino_LSM6DS3
 ```
 
 ### Use the libraries for microphone
 
-Edit the main `Makefile` to list the required libraries for the microphone.
++ Add to the main sketch.
 
-```
+``` CMake
 USER_LIBS_LIST = Seeed_Arduino_Mic
 ```
 
 ### Use the libraries for Bluetooth
 
-Edit the main `Makefile` to list the required libraries.
++ Edit the main `Makefile` to list the required libraries.
 
-```
+``` CMake
 USER_LIBS_LIST = ArduinoBLE
 ```
 
 ### Use the libraries for SD
 
-## Check the tests
+## Debug
 
-The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
-
-| | Platform | IDE | Package | Date | Comment
----- | ---- | ---- | ---- | ---- | ----
-![](img/Logo-064-Seeeduino.png) | **Seeeduino** | Arduino 1.8 | AVR 1.3.0 | | For Seeed and Seeed Grove Beginner Kit
-| | | | SAMD 1.8.0 | | For Xiao SAMD and Wio Terminal boards
-| | | | Realtek 3.0.7 | | For RTL8720DN on Wio Terminal board
-
-## Visit the official websites
-
-![](img/Logo-064-Seeed.png) | **Seeeduino**
-:---- | ----
-IDE | Arduino CLI or 2.0 IDE
-Website | <https://www.seeedstudio.com> :octicons-link-external-16:
-Download | <http://wiki.seeed.cc/Seeed_Arduino_Boards> :octicons-link-external-16:
-Wiki | <http://wiki.seeed.cc/Seeeduino_v4.2/> :octicons-link-external-16:
-Xiao nRF52840 | <https://wiki.seeedstudio.com/XIAO_BLE/> :octicons-link-external-16:
-Forum | <https://forum.seeedstudio.com/> :octicons-link-external-16:
--->
+!!! critical
+    Using the Xiao M0 as DAP-Link probe does not work. Use instead the Segger J-Link probe.

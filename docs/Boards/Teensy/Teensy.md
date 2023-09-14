@@ -11,14 +11,19 @@ The Teensy ARM platform includes the Teensy 3.0, 3.1, 3.2, LC, 3.5, 3.6, 4.0 and
 
 To install the Teensy ARM boards,
 
-+ Ensure **Arduino-CLI** is installed.
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+```
+https://www.pjrc.com/teensy/package_teensy_index.json
+```
 
 + Open a **Terminal** window.
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install teensy:avr
 ```
 
@@ -28,8 +33,7 @@ Although labelled `avr`, the `teensy:avr` core package manages the Teensy boards
 
 The [TyTools collection of tools](https://github.com/Koromix/tytools) :octicons-link-external-16: includes GUI utilities to upload, reset and manage the serial console of the Teensy boards. The command line tool appears to be more stable than the default Teensy utility.
 
-``` bash
-$
+``` bash dollar
 git clone https://github.com/Koromix/tytools
 cd tytools
 mkdir build
@@ -39,11 +43,11 @@ make
 sudo make install
 ```
 
-For more information on the TyTools, 
+For more information on the TyTools,
 
 + Please refer to the [TyTools](https://koromix.dev/tytools/) :octicons-link-external-16: page.
 
-To use the TyTools instead of the default Teensy utilities, 
+To use the TyTools instead of the default Teensy utilities,
 
 + Edit and add to the main `Makefile`.
 
@@ -57,7 +61,7 @@ The Teensy board package includes all the libraries.
 
 ### Use the libraries for SD
 
-Edit the main `Makefile` to list the required libraries.
++ Edit the main `Makefile` to list the required libraries.
 
 ``` Cmake
 APP_LIBS_LIST = SPI SD SdFat
@@ -97,7 +101,7 @@ In case the wrong board has been selected, the uploader displays an error messag
 
 <center>![](img/369-02-420.png)</center>
 
-+ Click **OK**, select the correct board following the procedure [Change the board](../../Chapter3/Section6) :octicons-link-16: and start again.
++ Click **OK**, select the correct board following the procedure [Change the board](../../Chapter3/Section6) and start again.
 
 The uploader may display another error message.
 
@@ -132,9 +136,9 @@ TEENSY_USB = USB_RAWHID
 NO_SERIAL_CONSOLE = true
 ```
 
-+ Download and unzip the [RawHid Test for Mac OS X](https://www.pjrc.com/teensy/rawhid_test.dmg) :octicons-link-external-16: utility from the [USB: Raw HID](https://www.pjrc.com/teensy/rawhid.html) :octicons-link-external-16: page.
++ Download and unzip the [RawHid Test for Linux (64 bit)](https://www.pjrc.com/teensy/rawhid_test.64bit) :octicons-link-external-16: utility from the [USB: Raw HID](https://www.pjrc.com/teensy/rawhid.html) :octicons-link-external-16: page.
 
-+ Optionally, install telnet with Homebrew, as per the procedure [Install the telnet utility]  :octicons-link-16:.
++ Optionally, install telnet with Homebrew, as per the procedure [Install the telnet utility] .
 
 Once the program has been uploaded to the Teensy board,
 

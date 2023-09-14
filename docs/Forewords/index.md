@@ -2,17 +2,26 @@
 
 ## What is emCode?
 
-emCode is a set of tools to ease development for the most popular embedded computing boards. Those tools are designed to be used with the excellent Visual Studio Code IDE.
+<center>![](img/Logo-064-eC.png)</center>
 
-<center>![](img/Logo-064-eX+.png) ![](img/Icon-064-Arrow.png) ![](img/Logo-064-eC.png)</center>
+emCode is a set of tools to ease development for the most popular embedded computing boards supported by the Arduino SDK. Those tools are designed to be used with the excellent Visual Studio Code IDE.
 
 For convenience, emCode relies on the Arduino SDK, as it packs and manages the tool-chains, frameworks and utilities for a large range of boards.
 
-emCode is the continuation of [embedXcode](https://embeddedcomputing.weebly.com/embedxcode.html) :octicons-link-external-16:, with two notable differences:
+<center>![](img/Logo-064-eX+.png)</center>
 
-+ emCode is no longer designed for Xcode but for Visual Studio Code.
+emCode is the continuation of [embedXcode](https://embeddedcomputing.weebly.com/embedxcode.html) :octicons-link-external-16:, which pioneered the use of a professional IDE with all the modern amenities. 
 
-+ emCode no longer targets macOS but Linux and Windows with Windows Sub-system for Linux (WSL).
+Compared with embedXcode, emCode has two notable differences: emCode is no longer designed for Xcode but for Visual Studio Code; emCode no longer targets macOS but Linux and Windows with Windows Sub-system for Linux (WSL).
+
+<center>![](img/Logo-064-Arduino.png) ![](img/Logo-064-Platformio.png) ![](img/Logo-064-VisualMicro.png) ![](img/Logo-064-VisualStudioCode.png)</center>
+
+Today, the offer of advanced IDEs for the Arduino SDK is large. Let's mention
+
++ [Arduino 2.0 IDE](https://www.arduino.cc/en/software) :octicons-link-external-16: based on Eclipse Theia;
++ [PlatformIO](https://embeddedcomputing.weebly.com/platformio.html) :octicons-link-external-16: for Visual Studio Code;
++ [Visual Micro](https://embeddedcomputing.weebly.com/visual-micro-on-windows.html) :octicons-link-external-16: for Visual Studio on Windows only; and
++ [Visual Studio Code](https://embeddedcomputing.weebly.com/visual-studio-code.html) :octicons-link-external-16: and the [Arduino extension](https://embeddedcomputing.weebly.com/arduino-extension-for-visual-studio-code.html) :octicons-link-external-16:.
 
 Happy development!
 
@@ -32,9 +41,9 @@ None of the brands mentioned in this website sponsor, authorise, or endorse emCo
 
 Please find the main links for emCode.
 
-| ![](img/Logo-064-eC.png) | **emCode** | | |
-| :----: | :----: | :----: | :----: |
-| ![Website](img/color-link-48.png) <br> [Website](https://emCode.weebly.com) :octicons-link-external-16: | ![Download](img/color-download-48.png) <br> [Download](https://embedxcode.weebly.com/download) :octicons-link-external-16: | ![RSS](img/color-rss-48.png) <br> [RSSfeed](https://embedxcode.weebly.com/1/feed) :octicons-link-external-16: | ![LinkedIn](img/color-linkedin-48.png) <br> [LinkedIn](https://www.linkedin.com/in/rei-vilo-02490555) :octicons-link-external-16: |
+| ![](img/Logo-064-eC.png) | **emCode** | | | |
+| :----: | :----: | :----: | :----: | :----: |
+| ![Website](img/color-link-48.png) <br> [Website](https://emCode.weebly.com) :octicons-link-external-16: | ![Download](img/color-download-48.png) <br> [Download](https://github.com/rei-vilo/emCode/) :octicons-link-external-16: | ![Doc](img/color-letter-48.png) <br> [User manual](https://rei-vilo.github.io/emCode/) :octicons-link-external-16: | ![RSS](img/color-rss-48.png) <br> [RSS feed](https://emCode.weebly.com/1/feed) :octicons-link-external-16: | ![LinkedIn](img/color-linkedin-48.png) <br> [LinkedIn](https://www.linkedin.com/in/rei-vilo-02490555) :octicons-link-external-16: |
 
 ## Conventions
 
@@ -70,9 +79,9 @@ This website uses the following typographic conventions:
 
 > Call the menu **File > New > New Project...** or press ++shift+cmd+n++.
 
-+ A :octicons-link-16: mentions an internal link while a :octicons-link-external-16: mentions an external link to the web.
++ A :octicons-link-external-16: mentions an external link to the web.
 
-> The manual procedures are no longer required as they are now included in the [automatic procedure](../Develop/Section2/#launch-the-procedure) :octicons-link-16:. Download Xcode at the [Mac App Store](https://itunes.apple.com/app/xcode/id497799835) :octicons-link-external-16:.
+> The local libraries should comply with the [Arduino IDE 1.5: Library specification](https://arduino.github.io/arduino-cli/0.33/library-specification/).:octicons-link-external-16:.
 
 + Dates are stated as `DD MMM YYYY`, with `DD` for day, `MMM` for month in plain letters, and `YYYY` for year.
 

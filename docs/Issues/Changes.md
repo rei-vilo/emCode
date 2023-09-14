@@ -1,6 +1,14 @@
-# Changes by emCode
+# Transition from embedXcode to emCode
 
 This section lists all the changes introduced by emCode compared to embedXcode.
+
+## Environment
+
+embedXcode was designed for Apple hardware and software, and used to run on Xcode up to `11` and macOS up to `10.15`.
+
+emCode targets the Visual Studio Code IDE and runs on Linux or Windows Linux Sub-system `2` (WSL).
+
+Tests are conducted on Debian `12` and Visual Studio Code `1.81.0`.
 
 ## Main `Makefile` parameters
 
@@ -10,7 +18,7 @@ Default values are now set to the parameters.
 
 If the main `Makefile` doesn't define or doesn't set a value to a parameter, the following default values are used.
 
-All those parameters and default values are listed on the `Tools/Makefiles/Step0.mk` file.
+All those parameters and default values are listed on the `emCode/Tools/Makefiles/Step0.mk` file.
 
 Parameter | Default value | Comment
 ---- | ---- | ----
@@ -20,10 +28,12 @@ Parameter | Default value | Comment
 `KEEP_MAIN` | `false` | Update `main.cpp`
 `KEEP_TASKS` | `false` | Update the list of tasks
 `USE_ARCHIVES` | `true` | Use available pre-compile archives for local libraries
+`OPTIMISATION` | `-Os -g3` | Set optimisation and debugging
 `BINARY_SPECIFIC_NAME` | `embeddedcomputing` | Name of the generated executable
 `USER_LIB_PATH` | Sketchbook | Full path to the user's libraries
 `APPLICATIONS_PATH` | `$(HOME)/Applications` | Location of the Arduino IDE
 `SEGGER_PATH` | `/opt/SEGGER` | Location of the Segger tools
+`STM32_CUBE_PATH` | `~/Applications/STM32CubeProgrammer` | Location of the STM32CubeProgrammer tools
 `SERIAL_BAUDRATE` | `115200` | Serial speed
 `NO_SERIAL_CONSOLE` | `true` | Do not launch the serial console
 

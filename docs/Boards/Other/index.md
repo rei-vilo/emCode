@@ -1,10 +1,12 @@
 # Add a board
 
-If a board is not listed, adding it requires two steps.
+If a board is not listed, adding it requires two steps plus one optional.
 
-+ [Create a board configuration file](#create-a-configuration-file-for-a-new-board) :octicons-link-16:; and
++ [Create a board configuration file](#create-a-configuration-file-for-a-new-board);
 
-+ [Edit the C/C++ properties file of the project](#edit-the-cc-properties-file-of-the-project) :octicons-link-16:.
++ [Edit the C/C++ properties file of the project](#edit-the-cc-properties-file-of-the-project); and optionally
+
++ [Edit the tasks file for debug](#edit-the-tasks-file-for-debug).
 
 ## Create a configuration file for a new board
 
@@ -12,12 +14,12 @@ To add a configuration file for a new board,
 
 + Go to the `Configurations` sub-folder of the `Tools` folder of emCode.
 
-+ Create a new file, for example `ESP32_DevKitC.mk`.
++ Create a new file, for example `Raspberry_Pi_Pico_W_RP2040_DebugProbe_CMSIS_DAP.mk`.
 
 !!! warning
     The file name should not contain spaces and the extension is `.mk`.
 
-``` CMake
+``` CMake title="Raspberry_Pi_Pico_W_RP2040_DebugProbe_CMSIS_DAP.mk"
 #
 # Raspberry Pi Pico W RP2040 (DebugProbe CMSIS-DAP).mk
 # Board configuration file
@@ -84,7 +86,7 @@ BOARD_TAG8 = rpipicow.menu.uploadmethod.picoprobe_cmsis_dap
 + `BOARD_PORT` defines the USB port to be used.
 
 ``` CMake
-BOARD_PORT = /dev/ttyUSB0
+BOARD_PORT = /dev/ttyACM*
 ```
 
 This parameter is optional. To know the name of the USB port, proceed as follow:
@@ -93,14 +95,16 @@ This parameter is optional. To know the name of the USB port, proceed as follow:
 
 + Plug the board,
 
-+ Launch the command `ls /dev/ttyUSB*` or `ls /dev/ttyACM*`.
++ Launch the command `ls /dev/ttyUSB*`
 
-``` bash
-$
+``` bash dollar lines="1"
 ls /dev/ttyUSB*
 /dev/ttyUSB0
+```
 
-$
++ or `ls /dev/ttyACM*`.
+
+``` bash dollar lines="1"
 ls /dev/ttyACM*
 /dev/ttyACM0
 ```
@@ -110,7 +114,7 @@ ls /dev/ttyACM*
 + Change the value of `BOARD_PORT` accordingly.
 
 ``` CMake
-BOARD_PORT = /dev/ttyUSB*
+BOARD_PORT = /dev/ttyACM*
 ```
 
 The generic character `*` allows other values for the port, for example `/dev/ttyUSB1`.
@@ -149,7 +153,7 @@ MAX_FLASH_SIZE = 262144
 MAX_RAM_SIZE = 2048
 ```
 
-Additional parameters for the programmer can be set according to the procedure [Define a specific programmer for a new board](#define-a-specific-programmer-for-a-new-board) :octicons-link-16:.
+Additional parameters for the programmer can be set according to the procedure [Define a specific programmer for a new board](#define-a-specific-programmer-for-a-new-board).
 
 ### Define a specific programmer for a new board
 
@@ -209,7 +213,7 @@ AVRDUDE_CONF = $(HOME)/Library/Arduino15/packages/MiniCore/hardware/avr/1.0.3/av
 
 For more information on how to install the MiniCore boot-loader,
 
-+ Please refer to [Change Boot-Loader for AVR-Based Arduino Boards](../../Advanced/Specific-2/#change-boot-loader-for-avr-based-arduino-boards) :octicons-link-16:.
++ Please refer to [Change Boot-Loader for AVR-Based Arduino Boards](../../Advanced/Specific-2/#change-boot-loader-for-avr-based-arduino-boards).
 
 ### Define compatible MCU
 
@@ -275,7 +279,7 @@ Back to the project,
 
 + Add the following lines
 
-``` CMake
+``` CMake title="c_cpp_properties.json"
 {
     "configurations": [
         {
@@ -341,9 +345,9 @@ To add a board to the template,
 
 ## Edit the tasks file for debug
 
-Below is an example of the configuration of the tasks file for debugging against the Raspberry Pi Pico with the external Raspberry Pi Debug Probe CMSIS-DAP.
+Below is an example of the configuration of the tasks file `tasks.json` for debugging against the Raspberry Pi Pico with the external Raspberry Pi Debug Probe CMSIS-DAP.
 
-``` CMake
+``` CMake title="tasks.json"
 {
     "version": "0.2.0",
     "configurations": [
@@ -376,13 +380,13 @@ Most of the parameters are related to the Cortex Debug extension. For more infor
 
 + Please refer to the [Cortex-Debug](https://github.com/Marus/cortex-debug/wiki) :octicons-link-external-16: wiki.
 
-The `serverpath` variable defines the path to the GDB server, provided by the the Raspberry Pi Pico boards package. 
+The `serverpath` variable defines the path to the GDB server, provided by the the Raspberry Pi Pico boards package.
 
 The `gdbPath` variable defines the path to the GDB client. The recommended GDB client is `gdb-multiarch`, as the GDB client of the tools-chain of the Raspberry Pi Pico boards package does not meet the minimum version required by Visual Studio Code.
 
-To install `gdb-multiarch`, 
+To install `gdb-multiarch`,
 
-+ Please refer to the section [Install the extensions for debugging](../../Install/Code.md/#install-the-extensions-for-debugging) :octicons-link-16:.
++ Please refer to the section [Install the extensions for debugging](../../Install/Code/#install-the-extensions-for-debugging).
 
 The optional `svdFile` variable allows to attach a CMSIS System View Description profile.
 

@@ -5,7 +5,7 @@
 
 To install emCode,
 
-+ Download and unzip the [emCode package]() :octicons-link-external-16:.
++ Download and unzip the [emCode package](https://github.com/rei-vilo/emCode/) :octicons-link-external-16:.
 
 !!! note
     If case emCode is used on Windows Sub-system for Linux, install emCode on the Linux environment.
@@ -14,8 +14,7 @@ To install emCode,
 
 For example, if emCode is located at `~/Projects/emCode`, create the symbolic link with
 
-``` bash
-$
+``` bash dollar
 ln -s ~/Projects/emCode ~/.emCode
 ```
 

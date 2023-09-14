@@ -9,12 +9,19 @@ tags:
 
 To install the Adafruit Feather nRF52832 and nRF52840 boards,
 
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+```
+https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+```
+
 + Open a **Terminal** window.
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install adafruit:nrf52
 ```
 
@@ -132,6 +139,6 @@ The Segger J-Link Edu mini provides the same 2x5 1.27 mm 0.05" SWD connector as 
 
 If the software suite for the Segger J-Link isn't installed,
 
-+ Follow the procedure at [Install the Segger J-Link Software Suite](../../Install/Section4/#install-the-segger-j-link-software-suite) :octicons-link-16:.
++ Follow the procedure at [Install the Segger J-Link Software Suite](../../Install/Section4/#install-the-segger-j-link-software-suite).
 
 Because the Adafruit Feather nRF52 boards run on FreeRTOS, J-Link requires specific plug-ins. Ozone manages FreeRTOS better than the command-line J-Link utility and is thus strongly recommended.

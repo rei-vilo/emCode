@@ -20,16 +20,14 @@
 
 + Run
 
-``` bash
-$
+``` bash dollar
 cd ~/.local
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 ```
 
 + Ensure that `~/.local/bin` is listed in `$PATH`.
 
-``` bash
-$
+``` bash dollar
 echo $PATH
 ```
 
@@ -37,14 +35,13 @@ Otherwise,
 
 + Edit  `~/.bashrc`
 
-```
-$
+``` bash dollar
 nano ~/.bashrc
 ```
 
 + Add `~/.local/bin` to `$PATH`
 
-```
+``` cmake
 export PATH=$PATH:~/.local/bin
 ```
 
@@ -62,16 +59,14 @@ To configure Arduino-CLI,
 
 + Run
 
-``` bash
-$
+``` bash dollar lines="1"
 arduino-cli config init
 Config file written to: ~/.arduino15/arduino-cli.yaml
 ```
 
 + Edit it with
 
-``` bash
-$
+``` bash dollar
 nano ~/.arduino15/arduino-cli.yaml
 ```
 
@@ -93,8 +88,8 @@ For more information,
 
 + Run
 
-``` bash
-$
+``` bash dollar
+
 arduino-cli core install arduino:avr
 ```
 
@@ -104,8 +99,7 @@ The parameter `arduino:avr` refers to the name of the boards.
 
 + Open the configuration file `arduino-cli.yaml`;
 
-``` bash
-$
+``` bash dollar
 nano ~/.arduino15/arduino-cli.yaml
 ```
 
@@ -132,8 +126,7 @@ board_manager:
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli lib install ArduinoBLE
 ```
 
@@ -143,8 +136,7 @@ arduino-cli lib install ArduinoBLE
 
 + Check the cores
 
-``` bash
-$
+``` bash dollar
 arduino-cli core update-index
 arduino-cli core upgrade
 ```
@@ -155,8 +147,7 @@ arduino-cli core upgrade
 
 + Check the libraries.
 
-``` bash
-$
+``` bash dollar
 arduino-cli lib update-index
 arduino-cli lib upgrade
 ```
@@ -259,7 +250,7 @@ For more information on the installation of the additional boards on the Arduino
 
 Some boards require a specific procedure.
 
-+ Please refer to the **Install** section for the board under [Manage the boards](../../Boards/) :octicons-link-16:.
++ Please refer to the **Install** section for the board under [Manage the boards](../../Boards/).
 
 ### Update the boards
 

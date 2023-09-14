@@ -1,3 +1,6 @@
+# Compare ./theme/base.html
+# with /home/reivilo/.venvs/mkdocs/lib/python3.11/site-packages/material/base.html
+
 all:
 	@echo "=== Build MkDocs"
 	~/.venvs/mkdocs/bin/python ~/.venvs/mkdocs/bin/mkdocs build
@@ -5,6 +8,8 @@ all:
 #	bash /Users/ReiVilo/Documents/emCode/MkDocs/MkDocs/do_build.sh
 #   python -m mkdocs build # Windows
 	@echo "=== Build done"
+
+build: all
 
 serve:
 	@echo "=== Serve MkDocs"
@@ -18,15 +23,16 @@ serve:
 	@echo "=== Serve done"
 
 github:
-	@echo "=== GitHub MkDocs"
+	@echo "=== Generate GitHub MkDocs"
+
 	~/.venvs/mkdocs/bin/python ~/.venvs/mkdocs/bin/mkdocs gh-deploy
-	@echo "=== GitHub done"
+	@echo "=== Generate GitHub done"
 
 update:
 	echo "=== Update MkDocs"
 	mkdir -p ~/.venvs
 	python3 -m venv ~/.venvs/mkdocs
-	~/.venvs/mkdocs/bin/python -m pip install --upgrade --upgrade-strategy only-if-needed mkdocs mkdocs-material mkdocs-plugin-progress mkdocs-htmlproofer-plugin mkdocs-macros-plugin mkdocs-git-revision-date-localized-plugin mkdocs-material-extensions
+	~/.venvs/mkdocs/bin/python -m pip install --upgrade --upgrade-strategy only-if-needed mkdocs mkdocs-material mkdocs-plugin-progress mkdocs-htmlproofer-plugin mkdocs-macros-plugin mkdocs-git-revision-date-localized-plugin
 #	/usr/local/bin/pip install --user --upgrade --upgrade-strategy only-if-needed mkdocs
 #	/usr/local/bin/pip install --user --upgrade --upgrade-strategy only-if-needed mkdocs-material
 #	pip install --upgrade --upgrade-strategy only-if-needed mkdocs mkdocs-material mkdocs-plugin-progress mkdocs-htmlproofer-plugin mkdocs-macros-plugin
@@ -35,6 +41,9 @@ update:
 # 	pip install --upgrade --upgrade-strategy only-if-needed mkdocs-htmlproofer-plugin
 # 	pip install --upgrade --upgrade-strategy only-if-needed mkdocs-macros-plugin
 #
+	@echo "Compare ./theme/base.html"
+	@echo "with /home/reivilo/.venvs/mkdocs/lib/python3.11/site-packages/material/base.html"
+
 	@echo "=== Update done"
 
 .PHONY: all, serve, update

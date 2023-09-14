@@ -2,12 +2,16 @@
 
 First,
 
-+ [Create a new project](./New.md) :octicons-link-16: or [Import an existing project](./Import.md) :octicons-link-16:;
++ [Create a new project](./New.md) or [Import an existing project](./Import.md);
 
 Then
 
-+ [Add libraries to the project](./Libraries.md) :octicons-link-16:;
++ [Add libraries to the project](./Libraries.md);
 
-Finaly,
+Finally,
 
-+ [Build and upload the project](./Build.md) :octicons-link-16: and [Run and debug the project](./Run.md) :octicons-link-16:.
++ [Build and upload the project](./Build.md) and [Run and debug the project](./Run.md).
+
+Optionally, 
+
++ [Use the other targets](./Other.md).

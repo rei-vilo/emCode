@@ -9,12 +9,19 @@ tags:
 
 To install the Adafruit Feather M0 and M4 boards,
 
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+```
+https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+```
+
 + Open a **Terminal** window.
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install adafruit:samd
 ```
 
@@ -30,7 +37,7 @@ For debugging against the Feather M0 and M4, use the Segger J-Link emulator.
 
 For more information,
 
-+ Please refer to the section [Install utilities for Segger debugger](../../Install/Section4/#install-utilities-for-segger-debugger) :octicons-link-16: and to the page [Proper Debugging of ATSAMD21 Processors](https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0) :octicons-link-external-16: on the Adafruit website.
++ Please refer to the section [Install utilities for Segger debugger](../../Install/Section4/#install-utilities-for-segger-debugger) and to the page [Proper Debugging of ATSAMD21 Processors](https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0) :octicons-link-external-16: on the Adafruit website.
 
 ## Develop
 
@@ -64,11 +71,11 @@ For more information,
 
 ### Upload using UF2
 
-For the Adafruit Feather M0 and M4 boards, this drag-and-drop procedure requires a specific format. The executable needs to be converted into a  `.uf2` file. The utility for the conversion is provided by the Adafruit nRF52 boards package.
+For the Adafruit Feather M0 and M4 boards, this drag-and-drop procedure requires a specific format. The executable needs to be converted into a `.uf2` file. The utility for the conversion is provided by the Adafruit nRF52 boards package.
 
 To install the Adafruit nRF52 boards package,
 
-+ Please refer to [Install the Adafruit platform](../../Install/Section4/Adafruit) :octicons-link-16: section.
++ Please refer to [Install the Adafruit platform](../../Install/Section4/Adafruit) section.
 
 Before uploading,
 

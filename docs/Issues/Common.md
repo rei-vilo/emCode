@@ -15,27 +15,27 @@ Before reporting an issue, there are basic checks to be performed.
 Symptom | Compilation fails.
 ---- | :----
 Solution | Does the name of your project include a space or a special character in its name or path?
-Reference | See [Avoid spaces and special characters in projects names and paths](../../Issues/Compatibility/#avoid-spaces-and-special-characters-in-projects-names-and-paths) :octicons-link-16:.
+Reference | See [Avoid spaces and special characters in projects names and paths](../../Issues/Compatibility/#avoid-spaces-and-special-characters-in-projects-names-and-paths).
 
 Symptom | Compilation fails.
 ---- | :----
 Solution | Do the installed IDEs and compatible correspond to the expected versions?
-Reference | Check the [Index of boards and platforms](../../Appendixes/Indexes/) :octicons-link-16:.
+Reference | Check the [Index of boards and platforms](../../Appendixes/Indexes/).
 
 Symptom | Compilation fails.
 ---- | :----
 Solution | Are the installed IDEs compatible with the supported versions?
-Reference | See [Install the Arduino tools](../../Install/Arduino) :octicons-link-16:.
+Reference | See [Install the Arduino tools](../../Install/Arduino).
 
 Symptom | Compilation fails.
 ---- | :----
 Solution | By default, no library is compiled. If the project uses libraries, mention them in the main `Makefile` after the `APP_LIBS_LIST` and `USER_LIBS_LIST` variables.
-Reference | See [Add libraries to the project](../../Develop/Libraries) :octicons-link-16:.
+Reference | See [Add libraries to the project](../../Develop/Libraries).
 
 Symptom | Compilation fails.
 ---- | :----
 Solution | Some user's libraries may be incompatible. Exclude the conflicting libraries.
-Reference | See [Manage non-standard libraries](../../Develop/Libraries/#manage-non-standard-libraries) :octicons-link-16:.
+Reference | See [Manage non-standard libraries](../../Develop/Libraries/#manage-non-standard-libraries).
 
 Symptom | Compilation fails.
 ---- | :----
@@ -45,56 +45,56 @@ Reference | If the sketch doesn't compile on the standard Arduino IDE, then the 
 Symptom | Compilation fails.
 ---- | :----
 Solution | What is the selected target? The targets **All**, **Upload** and **Fast** require a board to be connected.
-Reference | See [Select a target](../../Develop/Build/#select-a-target) :octicons-link-16:.
+Reference | See [Select a target](../../Develop/Build/#select-a-target).
 
 Symptom | Compilation fails.
 ---- | :----
 Solution | Compilation of an emCode project fails with the standard Arduino IDE. Use the `EMCODE` pre-processing variable.
-Reference | See [Use the `EMCODE` pre-processing variable](../../Issues/Compatibility/#use-the-emcode-pre-processing-variable) :octicons-link-16:
+Reference | See [Use the `EMCODE` pre-processing variable](../../Issues/Compatibility/#use-the-emcode-pre-processing-variable)
 
 Symptom | Compilation fails with some with the message `'uint8_t' was not declared in this scope`.
 ---- | :----
 Solution | Some boards ignore the C99 standard `[u]int{8|16|32|64}_t` types. Refer to the procedure to add them.
-Reference | See the **Install** section for the board under [Manage the boards](../../Boards/) :octicons-link-16:.
+Reference | See the **Install** section for the board under [Manage the boards](../../Boards/).
 
 ## Solve libraries issues
 
 Symptom | Visual Studio Code can't find the libraries.
 ---- | :----
 Solution | Is the sketchbook directory defined?
-Reference | See [Configure Arduino-CLI](../../Install/Arduino/#configure-arduino-cli) :octicons-link-16: or [Configure the Arduino IDE](../../Install/Arduino/#configure-the-arduino-ide) :octicons-link-16:.
+Reference | See [Configure Arduino-CLI](../../Install/Arduino/#configure-arduino-cli) or [Configure the Arduino IDE](../../Install/Arduino/#configure-the-arduino-ide).
 
 Symptom | Visual Studio Code can't find the libraries.
 ---- | :----
 Solution | Is the library folder created inside the sketchbook folder?
-Reference | See [Use the user’s libraries](../../Develop/Libraries/#use-the-users-libraries) :octicons-link-16:.
+Reference | See [Use the user’s libraries](../../Develop/Libraries/#use-the-users-libraries).
 
 Symptom | Visual Studio Code can't find the libraries.
 ---- | :----
 Solution | Is the library mentioned in the main `Makefile`? Or is the library excluded, as Wifi and ArduinoRobot?
-Reference | See [Use the libraries](../../Develop/Libraries/#use-the-libraries) :octicons-link-16:.
+Reference | See [Use the libraries](../../Develop/Libraries/#use-the-libraries).
 
 Symptom | Visual Studio Code can't find the libraries of the board.
 ---- | :----
 Solution | Have the libraries for the boards been installed?
-Reference | See [Install additional boards on Arduino-CLI](../../Install/Arduino/#install-additional-boards) :octicons-link-16: or [Install additional boards on Arduino IDE](../../Install/Arduino/#install-additional-boards_1) :octicons-link-16:.
+Reference | See [Install additional boards on Arduino-CLI](../../Install/Arduino/#install-additional-boards) or [Install additional boards on Arduino IDE](../../Install/Arduino/#install-additional-boards_1).
 
 Symptom | Visual Studio Code can't find the libraries of the board.
 ---- | :----
 Solution | Have the libraries for the boards been updated?
-Reference | See [Check and update the boards on Arduino-CLI](../../Install/Arduino/#check-and-update-the-boards) :octicons-link-16: or [Update the boards on Arduino IDE](../../Install/Arduino/#update-the-boards) :octicons-link-16:.
+Reference | See [Check and update the boards on Arduino-CLI](../../Install/Arduino/#check-and-update-the-boards) or [Update the boards on Arduino IDE](../../Install/Arduino/#update-the-boards).
 
 Symptom | Visual Studio Code can't find some sub-libraries of a library.
 ---- | :----
 Solution | Some libraries do not follow the official Arduino library specification and include sub-libraries.
-Reference | See [Manage non-standard libraries](../../Develop/Libraries/#manage-non-standard-libraries) :octicons-link-16:.
+Reference | See [Manage non-standard libraries](../../Develop/Libraries/#manage-non-standard-libraries).
 
 ## Solve pre-compiled libraries issues
 
 Symptom | Visual Studio Code fails to link one or more pre-compiled libraries.
 ---- | :----
 Solution | The target if the pre-compiled library does not correspond to board of the project.
-Reference | See [Use a pre-compiled library](../../Develop/Libraries/#use-a-pre-compiled-library) :octicons-link-16:.
+Reference | See [Use a pre-compiled library](../../Develop/Libraries/#use-a-pre-compiled-library).
 
 ## Solve upload issues
 
@@ -111,46 +111,46 @@ Reference | Close the other application.
 Symptom | Upload fails.
 ---- | :----
 Solution | The name of the USB port is different.
-Reference | See [Customise the serial port](../../Develop/Build/#customise-the-serial-port) :octicons-link-16:.
+Reference | See [Customise the serial port](../../Develop/Build/#customise-the-serial-port).
 
 Symptom | Upload fails.
 ---- | :----
 Solution | Some boards have specific upload procedures.
-Reference | See the **Upload** section for the board under [Manage the boards](../../Boards/) :octicons-link-16:.
+Reference | See the **Upload** section for the board under [Manage the boards](../../Boards/).
 
 Symptom | Upload fails after having used a programmer.
 ---- | :----
 Solution | The programmer has erased the boot-loader. You need to burn the boot-loader again.
-Reference | See the **Upload** section for the board under [Manage the boards](../../Boards/) :octicons-link-16:.
+Reference | See the **Upload** section for the board under [Manage the boards](../../Boards/).
 
 ## Solve boards and platforms issues
 
 Symptom | I want the same code for different platforms.
 ---- | :----
 Solution | Use the conditional statements based on MCU or on IDE.
-Reference | See [Manage code for multiple platforms and MCUs](../../Issues/Compatibility/#manage-code-for-multiple-platforms-and-mcus) :octicons-link-16:.
+Reference | See [Manage code for multiple platforms and MCUs](../../Issues/Compatibility/#manage-code-for-multiple-platforms-and-mcus).
 
 Symptom | My board isn't listed.
 ---- | :----
 Solution | Create a specific Board Configuration Settings File for your board.
-Reference | See [Add a board](../../Advanced/Board) :octicons-link-16:.
+Reference | See [Add a board](../../Advanced/Board).
 
 ## Solve compatibility issues
 
 Symptom | The standard Arduino IDE fails to open or compile a project created with emCode.
 ---- | :----
 Solution | Check the compatibility of the project.
-Reference | See [Manage compatibility with standard Arduino IDE](../../Issues/Compatibility) :octicons-link-16:.
+Reference | See [Manage compatibility with standard Arduino IDE](../../Issues/Compatibility).
 
 Symptom | emCode fails to open or compile a project created with a standard Arduino IDE.
 ---- | :----
 Solution | Check the compatibility of the project.
-Reference | See [Manage compatibility with the standard Arduino IDE](../../Issues/Compatibility) :octicons-link-16:.
+Reference | See [Manage compatibility with the standard Arduino IDE](../../Issues/Compatibility).
 
 Symptom | The standard Arduino IDE fails to compile a project with pre-compiled libraries created with emCode.
 ---- | :----
 Solution | The standard Arduino IDE does not support pre-compiled local libraries. Check the compatibility of the project.
-Reference | See [Manage pre-compiled libraries](../../Issues/Compatibility/#manage-pre-compiled-libraries) :octicons-link-16:.
+Reference | See [Manage pre-compiled libraries](../../Issues/Compatibility/#manage-pre-compiled-libraries).
 
 ## Solve other issues
 
@@ -165,4 +165,4 @@ Solution | Buy a book about Arduino.
 Symptom | My issue is not listed.
 ---- | :----
 Solution | Report an issue at the GitHub repository.
-Reference | See [Visit the official websites](../../Appendixes/Section3) :octicons-link-16:.
+Reference | See [Visit the official websites](../../Appendixes/Section3).

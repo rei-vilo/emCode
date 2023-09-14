@@ -1,7 +1,7 @@
----
+<!-- ---
 tags:
     - Legacy
----
+--- -->
 
 http://s3.amazonaws.com/energiaUS/packages/package_cc13x2_index.json
 http://s3.amazonaws.com/energiaUS/packages/package_msp432p_index.json
@@ -39,9 +39,9 @@ In this example, the sketchbook folder is `/User/ReiVilo/Documents/Projects/Ener
 
 The Energia 1.6.10E18 IDE provides two procedures to manage additional boards and libraries.
 
-+ To add a board, follow the procedure [Install additional boards on Arduino](../../Chapter1/Section4/#install-additional-boards-on-arduino) :octicons-link-16:.
++ To add a board, follow the procedure [Install additional boards on Arduino](../../Chapter1/Section4/#install-additional-boards-on-arduino).
 
-+ To add a library, follow the procedure [Install additional libraries on Arduino](../../Chapter1/Section4/#install-additional-libraries-on-arduino) :octicons-link-16:.
++ To add a library, follow the procedure [Install additional libraries on Arduino](../../Chapter1/Section4/#install-additional-libraries-on-arduino).
 
 For more information on installing Energia,
 
@@ -51,53 +51,27 @@ Some LaunchPad boards may require the installation of additional tools or the up
 
 Energia manages two architectures: 16-bit MSP430 and 32-bit ARM for CC3200, MSP432 and Tiva C.
 
-Energia comes with only one architecture installed, the 16-bit MSP430G2. All the 32-bit architectures for the MSP432, CC13xx, CC32xx and Tiva C require a specific procedure detailed at [Install the 32-bit LaunchPad boards](../../Chapter1/Section4/#install-the-32-bit-launchpad-boards) :octicons-link-16:.
+Energia comes with only one architecture installed, the 16-bit MSP430G2. All the 32-bit architectures for the MSP432, CC13xx, CC32xx and Tiva C require a specific procedure detailed at [Install the 32-bit LaunchPad boards](../../Chapter1/Section4/#install-the-32-bit-launchpad-boards).
 
-## Install the LaunchPad MSP430G2 boards
+## Install the device driver
 
-To install the LaunchPad MSP430G2 boards, you need to install a driver.
+To install the device driver for the LaunchPad boards,
 
-+ Download the LaunchPad drivers for Mac OS X: [LaunchPad CDC Drivers](http://energia.nu/files/MSP430LPCDC-1.0.3b-Signed.zip) :octicons-link-external-16: file for from the [Setup Energia on Mac OS X](http://energia.nu/guide/guide_macosx/) :octicons-link-external-16: page on the Energia website.
++ Download the `udev` rules for Linux at [TI udev rules](https://s3.amazonaws.com/energiaUS/files/71-ti-permissions.rules) :octicons-link-external-16:;
 
-+ Unzip and double-click `MSP430LPCDC 1.0.3b-Signed.pkg`.
++ On the folder, open a Terminal and launch
 
-<center>![](img/075-01-420.png)</center>
+``` bash dollar
+sudo mv /71-ti-permissions.rules /etc/udev/rules.d/
+```
 
-+ Proceed with the installation.
++ Relaunch the device service with
 
-Once completed, the installation reboots the computer.
-
-## Install the LaunchPad MSP430F5529 and MSP430FR5969 boards
-
-To install the LaunchPad MSP430F5529 and MSP430FR5969 boards, you need to check that the firmware of the programmer is up-to-date.
-
-+ Download Energia and install it.
-
-+ Launch **Energia**.
-
-+ Create a new sketch, for example the `blinky` sketch.
-
-+ Perform an upload of the sketch with Energia.
-
-+ If the firmware needs to be updated, a window pops-up.
-
-<center>![](img/075-02-420.png)</center>
-
-+ In that case, follow the instructions.
-
-+ Call the menu **Tools > Update programmer**.
-
-<center>![](img/076-01-200.png)</center>
-
-+ Check that the upload of the sketch works correctly.
-
-+ If necessary, repeat the update of the programmer.
-
-+ Close **Energia**.
+``` bash dollar
+sudo service udev restart
+```
 
 ## Install previous MSP430 package for more compact code
-
-:octicons-plus-circle-16: This section requires the embedXcode+ edition.
 
 The code built with the MSP430 board package from Energia 0101E12 is more compact than the code obtained with Energia 1.6.10E18.
 
@@ -105,13 +79,11 @@ This is especially important for the MSP430G2553 MCU, which includes 512 bytes o
 
 To use it,
 
-+ Follow the procedure [Migrate Previous MSP430 Board Package to Energia 18](../../Chapter1/Section4/#migrate-previous-msp430-board-package-to-energia-18) :octicons-link-16:.
++ Follow the procedure [Migrate Previous MSP430 Board Package to Energia 18](../../Chapter1/Section4/#migrate-previous-msp430-board-package-to-energia-18).
 
 + Select the `LaunchPad MSP430G2553 (compact)` board instead of the `LaunchPad MSP430G2553` board.
 
 ## Install release 7.3.1 of the GCC tool-chain for MSP430
-
-:octicons-plus-circle-16: This section requires the embedXcode+ edition.
 
 Release 7.3.1 of the GCC tool-chain for MSP430 allows access to the full range of FRAM.
 
@@ -122,7 +94,7 @@ Release 7.3.1 of the GCC tool-chain for MSP430 allows access to the full range o
 
 Support for GCC 7.3.1 is turned off by default. To make it active,
 
-+ Open the `About.mk` file as described in section [Check and update the boards reference list](../../Chapter4/Section2/#check-and-update-the-boards-reference-list) :octicons-link-16:.
++ Open the `About.mk` file as described in section [Check and update the boards reference list](../../Chapter4/Section2/#check-and-update-the-boards-reference-list).
 
 + Uncomment the line containing `ENERGIA_GCC_MSP_LARGE_RELEASE`.
 
@@ -146,7 +118,7 @@ For a description of the GCC tool-chain for MSP430,
 
 The standard installation doesn't include all the boards: the MSP432, CC3200 and Tiva C need to be installed manually.
 
-+ Follow the procedure [Install additional boards on Arduino](../../Chapter1/Section4/#install-additional-boards-on-energia) :octicons-link-16:.
++ Follow the procedure [Install additional boards on Arduino](../../Chapter1/Section4/#install-additional-boards-on-energia).
 
 + Call the **Boards Manager** and check the MSP432, CC1310, CC3200 and Tiva C boards are listed.
 
@@ -162,7 +134,7 @@ For more information on the installation of the additional boards on the Energia
 
 To install the CC3200 LaunchPad,
 
-+ Please follow the instructions provided at [Setup Energia on Mac OS X](http://energia.nu/guide/guide_macosx/) :octicons-link-external-16:.
++ Please follow the instructions provided at [Setup Energia on Linux](https://energia.nu/guide/install/linux/) :octicons-link-external-16:.
 
 !!! Warning
     On the LaunchPad CC3200, analog inputs are limited to 1,5 V. Higher voltages may damage the MCU.
@@ -173,7 +145,7 @@ The LaunchPad CC3200 supports two frameworks: Energia and Energia MT based on TI
 
 To install the CC3220 LaunchPad,
 
-+ Please follow the instructions provided at [Setup Energia on Mac OS X](http://energia.nu/guide/guide_macosx/) :octicons-link-external-16:.
++ Please follow the instructions provided at [Setup Energia on Linux](https://energia.nu/guide/install/linux/) :octicons-link-external-16:.
 
 !!! Warning
     On the LaunchPad CC3220, analog inputs are limited to 1,4 V. Higher voltages may damage the MCU.
@@ -182,23 +154,21 @@ The LaunchPad CC3220 supports the Energia MT framework based on TI-RTOS.
 
 The LaunchPad CC3220 needs to be initialised in developer mode. Sketches are uploaded into RAM and are lost if the power is disconnected.
 
-+ Please refer to [Upload to the CC3220 LaunchPad](../../Chapter4/Section5/#upload-to-launchpad-cc3220-wifi) :octicons-link-16:.
++ Please refer to [Upload to the CC3220 LaunchPad](../../Chapter4/Section5/#upload-to-launchpad-cc3220-wifi).
 
 ## Install the MSP432 LaunchPad
 
 To install the MSP432 LaunchPad,
 
-+ Please follow the instructions provided at [Setup Energia on Mac OS X](http://energia.nu/guide/guide_macosx/) :octicons-link-external-16:.
++ Please follow the instructions provided at [Installing the LaunchPad drivers](https://energia.nu/guide/install/linux/) :octicons-link-external-16:.
 
 The MSP432P401R Red LaunchPad board replaces the pre-series in black.
 
-However, the pre-series LaunchPad board in black and the corresponding boards package are obsolete and no longer supported by embedXcode.
+However, the pre-series LaunchPad board in black and the corresponding boards package are obsolete and no longer supported by emCode.
 
 The LaunchPad MSP432 only supports the Energia MT framework, based on TI-RTOS.
 
 ## Install debug tools for the LaunchPad boards
-
-:octicons-plus-circle-16: This section requires the embedXcode+ edition.
 
 Debugging has been tested successfully on the Experimenter Board MSP430FR5739 and most of the LaunchPad boards, including MSP430G2, MSP430F5529, LM4F120 Stellaris now TM4C123 Tiva C, CC3200 WiFi, CC3220 WiFi, MSP432, CC13x0, CC13x2.
 
@@ -222,14 +192,14 @@ To install **OpenOCD** with **Homebrew**,
 
 + Launch the following command to install **Homebrew**.
 
-``` bash
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+``` bash dollar
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 + Launch the following command to install **OpenOCD** and its dependencies.
 
-``` bash
-$ brew install openocd
+``` bash dollar
+brew install openocd
 ```
 
 Some LaunchPad boards require a specific installation of **OpenOCD**. This is done by specifying options during installation.
@@ -240,8 +210,8 @@ For example, the CC3200 LaunchPad requires the `--enable-ft2232_libftdi --enable
 
     With **Homebrew** release prior to 2.0, the options were listed on the installation command line, tested in this example on OpenOCD version 0.9.0:
 
-    ``` bash
-    $ brew install openocd --enable-ft2232_libftdi --enable-stlink
+    ``` bash dollar
+    brew install openocd --enable-ft2232_libftdi --enable-stlink
     ```
 
     Those options can be combined with those for other boards.
@@ -252,8 +222,8 @@ For example, the CC3200 LaunchPad requires the `--enable-ft2232_libftdi --enable
 
     + On a **Terminal** window, launch to open the default editor.
 
-    ``` bash
-    % brew edit openocd
+    ``` bash dollad
+    brew edit openocd
     ```
 
     + To use a specific editor, define the `HOMEBREW_EDITOR` variable before.
@@ -303,11 +273,9 @@ For more information on how to build and install **OpenOCD** from source code,
 
 :octicons-plus-circle-16: All the LaunchPad boards feature a built-in hardware debugger.
 
-+ Learn more on how to use the debugger at the chapter [Debug the project](../../Chapter5/Section1/) :octicons-link-16:.
++ Learn more on how to use the debugger at the chapter [Debug the project](../../Chapter5/Section1/).
 
-:octicons-plus-circle-16: The embedXcode+ edition allows to locate the Energia IDE in another folder.
-
-+ Please refer to the section [Set the folder for standard IDEs](../../Chapter1/Section3/#set-the-folder-for-standard-ides) :octicons-link-16:.
++ Please refer to the section [Set the folder for standard IDEs](../../Chapter1/Section3/#set-the-folder-for-standard-ides).
 
 # Install additional boards on Energia
 
@@ -363,7 +331,7 @@ This is the preference window, with a list of URLs at **Additional Boards Manage
 
 Check and update the boards when new releases are available.
 
-Before updating the board, make sure the new release is supported by embedXcode.
+Before updating the board, make sure the new release is supported by emCode.
 
 + Call the menu **Tools > Board > Boards Manager...**
 
@@ -417,19 +385,19 @@ For more information on the installation of the additional boards on the Energia
 
 The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
 
-| | Platform | IDE | Package | Date | Comment
+| | Platform | IDE | Package | Comment
 ---- | ---- | ---- | ---- | ---- | ----
-![](img/Logo-064-Launchpad.png) | **LaunchPad** | Energia 1.8.10E23 | | 17 Dec 2019 | Actually released 02 Feb 2020
-| | | | CC13x0 EMT 4.9.1 | | For CC1310- and CC1350-based boards
-| | | | CC13x2 EMT 5.31.0-beta3 | | For CC1312- and CC1352-based boards
-| | | | CC3200 1.0.3 | |
-| | | | CC3220 EMT 5.6.2 | | For CC3220S and CC3220SF LaunchPad boards
-| | | | MSP430 1.0.7 | | For MSP430G2, MPS430F and MSP430FR LaunchPad boards
-| | | | MSP430 ELF 2.1.0 | | For MPS430FR LaunchPad boards
-| | | | MSP432E EMT 5.19.0 | | For MSP432E401Y and TM4C1294XL LaunchPad boards
-| | | | MSP432P EMT 5.29.0-beta1 | | For red MSP432P4111 LaunchPad board
-| | | | MSP432R EMT 5.29.0 | | For red MSP432P401R LaunchPad board
-| | | | Tiva C 1.0.4 | | For LM4F- and TM4C-based LaunchPad boards
+![](img/Logo-064-Launchpad.png) | **LaunchPad** | Energia 1.8.10E23 | 17 Dec 2019 | Actually released 02 Feb 2020
+| | | CC13x0 EMT 4.9.1 | For CC1310- and CC1350-based boards
+| | | CC13x2 EMT 5.31.0-beta3 | For CC1312- and CC1352-based boards
+| | | CC3200 1.0.3 | |
+| | | CC3220 EMT 5.6.2 | For CC3220S and CC3220SF LaunchPad boards
+| | | MSP430 1.0.7 | For MSP430G2, MPS430F and MSP430FR LaunchPad boards
+| | | MSP430 ELF 2.1.0 | For MPS430FR LaunchPad boards
+| | | MSP432E EMT 5.19.0 | For MSP432E401Y and TM4C1294XL LaunchPad boards
+| | | MSP432P EMT 5.29.0-beta1 | For red MSP432P4111 LaunchPad board
+| | | MSP432R EMT 5.29.0 | For red MSP432P401R LaunchPad board
+| | | Tiva C 1.0.4 | For LM4F- and TM4C-based LaunchPad boards
 ![](img/Logo-064-eC.png) | emCode |  |  |
 
 ## Visit the official websites

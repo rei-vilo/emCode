@@ -9,12 +9,19 @@ tags:
 
 To use the Adafruit AVR Trinket and Trinket Pro boards,
 
++ Ensure the Arduino tools, CLI or IDE, are installed.
+
++ Ensure the `arduino-cli.yaml` configuration file for Arduino-CLI or the **Additional boards manager URLs** for Arduino IDE includes
+
+```
+https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+```
+
 + Open a **Terminal** window.
 
 + Run
 
-``` bash
-$
+``` bash dollar
 arduino-cli core install adafruit:avr
 ```
 
@@ -26,7 +33,7 @@ For the Adafruit M0 and M4 boards, Adafruit offers a drag-and-drop feature to fl
 
 For more information,
 
-+ Please refer to the section [Install the FTDI driver](../../Install/Section4/#install-the-ftdi-driver) :octicons-link-16: and to the page [Using FTDI Cables](https://learn.adafruit.com/introducing-pro-trinket/using-ftdi) :octicons-link-external-16: on the Adafruit website.
++ Please refer to the section [Install the FTDI driver](../../Install/Section4/#install-the-ftdi-driver) and to the page [Using FTDI Cables](https://learn.adafruit.com/introducing-pro-trinket/using-ftdi) :octicons-link-external-16: on the Adafruit website.
 
 + Please refer to the page [UF2 Bootloader Details](https://learn.adafruit.com/adafruit-feather-m0-express-designed-for-circuit-python-circuitpython/uf2-bootloader-details) :octicons-link-external-16: and [Updating the bootloader](https://learn.adafruit.com/adafruit-feather-m0-express-designed-for-circuit-python-circuitpython/uf2-bootloader-details#updating-the-bootloader-46-33) :octicons-link-external-16:.
 
