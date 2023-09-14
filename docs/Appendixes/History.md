@@ -6,6 +6,10 @@ Details of the latest release are available at the [emCode release notes](../../
 
 Date | Release | Comment
 ---- | :----: | ----
+14 Sep 2023 | 14.2.3 | Updated support for RP2040 boards
+08 Sep 2023 | 14.2.2 | Updated support for RP2040 boards
+08 Sep 2023 | 14.2.1 | Updated support for ESP32 boards
+04 Sep 2023 | 14.2.0 | Added core target
 03 Jul 2023 | 14.1.4 | Added preliminary support for Seeed nRF52840 Mbed-OS boards
 19 Jun 2023 | 14.1.3 | Updated support for Raspberry Pi Pico RP2040 boards
 05 Jun 2023 | 14.1.2 | Updated support for Teensy boards
