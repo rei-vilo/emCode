@@ -1,0 +1,10 @@
+{
+    "editor.minimap.enabled": true,
+    "telemetry.enableTelemetry": false,
+    "files.associations": {
+        "*.ino": "cpp",
+    },
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 64,
+    "editor.wrappingIndent": "indent"
+}

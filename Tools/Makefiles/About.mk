@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2023
 # All rights reserved
 #
-# Last update: 14 Sep 2023 release 14.2.3
+# Last update: 15 Sep 2023 release 14.2.4
 #
 
 # ----------------------------------
@@ -14,8 +14,8 @@
 # ----------------------------------
 #
 EMCODE_DATE = 14 Sep 2023
-EMCODE_RELEASE = 14.2.3
-EMCODE_MESSAGE = Updated support for RP2040 boards
+EMCODE_RELEASE = 14.2.4
+EMCODE_MESSAGE = Updated support for ESP32 boards
 
 # Arduino with Boards Manager
 # ----------------------------------
@@ -77,7 +77,7 @@ ESP8266_TOOLS_RELEASE = 3.1.0-gcc10.3-e5f9fec
 ESP8266_EXTENSA_RELEASE = 3.1.0-gcc10.3-e5f9fec
 ESP8266_PYTHON_RELEASE = 3.7.2-post1
 
-ESP32_RELEASE = 2.0.12
+ESP32_RELEASE = 2.0.13
 ESP32_TOOLS_RELEASE = 4.5.1
 ESP32_EXTENSA_RELEASE = esp-2021r2-patch5-8.4.0
 ESP32_OPENOCD_RELEASE = v0.11.0-esp32-20221026

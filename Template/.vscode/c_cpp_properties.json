@@ -1,0 +1,1675 @@
+{
+    "configurations": [
+        {
+            "name": "Adafruit_Feather_M0_USB",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_M4_J-Link",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/variants/feather_m4/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_M4_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/samd/1.7.13/variants/feather_m4/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_nRF52832_s132v611_USB",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/variants/feather_nrf52832/variant.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_nRF52840_s140b611_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/variants/feather_nrf52840_express/vairant.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_nRF52840_s140b611_J-Link",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/variants/feather_nrf52840_express/vairant.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_nRF52840_s140b611_OpenOCD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/variants/feather_nrf52840_express/vairant.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_nRF52840_s140b611_USB",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/adafruit/hardware/nrf52/1.5.0/variants/feather_nrf52840_express/vairant.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_RP2040_J-Link",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/adafruit_feather/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Feather_RP2040_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/adafruit_feather/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Huzzah_ESP32_ESP-Prog",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/esp32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Huzzah_ESP32_USB",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/esp32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Adafruit_Huzzah_ESP32_WiFi",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/esp32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Arduino_Nano_33_BLE_mbedOS",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.0.6/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/variants/ARDUINO_NANO33BLE/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Arduino_Nano_33_IoT",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Arduino_Nano_ESP32",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/arduino_nano_nora/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Arduino_Nano_RP2040_mbedOS_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.0.6/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/variants/NANO_RP2040_CONNECT/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Arduino_Nano_RP2040_SDK_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/arduino_nano_connect/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Arduino_Zero_Native_USB_Port",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Arduino_Zero_Programming_Port",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "ESP32_DevKitC",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/esp32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "ESP32_DevKitC_WiFi",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/esp32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "ESP32_DevKitM_2",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/esp32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "ESP32_Pico_Kit_v4",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/pico32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "ESP32_Pico_Kit_v4_WiFi",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/pico32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Microsoft_IoT_DevKit_USB",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/AZ3166/hardware/stm32f4/2.0.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/AZ3166/hardware/stm32f4/2.0.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/AZ3166/tools/arm-none-eabi-gcc/6-2017-q1-update/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/AZ3166/hardware/stm32f4/2.0.0/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/AZ3166/hardware/stm32f4/2.0.0/variants/MXChip_AZ3166/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico_RP2040_J-Link",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/rpipico/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico_RP2040_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/rpipico/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico_RP2040_DebugProbe_CMSIS_DAP",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/rpipico/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico_RP2040_PicoProbe",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/rpipico/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico_W_RP2040_J-Link",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/rpipico/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico_W_RP2040_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/rpipico/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico_W_RP2040_DebugProbe_CMSIS_DAP",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/rpipico/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico_W_RP2040_PicoProbe",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/rpipico/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_ESP32_C3_USB",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/2.0.12/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/seeed_xiao_rp2040/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_M0_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/Seeeduino/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/variants/XIAO_m0/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_M0_J-Link",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/Seeeduino/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/variants/XIAO_m0/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_M0_DAP-Link",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/Seeeduino/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/variants/XIAO_m0/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_M0_USB",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/Seeeduino/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/variants/XIAO_m0/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_nRF52840_s140b730_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.4/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.4/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/Seeeduino/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.4/cores/nRF52/Arduino.h",
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.4/variants/Seeed_XIAO_nRF52840_Sense/variant.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_nRF52840_mbed_s140b730_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/mbed/2.9.2/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/Seeeduino/hardware/mbed/2.9.2/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/Seeeduino/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/mbed/2.9.2/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/mbed/2.9.2/variants/SEEED_XIAO_NRF52840_SENSE/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_nRF52840_s140b730_J-Link",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.4/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.4/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/Seeeduino/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.4/cores/nRF52/Arduino.h",
+                "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.4/variants/Seeed_XIAO_nRF52840_Sense/variant.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_RP2040_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/seeed_xiao_rp2040/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_RP2040_PicoProbe",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.5.0/variants/seeed_xiao_rp2040/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "STM32duino_Nucleo_F401RE_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/STMicroelectronics/hardware/stm32/2.6.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/STMicroelectronics/hardware/stm32/2.6.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/xpack-arm-none-eabi-gcc/10.2.1-1.1/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/arduino/hardware/stm32/2.1.0/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/stm32/2.1.0/variants/STM32F4xx/F401R(B-C-D-E)T/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "STM32duino_Nucleo_F401RE_STLink",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/STM32/tools/xpack-arm-none-eabi-gcc/9.2.1-1.1/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "STM32duino_Nucleo_F401RE_OpenOCD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/STM32/tools/xpack-arm-none-eabi-gcc/9.2.1-1.1/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "STM32duino_Nucleo_L432KC_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/STM32/tools/xpack-arm-none-eabi-gcc/9.2.1-1.1/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "STM32duino_Nucleo_L432KC_OpenOCD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/STM32/tools/xpack-arm-none-eabi-gcc/9.2.1-1.1/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "STM32duino_Nucleo_L432KC_STLink",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/STM32/tools/xpack-arm-none-eabi-gcc/9.2.1-1.1/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "STM32duino_Nucleo_P_WB55RG_MSD",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/STM32/tools/xpack-arm-none-eabi-gcc/9.2.1-1.1/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "STM32duino_Nucleo_P_WB55RG_STLink",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/STM32/hardware/stm32/1.9.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/STM32/tools/xpack-arm-none-eabi-gcc/9.2.1-1.1/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "Teensy_LC",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/teensy/tools/teensy-compile/11.3.1/arm/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Teensy_3.0",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/teensy/tools/teensy-compile/11.3.1/arm/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Teensy_3.1",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/teensy/tools/teensy-compile/11.3.1/arm/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Teensy_3.2",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/teensy/tools/teensy-compile/11.3.1/arm/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Teensy_3.5",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/teensy/tools/teensy-compile/11.3.1/arm/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Teensy_3.6",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/teensy/tools/teensy-compile/11.3.1/arm/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Teensy_4.0",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/teensy/tools/teensy-compile/11.3.1/arm/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        },
+        {
+            "name": "Teensy_4.1",
+            "includePath": [
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**",
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/teensy/tools/teensy-compile/11.3.1/arm/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ]
+        }
+    ],
+    "version": 4
+}

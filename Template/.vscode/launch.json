@@ -1,0 +1,139 @@
+{
+    // WITH Cortex-Debug extension
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // This configuration relies on the Cortex-Debug extension.
+    // See https://github.com/Marus/cortex-debug.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "nRF52840 OpenOCD",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "configFiles": [
+                "${env:HOME}/Projets/emCode/Tools/Utilities/debug_jlink_nrf52.cfg"
+            ],
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Fast"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "nRF52840 DAP-Link",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "device": "nRF52840",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "serverArgs": [
+                "-s",
+                "/usr/share/openocd/scripts",
+                "-f",
+                "interface/cmsis-dap.cfg",
+                "-f",
+                "target/nrf52.cfg",
+                "-c",
+                "configure -rtos FreeRTOS"
+            ]
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Fast"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "nRF52840 J-Link",
+            "servertype": "jlink",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "device": "NRF52840_XXAA",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "serverArgs": [
+                "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
+                "-speed","2000"
+            ]
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Fast"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "PicoProbe",
+            "servertype": "openocd",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.0.0-a-d3d2e6b/bin/openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "device": "RP2040",
+            "serverArgs": [
+                "-f", "target/rp2040.cfg",
+                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.0.0-a-d3d2e6b/share/openocd/scripts",
+            ],
+            "configFiles": [
+                "interface/picoprobe.cfg"
+            ],
+            "svdFile": "${env:HOME}/Projets/emCode/Tools/SVD/rp2040.svd",
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Make"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "DebugProbe CMSIS-DAP",
+            "servertype": "openocd",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.0.0-a-d3d2e6b/bin/openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "device": "RP2040",
+            "serverArgs": [
+                "-c", "adapter speed 5000",
+                "-f", "target/rp2040.cfg",
+                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.0.0-a-d3d2e6b/share/openocd/scripts",
+            ],
+            "configFiles": [
+                "interface/cmsis-dap.cfg"
+            ],
+            "svdFile": "${env:HOME}/Projets/emCode/Tools/SVD/rp2040.svd",
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Make"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "AZ3166 OpenOCD",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f4x.cfg"
+            ],
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Fast"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "STM32L432 OpenOCD",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "gdbPath": "${env:HOME}/.energia15/packages/energia/tools/arm-none-eabi-gcc/10-2020-q4-major/bin/arm-none-eabi-gdb",
+            "configFiles": [
+                "board/st_nucleo_l4.cfg"
+            ],
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Fast"
+        }
+    ]
+}

@@ -1,0 +1,143 @@
+{
+    "version": "2.0.0",
+    "presentation": {
+        "reveal": "always",
+        "revealProblems": "onProblem"
+    },
+    // As per https://stackoverflow.com/a/45503679/1190049
+    "problemMatcher": {
+        "base": "$gcc",
+        "fileLocation": [
+            "absolute", "${workspaceFolder}"
+        ]
+    },
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "build",
+                "-j",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build with makefile"
+        },
+        {
+            "label": "Fast",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "fast",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "Fast with makefile"
+        },
+        {
+            "label": "Make",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "make",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "detail": "Make with makefile"
+        },
+        {
+            "label": "Upload",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "upload",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "group": "build",
+            "detail": "Upload with makefile"
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "group": "build",
+            "detail": "Clean with makefile"
+        },
+        {
+            "label": "Serial",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "/dev/tty.ttyACM0",
+                "115200"
+            ],
+            "group": "build",
+            "detail": "Serial with makefile"
+        },
+        {
+            "label": "Archive",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "archive",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "group": {
+                "test"
+            },
+            "detail": "Archive with makefile"
+        },
+        {
+            "label": "Unarchive",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "unarchive",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "Unarchive with makefile"
+        },
+        {
+            "label": "Document",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "document",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "Document with makefile"
+        },
+        {
+            "label": "Core",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "core",
+                "SELECTED_BOARD=${command:cpptools.activeConfigName}"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "detail": "Core with makefile"
+        }
+    ]
+}
