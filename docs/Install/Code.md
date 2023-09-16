@@ -9,7 +9,7 @@ To install Visual Studio Code,
 
 + Download [Visual Studio Code](https://code.visualstudio.com/download) :octicons-link-external-16:.
 
-+ Install it.em
++ Install it.
 
 For more information on Visual Studio Code,
 
@@ -42,19 +42,19 @@ To install an extension using the IDE:
 
 | | Extension | Name
 --- | --- | ---
-![](img/Icon-064-C-CPP.png) | C/C++ | `ms-vscode.cpptools`
-![](img/Icon-064-Intellicode.png) | IntelliCode | `VisualStudioExptTeam.vscodeintellicode`
-![](img/Icon-064-Better-CPP.png) | Better C++ Syntax | `jeff-hykin.better-cpp-syntax`
+![](img/Logo-064-C-CPP.png) | C/C++ | `ms-vscode.cpptools`
+![](img/Logo-064-Intellicode.png) | IntelliCode | `VisualStudioExptTeam.vscodeintellicode`
+![](img/Logo-064-Better-CPP.png) | Better C++ Syntax | `jeff-hykin.better-cpp-syntax`
 
-### Install the extensions for code check
+### Install the extensions to check the code
 
 | | Extension | Name
 --- | --- | ---
-![](img/Icon-064-FlyLint_icon.png) | C/C++ Advanced Lint for Visual Studio Code | `jbenden.c-cpp-flylint`
-![](img/Icon-064-ABC.png) | Multilingual, Offline and Lightweight Spellchecker | `ban.spellright`
-![](img/Icon-064-Menu.png) | Shortcut Menu Bar | `jerrygoyal.shortcut-menu-bar`
-![](img/Icon-064-Icons.png) | Icons | `vscode-icons-team.vscode-icons`
-![](img/Icon-064-Workspace.png) | Workspace Storage Cleanup | `mehyaa.workspace-storage-cleanup`
+![](img/Logo-064-FlyLint_icon.png) | C/C++ Advanced Lint for Visual Studio Code | `jbenden.c-cpp-flylint`
+![](img/Logo-064-ABC.png) | Multilingual, Offline and Lightweight Spellchecker | `ban.spellright`
+![](img/Logo-064-Menu.png) | Shortcut Menu Bar | `jerrygoyal.shortcut-menu-bar`
+![](img/Logo-064-vscode-icons.png) | Icons | `vscode-icons-team.vscode-icons`
+![](img/Logo-064-Workspace.png) | Workspace Storage Cleanup | `mehyaa.workspace-storage-cleanup`
 
 The **C/C++ Advanced Lint** manages different static analysers as **CLang**, **CppCheck**, **FlawFinder** and **Lizard**.
 
@@ -76,7 +76,7 @@ The **C/C++ extension** includes a formatter. As an option, **Artistic Style** p
 
 | | Extension | Name
 --- | --- | ---
-![](img/Icon-064-Default.png) | Artistic Style Format | `chiehyu.vscode-astyle`
+![](img/Logo-064-Default.png) | Artistic Style Format | `chiehyu.vscode-astyle`
 
 **Artistic Style** is a utility to indent, format and improve the presentation of the code.
 
@@ -92,13 +92,15 @@ For more information about the format options,
 
 + Please refer to the [Documentation](http://astyle.sourceforge.net/astyle.html) :octicons-link-external-16: page on the Artistic Style website.
 
-### Install the extensions for documentation
+### Install the extensions to generate documentation
 
 | | Extension | Name
 --- | --- | ---
-![](img/Icon-064-Doxygen.png) | Doxygen Documentation Generator | `cschlosser.doxdocgen`
+![](img/Logo-064-Doxygen.png) | Doxygen Documentation Generator | `cschlosser.doxdocgen`
 
 The **Doxygen extension** provides tools to generate the documentation. It requires the prior installation of Doxygen and optionally, GraphViz to generate graphs and LaTex to generate PDFs.
+
+<center>![](img/Logo-064-Doxywizard.png) ![](img/Logo-064-Graphviz.png) ![](img/Logo-064-TeX.png)</center>
 
 **Doxygen** generates all the help files based on comments added to the code. Output formats are HTML and LaTeX. Doxygen includes **DoxyWizard**, a GUI for an easy tweaking of the parameters. Doxygen requires **Graphviz** to draw elaborate dependency trees.
 
@@ -111,15 +113,15 @@ For download and documentation, please refer to
 + [LaTeX](https://www.latex-project.org/) :octicons-link-external-16:;
 + [TeXShop](https://pages.uoregon.edu/koch/texshop/) :octicons-link-external-16:.
 
-### Install the extensions for debugging
+### Install the extensions to debug
 
 | | Extension | Name
 --- | --- | ---
-![](img/Icon-064-Cortex-Debug.png) | Cortex Debug | `marus25.cortex-debug`
-![](img/Icon-064-Default.png) | Debug Tracker | `mcu-debug.debug-tracker-vscode`
-![](img/Icon-064-RTOS.png) | RTOS View | `mcu-debug.rtos-views`
-![](img/Icon-064-Memory.png) | Memory View | `mcu-debug.memory-view`
-![](img/Icon-064-Peripheral.png) | Peripheral Viewer | `mcu-debug.peripheral-viewer`
+![](img/Logo-064-Cortex-Debug.png) | Cortex Debug | `marus25.cortex-debug`
+![](img/Logo-064-Default.png) | Debug Tracker | `mcu-debug.debug-tracker-vscode`
+![](img/Logo-064-RTOS.png) | RTOS View | `mcu-debug.rtos-views`
+![](img/Logo-064-Memory.png) | Memory View | `mcu-debug.memory-view`
+![](img/Logo-064-Peripheral.png) | Peripheral Viewer | `mcu-debug.peripheral-viewer`
 
 The **Cortex Debug extension** works with **Segger J-Link**, **OpenOCD**, **STM32CubeProgrammer ST-Link** and **Texane ST-Util** as GDB servers. The MCU-Debug extensions add services to the Cortex Debug extension.
 
@@ -181,8 +183,8 @@ The **Windows Sub-system for Linux** runs a Linux distribution in Windows. This 
 
 | | Extension | Name
 --- | --- | ---
-![](img/Icon-064-SSH.png) | Visual Studio Code Remote – SSH | `ms-vscode-remote.remote-ssh`
-![](img/Icon-064-WSL.png) | Visual Studio Code Remote – WSL | `ms-vscode-remote.remote-wsl`
+![](img/Logo-064-SSH.png) | Visual Studio Code Remote – SSH | `ms-vscode-remote.remote-ssh`
+![](img/Logo-064-WSL.png) | Visual Studio Code Remote – WSL | `ms-vscode-remote.remote-wsl`
 
 For more information, please refer to
 

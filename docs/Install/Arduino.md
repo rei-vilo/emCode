@@ -14,7 +14,7 @@
 
 ### Install the Arduino-CLI
 
-![](img/icon-Arduino-CLI.png) To install the Arduino-CLI under `~/.local/bin`,
+![](img/Logo-064-Arduino-CLI.png) To install the Arduino-CLI under `~/.local/bin`,
 
 + Open a **Terminal** window;
 
@@ -156,7 +156,7 @@ arduino-cli lib upgrade
 
 ### Install the Arduino IDE
 
-![](img/icon-Arduino-IDE.png) To install the Arduino IDE,
+![](img/Logo-064-Arduino-IDE.png) To install the Arduino IDE,
 
 + Download and install Arduino 2.0 or later from [Arduino](https://www.arduino.cc/en/software/) :octicons-link-external-16: under the `~/Applications` folder.
 

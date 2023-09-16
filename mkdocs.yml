@@ -198,7 +198,7 @@ extra:
 #          link: 'https://www.linkedin.com/in/rei-vilo-02490555'
     history_buttons: true
 
-    version: 14.2.3
+    version: 14.2.4
 
 markdown_extensions:
 # Now ready for FontAwesome https://fontawesome.com/icons?d=gallery&m=free

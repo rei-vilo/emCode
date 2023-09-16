@@ -69,9 +69,9 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 | | Platform | Package | Comment
 ---- | ---- |---- | ----
-![](img/Logo-064-Espressif-Systems.png) | ESP32 | 2.0.12 | Valid for other ESP32-based boards <br> except Arduino Nano ESP32
+![](img/Logo-064-Espressif-Systems.png) | ESP32 | 2.0.13 | Valid for other ESP32-based boards <br> except Arduino Nano ESP32
 | | ESP8266 | 3.0.1 | Valid for other ESP8266-based boards
-![](img/Logo-064-eC.png) | emCode | 14.2.1 | 08 Sep 2023
+![](img/Logo-064-eC.png) | emCode | 14.2.4 | 15 Sep 2023
 
 ## Visit the official websites
 

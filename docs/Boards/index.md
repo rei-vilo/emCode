@@ -11,3 +11,20 @@ This section lists the peculiarities of specific boards grouped by platforms, fo
 + [Manage the Seeed platform](Seeed/index.md)
 + [Manage the STM32 platform](STM32/index.md)
 + [Manage the Teensy platform](Teensy/index.md)
+
+## Check the tests
+
+The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
+
+| | Platform | Package | Comment
+---- | ---- | ---- | ----
+![](img/Logo-064-Arduino-CLI.png) | **Arduino CLI** | 0.43 | 
+![](img/Logo-064-Arduino-IDE.png) | **Arduino IDE** | 2.2.1 | 
+![](img/Logo-064-eC.png) | **emCode** | 14.2.4 | 15 Sep 2023 | 
+
+## Visit the official websites
+
+![](img/Logo-064-Arduino.png) | **Arduino**
+---- | ----
+Arduino IDE | <https://github.com/arduino/arduino-ide> :octicons-link-external-16:
+Arduino CLI | <https://github.com/arduino/arduino-cli> :octicons-link-external-16:
