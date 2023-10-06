@@ -43,7 +43,7 @@ Please find the main links for emCode.
 
 | ![](img/Logo-064-eC.png) | **emCode** | | | |
 | :----: | :----: | :----: | :----: | :----: |
-| ![Website](img/color-link-48.png) <br> [Website](https://emCode.weebly.com) :octicons-link-external-16: | ![Download](img/color-download-48.png) <br> [Download](https://github.com/rei-vilo/emCode/) :octicons-link-external-16: | ![Doc](img/color-letter-48.png) <br> [User manual](https://rei-vilo.github.io/emCode/) :octicons-link-external-16: | ![RSS](img/color-rss-48.png) <br> [RSS feed](https://emCode.weebly.com/1/feed) :octicons-link-external-16: | ![LinkedIn](img/color-linkedin-48.png) <br> [LinkedIn](https://www.linkedin.com/in/rei-vilo-02490555) :octicons-link-external-16: |
+| ![Website](img/color-link-48.png)<br>[Website](https://emCode.weebly.com) :octicons-link-external-16: | ![Download](img/color-download-48.png)<br>[Download](https://github.com/rei-vilo/emCode/) :octicons-link-external-16: | ![Doc](img/color-letter-48.png)<br>[User manual](https://rei-vilo.github.io/emCode/) :octicons-link-external-16: | ![RSS](img/color-rss-48.png)<br>[RSS feed](https://emCode.weebly.com/1/feed) :octicons-link-external-16: | ![LinkedIn](img/color-linkedin-48.png)<br>[LinkedIn](https://www.linkedin.com/in/rei-vilo-02490555) :octicons-link-external-16: |
 
 ## Conventions
 

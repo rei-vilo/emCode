@@ -6,6 +6,9 @@ Details of the latest release are available at the [emCode release notes](../../
 
 Date | Release | Comment
 ---- | :----: | ----
+06 Oct 2023 | 14.2.7 | Updated support for ESP32 boards
+29 Sep 2023 | 14.2.6 | Updated Arduino Mbed-OS boards
+23 Sep 2023 | 14.2.5 | Added JLink upload for Adafruit Feather RP2040 boards
 15 Sep 2023 | 14.2.4 | Updated support for ESP32 boards
 14 Sep 2023 | 14.2.3 | Updated support for RP2040 boards
 08 Sep 2023 | 14.2.2 | Updated support for RP2040 boards

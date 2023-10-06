@@ -4,6 +4,7 @@ site_description: emCode User Manual
 site_author: Rei Vilo
 # copyright: (c) All rights reserved
 # site_url is required for sitemap.xml
+site_url: https://rei-vilo.github.io/emCode/
 # site_url: https://embedxcode.000webhostapp.com/site
 # site_url: http://embedxcode.epizy.com/site/
 # site_url: https://embedxcode.com/site/
@@ -179,7 +180,7 @@ extra:
 
 #    repo_icon: 'paypal'
 # type: 'globe' references to fa-globe as icon
-    social:
+#    social:
 #        - icon: fontawesome/solid/globe
 #          link: 'https://embedxcode.weebly.com'
 #        - icon: fontawesome/solid/download
@@ -198,7 +199,7 @@ extra:
 #          link: 'https://www.linkedin.com/in/rei-vilo-02490555'
     history_buttons: true
 
-    version: 14.2.4
+    version: 14.2.7
 
 markdown_extensions:
 # Now ready for FontAwesome https://fontawesome.com/icons?d=gallery&m=free

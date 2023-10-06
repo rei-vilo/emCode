@@ -6,7 +6,9 @@ emCode relies on Visual Studio Code and runs on Linux, including Windows Linux S
 
 ## Scope
 
-Release 14.2.3 updates the ESP32 boards.
+Release 14.2.7 updates support for ESP32 boards.
+
+Release 14.2.4 updates the ESP32 boards.
 
 Release 14.2.3 updates the Raspberry Pi Pico RP2040 boards.
 
