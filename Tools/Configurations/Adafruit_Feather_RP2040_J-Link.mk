@@ -11,7 +11,7 @@
 # Copyright: (c) 2010-2023 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 20 Oct 2021 release 11.15.6
+# Last update: 23 Sep 2023 release 14.2.5
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)

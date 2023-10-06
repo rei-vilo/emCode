@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2023
 # All rights reserved
 #
-# Last update: 05 Jun 2023 release 14.1.1
+# Last update: 06 Oct 2023 release 14.2.7
 #
 
 # On Linux, install pyserial with 
@@ -542,6 +542,7 @@ FLAGS_LD += -Wl,-Map,$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).map
 
 # FLAGS_L = -lgcc -lopenssl -lbtdm_app -lfatfs -lwps -lcoexist -lwear_levelling -lesp_http_client -lhal -lnewlib -ldriver -lbootloader_support -lpp -lmesh -lsmartconfig -ljsmn -lwpa -lethernet -lphy -lapp_trace -lconsole -lulp -lwpa_supplicant -lfreertos -lbt -lmicro-ecc -lcxx -lxtensa-debug-module -lmdns -lvfs -lsoc -lcore -lsdmmc -lcoap -ltcpip_adapter -lc_nano -lesp-tls -lrtc -lspi_flash -lwpa2 -lesp32 -lapp_update -lnghttp -lspiffs -lespnow -lnvs_flash -lesp_adc_cal -llog -lsmartconfig_ack -lexpat -lm -lc -lheap -lmbedtls -llwip -lnet80211 -lpthread -ljson  -lstdc++
 # grep ^$(1).$(2) $(3)
+# compiler.c.elf.libs
 FLAGS_L = $(call PARSE_FILE,compiler,c.elf.libs.$(BUILD_MCU)=,$(HARDWARE_PATH)/platform.txt)
 
 # Specific FLAGS_OBJCOPY for objcopy only

@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 14 Sep 2023 release 14.2.3
+# Last update: 23 Sep 2023 release 14.2.5
 #
 
 # RP2040 Pico for Arduino
@@ -176,6 +176,27 @@ else ifeq ($(UPLOADER),debugprobe)
     UPLOADER_OPTS += -c "adapter speed 5000"
     UPLOADER_COMMAND = verify reset exit
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "program $(TARGET_ELF) $(UPLOADER_COMMAND)"
+
+else ifeq ($(UPLOADER),jlink)
+    UPLOADER = jlink
+
+    # Prepare the .jlink scripts
+    COMMAND_PREPARE = printf 'r\nloadfile "$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink' ;
+    COMMAND_PREPARE += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+
+# # Option 1 - 1.5.0-a-5007782 is actually arm-none-eabi-cpp (GCC) 10.3.0 but gdb remains 8.2.5
+# # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
+    UPLOADER_PATH := /usr/bin
+    UPLOADER_EXEC = $(UPLOADER_PATH)/JLinkExe
+    # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
+    # UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_TOOLS_RELEASE)/share/openocd/scripts
+# # Option 2 - Consistent tool-chain
+#     UPLOADER_PATH := $(EMCODE_TOOLS)/OpenOCD_RP2040/$(RP2040_OPENOCD_PICOPROBE_RELEASE)
+#     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd_picoprobe
+#     UPLOADER_OPTS += -s $(UPLOADER_PATH)/tcl/
+# End
+    UPLOADER_OPTS += -device RP2040_M0_0 -if swd -speed 2000 
+    COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -commanderscript $(BUILDS_PATH)/upload.jlink
 
 else
 # tools.openocd.upload.pattern="{path}/{cmd}" {upload.verbose} -s "{path}/share/openocd/scripts/" {bootloader.programmer} {upload.transport} {bootloader.config} -c "telnet_port disabled; init; reset init; halt; adapter speed 10000; program {{build.path}/{build.project_name}.elf}; reset run; shutdown"

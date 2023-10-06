@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2023
 # All rights reserved
 #
-# Last update: 16 Jan 2023 release 13.0.0
+# Last update: 23 Sep 2023 release 14.2.5
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -74,9 +74,9 @@ ifeq ($(UPLOADER),bossac)
 
 else ifeq ($(UPLOADER),cp_uf2)
 
-	ifneq ($(BOARD_TAG),feather52840)
-		$(error UF2 not supported by $(CONFIG_NAME).)
-	endif
+    ifneq ($(BOARD_TAG),feather52840)
+        $(error UF2 not supported by $(CONFIG_NAME).)
+    endif
     MESSAGE_WARNING = BETA! UF2 not yet tested against $(CONFIG_NAME).
 # See https://github.com/adafruit/Adafruit_nRF52_Bootloader#making-your-own-uf2
 # UPLOAD_OFFSET not required when using .hex
@@ -259,7 +259,11 @@ endif
 # Now, adding extra libraries manually
 APP_LIBS_LIST += Adafruit_TinyUSB_Arduino 
 APP_LIBS_LIST += Adafruit_LittleFS InternalFileSytem
-APP_LIBS_LIST += Adafruit_nRFCrypto Bluefruit52Lib
+ifeq ($(BOARD_TAG),feather52832)
+else
+    APP_LIBS_LIST += Adafruit_nRFCrypto 
+endif 
+APP_LIBS_LIST += Bluefruit52Lib
 
 # Now, adding some extra non-standard sub-folders manually
 ada1000 = $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d  | egrep -v 'examples'))

@@ -16,9 +16,9 @@
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
 #
-BOARD_TAG = pico
+BOARD_TAG = arduino_nano_connect
 # Program / File system
-BOARD_TAG1 = arduino_nano_connect.menu.flash.16777216_0
+BOARD_TAG1 = arduino_nano_connect.menu.flash.16777216_8388608
 # Speed nominal = 133
 BOARD_TAG2 = arduino_nano_connect.menu.freq.125
 # Serial port, requires TinyUSB
@@ -29,6 +29,8 @@ BOARD_TAG4 = arduino_nano_connect.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = arduino_nano_connect.menu.usbstack.tinyusb
 BOARD_TAG5 = arduino_nano_connect.menu.usbstack.picosdk
+
+BOARD_TAG6 = arduino_nano_connect.menu.uploadmethod.default
 
 # For Arduino 1.5.x, if different from Arduino 1.0.x
 #
