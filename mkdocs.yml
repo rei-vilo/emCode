@@ -1,6 +1,6 @@
 site_name: emCode User Manual
 copyright: Copyright &copy; Rei Vilo, 2010-2023 &bull; All rights reserved
-site_description: emCode User Manual
+site_description: Embedded computing for Arduino SDK with GNU make
 site_author: Rei Vilo
 # copyright: (c) All rights reserved
 # site_url is required for sitemap.xml
@@ -241,6 +241,10 @@ markdown_extensions:
 plugins:
 # If plugins: added, - search needs to be specified
     - search
+# pip install "mkdocs-material[imaging]"
+    - social
+#     - social:
+#          cards_dir: Cards
 # To check progress, https://pypi.org/project/mkdocs-plugin-progress/
 # pip install mkdocs-plugin-progress
     - progress
