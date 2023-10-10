@@ -1,6 +1,6 @@
 # emCode
 
-*Embedded computing with make*
+*Embedded computing for Arduino SDK with GNU make*
 
 ![](./img/Logo-064-eC.png)
 
