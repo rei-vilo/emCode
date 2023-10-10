@@ -66,7 +66,7 @@
             "request": "launch",
             "name": "PicoProbe",
             "servertype": "openocd",
-            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.0.0-a-d3d2e6b/bin/openocd",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
             "interface": "swd",
@@ -74,7 +74,7 @@
             "device": "RP2040",
             "serverArgs": [
                 "-f", "target/rp2040.cfg",
-                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.0.0-a-d3d2e6b/share/openocd/scripts",
+                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/picoprobe.cfg"
@@ -88,7 +88,7 @@
             "request": "launch",
             "name": "DebugProbe CMSIS-DAP",
             "servertype": "openocd",
-            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.0.0-a-d3d2e6b/bin/openocd",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
             "interface": "swd",
@@ -97,7 +97,7 @@
             "serverArgs": [
                 "-c", "adapter speed 5000",
                 "-f", "target/rp2040.cfg",
-                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.0.0-a-d3d2e6b/share/openocd/scripts",
+                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/cmsis-dap.cfg"
