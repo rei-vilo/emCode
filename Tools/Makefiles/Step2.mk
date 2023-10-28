@@ -484,6 +484,7 @@ LOCAL_LIB_PATH = .
 #     $(error Missing local libraries $(s220c))
 # endif
 # 
+#     $(info .)
 #     $(error STOP)
 # endif
 
@@ -860,6 +861,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
         ifneq ($(strip $(s230c)),)
             $(info Missing folders   $(s230c))
+            $(info .)
             $(error Stop)            
         endif
     endif # USER_LIBS_LIST
@@ -926,6 +928,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
         ifneq ($(strip $(s220c)),)
             $(info Missing folders   $(s220c))
+            $(info .)
             $(error Stop)            
         endif
     endif # LOCAL_LIBS_LIST
@@ -1756,7 +1759,7 @@ else
         endif # AVRDUDE_PORT
 #		$(USB_RESET) $(USED_SERIAL_PORT)
         ifneq ($(DELAY_BEFORE_UPLOAD),)
-		    $(QUIET)sleep $(DELAY_BEFORE_UPLOAD)
+		$(QUIET)sleep $(DELAY_BEFORE_UPLOAD)
         endif # DELAY_BEFORE_UPLOAD
 #		@ls $(USED_SERIAL_PORT)
       endif # USB_RESET
@@ -1923,7 +1926,7 @@ else ifeq ($(BOARD_PORT),ssh)
         ifneq ($(MAKECMDGOALS),debug)
 			$(call SHOW,"10.41-UPLOAD",$(UPLOADER))
 #		echo $(UTILITIES_PATH)/uploader_raspi_ssh.sh $(SSH_ADDRESS) $(SSH_PASSWORD) $(REMOTE_FOLDER) $(BINARY_SPECIFIC_NAME) $(BUILDS_PATH) -exec
-        	ifeq ($(MAKECMDGOALS),upload)
+	ifeq ($(MAKECMDGOALS),upload)
 #			osascript -e 'tell application "Terminal" to do script "cd $(CURRENT_DIR); $(UTILITIES_PATH)/uploader_raspi_ssh.sh $(SSH_ADDRESS) $(SSH_PASSWORD) $(REMOTE_FOLDER) $(BINARY_SPECIFIC_NAME) $(BUILDS_PATH) -upload"'
 				cd $(CURRENT_DIR); $(UTILITIES_PATH)/uploader_raspi_ssh.sh $(SSH_ADDRESS) $(SSH_PASSWORD) $(REMOTE_FOLDER) $(BINARY_SPECIFIC_NAME) $(BUILDS_PATH) -upload
             else
