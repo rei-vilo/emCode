@@ -16,8 +16,7 @@
             },
             "presentation": {
                 "reveal": "always"
-            },
-            "problemMatcher": []
+            }
         },
         {
             "label": "Serve",
