@@ -46,8 +46,7 @@ update:
 #
 #	@echo "Compare ./theme/base.html"
 #	@echo "with /home/reivilo/.venvs/mkdocs/lib/python3.11/site-packages/material/base.html"
-
-	@if [ -f "$(FILE1)" ]; then echo "Compare $(FILE1)" ; echo "with $(FILE2)" ; meld "$(FILE1)" "$(FILE2)" ; fi
+	@if [ -f "$(FILE1)" ]; then echo . ; echo "Compare $(FILE1)" ; echo "with    $(FILE2)" ; meld "$(FILE1)" "$(FILE2)" ; fi
 
 	@echo "=== Update done"
 

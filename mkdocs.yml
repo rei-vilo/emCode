@@ -153,6 +153,10 @@ theme:
 #        - navigation.tabs.sticky
 #        - navigation.sections
         - content.code.annotate
+# Search
+        - search.suggest
+#        - search.highlight
+        - search.share
 # For GDPR concerns, false=avoid Google fonts
     font: false
 # or use Ubuntu fonts
