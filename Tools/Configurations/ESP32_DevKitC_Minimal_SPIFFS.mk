@@ -1,5 +1,5 @@
 #
-# ESP32 DevKitC (Minimal SPIFFS).mk
+# ESP32_DevKitC_Minimal_SPIFFS.mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode

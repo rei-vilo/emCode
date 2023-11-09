@@ -1961,7 +1961,7 @@ else ifeq ($(BOARD_PORT),ssh)
 #		$(UTILITIES_PATH)/ssh_password $(SSH_ADDRESS) $(SSH_PASSWORD) $(COMMAND)
 #		$(UTILITIES_PATH)/ssh_password $(SSH_ADDRESS) $(SSH_PASSWORD) reboot
 
-    endif # BOARD_TAG
+#    endif # BOARD_TAG
 else ifeq ($(UPLOADER),izmir_tty)
 	$(call SHOW,"10.9-UPLOAD",$(UPLOADER))
 

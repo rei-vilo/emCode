@@ -1,5 +1,5 @@
 #
-# ESP32 Pico-Kit-v4.mk
+# ESP32_Pico_Kit_v4.mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode

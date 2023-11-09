@@ -1,5 +1,5 @@
 #
-# ESP32 DevKitM-2.mk
+# ESP32_DevKitM_2.mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode

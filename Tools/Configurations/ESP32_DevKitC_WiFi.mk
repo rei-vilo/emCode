@@ -1,5 +1,5 @@
 #
-# ESP32 DevKitC (WiFi).mk
+# ESP32_DevKitC_WiFi.mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode
