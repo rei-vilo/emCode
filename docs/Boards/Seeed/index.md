@@ -22,11 +22,11 @@ The test protocol includes building and linking, uploading and running a sketch 
 | | Platform | Package | Comment
 ---- | ---- |---- | ----
 ![](img/Logo-064-Seeed.png) | AVR | 1.3.0 | For Seeeduino and Seeed Grove Beginner Kit
-| | nRF52 | 1.1.4 | For Xiao nRF52840 board
+| | nRF52 | 1.1.7 | For Xiao nRF52840 board
 | | Realtek | 3.0.7 | For RTL8720DN on Wio Terminal board
 | | RP2040 | 2.7.3 | For Xiao RP2040 board
 | | SAMD | 1.8.0 | For Xiao SAMD and Wio Terminal boards
-![](img/Logo-064-eC.png) | emCode |  | 
+![](img/Logo-064-eC.png) | emCode | 14.2.8 | 
 
 ## Visit the official websites
 

@@ -10,8 +10,8 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 | | Platform | Package | Comment
 ---- | ---- | ---- | ----
-![](img/Logo-064-STM32duino.png) | **STM32** | 2.6.0 | For Nucleo and Discovery boards
-![](img/Logo-064-eC.png) | **emCode** | 14.1.5 | 19 Jul 2023 |
+![](img/Logo-064-STM32duino.png) | **STM32** | 2.7.0 | For Nucleo and Discovery boards
+![](img/Logo-064-eC.png) | **emCode** | 14.2.9 |
 
 ## Visit the official websites
 
