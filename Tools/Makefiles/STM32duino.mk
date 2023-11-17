@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2023
 # All rights reserved
 #
-# Last update: 16 Jan 2023 release 13.0.0
+# Last update: 17 Nov 2023 release 14.2.9
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -300,7 +300,7 @@ FLAGS_AS = -x assembler-with-cpp
 FLAGS_LD = $(OPTIMISATION) $(FLAGS_WARNING)
 FLAGS_LD += -$(MCU_FLAG_NAME)=$(MCU) -mthumb
 FLAGS_LD += $(addprefix -L, $(FLAGS_L))
-FLAGS_LD += -l$(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.cmsis_lib_gcc)
+# FLAGS_LD += -l$(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.cmsis_lib_gcc)
 FLAGS_LD += -Wl,-Map,$(OBJDIR)/emCode.cpp.map # Output a cross reference table.
 # With 1.8.0
 ifeq ($(STM32DUINO_RELEASE),1.8.0)
