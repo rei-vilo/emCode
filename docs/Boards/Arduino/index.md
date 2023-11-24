@@ -20,14 +20,14 @@ The test protocol includes building and linking, uploading and running a sketch 
 | | Platform | Package | Comment
 ---- | ---- | ---- | ----
 ![](img/Logo-064-Arduino.png) | AVR | 1.8.6 | For Uno and Mega boards
-| | mbed-nano | 3.5.1 | For Nano 33 BLE boards
-| | mbed-RP2040 | 3.5.4 | For Raspberry Pi Pico RP2040 boards, not recommended
+| | mbed-nano | 4.0.10 | For Nano 33 BLE boards
+| | mbed-RP2040 | 4.0.10 | For Raspberry Pi Pico RP2040 boards, not recommended
 | | MegaAVR | 1.8.7 | For Nano Every board
 | | nRF52 | 1.0.2 | For Primo and Primo Core boards, archived
 | | ESP32 | 2.0.12 | For Nano ESP32
 | | SAM | 1.6.12 | For Due board
 | | SAMD | 1.8.13 | For Nano 33 IoT, Zero, M0 and Tian boards
-![](img/Logo-064-eC.png) | **emCode** | 14.2.1 | 08 Sep 2023 | Last update
+![](img/Logo-064-eC.png) | **emCode** | 14.2.10 |
 
 ## Visit the official websites
 
