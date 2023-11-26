@@ -23,9 +23,9 @@ repo_url: https://github.com/rei-vilo/emCode/
 # Force release 6.2.8 with pip install mkdocs-material==6.2.8
 
 nav:
-    - Table of contents: index.md
-    - Forewords:
-        - Forewords/index.md
+    - About: index.md
+#    - Forewords:
+#        - Forewords/index.md
     - Install emCode:
         - Install/index.md
         - Install Visual Studio Code: Install/Code.md
@@ -96,7 +96,7 @@ nav:
 
         - Add a board:
             - Boards/Other/index.md
-    - Find solutions to issues:
+    - Solve issues:
         - Issues/index.md
         - Compatibility with Arduino: Issues/Compatibility.md
         - Solutions to common issues: Issues/Common.md
@@ -149,8 +149,8 @@ theme:
         - navigation.indexes
         - navigation.top
         - navigation.tracking
-#        - navigation.tabs
-#        - navigation.tabs.sticky
+        - navigation.tabs
+        - navigation.tabs.sticky
 #        - navigation.sections
         - content.code.annotate
 # Search

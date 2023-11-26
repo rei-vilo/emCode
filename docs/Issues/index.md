@@ -1,4 +1,4 @@
-# Find solutions to issues
+# Solve issues
 
 + [Manage compatibility with Arduino](./Compatibility.md)
 + [Find solutions to common issues](./Common.md)
