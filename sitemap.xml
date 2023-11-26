@@ -341,6 +341,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://rei-vilo.github.io/emCode/Forewords/</loc>
+         <lastmod>2023-11-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://rei-vilo.github.io/emCode/Install/</loc>
          <lastmod>2023-11-26</lastmod>
          <changefreq>daily</changefreq>
