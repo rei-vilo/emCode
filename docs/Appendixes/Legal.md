@@ -28,9 +28,9 @@ This website may contain links to external websites that are not provided or mai
 
 emCode has no affiliate partnerships and does not earn any commission on products purchased through links. The absence of partnerships keep the editorial content free from any influence.
 
-## GPDR
+## Privacy
 
-This section lists the options related to privacy. The new General Data Protection Regulation or [GDPR](https://www.eugdpr.org) enforcement started 25 May 2018.
+This section lists the options related to privacy. The new General Data Protection Regulation or [GDPR](https://gdpr.eu/) enforcement started 25 May 2018.
 
 It is not entirely clear whether personal websites like the websites listed below are concerned by GDPR.
 
