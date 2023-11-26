@@ -30,9 +30,11 @@ emCode has no affiliate partnerships and does not earn any commission on product
 
 ## Privacy
 
-This section lists the options related to privacy. The new General Data Protection Regulation or [GDPR](https://gdpr.eu/) enforcement started 25 May 2018.
+This section lists the options related to privacy. 
 
-It is not entirely clear whether personal websites like the websites listed below are concerned by GDPR.
+The new **General Data Protection Regulation** or [GDPR](https://gdpr.eu/) enforcement started 25 May 2018.
+
+However, it is not entirely clear whether personal websites like the websites listed below are concerned by GDPR.
 
 The emCode and related documentation are hosted by GitHub, which has implemented GDPR as per the [Data Protection Addendum](https://docs.github.com/en/site-policy/github-terms/github-marketplace-developer-agreement#addendum1-data-protection-addendum) :octicons-link-external-16:.
 
