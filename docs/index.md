@@ -55,16 +55,6 @@ Happy development!
 
 &mdash; Rei Vilo
 
-## Copyright
-
-(c) Rei Vilo, 2010-2023
-
-All rights reserved
-
-All brand names and trademarks mentioned in this website are the property of their respective owners.
-
-None of the brands mentioned in this website sponsor, authorise, or endorse emCode. Similarly, emCode does not sponsor, authorise, or endorse any of the brands mentioned in this website.
-
 ## Links
 
 Please find the main links for emCode.
