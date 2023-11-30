@@ -30,3 +30,7 @@
         content: 'Page ' counter(page);
     }
 }
+
+.md-typeset h1 {
+    color: red;
+}
