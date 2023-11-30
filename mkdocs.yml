@@ -2,20 +2,15 @@ site_name: emCode User Manual
 copyright: Copyright &copy; Rei Vilo, 2010-2023 &bull; All rights reserved
 site_description: Embedded computing for Arduino SDK with GNU make
 site_author: Rei Vilo
-# copyright: (c) All rights reserved
 # site_url is required for sitemap.xml
 site_url: https://rei-vilo.github.io/emCode/
-# site_url: https://embedxcode.000webhostapp.com/site
-# site_url: http://embedxcode.epizy.com/site/
-# site_url: https://embedxcode.com/site/
 # With sudo chown -R $USER:$USER /var/www
 # and sudo chmod 777 /var/www/html -R
 site_dir: /home/reivilo/Sites/eC
-# site_dir: /home/reivilo/Sites/Ionos/public_html/site
-# /home/reivilo/Projets/embedXcode/Site
-# site_dir: "/Users/ReiVilo/Documents/embedXcode/MkDocs/Site 1&1/site"
 repo_url: https://github.com/rei-vilo/emCode/
 # repo_name: "Download"
+edit_uri: ""
+# strict: true
 
 # repo_name: '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="9H8EV2RV4QHJG"><input type="image" src="https://embedxcode.com/site/img/donate-logo-large-en-2x.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form>'
 # repo_url: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9H8EV2RV4QHJG'
@@ -116,8 +111,18 @@ theme:
 #    name: readthedocs
 #    name: windmill
     name: 'material'
+# Template is located at /home/reivilo/.local/lib/python3.9/site-packages/material
+# Template is located at /home/reivilo/.venvs/mkdocs/lib/python3.11/site-packages/material
+# Copy relevant files under theme or theme/partials
+# Comment to remove announcement, edit announce.html
 #    custom_dir: theme
 #
+# For GDPR concerns, false=avoid Google fonts
+    font: false
+# or use Ubuntu fonts
+#    font:
+#        text: 'Ubuntu'
+#        code: 'Ubuntu Mono'
     palette:
        - scheme: default
          primary: red
@@ -133,16 +138,6 @@ theme:
             icon: material/brightness-4
             # icon: material/toggle-switch
             name: Switch to light mode
-#    features:
-#        - header.autohide
-#        - tabs
-#        instant: true
-# Solution from Add support for sections with pages #1008
-# https://github.com/squidfunk/mkdocs-material/issues/1008
-#    section_page_name: chapter_page
-
-    logo: img/Logo-256-eC-Website-white.png
-    favicon: img/favicon.ico
     features:
         - content.code.copy
         - navigation.footer
@@ -151,74 +146,98 @@ theme:
         - navigation.tracking
         - navigation.tabs
         - navigation.tabs.sticky
+#        - navigation.path
 #        - navigation.sections
         - content.code.annotate
-# Search
+
+# --- Announcement banner
+# Update theme/base.html with /home/reivilo/.venvs/mkdocs/lib64/python3.11/site-packages/material
+# Uncomment the two following lines
+#        - header.autohide
+        - announce.dismiss
+#        instant: true
+
+# --- Search
         - search.suggest
 #        - search.highlight
         - search.share
-# For GDPR concerns, false=avoid Google fonts
-    font: false
-# or use Ubuntu fonts
-#    font:
-#        text: 'Ubuntu'
-#        code: 'Ubuntu Mono'
-# icon: doesn't work yet with confused explanations
-#    icon:
-#        logo: img/Logo-256-eX-Website-white
-#        repo: fontawesome/brands/git-alt
-#        favicon: img/favicon.ico
 
-# For release 6
-# google_analytics:
-#     - G-L8GYGH8EGF
-#     - auto
+# --- Logo and favicon
+    logo: img/Logo-256-eC-Website-white.png
+    favicon: img/favicon.ico
+
+extra_css:
+    - css/extra.css
 
 extra:
-    # For release 7+
+# --- Version
+    version: 14.2.10
+
+# Analytics for release 7+
     analytics:
         provider: google
         property: G-L8GYGH8EGF
-    logo: img/Logo-256-eX.png
+
+#    logo: img/Logo-256-eX.png
     history_buttons: true
 
+# --- To manages different versions
+# pip install mike
+# Requires a GitHub target repository
+#    version:
+#        provider: mike
+#        feedback:
+#            title: Was this page helpful?
+#            ratings:
+#              - icon: material/emoticon-happy-outline
+#                name: This page was helpful
+#                data: 1
+#                note: >-
+#                    Thanks for your feedback!
+#              - icon: material/emoticon-sad-outline
+#                name: This page could be improved
+#                data: 0
+#                note: >-
+#                    Thanks for your feedback!
+
+# --- To add social links 
 #    repo_icon: 'paypal'
 # type: 'globe' references to fa-globe as icon
-#    social:
-#        - icon: fontawesome/solid/globe
-#          link: 'https://embedxcode.weebly.com'
-#        - icon: fontawesome/solid/download
-#          link: 'https://embedxcode.weebly.com/download'
-#        - icon: fontawesome/brands/cc-paypal
-#          link: 'https://embedxcode.weebly.com/about.html'
+#     social:
+#         - icon: fontawesome/solid/globe
+#           link: 'https://embedxcode.weebly.com'
+#         - icon: fontawesome/solid/download
+#           link: 'https://embedxcode.weebly.com/download'
+#         - icon: fontawesome/brands/cc-paypal
+#           link: 'https://embedxcode.weebly.com/about.html'
 #         - icon: fontawesome/solid/ticket-alt
 #           link: 'https://embedxcode.freshdesk.com'
-#        - icon: fontawesome/solid/envelope-open
-#          link: 'https://weebly.us13.list-manage.com/subscribe?u=d3850dea1d2afd003a8516d3f&id=54be6d0117'
-#        - icon: fontawesome/solid/rss
-#          link: 'https://embedxcode.weebly.com/1/feed'
-#        - icon: fontawesome/brands/twitter
-#          link: 'https://twitter.com/#!/rei_vilo'
-#        - icon: fontawesome/brands/linkedin
-#          link: 'https://www.linkedin.com/in/rei-vilo-02490555'
-    history_buttons: true
-
-    version: 14.2.10
+#         - icon: fontawesome/solid/envelope-open
+#           link: 'https://weebly.us13.list-manage.com/subscribe?u=d3850dea1d2afd003a8516d3f&id=54be6d0117'
+#         - icon: fontawesome/solid/rss
+#           link: 'https://embedxcode.weebly.com/1/feed'
+#         - icon: fontawesome/brands/twitter
+#           link: 'https://twitter.com/#!/rei_vilo'
+#         - icon: fontawesome/brands/linkedin
+#           link: 'https://www.linkedin.com/in/rei-vilo-02490555'
 
 markdown_extensions:
-# Now ready for FontAwesome https://fontawesome.com/icons?d=gallery&m=free
+# --- Now ready for FontAwesome https://fontawesome.com/icons?d=gallery&m=free
 # : fa-link: :octicons-link: :fontawesome-solid-link:
 # : fa-external-link: :octicons-link-external: :fontawesome-solid-external-link-alt:
 # : fa-plus-square: :octicons-diff-added: :fontawesome-regular-plus-square:
     - pymdownx.emoji:
-#        emoji_index: !!python/name:materialx.emoji.twemoji
-#        emoji_generator: !!python/name:materialx.emoji.to_svg
         emoji_index: !!python/name:material.extensions.emoji.twemoji
         emoji_generator: !!python/name:material.extensions.emoji.to_svg
     - admonition
     - pymdownx.details
 # See https://github.com/squidfunk/mkdocs-material/discussions/3427
 # and https://github.com/flynneva/mkdocs-custom-superfence-example
+# Install with 
+# git clone https://github.com/flynneva/mkdocs-custom-superfence-example
+# ~/.venvs/mkdocs/bin/python -m pip install mkdocs-custom-superfence-example
+# The extension is archived.
+#    - pymdownx.superfences
     - pymdownx.superfences:
         custom_fences:
             - name: '*'
@@ -242,27 +261,51 @@ markdown_extensions:
     - pymdownx.tilde
     - smarty
     - pymdownx.mark
-#    - fontawesome_markdown
+    - def_list
+    - pymdownx.highlight
+#     - markdown.extensions.footnotes
+#     - pymdownx.inlinehilite
+#     - pymdownx.snippets
+#     - mdx_math
+# See https://gitlab.com/rod2ik/mkdocs-graphviz
+# pip install mkdocs-graphviz
+# Requires extra_javascript:
+#     - mkdocs_graphviz
 
 plugins:
+# --- Search
 # If plugins: added, - search needs to be specified
     - search
+
+# --- Social cards
 # pip install "mkdocs-material[imaging]"
     - social
 #     - social:
 #          cards_dir: Cards
-# To check progress, https://pypi.org/project/mkdocs-plugin-progress/
+
+# --- To check progress, https://pypi.org/project/mkdocs-plugin-progress/
 # pip install mkdocs-plugin-progress
     - progress
-# To define variables, https://pypi.org/project/mkdocs-macros-plugin/
+
+# --- To check external links
+# pip install mkdocs-htmlproofer-plugin
+#     - htmlproofer
+
+# --- To define variables, https://pypi.org/project/mkdocs-macros-plugin/
 # pip install mkdocs-macros-plugin
     - macros
-#    - enumerate-headings:
-#        toc_depth: 1
-#        strict: true
-# # To check external links
-#     - htmlproofer
-# To add revision date
+
+# --- To check unused files
+# pip install mkdocs-unused-files
+#     - unused_files:
+#         file_types:
+#         - png
+#         - jpg
+#         - svg
+#         - gif
+#         - jpeg
+
+# --- To add revision date
 # https://pypi.org/project/mkdocs-git-revision-date-localized-plugin/
     - git-revision-date-localized:
         # type: timeago
@@ -275,36 +318,39 @@ plugins:
             - index.md
         enabled: true
         strict: true
-# # To avoid listing the pages on nav: section
+
+# --- To avoid listing the pages on nav: section
 #    - awesome-pages
-# # To optimise html size
+
+# --- To optimise html size
 #    - minify:
 #        minify_html: true
 #        minify_js: true
-# # * To export one PDF per page
-# # 1. mkdocs-pdf-export-plugin
-# # https://github.com/zhaoterryy/mkdocs-pdf-export-plugin
-# # Check the FontAwesome fonts are installed
+
+# --- To add a glossary for tags
+    - tags:
+        tags_file: Appendixes/Indexes.md
+
+# --- To export one PDF per page
+# 1. mkdocs-pdf-export-plugin
+# https://github.com/zhaoterryy/mkdocs-pdf-export-plugin
+# Check the FontAwesome fonts are installed
 #    - pdf-export:
 #        verbose: true
 #        media_type: print
 #        combined: true
-# # To prepare one PDF for the whole site
-# # 2. mkdocs-print-site-plugin
-# # https://github.com/timvink/mkdocs-print-site-plugin/
+
+# --- To prepare one PDF for the whole site
+# 2. mkdocs-print-site-plugin
+# https://github.com/timvink/mkdocs-print-site-plugin/
 #    - print-site:
 #        add_table_of_contents: false
-# # 3. mkdocs-with-pdf
-# # https://github.com/orzih/mkdocs-with-pdf
+# 3. mkdocs-with-pdf
+# https://github.com/orzih/mkdocs-with-pdf
 #    - with-pdf
-    - tags:
-        tags_file: Appendixes/Indexes.md
+
 # pip install mkdocs-page-pdf
 # https://pypi.org/project/mkdocs-page-pdf/
 # page-to-pdf should be the last plug-in listed.
 #     - page-to-pdf
-
-# extra_css:
-#     - css/extra.css
-#     - css/font-awesome.min.css
 
