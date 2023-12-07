@@ -52,7 +52,7 @@ ifeq ($(t400),teensyloader)
     ifneq ($(t410),)
         TEENSY_UPLOAD_OPTION = -port=$(t410)
     endif # TEENSY_UPLOAD_PORT
-    COMMAND_UPLOAD = $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path=$(BUILDS_PATH) -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board) $(TEENSY_UPLOAD_OPTION) # -reboot 
+    COMMAND_UPLOAD = $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path=$(BUILDS_PATH) -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board) $(TEENSY_UPLOAD_OPTION) -reboot 
     DELAY_AFTER_UPLOAD ?= 4
     COMMAND_CONCLUDE = $(UPLOADER_PATH)/teensy_reboot ; sleep 2 ; killall teensy
 endif
