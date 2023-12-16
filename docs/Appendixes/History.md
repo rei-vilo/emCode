@@ -6,6 +6,8 @@ Details of the latest release are available at the [emCode release notes](../../
 
 Date | Release | Comment
 ---- | :----: | ----
+14 Dec 2023 | 14.2.12 |Updated support for Adafruit nRF52 boards
+07 Dec 2023 | 14.2.11 | Updated support for RP2040 boards
 24 Nov 2023 | 14.2.10 | Updated support for RP2040 and Arduino Mbed boards
 17 Nov 2023 | 14.2.9 | Updated support for STM32 boards
 15 Nov 2023 | 14.2.8 | Updated support for Seeed Xiao nRF52840
