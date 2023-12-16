@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2023
 # All rights reserved
 #
-# Last update: 23 Sep 2023 release 14.2.5
+# Last update: 14 Dec 2023 release 14.2.12
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -441,7 +441,8 @@ FLAGS_CPP = -std=gnu++11 -fno-threadsafe-statics -fno-rtti -fno-exceptions
 FLAGS_AS = -x assembler-with-cpp
 
 FLAGS_LD = $(OPTIMISATION) $(FLAGS_WARNING) -Wl,--gc-sections -save-temps
-FLAGS_LD += -$(MCU_FLAG_NAME)=$(MCU) --specs=nano.specs --specs=nosys.specs
+FLAGS_LD += -$(MCU_FLAG_NAME)=$(MCU) 
+FLAGS_LD += -Wl,--wrap=realloc -Wl,--wrap=calloc --specs=nano.specs --specs=nosys.specs
 FLAGS_LD += $(call PARSE_BOARD,$(BOARD_TAG),build.float_flags)
 # FLAGS_LD += -L$(HARDWARE_PATH)/variants/feather52
 FLAGS_LD += -L$(VARIANT_PATH)
