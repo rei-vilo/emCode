@@ -162,10 +162,16 @@ else
 endif # APPLICATIONS_PATH
 
 ifeq ($(ARDUINO_APP),)
+    TEST = $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
+    ifeq ($(TEST),)
+        ARDUINO_APP = flatpak
+    endif # TEST
+endif # ARDUINO_APP
+
+ifeq ($(ARDUINO_APP),)
     # ARDUINO_APP = $(shell which arduino-cli)
     # ARDUINO_APP := $(shell arduino-cli version)
     ARDUINO_APP = arduino-cli
-
 endif # ARDUINO_APP
 
 # $(info arduino-cli $(shell which arduino-cli))
@@ -269,7 +275,8 @@ SPARK_PATH = $(SPARK_APP)
 #
 ifeq ($(wildcard $(ARDUINO_APP)),)
     $(info Arduino CLI or IDE required)
-    $(error Error: no application found)
+    $(info Error: no application found)
+#    $(error Error: no application found)
 endif # ARDUINO_APP
 
 # # Arduino-related nightmares
