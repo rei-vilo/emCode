@@ -171,7 +171,7 @@ extra_css:
 
 extra:
 # --- Version
-    version: 14.2.11
+    version: 14.2.12
 
 # Analytics for release 7+
     analytics:
