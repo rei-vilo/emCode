@@ -19,7 +19,7 @@ Happy development!
 
 ## Licence
 
-**Copyright** &copy; Rei Vilo, 2010-2023
+**Copyright** &copy; Rei Vilo, 2010-2024
 
 **Licence** [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](./LICENCE.md)
 
