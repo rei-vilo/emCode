@@ -2,7 +2,7 @@
 
 ## Copyright
 
-(c) Rei Vilo, 2010-2023
+(c) Rei Vilo, 2010-2024
 
 All rights reserved
 
