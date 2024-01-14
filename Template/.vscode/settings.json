@@ -1,6 +1,7 @@
 {
     "editor.minimap.enabled": true,
     "telemetry.enableTelemetry": false,
+    "cortex-debug.enableTelemetry": false,
     "files.associations": {
         "*.ino": "cpp",
     },

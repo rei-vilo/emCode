@@ -9,7 +9,6 @@ import argparse
 import json
 from time import sleep
 
-
 UF2_MAGIC_START0 = 0x0A324655 # "UF2\n"
 UF2_MAGIC_START1 = 0x9E5D5157 # Randomly selected
 UF2_MAGIC_END    = 0x0AB16F30 # Ditto
@@ -18,7 +17,6 @@ INFO_FILE = "/INFO_UF2.TXT"
 
 appstartaddr = 0x2000
 familyid = 0x0
-
 
 def is_uf2(buf):
     w = struct.unpack("<II", buf[0:8])
@@ -222,7 +220,6 @@ def get_drives():
         for d in os.listdir(rootpath):
             drives.append(os.path.join(rootpath, d))
 
-
     def has_info(d):
         try:
             return os.path.isfile(d + INFO_FILE)
@@ -231,23 +228,19 @@ def get_drives():
 
     return list(filter(has_info, drives))
 
-
 def board_id(path):
     with open(path + INFO_FILE, mode='r') as file:
         file_content = file.read()
     return re.search("Board-ID: ([^\r\n]*)", file_content).group(1)
 
-
 def list_drives():
     for d in get_drives():
         print(d, board_id(d))
-
 
 def write_file(name, buf):
     with open(name, "wb") as f:
         f.write(buf)
     print("Wrote %d bytes to %s" % (len(buf), name))
-
 
 def load_families():
     # The expectation is that the `uf2families.json` file is in the same
@@ -263,7 +256,6 @@ def load_families():
         families[family["short_name"]] = int(family["id"], 0)
 
     return families
-
 
 def main():
     global appstartaddr, familyid
@@ -353,7 +345,6 @@ def main():
             for d in drives:
                 print("Flashing %s (%s)" % (d, board_id(d)))
                 write_file(d + "/NEW.UF2", outbuf)
-
 
 if __name__ == "__main__":
     main()
