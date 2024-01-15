@@ -6,6 +6,8 @@ emCode relies on Visual Studio Code and runs on Linux, including Windows Linux S
 
 ## Scope
 
+Release 14.3.0 adds support for the [Silicon Labs platform](../Boards/SiliconLabs/index.md).
+
 Release 14.2.10 updates support for RP2040 and Arduino Mbed boards.
 
 Release 14.2.7 updates support for ESP32 boards.

@@ -28,6 +28,8 @@
 
 <!-- # Forewords -->
 
+----
+
 ## What is emCode?
 
 <!-- <center>![](img/Logo-064-eC.png)</center> -->
@@ -53,7 +55,7 @@ Today, the offer of advanced IDEs for the Arduino SDK is large. Let's mention
 
 Happy development!
 
-&mdash; Rei Vilo
+*&mdash; Rei Vilo*
 
 ## Links
 

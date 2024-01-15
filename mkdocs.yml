@@ -62,6 +62,9 @@ nav:
         - Microsoft: 
             - Boards/Microsoft/index.md
             - Microsoft AZ3166: Boards/Microsoft/AZ3166.md
+        - Silicon Labs: 
+            - Boards/SiliconLabs/index.md
+            - Silicon Labs: Boards/SiliconLabs/SiLabs.md
         - Seeed:
             - Boards/Seeed/index.md
             - Grove Beginner Kit for Arduino: Boards/Seeed/Grove_AVR.md
@@ -115,7 +118,7 @@ theme:
 # Template is located at /home/reivilo/.venvs/mkdocs/lib/python3.11/site-packages/material
 # Copy relevant files under theme or theme/partials
 # Comment to remove announcement, edit announce.html
-#    custom_dir: theme
+    custom_dir: theme
 #
 # For GDPR concerns, false=avoid Google fonts
     font: false
@@ -170,9 +173,6 @@ extra_css:
     - css/extra.css
 
 extra:
-# --- Version
-    version: 14.2.13
-
 # Analytics for release 7+
     analytics:
         provider: google
@@ -180,6 +180,9 @@ extra:
 
 #    logo: img/Logo-256-eX.png
     history_buttons: true
+
+# --- Version
+    version: 14.3.0
 
 # --- To manages different versions
 # pip install mike
@@ -277,6 +280,10 @@ plugins:
 # If plugins: added, - search needs to be specified
     - search
 
+# --- To define variables, https://pypi.org/project/mkdocs-macros-plugin/
+# pip install mkdocs-macros-plugin
+    - macros
+
 # --- Social cards
 # pip install "mkdocs-material[imaging]"
     - social
@@ -290,10 +297,6 @@ plugins:
 # --- To check external links
 # pip install mkdocs-htmlproofer-plugin
 #     - htmlproofer
-
-# --- To define variables, https://pypi.org/project/mkdocs-macros-plugin/
-# pip install mkdocs-macros-plugin
-    - macros
 
 # --- To check unused files
 # pip install mkdocs-unused-files
