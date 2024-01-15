@@ -134,6 +134,48 @@
             ],
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "BGM220 J-Link",
+            "servertype": "jlink",
+            "serverpath": "/usr/bin/JLinkGDBServer",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "device": "BGM220PC22HNA",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "serverArgs": [
+                "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
+                // "-device", "BGM220PC22HNA",
+                // "-if", "swd",
+                "-speed","2000"
+            ]
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Fast"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "BG24 J-Link",
+            "servertype": "jlink",
+            "serverpath": "/usr/bin/JLinkGDBServer",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "device": "EFR32MG24B210F1536IM48",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            // "configFiles": [
+            //     "${env:HOME}/Projets/emCode/Tools/Utilities/debug_jlink_nrf52.cfg"
+            //     // "interface/jlink.cfg"
+            // ],
+            "serverArgs": [
+                "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
+                "-speed","2000"
+            ]
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Fast"
         }
     ]
 }

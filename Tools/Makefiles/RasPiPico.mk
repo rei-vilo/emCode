@@ -123,9 +123,9 @@ ifeq ($(UPLOADER),cp_uf2)
     # python uf2conv.py --family RP2040 --convert $(TARGET_ELF) --output $(TARGET_BIN_CP)
     # python uf2conv.py --device $(AVRDUDE_PORT) --family RP2040 --deploy $(TARGET_BIN_CP)
     # End of options ---
-	UPLOADER_PATH = $(HARDWARE_PATH)/tools
-	UPLOADER_EXEC = $(UPLOADER_PATH)/uf2conv.py
-	UPLOADER_OPTS = --family RP2040 --deploy $(TARGET_BIN_CP)
+    UPLOADER_PATH = $(HARDWARE_PATH)/tools
+    UPLOADER_EXEC = $(UPLOADER_PATH)/uf2conv.py
+    UPLOADER_OPTS = --family RP2040 --deploy $(TARGET_BIN_CP)
     # UPLOADER_OPTS += --device $(AVRDUDE_PORT) # Not required
     COMMAND_UPLOAD = python $(UPLOADER_EXEC) $(UPLOADER_OPTS) 
 
@@ -134,11 +134,11 @@ else ifeq ($(UPLOADER),dfu-util)
 
     UPLOADER = dfu-util
     USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
-	UPLOADER_PATH = $(OTHER_TOOLS_PATH)/dfu-util/bin
-	UPLOADER_EXEC = $(UPLOADER_PATH)/dfu-util
-	UPLOADER_OPTS = $(UPLOADER_PATH)
-	UPLOADER_OPTS += --device $(call PARSE_BOARD,$(BOARD_TAG),upload.vid):$(call PARSE_BOARD,$(BOARD_TAG),upload.pid)
-	UPLOADER_OPTS += -a$(call PARSE_BOARD,$(BOARD_TAG),upload.interface)
+    UPLOADER_PATH = $(OTHER_TOOLS_PATH)/dfu-util/bin
+    UPLOADER_EXEC = $(UPLOADER_PATH)/dfu-util
+    UPLOADER_OPTS = $(UPLOADER_PATH)
+    UPLOADER_OPTS += --device $(call PARSE_BOARD,$(BOARD_TAG),upload.vid):$(call PARSE_BOARD,$(BOARD_TAG),upload.pid)
+    UPLOADER_OPTS += -a$(call PARSE_BOARD,$(BOARD_TAG),upload.interface)
     UPLOADER_OPTS += -dfuse-address=$(call PARSE_BOARD,$(BOARD_TAG),upload.address):leave
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -D $(TARGET_BIN)
 
@@ -275,7 +275,7 @@ endif # tinyusb
 APP_LIB_OBJS = $(patsubst $(HARDWARE_PATH)/%.cpp,$(OBJDIR)/%.cpp.o,$(APP_LIB_CPP_SRC))
 APP_LIB_OBJS += $(patsubst $(HARDWARE_PATH)/%.c,$(OBJDIR)/%.c.o,$(APP_LIB_C_SRC))
 
-# No, APPLICATION_PATH contains generic libraries and is duplicated
+# Now, APPLICATION_PATH contains generic libraries and is duplicated
 # BUILD_APP_LIB_PATH = $(APPLICATION_PATH)/libraries
 # 
 # rp2040_10 = $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))

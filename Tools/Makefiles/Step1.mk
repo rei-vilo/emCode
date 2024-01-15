@@ -48,7 +48,6 @@ ifneq ($(SKETCH_EXTENSION),__main_cpp_only__)
 endif # SKETCH_EXTENSION
 endif # MULTI_INO
 
-
 PREVIOUS_TAG := $(basename $(notdir $(strip $(wildcard $(BUILDS_PATH)/*.board))))
 LIST := $(BOARD_TAG) $(BOARD_TAG) $(BOARD_TAG1) $(BOARD_TAG2)
 
@@ -429,6 +428,9 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             -include $(MAKEFILE_PATH)/SeeeduinoRTL.mk
             -include $(MAKEFILE_PATH)/SeeeduinoNRF52.mk
             -include $(MAKEFILE_PATH)/SeeeduinoMBED.mk
+
+            # SiliconLabs
+            -include $(MAKEFILE_PATH)/SiliconLabs.mk
 
             # STM32duino
             -include $(MAKEFILE_PATH)/STM32duino.mk

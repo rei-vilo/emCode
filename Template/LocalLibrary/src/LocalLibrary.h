@@ -18,7 +18,6 @@
 /// @see ReadMe.md for references
 ///
 
-
 // SDK
 #include "Arduino.h"
 
