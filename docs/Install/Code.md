@@ -166,6 +166,12 @@ udevadm control --reload-rules
 exit
 ```
 
+And, if **JLinkGDBServer** complains about missing libraries, 
+
+``` bash dollar
+sudo apt install libncursesw5
+```
+
 The **Cortex Debug extension** requires a modern GDB client, version `9` or later. Some boards packages include older versions of the GDB client.
 
 ``` bash dollar

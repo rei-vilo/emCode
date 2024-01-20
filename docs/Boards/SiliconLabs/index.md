@@ -13,7 +13,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 | | Platform | Package | Comment
 ---- | ---- |---- | ----
 ![](img/Logo-064-SiLabs-2.png) | SiLabs | 1.0.0 | 
-![](img/Logo-064-eC.png) | emCode | 14.3.0 | 
+![](img/Logo-064-eC.png) | emCode | 14.3.1 | 
 
 ## Visit the official websites
 

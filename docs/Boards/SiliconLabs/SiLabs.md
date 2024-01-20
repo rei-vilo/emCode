@@ -5,7 +5,7 @@ tags:
 
 # Manage the Silicon Labs boards
 
-## Install the Silicon Labs
+## Install
 
 To install the Silicon Labs board,
 
@@ -31,11 +31,9 @@ For more information on the installation process,
 
 ## Develop
 
-Bluetooth 
-
 ### Use the libraries for Bluetooth
 
-The GSDK already includes the Bluetooth features. 
+The GSDK already includes the Bluetooth library. 
 
 However, the ezBLE library provides an option.
 

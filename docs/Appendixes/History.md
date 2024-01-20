@@ -6,6 +6,7 @@ Details of the latest release are available at the [emCode release notes](../../
 
 Date | Release | Comment
 ---- | :----: | ----
+20 Jan 2024 | 14.3.1 | Improved stability for Silicon Labs boards
 12 Jan 2024 | 14.3.0 | Added support for Silicon Labs boards
 05 Jan 2024 | 14.2.13 | Updated support for Raspberry Pi Pico boards
 14 Dec 2023 | 14.2.12 | Updated support for Adafruit nRF52 boards
