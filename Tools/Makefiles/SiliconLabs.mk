@@ -8,7 +8,7 @@
 #
 # Created: 12 Jan 2024 release 14.3.0
 #
-# Last update: 12 Jan 2024 release 14.3.0
+# Last update: 20 Jan 2024 release 14.3.1
 #
 
 # Silicon Labs for Arduino

@@ -66,7 +66,7 @@ GCC_PREPROCESSOR_DEFINITIONS = ARDUINO
 # Specific programmer options, no port
 #
 UPLOADER = picoprobe
-DELAY_BEFORE_UPLOAD = 5
+# DELAY_BEFORE_UPLOAD = 5
 
 # BOARD_VOLUME = /Volumes/FEATHERBOOT # macOS
 # Linux

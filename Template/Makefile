@@ -3,7 +3,7 @@
 # ----------------------------------
 # Embedded computing with make
 #
-# Copyright (c) Rei Vilo, 2010-2023
+# Copyright (c) Rei Vilo, 2010-2024
 # All rights reserved
 # https://emCode.weebly.com
 #
@@ -74,11 +74,6 @@ COMPILER_OPTIONS =
 # For Fast target, open serial console, false or true
 #
 NO_SERIAL_CONSOLE = true
-
-# SERIAL_BAUDRATE for the serial console, 115200 by default
-# Uncomment and specify another speed
-#
-SERIAL_BAUDRATE = 115200
 
 # OPTIMISATION for the optimisation and debugger levels
 # Uncomment and specify another options

@@ -64,7 +64,7 @@
         {
             "type": "cortex-debug",
             "request": "launch",
-            "name": "PicoProbe",
+            "name": "RP2040 PicoProbe",
             "servertype": "openocd",
             "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/bin/openocd",
             "cwd": "${workspaceRoot}",
@@ -86,7 +86,7 @@
         {
             "type": "cortex-debug",
             "request": "launch",
-            "name": "DebugProbe CMSIS-DAP",
+            "name": "RP2040 CMSIS-DAP",
             "servertype": "openocd",
             "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/bin/openocd",
             "cwd": "${workspaceRoot}",
@@ -148,8 +148,6 @@
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
                 "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                // "-device", "BGM220PC22HNA",
-                // "-if", "swd",
                 "-speed","2000"
             ]
             // The extension uploads the executable to the MCU
@@ -163,13 +161,9 @@
             "serverpath": "/usr/bin/JLinkGDBServer",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
-            "device": "EFR32MG24B210F1536IM48",
+            "device": "EFR32MG24BXXXF1536",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
-            // "configFiles": [
-            //     "${env:HOME}/Projets/emCode/Tools/Utilities/debug_jlink_nrf52.cfg"
-            //     // "interface/jlink.cfg"
-            // ],
             "serverArgs": [
                 "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
                 "-speed","2000"
