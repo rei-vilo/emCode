@@ -161,22 +161,24 @@ else
 endif # APPLICATIONS_PATH
 
 ifeq ($(ARDUINO_APP),)
-    TEST = $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
+    TEST := $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
     ifeq ($(TEST),)
         ARDUINO_APP = flatpak
     endif # TEST
 endif # ARDUINO_APP
 
 ifeq ($(ARDUINO_APP),)
+    TEST := $(shell find $(APPLICATION_PATH) -name arduino-cli)
     # ARDUINO_APP = $(shell which arduino-cli)
     # ARDUINO_APP := $(shell arduino-cli version)
-    ARDUINO_APP = arduino-cli
+    ifneq ($(TEST),)
+        ARDUINO_APP = arduino-cli
+    endif
 endif # ARDUINO_APP
 
 # $(info arduino-cli $(shell which arduino-cli))
 # $(info arduino-cli $(shell arduino-cli version))
 # $(info arduino-cli $(shell find $(APPLICATION_PATH) -name arduino-cli))
-# $(info arduino-cli find $(APPLICATION_PATH) -name arduino-cli)
 # $(info >>> ARDUINO_APP $(ARDUINO_APP))
 
 # $(error sTOP)
@@ -185,6 +187,10 @@ ARDUINO_LIBRARY_PATH = $(HOME)/.arduino15
 ARDUINO_PACKAGES_PATH = $(ARDUINO_LIBRARY_PATH)/packages
 ARDUINO_PREFERENCES = $(ARDUINO_LIBRARY_PATH)/preferences.txt 
 ARDUINO_YAML := $(ARDUINO_LIBRARY_PATH)/arduino-cli.yaml
+
+# $(info === ARDUINO_LIBRARY_PATH $(ARDUINO_LIBRARY_PATH))
+# $(info === ARDUINO_PACKAGES_PATH $(ARDUINO_PACKAGES_PATH))
+# $(info === ARDUINO_PREFERENCES $(ARDUINO_PREFERENCES))
 
 # Sketchbook/Libraries path
 # wildcard required for ~ management
@@ -272,7 +278,8 @@ SPARK_PATH = $(SPARK_APP)
 
 # Check at least one IDE installed
 #
-ifeq ($(wildcard $(ARDUINO_APP)),)
+# ifeq ($(wildcard $(ARDUINO_APP)),)
+ifeq ($(ARDUINO_APP),)
     $(info Arduino CLI or IDE required)
     $(info Error: no application found)
 #    $(error Error: no application found)
@@ -365,7 +372,8 @@ endif # WARNING_OPTIONS
 # $(info >>> BOARD_TAG $(BOARD_TAG))
 # $(info >>> MAKEFILE_PATH $(MAKEFILE_PATH))
 # $(info >>> ARDUINO_PACKAGES_PATH $(ARDUINO_PACKAGES_PATH))
-# $(info >>> ARDUINO_APP $(ARDUINO_APP))
+# $(info >>> ARDUINO_APP $(ARDUINO_APP))
+# $(info >>> BOOL_SELECT_BOARD $(BOOL_SELECT_BOARD))
 
 # Ignore if target is Boards or Clean
 #

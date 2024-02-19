@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 05 Jan 2024 release 14.2.13
+# Last update: 02 Feb 2024 release 14.3.2
 #
 
 # RP2040 Pico for Arduino
@@ -46,7 +46,7 @@ BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4)
 # Arduino RP2040 specifics
 # ----------------------------------
 #
-PLATFORM := Arduino
+PLATFORM := Earle F. Philhower
 BUILD_CORE := rp2040
 SUB_PLATFORM := rp2040
 # For an unknwon reason, calling PARSE_BOARD freezes 
