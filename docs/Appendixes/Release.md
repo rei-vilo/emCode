@@ -6,18 +6,15 @@ emCode relies on Visual Studio Code and runs on Linux, including Windows Linux S
 
 ## Scope
 
+Release 14.3.5 updates support for RP2040 boards.
+
+Release 14.3.4 updates support for Teensy boards.
+
+Release 14.3.3 updates support for Arduino Mbed-OS boards.
+
+Release 14.3.2 updates support for RP2040 boards.
+
 Release 14.3.1 improves stability for Silicon Labs boards.
 
 Release 14.3.0 adds support for the [Silicon Labs platform](../Boards/SiliconLabs/index.md).
 
-Release 14.2.10 updates support for RP2040 and Arduino Mbed boards.
-
-Release 14.2.7 updates support for ESP32 boards.
-
-Release 14.2.4 updates the ESP32 boards.
-
-Release 14.2.3 updates the Raspberry Pi Pico RP2040 boards.
-
-Release 14.2.0 adds the [core target](../Develop/Other.md).
-
-Release 14.1.6 is the initial public release of emCode.

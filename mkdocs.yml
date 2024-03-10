@@ -15,7 +15,9 @@ edit_uri: ""
 # repo_name: '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="9H8EV2RV4QHJG"><input type="image" src="https://embedxcode.com/site/img/donate-logo-large-en-2x.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></form>'
 # repo_url: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9H8EV2RV4QHJG'
 
-# Force release 6.2.8 with pip install mkdocs-material==6.2.8
+# Force release 6.2.8 with ~/.venvs/mkdocs/bin/python -m pip install mkdocs-material==6.2.8
+
+#  Also install ~/.venvs/mkdocs/bin/python -m pip install lxml
 
 nav:
     - About: index.md
@@ -182,10 +184,10 @@ extra:
     history_buttons: true
 
 # --- Version
-    version: 14.3.1
+    version: 14.3.5
 
 # --- To manages different versions
-# pip install mike
+# ~/.venvs/mkdocs/bin/python -m pip install mike
 # Requires a GitHub target repository
 #    version:
 #        provider: mike
@@ -239,6 +241,10 @@ markdown_extensions:
 # Install with 
 # git clone https://github.com/flynneva/mkdocs-custom-superfence-example
 # ~/.venvs/mkdocs/bin/python -m pip install mkdocs-custom-superfence-example
+# or
+# cd mkdocs-custom-superfence-example
+# ~/.venvs/mkdocs/bin/python setup.py build
+# ~/.venvs/mkdocs/bin/python setup.py install
 # The extension is archived.
 #    - pymdownx.superfences
     - pymdownx.superfences:
@@ -254,7 +260,7 @@ markdown_extensions:
     - pymdownx.keys
     - pymdownx.mark
 # Extras, https://pypi.org/project/mkdocs-pymdownx-material-extras/
-# pip install mkdocs-pymdownx-material-extras
+# ~/.venvs/mkdocs/bin/python -m pip install mkdocs-pymdownx-material-extras
     - pymdownx.smartsymbols
     - pymdownx.critic
     - pymdownx.tabbed:
@@ -271,7 +277,7 @@ markdown_extensions:
 #     - pymdownx.snippets
 #     - mdx_math
 # See https://gitlab.com/rod2ik/mkdocs-graphviz
-# pip install mkdocs-graphviz
+# ~/.venvs/mkdocs/bin/python -m pip install mkdocs-graphviz
 # Requires extra_javascript:
 #     - mkdocs_graphviz
 
@@ -281,25 +287,25 @@ plugins:
     - search
 
 # --- To define variables, https://pypi.org/project/mkdocs-macros-plugin/
-# pip install mkdocs-macros-plugin
+# ~/.venvs/mkdocs/bin/python -m pip install mkdocs-macros-plugin
     - macros
 
 # --- Social cards
-# pip install "mkdocs-material[imaging]"
+# ~/.venvs/mkdocs/bin/python -m pip install "mkdocs-material[imaging]"
     - social
 #     - social:
 #          cards_dir: Cards
 
 # --- To check progress, https://pypi.org/project/mkdocs-plugin-progress/
-# pip install mkdocs-plugin-progress
+# ~/.venvs/mkdocs/bin/python -m pip install mkdocs-plugin-progress
     - progress
 
 # --- To check external links
-# pip install mkdocs-htmlproofer-plugin
+# ~/.venvs/mkdocs/bin/python -m pip install mkdocs-htmlproofer-plugin
 #     - htmlproofer
 
 # --- To check unused files
-# pip install mkdocs-unused-files
+# ~/.venvs/mkdocs/bin/python -m pip install mkdocs-unused-files
 #     - unused_files:
 #         file_types:
 #         - png
@@ -352,7 +358,7 @@ plugins:
 # https://github.com/orzih/mkdocs-with-pdf
 #    - with-pdf
 
-# pip install mkdocs-page-pdf
+# ~/.venvs/mkdocs/bin/python -m pip install mkdocs-page-pdf
 # https://pypi.org/project/mkdocs-page-pdf/
 # page-to-pdf should be the last plug-in listed.
 #     - page-to-pdf

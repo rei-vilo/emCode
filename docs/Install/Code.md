@@ -191,13 +191,30 @@ The **Windows Sub-system for Linux** runs a Linux distribution in Windows. This 
 --- | --- | ---
 ![](img/Logo-064-SSH.png) | Visual Studio Code Remote – SSH | `ms-vscode-remote.remote-ssh`
 ![](img/Logo-064-WSL.png) | Visual Studio Code Remote – WSL | `ms-vscode-remote.remote-wsl`
+![](img/Logo-064-USBIP.png) | USBIP Connect | `thecreativedodo.usbip-connect`
 
-For more information, please refer to
+For more information on WSL, please refer to
 
 + [Windows Subsystem for Linux Documentation](https://learn.microsoft.com/en-us/windows/wsl/about) :octicons-link-external-16:;
 + [Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install) :octicons-link-external-16:;
 + [Visual Studio Code WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) :octicons-link-external-16: extension;
 + [Developing in WSL](https://code.visualstudio.com/docs/remote/wsl) :octicons-link-external-16: with Visual Studio Code.
+
+The **USBIP Connect** extension allows WSL to access USB devices connected to the computer. 
+
+It requires the installation of two utilities.
+
++ [usbipd-win](https://github.com/dorssel/usbipd-win) :octicons-link-external-16: shares connected USD devices with WSL; and optionally 
++ [WSL USB Manager](https://gitlab.com/alelec/wsl-usb-gui) :octicons-link-external-16: provides a GUI interface for `usbipd-win`.
+
+For more information on connecting USB devices, please refer to
+
++ [Connect USB devices](https://learn.microsoft.com/en-us/windows/wsl/connect-usb) :octicons-link-external-16:;
++ [USBIP Connect](https://marketplace.visualstudio.com/items?itemName=thecreativedodo.usbip-connect) :octicons-link-external-16:;
++ [How to use usbipd-win](https://github.com/dorssel/usbipd-win?tab=readme-ov-file#how-to-use) :octicons-link-external-16:;
++ [WSL USB Manager Usage](https://gitlab.com/alelec/wsl-usb-gui#usage) :octicons-link-external-16:.
+
+The USB devices need to be declared on WSL as with any other standard Linux installation.
 
 ## Update Visual Studio Code
 

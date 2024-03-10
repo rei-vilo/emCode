@@ -35,7 +35,7 @@ update:
 	echo "=== Update MkDocs"
 	mkdir -p ~/.venvs
 	python3 -m venv ~/.venvs/mkdocs
-	~/.venvs/mkdocs/bin/python -m pip install --upgrade --upgrade-strategy only-if-needed mkdocs mkdocs-material mkdocs-plugin-progress mkdocs-htmlproofer-plugin mkdocs-macros-plugin mkdocs-git-revision-date-localized-plugin pymdown-extensions
+	~/.venvs/mkdocs/bin/python -m pip install --upgrade --upgrade-strategy only-if-needed mkdocs mkdocs-material mkdocs-plugin-progress mkdocs-htmlproofer-plugin mkdocs-macros-plugin mkdocs-git-revision-date-localized-plugin pymdown-extensions "mkdocs-material[imaging]" lxml
 #	/usr/local/bin/pip install --user --upgrade --upgrade-strategy only-if-needed mkdocs
 #	/usr/local/bin/pip install --user --upgrade --upgrade-strategy only-if-needed mkdocs-material
 #	pip install --upgrade --upgrade-strategy only-if-needed mkdocs mkdocs-material mkdocs-plugin-progress mkdocs-htmlproofer-plugin mkdocs-macros-plugin

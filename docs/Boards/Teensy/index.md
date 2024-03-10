@@ -8,8 +8,8 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 | | Platform | Package | Comment
 ---- | ---- | ---- | ----
-![](img/Logo-064-Teensy.png) | **Teensy** | 1.58 | 31 Mar 2023 | |
-![](img/Logo-064-eC.png) | emCode | 14.1.2 | 05 Jun 2023
+![](img/Logo-064-Teensy.png) | **Teensy** | 1.59 | 31 Mar 2023 | |
+![](img/Logo-064-eC.png) | emCode | 14.3.4 | 
 
 ## Visit the official websites
 

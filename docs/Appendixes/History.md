@@ -6,6 +6,10 @@ Details of the latest release are available at the [emCode release notes](../../
 
 Date | Release | Comment
 ---- | :----: | ----
+19 Feb 2024 | 14.3.5 | Updated support for RP2040 boards
+09 Feb 2024 | 14.3.4 | Updated support for Teensy boards
+05 Feb 2024 | 14.3.3 | Updated support for Arduino Mbed-OS boards
+02 Feb 2024 | 14.3.2 | Updated support for RP2040 boards
 20 Jan 2024 | 14.3.1 | Improved stability for Silicon Labs boards
 12 Jan 2024 | 14.3.0 | Added support for Silicon Labs boards
 05 Jan 2024 | 14.2.13 | Updated support for Raspberry Pi Pico boards

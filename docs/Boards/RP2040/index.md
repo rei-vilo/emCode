@@ -14,8 +14,8 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 | | Platform | Package | Comment
 ---- | ---- |---- | ----
-![](img/Logo-064-Raspberry-Pi.png) | RP2040 | 3.6.3 | For Raspberry Pi RP2040-based boards
-![](img/Logo-064-eC.png) | emCode | 14.2.13 | 
+![](img/Logo-064-Raspberry-Pi.png) | RP2040 | 3.7.2 | For Raspberry Pi RP2040-based boards
+![](img/Logo-064-eC.png) | emCode | 14.3.5 | 
 
 ## Visit the official websites
 

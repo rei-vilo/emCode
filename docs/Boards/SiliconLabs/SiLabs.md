@@ -33,7 +33,7 @@ For more information on the installation process,
 
 ### Use the libraries for Bluetooth
 
-The GSDK already includes the Bluetooth library. 
+The GSDK already includes the Bluetooth features. 
 
 However, the ezBLE library provides an option.
 
@@ -51,7 +51,7 @@ APP_LIBS_LIST = ezBLE
 APP_LIBS_LIST = Matter
 ```
 
-### Use the libraries for REG LED
+### Use the libraries for RGB LED
 
 + Edit the main `Makefile` to list the required libraries.
 
