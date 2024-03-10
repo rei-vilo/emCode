@@ -4,8 +4,6 @@
 
 [![Release](https://img.shields.io/github/v/release/rei-vilo/emCode)](https://github.com/rei-vilo/emCode/releases) [![](https://img.shields.io/badge/-Documentation-blue)](https://rei-vilo.github.io/emCode/) 
 
-
-
 emCode is a set of tools to ease development for the most popular embedded computing boards. Those tools are designed to be used with the excellent Visual Studio Code IDE.
 
 For convenience, emCode relies on the Arduino SDK, as it packs and manages the tool-chains, frameworks and utilities for a large range of boards.
