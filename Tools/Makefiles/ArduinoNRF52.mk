@@ -36,7 +36,7 @@ RELEASE_CORE = $(ARDUINO_NRF52_RELEASE)
 # Arduino nRF52 specifics
 # ----------------------------------
 #
-PLATFORM := Arduino nRF52
+PLATFORM := Arduino
 BUILD_CORE := nrf52
 SUB_PLATFORM := nrf52
 

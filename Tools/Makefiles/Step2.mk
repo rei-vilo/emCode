@@ -763,15 +763,9 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
     ifneq ($(MESSAGE_WARNING),)
         $(info WARNING           $(MESSAGE_WARNING))
-#		@osascript -e 'tell application "System Events" to display dialog "$(MESSAGE_WARNING)" buttons {"OK"} default button {"OK"} with icon POSIX file ("$(UTILITIES_PATH)/TemplateIcon.icns") with title "emCode" giving up after 5'
-#		@osascript -e 'tell application "System Events" to display dialog "$(MESSAGE_WARNING)" buttons {"OK"} default button {"OK"} with icon 2 with title "emCode" giving up after 5'
-# $(shell export SUBTITLE='Warning' ; export MESSAGE='$(MESSAGE_WARNING)' ; $(UTILITIES_PATH)/Notify.app/Contents/MacOS/applet)
     endif # MESSAGE_WARNING
     ifneq ($(MESSAGE_INFO),)
         $(info Information       $(MESSAGE_INFO))
-# $(shell export SUBTITLE='Information' ; export MESSAGE='$(MESSAGE_WARNING)' ; "$(UTILITIES_PATH)/Notify.app/Contents/MacOS/applet")
-#		@osascript -e 'tell application "System Events" to display notification "$(MESSAGE_INFO)" with title "emCode" subtitle "Information" sound name "Dong"'
-#		@osascript -e 'tell application "System Events" to display dialog "$(MESSAGE_INFO)" buttons {"OK"} default button {"OK"} with icon POSIX file ("$(UTILITIES_PATH)/TemplateIcon.icns")  with title "emCode" giving up after 5'
     endif # MESSAGE_INFO
 
     ifneq ($(USB_VID),)
@@ -829,26 +823,6 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             $(info List              $(filter-out 0,$(sort $(basename $(APP_LIBS_LIST)) $(basename $(notdir $(BUILD_APP_LIBS_LIST))))))
         endif # APP_LIBS_LIST
     endif # APP_LIBS_LIST
-
-#     ifneq ($(strip $(USER_LIBS_LIST)),0)
-#         $(info ---- User libraries ----)
-#         $(info From              $(SKETCHBOOK_DIR))
-#         $(info List              $(USER_LIBS_LIST))
-#     endif # USER_LIBS_LIST
-#     ifneq ($(strip $(INFO_USER_UNARCHIVES_LIST)),)
-#         $(info List*             $(INFO_USER_UNARCHIVES_LIST))
-#     endif # INFO_USER_UNARCHIVES_LIST
-# 
-#     ifneq ($(strip $(USER_ARCHIVES)),)
-#         $(info ---- User archives ----)
-#         $(info From              $(SKETCHBOOK_DIR))
-# #        $(info From              $(basename $(SKETCHBOOK_DIR))) # | cut -d. -f1,2
-#         $(info List              $(sort $(subst lib,,$(subst .a,,$(notdir $(USER_ARCHIVES))))))
-# #        $(info List              $(subst lib,,$(subst .a,,$(notdir $(foreach dir,$(USER_LIBS_LIST),$(wildcard $(USER_LIB_PATH)/$(dir)/src/$(MCU)/*.a))))))
-#     endif # USER_ARCHIVES
-#     ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
-#         $(info List*             $(INFO_USER_ARCHIVES_LIST))
-#     endif # INFO_USER_ARCHIVES_LIST
 
     $(info ---- User libraries and archives ----)
 #    $(info From              $(SKETCHBOOK_DIR))
@@ -951,7 +925,6 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     $(info .)
     $(info ==== Tools ====)
     $(info ---- Platform ----)
-
     $(info Platform          $(PLATFORM) $(PLATFORM_VERSION))
     $(info Board             $(BOARD_NAME) ($(BOARD_TAG)))
 

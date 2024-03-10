@@ -46,7 +46,7 @@ BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4)
 # Arduino RP2040 specifics
 # ----------------------------------
 #
-PLATFORM := Arduino
+PLATFORM := Earle F. Philhower
 BUILD_CORE := rp2040
 SUB_PLATFORM := rp2040
 # For an unknwon reason, calling PARSE_BOARD freezes 
