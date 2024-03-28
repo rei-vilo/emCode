@@ -64,9 +64,10 @@
         {
             "type": "cortex-debug",
             "request": "launch",
-            "name": "PicoProbe",
+            "name": "RP2040 PicoProbe",
             "servertype": "openocd",
-            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/bin/openocd",
+            // "serverpath": "${env:HOME}/Projets/emCode/Tools/OpenOCD_RP2040/openocd_picoprobe",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.2.0-d04e724/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
             "interface": "swd",
@@ -74,7 +75,7 @@
             "device": "RP2040",
             "serverArgs": [
                 "-f", "target/rp2040.cfg",
-                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/share/openocd/scripts",
+                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.2.0-d04e724/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/picoprobe.cfg"
@@ -86,9 +87,10 @@
         {
             "type": "cortex-debug",
             "request": "launch",
-            "name": "DebugProbe CMSIS-DAP",
+            "name": "RP2040 CMSIS-DAP",
             "servertype": "openocd",
-            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/bin/openocd",
+            // "serverpath": "${env:HOME}/Projets/emCode/Tools/OpenOCD_RP2040/openocd_picoprobe",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.2.0-d04e724/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
             "interface": "swd",
@@ -97,7 +99,7 @@
             "serverArgs": [
                 "-c", "adapter speed 5000",
                 "-f", "target/rp2040.cfg",
-                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.1.0-a-d3d2e6b/share/openocd/scripts",
+                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.2.0-d04e724/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/cmsis-dap.cfg"
@@ -148,8 +150,6 @@
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
                 "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                // "-device", "BGM220PC22HNA",
-                // "-if", "swd",
                 "-speed","2000"
             ]
             // The extension uploads the executable to the MCU
@@ -163,13 +163,28 @@
             "serverpath": "/usr/bin/JLinkGDBServer",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
-            "device": "EFR32MG24B210F1536IM48",
+            "device": "EFR32MG24BXXXF1536",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
-            // "configFiles": [
-            //     "${env:HOME}/Projets/emCode/Tools/Utilities/debug_jlink_nrf52.cfg"
-            //     // "interface/jlink.cfg"
-            // ],
+            "serverArgs": [
+                "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
+                "-speed","2000"
+            ]
+            //"svdFile": "${env:HOME}/Projets/emCode/Tools/SVD/MSP432P401R.svd",
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Fast"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "BG27 J-Link",
+            "servertype": "jlink",
+            "serverpath": "/usr/bin/JLinkGDBServer",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "device": "EFR32BG27CxxxF768",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
                 "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
                 "-speed","2000"

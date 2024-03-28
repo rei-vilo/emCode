@@ -232,7 +232,7 @@
             "name": "Adafruit_Feather_RP2040_J-Link",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -240,12 +240,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -253,15 +253,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/adafruit_feather/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/adafruit_feather/pins_arduino.h"
             ]
         },
         {
             "name": "Adafruit_Feather_RP2040_MSD",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -269,12 +269,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -282,8 +282,8 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/adafruit_feather/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/adafruit_feather/pins_arduino.h"
             ]
         },
         {
@@ -406,7 +406,7 @@
             "name": "Arduino_Nano_33_IoT",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.14/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -414,7 +414,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.14/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -489,7 +489,7 @@
             "name": "Arduino_Nano_RP2040_SDK_MSD",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -497,12 +497,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -510,15 +510,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/arduino_nano_connect/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/arduino_nano_connect/pins_arduino.h"
             ]
         },
         {
             "name": "Arduino_Zero_Native_USB_Port",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.14/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -526,7 +526,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.14/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -543,7 +543,7 @@
             "name": "Arduino_Zero_Programming_Port",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.14/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -551,7 +551,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.13/**",
+                    "${env:HOME}/.arduino15/packages/arduino/hardware/samd/1.8.14/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -742,7 +742,7 @@
             "name": "Raspberry_Pi_Pico_RP2040_J-Link",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -750,12 +750,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -763,15 +763,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/rpipico/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/rpipico/pins_arduino.h"
             ]
         },
         {
             "name": "Raspberry_Pi_Pico_RP2040_MSD",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -779,12 +779,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -792,15 +792,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/rpipico/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/rpipico/pins_arduino.h"
             ]
         },
         {
             "name": "Raspberry_Pi_Pico_RP2040_DebugProbe_CMSIS_DAP",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -808,12 +808,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -821,15 +821,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/rpipico/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/rpipico/pins_arduino.h"
             ]
         },
         {
             "name": "Raspberry_Pi_Pico_RP2040_PicoProbe",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -837,12 +837,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -850,15 +850,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/rpipico/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/rpipico/pins_arduino.h"
             ]
         },
         {
             "name": "Raspberry_Pi_Pico_W_RP2040_J-Link",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -866,12 +866,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -879,15 +879,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/rpipico/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/rpipico/pins_arduino.h"
             ]
         },
         {
             "name": "Raspberry_Pi_Pico_W_RP2040_MSD",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -895,12 +895,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -908,15 +908,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/rpipico/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/rpipico/pins_arduino.h"
             ]
         },
         {
             "name": "Raspberry_Pi_Pico_W_RP2040_DebugProbe_CMSIS_DAP",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -924,12 +924,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -937,15 +937,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/rpipico/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/rpipico/pins_arduino.h"
             ]
         },
         {
             "name": "Raspberry_Pi_Pico_W_RP2040_PicoProbe",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -953,12 +953,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -966,8 +966,8 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/rpipico/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/rpipico/pins_arduino.h"
             ]
         },
         {
@@ -995,8 +995,8 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/seeed_xiao_rp2040/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/seeed_xiao_rp2040/pins_arduino.h"
             ]
         },
         {
@@ -1206,7 +1206,7 @@
             "name": "Seeeduino_Xiao_RP2040_MSD",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1214,12 +1214,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -1227,15 +1227,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/seeed_xiao_rp2040/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/seeed_xiao_rp2040/pins_arduino.h"
             ]
         },
         {
             "name": "Seeeduino_Xiao_RP2040_PicoProbe",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1243,12 +1243,12 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.1.0-a-d3d2e6b/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/2.2.0-d04e724/bin/arm-none-eabi-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [
@@ -1256,8 +1256,8 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/cores/rp2040/Arduino.h",
-                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.6.3/variants/seeed_xiao_rp2040/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/3.7.2/variants/seeed_xiao_rp2040/pins_arduino.h"
             ]
         },
         {
@@ -1374,6 +1374,64 @@
             "forcedInclude": [
                 "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/cores/silabs/Arduino.h",
                 "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/variants/xg24explorerkit_precomp/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "SiliconLabs_BG27",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/SiliconLabs/tools/gcc-arm-none-eabi/12.2.rel1/bin/arm-none-eabi-g++",
+            "cStandard": "c99",
+            "cppStandard": "c++11", 
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/cores/silabs/Arduino.h",
+                "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/variants/xg27devkit/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "SiliconLabs_BG27_precompiled",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**"
+            ], 
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/SiliconLabs/tools/gcc-arm-none-eabi/12.2.rel1/bin/arm-none-eabi-g++",
+            "cStandard": "c99",
+            "cppStandard": "c++11", 
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/cores/silabs/Arduino.h",
+                "${env:HOME}/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/variants/xg27devkit_precomp/pins_arduino.h"
             ]
         },
         {
@@ -1590,7 +1648,7 @@
             "name": "Teensy_LC",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1598,7 +1656,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1615,7 +1673,7 @@
             "name": "Teensy_3.0",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1623,7 +1681,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1640,7 +1698,7 @@
             "name": "Teensy_3.1",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1648,7 +1706,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1665,7 +1723,7 @@
             "name": "Teensy_3.2",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1673,7 +1731,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1690,7 +1748,7 @@
             "name": "Teensy_3.5",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1698,7 +1756,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1715,7 +1773,7 @@
             "name": "Teensy_3.6",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1723,7 +1781,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1740,7 +1798,7 @@
             "name": "Teensy_4.0",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1748,7 +1806,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1765,7 +1823,7 @@
             "name": "Teensy_4.1",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1773,7 +1831,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.58.1/**",
+                    "${env:HOME}/.arduino15/packages/teensy/hardware/avr/1.59.0/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },

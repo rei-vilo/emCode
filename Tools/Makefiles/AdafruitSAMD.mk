@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 15 Sep 2022 release 12.1.8
+# Last update: 27 Mar 2024 release 14.3.6
 #
 
 ifeq ($(MAKEFILE_NAME),)
