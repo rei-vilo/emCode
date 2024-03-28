@@ -6,6 +6,7 @@ Details of the latest release are available at the [emCode release notes](../../
 
 Date | Release | Comment
 ---- | :----: | ----
+27 Mar 2024 | 14.3.6 | Updated support for Adafruit SAMD boards
 19 Feb 2024 | 14.3.5 | Updated support for RP2040 boards
 09 Feb 2024 | 14.3.4 | Updated support for Teensy boards
 05 Feb 2024 | 14.3.3 | Updated support for Arduino Mbed-OS boards

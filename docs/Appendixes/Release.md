@@ -6,6 +6,8 @@ emCode relies on Visual Studio Code and runs on Linux, including Windows Linux S
 
 ## Scope
 
+Release 14.3.6 updates support for Adafruit SAMD boards.
+
 Release 14.3.5 updates support for RP2040 boards.
 
 Release 14.3.4 updates support for Teensy boards.

@@ -107,6 +107,6 @@ This website uses the following typographic conventions:
 
 > 10 Dec 2018 | 10.3.4 | Updated support for Arduino 1.8.8 IDE
 
-+ The :octicons-download-16: on top of the current page downloads it as a PDF document.
+<!-- + The :octicons-download-16: on top of the current page downloads it as a PDF document. -->
 
-The downloaded documents are subject to change without prior notice.
+<!-- The downloaded documents are subject to change without prior notice. -->

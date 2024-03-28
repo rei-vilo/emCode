@@ -19,8 +19,8 @@ The test protocol includes building and linking, uploading and running a sketch 
 ---- | ---- |---- | ----
 ![](img/Logo-064-Adafruit.png) | AVR | 1.4.14 |
 | | nRF52 | 1.6.0 | For Feather nRF52832 and nRF52840 boards
-| | SAMD | 1.7.11 | For Feather M0 and M4 boards
-![](img/Logo-064-eC.png) | emCode | 14.2.12 |
+| | SAMD | 1.7.14 | For Feather M0 and M4 boards
+![](img/Logo-064-eC.png) | emCode | 14.3.6 |
 
 ## Visit the official websites
 
