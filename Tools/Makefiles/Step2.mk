@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 04 Sep 2023 release 14.2.0
+# Last update: 02 Apr 2024 release 14.3.7
 #
 
 # General table of messages
@@ -815,12 +815,16 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     $(info ---- Core libraries ----)
     $(info From              $(CORE_LIB_PATH)) # | cut -d. -f1,2
     $(info List              $(notdir $(CORE_LIBS_LIST)))
+    # $(foreach file,$(CORE_LIBS_LIST),$(info . $(file) release $(shell grep version $(CORE_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
 
     ifneq ($(strip $(APP_LIBS_LIST)),0)
         $(info ---- Application libraries ----)
         $(info From              $(basename $(APP_LIB_PATH))) # | cut -d. -f1,2
         ifneq ($(strip $(APP_LIBS_LIST)),)
             $(info List              $(filter-out 0,$(sort $(basename $(APP_LIBS_LIST)) $(basename $(notdir $(BUILD_APP_LIBS_LIST))))))
+            # $(foreach file,$(APP_LIBS_LIST),$(info . $(file) release $(shell grep version $(APP_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+            $(foreach file,$(APP_LIBS_LIST),$(info Library           $(call VERSION,$(file),$(APP_LIB_PATH))))
+
         endif # APP_LIBS_LIST
     endif # APP_LIBS_LIST
 
@@ -832,10 +836,15 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             $(info Libraries         None)
         else
             $(info Libraries         $(INFO_USER_UNARCHIVES_LIST))
+            # $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+            $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(USER_LIB_PATH))))
+
         endif # USER_LIBS_LIST
     endif # INFO_USER_UNARCHIVES_LIST
     ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
         $(info Archives          $(INFO_USER_ARCHIVES_LIST))
+        # $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+        $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(USER_LIB_PATH))))
     endif # INFO_USER_ARCHIVES_LIST
 
     ifneq ($(strip $(USER_LIBS_LIST)),0) # none
@@ -900,9 +909,18 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     $(info From              $(CURRENT_DIR))
     ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
         $(info Libraries         $(INFO_LOCAL_UNARCHIVES_LIST))
+
+        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info $(CURRENT_DIR)/$(file)/library.properties))
+        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+        $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(CURRENT_DIR))))
+
+        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell printf '%-18s %s\n' $(file) $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+
     endif # INFO_USER_UNARCHIVES_LIST
     ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
         $(info Archives          $(INFO_LOCAL_ARCHIVES_LIST))
+        # $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+        $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(CURRENT_DIR))))
     endif # INFO_USER_ARCHIVES_LIST
 
     ifneq ($(strip $(LOCAL_LIBS_LIST)),0) # none
@@ -989,6 +1007,17 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 #     ifneq (,$(wildcard $(UTILITIES_PATH)/emCode_debug))
 #         $(info Debug		$(shell $(UTILITIES_PATH)/emCode_debug -v ))
 #     endif # UTILITIES_PATH
+
+    $(info ---- Arduino ----)
+    ifneq ($(ARDUINO_FLATPAK_RELEASE),)
+        $(info Arduino IDE       release $(ARDUINO_FLATPAK_RELEASE) for FlatPak)
+    endif # ARDUINO_CLI_RELEASE
+    ifneq ($(ARDUINO_APPIMAGE_RELEASE),)
+        $(info Arduino IDE       release $(ARDUINO_APPIMAGE_RELEASE) for AppImage)
+    endif # ARDUINO_APPIMAGE_RELEASE
+    ifneq ($(ARDUINO_CLI_RELEASE),)
+        $(info Arduino CLI       release $(ARDUINO_CLI_RELEASE))
+    endif # ARDUINO_APPIMAGE_RELEASE
 
     $(info ---- Other ----)
 #    $(info Check new release	$(shell grep $(EMCODE_APP)/parameters.txt -e allowCheck.newRelease | cut -d= -f2))
@@ -2486,6 +2515,9 @@ endif # FIRST_O_IN_CORE_A
 	$(call SHOW,"1.9-CORE AR",$(TARGET_CORE_A))
 
 	$(QUIET)$(AR) rcs $(TARGET_CORE_A) $(patsubst %,"%",$(OBJS_CORE))
+	@echo "==== $(MESSAGE_TASK) done ===="
+
+info:
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 # debug:

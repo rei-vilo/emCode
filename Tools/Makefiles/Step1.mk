@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 04 Sep 2023 release 14.2.0
+# Last update: 02 Apr 2024 release 14.3.7
 #
 
 include $(MAKEFILE_PATH)/Step0.mk
@@ -160,25 +160,51 @@ else
 #    $(error Arduino IDE: Check version $(ARDUINO_IDE_RELEASE) and location $(ARDUINO_APP) )
 endif # APPLICATIONS_PATH
 
+ARDUINO_APP :=
+# $(info >>> ARDUINO_APP $(ARDUINO_APP))
+
 ifeq ($(ARDUINO_APP),)
     TEST := $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
     ifeq ($(TEST),)
-        ARDUINO_APP = flatpak
+        ARDUINO_APP = arduino-flatpak
+        ARDUINO_FLATPAK_RELEASE = $(strip $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep Version | cut -d: -f2))
     endif # TEST
 endif # ARDUINO_APP
 
-ifeq ($(ARDUINO_APP),)
-    TEST := $(shell find $(APPLICATION_PATH) -name arduino-cli)
-    # ARDUINO_APP = $(shell which arduino-cli)
-    # ARDUINO_APP := $(shell arduino-cli version)
-    ifneq ($(TEST),)
-        ARDUINO_APP = arduino-cli
-    endif
-endif # ARDUINO_APP
+# ifeq ($(ARDUINO_APP),)
+#     # TEST := $(shell find $(APPLICATION_PATH) -name arduino-cli)
+#     TEST := $(which arduino-cli)
 
-# $(info arduino-cli $(shell which arduino-cli))
-# $(info arduino-cli $(shell arduino-cli version))
-# $(info arduino-cli $(shell find $(APPLICATION_PATH) -name arduino-cli))
+#     $(info 2)
+#     # ARDUINO_APP = $(shell which arduino-cli)
+#     # ARDUINO_APP := $(shell arduino-cli version)
+#     ifneq ($(TEST),)
+#         ARDUINO_APP = arduino-cli
+#         ARDUINO_CLI_RELEASE = $(strip $(shell arduino-cli version --format yaml | grep versionstring | cut -d: -f2))
+#     endif
+# endif # ARDUINO_APP
+
+# TEST := $(shell find $(APPLICATION_PATH) -name arduino-cli)
+# TEST := $(shell /usr/bin/which arduino-cli)
+ARDUINO_CLI_PATH := $(shell find $(APPLICATION_PATH) -name arduino-cli)
+ifneq ($(ARDUINO_CLI_PATH),)
+    ifeq ($(ARDUINO_APP),)
+        ARDUINO_APP = arduino-cli
+    endif # ARDUINO_APP
+    ARDUINO_CLI_RELEASE = $(strip $(shell $(ARDUINO_CLI_PATH) version --format yaml | grep versionstring | cut -d: -f2))
+endif # ARDUINO_CLI_PATH
+
+ARDUINO_APPIMAGE_PATH = $(shell find ~/Applications/ -name arduino-ide_\*.AppImage)
+ifneq ($(ARDUINO_APPIMAGE_PATH),)
+    ifeq ($(ARDUINO_APP),)
+        ARDUINO_APP = arduino-appimage
+    endif # ARDUINO_APPIMAGE_PATH
+    ARDUINO_APPIMAGE_RELEASE = $(strip $(shell echo $(ARDUINO_APPIMAGE_PATH)  | cut -d_ -f2))
+endif # ARDUINO_CLI_PATH
+
+# $(info 1 arduino-cli $(shell which arduino-cli))
+# $(info 2 arduino-cli $(shell arduino-cli version))
+# $(info 3 arduino-cli $(shell find $(APPLICATION_PATH) -name arduino-cli))
 # $(info >>> ARDUINO_APP $(ARDUINO_APP))
 
 # $(error sTOP)
@@ -329,6 +355,15 @@ PARSE_FILE = $(shell if [ ! -z $(3) ] ; then if [ -f $(3) ] ; then grep ^$(1).$(
 # Implicit variable BOARDS_TXT
 # 
 SEARCH_FOR = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
+
+# Function VERSION version of library
+# name of the library, folder path
+# result = $(call VERSION,'list of board tags','parameter')
+# $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+# 
+VERSION = $(shell work=$(2)/$(1)/library.properties ; test=$$(grep version $$work | cut -d= -f2) ; if [ $$test ] ; then echo $(1) release $$test ; else echo "$(1) release ?" ; fi ; )
+# VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work )
+# VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work ; test=$$(grep "version" $$work) ; echo $$test )
 
 # ~
 # Warnings flags
