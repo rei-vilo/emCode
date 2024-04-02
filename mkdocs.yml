@@ -184,7 +184,7 @@ extra:
     history_buttons: true
 
 # --- Version
-    version: 14.3.6
+    version: 14.3.7
 
 # --- To manages different versions
 # ~/.venvs/mkdocs/bin/python -m pip install mike
