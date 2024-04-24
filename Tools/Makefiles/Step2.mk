@@ -831,21 +831,6 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     $(info ---- User libraries and archives ----)
 #    $(info From              $(SKETCHBOOK_DIR))
     $(info From              $(USER_LIB_PATH))
-    ifneq ($(strip $(INFO_USER_UNARCHIVES_LIST)),)
-        ifeq ($(strip $(USER_LIBS_LIST)),0)
-            $(info Libraries         None)
-        else
-            $(info Libraries         $(INFO_USER_UNARCHIVES_LIST))
-            # $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
-            $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(USER_LIB_PATH))))
-
-        endif # USER_LIBS_LIST
-    endif # INFO_USER_UNARCHIVES_LIST
-    ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
-        $(info Archives          $(INFO_USER_ARCHIVES_LIST))
-        # $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
-        $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(USER_LIB_PATH))))
-    endif # INFO_USER_ARCHIVES_LIST
 
     ifneq ($(strip $(USER_LIBS_LIST)),0) # none
     ifneq ($(strip $(USER_LIBS_LIST)),) # all
@@ -862,6 +847,22 @@ ifeq ($(BOOL_SELECT_BOARD),1)
         endif
     endif # USER_LIBS_LIST
     endif # USER_LIBS_LIST
+
+    ifneq ($(strip $(INFO_USER_UNARCHIVES_LIST)),)
+        ifeq ($(strip $(USER_LIBS_LIST)),0)
+            $(info Libraries         None)
+        else
+            $(info Libraries         $(INFO_USER_UNARCHIVES_LIST))
+            # $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+            $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(USER_LIB_PATH))))
+
+        endif # USER_LIBS_LIST
+    endif # INFO_USER_UNARCHIVES_LIST
+    ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
+        $(info Archives          $(INFO_USER_ARCHIVES_LIST))
+        # $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+        $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(USER_LIB_PATH))))
+    endif # INFO_USER_ARCHIVES_LIST
 
 #     $(info ---- Local libraries ----)
 #     $(info From              $(CURRENT_DIR))
@@ -907,21 +908,6 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
     $(info ---- Local libraries and archives ----)
     $(info From              $(CURRENT_DIR))
-    ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
-        $(info Libraries         $(INFO_LOCAL_UNARCHIVES_LIST))
-
-        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info $(CURRENT_DIR)/$(file)/library.properties))
-        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
-        $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(CURRENT_DIR))))
-
-        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell printf '%-18s %s\n' $(file) $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
-
-    endif # INFO_USER_UNARCHIVES_LIST
-    ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
-        $(info Archives          $(INFO_LOCAL_ARCHIVES_LIST))
-        # $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
-        $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(CURRENT_DIR))))
-    endif # INFO_USER_ARCHIVES_LIST
 
     ifneq ($(strip $(LOCAL_LIBS_LIST)),0) # none
     ifneq ($(strip $(LOCAL_LIBS_LIST)),) # all
@@ -938,6 +924,22 @@ ifeq ($(BOOL_SELECT_BOARD),1)
         endif
     endif # LOCAL_LIBS_LIST
     endif # LOCAL_LIBS_LIST
+
+    ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
+        $(info Libraries         $(INFO_LOCAL_UNARCHIVES_LIST))
+
+        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info $(CURRENT_DIR)/$(file)/library.properties))
+        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+        $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(CURRENT_DIR))))
+
+        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell printf '%-18s %s\n' $(file) $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+
+    endif # INFO_USER_UNARCHIVES_LIST
+    ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
+        $(info Archives          $(INFO_LOCAL_ARCHIVES_LIST))
+        # $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+        $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(CURRENT_DIR))))
+    endif # INFO_USER_ARCHIVES_LIST
 
     $(info ==== Info done ====)
     $(info .)
@@ -1010,10 +1012,10 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
     $(info ---- Arduino ----)
     ifneq ($(ARDUINO_FLATPAK_RELEASE),)
-        $(info Arduino IDE       release $(ARDUINO_FLATPAK_RELEASE) for FlatPak)
+        $(info Arduino IDE       FlatPak release $(ARDUINO_FLATPAK_RELEASE))
     endif # ARDUINO_CLI_RELEASE
     ifneq ($(ARDUINO_APPIMAGE_RELEASE),)
-        $(info Arduino IDE       release $(ARDUINO_APPIMAGE_RELEASE) for AppImage)
+        $(info Arduino IDE       AppImage release $(ARDUINO_APPIMAGE_RELEASE))
     endif # ARDUINO_APPIMAGE_RELEASE
     ifneq ($(ARDUINO_CLI_RELEASE),)
         $(info Arduino CLI       release $(ARDUINO_CLI_RELEASE))

@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 02 Apr 2024 release 14.3.7
+# Last update: 12 Apr 2024 release 14.3.8
 #
 
 include $(MAKEFILE_PATH)/Step0.mk
@@ -164,11 +164,15 @@ ARDUINO_APP :=
 # $(info >>> ARDUINO_APP $(ARDUINO_APP))
 
 ifeq ($(ARDUINO_APP),)
-    TEST := $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
-    ifeq ($(TEST),)
-        ARDUINO_APP = arduino-flatpak
-        ARDUINO_FLATPAK_RELEASE = $(strip $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep Version | cut -d: -f2))
-    endif # TEST
+    FLATPAK_APP := $(shell which flatpak)
+    ifeq ($(FLATPAK_APP),)
+        # TEST := $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
+        TEST := $(shell /usr/bin/flatpak list | grep cc.arduino.IDE2)
+        ifneq ($(TEST),)
+            ARDUINO_APP = arduino-flatpak
+            ARDUINO_FLATPAK_RELEASE = $(strip $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep Version | cut -d: -f2))
+        endif # TEST
+    endif # FLATPAK_APP
 endif # ARDUINO_APP
 
 # ifeq ($(ARDUINO_APP),)
