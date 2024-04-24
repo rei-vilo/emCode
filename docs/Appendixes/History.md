@@ -6,6 +6,9 @@ Details of the latest release are available at the [emCode release notes](../../
 
 Date | Release | Comment
 ---- | :----: | ----
+24 Apr 2024 | 14.3.10 | Updated support for Raspberry Pi boards
+15 Apr 2024 | 14.3.9 | Updated support for ESP32 boards
+12 Apr 2024 | 14.3.8 | Improved application detection
 02 Apr 2024 | 14.3.7 | Added report of the versions of the archives and libraries used
 27 Mar 2024 | 14.3.6 | Updated support for Adafruit SAMD boards
 19 Feb 2024 | 14.3.5 | Updated support for RP2040 boards

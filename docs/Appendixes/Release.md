@@ -6,6 +6,12 @@ emCode relies on Visual Studio Code and runs on Linux, including Windows Linux S
 
 ## Scope
 
+Release 14.3.10 updates support for Raspberry Pi boards.
+
+Release 14.3.9 updates support for ESP32 boards.
+
+Release 14.3.8 improves application detection.
+
 Release 14.3.7 adds a report of the versions of the archives and libraries used.
 
 Release 14.3.6 updates support for Adafruit SAMD boards.
