@@ -165,7 +165,7 @@ ARDUINO_APP :=
 
 ifeq ($(ARDUINO_APP),)
     FLATPAK_APP := $(shell which flatpak)
-    ifeq ($(FLATPAK_APP),)
+    ifneq ($(FLATPAK_APP),)
         # TEST := $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
         TEST := $(shell /usr/bin/flatpak list | grep cc.arduino.IDE2)
         ifneq ($(TEST),)
