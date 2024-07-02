@@ -7,13 +7,45 @@
     // See https://github.com/Marus/cortex-debug.
     "version": "0.2.0",
     "configurations": [
+       {
+            "type": "cppdbg",
+            "request": "launch",
+            "name": "Nano Matter",
+            // See https://code.visualstudio.com/docs/cpp/launch-json-reference#_serverstarted
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb-multiarch",
+            "program": "${workspaceRoot}/.builds/emcode.elf",
+            "setupCommands": [
+                { "text": "set remotetimeout 5" },
+                { "text": "target extended-remote :3333" },
+                { "text": "monitor reset halt" },
+                { "text": "file '${workspaceRoot}/.builds/emcode.elf'" },
+                { "text": "break main", "ignoreFailures": true }
+            ],
+            "launchCompleteCommand": "None",
+            "externalConsole": false,
+            "stopAtEntry": true,
+            "debugServerPath": "${env:HOME}/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd",
+            "debugServerArgs": "-s ${env:HOME}/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f ${env:HOME}/.vscode/extensions/marus25.cortex-debug-1.12.1/support/openocd-helpers.tcl -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg",
+            "filterStderr": true,
+            "filterStdout": false,
+            "serverStarted": "Listening on port 3333 for gdb connections",
+            // "logging": {
+            //     "moduleLoad": true,
+            //     "trace": true,
+            //     "engineLogging": true,
+            //     "programOutput": true,
+            //     "exceptions": true
+            // },
+        },
         {
             "type": "cortex-debug",
             "request": "launch",
             "name": "nRF52840 OpenOCD",
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "configFiles": [
                 "${env:HOME}/Projets/emCode/Tools/Utilities/debug_jlink_nrf52.cfg"
@@ -27,7 +59,7 @@
             "name": "nRF52840 DAP-Link",
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "device": "nRF52840",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
@@ -50,13 +82,13 @@
             "name": "nRF52840 J-Link",
             "servertype": "jlink",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "device": "NRF52840_XXAA",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
                 "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                "-speed","2000"
+                "-speed", "2000"
             ]
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
@@ -69,7 +101,7 @@
             // "serverpath": "${env:HOME}/Projets/emCode/Tools/OpenOCD_RP2040/openocd_picoprobe",
             "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.2.0-d04e724/bin/openocd",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "device": "RP2040",
@@ -92,7 +124,7 @@
             // "serverpath": "${env:HOME}/Projets/emCode/Tools/OpenOCD_RP2040/openocd_picoprobe",
             "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/2.2.0-d04e724/bin/openocd",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "device": "RP2040",
@@ -114,7 +146,7 @@
             "name": "AZ3166 OpenOCD",
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "configFiles": [
                 "interface/stlink.cfg",
@@ -129,7 +161,7 @@
             "name": "STM32L432 OpenOCD",
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "gdbPath": "${env:HOME}/.energia15/packages/energia/tools/arm-none-eabi-gcc/10-2020-q4-major/bin/arm-none-eabi-gdb",
             "configFiles": [
                 "board/st_nucleo_l4.cfg"
@@ -144,13 +176,13 @@
             "servertype": "jlink",
             "serverpath": "/usr/bin/JLinkGDBServer",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "device": "BGM220PC22HNA",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
                 "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                "-speed","2000"
+                "-speed", "2000"
             ]
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
@@ -162,15 +194,15 @@
             "servertype": "jlink",
             "serverpath": "/usr/bin/JLinkGDBServer",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "device": "EFR32MG24BXXXF1536",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
                 "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                "-speed","2000"
+                "-speed", "2000"
             ]
-            //"svdFile": "${env:HOME}/Projets/emCode/Tools/SVD/MSP432P401R.svd",
+            // "svdFile": "${env:HOME}/Projets/emCode/Tools/SVD/MSP432P401R.svd",
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
         },
@@ -181,13 +213,13 @@
             "servertype": "jlink",
             "serverpath": "/usr/bin/JLinkGDBServer",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/.builds/embeddedcomputing.elf",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
             "device": "EFR32BG27CxxxF768",
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
                 "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                "-speed","2000"
+                "-speed", "2000"
             ]
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
