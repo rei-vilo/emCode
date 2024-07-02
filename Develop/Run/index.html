@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -47,8 +47,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -132,7 +132,7 @@
               </button>
             
             
-            New release 14.3.0 adds support for the <b>Silicon Labs</b> platform.
+            New release 14.4.2 adds support for the <b>Arduino Nano Matter</b> board.
             
           </div>
           
@@ -242,7 +242,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -900,6 +900,15 @@
   <a href="#re-route-a-serial-console-through-the-segger-j-link-debug-probe" class="md-nav__link">
     <span class="md-ellipsis">
       Re-route a serial console through the Segger J-Link debug probe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-support-for-rtos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add support for RTOS
     </span>
   </a>
   
@@ -2751,6 +2760,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add-support-for-rtos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add support for RTOS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#launch-the-debugging-session" class="md-nav__link">
     <span class="md-ellipsis">
       Launch the debugging session
@@ -2890,12 +2908,11 @@
 <li>
 <p>Launch <strong>JLinkConfig</strong>.</p>
 </li>
+<li>
+<p>Select the debug probe and call the contextual menu <strong>Configure</strong>.</p>
+</li>
 </ul>
-<p><center><img alt="" src="img/408-03-100.png" /></center></p>
-<ul>
-<li>Select the debug probe and call the contextual menu <strong>Configure</strong>.</li>
-</ul>
-<p><center><img alt="" src="img/408-04-540.png" /></center></p>
+<p><center><img alt="" src="../img/JLinkConfig.png" /></center></p>
 <ul>
 <li>
 <p>Click on <strong>Enable</strong> below <strong>Virtual COM-Port</strong>, then on <strong>OK</strong>.</p>
@@ -2953,6 +2970,17 @@
 <p>For more information,</p>
 <ul>
 <li>Please refer to the section VCOM Functionality on the page <a href="https://www.segger.com/products/debug-probes/j-link">J-Link Debug Probes</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
+</ul>
+<h3 id="add-support-for-rtos">Add support for RTOS<a class="headerlink" href="#add-support-for-rtos" title="Permanent link">&para;</a></h3>
+<p>Plug-ins bring RTOS support on <strong>Ozone</strong>.</p>
+<ul>
+<li>Enter the corresponding command. </li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code>Project.SetOSPlugin("FreeRTOSPlugin_CM4");
+</code></pre></div></body></html>
+<p>For more information,</p>
+<ul>
+<li>Please refer to the page <a href="https://www.segger.com/products/development-tools/ozone-j-link-debugger/technology/rtos-awareness/">RTOS aware debugging</a><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span>.</li>
 </ul>
 <h3 id="launch-the-debugging-session">Launch the debugging session<a class="headerlink" href="#launch-the-debugging-session" title="Permanent link">&para;</a></h3>
 <p>To launch the debugging session, the first time,</p>
@@ -3121,10 +3149,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.3.10"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.4"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   </body>
