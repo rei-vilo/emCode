@@ -13,6 +13,10 @@ The installation is performed with Arduino-CLI.
 + [Arduino RP2040](./RP2040.md);
 + [Arduino Mbed-OS](./Mbed.md).
 
+For the Arduino Nano Matter board, 
+
++ Use the [Silicon Labs platform](../SiliconLabs/).
+
 ## Check the tests
 
 The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
@@ -34,7 +38,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 ![](img/Logo-064-Arduino.png) | **Arduino**
 ---- | ----
 Arduino IDE | <https://github.com/arduino/arduino-ide> :octicons-link-external-16:
-Arduino CLI | <https://github.com/arduino/arduino-cli> :octicons-link-external-16:
+Arduino-CLI | <https://github.com/arduino/arduino-cli> :octicons-link-external-16:
 Arduino AVR | <https://github.com/arduino/ArduinoCore-avr> :octicons-link-external-16:
 Arduino megaAVR | <https://github.com/arduino/ArduinoCore-megaavr> :octicons-link-external-16:
 Arduino SAMD | <https://github.com/arduino/ArduinoCore-samd> :octicons-link-external-16:

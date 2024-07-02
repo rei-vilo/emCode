@@ -6,25 +6,19 @@ emCode relies on Visual Studio Code and runs on Linux, including Windows Linux S
 
 ## Scope
 
-Release 14.3.10 updates support for Raspberry Pi boards.
+Release 14.4.7 adds J-Link debugger for Arduino nano boards.
 
-Release 14.3.9 updates support for ESP32 boards.
+Release 14.4.6 updates support for STMicrolectronics boards.
 
-Release 14.3.8 improves application detection.
+Release 14.4.5 updates support for Espressif boards.
 
-Release 14.3.7 adds a report of the versions of the archives and libraries used.
+Release 14.4.4 updates support for Espressif boards.
 
-Release 14.3.6 updates support for Adafruit SAMD boards.
+Reelase 14.4.3 updates support for Arduino-CLI.
 
-Release 14.3.5 updates support for RP2040 boards.
+Release 14.4.2 updates support for ESP32 and Adafruit SAMD boards.
 
-Release 14.3.4 updates support for Teensy boards.
+Release 14.4.1 updates support for Adafruit nRF52 and SAMD boards.
 
-Release 14.3.3 updates support for Arduino Mbed-OS boards.
-
-Release 14.3.2 updates support for RP2040 boards.
-
-Release 14.3.1 improves stability for Silicon Labs boards.
-
-Release 14.3.0 adds support for the [Silicon Labs platform](../Boards/SiliconLabs/index.md).
+Release 14.4.0 updates support for the [Silicon Labs platform](../Boards/SiliconLabs/index.md).
 

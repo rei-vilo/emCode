@@ -32,7 +32,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 ![](img/Logo-064-Seeed.png) | **Seeed**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Repository | <https://github.com/earlephilhower/arduino-pico> :octicons-link-external-16:
 Wiki | <https://arduino-pico.readthedocs.io/en/latest/> :octicons-link-external-16:
 Website | <https://www.seeedstudio.com> :octicons-link-external-16:

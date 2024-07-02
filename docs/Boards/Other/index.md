@@ -317,7 +317,7 @@ Back to the project,
 
 ### Set the path to the board package
 
-The `includePath` section includes the aboslute path where the board package is installed by the Arduino CLI or IDE.
+The `includePath` section includes the aboslute path where the board package is installed by the Arduino-CLI or Arduino IDE.
 
 The `browse` section duplicates the information.
 

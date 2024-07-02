@@ -6,6 +6,14 @@ Details of the latest release are available at the [emCode release notes](../../
 
 Date | Release | Comment
 ---- | :----: | ----
+28 Jun 2024 | 14.4.7 | Added J-Link debugger for Arduino nano boards
+28 Jun 2024 | 14.4.6 | Updated support for STMicrolectronics boards
+25 Jun 2024 | 14.4.5 | Updated support for Espressif boards
+24 Jun 2024 | 14.4.4 | Updated support for Espressif boards
+21 Jun 2024 | 14.4.3 | Updated support for Arduino-CLI
+25 May 2024 | 14.4.2 | Updated support for ESP32 and Adafruit SAMD boards
+17 May 2024 | 14.4.1 | Updated support for Adafruit nRF52 and SAMD boards
+17 May 2024 | 14.4.0 | Updated support for Silicon Labs boards
 24 Apr 2024 | 14.3.10 | Updated support for Raspberry Pi boards
 15 Apr 2024 | 14.3.9 | Updated support for ESP32 boards
 12 Apr 2024 | 14.3.8 | Improved application detection

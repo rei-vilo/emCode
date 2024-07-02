@@ -1,4 +1,4 @@
-# Manage the Silicon Labs boards
+# Manage the Silicon Labs platform
 
 ![](img/Logo-064-SiLabs-2.png) The Silicon Labs platform supports boards based on the BG22, BG24 and BG27 SoCs.
 
@@ -12,14 +12,14 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 | | Platform | Package | Comment
 ---- | ---- |---- | ----
-![](img/Logo-064-SiLabs-2.png) | SiLabs | 1.0.0 | 
-![](img/Logo-064-eC.png) | emCode | 14.3.1 | 
+![](img/Logo-064-SiLabs-2.png) | SiLabs | 2.0.0 | 
+![](img/Logo-064-eC.png) | emCode | 14.4.0 | 
 
 ## Visit the official websites
 
 ![](img/Logo-064-SiLabs-2.png) | **Silicon Labs**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Repository | <https://github.com/SiliconLabs/arduino> :octicons-link-external-16:
 Website | <https://www.silabs.com/> :octicons-link-external-16:
 Forum | <https://community.silabs.com/> :octicons-link-external-16:

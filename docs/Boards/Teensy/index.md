@@ -15,7 +15,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 ![](img/Logo-064-Teensy.png) | **Teensy**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Website | <http://www.pjrc.com/teensy/index.html> :octicons-link-external-16:
 Download | <http://www.pjrc.com/teensy/td_download.html> :octicons-link-external-16:
 Wiki | <http://www.pjrc.com/teensy/index.html> :octicons-link-external-16:

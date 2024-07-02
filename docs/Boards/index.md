@@ -19,13 +19,13 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 | | Platform | Package | Comment
 ---- | ---- | ---- | ----
-![](img/Logo-064-Arduino-CLI.png) | **Arduino CLI** | 0.43 | 
-![](img/Logo-064-Arduino-IDE.png) | **Arduino IDE** | 2.2.1 | 
-![](img/Logo-064-eC.png) | **emCode** | 14.2.4 | 15 Sep 2023 | 
+![](img/Logo-064-Arduino-CLI.png) | **Arduino-CLI** | 1.0.1 | 
+![](img/Logo-064-Arduino-IDE.png) | **Arduino IDE** | 2.3.2 | 
+![](img/Logo-064-eC.png) | **emCode** | 14.4.3 |  | 
 
 ## Visit the official websites
 
 ![](img/Logo-064-Arduino.png) | **Arduino**
 ---- | ----
 Arduino IDE | <https://github.com/arduino/arduino-ide> :octicons-link-external-16:
-Arduino CLI | <https://github.com/arduino/arduino-cli> :octicons-link-external-16:
+Arduino-CLI | <https://github.com/arduino/arduino-cli> :octicons-link-external-16:

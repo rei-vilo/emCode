@@ -105,11 +105,9 @@ This feature is only valid with SWD and is disabled by default. To enable it,
 
 + Launch **JLinkConfig**.
 
-<center>![](img/408-03-100.png)</center>
-
 + Select the debug probe and call the contextual menu **Configure**.
 
-<center>![](img/408-04-540.png)</center>
+<center>![](img/JLinkConfig.png)</center>
 
 + Click on **Enable** below **Virtual COM-Port**, then on **OK**.
 
@@ -164,6 +162,20 @@ JLinkExe
 For more information,
 
 + Please refer to the section VCOM Functionality on the page [J-Link Debug Probes](https://www.segger.com/products/debug-probes/j-link) :octicons-link-external-16:.
+
+### Add support for RTOS
+
+Plug-ins bring RTOS support on **Ozone**.
+
+* Enter the corresponding command. 
+
+```
+Project.SetOSPlugin("FreeRTOSPlugin_CM4");
+```
+
+For more information,
+
++ Please refer to the page [RTOS aware debugging](https://www.segger.com/products/development-tools/ozone-j-link-debugger/technology/rtos-awareness/):octicons-link-external-16:.
 
 ### Launch the debugging session
 

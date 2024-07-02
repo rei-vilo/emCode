@@ -49,7 +49,7 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", GROUP="plugdev", MODE="0666"
 sudo udevadm control --reload-rules
 ```
 
-For more information on udev rules, 
+For more information on `udev` rules, 
 
 + Please refer to [Fix udev rules on Linux](https://support.arduino.cc/hc/en-us/articles/9005041052444-Fix-udev-rules-on-Linux) :octicons-link-external-16:.
 
@@ -63,7 +63,9 @@ For more information on udev rules,
 
 ## Upload
 
-The Arduino Nano ESP32 board uses a specific protocol for upload, `dfu-util`, instead of the standard `esptool.py`. 
+The Arduino Nano ESP32 board uses a specific protocol for upload, `dfu-util`, instead of the standard `esptool`. 
+
+If the RGB LED is not green, double-press on the **RESET** button.
 
 In case the board remains unresponsive, 
 

@@ -2,7 +2,7 @@
 
 This section presents the `core` and `document` targets.
 
-# Generate the board core archive
+## Generate the board core archive
 
 During the first successful build and link against a board, a pre-compiled board core archive is generated and saved under the `emCode/Tools/Cores` sub-folder.
 
@@ -41,7 +41,7 @@ Or
 
 + Call the prompt with ++ctrl+shift+p++, enter or select `Tasks: Run Task`, then select **Core**.
 
-# Document the project
+## Document the project
 
 Provided the project header files have been documented using the Doxygen keywords and fields, a website and a PDF document could be generated automatically using the `document` target. 
 

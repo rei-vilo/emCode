@@ -123,11 +123,14 @@ theme:
     custom_dir: theme
 #
 # For GDPR concerns, false=avoid Google fonts
-    font: false
+#     font: false
 # or use Ubuntu fonts
-#    font:
+#     font:
 #        text: 'Ubuntu'
 #        code: 'Ubuntu Mono'
+    font:
+       text: 'Roboto'
+       code: 'Roboto Mono'
     palette:
        - scheme: default
          primary: red
@@ -184,7 +187,7 @@ extra:
     history_buttons: true
 
 # --- Version
-    version: 14.3.10
+    version: 14.4.4
 
 # --- To manages different versions
 # ~/.venvs/mkdocs/bin/python -m pip install mike

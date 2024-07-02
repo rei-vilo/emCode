@@ -15,7 +15,7 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 ![](img/Logo-064-Microsoft.png) | **Microsoft**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Website | <https://microsoft.github.io/azure-iot-developer-kit> :octicons-link-external-16:
 Download | <https://microsoft.github.io/azure-iot-developer-kit/docs/installation/> :octicons-link-external-16:
 Wiki | <https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/> :octicons-link-external-16:

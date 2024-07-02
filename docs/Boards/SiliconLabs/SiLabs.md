@@ -35,6 +35,8 @@ For more information on the installation process,
 
 The GSDK already includes the Bluetooth features. 
 
++ Ensure the selected board features Bluetooth, like `SiliconLabs_BGM220_BLE`.
+
 However, the ezBLE library provides an option.
 
 + Edit the main `Makefile` to list the required libraries.
@@ -44,6 +46,8 @@ APP_LIBS_LIST = ezBLE
 ```
 
 ### Use the libraries for Matter
+
++ Ensure the selected board features Matter, like `SiliconLabs_xG24_Matter`;
 
 + Edit the main `Makefile` to list the required libraries.
 

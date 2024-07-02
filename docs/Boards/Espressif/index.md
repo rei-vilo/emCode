@@ -69,15 +69,15 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 | | Platform | Package | Comment
 ---- | ---- |---- | ----
-![](img/Logo-064-Espressif-Systems.png) | ESP32 | 2.0.15 | Valid for other ESP32-based boards<br>except Arduino Nano ESP32
+![](img/Logo-064-Espressif-Systems.png) | ESP32 | 3.0.2 | Valid for other ESP32-based boards<br>except Arduino Nano ESP32
 | | ESP8266 | 3.0.1 | Valid for other ESP8266-based boards
-![](img/Logo-064-eC.png) | emCode | 14.3.9 | 
+![](img/Logo-064-eC.png) | emCode | 14.4.5 | 
 
 ## Visit the official websites
 
 ![](img/Logo-064-Espressif-Systems.png) | **ESP32**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Website | <http://espressif.com> :octicons-link-external-16:
 Download | <https://github.com/espressif/arduino-esp32> :octicons-link-external-16:
 Wiki | <http://esp32.net> :octicons-link-external-16:
@@ -86,7 +86,7 @@ Forum | <http://bbs.espressif.com> :octicons-link-external-16:
 
 ![](img/Logo-064-Espressif-Systems.png) | **ESP8266**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Website | <http://espressif.com> :octicons-link-external-16:
 Download | <https://github.com/esp8266/Arduino> :octicons-link-external-16:
 Wiki | <http://www.esp8266.com/wiki/doku.php> :octicons-link-external-16:

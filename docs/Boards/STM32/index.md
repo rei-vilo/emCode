@@ -10,14 +10,14 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 | | Platform | Package | Comment
 ---- | ---- | ---- | ----
-![](img/Logo-064-STM32duino.png) | **STM32** | 2.7.0 | For Nucleo and Discovery boards
-![](img/Logo-064-eC.png) | **emCode** | 14.2.9 |
+![](img/Logo-064-STM32duino.png) | **STM32** | 2.8.0 | For Nucleo and Discovery boards
+![](img/Logo-064-eC.png) | **emCode** | 14.4.6 |
 
 ## Visit the official websites
 
 ![](img/Logo-064-STM32duino_old.png) | **STM32duino**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Former | <http://www.stm32duino.com> :octicons-link-external-16:
 Download | <https://github.com/stm32duino/Arduino_Core_STM32> :octicons-link-external-16:
 Forum | <http://www.stm32duino.com> :octicons-link-external-16:

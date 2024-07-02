@@ -55,6 +55,7 @@ To install an extension using the IDE:
 ![](img/Logo-064-Menu.png) | Shortcut Menu Bar | `jerrygoyal.shortcut-menu-bar`
 ![](img/Logo-064-vscode-icons.png) | Icons | `vscode-icons-team.vscode-icons`
 ![](img/Logo-064-Workspace.png) | Workspace Storage Cleanup | `mehyaa.workspace-storage-cleanup`
+![](img/Logo-064-Whitespace.png) | Visible Whitespace | `yoshi389111.visible-whitespace`
 
 The **C/C++ Advanced Lint** manages different static analysers as **CLang**, **CppCheck**, **FlawFinder** and **Lizard**.
 
@@ -207,7 +208,35 @@ It requires the installation of two utilities.
 + [usbipd-win](https://github.com/dorssel/usbipd-win) :octicons-link-external-16: shares connected USD devices with WSL; and optionally 
 + [WSL USB Manager](https://gitlab.com/alelec/wsl-usb-gui) :octicons-link-external-16: provides a GUI interface for `usbipd-win`.
 
-For more information on connecting USB devices, please refer to
+To attach a USB device to WSL, 
+
+On Windows, 
+
+* Launch **WSL USB Manager**;
+* Identify the `COM` port of the board;
+* Select it and click on **Bound**;
+* Select it again and click on **Attach**.
+
+The selected port now appears under the **Forwarded Devices** list, and is available on the WSL-hosted Linux distribution, albeit with limited authorisations.
+
+On the WSL-hosted Linux distribution, 
+
+* Open a Terminal window;
+
+``` bash dollar lines="1"
+ls -all /dev/ttyACM0 
+crw-rw---- 1 root dialout 166, 0 Jun 26 13:20 /dev/ttyACM0
+``` 
+
+* Change the authorisation of the USB device to allow read and write, as it is protected by default.
+
+``` bash dollar lines="1-2"
+sudo chmod 666 /dev/ttyACM0
+ls -all /dev/ttyACM0 
+crw-rw-rw- 1 root dialout 166, 0 Jun 26 13:20 /dev/ttyACM0
+``` 
+
+For more information on connecting USB devices to WSL, please refer to
 
 + [Connect USB devices](https://learn.microsoft.com/en-us/windows/wsl/connect-usb) :octicons-link-external-16:;
 + [USBIP Connect](https://marketplace.visualstudio.com/items?itemName=thecreativedodo.usbip-connect) :octicons-link-external-16:;

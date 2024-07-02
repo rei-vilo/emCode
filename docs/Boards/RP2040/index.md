@@ -21,6 +21,6 @@ The test protocol includes building and linking, uploading and running a sketch 
 
 ![](img/Logo-064-Raspberry-Pi.png) | **Raspberry Pi Pico RP2040**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Repository | <https://github.com/earlephilhower/arduino-pico> :octicons-link-external-16:
 Wiki | <https://arduino-pico.readthedocs.io/en/latest/> :octicons-link-external-16:

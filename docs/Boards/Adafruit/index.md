@@ -18,15 +18,15 @@ The test protocol includes building and linking, uploading and running a sketch 
 | | Platform | Package | Comment
 ---- | ---- |---- | ----
 ![](img/Logo-064-Adafruit.png) | AVR | 1.4.14 |
-| | nRF52 | 1.6.0 | For Feather nRF52832 and nRF52840 boards
-| | SAMD | 1.7.14 | For Feather M0 and M4 boards
-![](img/Logo-064-eC.png) | emCode | 14.3.6 |
+| | nRF52 | 1.6.1 | For Feather nRF52832 and nRF52840 boards
+| | SAMD | 1.7.16 | For Feather M0 and M4 boards
+![](img/Logo-064-eC.png) | emCode | 14.4.2 |
 
 ## Visit the official websites
 
 ![](img/Logo-064-Adafruit.png) | **Adafruit**
 :---- | ----
-IDE | Arduino CLI or IDE
+IDE | Arduino-CLI or Arduino IDE
 Website | <http://www.adafruit.com> :octicons-link-external-16:
 Download | <https://learn.adafruit.com/introducing-trinket/setting-up-with-arduino-ide> :octicons-link-external-16:
 Wiki | <http://ladyada.net/products/atmega32u4breakout/> :octicons-link-external-16:

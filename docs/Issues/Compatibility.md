@@ -1,6 +1,6 @@
 # Manage compatibility with Arduino
 
-Projects developed by emCode are highly compatible with the standard Arduino CLI or IDE.
+Projects developed by emCode are highly compatible with the standard Arduino-CLI or Arduino IDE.
 
 The standard Arduino IDE will open and compile most emCode projects successfully.
 
