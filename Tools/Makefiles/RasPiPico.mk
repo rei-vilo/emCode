@@ -108,7 +108,7 @@ COMMAND_UF2 = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(RP2040_TOOLS_RELEASE)/elf2uf2 $(
 ifeq ($(UPLOADER),cp_uf2)
     USB_RESET = stty -F 
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
-    COMMAND_PREPARE = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(RP2040_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
+    COMMAND_PRE_UPLOAD = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(RP2040_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
     # USED_VOLUME_PORT = $(shell ls -d $(BOARD_VOLUME))
     USED_VOLUME_PORT = $(strip $(BOARD_VOLUME))
 
@@ -181,8 +181,8 @@ else ifeq ($(UPLOADER),jlink)
     UPLOADER = jlink
 
     # Prepare the .jlink scripts
-    COMMAND_PREPARE = printf 'r\nloadfile "$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink' ;
-    COMMAND_PREPARE += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+    COMMAND_PRE_UPLOAD = printf 'r\nloadfile "$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink' ;
+    COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
 
 # # Option 1 - 1.5.0-a-5007782 is actually arm-none-eabi-cpp (GCC) 10.3.0 but gdb remains 8.2.5
 # # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
@@ -551,7 +551,7 @@ COMMAND_LINK = $(CXX) -L$(BUILDS_PATH) $(FLAGS_ALL) $(FLAGS_LD) $(OUT_PREPOSITIO
 # Option 1: with archive for all files, FAILS
 # COMMAND_LINK = $(CXX) -L$(BUILDS_PATH) $(FLAGS_ALL) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group -L$(OBJDIR) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(TARGET_A) $(BUILDS_PATH)/boot2.o $(HARDWARE_PATH)/lib/libpico.a -lm -lc -lstdc++ -lc -Wl,--end-group
 
-# COMMAND_UF2 = $(COMMAND_PREPARE)
+# COMMAND_UF2 = $(COMMAND_PRE_UPLOAD)
 
 # Target
 #

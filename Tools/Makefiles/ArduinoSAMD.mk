@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 28 Dec 2020 release 11.13.1
+# Last update: 02 Jul 2024 release 14.4.7
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -110,7 +110,21 @@ else
         UPLOADER_OPTS = -i -d --port=$(UPLOADER_PORT) -U $(call PARSE_BOARD,$(BOARD_TAG),upload.native_usb) -i -e -w -v
         DELAY_BEFORE_UPLOAD = 2
         DELAY_BEFORE_SERIAL = 2
+    else ifeq ($(UPLOADER),jlink)
+
+        UPLOADER = jlink
+
+        # Prepare the .jlink scripts
+        COMMAND_PRE_UPLOAD = printf 'r\nloadfile "$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink' ;
+        COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+
+        UPLOADER_PATH := /usr/bin
+        UPLOADER_EXEC = $(UPLOADER_PATH)/JLinkExe
+        UPLOADER_OPTS += -device ATSAMD21G18A -if swd -speed 2000 
+        COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -commanderscript $(BUILDS_PATH)/upload.jlink
+
     else
+
         UPLOADER = openocd
         UPLOADER_PATH := $(OTHER_TOOLS_PATH)/openocd/$(ARDUINO_SAMD_OPENOCD_RELEASE)
         UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd
@@ -127,6 +141,7 @@ else
         UPLOADER_COMMAND = telnet_port disabled; program {$(TARGET_BIN)} verify reset $(BOOTLOADER_SIZE); shutdown
 #       UPLOADER_COMMAND = verify reset $(call PARSE_BOARD,$(BOARD_TAG),build.section.start) exit
         COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "$(UPLOADER_COMMAND)"
+
     endif
 endif
 

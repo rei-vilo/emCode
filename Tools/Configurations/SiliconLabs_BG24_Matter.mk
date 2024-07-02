@@ -1,5 +1,5 @@
 #
-# SiliconLabs_BGM220_precompiled.mk
+# SiliconLabs_BG24_Matter.mk
 # Board config file
 # ----------------------------------
 # Developed with emCode
@@ -7,16 +7,17 @@
 # Part of emCode
 # Embedded computing with make
 #
-# Created by: Rei Vilo on 11 Jan 2024
+# Created by: Rei Vilo on 17 May 2024
 # Copyright: (c) Rei Vilo, 2010-2024 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 12 Jan 2024 release 14.3.0
+# Last update: 17 May 2024 release 14.4.0
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
 #
-BOARD_TAG = bgm220explorerkit_precomp
+BOARD_TAG = xg24explorerkit
+BOARD_TAG1 = xg24explorerkit.menu.protocol_stack.matter
 
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
@@ -41,4 +42,4 @@ GCC_PREPROCESSOR_DEFINITIONS =
 
 UPLOADER = jlink
 
-CONFIG_NAME = SiliconLabs BGM220 pre-compiled
+CONFIG_NAME = SiliconLabs BG24 Matter

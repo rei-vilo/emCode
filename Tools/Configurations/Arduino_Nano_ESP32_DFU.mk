@@ -1,5 +1,5 @@
 #
-# Arduino Nano ESP32.mk
+# Arduino Nano ESP32 DFU.mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode
@@ -11,7 +11,7 @@
 # Copyright: (c) Rei Vilo, 2010-2024 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 30 Aug 2023 release 14.1.6
+# Last update: 01 Jul 2024 release 14.4.4
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
@@ -64,7 +64,7 @@ GCC_PREPROCESSOR_DEFINITIONS = ESP32 ARDUINO
 #
 # MAX_RAM_SIZE = 32768
 
-UPLOADER = esptool
+UPLOADER = dfu-util
 
 # MESSAGE_WARNING = BETA! Not yet tested against $(CONFIG_NAME).
 

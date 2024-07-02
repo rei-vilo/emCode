@@ -39,9 +39,9 @@ USE_ARCHIVES ?= true
 # 
 OPTIMISATION ?= -Os -g3
 
-# Binary name, default = embeddedcomputing
+# Binary name, default = emcode
 # 
-BINARY_SPECIFIC_NAME ?= embeddedcomputing
+BINARY_SPECIFIC_NAME ?= emcode
 
 # emCode edition
 # 

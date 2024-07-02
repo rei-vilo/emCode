@@ -100,8 +100,8 @@ else ifeq ($(UPLOADER),jlink)
     UPLOADER_OPTS = -device ATSAM3X8E -if swd -speed 4000 -commanderscript $(BUILDS_PATH)/upload.jlink
 
 # Prepare the .jlink scripts
-    COMMAND_PREPARE = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink'
-    COMMAND_PREPARE += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+    COMMAND_PRE_UPLOAD = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink'
+    COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
 
 #    JLINK_POWER = 1
     JLINK_POWER ?= 0
@@ -123,7 +123,7 @@ else ifeq ($(UPLOADER),ozone)
     SHARED_OPTS = -device ATSAM3X8E -if swd -speed 4000
     UPLOADER_OPTS = $(SHARED_OPTS) -commanderscript $(BUILDS_PATH)/upload.jlink
 
-    COMMAND_PREPARE = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\"\ng\nexit\n' > $(BUILDS_PATH)/upload.jlink
+    COMMAND_PRE_UPLOAD = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\"\ng\nexit\n' > $(BUILDS_PATH)/upload.jlink
 
     DEBUGGER_PATH = $(SEGGER_PATH)/Ozone
     DEBUGGER_EXEC = open $(DEBUGGER_PATH)/Ozone.app

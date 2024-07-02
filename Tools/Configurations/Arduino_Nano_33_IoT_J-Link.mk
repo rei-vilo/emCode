@@ -1,5 +1,5 @@
 #
-# Arduino Nano ESP32.mk
+# Arduino Nano 33 IoT (J-Link).mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode
@@ -7,38 +7,21 @@
 # Part of emCode
 # Embedded computing with make
 #
-# Created by: Rei Vilo on 30 Aug 2023
+# Created by: Rei Vilo on 02 Jul 2024
 # Copyright: (c) Rei Vilo, 2010-2024 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 30 Aug 2023 release 14.1.6
+# Last update: 02 Jul 2024 release 14.4.7
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
 #
-BOARD_TAG = nano_nora
+BOARD_TAG = nano_33_iot
 
-BOARD_TAG1 = nano_nora.menu.PinNumbers.byGPIONumber
-# BOARD_TAG1 = nano_nora.menu.PinNumbers.default
-BOARD_TAG2 = nano_nora.menu.USBMode.default
-
-# BOARD_TAG1 is for Flash size
-# BOARD_TAG1 = nano_nora.build.flash_size
-
-# BOARD_TAG2 is for Flash frequency
-# BOARD_TAG2 = esp32.build.flash_freq
-
-# BOARD_TAG3 is for partition scheme
-# BOARD_TAG3 = esp32.build.partitions
-# BOARD_TAG3 = esp32.menu.PartitionScheme.no_ota
-# See https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/partition-tables.html
-
-# BOARD_TAG4 is for debug level
-# BOARD_TAG4 = esp32.menu.DebugLevel.none
-
-# Even more options
-# BOARD_TAG5 = esp32.build.loop_core
-# BOARD_TAG6 = esp32.build.event_core
+# For Arduino 1.5.x, if different from Arduino 1.0.x
+#
+# BOARD_TAG1 = nano
+# BOARD_TAG2 = nano.menu.cpu.atmega168
 
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
@@ -50,7 +33,7 @@ BOARD_PORT = /dev/ttyACM*
 # Define macros for build
 # See Boards.txt for <tag>.build.mcu = <GCC_PREPROCESSOR_DEFINITIONS>
 #
-GCC_PREPROCESSOR_DEFINITIONS = ESP32 ARDUINO
+GCC_PREPROCESSOR_DEFINITIONS = ARDUINO
 
 # Specify the full path and name of the application
 # with /Contents/Java/** after
@@ -62,10 +45,10 @@ GCC_PREPROCESSOR_DEFINITIONS = ESP32 ARDUINO
 # given by <tag>.upload.maximum_ram_size in boards.txt for Maple and Teensy
 # given by <tag>.upload.maximum_data_size in boards.txt for Arduino 1.5.x
 #
-# MAX_RAM_SIZE = 32768
+MAX_RAM_SIZE = 32768
 
-UPLOADER = esptool
+UPLOADER = jlink
 
 # MESSAGE_WARNING = BETA! Not yet tested against $(CONFIG_NAME).
 
-CONFIG_NAME = Arduino Nano ESP32
+CONFIG_NAME = Arduino Nano 33 IoT (J-Link)

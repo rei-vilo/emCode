@@ -43,8 +43,8 @@ ifeq ($(t400),teensyloader)
     UPLOADER_PATH = $(TEENSY_TOOLS_PATH)
     UPLOADER_EXEC = $(UPLOADER_PATH)/teensy_post_compile
 #    TEENSY_REBOOT = $(UPLOADER_PATH)/teensy_reboot
-#    COMMAND_PREPARE = $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path="$(BUILDS_PATH)" -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board)
-#    COMMAND_PREPARE = cp $(TARGET_HEX) . ; $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path=$(CURRENT_DIR) -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board) ; rm $(CURRENT_DIR)/*.hex
+#    COMMAND_PRE_UPLOAD = $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path="$(BUILDS_PATH)" -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board)
+#    COMMAND_PRE_UPLOAD = cp $(TARGET_HEX) . ; $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path=$(CURRENT_DIR) -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board) ; rm $(CURRENT_DIR)/*.hex
 #    DELAY_BEFORE_UPLOAD ?= 2
 #    COMMAND_UPLOAD = $(TEENSY_REBOOT)
     t410 = $(shell $(UPLOADER_PATH)/teensy_ports -L | cut -d' ' -f 1 | sed 's:.*/usb:usb:')

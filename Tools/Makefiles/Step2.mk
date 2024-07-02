@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 02 Apr 2024 release 14.3.7
+# Last update: 24 Jun 2024 release 14.4.4
 #
 
 # General table of messages
@@ -1034,9 +1034,9 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     endif # KEEP_MAIN
 
     ifeq ($(wildcard $(TARGET_CORE_A)),)
-        $(info Generate          $(SELECTED_BOARD)_$(RELEASE_CORE).a)
+        $(info Generate core     $(SELECTED_BOARD)_$(RELEASE_CORE).a)
     else
-        $(info Use               $(SELECTED_BOARD)_$(RELEASE_CORE).a)
+        $(info Use core archive  $(SELECTED_BOARD)_$(RELEASE_CORE).a)
     endif
 
     $(info ==== Tools done ====)
@@ -1806,11 +1806,11 @@ raw_upload:
 # endif
 
 # ifeq ($(UPLOADER),jlink)
-# ifneq ($(COMMAND_PREPARE),)
+# ifneq ($(COMMAND_PRE_UPLOAD),)
 # 	$(call SHOW,"10.42-PREPARE",$(UPLOADER))
 # 
-# 	@$(COMMAND_PREPARE)
-# endif # COMMAND_PREPARE
+# 	@$(COMMAND_PRE_UPLOAD)
+# endif # COMMAND_PRE_UPLOAD
 
 ifneq ($(COMMAND_POWER),)
 	@echo '. Board powered by J-Link'
@@ -1829,11 +1829,11 @@ ifeq ($(MESSAGE_RESET),1)
 	@sleep 3
 endif # MESSAGE_RESET
 
-ifneq ($(COMMAND_PREPARE),)
+ifneq ($(COMMAND_PRE_UPLOAD),)
 	$(call SHOW,"10.70-PREPARE",$(UPLOADER))
 
-	$(QUIET)$(COMMAND_PREPARE)
-endif # COMMAND_PREPARE
+	$(QUIET)$(COMMAND_PRE_UPLOAD)
+endif # COMMAND_PRE_UPLOAD
 
 ifeq ($(UPLOADER),lightblue_loader_cli)
 # 	$(call SHOW,"10.2-UPLOAD",$(UPLOADER))
@@ -2137,11 +2137,11 @@ else ifeq ($(UPLOADER),spark_usb)
 
 else ifeq ($(UPLOADER),jlink)
     ifneq ($(MAKECMDGOALS),debug)
-        ifneq ($(COMMAND_PREPARE),)
+        ifneq ($(COMMAND_PRE_UPLOAD),)
 			$(call SHOW,"10.26-PREPARE",$(UPLOADER))
 
-			@$(COMMAND_PREPARE)
-        endif # COMMAND_PREPARE
+			@$(COMMAND_PRE_UPLOAD)
+        endif # COMMAND_PRE_UPLOAD
 
         ifneq ($(COMMAND_POWER),)
 			@echo '. Board powered by J-Link'
@@ -2465,7 +2465,8 @@ before_compile:
 ifneq ($(COMMAND_BEFORE_COMPILE),)
 	$(call SHOW,"1.0-BEFORE",$(MESSAGE_BEFORE))
         
-	$(QUIET)$(COMMAND_BEFORE_COMPILE)
+	$(COMMAND_BEFORE_COMPILE)
+# 	$(QUIET)$(COMMAND_BEFORE_COMPILE)
 endif
 
 after_compile:

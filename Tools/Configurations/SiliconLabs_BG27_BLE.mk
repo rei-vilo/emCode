@@ -17,6 +17,7 @@
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
 #
 BOARD_TAG = xg27devkit
+BOARD_TAG1 = xg27devkit.menu.protocol_stack.ble
 
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*

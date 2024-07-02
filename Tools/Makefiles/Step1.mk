@@ -195,7 +195,7 @@ ifneq ($(ARDUINO_CLI_PATH),)
     ifeq ($(ARDUINO_APP),)
         ARDUINO_APP = arduino-cli
     endif # ARDUINO_APP
-    ARDUINO_CLI_RELEASE = $(strip $(shell $(ARDUINO_CLI_PATH) version --format yaml | grep versionstring | cut -d: -f2))
+    ARDUINO_CLI_RELEASE = $(strip $(shell $(ARDUINO_CLI_PATH) version --format json | grep VersionString | cut -d: -f2 | sed -E 's:("| |,)::g'))
 endif # ARDUINO_CLI_PATH
 
 ARDUINO_APPIMAGE_PATH = $(shell find ~/Applications/ -name arduino-ide_\*.AppImage)
@@ -416,6 +416,8 @@ endif # WARNING_OPTIONS
 
 # Ignore if target is Boards or Clean
 #
+$(info >>> 1)
+
 ifeq ($(BOOL_SELECT_BOARD),1)
 # List of sub-paths to be excluded
 #
@@ -436,7 +438,9 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             -include $(MAKEFILE_PATH)/ArduinoAVR_181.mk
             -include $(MAKEFILE_PATH)/ArduinoAVR.mk
             -include $(MAKEFILE_PATH)/ArduinoMegaAVR.mk
+$(info >>> 2)
             -include $(MAKEFILE_PATH)/ArduinoNRF52.mk
+$(info >>> 3)
             -include $(MAKEFILE_PATH)/ArduinoSAM.mk
             -include $(MAKEFILE_PATH)/ArduinoSAMD.mk
             -include $(MAKEFILE_PATH)/ArduinoMBED_giga.mk

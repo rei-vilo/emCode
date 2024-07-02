@@ -11,7 +11,7 @@
 # Copyright: (c) Rei Vilo, 2010-2024 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 06 Jan 2020 release 11.5.2
+# Last update: 28 Jun 2024 release 14.4.6
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
@@ -19,6 +19,8 @@
 # BOARD_TAG = NANO
 BOARD_TAG = Nucleo_64
 BOARD_TAG1 = Nucleo_64.menu.pnum.NUCLEO_F401RE
+
+BOARD_TAG2 = Nucleo_64.menu.xserial.generic
 
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*

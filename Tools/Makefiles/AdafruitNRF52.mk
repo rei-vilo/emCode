@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 14 Dec 2023 release 14.2.12
+# Last update: 17 May 2024 release 14.4.1
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -84,7 +84,7 @@ else ifeq ($(UPLOADER),cp_uf2)
     FAMILY_UF2 = 0xADA52840
     USB_RESET = #
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
-    COMMAND_PREPARE = python $(ADAFRUIT_NRF52_APP)/hardware/nrf52/$(ADAFRUIT_NRF52_RELEASE)/tools/uf2conv/uf2conv.py -c -o $(TARGET_BIN_CP) -f $(FAMILY_UF2) $(TARGET_HEX)
+    COMMAND_PRE_UPLOAD = python $(ADAFRUIT_NRF52_APP)/hardware/nrf52/$(ADAFRUIT_NRF52_RELEASE)/tools/uf2conv/uf2conv.py -c -o $(TARGET_BIN_CP) -f $(FAMILY_UF2) $(TARGET_HEX)
 #     USB_TOUCH := $(call PARSE_BOARD,$(BOARD_TAG),upload.use_1200bps_touch)
 #     ifeq ($(USB_TOUCH),true)
 #         USB_RESET = -stty -F $(AVRDUDE_PORT) 1200
@@ -111,8 +111,8 @@ else ifeq ($(UPLOADER),jlink)
     SHARED_OPTS = -device $(JLINK_DEVICE) -if swd -speed 2000
     UPLOADER_OPTS = $(SHARED_OPTS) -commanderscript '$(BUILDS_PATH)/upload.jlink'
 
-    COMMAND_PREPARE = printf "r\nloadfile $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\ngo\nexit\n" > '$(BUILDS_PATH)/upload.jlink' ;
-    COMMAND_PREPARE += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+    COMMAND_PRE_UPLOAD = printf "r\nloadfile $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\ngo\nexit\n" > '$(BUILDS_PATH)/upload.jlink' ;
+    COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
 
 #    JLINK_POWER = 1
     JLINK_POWER ?= 0
@@ -141,8 +141,8 @@ else ifeq ($(UPLOADER),ozone)
     UPLOADER_OPTS = $(SHARED_OPTS) -commanderscript '$(BUILDS_PATH)/upload.jlink'
 
 # Prepare the .jlink scripts
-    COMMAND_PREPARE = printf "r\nloadfile $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\ngo\nexit\n" > $(BUILDS_PATH)/upload.jlink ;
-    COMMAND_PREPARE += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+    COMMAND_PRE_UPLOAD = printf "r\nloadfile $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\ngo\nexit\n" > $(BUILDS_PATH)/upload.jlink ;
+    COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
 
 #    JLINK_POWER = 1
     ifeq ($(JLINK_POWER),1)
@@ -170,7 +170,7 @@ else ifeq ($(UPLOADER),nrfutil)
     # UPLOADER_EXEC = $(UTILITIES_PATH)/nrfutil-linux
     UPLOADER_EXEC = adafruit-nrfutil
 
-    COMMAND_PREPARE = $(NRFUTIL_EXEC) dfu genpkg --dev-type 0x0052 --application $(TARGET_HEX) $(TARGET_ZIP)
+    COMMAND_PRE_UPLOAD = $(NRFUTIL_EXEC) dfu genpkg --dev-type 0x0052 --application $(TARGET_HEX) $(TARGET_ZIP)
 
 # --singlebank is back with release 0.9.2!
     UPLOADER_OPTS = --verbose dfu serial -pkg $(TARGET_ZIP) -p $(USED_SERIAL_PORT) -b 115200 --singlebank --touch 1200
@@ -198,7 +198,7 @@ endif
 
 # $(info >>> TARGET_HEX '$(TARGET_HEX)')
 # $(info >>> UPLOADER '$(UPLOADER)')
-# $(info >>> COMMAND_PREPARE '$(COMMAND_PREPARE)')
+# $(info >>> COMMAND_PRE_UPLOAD '$(COMMAND_PRE_UPLOAD)')
 
 # NRFUTIL_EXEC := $(UTILITIES_PATH)/nrfutil-linux
 NRFUTIL_EXEC := adafruit-nrfutil
@@ -258,7 +258,7 @@ endif
 
 # Now, adding extra libraries manually
 APP_LIBS_LIST += Adafruit_TinyUSB_Arduino 
-APP_LIBS_LIST += Adafruit_LittleFS InternalFileSytem
+APP_LIBS_LIST += Adafruit_LittleFS InternalFileSytem SPI
 ifeq ($(BOARD_TAG),feather52832)
 else
     APP_LIBS_LIST += Adafruit_nRFCrypto 
@@ -503,7 +503,7 @@ COMMAND_COPY = $(OBJCOPY) -O ihex $< $@
 # COMMAND_POST_COPY = export LC_ALL=en_IE.UTF-8 ; export LANG=en_IE.UTF-8 ; $(HARDWARE_PATH)/tools/adafruit-nrfutil/macos/adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req $(BUILD_SD_DWID) --application $(TARGET_HEX) $(TARGET_ZIP)
 
 # For Linux nrfutil version 6.1.0
-# $(HOME)/.arduino15/packages/adafruit/hardware/nrf52/0.21.0/tools/adafruit-nrfutil/linux/nrfutil-linux pkg generate --hw-version 0x0052 --sd-req 0x00B6 --application-version 111411 --application $(HOME)/Projets/emCode/Nouveautés/nRF52/Generic_Blink/.builds/embeddedcomputing.hex $(HOME)/Projets/emCode/Nouveautés/nRF52/Generic_Blink/.builds/embeddedcomputing.zip
+# $(HOME)/.arduino15/packages/adafruit/hardware/nrf52/0.21.0/tools/adafruit-nrfutil/linux/nrfutil-linux pkg generate --hw-version 0x0052 --sd-req 0x00B6 --application-version 111411 --application $(HOME)/Projets/emCode/Nouveautés/nRF52/Generic_Blink/.builds/emcode.hex $(HOME)/Projets/emCode/Nouveautés/nRF52/Generic_Blink/.builds/emcode.zip
 
 # COMMAND_POST_COPY = $(HARDWARE_PATH)/tools/adafruit-nrfutil/linux/nrfutil-linux pkg generate --hw-version 0x0052 --sd-req $(BUILD_SD_DWID) --application-version $(RELEASE_NOW) --application $(TARGET_HEX) $(TARGET_ZIP)
 

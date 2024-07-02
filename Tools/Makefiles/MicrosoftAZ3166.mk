@@ -68,8 +68,8 @@ SUB_PLATFORM = $(BUILD_CORE)
 # else
 #     ifeq ($(UPLOADER),cp_bin)
 #                 TARGET_BIN_CP = $(OBJDIR)/$(BINARY_SPECIFIC_NAME)_cp.bin
-#         COMMAND_PREPARE = dd conv=notrunc bs=1 if=$(HARDWARE_PATH)/bootloader/boot.bin of=$(TARGET_BIN_CP) seek=$$((0x0000)) ;
-#         COMMAND_PREPARE += dd conv=notrunc bs=1 if=$(TARGET_BIN) of=$(TARGET_BIN_CP) seek=$$((0xC000)) ;
+#         COMMAND_PRE_UPLOAD = dd conv=notrunc bs=1 if=$(HARDWARE_PATH)/bootloader/boot.bin of=$(TARGET_BIN_CP) seek=$$((0x0000)) ;
+#         COMMAND_PRE_UPLOAD += dd conv=notrunc bs=1 if=$(TARGET_BIN) of=$(TARGET_BIN_CP) seek=$$((0xC000)) ;
 #     else
         UPLOADER = openocd
         # UPLOADER_PATH = $(APPLICATION_PATH)/tools/openocd/$(MICROSOFT_OPENOCD_RELEASE)/macosx

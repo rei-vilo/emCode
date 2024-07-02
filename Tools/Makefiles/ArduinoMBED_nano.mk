@@ -8,7 +8,7 @@
 #
 # Created: 10 Apr 2021 release 11.14.0
 #
-# Last update: 03 Mar 2023 release 13.0.7
+# Last update: 02 Jul 2024 release 14.4.7
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -94,7 +94,7 @@ ifeq ($(UPLOADER),cp_uf2)
     USB_RESET = stty -F 
     UPLOADER = cp_uf2
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
-    COMMAND_PREPARE = $(OTHER_TOOLS_PATH)/rp2040tools/$(ARDUINO_PICO_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
+    COMMAND_PRE_UPLOAD = $(OTHER_TOOLS_PATH)/rp2040tools/$(ARDUINO_PICO_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
     # USED_VOLUME_PORT = $(shell ls -d $(BOARD_VOLUME))
     USED_VOLUME_PORT = $(strip $(BOARD_VOLUME))
 

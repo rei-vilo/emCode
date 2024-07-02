@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 17 Nov 2023 release 14.2.9
+# Last update: 28 Jun 2024 release 14.4.6
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -194,19 +194,18 @@ ifeq ($(MCU),)
 endif
 MCU_FLAG_NAME = mcpu
 
-INCLUDE_PATH = $(HARDWARE_PATH)/cores/arduino
 INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/avr
 INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32
-INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/LL
-INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb
-INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/OpenAMP
-INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb/hid
-INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb/cdc
+INCLUDE_PATH += $(HARDWARE_PATH)/libraries/SrcWrapper/inc
+INCLUDE_PATH += $(HARDWARE_PATH)/libraries/SrcWrapper/inc/LL
+
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/$(BUILD_SERIES)_HAL_Driver/Inc
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/$(BUILD_SERIES)_HAL_Driver/Src
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/$(BUILD_SERIES)
+INCLUDE_PATH += $(HARDWARE_PATH)/libraries/USBDevice/inc
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/ST/STM32_USB_Device_Library/Core/Inc
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/ST/STM32_USB_Device_Library/Core/Src
+INCLUDE_PATH += $(HARDWARE_PATH)/libraries/VirtIO/inc
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/OpenAMP
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/OpenAMP/open-amp/lib/include
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/OpenAMP/libmetal/lib/include
@@ -215,8 +214,23 @@ INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/OpenAMP/virtual_driver
 INCLUDE_PATH += $(CMSIS_PATH)/CMSIS/Core/Include/
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/CMSIS/Device/ST/$(BUILD_SERIES)/Include/
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/CMSIS/Device/ST/$(BUILD_SERIES)/Source/Templates/gcc/
+INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino
+
 INCLUDE_PATH += $(CMSIS_PATH)/CMSIS/DSP/Include
 INCLUDE_PATH += $(CMSIS_PATH)/CMSIS/DSP/PrivateInclude
+
+# INCLUDE_PATH += -DINCLUDE_PATH_3
+# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/LL
+# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb
+# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/OpenAMP
+# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb/hid
+# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb/cdc
+
+# compiler.stm.extra_include="-I{build.source.path}" "-I{build.core.path}/avr" "-I{core_stm32_dir}" "-I{SrcWrapper_include_dir}" "-I{SrcWrapper_include_dir}/LL" "-I{hal_dir}/Inc" "-I{hal_dir}/Src" "-I{build.system.path}/{build.series}" "-I{USBDevice_include_dir}" "-I{usbd_core_dir}/Inc" "-I{usbd_core_dir}/Src" "-I{VirtIO_include_dir}" {build.virtio_extra_include}
+# compiler.arm.cmsis.c.flags="-I{cmsis_dir}/Core/Include/" "-I{cmsis_dev_dir}/Include/" "-I{cmsis_dev_dir}/Source/Templates/gcc/" "-I{cmsis_dir}/DSP/Include" "-I{cmsis_dir}/DSP/PrivateInclude"
+
+# INCLUDE_PATH += $(HARDWARE_PATH)/Drivers/$(BUILD_SERIES)_HAL_Driver
+# INCLUDE_PATH += $(HARDWARE_PATH)/Middlewares/ST/STM32_USB_Device_Library/Core
 
 #  F_CPU
 FLAGS_FPU = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.flags.fp)
@@ -228,7 +242,7 @@ INCLUDE_PATH := $(patsubst %,"%",$(INCLUDE_PATH))
 
 FLAGS_L += $(CMSIS_PATH)/CMSIS/DSP/Lib/GCC/
 
-FLAGS_D = HAL_UART_MODULE_ENABLED
+# FLAGS_D = L_UART_MODULE_ENABLED
 stm1400a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.variant_h)
 stm1400b = $(call PARSE_BOARD,$(BOARD_TAG),build.variant_h)
 stm1400c = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.variant_h)
@@ -253,14 +267,85 @@ ifeq ($(MAX_RAM_SIZE),)
     MAX_RAM_SIZE = $(call SEARCH_FOR,$(BOARD_TAG),upload.maximum_data_size)
 endif
 
-FLAG_D += $(VECT_TAB_OFFSET=$(FLASH_OFFSET))
-
 # $(info *** MAX_FLASH_SIZE '$(MAX_FLASH_SIZE)')
 # $(info *** MAX_RAM_SIZE '$(MAX_RAM_SIZE)')
 
-COMMAND_BEFORE_COMPILE = touch $(BUILDS_PATH)/build_opt.h
+
+# platform.txt build.usb_flags=-DUSBCON {build.usb_speed} -DUSBD_VID={build.vid} -DUSBD_PID={build.pid} -DHAL_PCD_MODULE_ENABLED
+stm1000a = $(call PARSE_FILE,build,usb_flags=,$(HARDWARE_PATH)/platform.txt)
+
+# boards.txt for build.usb_speed build.vid build.pid
+BUILD_USB_SPEED = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.usb_speed)
+BUILD_VID = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.vid)
+BUILD_PID = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.pid)
+
+stm1000b = $(shell echo '$(stm1000a)' | sed 's:{build.usb_speed}:$(BUILD_USB_SPEED):g')
+stm1000c = $(shell echo '$(stm1000b)' | sed 's:{build.vid}:$(BUILD_VID):g')
+stm1000d = $(shell echo '$(stm1000c)' | sed 's:{build.pid}:$(BUILD_PID):g')
+
+BUILD_USB_FLAGS = $(stm1000d)
+
+# boards.txt build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+stm1200a = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.enable_usb)
+
+stm1200b = $(shell echo '$(stm1200a)' | sed 's:{build.usb_flags}:$(BUILD_USB_FLAGS):g')
+
+BUILD_ENABLE_USB = $(stm1200b) 
+
+# $(info >>> BOARD_TAGS_LIST $(BOARD_TAGS_LIST))
+
+# $(info >>> stm1000)
+# $(info >>> stm1000a $(stm1000a))
+# $(info >>> stm1000b $(stm1000b))
+# $(info >>> stm1000c $(stm1000c))
+# $(info >>> stm1000d $(stm1000d))
+
+# $(info >>> stm1200)
+# $(info >>> stm1200a $(stm1200a))
+# $(info >>> stm1200b $(stm1200b))
+
+# platform.txt build.st_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+stm1100a = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.st_extra_flags)
+
+# boards.txt for build.bootloader_flags build.enable_virtio build.product_line build.xSerial
+BUILD_BOOTLOADER_FLAGS = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.bootloader_flags)
+BUILD_ENABLE_VIRTIO = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.enable_virtio)
+BUILD_PRODUCT_LINE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.product_line)
+
+BUILD_XSERIAL = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.xSerial)
+ifeq ($(BUILD_XSERIAL),)
+    BUILD_XSERIAL := -DHAL_UART_MODULE_ENABLED
+endif
+
+stm1100b = $(shell echo '$(stm1100a)' | sed 's:{build.bootloader_flags}:$(BUILD_BOOTLOADER_FLAGS):g')
+stm1100c = $(shell echo '$(stm1100b)' | sed 's:{build.enable_virtio}:$(BUILD_ENABLE_VIRTIO):g')
+stm1100d = $(shell echo '$(stm1100c)' | sed 's:{build.product_line}:$(BUILD_PRODUCT_LINE):g')
+stm1100e = $(shell echo '$(stm1100d)' | sed 's:{build.xSerial}:$(BUILD_XSERIAL):g')
+stm1100f = $(shell echo '$(stm1100e)' | sed 's:{build.enable_usb}:$(BUILD_ENABLE_USB):g')
+
+BUILD_ST_EXTRA_FLAGS = $(stm1100f)
+
+# $(info >>> stm1100)
+# $(info >>> stm1100a $(stm1100a))
+# $(info >>> stm1100b $(stm1100b))
+# $(info >>> stm1100c $(stm1100c))
+# $(info >>> stm1100d $(stm1100d))
+# $(info >>> stm1100e $(stm1100e))
+# $(info >>> stm1100f $(stm1100f))
+
+# # Create {build.opt} if not exists in the output sketch dir and force include of SrcWrapper library
+# recipe.hooks.prebuild.1.pattern="{busybox}" sh "{extras.path}/prebuild.sh" "{build.path}" "{build.source.path}" "{runtime.platform.path}" "usb={build.enable_usb}" "virtio={build.enable_virtio}"
+# recipe.hooks.postbuild.1.pattern="{busybox}" sh "{extras.path}/postbuild.sh" "{build.path}" "{build.series}" "{runtime.platform.path}"
+
+BUILD_SERIES = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.series)
+
+COMMAND_BEFORE_COMPILE = sh $(SYSTEM_LIB_PATH)/extras/prebuild.sh $(BUILDS_PATH) $(CURRENT_DIR) $(HARDWARE_PATH) usb=$(BUILD_ENABLE_USB) virtio=$(BUILD_ENABLE_VIRTIO)
 
 MESSAGE_BEFORE = "Set build options"
+
+# COMMAND_AFTER_COMPILE = sh $(SYSTEM_LIB_PATH)/extras/postbuild.sh $(BUILDS_PATH) $(BUILD_SERIES) $(HARDWARE_PATH)
+
+# MESSAGE_AFTER = "Clean build options"
 
 # Flags for gcc, g++ and linker
 # ----------------------------------
@@ -268,26 +353,31 @@ MESSAGE_BEFORE = "Set build options"
 # Common FLAGS_ALL for gcc, g++, assembler and linker
 #
 FLAGS_ALL = $(OPTIMISATION) $(FLAGS_WARNING)
-FLAGS_ALL += -$(MCU_FLAG_NAME)=$(MCU) -DF_CPU=$(F_CPU) -DUSE_FULL_LL_DRIVER
+FLAGS_ALL += -$(MCU_FLAG_NAME)=$(MCU) -DF_CPU=$(F_CPU) 
+FLAGS_ALL += $(FLAGS_FPU)
+
+FLAGS_ALL += -DVECT_TAB_OFFSET=$(FLASH_OFFSET)
+FLAGS_ALL += -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -mthumb
 FLAGS_ALL += -ffunction-sections -fdata-sections
-FLAGS_ALL += -nostdlib -fno-threadsafe-statics
 FLAGS_ALL += --param max-inline-insns-single=500 -MMD
+# FLAGS_ALL += -nostdlib -fno-threadsafe-statics
 FLAGS_ALL += $(addprefix -D, $(PLATFORM_TAG) $(FLAGS_D)) $(MORE_DFLAGS) # printf=iprintf
 FLAGS_ALL += -mthumb
-FLAGS_ALL += @$(BUILDS_PATH)/build_opt.h
+FLAGS_ALL += @$(BUILDS_PATH)/sketch/build.opt
 # $(USB_FLAGS)
 FLAGS_ALL += $(addprefix -I, $(INCLUDE_PATH)) -I"$(VARIANT_PATH)"
-FLAGS_ALL += $(FLAGS_FPU)
+
+FLAGS_ALL += $(BUILD_ST_EXTRA_FLAGS)
 
 # Specific FLAGS_C for gcc only
 # gcc uses FLAGS_ALL and FLAGS_C
 #
-FLAGS_C = -std=gnu11
+FLAGS_C = -std=gnu17
 
 # Specific FLAGS_CPP for g++ only
 # g++ uses FLAGS_ALL and FLAGS_CPP
 #
-FLAGS_CPP = -fno-rtti -fno-exceptions -fno-use-cxa-atexit -std=gnu++14
+FLAGS_CPP = -fno-threadsafe-statics -fno-rtti -fno-exceptions -fno-use-cxa-atexit -std=gnu++17
 
 # Specific FLAGS_AS for gcc assembler only
 # gcc assembler uses FLAGS_ALL and FLAGS_AS

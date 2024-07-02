@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 27 Mar 2024 release 14.3.6
+# Last update: 17 May 2024 release 14.4.1
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -82,7 +82,7 @@ else ifeq ($(UPLOADER),cp_uf2)
     USB_RESET = #
     UPLOADER = cp_uf2
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
-    COMMAND_PREPARE = python  $(ADAFRUIT_NRF52_APP)/hardware/nrf52/$(ADAFRUIT_NRF52_RELEASE)/tools/uf2conv/uf2conv.py -c -b $(UPLOAD_OFFSET) -o $(TARGET_BIN_CP) $(TARGET_BIN)
+    COMMAND_PRE_UPLOAD = python  $(ADAFRUIT_NRF52_APP)/hardware/nrf52/$(ADAFRUIT_NRF52_RELEASE)/tools/uf2conv/uf2conv.py -c -b $(UPLOAD_OFFSET) -o $(TARGET_BIN_CP) $(TARGET_BIN)
 
 else ifeq ($(UPLOADER),jlink)
     ada1600a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
@@ -97,8 +97,8 @@ else ifeq ($(UPLOADER),jlink)
     UPLOADER_OPTS = $(SHARED_OPTS) -commanderscript '$(BUILDS_PATH)/upload.jlink'
 
 # Prepare the .jlink scripts
-    COMMAND_PREPARE = printf "r\nloadfile '$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex'\ng\nexit\n" > $(BUILDS_PATH)/upload.jlink ;
-    COMMAND_PREPARE += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+    COMMAND_PRE_UPLOAD = printf "r\nloadfile '$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex'\ng\nexit\n" > $(BUILDS_PATH)/upload.jlink ;
+    COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
 
 #    JLINK_POWER = 1
     JLINK_POWER ?= 0
@@ -124,8 +124,8 @@ else ifeq ($(UPLOADER),ozone)
     UPLOADER_OPTS = $(SHARED_OPTS) -commanderscript '$(BUILDS_PATH)/upload.jlink'
 
 # Prepare the .jlink scripts
-    COMMAND_PREPARE = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\"\ngo\nexit\n' > $(BUILDS_PATH)/upload.jlink ;
-    COMMAND_PREPARE += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+    COMMAND_PRE_UPLOAD = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex\"\ngo\nexit\n' > $(BUILDS_PATH)/upload.jlink ;
+    COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
 
 #    JLINK_POWER = 1
     ifeq ($(JLINK_POWER),1)
@@ -186,6 +186,14 @@ CORE_OBJ_FILES = $(CORE_C_SRCS:.c=.c.o) $(CORE_CPP_SRCS:.cpp=.cpp.o) $(CORE_AS1_
 CORE_OBJS = $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
 
 CORE_LIBS_LOCK = 1
+
+# Three specific libraries
+ifeq ($(APP_LIBS_LIST),0)
+    APP_LIBS_LIST :=
+endif
+
+# Now, adding extra libraries manually
+APP_LIBS_LIST += Adafruit_TinyUSB_Arduino 
 
 # Two locations for libraries
 # First from package

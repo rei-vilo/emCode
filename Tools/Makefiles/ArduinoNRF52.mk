@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 06 Aug 2020 release 11.9.8
+# Last update: 02 Jul 2024 release 14.4.7
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -96,7 +96,7 @@ ifeq ($(UPLOADER),jlink)
     UPLOADER_EXEC = $(UPLOADER_PATH)/JLinkExe
     SHARED_OPTS = -device nRF52832_xxAA -if swd -speed 4000
     UPLOADER_OPTS = $(SHARED_OPTS)  -commanderscript $(BUILDS_PATH)/upload.jlink
-    COMMAND_PREPARE = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)-merged.hex\"\ng\nexit\n' > $(BUILDS_PATH)/upload.jlink
+    COMMAND_PRE_UPLOAD = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)-merged.hex\"\ng\nexit\n' > $(BUILDS_PATH)/upload.jlink
 
     DEBUG_SERVER_PATH = $(SEGGER_PATH)/JLink
     DEBUG_SERVER_EXEC = $(DEBUG_SERVER_PATH)/JLinkGDBServer
@@ -112,7 +112,7 @@ else ifeq ($(UPLOADER),ozone)
     SHARED_OPTS = -device nRF52832_xxAA -if swd -speed 4000
     UPLOADER_OPTS = $(SHARED_OPTS) -commanderscript '$(BUILDS_PATH)/upload.jlink'
 
-    COMMAND_PREPARE = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)-merged.hex\"\ng\nexit\n' > $(BUILDS_PATH)/upload.jlink
+    COMMAND_PRE_UPLOAD = printf 'r\nloadfile \"$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)-merged.hex\"\ng\nexit\n' > $(BUILDS_PATH)/upload.jlink
 
     DEBUGGER_PATH = $(SEGGER_PATH)/Ozone
     DEBUGGER_EXEC = open $(UPLOADER_PATH)/Ozone.app
@@ -260,71 +260,6 @@ INCLUDE_PATH += $(HARDWARE_PATH)/libraries/BLE/utility/uECC
 
 #   --- Reading platform.txt directly instead of
 #   --- Incredible list of includes from platfrom.txt
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/device
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/drivers_nrf/hal
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/drivers_nrf/clock
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/drivers_nrf/common
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/drivers_nrf/config
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/drivers_nrf/delay
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/drivers_nrf/uart
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/drivers_nrf/rng
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/libraries/util
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/libraries/timer
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/libraries/trace
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/libraries/scheduler
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/libraries/uart
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/libraries/softuart
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/libraries/fifo
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/libraries/ecc
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/connection_handover/ac_rec
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/connection_handover/ep_oob_rec
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/connection_handover/hs_rec
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/connection_handover/le_oob_rec
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/connection_handover
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/generic/message
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/generic/record
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/launchapp
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/parser/message
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/parser/record
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/text
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/ndef/uri
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/t2t_lib
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/t2t_lib/hal_t2t
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/t2t_parser
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/t2t_lib
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/ble/common
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/softdevice/s132/headers
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/softdevice/common/softdevice_handler
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/toolchain
-#	INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/toolchain/gcc
-#   ---
-
-# INCLUDE_PATH += $(ARDUINO_NRF52_PATH)/tools/CMSIS/$(ARDUINO_CMSIS_RELEASE)/CMSIS/Include/
-# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/device
-# INCLUDE_PATH += $(shell find $(HARDWARE_PATH)/cores/arduino/components/drivers_nrf -type d)
-# I
-# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/components/nfc/t2t_lib
-# INCLUDE_PATH += $(shell find $(HARDWARE_PATH)/cores/arduino/components/ble -type d)
-# INCLUDE_PATH += $(shell find $(HARDWARE_PATH)/cores/arduino/components/libraries -t
-# INCLUDE_PATH += $(shell find $(HARDWARE_PATH)/cores/arduino/components/nfc -type d)
-# INCLUDE_PATH += $(shell find $(HARDWARE_PATH)/cores/arduino/components/softdevice/common -type d)
-# INCLUDE_PATH += $(shell find $(HARDWARE_PATH)/cores/arduino/components/softdevice/s132/headers -type d)
-# INCLUDE_PATH += $(shell find $(HARDWARE_PATH)/cores/arduino/components/toolchain -type d)
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/libstm32f4
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/libstm32f4/include
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/Drivers/nrf52xx_HAL_Driver/Inc/
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/Drivers/CMSIS/Include/
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/Drivers/CMSIS/Device/ST/nrf52xx/Include
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc
-# # INCLUDE_PATH += $(HARDWARE_PATH)/variants/otto/usb
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/Drivers/BSP/Components
-# # INCLUDE_PATH += $(HARDWARE_PATH)/system/Middlewares/Third_Party/FatFs/src
-# INCLUDE_PATH += $(CORE_LIB_PATH) $(VARIANT_PATH)
-# INCLUDE_PATH += $(sort $(dir $(APP_LIB_CPP_SRC) $(APP_LIB_C_SRC) $(APP_LIB_H_SRC)))
-# INCLUDE_PATH += $(HARDWARE_PATH)/libraries/BLE/utility/uECC
-# # INCLUDE_PATH += $(sort $(dir $(BUILD_APP_LIB_CPP_SRC) $(BUILD_APP_LIB_C_SRC)))
 
 # Flags for gcc, g++ and linker
 # ----------------------------------
@@ -413,6 +348,8 @@ else
 # For 1.0.2
 	COMMAND_POST_COPY = $(OTHER_TOOLS_PATH)/nrf5x-cl-tools/$(ARDUINO_NRF5X_TOOLS_RELEASE)/mergehex/mergehex --merge $(HARDWARE_PATH)/firmwares/primo/softdevice/s132_nrf52_2.0.0_softdevice.hex $(HARDWARE_PATH)/bootloaders/$(call PARSE_BOARD,$(BOARD_TAG),bootloader.file) $(TARGET_HEX) --output $(OBJDIR)/$(BINARY_SPECIFIC_NAME)-merged.hex --quiet
 endif
+
+$(info >>> m)
 
 # Upload command
 #
