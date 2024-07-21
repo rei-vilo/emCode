@@ -290,7 +290,7 @@
             "name": "Adafruit_Huzzah_ESP32_ESP-Prog",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -298,7 +298,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -311,15 +311,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/esp32/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/esp32/pins_arduino.h"
             ]
         },
         {
             "name": "Adafruit_Huzzah_ESP32_USB",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -327,7 +327,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -340,15 +340,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/esp32/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/esp32/pins_arduino.h"
             ]
         },
         {
             "name": "Adafruit_Huzzah_ESP32_WiFi",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -356,7 +356,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -369,8 +369,8 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/esp32/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/esp32/pins_arduino.h"
             ]
         },
         {
@@ -435,7 +435,7 @@
             "name": "Arduino_Nano_33_BLE_mbedOS",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.1.3/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.1.5/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -464,7 +464,7 @@
             "name": "Arduino_Nano_33_BLE_J-Link",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.1.3/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.1.5/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -543,7 +543,7 @@
             "name": "Arduino_Nano_ESP32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -551,7 +551,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -564,15 +564,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/arduino_nano_nora/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/arduino_nano_nora/pins_arduino.h"
             ]
         },
         {
             "name": "Arduino_Nano_ESP32_DFU",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -580,7 +580,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -593,8 +593,8 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/arduino_nano_nora/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/arduino_nano_nora/pins_arduino.h"
             ]
         },
         {
@@ -630,7 +630,7 @@
             "name": "Arduino_Nano_RP2040_mbedOS_MSD",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.1.3/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.1.5/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -767,7 +767,7 @@
             "name": "ESP32_DevKitC",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -775,7 +775,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -788,15 +788,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/esp32/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/esp32/pins_arduino.h"
             ]
         },
         {
             "name": "ESP32_DevKitC_WiFi",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -804,7 +804,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -817,15 +817,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/esp32/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/esp32/pins_arduino.h"
             ]
         },
         {
             "name": "ESP32_DevKitM_2",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -833,7 +833,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -846,15 +846,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/esp32/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/esp32/pins_arduino.h"
             ]
         },
         {
             "name": "ESP32_Pico_Kit_v4",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -862,7 +862,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -875,15 +875,15 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/pico32/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/pico32/pins_arduino.h"
             ]
         },
         {
             "name": "ESP32_Pico_Kit_v4_WiFi",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -891,7 +891,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -904,8 +904,8 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/cores/esp32/Arduino.h",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/variants/pico32/pins_arduino.h"
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/cores/esp32/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/variants/pico32/pins_arduino.h"
             ]
         },
         {
@@ -925,7 +925,7 @@
                 ]
             },
             "intelliSenseMode": "${default}",
-            "compilerPath": "${env:HOME}/.arduino15/packages/AZ3166/tools/arm-none-eabi-gcc/6-2017-q1-update/bin/arm-none-eabi-g++",
+            "compilerPath": "${env:HOME}/.arduino15/packages/AZ3166/tools/arm-none-eabi-gcc/5_4-2016q3/bin/arm-none-eabi-g++",
             "cStandard": "c11",
             "cppStandard": "c++11",
             "defines": [
@@ -1173,7 +1173,7 @@
             "name": "Seeeduino_Xiao_ESP32_C3_USB",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1181,7 +1181,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1194,7 +1194,7 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/esp32/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/esp32/rp2040/Arduino.h",
                 "${env:HOME}/.arduino15/packages/rp2040/hardware/esp32/3.0.0/variants/XIAO_ESP32C3/pins_arduino.h"
             ]
         },
@@ -1202,7 +1202,7 @@
             "name": "Seeeduino_Xiao_ESP32_C6_USB",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1210,7 +1210,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
@@ -1223,8 +1223,37 @@
                 "ARDUINO=10813"
             ],
             "forcedInclude": [
-                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.2/esp32/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/esp32/rp2040/Arduino.h",
                 "${env:HOME}/.arduino15/packages/rp2040/hardware/esp32/3.0.0/variants/XIAO_ESP32C6/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_ESP32_S3_USB",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
+                "${env:HOME}/Projets/Arduino/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/esp32/tools/xtensa-esp32-elf-gcc/esp-2021r2-patch5-8.4.0/bin/xtensa-esp32-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.3/esp32/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/esp32/3.0.0/variants/XIAO_ESP32S3/pins_arduino.h"
             ]
         },
         {
@@ -1608,7 +1637,7 @@
             "name": "STM32duino_Nucleo_F401RE_MSD", 
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/STMicroelectronics/hardware/stm32/2.7.1/**",
+                "${env:HOME}/.arduino15/packages/STMicroelectronics/hardware/stm32/2.8.1/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -1616,7 +1645,7 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceFolder}/**",
-                    "${env:HOME}/.arduino15/packages/STMicroelectronics/hardware/stm32/2.7.1/**",
+                    "${env:HOME}/.arduino15/packages/STMicroelectronics/hardware/stm32/2.8.1/**",
                     "${env:HOME}/Projets/Arduino/libraries/**"
                 ]
             },
