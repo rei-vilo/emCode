@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 25 Jun 2024 release 14.4.5
+# Last update: 21 Jul 2024 release 14.4.8
 #
 
 # On Linux, install pyserial with 
@@ -224,11 +224,11 @@ esp1300a = $(call PARSE_BOARD,$(BOARD_TAG),build.memory_type)
 # $(info === BUILD_MEMORY_TYPE-1 $(BUILD_MEMORY_TYPE))
 ifeq ($(esp1300a),)
     esp1300a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.memory_type)
-#    $(info === BUILD_MEMORY_TYPE-2 $(BUILD_MEMORY_TYPE))
+    # $(info === BUILD_MEMORY_TYPE-2 $(BUILD_MEMORY_TYPE))
 endif
 ifeq ($(esp1300a),)
     esp1300a = $(call PARSE_FILE,build,memory_type,$(HARDWARE_PATH)/platform.txt)
-#    $(info === BUILD_MEMORY_TYPE-3 $(BUILD_MEMORY_TYPE))
+    # $(info === BUILD_MEMORY_TYPE-3 $(BUILD_MEMORY_TYPE))
 endif
 esp1300b = $(shell echo '$(esp1300a)' | sed 's:{build.boot}:$(BUILD_BOOT):g')
 
@@ -248,28 +248,28 @@ BUILD_CDC_ON_BOOT = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.cdc_on_boo
 # $(info >>> BUILD_CDC_ON_BOOT-A '$(BUILD_CDC_ON_BOOT)')
 ifeq ($(BUILD_CDC_ON_BOOT),)
     BUILD_CDC_ON_BOOT = $(call SEARCH_FOR,$(BOARD_TAG),build.cdc_on_boot)
-#    $(info >>> BUILD_CDC_ON_BOOT-2 '$(BUILD_CDC_ON_BOOT)')
+    # $(info >>> BUILD_CDC_ON_BOOT-2 '$(BUILD_CDC_ON_BOOT)')
 endif
 
 BUILD_DFU_ON_BOOT = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.dfu_on_boot=)
 # $(info >>> BUILD_DFU_ON_BOOT-1 '$(BUILD_DFU_ON_BOOT)')
 ifeq ($(BUILD_DFU_ON_BOOT),)
     BUILD_DFU_ON_BOOT = $(call SEARCH_FOR,$(BOARD_TAG),build.dfu_on_boot)
-#    $(info >>> BUILD_DFU_ON_BOOT-2 '$(BUILD_DFU_ON_BOOT)')
+    # $(info >>> BUILD_DFU_ON_BOOT-2 '$(BUILD_DFU_ON_BOOT)')
 endif
 
 BUILD_MSC_ON_BOOT = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.msc_on_boot=)
 # $(info >>> BUILD_MSC_ON_BOOT-1 '$(BUILD_MSC_ON_BOOT)')
 ifeq ($(BUILD_MSC_ON_BOOT),)
     BUILD_MSC_ON_BOOT = $(call SEARCH_FOR,$(BOARD_TAG),build.msc_on_boot)
-#    $(info >>> BUILD_MSC_ON_BOOT-2 '$(BUILD_MSC_ON_BOOT)')
+    # $(info >>> BUILD_MSC_ON_BOOT-2 '$(BUILD_MSC_ON_BOOT)')
 endif
 
 BUILD_USB_MODE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.usb_mode)
 # $(info >>> BUILD_USB_MODE-1 '$(BUILD_USB_MODE)')
 ifeq ($(BUILD_USB_MODE),)
     BUILD_USB_MODE = $(call SEARCH_FOR,$(BOARD_TAG),build.usb_mode)
-#    $(info >>> BUILD_USB_MODE-2 '$(BUILD_USB_MODE)')
+    # $(info >>> BUILD_USB_MODE-2 '$(BUILD_USB_MODE)')
 endif
 
 # $(info >>> build.FLAGS_EXTRA.$(MCU)=)
@@ -319,7 +319,7 @@ ifeq ($(UPLOADER),espota)
     UPLOADER_OPTS = -r
 
     ifeq ($(SSH_ADDRESS),)
-#        $(eval SSH_ADDRESS = $(shell grep ^SSH_ADDRESS '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
+        # $(eval SSH_ADDRESS = $(shell grep ^SSH_ADDRESS '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
         $(eval SSH_ADDRESS = $(shell grep ^SSH_ADDRESS '$(CURRENT_DIR)/Makefile' | cut -d= -f 2- | sed 's/^ //'))
     endif # SSH_ADDRESS
 
@@ -329,7 +329,7 @@ ifeq ($(UPLOADER),espota)
         $(shell sed "s/^SSH_ADDRESS = .*/SSH_ADDRESS = $(SSH_ADDRESS)/g" -i $(CURRENT_DIR)/Makefile)
     endif # SSH_ADDRESS
 
-#     $(info >>> SSH_ADDRESS = '$(SSH_ADDRESS)')
+    # $(info >>> SSH_ADDRESS = '$(SSH_ADDRESS)')
     ifeq ($(SSH_ADDRESS),)
         $(error SSH_ADDRESS empty)
     endif # SSH_ADDRESS
@@ -516,9 +516,9 @@ endif
 esp1100g = $(shell echo '$(esp1100f)' | sed 's:{build.event_core}:$(BUILD_EVENT_CORE):g')
 
 BUILD_DEFINES = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.defines)
-$(info >>> BUILD_DEFINES-1 $(BUILD_DEFINES))
+# $(info >>> BUILD_DEFINES-1 $(BUILD_DEFINES))
 ifeq ($(BUILD_DEFINES),)
-    $(info >>> BUILD_DEFINES-2 $(BUILD_DEFINES))
+    # $(info >>> BUILD_DEFINES-2 $(BUILD_DEFINES))
     BUILD_DEFINES = $(call PARSE_BOARD,$(BOARD_TAG),build.defines)
 endif
 ifeq ($(BOARD_TAG),nano_nora)
@@ -526,10 +526,10 @@ ifeq ($(BOARD_TAG),nano_nora)
     BUILD_DEFINES:=#
 # nano_nora.build.defines=-DBOARD_HAS_PIN_REMAP {build.disable_pin_remap} -DBOARD_HAS_PSRAM '-DUSB_MANUFACTURER="Arduino"' '-DUSB_PRODUCT="Nano ESP32"'
     FLAGS_USB += -DBOARD_HAS_PIN_REMAP $(esp1100m) -DBOARD_HAS_PSRAM -DUSB_MANUFACTURER='"Arduino"' -DUSB_PRODUCT='"Nano ESP32"'
-    $(info >>> esp1100m $(esp1100m))
-    $(info >>> FLAGS_USB-3 $(FLAGS_USB))
+    # $(info >>> esp1100m $(esp1100m))
+    # $(info >>> FLAGS_USB-3 $(FLAGS_USB))
 endif
-    $(info >>> BUILD_DEFINES-4 $(BUILD_DEFINES))
+    # $(info >>> BUILD_DEFINES-4 $(BUILD_DEFINES))
 esp1100h = $(shell echo '$(esp1100g)' | sed 's:{build.defines}:$(BUILD_DEFINES):g')
 
 esp1100i = $(shell echo '$(esp1100h)' | sed 's:{build.extra_flags.{build.mcu}}:$(FLAGS_BUILD_EXTRA):g')
@@ -551,7 +551,6 @@ esp1100j = $(shell echo '$(esp1100i)' | sed 's:{build.zigbee_mode}:$(BUILD_ZIGBE
 FLAGS_EXTRA = $(esp1100j)
 FLAGS_EXTRA += -DARDUINO_HOST_OS='"linux"'
 FLAGS_EXTRA += -DARDUINO_FQBN='"esp32:$(BUILD_CORE):$(BOARD_TAG)"'
-
 
 # $(info >>> BOARD_OPTION_TAGS_LIST $(BOARD_OPTION_TAGS_LIST))
 # $(info === esp1100a $(esp1100a))

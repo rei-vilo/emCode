@@ -416,8 +416,6 @@ endif # WARNING_OPTIONS
 
 # Ignore if target is Boards or Clean
 #
-$(info >>> 1)
-
 ifeq ($(BOOL_SELECT_BOARD),1)
 # List of sub-paths to be excluded
 #
@@ -438,9 +436,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             -include $(MAKEFILE_PATH)/ArduinoAVR_181.mk
             -include $(MAKEFILE_PATH)/ArduinoAVR.mk
             -include $(MAKEFILE_PATH)/ArduinoMegaAVR.mk
-$(info >>> 2)
             -include $(MAKEFILE_PATH)/ArduinoNRF52.mk
-$(info >>> 3)
             -include $(MAKEFILE_PATH)/ArduinoSAM.mk
             -include $(MAKEFILE_PATH)/ArduinoSAMD.mk
             -include $(MAKEFILE_PATH)/ArduinoMBED_giga.mk

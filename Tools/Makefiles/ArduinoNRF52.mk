@@ -170,9 +170,9 @@ CORE_OBJS = $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
 CORE_LIBS_LOCK = 1
 
 ifeq ($(strip $(APP_LIBS_LIST)),0)
-APP_LIBS_LIST = BLE
+    APP_LIBS_LIST = BLE
 else
-APP_LIBS_LIST += BLE
+    APP_LIBS_LIST += BLE
 endif
 
 # Two locations for Arduino libraries
@@ -250,7 +250,7 @@ CMSIS_PATH = $(ARDUINO_NRF52_PATH)/tools/CMSIS/$(ARDUINO_CMSIS_RELEASE)
 //INCLUDE_PATH += $(ARDUINO_NRF52_PATH)/tools/CMSIS/$(ARDUINO_CMSIS_RELEASE)/CMSIS/Include
 nrf1001 = $(call PARSE_FILE,compiler,nrf_api_include,$(HARDWARE_PATH)/platform.txt)
 
-// Use of : instead of / for sed
+#  Use of : instead of / for sed
 nrf1002 = $(shell echo $(nrf1001) | sed 's:-I{runtime.tools.CMSIS.path}:$(CMSIS_PATH):g')
 INCLUDE_PATH = $(shell echo $(nrf1002) | sed 's:-I{runtime.platform.path}:$(HARDWARE_PATH):g')
 
@@ -348,8 +348,6 @@ else
 # For 1.0.2
 	COMMAND_POST_COPY = $(OTHER_TOOLS_PATH)/nrf5x-cl-tools/$(ARDUINO_NRF5X_TOOLS_RELEASE)/mergehex/mergehex --merge $(HARDWARE_PATH)/firmwares/primo/softdevice/s132_nrf52_2.0.0_softdevice.hex $(HARDWARE_PATH)/bootloaders/$(call PARSE_BOARD,$(BOARD_TAG),bootloader.file) $(TARGET_HEX) --output $(OBJDIR)/$(BINARY_SPECIFIC_NAME)-merged.hex --quiet
 endif
-
-$(info >>> m)
 
 # Upload command
 #

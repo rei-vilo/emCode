@@ -535,7 +535,7 @@ SILABS_41b = $(shell echo $(SILABS_41a) | sed 's:{build.variant.path}:$(VARIANT_
 
 SILABS_PRE_GSDK = $(SILABS_41b)
 
-# $(info >>> LOCAL_OBJS $(LOCAL_OBJS))
+# $(info >>> LOCAL_OBJS-2 $(LOCAL_OBJS))
 # $(info >>> LOCAL_ARCHIVES $(LOCAL_ARCHIVES))
 # $(info >>> USER_ARCHIVES $(USER_ARCHIVES))
 # $(info >>> OBJS_CORE $(OBJS_CORE))
@@ -557,7 +557,7 @@ LDSCRIPT = $(SILABS_42b)
 # recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} "-T{build.ldscript}" {compiler.ldflags} {object_files} -Wl,-whole-archive "{build.path}/{archive_file}" {compiler.silabs.precompiled_gsdk} -Wl,-no-whole-archive -Wl,--start-group {compiler.ldlibs} {compiler.silabs.precompiled_libs} -Wl,--end-group -o "{build.path}/{build.project_name}.elf"
 # TARGET_A repalced by OBJS_NON_CORE
 
-COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(OBJS_NON_CORE) -Wl,-whole-archive -L$(OBJDIR) $(TARGET_CORE_A) $(SILABS_PRE_GSDK) -Wl,-no-whole-archive -Wl,--start-group $(FLAGS_LIBS) $(SILABS_PRE_LIBS) -Wl,--end-group $(OUT_PREPOSITION)$@
+COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments $(OBJS_NON_CORE) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -Wl,-whole-archive -L$(OBJDIR) $(TARGET_CORE_A) $(SILABS_PRE_GSDK) -Wl,-no-whole-archive -Wl,--start-group $(FLAGS_LIBS) $(SILABS_PRE_LIBS) -Wl,--end-group $(OUT_PREPOSITION)$@
 
 # Target
 #
