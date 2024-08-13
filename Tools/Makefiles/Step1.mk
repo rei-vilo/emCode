@@ -79,7 +79,7 @@ endif
 # BOARD_TAG and AVRDUDE_PORT
 #
 BOOL_SELECT_BOARD := 0
-ifneq ($(filter $(MAKECMDGOALS),all build core make fast debug archive unarchive upload serial),)
+ifneq ($(filter $(MAKECMDGOALS),all build core make fast debug archive unarchive upload serial bootloader),)
     BOOL_SELECT_BOARD := 1
 endif # MAKECMDGOALS
 BOOL_SELECT_SERIAL := 0

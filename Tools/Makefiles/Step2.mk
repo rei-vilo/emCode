@@ -504,14 +504,6 @@ ifneq ($(strip $(LOCAL_LIBS_LIST)),0)
     LOCAL_LIBS = $(shell echo $(s208)' ' | sed 's://:/:g' | sed 's:/ : :g')
 endif # LOCAL_LIBS_LIST
 
-# $(info >>> EXCLUDE_LIST= $(EXCLUDE_LIST))
-
-# $(info >>> s206= $(s206))
-# $(info >>> s207= $(s207))
-# $(info >>> s208= $(s208))
-# $(info >>> s212= $(s212))
-# $(info >>> s213= $(s213))
-
 # LOCAL_LIBS_LIST_TOP = $(s212)
 LOCAL_LIBS_LIST_TOP = $(foreach dir,$(s213),$(shell echo $(dir) | cut -d/ -f1))
 # LOCAL_LIBS_LIST_TOP = $(foreach dir,$(s212),$(addprefix $(CURRENT_DIR)/,$(shell echo $(dir) | cut -d/ -f1)))
@@ -539,12 +531,6 @@ LOCAL_AS2_SRCS = $(wildcard $(patsubst %,%/*.s,$(LOCAL_LIBS))) $(wildcard $(LOCA
 
 LOCAL_OBJ_FILES = $(LOCAL_C_SRCS:.c=.c.o) $(LOCAL_CPP_SRCS:.cpp=.cpp.o) $(LOCAL_PDE_SRCS:.$(SKETCH_EXTENSION)=.$(SKETCH_EXTENSION).o) $(LOCAL_CC_SRCS:.cc=.cc.o) $(LOCAL_AS1_SRCS:.S=.S.o) $(LOCAL_AS2_SRCS:.s=.s.o)
 RAW_LOCAL_OBJS = $(sort $(patsubst $(LOCAL_LIB_PATH)/%,$(OBJDIR)/%,$(filter-out %/$(PROJECT_NAME_AS_IDENTIFIER).o,$(LOCAL_OBJ_FILES))))
-
-# $(info >>> LOCAL_LIBS $(LOCAL_LIBS))
-# $(info >>> LOCAL_LIB_PATH $(LOCAL_LIB_PATH))
-# $(info >>> )
-# $(info >>> s209 $(s209))
-# $(info >>> LOCAL_CPP_SRCS $(LOCAL_CPP_SRCS))
 
 # Local archives
 #
@@ -581,7 +567,7 @@ endif # USE_ARCHIVES
 # $(info >>> BUILD_APP_LIB_OBJS-1 $(BUILD_APP_LIB_OBJS))
 # $(info >>> USER_OBJS-1 $(USER_OBJS))
 # $(info >>> REMOTE_NON_A_OBJS-1 $(REMOTE_NON_A_OBJS))
-# $(info >>> LOCAL_OBJS-3 $(LOCAL_OBJS))
+# $(info >>> LOCAL_OBJS-1 $(LOCAL_OBJS))
 
 ifeq ($(REMOTE_OBJS),)
 # # WAS VARIANT_OBJS in OBJS_CORE 
@@ -1042,15 +1028,15 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     $(info Binary name       $(BINARY_SPECIFIC_NAME))
 
     ifneq ($(strip $(KEEP_MAIN)),true)
-        $(info main.cpp          updated)
+        $(info main.cpp          Updated)
     else
-        $(info main.cpp          unchanged)
+        $(info main.cpp          Unchanged)
     endif # KEEP_MAIN
 
     ifeq ($(wildcard $(TARGET_CORE_A)),)
-        $(info Generate core     $(SELECTED_BOARD)_$(RELEASE_CORE).a)
+        $(info Core archive      Generate $(SELECTED_BOARD)_$(RELEASE_CORE).a)
     else
-        $(info Use core archive  $(SELECTED_BOARD)_$(RELEASE_CORE).a)
+        $(info Core archive      Use $(SELECTED_BOARD)_$(RELEASE_CORE).a)
     endif
 
     $(info ==== Tools done ====)
@@ -2479,8 +2465,7 @@ before_compile:
 ifneq ($(COMMAND_BEFORE_COMPILE),)
 	$(call SHOW,"1.0-BEFORE",$(MESSAGE_BEFORE))
         
-	$(COMMAND_BEFORE_COMPILE)
-# 	$(QUIET)$(COMMAND_BEFORE_COMPILE)
+	$(QUIET)$(COMMAND_BEFORE_COMPILE)
 endif
 
 after_compile:
@@ -2535,6 +2520,15 @@ endif # FIRST_O_IN_CORE_A
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 info:
+	@echo "==== $(MESSAGE_TASK) done ===="
+
+bootloader:
+	@echo "==== $(MESSAGE_TASK) ===="
+ifneq ($(COMMAND_BOOTLOADER),)
+	$(call SHOW,"1.10-BOOTLOADER","")
+	$(QUIET)$(COMMAND_BOOTLOADER)
+else
+endif
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 # debug:

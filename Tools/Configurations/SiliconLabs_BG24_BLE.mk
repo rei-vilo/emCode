@@ -11,13 +11,13 @@
 # Copyright: (c) Rei Vilo, 2010-2024 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 17 May 2024 release 14.4.0
+# Last update: 02 Aug 2024 release 14.4.10
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
 #
 BOARD_TAG = xg24explorerkit
-BOARD_TAG1 = xg24explorerkit.menu.protocol_stack.ble
+BOARD_TAG1 = xg24explorerkit.menu.protocol_stack.ble_silabs
 
 
 # Port (optional)

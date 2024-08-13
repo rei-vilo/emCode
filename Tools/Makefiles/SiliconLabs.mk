@@ -106,12 +106,18 @@ ifneq ($(strip $(KEEP_MAIN)),true)
     $(shell echo "#endif // EMCODE" >> ./main.cpp)
 endif # KEEP_MAIN
 
+# Boot-loader
+# 
+BOOTLOADER_FILE = $(HARDWARE_PATH)/bootloaders/$(call PARSE_BOARD,$(BOARD_TAG),bootloader.file)
+
 # Uploader 
 # UPLOADER defined in .mk
 #
 # TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
 # COMMAND_UF2 = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(SILABS_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
 # 
+UPLOADER_PROTOCOL = $(call PARSE_BOARD,$(BOARD_TAG),upload.protocol)
+
 ifeq ($(UPLOADER),openocd)
 
 # /home/reivilo/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s /home/reivilo/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program {/tmp/arduino/sketches/49013B1BA7E8C0ACCF2136108904F353/matter_lightbulb_color.ino.hex}; reset; exit"
@@ -125,15 +131,18 @@ ifeq ($(UPLOADER),openocd)
     UPLOADER_OPTS += -f $(call PARSE_BOARD,$(BOARD_TAG),debug.server.openocd.scripts.1)
     UPLOADER_COMMAND = reset; exit
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "init; reset_config srst_nogate; reset halt; program $(TARGET_HEX); $(UPLOADER_COMMAND)"
+    COMMAND_BOOTLOADER = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "init; reset_config srst_nogate; reset halt; program $(BOOTLOADER_FILE); $(UPLOADER_COMMAND)"
 
 else # commander or jlink 
 
-# "/home/reivilo/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander"  flash /home/reivilo/.var/app/cc.arduino.IDE2/cache/arduino/sketches/787161434EF5B388F6727A50919C6517/Blink.ino.elf
-UPLOADER_PATH := $(OTHER_TOOLS_PATH)/simplicitycommander/$(SILICONLABS_TOOLS_RELEASE)
-UPLOADER_EXEC = $(UPLOADER_PATH)/commander
+    # "/home/reivilo/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander"  flash /home/reivilo/.var/app/cc.arduino.IDE2/cache/arduino/sketches/787161434EF5B388F6727A50919C6517/Blink.ino.elf
+    UPLOADER_PATH := $(OTHER_TOOLS_PATH)/simplicitycommander/$(SILICONLABS_TOOLS_RELEASE)
+    UPLOADER_EXEC = $(UPLOADER_PATH)/commander
 
-UPLOADER_OPTS =  
-COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) flash $(TARGET_ELF)
+    UPLOADER_OPTS =  
+    COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) flash $(TARGET_ELF)
+    COMMAND_BOOTLOADER = $(UPLOADER_EXEC) $(UPLOADER_OPTS) flash $(BOOTLOADER_FILE)
+    # identifybyserialport 
 
 endif # UPLOADER
 
@@ -535,7 +544,7 @@ SILABS_41b = $(shell echo $(SILABS_41a) | sed 's:{build.variant.path}:$(VARIANT_
 
 SILABS_PRE_GSDK = $(SILABS_41b)
 
-# $(info >>> LOCAL_OBJS-2 $(LOCAL_OBJS))
+# $(info >>> LOCAL_OBJS $(LOCAL_OBJS))
 # $(info >>> LOCAL_ARCHIVES $(LOCAL_ARCHIVES))
 # $(info >>> USER_ARCHIVES $(USER_ARCHIVES))
 # $(info >>> OBJS_CORE $(OBJS_CORE))
