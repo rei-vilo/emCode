@@ -8,7 +8,11 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
+<<<<<<< Updated upstream
 # Last update: 02 Feb 2024 release 14.3.2
+=======
+# Last update: 23 Sep 2023 release 14.2.5
+>>>>>>> Stashed changes
 #
 
 # RP2040 Pico for Arduino
@@ -181,8 +185,13 @@ else ifeq ($(UPLOADER),jlink)
     UPLOADER = jlink
 
     # Prepare the .jlink scripts
+<<<<<<< Updated upstream
     COMMAND_PRE_UPLOAD = printf 'r\nloadfile "$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink' ;
     COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+=======
+    COMMAND_PREPARE = printf 'r\nloadfile "$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink' ;
+    COMMAND_PREPARE += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+>>>>>>> Stashed changes
 
 # # Option 1 - 1.5.0-a-5007782 is actually arm-none-eabi-cpp (GCC) 10.3.0 but gdb remains 8.2.5
 # # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
