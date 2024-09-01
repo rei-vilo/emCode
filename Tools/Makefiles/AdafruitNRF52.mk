@@ -6,11 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-<<<<<<< Updated upstream
 # Last update: 17 May 2024 release 14.4.1
-=======
-# Last update: 23 Sep 2023 release 14.2.5
->>>>>>> Stashed changes
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -262,11 +258,7 @@ endif
 
 # Now, adding extra libraries manually
 APP_LIBS_LIST += Adafruit_TinyUSB_Arduino 
-<<<<<<< Updated upstream
 APP_LIBS_LIST += Adafruit_LittleFS InternalFileSytem SPI
-=======
-APP_LIBS_LIST += Adafruit_LittleFS InternalFileSytem
->>>>>>> Stashed changes
 ifeq ($(BOARD_TAG),feather52832)
 else
     APP_LIBS_LIST += Adafruit_nRFCrypto 

@@ -30,6 +30,7 @@
 ///
 /// @brief LED pin
 ///
+// #define LED_BUILTIN 2
 #define myLED LED_BUILTIN
 
 ///

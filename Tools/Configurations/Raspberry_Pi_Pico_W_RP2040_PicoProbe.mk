@@ -11,7 +11,7 @@
 # Copyright: (c) Rei Vilo, 2010-2024 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 03 Mar 2023 release 13.0.6
+# Last update: 26 Aug 2024 release 14.5.0
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
@@ -32,10 +32,10 @@ BOARD_TAG5 = rpipicow.menu.usbstack.picousb
 BOARD_TAG6 = rpipicow.menu.stackprotect.Disabled
 # Exception, default = disabled
 BOARD_TAG7 = rpipicow.menu.exceptions.Disabled
-# Country for WiFi
-BOARD_TAG8 = rpipicow.menu.wificountry.worldwide
 # Upload method
-BOARD_TAG9 = rpipico.menu.uploadmethod.default
+BOARD_TAG8 = rpipicow.menu.uploadmethod.picoprobe_cmsis_dap
+# Country for WiFi
+BOARD_TAG9 = rpipicow.menu.wificountry.worldwide
 # WiFi and BLE
 # rpipicow.menu.ipbtstack.ipv4only 			WiFi IPv4 
 # rpipicow.menu.ipbtstack.ipv4ipv6			WiFi IPv4 + IPv6

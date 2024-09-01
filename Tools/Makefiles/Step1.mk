@@ -442,7 +442,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             -include $(MAKEFILE_PATH)/ArduinoMBED_giga.mk
             -include $(MAKEFILE_PATH)/ArduinoMBED_nano.mk
             -include $(MAKEFILE_PATH)/ArduinoESP32.mk
-            -include $(MAKEFILE_PATH)/ArduinoMBED_pico.mk
+#            -include $(MAKEFILE_PATH)/ArduinoMBED_pico.mk
 
             # . Others boards for Arduino 1.8.0
             # Adafruit
