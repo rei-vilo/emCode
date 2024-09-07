@@ -97,7 +97,16 @@
       
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -2822,7 +2831,9 @@
 <p>Visual Studio Code is based on extensions.</p>
 <p>To install an extension using the command line:</p>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">code<span class="w"> </span>--install-extension<span class="w"> </span>ms-vscode.cpptools
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>To install an extension using the IDE:</p>
 <ul>
 <li>
@@ -2915,13 +2926,27 @@
 <p><a href="https://clang.llvm.org/">CLang</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>;</p>
 </li>
 <li>
-<p><a href="http://cppcheck.sourceforge.net/">CppCheck</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>;</p>
+<p><a href="https://cppcheck.sourceforge.net/">CppCheck</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>;</p>
 </li>
 <li>
 <p><a href="https://dwheeler.com/flawfinder/">FlawFinder</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>;</p>
 </li>
 <li>
 <p><a href="https://github.com/terryyin/lizard">Lizard</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</p>
+</li>
+</ul>
+<p>The <strong>Multilingual, Offline and Lightweight Spellchecker</strong> uses the dictionaries located at <code>~/.config/Code/Dictionaries</code>, with default installed dictionary American English .</p>
+<p>To use other dictionaries,</p>
+<ul>
+<li>
+<p>Download Google Chrome dictionaries with <code>.bdic</code> extension from <a href="https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries/">chromium/deps/hunspell_dictionaries</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</p>
+</li>
+<li>
+<p>Link system dictionaries located at <code>/usr/share/hunspell/</code> with <code>.dic</code> and <code>.aff</code> extensions with</p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/hunspell/*<span class="w"> </span>~/.config/Code/Dictionaries
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 </li>
 </ul>
 <p>Visual Studio Code generates temporary files for each project. The <strong>Workspace Storage Cleanup</strong> extension manages them to save space.</p>
@@ -2952,7 +2977,7 @@
 <p>Artistic Style reads the <code>~/.astylerc</code> file for the parameters to use.</p>
 <p>For more information about the format options,</p>
 <ul>
-<li>Please refer to the <a href="http://astyle.sourceforge.net/astyle.html">Documentation</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page on the Artistic Style website.</li>
+<li>Please refer to the <a href="https://astyle.sourceforge.net/astyle.html">Documentation</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page on the Artistic Style website.</li>
 </ul>
 <h3 id="install-the-extensions-to-generate-documentation">Install the extensions to generate documentation<a class="headerlink" href="#install-the-extensions-to-generate-documentation" title="Permanent link">&para;</a></h3>
 <table>
@@ -3038,15 +3063,21 @@
 </ul>
 <p>The Segger J-Link probe may need</p>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <html><body><div class="* highlight"><pre><span></span><code>ACTION!<span class="o">=</span><span class="s2">"add"</span>,<span class="w"> </span>SUBSYSTEM!<span class="o">=</span><span class="s2">"usb_device"</span>,<span class="w"> </span><span class="nv">GOTO</span><span class="o">=</span><span class="s2">"segger_rules_end"</span>
 ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"1366"</span><span class="w"> </span>ENV<span class="o">{</span>ID_MM_DEVICE_IGNORE<span class="o">}=</span><span class="s2">"1"</span>
 <span class="c1">#ATTRS{idVendor}=="1366" ATTRS{idProduct}=="0105", ENV{ID_MM_DEVICE_IGNORE}="1"</span>
 <span class="nv">LABEL</span><span class="o">=</span><span class="s2">"segger_rules_end"</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span></p>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>su
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">#</span>
 <span class="normal">#</span>
 <span class="normal">#</span>
@@ -3060,15 +3091,21 @@ ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">
 </span><span class="">cp<span class="w"> </span><span class="m">99</span>-segger-vcom.rules<span class="w"> </span>/etc/udev/rules.d/99-segger-vcom.rules
 </span><span class="">udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
 </span><span class=""><span class="nb">exit</span>
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>And, if <strong>JLinkGDBServer</strong> complains about missing libraries, </p>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libncursesw5
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>The <strong>Cortex Debug extension</strong> requires a modern GDB client, version <code>9</code> or later. Some boards packages include older versions of the GDB client.</p>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>update
 </span><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gdb-multiarch
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>For more information on the Cortex Debug extension,</p>
 <ul>
 <li>Please refer to the <a href="https://github.com/Marus/cortex-debug/wiki">Cortex-Debug</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> wiki.</li>
@@ -3130,7 +3167,9 @@ ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ls<span class="w"> </span>-all<span class="w"> </span>/dev/ttyACM0<span class="w"> </span>
 </span>crw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>dialout<span class="w"> </span><span class="m">166</span>,<span class="w"> </span><span class="m">0</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">13</span>:20<span class="w"> </span>/dev/ttyACM0
-</code></pre></div></td></tr></table></div></body></html>
+</code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Change the authorisation of the USB device to allow read and write, as it is protected by default.</li>
 </ul>
@@ -3139,7 +3178,9 @@ ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">
 <span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">666</span><span class="w"> </span>/dev/ttyACM0
 </span><span class="">ls<span class="w"> </span>-all<span class="w"> </span>/dev/ttyACM0<span class="w"> </span>
 </span>crw-rw-rw-<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>dialout<span class="w"> </span><span class="m">166</span>,<span class="w"> </span><span class="m">0</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">13</span>:20<span class="w"> </span>/dev/ttyACM0
-</code></pre></div></td></tr></table></div></body></html>
+</code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>For more information on connecting USB devices to WSL, please refer to</p>
 <ul>
 <li><a href="https://learn.microsoft.com/en-us/windows/wsl/connect-usb">Connect USB devices</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>;</li>
@@ -3289,7 +3330,7 @@ ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>

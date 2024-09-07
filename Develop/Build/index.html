@@ -97,7 +97,16 @@
       
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3001,7 +3010,9 @@
 <span class="w">            </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Build with makefile"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">    </span><span class="p">]</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="define-compiler-options">Define compiler options<a class="headerlink" href="#define-compiler-options" title="Permanent link">&para;</a></h3>
 <p>Some project may require additional options.</p>
 <ul>
@@ -3017,17 +3028,23 @@
 <span class="c"># If 0 or empty, no additional options</span>
 <span class="c">#</span>
 <span class="err">COMPILER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-fpermissive</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>In this example, <code>-fpermissive</code> has been added.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># Compiler options</span>
 <span class="c"># ----------------------------------</span>
 <span class="c"># If 0 or empty, no additional options</span>
 <span class="c">#</span>
 <span class="err">COMPILER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-Wl,-u,_printf_float,-u,-_scanf_float</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>In this example, formatting float numbers has been added.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">COMPILER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-flto</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>In this example, the <code>-flto</code> implements link time optimisation on GCC to optimise the executable size.</p>
 <p>For more information on the authorised parameters,</p>
 <ul>
@@ -3049,7 +3066,9 @@
 <span class="c">#</span>
 <span class="err">COMPILER_OPTIONS</span><span class="w"> </span><span class="err">=</span>
 <span class="err">LINKER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-Wl,--check-sections</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>In this example, <code>-Wl,--check-sections</code> has been added.</p>
 <p>For more information on the authorised parameters,</p>
 <ul>
@@ -3069,13 +3088,17 @@
 <span class="c"># WARNING_OPTIONS = unused-variable unused-function unused-label unused-value no-conversion-null no-pointer-arith</span>
 <span class="c">#</span>
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>If <code>WARNING_OPTIONS</code> is left empty, all warnings are displayed. This is the same as <code>WARNING_OPTIONS = all</code>.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># Warning options</span>
 <span class="c">#</span>
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span>
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">all</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>The <code>all</code> option corresponds to the <code>-Wall</code> parameter and usually generates a very long list of warning messages, making the analysis difficult if not impossible.</p>
 <p>The solution consists on selecting a scope and targeting specific warnings.</p>
 <p>Define the selected warnings by listing the options after the variable <code>WARNING_OPTIONS</code>.</p>
@@ -3086,14 +3109,18 @@
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># Warning options</span>
 <span class="c">#</span>
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">unused-variable</span><span class="w"> </span><span class="err">unused-function</span><span class="w"> </span><span class="err">unused-label</span><span class="w"> </span><span class="err">unused-value</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>To check all the use of <code>NULL</code>, define the following warning options.</li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># Warning options</span>
 <span class="c">#</span>
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">conversion-null</span><span class="w"> </span><span class="err">pointer-arith</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>For more information on the many other warning messages options,</p>
 <ul>
 <li>Please refer to the <a href="https://gcc.gnu.org/onlinedocs/gcc-10.5.0/gcc/Warning-Options.html">Using the GNU Compiler Collection Manual</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
@@ -3117,14 +3144,18 @@
 
 <span class="c"># Binary name, default=embeddedcomputing</span>
 <span class="err">BINARY_SPECIFIC_NAME</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">$(PROJECT_NAME_AS_IDENTIFIER)</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>In the example, the binary specific name is set to <code>embed1</code>, the C-compliant name of the project through the variable <code>$(PROJECT_NAME_AS_IDENTIFIER)</code>.</p>
 <ul>
 <li>Just enter whatever value after <code>BINARY_SPECIFIC_NAME</code> to set another name,</li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># Binary name, default=embeddedcomputing</span>
 <span class="err">BINARY_SPECIFIC_NAME</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">myBinarySpecificName</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="define-a-final-command">Define a final command<a class="headerlink" href="#define-a-final-command" title="Permanent link">&para;</a></h3>
 <p>Some project may require to run a final command once compilation is successful.</p>
 <p>To define a final command,</p>
@@ -3141,13 +3172,17 @@
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># Final command after make,</span>
 <span class="err">COMMAND_FINAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">cp</span><span class="w"> </span><span class="err">$(TARGET_HEX)</span><span class="w"> </span><span class="err">$(CURRENT_DIR)/</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>In the example, the final command copies the binary <code>.hex</code> to the folder of the project.</p>
 <p>The <strong>Report Navigator</strong> displays the final command.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">----</span><span class="w"> </span><span class="err">Final</span><span class="w"> </span><span class="err">----</span>
 <span class="err">cp</span><span class="w"> </span><span class="err">./.builds/embeddedcomputing.hex</span><span class="w"> </span><span class="err">.</span>
 <span class="err">====</span><span class="w"> </span><span class="err">Make</span><span class="w"> </span><span class="err">done</span><span class="w"> </span><span class="err">====</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">&para;</a></h2>
 <p>To upload,</p>
 <ul>
@@ -3175,7 +3210,9 @@
 </li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">BOARD_PORT</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/dev/tty.usbACM1</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>To know the USB port name of the active board, proceed as follow:</p>
 <ul>
 <li>
@@ -3191,7 +3228,9 @@
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ls<span class="w"> </span>/dev/ttyACM*
 </span>/dev/tty.usbACM1
-</code></pre></div></td></tr></table></div></body></html>
+</code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>To change the speed of the serial console,</p>
 <ul>
 <li>
@@ -3205,7 +3244,9 @@
 <span class="c"># Uncomment and specify another speed</span>
 <span class="c">#</span>
 <span class="err">SERIAL_BAUDRATE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">230400</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="manage-specific-boards">Manage specific boards<a class="headerlink" href="#manage-specific-boards" title="Permanent link">&para;</a></h3>
 <p>Some boards require a specific procedure.</p>
 <ul>
@@ -3341,7 +3382,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>

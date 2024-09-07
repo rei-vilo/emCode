@@ -97,7 +97,16 @@
       
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -2627,7 +2636,9 @@
 <span class="w">        </span>│<span class="w">   </span>├──<span class="w"> </span>Raspberry_Pi_Pico_W_RP2040_MSD_3.3.0.a
 <span class="w">        </span>│<span class="w">   </span>└──<span class="w"> </span>Raspberry_Pi_Pico_W_RP2040_MSD_3.4.0.a
 <span class="w">        </span>└──<span class="w"> </span>Makefiles
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 </div>
 <p>The <code>core</code> target generates the board core archive.</p>
 <ul>
@@ -2643,7 +2654,9 @@
 </li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">make<span class="w"> </span>core<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span>Raspberry_Pi_Pico_W_RP2040_MSD
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>Or </p>
 <ul>
 <li>Call the prompt with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>, enter or select <code>Tasks: Run Task</code>, then select <strong>Core</strong>.</li>
@@ -2668,7 +2681,9 @@
 </li>
 </ul>
 <p><html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">make<span class="w"> </span>document
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 Or</p>
 <ul>
 <li>Call the prompt with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>, enter or select <code>Tasks: Run Task</code>, then select <strong>Document</strong>.</li>
@@ -2804,7 +2819,7 @@ Or</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>

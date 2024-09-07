@@ -97,7 +97,16 @@
       
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -2742,7 +2751,9 @@
 </li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:samd
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h2 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h2>
 <h2 id="upload-to-arduino-m0-pro">Upload to Arduino M0 Pro<a class="headerlink" href="#upload-to-arduino-m0-pro" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="img/Logo-064-Arduino-IDE.png" /> The Arduino M0 Pro has two USB connectors: one called native and another called programmer. Both can be used to upload a sketch.</p>
@@ -2772,7 +2783,9 @@
 <li>Open a <strong>Terminal</strong> window and run</li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>nano<span class="w"> </span>/etc/udev/rules.d/98-openocd.rules
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Edit</li>
 </ul>
@@ -2780,7 +2793,9 @@
 SUBSYSTEM!<span class="o">=</span><span class="s2">"usb|tty|hidraw"</span>,<span class="w"> </span><span class="nv">GOTO</span><span class="o">=</span><span class="s2">"openocd_rules_end"</span>
 ATTRS<span class="o">{</span>product<span class="o">}==</span><span class="s2">"*CMSIS-DAP*"</span>,<span class="w"> </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">"664"</span>,<span class="w"> </span><span class="nv">GROUP</span><span class="o">=</span><span class="s2">"plugdev"</span>
 <span class="nv">LABEL</span><span class="o">=</span><span class="s2">"openocd_rules_end"</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>
 <p>Save and close with ++ctl+o++ <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>;</p>
@@ -2790,7 +2805,9 @@ ATTRS<span class="o">{</span>product<span class="o">}==</span><span class="s2">"
 </li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>For more information on CMSIS-DAP,</p>
 <ul>
 <li>Please refer to <a href="https://arduino.stackexchange.com/questions/28566/arduino-zero-error-unable-to-find-cmsis-dap-device">Arduino Zero error: unable to find CMSIS-DAP device</a></li>
@@ -2925,7 +2942,7 @@ ATTRS<span class="o">{</span>product<span class="o">}==</span><span class="s2">"
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>

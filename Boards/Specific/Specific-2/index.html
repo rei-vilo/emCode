@@ -93,7 +93,16 @@
       
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -2677,7 +2686,9 @@
 </li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Connect and define the interface, device and speed.</li>
 </ul>
@@ -2688,12 +2699,16 @@
 </span><span class="">selectinterface<span class="w"> </span>swd
 </span><span class="">device<span class="w"> </span>ATSAMD21G18
 </span><span class="">speed<span class="w"> </span><span class="m">400080</span>
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>Upload the boot-loader and quit.</p>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
 <span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">loadfile<span class="w"> </span>~/Downloads/featherm0bootloader_160305.hex
 </span><span class=""><span class="nb">exit</span>
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>You can now upload the sketch to the Adafruit Feather M0 board using the standard USB connection again.</p>
 <p>For more information,</p>
 <ul>
@@ -2733,7 +2748,7 @@
 <p>You can now upload the sketch to the board using the standard USB connection again.</p>
 <p>For more information,</p>
 <ul>
-<li>Please refer to the <a href="http://arduino.cc/en/Hacking/Bootloader">Boot-Loader Development</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page at the Arduino website.</li>
+<li>Please refer to the <a href="https://arduino.cc/en/Hacking/Bootloader">Boot-Loader Development</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page at the Arduino website.</li>
 </ul>
 <h3 id="change-boot-loader-for-avr-based-arduino-boards">Change boot-loader for AVR-based Arduino boards<a class="headerlink" href="#change-boot-loader-for-avr-based-arduino-boards" title="Permanent link">&para;</a></h3>
 <p>The same procedure applies for changing the boot-loader. For example, for using the MiniCore boot-loader on the Arduino Uno board:</p>
@@ -2746,7 +2761,9 @@
 </li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code>https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>
 <p>Download and install the MiniCore package, as per the procedure <a href="../../Install/Section4/#install-additional-boards-on-arduino">Install additional boards on Arduino</a>.</p>
@@ -2760,7 +2777,9 @@
 <li>Edit the Arduino Uno board or the My Board configuration file, and add</li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">BOOTLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">minicore</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Select it.</li>
 </ul>
@@ -2821,7 +2840,7 @@
 </ul>
 <p>For more information,</p>
 <ul>
-<li>Please refer to the <a href="http://www.arduino.org/learning/tutorials/advanced-guides/how-to-write-the-bootloader-on-arduino-m0-pro-using-arduino-ide">Burning the Boot-Loader with Arduino IDE</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page at the Arduino website.</li>
+<li>Please refer to the <a href="https://www.arduino.org/learning/tutorials/advanced-guides/how-to-write-the-bootloader-on-arduino-m0-pro-using-arduino-ide">Burning the Boot-Loader with Arduino IDE</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page at the Arduino website.</li>
 </ul>
 <p>In case this first option fails. try and use the Atmel Studio, available on Windows only.</p>
 <ul>
@@ -2829,16 +2848,16 @@
 <p>Launch the <strong>Atmel Studio IDE</strong>.</p>
 </li>
 <li>
-<p>Follow the procedure available at <a href="http://www.arduino.org/learning/tutorials/advanced-guides/arduino-m0-pro-for-advanced-user">Burning the Boot-Loader with Atmel Studio</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page.</p>
+<p>Follow the procedure available at <a href="https://www.arduino.org/learning/tutorials/advanced-guides/arduino-m0-pro-for-advanced-user">Burning the Boot-Loader with Atmel Studio</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page.</p>
 </li>
 </ul>
 <p>For more information,</p>
 <ul>
-<li>Please refer to the <a href="http://www.arduino.org/learning/tutorials/advanced-guides/how-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio">Burn the Boot-Loader Using Atmel Studio</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page at the Arduino website.</li>
+<li>Please refer to the <a href="https://www.arduino.org/learning/tutorials/advanced-guides/how-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio">Burn the Boot-Loader Using Atmel Studio</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page at the Arduino website.</li>
 </ul>
 <p>Depending on the version of <strong>OpenOCD</strong>, a bug may prevent from restoring the boot-loader. The bug is referenced under <a href="https://github.com/arduino/ArduinoCore-samd/issues/137">issue 137</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> on the Arduino Git repository. In that case,</p>
 <ul>
-<li>Follow this <a href="https://github.com/adafruit/Adafruit_ILI9341/issues/13#issuecomment-270789877">procedure</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>, also mentioned in this <a href="http://www.arduino.org/forums/zero/solved-uploading-to-m0-pro-fails-1220?p=4600#p4599">thread</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> on the Arduino forum.</li>
+<li>Follow this <a href="https://github.com/adafruit/Adafruit_ILI9341/issues/13#issuecomment-270789877">procedure</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>, also mentioned in this <a href="https://www.arduino.org/forums/zero/solved-uploading-to-m0-pro-fails-1220?p=4600#p4599">thread</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> on the Arduino forum.</li>
 </ul>
 <p>You can now upload the sketch to the board using the standard USB connection again.</p>
 <h2 id="reset-the-bbc-microbit-board-to-factory-default">Reset the BBC micro:bit board to factory default<a class="headerlink" href="#reset-the-bbc-microbit-board-to-factory-default" title="Permanent link">&para;</a></h2>
@@ -2857,7 +2876,7 @@
 <p>To burn the boot-loader again,</p>
 <ul>
 <li>
-<p>Download and unzip the boot-loaders from the GitHub repository <a href="http://github.com/chipKIT32/PIC32-avrdude-bootloader">PIC32 AVRdude Boot-Loaders</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</p>
+<p>Download and unzip the boot-loaders from the GitHub repository <a href="https://github.com/chipKIT32/PIC32-avrdude-bootloader">PIC32 AVRdude Boot-Loaders</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</p>
 </li>
 <li>
 <p>Connect the programmer to the main computer and the chipKIT board.</p>
@@ -2910,7 +2929,7 @@
 <p>You can upload the sketch to the board using the standard USB connection again.</p>
 <p>For more information,</p>
 <ul>
-<li>Please refer to the document <a href="http://ftp://ftp.sqsol.co.uk/pub/docs/mplab/17007.pdf">Debugging chipKIT&trade; Sketches with MPLAB&reg; X IDE</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
+<li>Please refer to the document <a href="https://ftp://ftp.sqsol.co.uk/pub/docs/mplab/17007.pdf">Debugging chipKIT&trade; Sketches with MPLAB&reg; X IDE</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
 </ul>
 <p>This procedure also applies for updating the boot-loader.</p>
 <h2 id="restore-initial-wifi-mode-on-esp8266-boards">Restore initial WiFi mode on ESP8266 boards<a class="headerlink" href="#restore-initial-wifi-mode-on-esp8266-boards" title="Permanent link">&para;</a></h2>
@@ -2925,7 +2944,7 @@
 <p>Plug the board in.</p>
 </li>
 <li>
-<p>Download the <a href="http://bbs.espressif.com/viewforum.php?f=5">ESP8266 SDK</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> from the Download section of the Espressif forum</p>
+<p>Download the <a href="https://bbs.espressif.com/viewforum.php?f=5">ESP8266 SDK</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> from the Download section of the Espressif forum</p>
 </li>
 <li>
 <p>Open the <code>.zip</code> file.</p>
@@ -2938,7 +2957,9 @@
 boot_v1.2+.bin     0x00000
 user1.512.new.bin  0x01000
 blank.bin          0x3e000 &amp; 0x7e000
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Locate on the sub-folders the different binaries mentioned on the <code>ReadMe</code> file.</li>
 </ul>
@@ -2947,7 +2968,9 @@ blank.bin          0x3e000 &amp; 0x7e000
 <li>Open a <strong>Terminal</strong> window and launch the upload command.</li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">esptool.py<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-12345678<span class="w"> </span>--baud<span class="w"> </span><span class="m">115200</span><span class="w"> </span>write_flash<span class="w"> </span>0x00000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/boot_v1.2.bin<span class="w"> </span>0x01000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/at/user1.512.new.bin<span class="w"> </span>0x3e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin<span class="w"> </span>0x7e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>
 <p>In case the binary files and target addresses are different, adapt the upload command accordingly.</p>
@@ -2958,7 +2981,7 @@ blank.bin          0x3e000 &amp; 0x7e000
 </ul>
 <p>The ESP8266 can now be used again as a WiFi peripheral with AT commands.</p>
 <p>For more information,</p>
-<p>Please refer to the procedure described on the <a href="http://bbs.espressif.com/">Espressif</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> support forum.</p>
+<p>Please refer to the procedure described on the <a href="https://bbs.espressif.com/">Espressif</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> support forum.</p>
 <h2 id="reflash-the-rtl8720dn-mcu-as-a-network-processor-for-the-wio-terminal-board">Reflash the RTL8720DN MCU as a network-processor for the Wio Terminal board<a class="headerlink" href="#reflash-the-rtl8720dn-mcu-as-a-network-processor-for-the-wio-terminal-board" title="Permanent link">&para;</a></h2>
 <p>To reflash the RTL8720DN MCU back as a network-processor on the Wio Terminal board,</p>
 <ul>
@@ -3061,7 +3084,7 @@ blank.bin          0x3e000 &amp; 0x7e000
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>

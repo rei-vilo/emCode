@@ -93,7 +93,16 @@
       
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -2591,7 +2600,7 @@
 <p>Each new task brings its own  <code>setup()</code>  and <code>loop()</code> functions with the name of the task.</p>
 <p>For an introduction to RTOS,</p>
 <ul>
-<li>Please refer to <a href="http://www.ti.com/general/docs/litabsmultiplefilelist.tsp?literatureNumber=spruex3o">SYS/BIOS (TI-RTOS Kernel) v6.41 User&rsquo;s Guide</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> and <a href="http://www.ti.com/cn/lit/pdf/spruhd4">TI-RTOS 2.12 User&rsquo;s Guide</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
+<li>Please refer to <a href="https://www.ti.com/general/docs/litabsmultiplefilelist.tsp?literatureNumber=spruex3o">SYS/BIOS (TI-RTOS Kernel) v6.41 User&rsquo;s Guide</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> and <a href="https://www.ti.com/cn/lit/pdf/spruhd4">TI-RTOS 2.12 User&rsquo;s Guide</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
 </ul>
 <h2 id="add-a-task">Add a task<a class="headerlink" href="#add-a-task" title="Permanent link">&para;</a></h2>
 <p>Adding a new task can be done in two ways.</p>
@@ -2633,7 +2642,9 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="add-functions-to-main-sketch">Add functions to main sketch<a class="headerlink" href="#add-functions-to-main-sketch" title="Permanent link">&para;</a></h3>
 <p>An alternative solution simply adds the functions of the new task to the default main <code>.ino</code> sketch file.</p>
 <p>To add a task to the default main <code>.ino</code> file, for example <code>task2</code>,</p>
@@ -2649,7 +2660,9 @@
 <span class="p">{</span>
 
 <span class="p">}</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="check-new-task-functions-names">Check new task functions names<a class="headerlink" href="#check-new-task-functions-names" title="Permanent link">&para;</a></h3>
 <p>Here are the requirements for naming the <code>setup()</code> and <code>loop()</code> functions of the new task.</p>
 <ul>
@@ -2666,14 +2679,18 @@
 <html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_setup</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setupTaskCode</span><span class="p">()</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Include <code>loop</code> in the name of the <code>loop()</code> function of a task.</li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_loop</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">loopTaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">loop_TaskCode</span><span class="p">()</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The latest release of Energia requires <code>setup</code> and <code>loop</code> to be mentioned as prefixes in the names of the functions, when embedXcode allows any combinations.</p>
@@ -2683,17 +2700,19 @@
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">loop_TaskCode</span><span class="p">()</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Check each <code>setup()</code> function and each <code>loop()</code> function has a unique name across the whole project.</li>
 </ul>
 <p>For more information about Energia MT,</p>
 <ul>
-<li>Please refer to the <a href="http://energia.nu/guide/multitasking/">Multi-tasking page</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> at the Energia website.</li>
+<li>Please refer to the <a href="https://energia.nu/guide/multitasking/">Multi-tasking page</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> at the Energia website.</li>
 </ul>
 <p>For more information on TI-RTOS,</p>
 <ul>
-<li>Please refer to the <a href="http://processors.wiki.ti.com/index.php/TI-RTOS">TI-RTOS Wiki</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
+<li>Please refer to the <a href="https://processors.wiki.ti.com/index.php/TI-RTOS">TI-RTOS Wiki</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
 </ul>
 <h2 id="check-the-tasks-file">Check the tasks file<a class="headerlink" href="#check-the-tasks-file" title="Permanent link">&para;</a></h2>
 <p>During compilation and linking, embedXcode parses the different <code>.ino</code> files, selects the <code>setup()</code> and <code>loop()</code> functions, and generates the <code>rtosTasks.h</code> file automatically.</p>
@@ -2702,11 +2721,13 @@
 <html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span>Check<span class="w"> </span>project<span class="w"> </span><span class="nv">embed1</span><span class="w"> </span><span class="o">====</span>
 ERROR<span class="w">   </span>Different<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>setup<span class="o">()</span><span class="w"> </span>and<span class="w"> </span>loop<span class="o">()</span>
 ERROR<span class="w">   </span>TaskCode.ino:<span class="w"> </span>no<span class="w"> </span>setup<span class="o">()</span><span class="w"> </span><span class="k">function</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>It is a good idea to have a look at it to check that all the tasks are correctly mentioned. Do not edit this file as it is generated automatically at each compilation.</p>
 <p>For more information about Energia MT,</p>
 <ul>
-<li>Please refer to the <a href="http://energia.nu/guide/multitasking/">Multi-tasking page</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> at the Energia website.</li>
+<li>Please refer to the <a href="https://energia.nu/guide/multitasking/">Multi-tasking page</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> at the Energia website.</li>
 </ul>
 <p>Here is an example of a populated <code>rtosTasks.h</code> file.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c1">//</span>
@@ -2753,7 +2774,9 @@ ERROR<span class="w">   </span>TaskCode.ino:<span class="w"> </span>no<span clas
 <span class="w"> </span><span class="s">"loop_TaskCode"</span><span class="p">,</span>
 <span class="w"> </span><span class="s">"loop"</span><span class="p">,</span>
 <span class="p">};</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h2 id="add-global-variables-and-main-setup-function">Add global variables and main setup function<a class="headerlink" href="#add-global-variables-and-main-setup-function" title="Permanent link">&para;</a></h2>
 <p>An optional file <code>rtosGlobals.h</code> contains global variables and a optional main setup function <code>setupRtos()</code>.</p>
 <p>This main setup function <code>setupRtos()</code> runs before all other <code>setup()</code> functions of the tasks.</p>
@@ -2762,12 +2785,16 @@ ERROR<span class="w">   </span>TaskCode.ino:<span class="w"> </span>no<span clas
 <span class="p">{</span>
 <span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>This is especially useful for initialising shared resources like Serial, I&sup2;C and SPI ports, and shared RTOS elements like clock, mailbox, semaphore.</p>
 <p>All tasks in the <code>.ino</code> files need to include <code>rtosGlobals.h</code>.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"rtosGlobals.h"</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This feature is specific to embedXcode and is not supported by the Energia IDE.</p>
@@ -2864,7 +2891,7 @@ ERROR<span class="w">   </span>TaskCode.ino:<span class="w"> </span>no<span clas
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>

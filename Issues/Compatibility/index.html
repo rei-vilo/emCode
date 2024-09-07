@@ -97,7 +97,16 @@
       
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3063,7 +3072,9 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"functionB"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>Without prototyping <code>functionB()</code>, compilation would raise an error. The Arduino IDE adds the prototypes on the main sketch.</p>
 <p>Prototypes aren&rsquo;t required for libraries as they are already included in the header file.</p>
 <p>Prototypes are fully compatible with the standard Arduino IDE.</p>
@@ -3071,10 +3082,12 @@
 <p>The same <code>#include</code> statement to the core library is required on each header file of each library, as it is recommended for the standard Arduino IDE.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c1">// SDK</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Arduino.h"</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>For more information on library development,</p>
 <ul>
-<li>Please refer to <a href="http://arduino.cc/en/Hacking/LibraryTutorial">Writing a Library for Arduino</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
+<li>Please refer to <a href="https://docs.arduino.cc/learn/contributions/arduino-creating-library-guide/">Writing a Library for Arduino</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
 </ul>
 <h3 id="include-all-used-libraries-in-main-sketch">Include all used libraries in main sketch<a class="headerlink" href="#include-all-used-libraries-in-main-sketch" title="Permanent link">&para;</a></h3>
 <p>The standard Arduino IDE requires including all the libraries in the main sketch, even those not used by the main sketch but used in libraries, while emCode allows naming only the libraries which are directly called by the main sketch.</p>
@@ -3121,11 +3134,15 @@
 <html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_setup</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setupTaskCode</span><span class="p">()</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>The latest release of Energia requires <code>loop</code> and <code>setup</code> to be mentioned as prefixes.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setupTaskCode</span><span class="p">()</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Rename the <code>setup()</code> and <code>loop()</code> functions of the tasks with <code>loop</code> and <code>setup</code> mentioned as prefixes.</li>
 </ul>
@@ -3147,7 +3164,9 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="delete-the-rtosglobalsh-file">Delete the rtosGlobals.h file<a class="headerlink" href="#delete-the-rtosglobalsh-file" title="Permanent link">&para;</a></h3>
 <p>Similarly, global variables and constants are defined on the main sketch in Energia, while emCode relies on the <code>rtosGlobals.h</code> header file.</p>
 <p>If global variables and constants are defined,</p>
@@ -3165,7 +3184,9 @@
 <li>Add the pre-processing statement on the impacted header files.</li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="cp">#define ENERGIA_MT</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>Because an Energia MT project has <code>ARDUINO</code> and <code>ENERGIA</code> already defined, those variables need to be tested in a given order.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="cp">#if defined(ENERGIA_MT)</span>
 <span class="c1">// Energia MT specific</span>
@@ -3174,10 +3195,12 @@
 <span class="cp">#elif defined(ARDUINO)</span>
 <span class="c1">// Arduino specific</span>
 <span class="cp">#endif</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>For more information about Energia MT,</p>
 <ul>
-<li>Please refer to the <a href="http://energia.nu/guide/multitasking/">Multi-tasking page</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> at the Energia website.</li>
+<li>Please refer to the <a href="https://energia.nu/guide/multitasking/">Multi-tasking page</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> at the Energia website.</li>
 </ul>
 <h2 id="manage-code-for-multiple-platforms-and-mcus">Manage code for multiple platforms and MCUs<a class="headerlink" href="#manage-code-for-multiple-platforms-and-mcus" title="Permanent link">&para;</a></h2>
 <p>emCode allows great flexibility on customising the code, especially when developing for different platforms and MCUs.</p>
@@ -3212,7 +3235,9 @@
 <span class="cp">#else </span><span class="c1">// Arduino, chipKIT, Teensy specific</span>
 <span class="w">    </span><span class="n">myLED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LED_BUILTIN</span><span class="p">;</span>
 <span class="cp">#endif</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>The name of the board is queried to select the right pin number. This example uses the MCU-based approach.</p>
 <h3 id="use-the-mcu-based-approach">Use the MCU-based approach<a class="headerlink" href="#use-the-mcu-based-approach" title="Permanent link">&para;</a></h3>
 <p>The first approach is MCU-based and relies solely on the micro-controller type.</p>
@@ -3242,7 +3267,9 @@
 <span class="cp">#else </span><span class="c1">// error</span>
 <span class="cp">#error Platform not defined or not supported</span>
 <span class="cp">#endif</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="use-the-ide-based-approach">Use the IDE-based approach<a class="headerlink" href="#use-the-ide-based-approach" title="Permanent link">&para;</a></h3>
 <p>The second approach is IDE-based.</p>
 <p>Each IDE defines a specific environment variable which includes the boards type it supports, and optionally the framework version.</p>
@@ -3279,7 +3306,9 @@
 <span class="cp">#else </span><span class="c1">// error</span>
 <span class="cp">#error Platform not defined</span>
 <span class="cp">#endif </span><span class="c1">// end IDE</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>The Arduino IDE sets one single environment variable, <code>ARDUINO=101</code>.</p>
 <p>The standard Arduino IDE often require to close one IDE and open another.</p>
 <h2 id="avoid-spaces-and-special-characters-in-projects-names-and-paths">Avoid spaces and special characters in projects names and paths<a class="headerlink" href="#avoid-spaces-and-special-characters-in-projects-names-and-paths" title="Permanent link">&para;</a></h2>
@@ -3290,10 +3319,14 @@
 <h2 id="use-the-emcode-pre-processing-variable">Use the <code>EMCODE</code> pre-processing variable<a class="headerlink" href="#use-the-emcode-pre-processing-variable" title="Permanent link">&para;</a></h2>
 <p>emCode exposes the pre-processing variable <code>EMCODE</code> with the release number as value.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">EMCODE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">140104</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>The variable and the value are passed on to the compiler and the linker as a <code>-D</code> parameter.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">-DEMCODE=140104</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p>This allows to manage conditional pre-processing statements as <code>#define</code> and <code>#include</code> based on the IDE used, either Visual Studio Code with emCode or the standard Arduino IDE.</p>
 <p>This also allows to open an emCode project with the standard Arduino IDE and compile it.</p>
 <p>The <code>main.cpp</code> code file already includes the <code>EMCODE</code> variable so <code>main.cpp</code> is only considered when compiled with emCode, and ignored by the standard Arduino IDE.</p>
@@ -3427,7 +3460,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>

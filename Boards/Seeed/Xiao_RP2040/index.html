@@ -97,7 +97,16 @@
       
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3002,11 +3011,11 @@
 </tr>
 <tr>
 <td style="text-align: left;">Download</td>
-<td><a href="http://wiki.seeed.cc/Seeed_Arduino_Boards">http://wiki.seeed.cc/Seeed_Arduino_Boards</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></td>
+<td><a href="https://wiki.seeedstudio.com/Seeed_Arduino_Boards">https://wiki.seeedstudio.com/Seeed_Arduino_Boards</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></td>
 </tr>
 <tr>
 <td style="text-align: left;">Wiki</td>
-<td><a href="http://wiki.seeed.cc/Seeeduino_v4.2/">http://wiki.seeed.cc/Seeeduino_v4.2/</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></td>
+<td><a href="https://wiki.seeedstudio.com/Seeeduino_v4.2/">https://wiki.seeedstudio.com/Seeeduino_v4.2/</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></td>
 </tr>
 <tr>
 <td style="text-align: left;">Xiao RP2040</td>
@@ -3038,7 +3047,9 @@
 </li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>Seeeduino:samd
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="install-the-firmware-and-libraries-for-wifi-and-bluetooth">Install the firmware and libraries for WiFi and Bluetooth<a class="headerlink" href="#install-the-firmware-and-libraries-for-wifi-and-bluetooth" title="Permanent link">&para;</a></h3>
 <p>The initial firmware of the RTL8720 radio of the Wio Terminal only provides WiFi capabilities.</p>
 <p>To use WiFi and Bluetooth, the Wio Terminal requires an update of the firmware and the installation of dedicated libraries.</p>
@@ -3087,7 +3098,9 @@
 <p>Apart from the main SAMD51 MCU, the Seeed SAMD Wio Terminal board includes another MCU, RTL8720DN, in charge of WiFi and Bluetooth.</p>
 <p>To install the RTL8720DN of the Wio Terminal board,</p>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>realtek:AmebaD
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>
 <p>Download and install the supported versions of the Arduino IDE under the <code>/Applications</code> folder, as described in the section <a href="../../Install/Section4/Arduino">Install the Arduino platform</a>.</p>
@@ -3119,7 +3132,9 @@
 </li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code>https://github.com/ambiot/ambd_arduino/raw/master/Arduino_package/package_realtek.com_amebad_index.json
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Select the boards and click on <strong>Install</strong>.</li>
 </ul>
@@ -3158,7 +3173,9 @@
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>Seeeduino:avr
 </span><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>Seeeduino:nrf52
 </span><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>Seeeduino:samd
-</span></code></pre></div></td></tr></table></div></body></html>
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <p><img alt="" src="img/Logo-064-Seeeduino.png" /> The installation of the Seeed platform is performed with the <strong>Boards Manager</strong> on the Arduino 1.8 IDE.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3195,13 +3212,15 @@ Call the <strong>Boards Manager</strong> and check the Seeed AVR boards are list
 </li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_seeeduino_boards_index.json</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Select the boards and click on <strong>Install</strong>.</li>
 </ul>
 <p>For more information on the installation process,</p>
 <ul>
-<li>Please refer to the <a href="http://wiki.seeed.cc/Seeed_Arduino_Boards/">How to Add Seeed Boards to Arduino IDE</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page on the Seeed Studio website.</li>
+<li>Please refer to the <a href="https://wiki.seeedstudio.com/Seeed_Arduino_Boards/">How to Add Seeed Boards to Arduino IDE</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page on the Seeed Studio website.</li>
 </ul>
 <h2 id="install-the-seeed-samd-platform">Install the Seeed SAMD platform<a class="headerlink" href="#install-the-seeed-samd-platform" title="Permanent link">&para;</a></h2>
 <p>The Seeed SAMD Xiao board includes the compact Xiao board and the IoT-enabled Wio Terminal.</p>
@@ -3237,13 +3256,15 @@ Call the <strong>Boards Manager</strong> and check the Seeed AVR boards are list
 </li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_seeeduino_boards_index.json</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <ul>
 <li>Select the boards and click on <strong>Install</strong>.</li>
 </ul>
 <p>For more information on the installation process,</p>
 <ul>
-<li>Please refer to the <a href="http://wiki.seeed.cc/Seeed_Arduino_Boards/">How to Add Seeed Boards to Arduino IDE</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page on the Seeed Studio website.</li>
+<li>Please refer to the <a href="https://wiki.seeedstudio.com/Seeed_Arduino_Boards/">How to Add Seeed Boards to Arduino IDE</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page on the Seeed Studio website.</li>
 </ul>
 <p>The boards package does not include the utilities for the UF2 upload.</p>
 <ul>
@@ -3256,7 +3277,9 @@ Call the <strong>Boards Manager</strong> and check the Seeed AVR boards are list
 <li>Edit the main <code>Makefile</code> to list the required libraries.</li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">ArduinoBLE</span>
-</code></pre></div></body></html>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
 <h3 id="use-the-libraries-for-sd_1">Use the libraries for SD<a class="headerlink" href="#use-the-libraries-for-sd_1" title="Permanent link">&para;</a></h3>
 <h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
 
@@ -3389,7 +3412,7 @@ Call the <strong>Boards Manager</strong> and check the Seeed AVR boards are list
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
