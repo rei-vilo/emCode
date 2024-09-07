@@ -97,16 +97,7 @@
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  </head>
   
   
     
@@ -2942,31 +2933,23 @@
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">cd</span><span class="w"> </span>~/.local
 </span><span class="">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Ensure that <code>~/.local/bin</code> is listed in <code>$PATH</code>.</li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>Otherwise,</p>
 <ul>
 <li>Edit  <code>~/.bashrc</code></li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.bashrc
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Add <code>~/.local/bin</code> to <code>$PATH</code></li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">export</span><span class="w"> </span><span class="err">PATH=$PATH:~/.local/bin</span>
-</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</code></pre></div></body></html>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
 </ul>
@@ -2987,23 +2970,17 @@ document$.subscribe(() => { lightbox.reload() });
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>config<span class="w"> </span>init
 </span>Config<span class="w"> </span>file<span class="w"> </span>written<span class="w"> </span>to:<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Edit it with</li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Set the sketchbook folder;</li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/Projects/Arduino</span>
-</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</code></pre></div></body></html>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
 </ul>
@@ -3021,34 +2998,28 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <p>The parameter <code>arduino:avr</code> refers to the name of the boards.</p>
 <h3 id="add-urls-for-new-boards">Add URLs for new boards<a class="headerlink" href="#add-urls-for-new-boards" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Open the configuration file <code>arduino-cli.yaml</code>;</li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <ul>
 <li>Add the other boards;</li>
 </ul>
 <html><body><div class="* highlight"><pre><span></span><code><span class="nt">board_manager</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">additional_urls</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://adafruit.github.io/arduino-board-index/package_adafruit_index.json</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://downloads.arduino.cc/packages/package_mbed_index.json</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://downloads.arduino.cc/packages/package_mbed_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://www.pjrc.com/teensy/package_teensy_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/ambiot/ambd_arduino/raw/master/Arduino_package/package_realtek.com_amebad_index.json</span>
-</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</code></pre></div></body></html>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
 </ul>
@@ -3062,9 +3033,7 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
 </ul>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>install<span class="w"> </span>ArduinoBLE
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <h3 id="check-and-update-the-boards">Check and update the boards<a class="headerlink" href="#check-and-update-the-boards" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -3077,9 +3046,7 @@ document$.subscribe(() => { lightbox.reload() });
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>update-index
 </span><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>upgrade
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <h3 id="check-and-update-the-libraries">Check and update the libraries<a class="headerlink" href="#check-and-update-the-libraries" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -3092,9 +3059,7 @@ document$.subscribe(() => { lightbox.reload() });
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
 <span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>update-index
 </span><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>upgrade
-</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</span></code></pre></div></td></tr></table></div></body></html>
 <h2 id="use-the-arduino-ide">Use the Arduino IDE<a class="headerlink" href="#use-the-arduino-ide" title="Permanent link">&para;</a></h2>
 <h3 id="install-the-arduino-ide">Install the Arduino IDE<a class="headerlink" href="#install-the-arduino-ide" title="Permanent link">&para;</a></h3>
 <p><img alt="" src="../img/Logo-064-Arduino-IDE.png" /> To install the Arduino IDE,</p>
@@ -3163,16 +3128,14 @@ document$.subscribe(() => { lightbox.reload() });
 <h3 id="add-urls-for-new-boards_1">Add URLs for new boards<a class="headerlink" href="#add-urls-for-new-boards_1" title="Permanent link">&para;</a></h3>
 <p>The <strong>Boards Manager</strong> lists the boards based on a set of URLs. To add a new board, the relevant URL should be added. The URL corresponds to a JSON file.</p>
 <html><body><div class="* highlight"><pre><span></span><code>https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
-https://downloads.arduino.cc/packages/package_mbed_index.json
+http://downloads.arduino.cc/packages/package_mbed_index.json
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
 https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
 https://www.pjrc.com/teensy/package_teensy_index.json
 https://github.com/ambiot/ambd_arduino/raw/master/Arduino_package/package_realtek.com_amebad_index.json
-</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
+</code></pre></div></body></html>
 <ul>
 <li>Call the menu <strong>Arduino &gt; Preferences</strong> or press <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-comma">,</kbd></span>.</li>
 </ul>
@@ -3281,7 +3244,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 13, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 16, 2023</span>
   </span>
 
     
@@ -3291,7 +3254,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 14, 2023</span>
   </span>
 
     
@@ -3389,10 +3352,10 @@ document$.subscribe(() => { lightbox.reload() });
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.4.8"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>
