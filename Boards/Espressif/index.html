@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -141,7 +141,7 @@
               </button>
             
             
-            New release 14.4.2 adds support for the <b>Arduino Nano Matter</b> board.
+            New release 14.5 adds support for the <b>Raspberry Pi Pico 2 RP2350</b> boards.
             
           </div>
           
@@ -1943,7 +1943,7 @@
         
   
   <span class="md-ellipsis">
-    Raspberry Pi Pico RP2040
+    Raspberry Pi Pico
   </span>
   
 
@@ -2539,6 +2539,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#install-pyserial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install pyserial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-the-usb-drivers" class="md-nav__link">
     <span class="md-ellipsis">
       Install the USB drivers
@@ -2632,6 +2641,13 @@ document$.subscribe(() => { lightbox.reload() });
 <ul>
 <li>Please refer to the <a href="https://github.com/esp8266/Arduino">Read Me</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page on the ESP8266 repository.</li>
 </ul>
+<h2 id="install-pyserial">Install pyserial<a class="headerlink" href="#install-pyserial" title="Permanent link">&para;</a></h2>
+<p>If compilation fails and complains about missing Serial package, pyserial needs to be installed.</p>
+<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">pip<span class="w"> </span>install<span class="w"> </span>pyserial<span class="w"> </span>--break-system-packages
+</span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p><code>--break-system-packages</code>  allows to install the package system-wide.</p>
 <h2 id="install-the-usb-drivers">Install the USB drivers<a class="headerlink" href="#install-the-usb-drivers" title="Permanent link">&para;</a></h2>
 <p>Depending on the board, a 3.3 V FTDI programmer may be required. The ESP8266-based board requires up to 400 mA.</p>
 <p>For more information,</p>
@@ -2658,7 +2674,7 @@ document$.subscribe(() => { lightbox.reload() });
 <tr>
 <td><img alt="" src="img/Logo-064-Espressif-Systems.png" /></td>
 <td>ESP32</td>
-<td>3.0.4</td>
+<td>3.0.7</td>
 <td>Valid for other ESP32-based boards<br>except Arduino Nano ESP32</td>
 </tr>
 <tr>
@@ -2670,7 +2686,7 @@ document$.subscribe(() => { lightbox.reload() });
 <tr>
 <td><img alt="" src="img/Logo-064-eC.png" /></td>
 <td>emCode</td>
-<td>14.4.11</td>
+<td>14.5.6</td>
 <td></td>
 </tr>
 </tbody>
@@ -2770,7 +2786,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 2, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 28, 2024</span>
   </span>
 
     
@@ -2878,10 +2894,10 @@ document$.subscribe(() => { lightbox.reload() });
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.0"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.6"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
