@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 24 Jun 2024 release 14.4.4
+# Last update: 19 Sep 2024 release 14.5.2
 #
 
 # General table of messages

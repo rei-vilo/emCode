@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 05 Aug 2024 release 14.4.11
+# Last update: 23 Oct 2024 release 14.5.6
 #
 
 # On Linux, install pyserial with 
@@ -50,7 +50,7 @@ endif
 # ----------------------------------
 #
 PLATFORM := ESP32
-PLATFORM_TAG = ARDUINO=$(RELEASE_ARDUINO) ARDUINO_ARCH_ESP32 EMCODE=$(RELEASE_NOW) ARDUINO_$(BUILD_BOARD) ESP32
+PLATFORM_TAG = ARDUINO=$(RELEASE_ARDUINO) ARDUINO_ARCH_ESP32 ESP32=ESP32 EMCODE=$(RELEASE_NOW) ARDUINO_$(BUILD_BOARD) ESP32
 APPLICATION_PATH := $(ESP32_PATH)
 PLATFORM_VERSION := $(ESP32_RELEASE) for Arduino $(ARDUINO_IDE_RELEASE)
 
@@ -643,6 +643,8 @@ FLAGS_ALL += $(esp1200d)
 
 FLAGS_ALL += -I$(SDK_PATH)/$(BUILD_MEMORY_TYPE)/include
 
+FLAGS_ERROR = $(call PARSE_FILE,compiler,common_werror_flag=,$(HARDWARE_PATH)/platform.txt)
+
 # compiler.c.flags="@{compiler.sdk.path}/flags/c_flags" {compiler.warning_flags} {compiler.optimization_flags}
 # recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.extra_flags} {compiler.c.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} -DARDUINO_BOARD="{build.board}" -DARDUINO_VARIANT="{build.variant}" -DARDUINO_PARTITION_{build.partitions} {build.extra_flags} {compiler.cpreprocessor.flags} {includes} "@{build.opt.path}" "@{file_opts.path}" "{source_file}" -o "{object_file}"
 
@@ -650,10 +652,11 @@ esp1500a = $(call PARSE_FILE,compiler,c.flags=,$(HARDWARE_PATH)/platform.txt)
 esp1500b = $(shell echo '$(esp1500a)' | sed 's:{compiler.sdk.path}:$(SDK_PATH):g')
 esp1500c = $(shell echo '$(esp1500b)' | sed 's:{compiler.warning_flags}:$(FLAGS_WARNING):g')
 esp1500d = $(shell echo '$(esp1500c)' | sed 's:{compiler.optimization_flags}:$(OPTIMISATION):g')
+esp1500e = $(shell echo '$(esp1500d)' | sed 's:{compiler.common_werror_flags}:$(FLAGS_ERROR):g')
 
 # FLAGS_C = -DFLAGS_C 
 FLAGS_C += $(call PARSE_FILE,compiler,c.extra_flags=,$(HARDWARE_PATH)/platform.txt)
-FLAGS_C += $(esp1500d)
+FLAGS_C += $(esp1500e)
 
 # $(info === esp1500a $(esp1500a))
 # $(info === esp1500b $(esp1500b))
@@ -667,10 +670,11 @@ esp1600a = $(call PARSE_FILE,compiler,cpp.flags=,$(HARDWARE_PATH)/platform.txt)
 esp1600b = $(shell echo '$(esp1600a)' | sed 's:{compiler.sdk.path}:$(SDK_PATH):g')
 esp1600c = $(shell echo '$(esp1600b)' | sed 's:{compiler.warning_flags}:$(FLAGS_WARNING):g')
 esp1600d = $(shell echo '$(esp1600c)' | sed 's:{compiler.optimization_flags}:$(OPTIMISATION):g')
+esp1600e = $(shell echo '$(esp1600d)' | sed 's:{compiler.common_werror_flags}:$(FLAGS_ERROR):g')
 
 # FLAGS_CPP = -DFLAGS_CPP 
 FLAGS_CPP += $(call PARSE_FILE,compiler,cpp.extra_flags=,$(HARDWARE_PATH)/platform.txt)
-FLAGS_CPP += $(esp1600d)
+FLAGS_CPP += $(esp1600e)
 
 # $(info === esp1600a $(esp1600a))
 # $(info === esp1600b $(esp1600b))
@@ -681,10 +685,11 @@ esp1700a = $(call PARSE_FILE,compiler,S.flags=,$(HARDWARE_PATH)/platform.txt)
 esp1700b = $(shell echo '$(esp1700a)' | sed 's:{compiler.sdk.path}:$(SDK_PATH):g')
 esp1700c = $(shell echo '$(esp1700b)' | sed 's:{compiler.warning_flags}:$(FLAGS_WARNING):g')
 esp1700d = $(shell echo '$(esp1700c)' | sed 's:{compiler.optimization_flags}:$(OPTIMISATION):g')
+esp1700e = $(shell echo '$(esp1700d)' | sed 's:{compiler.common_werror_flags}:$(FLAGS_ERROR):g')
 
 # FLAGS_AS = -DFLAGS_AS 
 FLAGS_AS += $(call PARSE_FILE,compiler,S.extra_flags=,$(HARDWARE_PATH)/platform.txt)
-FLAGS_AS += $(esp1700d)
+FLAGS_AS += $(esp1700e)
 
 # $(info === esp1700a $(esp1700a))
 # $(info === esp1700b $(esp1700b))
@@ -804,6 +809,9 @@ FILE_OPTIONS_BUILDS = $(BUILDS_PATH)/file_opts
 # recipe.hooks.prebuild.7.pattern=/usr/bin/env bash -c ": > '{file_opts.path}'"
 # COMMAND_BEFORE_COMPILE += echo$(info  7 ; 
 COMMAND_BEFORE_COMPILE += : > $(FILE_OPTIONS_BUILDS) ;
+# recipe.hooks.prebuild.8.pattern=/usr/bin/env bash -c "cp -f "{compiler.sdk.path}"/sdkconfig "{build.path}"/sdkconfig"
+COMMAND_BEFORE_COMPILE += cp -f $(SDK_PATH)/sdkconfig $(BUILDS_PATH)/sdkconfig ;
+
 
 ifeq ($(FLAG_BUILD_CORE_A),1)
     COMMAND_BEFORE_COMPILE += echo -DARDUINO_CORE_BUILD > $(FILE_OPTIONS_BUILDS) ;

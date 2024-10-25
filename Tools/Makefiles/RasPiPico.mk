@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 26 Aug 2024 release 14.5.0
+# Last update: 03 Oct 2024 release 14.5.5
 #
 
 # RP2040 Pico for Arduino
@@ -40,7 +40,8 @@ READY_FOR_EMCODE_NEXT = 1
 # $(error RP2040 release $(REQUIRED_RP2040_RELEASE) or later required, release $(RP2040_RELEASE) installed)
 # endif
 
-BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4) $(BOARD_TAG5) $(BOARD_TAG6) $(BOARD_TAG7) $(BOARD_TAG8) $(BOARD_TAG9) $(BOARD_TAG10) 
+BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4) $(BOARD_TAG5) $(BOARD_TAG6) $(BOARD_TAG7) $(BOARD_TAG8) $(BOARD_TAG9) $(BOARD_TAG10) $(BOARD_TAG11) 
+BOARD_TAGS_LIST = $(BOARD_TAG) $(BOARD_OPTION_TAGS_LIST)
 # SEARCH_FOR = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
 
 # Arduino RP2040 specifics
@@ -73,8 +74,21 @@ BOARDS_TXT := $(HARDWARE_PATH)/boards.txt
 BUILD_BOARD = $(call PARSE_BOARD,$(BOARD_TAG),build.board)
 
 # New with RP2350 
-BUILD_TOOLCHAIN = $(call PARSE_BOARD,$(BOARD_TAG),build.toolchain)
-BUILD_OPTIONS = $(call PARSE_BOARD,$(BOARD_TAG),build.toolchainopts)
+# BUILD_TOOLCHAIN = $(call PARSE_BOARD,$(BOARD_TAG),build.toolchain)
+# BUILD_OPTIONS = $(call PARSE_BOARD,$(BOARD_TAG),build.toolchainopts)
+
+BUILD_TOOLCHAIN = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.toolchain)
+BUILD_OPTIONS = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.toolchainopts)
+BUILD_PACKAGE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.toolchainpkg)
+
+# $(info >>> BOARD_TAG11 $(BOARD_TAG11))
+# $(info >>> BOARD_OPTION_TAGS_LIST $(BOARD_OPTION_TAGS_LIST))
+# $(foreach t,$(BOARD_TAGS_LIST),$(info $(t).build.toolchain))
+# 
+# $(info >>> BUILD_TOOLCHAIN $(BUILD_TOOLCHAIN))
+# $(info >>> BUILD_OPTIONS $(BUILD_OPTIONS))
+# $(info >>> BUILD_PACKAGE $(BUILD_PACKAGE))
+
 BUILD_UF2 = $(call PARSE_BOARD,$(BOARD_TAG),build.uf2family)
 
 # FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name variant.cpp.o)
@@ -164,11 +178,16 @@ else ifeq ($(UPLOADER),picoprobe)
 #     # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
 #     UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
 # Option 2 - Consistent tool-chain
-    UPLOADER_PATH := $(EMCODE_TOOLS)/OpenOCD_RP2040/$(RP2040_OPENOCD_PICOPROBE_RELEASE)
-    UPLOADER_EXEC = $(UPLOADER_PATH)/openocd_picoprobe
-    UPLOADER_OPTS += -s $(UPLOADER_PATH)/tcl/
+#     UPLOADER_PATH := $(EMCODE_TOOLS)/OpenOCD_RP2040/$(RP2040_OPENOCD_PICOPROBE_RELEASE)
+#     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd_picoprobe
+#     UPLOADER_OPTS += -s $(UPLOADER_PATH)/tcl/
+# Option 3 - consistent with debugprobe as debugprobe merged with picoprobe
+    UPLOADER_PATH := $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/bin
+    UPLOADER_EXEC = $(UPLOADER_PATH)/openocd
+    # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
+    UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
 # End
-    UPLOADER_OPTS += -f interface/picoprobe.cfg -f target/rp2040.cfg
+    UPLOADER_OPTS += -f interface/picoprobe.cfg -f target/$(BUILD_CHIP).cfg
     UPLOADER_COMMAND = verify reset exit
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "program $(TARGET_HEX) $(UPLOADER_COMMAND)"
 
@@ -185,8 +204,8 @@ else ifeq ($(UPLOADER),debugprobe)
 #     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd_picoprobe
 #     UPLOADER_OPTS += -s $(UPLOADER_PATH)/tcl/
 # End
-    UPLOADER_OPTS += -f interface/cmsis-dap.cfg -f target/rp2040.cfg
-    UPLOADER_OPTS += -c "adapter speed 5000"
+    UPLOADER_OPTS += -f interface/cmsis-dap.cfg -f target/$(BUILD_CHIP).cfg
+    UPLOADER_OPTS += -c "init; adapter speed 5000;"
     UPLOADER_COMMAND = verify reset exit
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "program $(TARGET_ELF) $(UPLOADER_COMMAND)"
 
@@ -330,7 +349,9 @@ CORE_LIBS_LOCK = 1
 # MCU options
 #
 MCU_FLAG_NAME = mcpu
-BUILD_CHIP = $(call PARSE_BOARD,$(BOARD_TAG),build.chip)
+# BUILD_CHIP = $(call PARSE_BOARD,$(BOARD_TAG),build.chip)
+BUILD_CHIP = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.chip)
+
 # MCU = $(call PARSE_BOARD,$(BOARD_TAG),build.mcu) deprecated with 4.0.1
 # === MCU cortex-m0plus rp2040
 MCU = cortex-m0plus
@@ -442,6 +463,11 @@ FLAG_CMSIS := $(call PARSE_FILE,build,flags.cmsis,$(HARDWARE_PATH)/platform.txt)
 rp3000a = $(call PARSE_FILE,compiler,netdefines,$(HARDWARE_PATH)/platform.txt)
 FLAGS_NET = $(shell echo $(rp3000a) | sed 's:{build.libpicowdefs}:$(FLAGS_W_DEFS):g')
 
+FLAG_ESP_WIFI_TYPE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.espwifitype)
+ifeq ($(FLAG_ESP_WIFI_TYPE),)
+    FLAG_ESP_WIFI_TYPE := $(call PARSE_FILE,build,espwifitype,$(HARDWARE_PATH)/platform.txt)
+endif # FLAGS_W_LIB
+
 # $(info === HARDWARE_PATH $(HARDWARE_PATH))
 # $(info === BOARD_OPTION_TAGS_LIST $(BOARD_OPTION_TAGS_LIST))
 # $(info === FLAG_STACK $(FLAG_STACK))
@@ -504,6 +530,7 @@ FLAGS_C += -iprefix$(HARDWARE_PATH)/
 FLAGS_C += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_inc.txt
 FLAGS_C += @$(HARDWARE_PATH)/lib/core_inc.txt
 FLAGS_C += $(addprefix -I, $(INCLUDE_PATH))
+FLAGS_C += $(FLAG_ESP_WIFI_TYPE)
 
 # Specific FLAGS_CPP for g++ only
 # g++ uses FLAGS_ALL and FLAGS_CPP
@@ -514,6 +541,7 @@ FLAGS_CPP += -iprefix$(HARDWARE_PATH)/
 FLAGS_CPP += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_inc.txt
 FLAGS_CPP += @$(HARDWARE_PATH)/lib/core_inc.txt
 FLAGS_CPP += $(addprefix -I, $(INCLUDE_PATH))
+FLAGS_CPP += $(FLAG_ESP_WIFI_TYPE)
 
 # Specific FLAGS_AS for gcc assembler only
 # gcc assembler uses FLAGS_ALL and FLAGS_AS
@@ -530,9 +558,18 @@ FLAGS_D += $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.debug_port)
 # FLAGS_LD += -$(MCU_FLAG_NAME)=$(MCU)
 # FLAGS_LD += -mthumb -ffunction-sections -fdata-sections -fno-exceptions
 # FLAGS_LD += -march=armv6-m -DCFG_TUSB_MCU=OPT_MCU_RP2040 # deprecated with 4.0.1
+rp2200a = $(call PARSE_FILE,compiler,wrap,$(HARDWARE_PATH)/platform.txt)
+rp2200b = $(shell echo $(rp2200a) | sed 's:{runtime.platform.path}:$(HARDWARE_PATH):g')
+rp2200c = $(shell echo $(rp2200b) | sed 's:{build.chip}:$(BUILD_CHIP):g')
+BUILD_WRAP = $(rp2300c)
+
+rp2100a = $(call PARSE_BOARD,$(BOARD_TAG),compiler.ldflags)
+rp2100b = $(shell echo $(rp2100a) | sed 's:{compiler.wrap}:$(BUILD_WRAP):g')
+
+FLAGS_LD = $(rp2100b)
 FLAGS_LD += $(BUILD_OPTIONS)
 # FLAGS_LD += $(addprefix -D, $(PLATFORM_TAG)) $(FLAGS_D) # printf=iprintf
-FLAGS_LD = -u _printf_float -u _scanf_float
+FLAGS_LD += -u _printf_float -u _scanf_float
 FLAGS_LD += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_wrap.txt
 FLAGS_LD += @$(HARDWARE_PATH)/lib/core_wrap.txt
 FLAGS_LD += -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--unresolved-symbols=report-all
