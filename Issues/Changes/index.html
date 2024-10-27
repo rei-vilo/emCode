@@ -2744,88 +2744,7 @@
 <h3 id="default-values-for-parameters">Default values for parameters<a class="headerlink" href="#default-values-for-parameters" title="Permanent link">&para;</a></h3>
 <p>Default values are now set to the parameters.</p>
 <p>If the main <code>Makefile</code> doesn&rsquo;t define or doesn&rsquo;t set a value to a parameter, the following default values are used.</p>
-<p>All those parameters and default values are listed on the <code>emCode/Tools/Makefiles/Step0.mk</code> file.</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Default value</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>SKETCH_EXTENSION</code></td>
-<td><code>ino</code></td>
-<td>Official extension</td>
-</tr>
-<tr>
-<td><code>HIDE_NUMBER</code></td>
-<td><code>false</code></td>
-<td>Display the summary</td>
-</tr>
-<tr>
-<td><code>HIDE_COMMAND</code></td>
-<td><code>true</code></td>
-<td>Hide the command line</td>
-</tr>
-<tr>
-<td><code>KEEP_MAIN</code></td>
-<td><code>false</code></td>
-<td>Update <code>main.cpp</code></td>
-</tr>
-<tr>
-<td><code>KEEP_TASKS</code></td>
-<td><code>false</code></td>
-<td>Update the list of tasks</td>
-</tr>
-<tr>
-<td><code>USE_ARCHIVES</code></td>
-<td><code>true</code></td>
-<td>Use available pre-compile archives for local libraries</td>
-</tr>
-<tr>
-<td><code>OPTIMISATION</code></td>
-<td><code>-Os -g3</code></td>
-<td>Set optimisation and debugging</td>
-</tr>
-<tr>
-<td><code>BINARY_SPECIFIC_NAME</code></td>
-<td><code>embeddedcomputing</code></td>
-<td>Name of the generated executable</td>
-</tr>
-<tr>
-<td><code>USER_LIB_PATH</code></td>
-<td>Sketchbook</td>
-<td>Full path to the user&rsquo;s libraries</td>
-</tr>
-<tr>
-<td><code>APPLICATIONS_PATH</code></td>
-<td><code>$(HOME)/Applications</code></td>
-<td>Location of the Arduino IDE</td>
-</tr>
-<tr>
-<td><code>SEGGER_PATH</code></td>
-<td><code>/opt/SEGGER</code></td>
-<td>Location of the Segger tools</td>
-</tr>
-<tr>
-<td><code>STM32_CUBE_PATH</code></td>
-<td><code>~/Applications/STM32CubeProgrammer</code></td>
-<td>Location of the STM32CubeProgrammer tools</td>
-</tr>
-<tr>
-<td><code>SERIAL_BAUDRATE</code></td>
-<td><code>115200</code></td>
-<td>Serial speed</td>
-</tr>
-<tr>
-<td><code>NO_SERIAL_CONSOLE</code></td>
-<td><code>true</code></td>
-<td>Do not launch the serial console</td>
-</tr>
-</tbody>
-</table>
+<p>The section <a href="../../Develop/Build/#define-other-options">Build and upload the project</a> lists those parameters and their default values.</p>
 <h3 id="new-parameters">New parameters<a class="headerlink" href="#new-parameters" title="Permanent link">&para;</a></h3>
 <p>For building, the new <code>USE_ARCHIVES</code> parameter sets whether existing pre-compiled archives are used first for local libraries.</p>
 <ul>
@@ -2845,7 +2764,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>The parameter <code>KEEP_BOARDS_CONFIGURATIONS</code> is deprecated.</p>
 <p>The parameter <code>KEEP_MAIN_CPP</code> for distributing the project is deprecated.</p>
 <p>The parameter <code>SELECTED_RESOURCES</code> for preparing the project is deprecated.</p>
-<p>The paramter <code>EMCODE_EDITION</code> is deprecated as set to <code>emCode</code>.</p>
+<p>The parameter <code>EMBEDXCODE_EDITION</code> is deprecated and replaced by <code>EMCODE_EDITION</code> and set to <code>emCode</code>.</p>
 <h2 id="targets">Targets<a class="headerlink" href="#targets" title="Permanent link">&para;</a></h2>
 <h3 id="deprecated-targets">Deprecated targets<a class="headerlink" href="#deprecated-targets" title="Permanent link">&para;</a></h3>
 <p>The target <strong>Debug</strong> is deprecated and replaced by the built-in debugging features of Visual Studio Code.</p>
@@ -2873,7 +2792,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 14, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 27, 2024</span>
   </span>
 
     
