@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
@@ -141,7 +141,7 @@
               </button>
             
             
-            New release 14.5 adds support for the <b>Raspberry Pi Pico 2 RP2350</b> boards.
+            New release 14.6 adds message and notification options.
             
           </div>
           
@@ -888,9 +888,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#define-other-options" class="md-nav__link">
+  <a href="#define-message-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Define other options
+      Define message options
     </span>
   </a>
   
@@ -900,6 +900,15 @@
   <a href="#define-a-final-command" class="md-nav__link">
     <span class="md-ellipsis">
       Define a final command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-other-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define other options
     </span>
   </a>
   
@@ -2772,9 +2781,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#define-other-options" class="md-nav__link">
+  <a href="#define-message-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Define other options
+      Define message options
     </span>
   </a>
   
@@ -2784,6 +2793,15 @@
   <a href="#define-a-final-command" class="md-nav__link">
     <span class="md-ellipsis">
       Define a final command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-other-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Define other options
     </span>
   </a>
   
@@ -3143,7 +3161,7 @@ document$.subscribe(() => { lightbox.reload() });
 <li>Please refer to the <a href="https://gcc.gnu.org/onlinedocs/gcc-10.5.0/gcc/Warning-Options.html">Using the GNU Compiler Collection Manual</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
 </ul>
 <h3 id="define-a-binary-specific-name">Define a binary specific name<a class="headerlink" href="#define-a-binary-specific-name" title="Permanent link">&para;</a></h3>
-<p>Some project may setting a specific name for the binary. Default names of the binaries are based on <code>embeddedcomputing</code>: <code>embeddedcomputing.bin</code>, <code>embeddedcomputing.hex</code>, <code>embeddedcomputing.elf</code> and alike.</p>
+<p>Some project may setting a specific name for the binary. Default names of the binaries are based on <code>emcode</code>: <code>emcode.bin</code>, <code>emcode.hex</code>, <code>emcode.elf</code> and alike.</p>
 <p>To define a specific binary name,</p>
 <ul>
 <li>
@@ -3159,7 +3177,7 @@ document$.subscribe(() => { lightbox.reload() });
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># C-compliant project name and extension</span>
 <span class="err">PROJECT_NAME_AS_IDENTIFIER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">embed1</span>
 
-<span class="c"># Binary name, default=embeddedcomputing</span>
+<span class="c"># Binary name, default=emcode</span>
 <span class="err">BINARY_SPECIFIC_NAME</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">$(PROJECT_NAME_AS_IDENTIFIER)</span>
 </code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
@@ -3168,8 +3186,95 @@ document$.subscribe(() => { lightbox.reload() });
 <ul>
 <li>Just enter whatever value after <code>BINARY_SPECIFIC_NAME</code> to set another name,</li>
 </ul>
-<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Binary name, default=embeddedcomputing</span>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Binary name, default=emcode</span>
 <span class="err">BINARY_SPECIFIC_NAME</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">myBinarySpecificName</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<h3 id="define-message-options">Define message options<a class="headerlink" href="#define-message-options" title="Permanent link">&para;</a></h3>
+<p>The terminal window of Visual Studio Code reports the progress of the task with two lines.</p>
+<html><body><div class="* highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">4.3</span><span class="o">-</span><span class="n">LOCAL</span><span class="w"> </span><span class="n">CPP</span><span class="w">     </span><span class="n">main</span><span class="p">.</span><span class="n">cpp</span><span class="p">.</span><span class="n">o</span>
+<span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">pqt</span><span class="o">-</span><span class="n">gcc</span><span class="o">/</span><span class="mf">4.0.1</span><span class="mi">-8</span><span class="n">ec9d6f</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">g</span><span class="o">++</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="n">Werror</span><span class="o">=</span><span class="k">return</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="o">-</span><span class="n">Wno</span><span class="o">-</span><span class="n">psabi</span><span class="w"> </span><span class="o">-</span><span class="n">Os</span><span class="w"> </span><span class="o">-</span><span class="n">g3</span><span class="w"> </span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="o">-</span><span class="n">march</span><span class="o">=</span><span class="n">armv6</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="n">mcpu</span><span class="o">=</span><span class="n">cortex</span><span class="o">-</span><span class="n">m0plus</span><span class="w"> </span><span class="o">-</span><span class="n">mthumb</span><span class="w"> </span><span class="o">-</span><span class="n">ffunction</span><span class="o">-</span><span class="n">sections</span><span class="w"> </span><span class="o">-</span><span class="n">fdata</span><span class="o">-</span><span class="n">sections</span><span class="w"> </span><span class="o">-</span><span class="n">fno</span><span class="o">-</span><span class="n">exceptions</span><span class="w"> </span><span class="o">-</span><span class="n">lstdc</span><span class="o">++</span><span class="w"> </span><span class="o">-</span><span class="n">pipe</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO</span><span class="o">=</span><span class="mi">20302</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_ARCH_RP2040</span><span class="w"> </span><span class="o">-</span><span class="n">DEMCODE</span><span class="o">=</span><span class="mi">140506</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_VARIANT</span><span class="o">=</span><span class="err">'</span><span class="s">"rpipico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DF_CPU</span><span class="o">=</span><span class="mf">125000000L</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_RASPBERRY_PI_PICO</span><span class="w"> </span><span class="o">-</span><span class="n">BOARD_NAME</span><span class="o">=</span><span class="err">'</span><span class="s">"Raspberry Pi Pico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">MMD</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV6</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV4</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IGMP</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_CHECKSUM_CTRL_PER_NETIF</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="p">.</span><span class="o">/</span><span class="n">LocalLibrary</span><span class="o">/</span><span class="n">src</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="p">.</span><span class="w"> </span><span class="o">-</span><span class="n">DUSB_MANUFACTURER</span><span class="o">=</span><span class="err">'</span><span class="s">"Raspberry Pi"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DUSB_PRODUCT</span><span class="o">=</span><span class="err">'</span><span class="s">"Pico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_PID</span><span class="o">=</span><span class="mh">0x000a</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_VID</span><span class="o">=</span><span class="mh">0x2e8a</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_MAX_POWER_MA</span><span class="o">=</span><span class="mi">250</span><span class="w"> </span><span class="o">-</span><span class="n">DPICO_FLASH_SIZE_BYTES</span><span class="o">=</span><span class="mi">2097152</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">platform_def</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV6</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV4</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IGMP</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_CHECKSUM_CTRL_PER_NETIF</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="n">fno</span><span class="o">-</span><span class="n">rtti</span><span class="w"> </span><span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">gnu</span><span class="o">++</span><span class="mi">17</span><span class="w"> </span><span class="o">-</span><span class="n">iprefix</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">platform_inc</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">core_inc</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">cores</span><span class="o">/</span><span class="n">rp2040</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">variants</span><span class="o">/</span><span class="n">rpipico</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">include</span><span class="w"> </span><span class="s">"main.cpp"</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="s">"~/Projets/emCode/embed1/.builds/main.cpp.o"</span>
+</code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>
+<p>The first line is the summary and mentions the number of the task and the file. It is activated by default.</p>
+</li>
+<li>
+<p>The second line provides the full command. It is desactivated by default.</p>
+</li>
+</ul>
+<p><code>HIDE_NUMBER</code> and <code>HIDE_COMMAND</code> can hide and show the first line or second line. It is recommended to keep at least one option activated.</p>
+<p>Edit the main <code>Makefile</code> to modifiy the default options. </p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Build option, number and command lines</span>
+<span class="err">HIDE_NUMBER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">true</span>
+<span class="err">HIDE_COMMAND</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">false</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>All the messages are displayed on the terminal window of Visual Studio Code. </p>
+<p>As an option, the warning and error messages can be displayed as notifications or dialogue boxes.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Console</label><label for="__tabbed_1_2">Notifications</label><label for="__tabbed_1_3">Dialogue boxes</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The warning and error messages are always printed on the terminal window. </p>
+<html><body><div class="* highlight"><pre><span></span><code>*<span class="w">  </span>Executing<span class="w"> </span>task:<span class="w"> </span>make<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span>LaunchPad_MSP432P401R_EMT<span class="w"> </span>
+ERROR<span class="w">             </span>MSP-EXP432P401R<span class="w"> </span>board<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>defined
+.
+~/.emCode/Tools/Makefiles/Step1.mk:567:<span class="w"> </span>***<span class="w"> </span>Stop.<span class="w"> </span>Stop.
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+</div>
+<div class="tabbed-block">
+<p>The notifications rely on <code>notify-send</code>.</p>
+<p><img alt="" src="../img/Notification.png" /></p>
+<p>Edit the main <code>Makefile</code> to add the notification option. </p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># GUI option for messages</span>
+<span class="err">GUI_OPTION</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">NOTIFY</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+</div>
+<div class="tabbed-block">
+<p>The dialogue boxes rely on <code>zenity</code>.</p>
+<p><img alt="" src="../img/DialogueBox.png" /> </p>
+<p>Edit the main <code>Makefile</code> to add the dialogue box option. </p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># GUI option for messages</span>
+<span class="err">GUI_OPTION</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">ZENITY</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+</div>
+</div>
+</div>
+<h3 id="define-a-final-command">Define a final command<a class="headerlink" href="#define-a-final-command" title="Permanent link">&para;</a></h3>
+<p>Some project may require to run a final command once compilation is successful.</p>
+<p>To define a final command,</p>
+<ul>
+<li>
+<p>Open the main <code>Makefile</code>,</p>
+</li>
+<li>
+<p>Add or edit the line <code>COMMAND_FINAL</code> and</p>
+</li>
+<li>
+<p>Define the bash command.</p>
+</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Final command after make,</span>
+<span class="err">COMMAND_FINAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">cp</span><span class="w"> </span><span class="err">$(TARGET_HEX)</span><span class="w"> </span><span class="err">$(CURRENT_DIR)/</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>In the example, the final command copies the binary <code>.hex</code> to the folder of the project.</p>
+<p>The <strong>Report Navigator</strong> displays the final command.</p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">----</span><span class="w"> </span><span class="err">Final</span><span class="w"> </span><span class="err">----</span>
+<span class="err">cp</span><span class="w"> </span><span class="err">./.builds/emcode.hex</span><span class="w"> </span><span class="err">.</span>
+<span class="err">====</span><span class="w"> </span><span class="err">Make</span><span class="w"> </span><span class="err">done</span><span class="w"> </span><span class="err">====</span>
 </code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body></html>
@@ -3255,44 +3360,14 @@ document$.subscribe(() => { lightbox.reload() });
 <td><code>true</code></td>
 <td>Do not launch the serial console</td>
 </tr>
+<tr>
+<td><code>GUI_OPTION</code></td>
+<td><code>NONE</code></td>
+<td>Select the GUI option for messages</td>
+</tr>
 </tbody>
 </table>
-<p>The terminal window of visual Studio Code reports the progress of the task with two lines: the first line is the summary and mentions the number of the task and the file; the second line provides the full command.</p>
-<p><code>HIDE_NUMBER</code> and <code>HIDE_COMMAND</code> can hide the first line or second line. It is recommended to keep at least one.</p>
-<html><body><div class="* highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">4.3</span><span class="o">-</span><span class="n">LOCAL</span><span class="w"> </span><span class="n">CPP</span><span class="w">     </span><span class="n">main</span><span class="p">.</span><span class="n">cpp</span><span class="p">.</span><span class="n">o</span>
-<span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">pqt</span><span class="o">-</span><span class="n">gcc</span><span class="o">/</span><span class="mf">4.0.1</span><span class="mi">-8</span><span class="n">ec9d6f</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">g</span><span class="o">++</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="n">Werror</span><span class="o">=</span><span class="k">return</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="o">-</span><span class="n">Wno</span><span class="o">-</span><span class="n">psabi</span><span class="w"> </span><span class="o">-</span><span class="n">Os</span><span class="w"> </span><span class="o">-</span><span class="n">g3</span><span class="w"> </span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="o">-</span><span class="n">march</span><span class="o">=</span><span class="n">armv6</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="n">mcpu</span><span class="o">=</span><span class="n">cortex</span><span class="o">-</span><span class="n">m0plus</span><span class="w"> </span><span class="o">-</span><span class="n">mthumb</span><span class="w"> </span><span class="o">-</span><span class="n">ffunction</span><span class="o">-</span><span class="n">sections</span><span class="w"> </span><span class="o">-</span><span class="n">fdata</span><span class="o">-</span><span class="n">sections</span><span class="w"> </span><span class="o">-</span><span class="n">fno</span><span class="o">-</span><span class="n">exceptions</span><span class="w"> </span><span class="o">-</span><span class="n">lstdc</span><span class="o">++</span><span class="w"> </span><span class="o">-</span><span class="n">pipe</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO</span><span class="o">=</span><span class="mi">20302</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_ARCH_RP2040</span><span class="w"> </span><span class="o">-</span><span class="n">DEMCODE</span><span class="o">=</span><span class="mi">140506</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_VARIANT</span><span class="o">=</span><span class="err">'</span><span class="s">"rpipico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DF_CPU</span><span class="o">=</span><span class="mf">125000000L</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_RASPBERRY_PI_PICO</span><span class="w"> </span><span class="o">-</span><span class="n">BOARD_NAME</span><span class="o">=</span><span class="err">'</span><span class="s">"Raspberry Pi Pico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">MMD</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV6</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV4</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IGMP</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_CHECKSUM_CTRL_PER_NETIF</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="p">.</span><span class="o">/</span><span class="n">LocalLibrary</span><span class="o">/</span><span class="n">src</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="p">.</span><span class="w"> </span><span class="o">-</span><span class="n">DUSB_MANUFACTURER</span><span class="o">=</span><span class="err">'</span><span class="s">"Raspberry Pi"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DUSB_PRODUCT</span><span class="o">=</span><span class="err">'</span><span class="s">"Pico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_PID</span><span class="o">=</span><span class="mh">0x000a</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_VID</span><span class="o">=</span><span class="mh">0x2e8a</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_MAX_POWER_MA</span><span class="o">=</span><span class="mi">250</span><span class="w"> </span><span class="o">-</span><span class="n">DPICO_FLASH_SIZE_BYTES</span><span class="o">=</span><span class="mi">2097152</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">platform_def</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV6</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV4</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IGMP</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_CHECKSUM_CTRL_PER_NETIF</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="n">fno</span><span class="o">-</span><span class="n">rtti</span><span class="w"> </span><span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">gnu</span><span class="o">++</span><span class="mi">17</span><span class="w"> </span><span class="o">-</span><span class="n">iprefix</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">platform_inc</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">core_inc</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">cores</span><span class="o">/</span><span class="n">rp2040</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">variants</span><span class="o">/</span><span class="n">rpipico</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">rp2040</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">include</span><span class="w"> </span><span class="s">"main.cpp"</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="s">"~/Projets/emCode/embed1/.builds/main.cpp.o"</span>
-</code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
 <p>By default, <code>USER_LIB_PATH</code> refer to the <code>library</code> sub-folder of the sketchbook folder <code>Arduino</code> defined by Arduino.</p>
-<h3 id="define-a-final-command">Define a final command<a class="headerlink" href="#define-a-final-command" title="Permanent link">&para;</a></h3>
-<p>Some project may require to run a final command once compilation is successful.</p>
-<p>To define a final command,</p>
-<ul>
-<li>
-<p>Open the main <code>Makefile</code>,</p>
-</li>
-<li>
-<p>Add or edit the line <code>COMMAND_FINAL</code> and</p>
-</li>
-<li>
-<p>Define the bash command.</p>
-</li>
-</ul>
-<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Final command after make,</span>
-<span class="err">COMMAND_FINAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">cp</span><span class="w"> </span><span class="err">$(TARGET_HEX)</span><span class="w"> </span><span class="err">$(CURRENT_DIR)/</span>
-</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
-<p>In the example, the final command copies the binary <code>.hex</code> to the folder of the project.</p>
-<p>The <strong>Report Navigator</strong> displays the final command.</p>
-<html><body><div class="* highlight"><pre><span></span><code><span class="err">----</span><span class="w"> </span><span class="err">Final</span><span class="w"> </span><span class="err">----</span>
-<span class="err">cp</span><span class="w"> </span><span class="err">./.builds/embeddedcomputing.hex</span><span class="w"> </span><span class="err">.</span>
-<span class="err">====</span><span class="w"> </span><span class="err">Make</span><span class="w"> </span><span class="err">done</span><span class="w"> </span><span class="err">====</span>
-</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
 <h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">&para;</a></h2>
 <p>To upload,</p>
 <ul>
@@ -3384,7 +3459,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 14, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 27, 2024</span>
   </span>
 
     
@@ -3492,7 +3567,7 @@ document$.subscribe(() => { lightbox.reload() });
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.5.6"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.6.2"}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
