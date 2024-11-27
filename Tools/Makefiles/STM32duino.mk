@@ -117,10 +117,12 @@ else ifeq ($(UPLOADER),openocd)
     UPLOADER_OPTS += -c "program $(TARGET_ELF) verify reset ; exit"
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS)
     DEBUG_SERVER = openocd
-    # DEBUGGER_OPTS = -f board/st_nucleo_f4.cfg
-else
+#     DEBUGGER_OPTS = -f board/st_nucleo_f4.cfg
 
-endif
+else # UPLOADER
+
+
+endif # UPLOADER
 
 # Tool-chain names
 #
@@ -270,7 +272,6 @@ endif
 # $(info *** MAX_FLASH_SIZE '$(MAX_FLASH_SIZE)')
 # $(info *** MAX_RAM_SIZE '$(MAX_RAM_SIZE)')
 
-
 # platform.txt build.usb_flags=-DUSBCON {build.usb_speed} -DUSBD_VID={build.vid} -DUSBD_PID={build.pid} -DHAL_PCD_MODULE_ENABLED
 stm1000a = $(call PARSE_FILE,build,usb_flags=,$(HARDWARE_PATH)/platform.txt)
 
@@ -396,7 +397,7 @@ FLAGS_LD += -Wl,-Map,$(OBJDIR)/emCode.cpp.map # Output a cross reference table.
 ifeq ($(STM32DUINO_RELEASE),1.8.0)
     FLAGS_LD += -T $(VARIANT_PATH)/ldscript.ld
 else
-    # With 1.9.0
+#     With 1.9.0
     FLAGS_LD += -Wl,--default-script="$(VARIANT_PATH)/ldscript.ld"
     FLAGS_LD += -Wl,--script="$(SYSTEM_LIB_PATH)/ldscript.ld"
 endif

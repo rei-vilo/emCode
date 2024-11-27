@@ -19,7 +19,6 @@
 BOARD_TAG = xg24explorerkit
 BOARD_TAG1 = xg24explorerkit.menu.protocol_stack.ble_silabs
 
-
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
 #

@@ -129,14 +129,16 @@ else ifeq ($(UPLOADER),ozone)
     DEBUGGER_EXEC = open $(DEBUGGER_PATH)/Ozone.app
     DEBUGGER_OPTS = --args $(BUILDS_PATH)/ozone.jdebug
 
-else
+else # UPLOADER
+
     UPLOADER = bossac
     UPLOADER_PATH = $(OTHER_TOOLS_PATH)/bossac/$(ARDUINO_BOSSAC_RELEASE)
     UPLOADER_EXEC = $(UPLOADER_PATH)/bossac
     UPLOADER_PORT = $(subst /dev/,,$(AVRDUDE_PORT))
     UPLOADER_OPTS = -i --port=$(UPLOADER_PORT) -U $(call PARSE_BOARD,$(BOARD_TAG),upload.native_usb) -e -w -v -b
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) $(TARGET_BIN) -R
-endif
+
+endif # UPLOADER
 
 # Tool-chain names
 #

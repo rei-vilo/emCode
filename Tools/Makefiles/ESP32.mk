@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 23 Oct 2024 release 14.5.6
+# Last update: 22 Nov 2024 release 14.6.1
 #
 
 # On Linux, install pyserial with 
@@ -42,9 +42,9 @@ endif
 # ifneq ($(BOARD_TAG),featheresp32)
 # ifneq ($(BOARD_TAG),pico32)
 #     MESSAGE_WARNING = BETA! Not yet tested against $(CONFIG_NAME).
-# endif
-# endif
-# endif
+# endif # BOARD_TAG
+# endif # BOARD_TAG
+# endif # BOARD_TAG
 
 # ESP32 specifics
 # ----------------------------------
@@ -224,11 +224,11 @@ esp1300a = $(call PARSE_BOARD,$(BOARD_TAG),build.memory_type)
 # $(info === BUILD_MEMORY_TYPE-1 $(BUILD_MEMORY_TYPE))
 ifeq ($(esp1300a),)
     esp1300a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.memory_type)
-    # $(info === BUILD_MEMORY_TYPE-2 $(BUILD_MEMORY_TYPE))
+#     $(info === BUILD_MEMORY_TYPE-2 $(BUILD_MEMORY_TYPE))
 endif
 ifeq ($(esp1300a),)
     esp1300a = $(call PARSE_FILE,build,memory_type,$(HARDWARE_PATH)/platform.txt)
-    # $(info === BUILD_MEMORY_TYPE-3 $(BUILD_MEMORY_TYPE))
+#     $(info === BUILD_MEMORY_TYPE-3 $(BUILD_MEMORY_TYPE))
 endif
 esp1300b = $(shell echo '$(esp1300a)' | sed 's:{build.boot}:$(BUILD_BOOT):g')
 
@@ -248,28 +248,28 @@ BUILD_CDC_ON_BOOT = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.cdc_on_boo
 # $(info >>> BUILD_CDC_ON_BOOT-A '$(BUILD_CDC_ON_BOOT)')
 ifeq ($(BUILD_CDC_ON_BOOT),)
     BUILD_CDC_ON_BOOT = $(call SEARCH_FOR,$(BOARD_TAG),build.cdc_on_boot)
-    # $(info >>> BUILD_CDC_ON_BOOT-2 '$(BUILD_CDC_ON_BOOT)')
+#     $(info >>> BUILD_CDC_ON_BOOT-2 '$(BUILD_CDC_ON_BOOT)')
 endif
 
 BUILD_DFU_ON_BOOT = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.dfu_on_boot=)
 # $(info >>> BUILD_DFU_ON_BOOT-1 '$(BUILD_DFU_ON_BOOT)')
 ifeq ($(BUILD_DFU_ON_BOOT),)
     BUILD_DFU_ON_BOOT = $(call SEARCH_FOR,$(BOARD_TAG),build.dfu_on_boot)
-    # $(info >>> BUILD_DFU_ON_BOOT-2 '$(BUILD_DFU_ON_BOOT)')
+#     $(info >>> BUILD_DFU_ON_BOOT-2 '$(BUILD_DFU_ON_BOOT)')
 endif
 
 BUILD_MSC_ON_BOOT = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.msc_on_boot=)
 # $(info >>> BUILD_MSC_ON_BOOT-1 '$(BUILD_MSC_ON_BOOT)')
 ifeq ($(BUILD_MSC_ON_BOOT),)
     BUILD_MSC_ON_BOOT = $(call SEARCH_FOR,$(BOARD_TAG),build.msc_on_boot)
-    # $(info >>> BUILD_MSC_ON_BOOT-2 '$(BUILD_MSC_ON_BOOT)')
+#     $(info >>> BUILD_MSC_ON_BOOT-2 '$(BUILD_MSC_ON_BOOT)')
 endif
 
 BUILD_USB_MODE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.usb_mode)
 # $(info >>> BUILD_USB_MODE-1 '$(BUILD_USB_MODE)')
 ifeq ($(BUILD_USB_MODE),)
     BUILD_USB_MODE = $(call SEARCH_FOR,$(BOARD_TAG),build.usb_mode)
-    # $(info >>> BUILD_USB_MODE-2 '$(BUILD_USB_MODE)')
+#     $(info >>> BUILD_USB_MODE-2 '$(BUILD_USB_MODE)')
 endif
 
 # $(info >>> build.FLAGS_EXTRA.$(MCU)=)
@@ -296,7 +296,6 @@ FLAGS_BUILD_EXTRA = $(esp1400e)
 # $(info === esp1400e '$(esp1400e)')
 # $(info >>> FLAGS_BUILD_EXTRA '$(FLAGS_BUILD_EXTRA)')
 
-
 # Take option first, then default
 BOOTLOADER_BUILDS_BIN = $(BUILDS_PATH)/bootloader.bin
 BOOTLOADER_SOURCE_BIN = $(shell if [ -f $(VARIANT_PATH)/bootloader.bin ] ; then ls $(VARIANT_PATH)/bootloader.bin ; fi)
@@ -319,7 +318,7 @@ ifeq ($(UPLOADER),espota)
     UPLOADER_OPTS = -r
 
     ifeq ($(SSH_ADDRESS),)
-        # $(eval SSH_ADDRESS = $(shell grep ^SSH_ADDRESS '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
+#         $(eval SSH_ADDRESS = $(shell grep ^SSH_ADDRESS '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
         $(eval SSH_ADDRESS = $(shell grep ^SSH_ADDRESS '$(CURRENT_DIR)/Makefile' | cut -d= -f 2- | sed 's/^ //'))
     endif # SSH_ADDRESS
 
@@ -329,9 +328,12 @@ ifeq ($(UPLOADER),espota)
         $(shell sed "s/^SSH_ADDRESS = .*/SSH_ADDRESS = $(SSH_ADDRESS)/g" -i $(CURRENT_DIR)/Makefile)
     endif # SSH_ADDRESS
 
-    # $(info >>> SSH_ADDRESS = '$(SSH_ADDRESS)')
+#     $(info >>> SSH_ADDRESS = '$(SSH_ADDRESS)')
     ifeq ($(SSH_ADDRESS),)
-        $(error SSH_ADDRESS empty)
+        $(info ERROR              SSH_ADDRESS empty)
+        $(info .)
+        $(call MESSAGE_GUI_ERROR,SSH_ADDRESS empty)
+        $(error Stop)
     endif # SSH_ADDRESS
 
 else ifeq ($(UPLOADER),openocd-esp32)
@@ -354,15 +356,19 @@ else ifeq ($(UPLOADER),openocd-esp32)
 
 else ifeq ($(UPLOADER),dfu-util)
 
+    USB_VID = $(call PARSE_BOARD,$(BOARD_TAG),upload_port.0.vid)
+    USB_PID = $(call PARSE_BOARD,$(BOARD_TAG),upload_port.0.pid)
+
     UPLOADER_PATH = $(ARDUINO_PACKAGES_PATH)/arduino/tools/dfu-util/$(ARDUINO_DFU_UTIL_RELEASE)
     UPLOADER_EXEC = $(UPLOADER_PATH)/dfu-util
 
     UPLOADER_OPTS = --device $(USB_VID):$(USB_PID) -D $(TARGET_BIN) -Q
 
-else
+else # UPLOADER
+
     UPLOADER = esptool
     UPLOADER_PATH = $(OTHER_TOOLS_PATH)
-    # UPLOADER_EXEC = $(UPLOADER_PATH)/esptool
+#     UPLOADER_EXEC = $(UPLOADER_PATH)/esptool
     UPLOADER_EXEC = $(PYTHON_EXEC) $(UPLOADER_PATH)/esptool.py
     UPLOADER_OPTS = --chip $(MCU) --port $(USED_SERIAL_PORT) --baud 921600
     UPLOADER_OPTS += --before default_reset --after hard_reset write_flash -z
@@ -375,6 +381,7 @@ else
     UPLOADER_OPTS += 0x8000 $(PARTITIONS_BUILDS_BIN)
     UPLOADER_OPTS += 0xe000 $(HARDWARE_PATH)/tools/partitions/boot_app0.bin
     UPLOADER_OPTS += 0x10000 $(TARGET_BIN)
+
 endif # UPLOADER
 
 APP_TOOLS_PATH := $(TOOL_CHAIN_PATH)/bin
@@ -427,7 +434,10 @@ FIRST_O_IN_A = $(patsubst $(APPLICATION_PATH)/%,$(OBJDIR)/%,$(esp001))
 # endif # SKETCHBOOK_DIR
 # 
 # ifeq ($(shell if [ -d '$(SKETCHBOOK_DIR)' ]; then echo 1 ; fi ),)
-#    $(error Error: sketchbook path not found)
+#    $(call MESSAGE_GUI_ERROR,Sketchbook path not found)
+#    $(info ERROR              Sketchbook path not found)
+#    $(shell zenity --width=240 --title "emCode" --text "Sketchbook path not found" --error)
+#    $(error Stop)
 # endif # SKETCHBOOK_DIR
 # 
 # USER_LIB_PATH ?= $(wildcard $(SKETCHBOOK_DIR)/?ibraries)
@@ -518,7 +528,7 @@ esp1100g = $(shell echo '$(esp1100f)' | sed 's:{build.event_core}:$(BUILD_EVENT_
 BUILD_DEFINES = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.defines)
 # $(info >>> BUILD_DEFINES-1 $(BUILD_DEFINES))
 ifeq ($(BUILD_DEFINES),)
-    # $(info >>> BUILD_DEFINES-2 $(BUILD_DEFINES))
+#     $(info >>> BUILD_DEFINES-2 $(BUILD_DEFINES))
     BUILD_DEFINES = $(call PARSE_BOARD,$(BOARD_TAG),build.defines)
 endif
 ifeq ($(BOARD_TAG),nano_nora)
@@ -526,10 +536,10 @@ ifeq ($(BOARD_TAG),nano_nora)
     BUILD_DEFINES:=#
 # nano_nora.build.defines=-DBOARD_HAS_PIN_REMAP {build.disable_pin_remap} -DBOARD_HAS_PSRAM '-DUSB_MANUFACTURER="Arduino"' '-DUSB_PRODUCT="Nano ESP32"'
     FLAGS_USB += -DBOARD_HAS_PIN_REMAP $(esp1100m) -DBOARD_HAS_PSRAM -DUSB_MANUFACTURER='"Arduino"' -DUSB_PRODUCT='"Nano ESP32"'
-    # $(info >>> esp1100m $(esp1100m))
-    # $(info >>> FLAGS_USB-3 $(FLAGS_USB))
+#     $(info >>> esp1100m $(esp1100m))
+#     $(info >>> FLAGS_USB-3 $(FLAGS_USB))
 endif
-    # $(info >>> BUILD_DEFINES-4 $(BUILD_DEFINES))
+#     $(info >>> BUILD_DEFINES-4 $(BUILD_DEFINES))
 esp1100h = $(shell echo '$(esp1100g)' | sed 's:{build.defines}:$(BUILD_DEFINES):g')
 
 esp1100i = $(shell echo '$(esp1100h)' | sed 's:{build.extra_flags.{build.mcu}}:$(FLAGS_BUILD_EXTRA):g')
@@ -633,7 +643,6 @@ esp1200b = $(shell echo '$(esp1200a)' | sed 's:{compiler.sdk.path}:$(SDK_PATH):g
 esp1200c = $(shell echo '$(esp1200b)' | sed 's:{build.source.path}:$(CURRENT_DIR):g')
 esp1200d = $(shell echo '$(esp1200c)' | sed 's:{build.memory_type}:$(BUILD_MEMORY_TYPE):g')
 
-
 # $(info === esp1200a $(esp1200a))
 # $(info === esp1200b $(esp1200b))
 # $(info === esp1200c $(esp1200c))
@@ -733,7 +742,6 @@ FLAGS_LD += $(FLAGS_EXTRA)
 # $(info === esp1800c $(esp1800c))
 # $(info === esp1800d $(esp1800d))
 
-
 # FLAGS_LD += -nostdlib
 # # -L$(HARDWARE_PATH)/tools/sdk -L{compiler.sdk.path}/ld
 # FLAGS_LD += -T esp32_out.ld -T esp32.project.ld -T esp32.rom.ld
@@ -812,7 +820,6 @@ COMMAND_BEFORE_COMPILE += : > $(FILE_OPTIONS_BUILDS) ;
 # recipe.hooks.prebuild.8.pattern=/usr/bin/env bash -c "cp -f "{compiler.sdk.path}"/sdkconfig "{build.path}"/sdkconfig"
 COMMAND_BEFORE_COMPILE += cp -f $(SDK_PATH)/sdkconfig $(BUILDS_PATH)/sdkconfig ;
 
-
 ifeq ($(FLAG_BUILD_CORE_A),1)
     COMMAND_BEFORE_COMPILE += echo -DARDUINO_CORE_BUILD > $(FILE_OPTIONS_BUILDS) ;
     $(info ESP32 core not available, added -DARDUINO_CORE_BUILD to file_opts)
@@ -846,7 +853,6 @@ COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL
 # $(info === BUILD_PARTITIONS $(BUILD_PARTITIONS))
 # Option 1: no partitions
 # COMMAND_COPY += $(PYTHON_EXEC) $(OTHER_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) -o $@ $<
-
 
 # COMMAND_POST_COPY = $(OTHER_TOOLS_PATH)/esptool --chip esp32 elf2image --flash_mode $(call PARSE_BOARD,$(BOARD_TAG),build.flash_mode) --flash_freq 80m --flash_size $(call PARSE_BOARD,$(BOARD_TAG),build.flash_size) -o $@ $<
 COMMAND_COPY = $(PYTHON_EXEC) $(OTHER_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $@ $<

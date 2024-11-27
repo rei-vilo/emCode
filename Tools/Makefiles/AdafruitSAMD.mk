@@ -136,7 +136,8 @@ else ifeq ($(UPLOADER),ozone)
     DEBUGGER_EXEC = open $(DEBUGGER_PATH)/Ozone.app
     DEBUGGER_OPTS = --args $(BUILDS_PATH)/ozone.jdebug
 
-else
+else # UPLOADER
+
     UPLOADER = openocd
     UPLOADER_PATH = $(OTHER_TOOLS_PATH)/openocd/$(ARDUINO_SAMD_OPENOCD_RELEASE)
     UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd
@@ -145,7 +146,8 @@ else
     UPLOADER_COMMAND = program {$(TARGET_BIN)} verify reset $(UPLOAD_OFFSET)); shutdown
 # telnet_port disabled;
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "$(UPLOADER_COMMAND)"
-endif
+
+endif # UPLOADER
 
 APP_TOOLS_PATH := $(TOOL_CHAIN_PATH)/bin
 CORE_LIB_PATH := $(HARDWARE_PATH)/cores/arduino
@@ -362,7 +364,7 @@ FLAGS_LD += -Wl,--warn-common -Wl,--warn-section-align
 ada1300a = $(call PARSE_BOARD,$(BOARD_TAG),compiler.arm.cmsis.ldflags)
 ifneq ($(ada1300a),)
     ada1300b = $(shell echo $(ada1300a) | sed 's:{build.variant.path}:$(HARDWARE_PATH)/variants/$(VARIANT):g')
-    # ada1300c = $(shell echo $(ada1300b) | sed 's:{runtime.tools.CMSIS-$(ADAFRUIT_SAMD_CMSIS_RELEASE).path}:$(ADAFRUIT_SAMD_PATH)/tools/CMSIS/$(ADAFRUIT_SAMD_CMSIS_RELEASE):g')
+#     ada1300c = $(shell echo $(ada1300b) | sed 's:{runtime.tools.CMSIS-$(ADAFRUIT_SAMD_CMSIS_RELEASE).path}:$(ADAFRUIT_SAMD_PATH)/tools/CMSIS/$(ADAFRUIT_SAMD_CMSIS_RELEASE):g')
     ada1300c = $(shell echo $(ada1300b) | sed 's:{runtime.tools.CMSIS-5.4.0.path}:$(ADAFRUIT_SAMD_PATH)/tools/CMSIS/$(ADAFRUIT_SAMD_CMSIS_RELEASE):g')
     FLAGS_LIB = $(ada1300c)
 # $(info ada1300a $(ada1300a))
@@ -385,7 +387,9 @@ FLAGS_OBJCOPY = -v -Obinary
 # J-Link requires HEX and no USB reset at 1200
 ifeq ($(UPLOADER),jlink)
     TARGET_HEXBIN = $(TARGET_HEX)
-else
+
+else # UPLOADER
+
     TARGET_HEXBIN = $(TARGET_BIN)
 
 # Serial 1200 reset
@@ -393,11 +397,12 @@ else
 #    ifneq ($(UPLOADER),cp_uf2)
         USB_TOUCH := $(call PARSE_BOARD,$(BOARD_TAG),upload.use_1200bps_touch)
         ifeq ($(USB_TOUCH),true)
-            # USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
+#             USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
             USB_RESET = stty -F $(AVRDUDE_PORT) 1200
-        endif
+        endif # USB_TOUCH
 #    endif
-endif
+
+endif # UPLOADER
 
 # Commands
 # ----------------------------------

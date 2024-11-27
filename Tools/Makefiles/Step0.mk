@@ -9,7 +9,7 @@
 #
 # Created: 03 Jul 2023 release 14.1.4
 #
-# Last update: 03 Jul 2023 release 14.1.4
+# Last update: 18 Nov release 14.6.0
 # 
 
 # Set default values for parameters
@@ -66,3 +66,7 @@ SERIAL_BAUDRATE ?= 115200
 # For Fast target, open serial console, false or true
 # 
 NO_SERIAL_CONSOLE = true
+
+# GUI option for messages
+# ZENITY, NOTIFY, 0 = NONE
+GUI_OPTION ?= NOTIFY

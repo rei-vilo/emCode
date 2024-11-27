@@ -35,27 +35,27 @@ ifeq ($(UPLOADER),tytools)
 
 else # General case
 
-t400 = $(call PARSE_BOARD,$(BOARD_TAG),upload.tool)
-# upload.tool gives teensyloader instead of teensy_flash
-ifeq ($(t400),teensyloader)
-    UPLOADER = teensy_flash
+    t400 = $(call PARSE_BOARD,$(BOARD_TAG),upload.tool)
+    # upload.tool gives teensyloader instead of teensy_flash
+    ifeq ($(t400),teensyloader)
+        UPLOADER = teensy_flash
 
-    UPLOADER_PATH = $(TEENSY_TOOLS_PATH)
-    UPLOADER_EXEC = $(UPLOADER_PATH)/teensy_post_compile
-#    TEENSY_REBOOT = $(UPLOADER_PATH)/teensy_reboot
-#    COMMAND_PRE_UPLOAD = $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path="$(BUILDS_PATH)" -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board)
-#    COMMAND_PRE_UPLOAD = cp $(TARGET_HEX) . ; $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path=$(CURRENT_DIR) -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board) ; rm $(CURRENT_DIR)/*.hex
-#    DELAY_BEFORE_UPLOAD ?= 2
-#    COMMAND_UPLOAD = $(TEENSY_REBOOT)
-    t410 = $(shell $(UPLOADER_PATH)/teensy_ports -L | cut -d' ' -f 1 | sed 's:.*/usb:usb:')
+        UPLOADER_PATH = $(TEENSY_TOOLS_PATH)
+        UPLOADER_EXEC = $(UPLOADER_PATH)/teensy_post_compile
+#        TEENSY_REBOOT = $(UPLOADER_PATH)/teensy_reboot
+#        COMMAND_PRE_UPLOAD = $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path="$(BUILDS_PATH)" -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board)
+#        COMMAND_PRE_UPLOAD = cp $(TARGET_HEX) . ; $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path=$(CURRENT_DIR) -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board) ; rm $(CURRENT_DIR)/*.hex
+#        DELAY_BEFORE_UPLOAD ?= 2
+#        COMMAND_UPLOAD = $(TEENSY_REBOOT)
+        t410 = $(shell $(UPLOADER_PATH)/teensy_ports -L | cut -d' ' -f 1 | sed 's:.*/usb:usb:')
 
-    ifneq ($(t410),)
-        TEENSY_UPLOAD_OPTION = -port=$(t410)
-    endif # TEENSY_UPLOAD_PORT
-    COMMAND_UPLOAD = $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path=$(BUILDS_PATH) -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board) $(TEENSY_UPLOAD_OPTION) -reboot 
-    DELAY_AFTER_UPLOAD ?= 4
-    COMMAND_CONCLUDE = $(UPLOADER_PATH)/teensy_reboot ; sleep 2 ; killall teensy
-endif
+        ifneq ($(t410),)
+            TEENSY_UPLOAD_OPTION = -port=$(t410)
+        endif # TEENSY_UPLOAD_PORT
+        COMMAND_UPLOAD = $(UPLOADER_EXEC) -file=$(basename $(notdir $(TARGET_HEX))) -path=$(BUILDS_PATH) -tools=$(abspath $(UPLOADER_PATH)) -board=$(call PARSE_BOARD,$(BOARD_TAG),build.board) $(TEENSY_UPLOAD_OPTION) -reboot 
+        DELAY_AFTER_UPLOAD ?= 4
+        COMMAND_CONCLUDE = $(UPLOADER_PATH)/teensy_reboot ; sleep 2 ; killall teensy
+    endif # teensyloader
 
 endif # UPLOADER
 
@@ -107,7 +107,10 @@ BUILD_CORE_OBJS = $(patsubst $(APPLICATION_PATH)/%,$(OBJDIR)/%,$(BUILD_CORE_OBJ_
 # ?ibraries required for libraries and Libraries
 #
 ifeq ($(ARDUINO_PREFERENCES),)
-    $(error Error: run Teensy once and define the sketchbook path)
+    $(info ERROR             Run Teensy once and define the sketchbook path)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,Run Teensy once and define the sketchbook path)
+    $(error Stop)
 endif
 
 ifeq ($(shell if [ -d '$(SKETCHBOOK_DIR)' ]; then echo 1 ; fi ),)
@@ -115,7 +118,10 @@ ifeq ($(shell if [ -d '$(SKETCHBOOK_DIR)' ]; then echo 1 ; fi ),)
 endif
 
 ifeq ($(shell if [ -d '$(SKETCHBOOK_DIR)' ]; then echo 1 ; fi ),)
-    $(error Error: sketchbook path not found)
+    $(info ERROR             Sketchbook path not found)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,Sketchbook path not found)
+    $(error Stop)
 endif
 
 USER_LIB_PATH ?= $(wildcard $(SKETCHBOOK_DIR)/?ibraries)

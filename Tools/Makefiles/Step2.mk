@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 19 Sep 2024 release 14.5.2
+# Last update: 18 Nov release 14.6.0
 #
 
 # General table of messages
@@ -59,7 +59,10 @@ TARGET_CORE_A = $(EMCODE_TOOLS)/Cores/$(SELECTED_BOARD)_$(RELEASE_CORE).a
 
 ifeq ($(BOOL_SELECT_BOARD),1)
 ifneq ($(READY_FOR_EMCODE_NEXT),1)
-    $(error $(MAKEFILE_NAME) not yet ready for emCode Next)
+    $(info ERROR              $(MAKEFILE_NAME) not yet ready for emCode Next)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,$(MAKEFILE_NAME) not yet ready for emCode Next)
+    $(error Stop)
 endif # READY_FOR_EMCODE_NEXT
 endif # BOOL_SELECT_BOARD
 
@@ -96,7 +99,10 @@ ifeq ($(UPLOADER),xds110)
     XDS110_LIST := {"$(shell echo $(XDS110_USB) | sed 's: :", ":g')"}
 
     ifeq ($(XDS110_NUMBER),0)
-        $(error No XDS110 connected)
+        $(info ERROR              No XDS110 connected)
+        $(info .)
+        $(call MESSAGE_GUI_ERROR,No XDS110 connected)
+        $(error Stop)
     else ifneq ($(XDS110_NUMBER),1)
         XDS110_SERIAL := $(shell zenity --width=240 --list --title="emCode" --column="XDS110" $(XDS110_LIST) -text=="Multiple programmers: choose one.")
     else
@@ -104,13 +110,19 @@ ifeq ($(UPLOADER),xds110)
     endif # XDS110_NUMBER
 
     ifeq ($(XDS110_SERIAL),false)
-        $(error No XDS110 selected)
+        $(info ERROR              No XDS110 selected)
+        $(info .)
+        $(call MESSAGE_GUI_ERROR,No XDS110 selected)
+        $(error Stop)
     endif # XDS110_SERIAL false
 
-  else
+  else # UPLOADER
 
     ifeq ($(filter $(XDS110_SERIAL),$(XDS110_USB)),)
-        $(error XDS110 $(XDS110_SERIAL) not found among connected $(XDS110_USB))
+        $(info ERROR              XDS110 $(XDS110_SERIAL) not found among connected $(XDS110_USB))
+        $(info .)
+        $(call MESSAGE_GUI_ERROR,XDS110 $(XDS110_SERIAL) not found among connected $(XDS110_USB))
+        $(error Stop)
     endif # XDS110_USB
 
   endif # XDS110_SERIAL
@@ -118,6 +130,7 @@ ifeq ($(UPLOADER),xds110)
     BOARD_PORT := /dev/cu.usbmodem$(XDS110_SERIAL)*
 
 endif # UPLOADER
+
 endif # BOOL_SELECT_SERIAL
 
 ifeq ($(filter %*, $(BOARD_PORT)),)
@@ -175,8 +188,8 @@ else
                     endif
                 endif
 
-                    $(info USB_RESET 2 '$(USB_RESET)')
-                    $(info DELAY_BEFORE_UPLOAD 2 '$(DELAY_BEFORE_UPLOAD)')
+#                     $(info USB_RESET 2 '$(USB_RESET)')
+#                     $(info DELAY_BEFORE_UPLOAD 2 '$(DELAY_BEFORE_UPLOAD)')
                 ifneq ($(USB_RESET),)
                     $(info AVRDUDE_PORT '$(AVRDUDE_PORT)')
                     $(shell stty -F $(AVRDUDE_PORT) 1200)
@@ -187,7 +200,10 @@ else
 
                 USED_VOLUME_PORT = $(shell ls -d $(BOARD_VOLUME))
                 ifeq ($(USED_VOLUME_PORT),)
-                    $(error Volume not available)
+                    $(info ERROR              Volume not available)
+                    $(info .)
+                    $(call MESSAGE_GUI_ERROR,Volume not available)
+                    $(error Stop)
                 endif
                 $(shell ls -1 $(BOARD_PORT) > $(BUILDS_PATH)/serial.txt)
 
@@ -202,7 +218,10 @@ else
 
             else ifeq ($(UPLOADER),nrfutil)
                 ifeq ($(wildcard $(BOARD_PORT)),)
-                    $(error Serial port of kind '$(BOARD_PORT)' not found)
+                    $(info ERROR              Serial port of kind '$(BOARD_PORT)' not found)
+                    $(info .)
+                    $(call MESSAGE_GUI_ERROR,Serial port of kind '$(BOARD_PORT)' not found)
+                    $(error Stop)
                 endif
                 $(shell ls -1 $(BOARD_PORT) > $(BUILDS_PATH)/serial.txt)
 
@@ -219,9 +238,15 @@ else
 
             else ifeq ($(AVRDUDE_PORT),)
                 ifneq ($(AVRDUDE_PORT),)
-                    $(error Serial port '$(AVRDUDE_PORT)' not available)
+                    $(info ERROR              Serial port '$(AVRDUDE_PORT)' not available)
+                    $(info .)
+                    $(call MESSAGE_GUI_ERROR,Serial port '$(AVRDUDE_PORT)' not available)
+                    $(error Stop)
                 else
-                    $(error Serial port of kind '$(BOARD_PORT)' not found)
+                    $(info ERROR              Serial port of kind '$(BOARD_PORT)' not found)
+                    $(info .)
+                    $(call MESSAGE_GUI_ERROR,Serial port of kind '$(BOARD_PORT)' not found)
+                    $(error Stop)
                 endif # AVRDUDE_PORT
             else
                 $(shell ls -1 $(BOARD_PORT) > $(BUILDS_PATH)/serial.txt)
@@ -238,6 +263,7 @@ endif # BOARD_PORT
 
 ifndef UPLOADER
     UPLOADER = avrdude
+
 endif # UPLOADER
 
 ifndef BOARD_NAME
@@ -431,8 +457,8 @@ ifneq ($(strip $(USER_LIBS_LIST)),0)
 
     s203 += $(foreach dir,$(USER_LIB_PATH),$(patsubst %,$(dir)/%/src/utility,$(USER_LIBS_LIST)))
 
-    # s203c = $(addsuffix /,$(s203))
-    # USER_LIBS := $(filter-out $(EXCLUDE_LIST),$(s203c))
+#     s203c = $(addsuffix /,$(s203))
+#     USER_LIBS := $(filter-out $(EXCLUDE_LIST),$(s203c))
 
     EXCLUDE_LIST_GREP = $(shell echo $(strip $(EXCLUDE_PATHS)) | sed "s/ /|/g" )
     USER_LIBS := $(sort $(shell echo $(s203) | egrep -v '$$(EXCLUDE_LIST_GREP)' ))
@@ -497,9 +523,9 @@ endif # LOCAL_LIBS_LIST
 
 ifneq ($(strip $(LOCAL_LIBS_LIST)),0)
     s207 = $(patsubst %,$(LOCAL_LIB_PATH)/%,$(LOCAL_LIBS_LIST))
-    # s208 = $(sort $(dir $(foreach dir,$(s207),$(shell find $(dir) -name \*.h -o -name \*.hpp))))
+#     s208 = $(sort $(dir $(foreach dir,$(s207),$(shell find $(dir) -name \*.h -o -name \*.hpp))))
     s208 = $(dir $(foreach dir,$(s207),$(shell find $(dir) -path "*/examples/*" ! -prune -o -name \*.h -o -name \*.hpp)))
-    # s213 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(sort $(s207))))
+#     s213 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(sort $(s207))))
     s213 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(s207)))
     LOCAL_LIBS = $(shell echo $(s208)' ' | sed 's://:/:g' | sed 's:/ : :g')
 endif # LOCAL_LIBS_LIST
@@ -539,13 +565,13 @@ RAW_LOCAL_OBJS = $(sort $(patsubst $(LOCAL_LIB_PATH)/%,$(OBJDIR)/%,$(filter-out 
 # New
 USE_ARCHIVES ?= true
 ifeq ($(USE_ARCHIVES),true)
-    # List local libraries with archives
+#     List local libraries with archives
     LOCAL_ARCHIVES = $(wildcard $(patsubst %,%/src/$(MCU)/*.a,$(LOCAL_LIBS_LIST_TOP))) $(wildcard $(LOCAL_LIB_PATH)/*.a)
-    #  Get the paths of local libraries with archives
+#      Get the paths of local libraries with archives
     WORK2 = $(patsubst %/src/$(MCU)/,%,$(foreach dir,$(LOCAL_ARCHIVES),$(dir $(dir))))
-    # Generate the filter with ending %
+#     Generate the filter with ending %
     ARCHIVE_LOCAL_OBJS = $(foreach lib,$(WORK2),$(OBJDIR)/$(lib)/%)
-    #  Filter
+#      Filter
     LOCAL_OBJS = $(filter-out $(ARCHIVE_LOCAL_OBJS),$(RAW_LOCAL_OBJS))
     INFO_LOCAL_ARCHIVES_LIST = $(WORK2)
     INFO_LOCAL_UNARCHIVES_LIST = $(filter-out $(INFO_LOCAL_ARCHIVES_LIST),$(LOCAL_LIBS_LIST_TOP))
@@ -576,14 +602,14 @@ ifeq ($(REMOTE_OBJS),)
 # NOW VARIANT_OBJS in REMOTE_OBJS 
 # Option 1 - Works
     OBJS_CORE = $(CORE_OBJS) $(BUILD_CORE_OBJS) 
-    # OBJS_CORE = $(filter-out %/main.cpp.o,$(CORE_OBJS))) $(BUILD_CORE_OBJS) 
+#     OBJS_CORE = $(filter-out %/main.cpp.o,$(CORE_OBJS))) $(BUILD_CORE_OBJS) 
 
     REMOTE_OBJS = $(sort $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(USER_OBJS) $(VARIANT_OBJS)) 
 # # Option 2 - No impact
 #     OBJS_CORE = $(CORE_OBJS) $(BUILD_CORE_OBJS) $(BUILD_APP_LIB_OBJS)
 #     REMOTE_OBJS = $(sort $(APP_LIB_OBJS) $(USER_OBJS) $(VARIANT_OBJS)) 
 # End of options
-    # REMOTE_OBJS = $(sort $(CORE_OBJS) $(BUILD_CORE_OBJS) $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(VARIANT_OBJS) $(USER_OBJS))
+#     REMOTE_OBJS = $(sort $(CORE_OBJS) $(BUILD_CORE_OBJS) $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(VARIANT_OBJS) $(USER_OBJS))
 endif # REMOTE_OBJS
 OBJS = $(OBJS_CORE) $(REMOTE_OBJS) $(REMOTE_NON_A_OBJS) $(LOCAL_OBJS)
 OBJS_NON_CORE = $(REMOTE_OBJS) $(REMOTE_NON_A_OBJS) $(LOCAL_OBJS)
@@ -710,12 +736,12 @@ $(info ==== Initial tasks ====)
 
 # FLAG_LEGACY = $(shell find $(CURRENT_DIR)/.. -name WorkspaceSettings.xcsettings)
 ifneq ($(wildcard $(UTILITIES_PATH)/emCode_check),)
-    # $(info ==== GCC_PREPROCESSOR_DEFINITIONS $(GCC_PREPROCESSOR_DEFINITIONS))
-    # $(info ==== ENERGIA_MT $(filter ENERGIA_MT,GCC_PREPROCESSOR_DEFINITIONS))
+#     $(info ==== GCC_PREPROCESSOR_DEFINITIONS $(GCC_PREPROCESSOR_DEFINITIONS))
+#     $(info ==== ENERGIA_MT $(filter ENERGIA_MT,GCC_PREPROCESSOR_DEFINITIONS))
 ifneq ($(filter ENERGIA_MT,$(GCC_PREPROCESSOR_DEFINITIONS)),)
-    # $(info $(UTILITIES_PATH)/emCode_check $(CURRENT_DIR) $(PROJECT_NAME_AS_IDENTIFIER))
+#     $(info $(UTILITIES_PATH)/emCode_check $(CURRENT_DIR) $(PROJECT_NAME_AS_IDENTIFIER))
     $(info $(shell $(UTILITIES_PATH)/emCode_check $(CURRENT_DIR) $(PROJECT_NAME_AS_IDENTIFIER)))
-    # $(info $(shell export PROJECT_DIR=$(CURRENT_DIR) ; export PROJECT_NAME=$(PROJECT_NAME_AS_IDENTIFIER) ; export UPLOADER=$(UPLOADER) ; export BUILDS_PATH=$(BUILDS_PATH) ; export CONFIG_NAME="$(CONFIG_NAME)" ; $(UTILITIES_PATH)/emCode_check))
+#     $(info $(shell export PROJECT_DIR=$(CURRENT_DIR) ; export PROJECT_NAME=$(PROJECT_NAME_AS_IDENTIFIER) ; export UPLOADER=$(UPLOADER) ; export BUILDS_PATH=$(BUILDS_PATH) ; export CONFIG_NAME="$(CONFIG_NAME)" ; $(UTILITIES_PATH)/emCode_check))
 else
 endif # ENERGIA_MT
 #    ifeq ($(FLAG_LEGACY),)
@@ -726,9 +752,9 @@ endif # UTILITIES_PATH
 $(shell $(STARTCHRONO))
 
 ifneq ($(wildcard $(UTILITIES_PATH)/emCode_prepare),)
-    # $(info $(UTILITIES_PATH)/emCode_prepare $(CURRENT_DIR))
+#     $(info $(UTILITIES_PATH)/emCode_prepare $(CURRENT_DIR))
     $(info $(shell $(UTILITIES_PATH)/emCode_prepare $(CURRENT_DIR)))
-    # DUMMY = $(shell $(UTILITIES_PATH)/emCode_prepare $(CURRENT_DIR))
+#     DUMMY = $(shell $(UTILITIES_PATH)/emCode_prepare $(CURRENT_DIR))
 endif # UTILITIES_PATH
 $(info ==== End of initial tasks ====)
 
@@ -740,7 +766,8 @@ endif # MAKECMDGOALS upload
 
 ifneq ($(MESSAGE_CRITICAL),)
     $(info CRITICAL         $(MESSAGE_CRITICAL))
-    $(shell zenity --width=240 --title "emCode" --text "$(MESSAGE_CRITICAL)" --warning)
+#     $(shell zenity --width=240 --title "emCode" --text "$(MESSAGE_CRITICAL)" --warning)
+    $(call MESSAGE_ZENITY_WARNING,$(MESSAGE_CRITICAL))
 
 # $(shell export SUBTITLE='Warning' ; export MESSAGE='$(MESSAGE_WARNING)' ; $(UTILITIES_PATH)/Notify.app/Contents/MacOS/applet)
 endif # MESSAGE_CRITICAL
@@ -749,7 +776,11 @@ ifneq ($(HIDE_INFO),true)
 ifeq ($(UNKNOWN_BOARD),1)
     $(info .)
     $(info ==== Info ====)
-    $(error 'ERROR	$(BOARD_TAG) board is unknown')
+    $(info ERROR              $(BOARD_TAG) board is unknown)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is unknown)
+    $(error Stop)
+
     $(info ==== Info done ====)
 endif # UNKNOWN_BOARD
 
@@ -763,7 +794,8 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     $(info Name              $(PROJECT_NAME_AS_IDENTIFIER))
 
     ifneq ($(MESSAGE_WARNING),)
-        $(info WARNING           $(MESSAGE_WARNING))
+        $(call MESSAGE_ZENITY_WARNING,$(MESSAGE_WARNING))
+        $(info WARNING                       $(MESSAGE_WARNING))
     endif # MESSAGE_WARNING
     ifneq ($(MESSAGE_INFO),)
         $(info Information       $(MESSAGE_INFO))
@@ -789,6 +821,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             $(info Boot-loader   $(BOOTLOADER))
         endif # BOOTLOADER
     endif # UPLOADER
+
     ifeq ($(UPLOADER),mspdebug)
         $(info Protocol          $(UPLOADER_PROTOCOL))
     endif # UPLOADER
@@ -816,14 +849,14 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     $(info ---- Core libraries ----)
     $(info From              $(CORE_LIB_PATH)) # | cut -d. -f1,2
     $(info List              $(notdir $(CORE_LIBS_LIST)))
-    # $(foreach file,$(CORE_LIBS_LIST),$(info . $(file) release $(shell grep version $(CORE_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+#     $(foreach file,$(CORE_LIBS_LIST),$(info . $(file) release $(shell grep version $(CORE_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
 
     ifneq ($(strip $(APP_LIBS_LIST)),0)
         $(info ---- Application libraries ----)
         $(info From              $(basename $(APP_LIB_PATH))) # | cut -d. -f1,2
         ifneq ($(strip $(APP_LIBS_LIST)),)
             $(info List              $(filter-out 0,$(sort $(basename $(APP_LIBS_LIST)) $(basename $(notdir $(BUILD_APP_LIBS_LIST))))))
-            # $(foreach file,$(APP_LIBS_LIST),$(info . $(file) release $(shell grep version $(APP_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+#             $(foreach file,$(APP_LIBS_LIST),$(info . $(file) release $(shell grep version $(APP_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
             $(foreach file,$(APP_LIBS_LIST),$(info Library           $(call VERSION,$(file),$(APP_LIB_PATH))))
 
         endif # APP_LIBS_LIST
@@ -836,7 +869,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     ifneq ($(strip $(USER_LIBS_LIST)),0) # none
     ifneq ($(strip $(USER_LIBS_LIST)),) # all
 
-        # s230a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
+#         s230a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
         s230a := $(shell find $(USER_LIB_PATH) -type d)
         s230b := $(subst $(USER_LIB_PATH)/,,$(s230a))
         s230c := $(filter-out $(s230b),$(USER_LIBS_LIST))
@@ -854,14 +887,14 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             $(info Libraries         None)
         else
             $(info Libraries         $(INFO_USER_UNARCHIVES_LIST))
-            # $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+#             $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
             $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(USER_LIB_PATH))))
 
         endif # USER_LIBS_LIST
     endif # INFO_USER_UNARCHIVES_LIST
     ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
         $(info Archives          $(INFO_USER_ARCHIVES_LIST))
-        # $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+#         $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
         $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(USER_LIB_PATH))))
     endif # INFO_USER_ARCHIVES_LIST
 
@@ -913,7 +946,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     ifneq ($(strip $(LOCAL_LIBS_LIST)),0) # none
     ifneq ($(strip $(LOCAL_LIBS_LIST)),) # all
 
-        # s220a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
+#         s220a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
         s220a := $(shell find $(LOCAL_LIB_PATH) -type d)
         s220b := $(subst ./,,$(s220a))
         s220c := $(filter-out $(s220b),$(LOCAL_LIBS_LIST))
@@ -929,16 +962,16 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
         $(info Libraries         $(INFO_LOCAL_UNARCHIVES_LIST))
 
-        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info $(CURRENT_DIR)/$(file)/library.properties))
-        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+#         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info $(CURRENT_DIR)/$(file)/library.properties))
+#         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(CURRENT_DIR))))
 
-        # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell printf '%-18s %s\n' $(file) $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+#         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell printf '%-18s %s\n' $(file) $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
 
     endif # INFO_USER_UNARCHIVES_LIST
     ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
         $(info Archives          $(INFO_LOCAL_ARCHIVES_LIST))
-        # $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+#         $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
         $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(CURRENT_DIR))))
     endif # INFO_USER_ARCHIVES_LIST
 
@@ -2254,13 +2287,16 @@ else ifeq ($(UPLOADER),esptool.py)
 #	echo 'USED_SERIAL_PORT = '$(USED_SERIAL_PORT)
 	$(UPLOADER_EXEC) $(UPLOADER_OPTS) --port $(USED_SERIAL_PORT) write_flash 0x00000 $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)_00000.bin 0x$(ADDRESS_BIN2) $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)_$(ADDRESS_BIN2).bin
 else
-	$(error No valid uploader)
+    $(info ERROR             No valid uploader)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,No valid uploader)
+    $(error Stop)
+
 endif # UPLOADER
 
 ifeq ($(MESSAGE_POST_RESET),1)
 	$(call SHOW,"10.36-UPLOAD",$(UPLOADER))
-
-	@zenity --width=240 --title "emCode" --text "Press the RESET button on the board $(CONFIG_NAME) and then click OK." --info
+        $(call MESSAGE_GUI_INFO,Press the RESET button on the board $(CONFIG_NAME) and then click OK.)
 #		@osascript -e 'tell application "System Events" to display dialog "Press the RESET button on the board $(CONFIG_NAME) and then click OK." buttons {"OK"} default button {"OK"} with icon POSIX file ("$(UTILITIES_PATH)/TemplateIcon.icns") with title "emCode"'
 # Give Mac OS X enough time for enumerating the USB ports
 	@sleep 3
@@ -2359,7 +2395,7 @@ ifneq ($(NO_SERIAL_CONSOLE),true)
             $(SERIAL_EXEC) $(JLINK_SERIAL) $(SERIAL_BAUDRATE)
 #			osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $(JLINK_SERIAL) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
         endif # JLINK_SERIAL
-    else
+    else # UPLOADER
 		@echo "No serial port available"
     endif # COMMAND_SERIAL
 endif # NO_SERIAL_CONSOLE

@@ -136,24 +136,24 @@ ifeq ($(UPLOADER),cp_uf2)
 
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
     COMMAND_PRE_UPLOAD = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(RP2040_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
-    # USED_VOLUME_PORT = $(shell ls -d $(BOARD_VOLUME))
+#     USED_VOLUME_PORT = $(shell ls -d $(BOARD_VOLUME))
     USED_VOLUME_PORT = $(strip $(BOARD_VOLUME))
 
-    # Seeed Xiao does not support plain cp, while Raspberry Pi Pico does.
-    # Option 1 --- With https://github.com/microsoft/uf2
-    # stty -F $(AVRDUDE_PORT) 1200
-    # python uf2conv.py --family RP2040 --convert $(TARGET_ELF) --output $(TARGET_BIN_CP)
-    # python uf2conv.py --device $(AVRDUDE_PORT) --family RP2040 --deploy $(TARGET_BIN_CP)
-    # 
-    # Option 2 --- With .../Arduino15/packages/rp2040/hardware/rp2040/3.2.1/tools
-    # stty -F $(AVRDUDE_PORT) 1200
-    # python uf2conv.py --family RP2040 --convert $(TARGET_ELF) --output $(TARGET_BIN_CP)
-    # python uf2conv.py --device $(AVRDUDE_PORT) --family RP2040 --deploy $(TARGET_BIN_CP)
-    # End of options ---
+#     Seeed Xiao does not support plain cp, while Raspberry Pi Pico does.
+#     Option 1 --- With https://github.com/microsoft/uf2
+#     stty -F $(AVRDUDE_PORT) 1200
+#     python uf2conv.py --family RP2040 --convert $(TARGET_ELF) --output $(TARGET_BIN_CP)
+#     python uf2conv.py --device $(AVRDUDE_PORT) --family RP2040 --deploy $(TARGET_BIN_CP)
+#     
+#     Option 2 --- With .../Arduino15/packages/rp2040/hardware/rp2040/3.2.1/tools
+#     stty -F $(AVRDUDE_PORT) 1200
+#     python uf2conv.py --family RP2040 --convert $(TARGET_ELF) --output $(TARGET_BIN_CP)
+#     python uf2conv.py --device $(AVRDUDE_PORT) --family RP2040 --deploy $(TARGET_BIN_CP)
+#     End of options ---
     UPLOADER_PATH = $(HARDWARE_PATH)/tools
     UPLOADER_EXEC = $(UPLOADER_PATH)/uf2conv.py
     UPLOADER_OPTS = --family RP2040 --deploy $(TARGET_BIN_CP)
-    # UPLOADER_OPTS += --device $(AVRDUDE_PORT) # Not required
+#     UPLOADER_OPTS += --device $(AVRDUDE_PORT) # Not required
     COMMAND_UPLOAD = python $(UPLOADER_EXEC) $(UPLOADER_OPTS) 
 
 else ifeq ($(UPLOADER),dfu-util)
@@ -172,10 +172,10 @@ else ifeq ($(UPLOADER),dfu-util)
 else ifeq ($(UPLOADER),picoprobe)
     UPLOADER = openocd
 # # Option 1 - 1.5.0-a-5007782 is actually arm-none-eabi-cpp (GCC) 10.3.0 but gdb remains 8.2.5
-# # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
+# # ~/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
 #     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/bin
 #     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd
-#     # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
+# #     ~/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
 #     UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
 # Option 2 - Consistent tool-chain
 #     UPLOADER_PATH := $(EMCODE_TOOLS)/OpenOCD_RP2040/$(RP2040_OPENOCD_PICOPROBE_RELEASE)
@@ -184,7 +184,7 @@ else ifeq ($(UPLOADER),picoprobe)
 # Option 3 - consistent with debugprobe as debugprobe merged with picoprobe
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/bin
     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd
-    # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
+#     ~/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
     UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
 # End
     UPLOADER_OPTS += -f interface/picoprobe.cfg -f target/$(BUILD_CHIP).cfg
@@ -194,10 +194,10 @@ else ifeq ($(UPLOADER),picoprobe)
 else ifeq ($(UPLOADER),debugprobe)
     UPLOADER = openocd
 # # Option 1 - 1.5.0-a-5007782 is actually arm-none-eabi-cpp (GCC) 10.3.0 but gdb remains 8.2.5
-# # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
+# # ~/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/bin
     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd
-    # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
+#     ~/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
     UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
 # # Option 2 - Consistent tool-chain
 #     UPLOADER_PATH := $(EMCODE_TOOLS)/OpenOCD_RP2040/$(RP2040_OPENOCD_PICOPROBE_RELEASE)
@@ -212,16 +212,16 @@ else ifeq ($(UPLOADER),debugprobe)
 else ifeq ($(UPLOADER),jlink)
     UPLOADER = jlink
 
-    # Prepare the .jlink scripts
+#     Prepare the .jlink scripts
     COMMAND_PRE_UPLOAD = printf 'r\nloadfile "$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink' ;
     COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
 
 # # Option 1 - 1.5.0-a-5007782 is actually arm-none-eabi-cpp (GCC) 10.3.0 but gdb remains 8.2.5
-# # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
+# # ~/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/bin/openocd
     UPLOADER_PATH := /usr/bin
     UPLOADER_EXEC = $(UPLOADER_PATH)/JLinkExe
-    # /home/reivilo/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
-    # UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
+#     ~/.arduino15/packages/rp2040/tools/pqt-openocd/1.5.0-b-c7bab52/share/openocd/scripts
+#     UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
 # # Option 2 - Consistent tool-chain
 #     UPLOADER_PATH := $(EMCODE_TOOLS)/OpenOCD_RP2040/$(RP2040_OPENOCD_PICOPROBE_RELEASE)
 #     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd_picoprobe
@@ -230,10 +230,11 @@ else ifeq ($(UPLOADER),jlink)
     UPLOADER_OPTS += -device RP2040_M0_0 -if swd -speed 2000 
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -commanderscript $(BUILDS_PATH)/upload.jlink
 
-else
+else # UPLOADER
+
 # tools.openocd.upload.pattern="{path}/{cmd}" {upload.verbose} -s "{path}/share/openocd/scripts/" {bootloader.programmer} {upload.transport} {bootloader.config} -c "telnet_port disabled; init; reset init; halt; adapter speed 10000; program {{build.path}/{build.project_name}.elf}; reset run; shutdown"
     UPLOADER = openocd
-    # UPLOADER_PATH := /usr/local
+#     UPLOADER_PATH := /usr/local
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/bin
     UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd
 # UPLOADER_OPTS = -d3
@@ -246,7 +247,7 @@ else
 #    JLINK_POWER = 1
     JLINK_POWER ?= 0
     ifeq ($(JLINK_POWER),1)
-        # COMMAND_POWER = printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
+#         COMMAND_POWER = printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
         COMMAND_POWER = printf "power on\ng\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
         COMMAND_POWER += JLinkExe -device RP2040_M0_0 -if swd -speed 2000 -commanderscript '$(BUILDS_PATH)/power.jlink'
     endif # JLINK_POWER
@@ -399,7 +400,7 @@ USB_FLAGS += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_def.txt
 # NOW
 BUILD_WIFI = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.wificc)
 ifeq ($(USB_VENDOR),)
-    # BUILD_WIFI = -DWIFICC=CYW43_COUNTRY_WORLDWIDE
+#     BUILD_WIFI = -DWIFICC=CYW43_COUNTRY_WORLDWIDE
     BUILD_WIFI = $(call PARSE_FILE,$(BOARD_TAG),build,wificc)
 endif
 

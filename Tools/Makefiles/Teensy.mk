@@ -74,14 +74,25 @@ BUILD_SUBCORE = $(call PARSE_BOARD,$(BOARD_TAG),build.core)
 FLAGS_D = $(call PARSE_BOARD,$(BOARD_TAG),build.flags.defs)
 
 ifeq ($(BUILD_SUBCORE),teensy)
+
     include $(MAKEFILE_PATH)/Teensy2.mk
+
 else ifeq ($(BUILD_SUBCORE),teensy3)
+
     include $(MAKEFILE_PATH)/Teensy3.mk
+
 else ifeq ($(BUILD_SUBCORE),teensy4)
+
 	include $(MAKEFILE_PATH)/Teensy3.mk
-else
-    $(error $(BUILD_SUBCORE) unknown)
-endif
+
+else # BUILD_SUBCORE
+
+    $(info ERROR             $(BUILD_SUBCORE) unknown)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,$(BUILD_SUBCORE) unknown)
+    $(error Stop)
+
+endif # BUILD_SUBCORE
 
 # One single location for Teensyduino application libraries
 # $(APPLICATION_PATH)/libraries aren't compatible
@@ -89,15 +100,15 @@ endif
 APP_LIB_PATH := $(APPLICATION_PATH)/hardware/avr/$(TEENSY_RELEASE)/libraries
 
 ifeq ($(APP_LIBS_LIST),0)
-    # APP_LIBS_LIST :=
+#     APP_LIBS_LIST :=
 else 
 
-    # a1000 = $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))
-    # a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/utility,$(APP_LIBS_LIST)))
-    # a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src,$(APP_LIBS_LIST)))
-    # a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/utility,$(APP_LIBS_LIST)))
-    # a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/arch/$(BUILD_SUBCORE),$(APP_LIBS_LIST)))
-    # a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/$(BUILD_SUBCORE),$(APP_LIBS_LIST)))
+#     a1000 = $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))
+#     a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/utility,$(APP_LIBS_LIST)))
+#     a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src,$(APP_LIBS_LIST)))
+#     a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/utility,$(APP_LIBS_LIST)))
+#     a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/arch/$(BUILD_SUBCORE),$(APP_LIBS_LIST)))
+#     a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/$(BUILD_SUBCORE),$(APP_LIBS_LIST)))
     a1000 = $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))
     a1000 += $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d  | egrep -v 'examples' | egrep -v 'extras' ))
 

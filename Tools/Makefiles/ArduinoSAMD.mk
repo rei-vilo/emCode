@@ -114,7 +114,7 @@ else
 
         UPLOADER = jlink
 
-        # Prepare the .jlink scripts
+#         Prepare the .jlink scripts
         COMMAND_PRE_UPLOAD = printf 'r\nloadfile "$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).hex"\ng\nexit\n' > '$(BUILDS_PATH)/upload.jlink' ;
         COMMAND_PRE_UPLOAD += printf "power on\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
 
@@ -123,7 +123,7 @@ else
         UPLOADER_OPTS += -device ATSAMD21G18A -if swd -speed 2000 
         COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -commanderscript $(BUILDS_PATH)/upload.jlink
 
-    else
+    else # UPLOADER
 
         UPLOADER = openocd
         UPLOADER_PATH := $(OTHER_TOOLS_PATH)/openocd/$(ARDUINO_SAMD_OPENOCD_RELEASE)
@@ -142,7 +142,7 @@ else
 #       UPLOADER_COMMAND = verify reset $(call PARSE_BOARD,$(BOARD_TAG),build.section.start) exit
         COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "$(UPLOADER_COMMAND)"
 
-    endif
+    endif # UPLOADER
 endif
 
 # Tool-chain names

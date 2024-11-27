@@ -118,7 +118,8 @@ else ifeq ($(UPLOADER),ozone)
     DEBUGGER_EXEC = open $(UPLOADER_PATH)/Ozone.app
     DEBUGGER_OPTS = --args $(BUILDS_PATH)/ozone.jdebug
 
-else
+else # UPLOADER
+
 # ifeq ($(UPLOADER),)
     UPLOADER = $(call PARSE_BOARD,$(BOARD_TAG),upload.protocol)
 
@@ -131,7 +132,7 @@ else
     UPLOADER_COMMAND = program {$(OBJDIR)/$(BINARY_SPECIFIC_NAME)-merged.hex} verify reset exit
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "$(UPLOADER_COMMAND)"
 
-endif
+endif # UPLOADER
 
 # Tool-chain names
 #

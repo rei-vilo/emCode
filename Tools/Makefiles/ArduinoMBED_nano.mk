@@ -95,7 +95,7 @@ ifeq ($(UPLOADER),cp_uf2)
     UPLOADER = cp_uf2
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
     COMMAND_PRE_UPLOAD = $(OTHER_TOOLS_PATH)/rp2040tools/$(ARDUINO_PICO_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
-    # USED_VOLUME_PORT = $(shell ls -d $(BOARD_VOLUME))
+#     USED_VOLUME_PORT = $(shell ls -d $(BOARD_VOLUME))
     USED_VOLUME_PORT = $(strip $(BOARD_VOLUME))
 
 else ifeq ($(UPLOADER),bossac)
@@ -120,7 +120,9 @@ else ifeq ($(UPLOADER),dfu-util)
 	UPLOADER_OPTS += -a$(call PARSE_BOARD,$(BOARD_TAG),upload.interface)
     UPLOADER_OPTS += -dfuse-address=$(call PARSE_BOARD,$(BOARD_TAG),upload.address):leave
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -D $(TARGET_BIN)
-else
+
+else # UPLOADER
+
 # tools.openocd.upload.pattern="{path}/{cmd}" {upload.verbose} -s "{path}/share/openocd/scripts/" {bootloader.programmer} {upload.transport} {bootloader.config} -c "telnet_port disabled; init; reset init; halt; adapter speed 10000; program {{build.path}/{build.project_name}.elf}; reset run; shutdown"
     UPLOADER = openocd
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/openocd/$(ARDUINO_MBED_OPENOCD_RELEASE)
@@ -139,7 +141,8 @@ else
 #        ifeq ($(BOOTLOADER_SIZE),)
 #            BOOTLOADER_SIZE = 0x2000
 #        endif
-endif
+
+endif # UPLOADER
 
 # Tool-chain names
 #

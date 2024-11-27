@@ -72,7 +72,7 @@ SUB_PLATFORM = $(BUILD_CORE)
 #         COMMAND_PRE_UPLOAD += dd conv=notrunc bs=1 if=$(TARGET_BIN) of=$(TARGET_BIN_CP) seek=$$((0xC000)) ;
 #     else
         UPLOADER = openocd
-        # UPLOADER_PATH = $(APPLICATION_PATH)/tools/openocd/$(MICROSOFT_OPENOCD_RELEASE)/macosx
+#         UPLOADER_PATH = $(APPLICATION_PATH)/tools/openocd/$(MICROSOFT_OPENOCD_RELEASE)/macosx
         UPLOADER_PATH = /usr
         UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd
         UPLOADER_OPTS = -f interface/stlink-v2-1.cfg

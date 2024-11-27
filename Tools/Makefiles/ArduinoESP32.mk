@@ -257,7 +257,7 @@ else
 #    BOOTLOADER_BIN = $(SDK_PATH)/bin/bootloader_$(BUILD_FLASH_MODE)_$(BUILD_FLASH_FREQ).bin
 
     BOOTLOADER_SOURCE_ELF = $(SDK_PATH)/bin/bootloader_$(BUILD_BOOT)_$(BUILD_FLASH_FREQ).elf
-    # COMMAND_COPY = $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $(BOOTLOADER_BIN) $(BOOTLOADER_SOURCE_ELF) ;
+#     COMMAND_COPY = $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $(BOOTLOADER_BIN) $(BOOTLOADER_SOURCE_ELF) ;
 
 # recipe.objcopy.bin.pattern_args=--chip {build.mcu} elf2image --flash_mode "{build.flash_mode}" --flash_freq "{build.flash_freq}" --flash_size "{build.flash_size}" --elf-sha256-offset 0xb0 -o "{build.path}/{build.project_name}.bin" "{build.path}/{build.project_name}.elf"
     COMMAND_COPY += $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $(TARGET_BIN) $(TARGET_ELF) ;
@@ -312,7 +312,7 @@ endif # BOOTLOADER_SOURCE_BIN
 # 
 # else ifeq ($(UPLOADER),dfu-util)
 
-# /home/reivilo/.arduino15/packages/arduino/tools/dfu-util/0.11.0-arduino5/dfu-util --device 0x2341:0x0070 -D /home/reivilo/.var/app/cc.arduino.IDE2/cache/arduino/sketches/875B25B415F3CBA04731091289855208/Blink_Serial_01.ino.bin -Q
+# ~/.arduino15/packages/arduino/tools/dfu-util/0.11.0-arduino5/dfu-util --device 0x2341:0x0070 -D ~/.var/app/cc.arduino.IDE2/cache/arduino/sketches/875B25B415F3CBA04731091289855208/Blink_Serial_01.ino.bin -Q
 USB_VID = $(call PARSE_BOARD,$(BOARD_TAG),vid.0)
 USB_PID = $(call PARSE_BOARD,$(BOARD_TAG),pid.0)
 
@@ -329,7 +329,7 @@ USB_PID = $(call PARSE_BOARD,$(BOARD_TAG),pid.0)
 # else
 #     UPLOADER = esptool
 #     UPLOADER_PATH = $(OTHER_TOOLS_PATH)
-#     # UPLOADER_EXEC = $(UPLOADER_PATH)/esptool
+# #     UPLOADER_EXEC = $(UPLOADER_PATH)/esptool
 #     UPLOADER_EXEC = $(PYTHON_EXEC) $(UPLOADER_PATH)/esptool.py
 #     UPLOADER_OPTS = --chip $(MCU) --port $(USED_SERIAL_PORT) --baud 921600
 #     UPLOADER_OPTS += --before default_reset --after hard_reset write_flash -z
@@ -445,7 +445,7 @@ INCLUDE_PATH += $(VARIANT_PATH)
 
 ifeq ($(wildcard $(EMCODE_TOOLS)/Cores/$(SELECTED_BOARD)_$(RELEASE_CORE).a),)
 #     $(info Building core...)
-    # MESSAGE_CRITICAL += First build for core. Relaunch build.
+#     MESSAGE_CRITICAL += First build for core. Relaunch build.
     FLAGS_D += -DARDUINO_CORE_BUILD
 #     INCLUDE_PATH += ./.builds
 endif
@@ -649,45 +649,45 @@ esp1500a := $(call PARSE_BOARD,$(BOARD_TAG),tools.esptool_py.program.pattern_arg
 # $(info > esp1500b $(esp1500b))
 
 ifneq ($(esp1500a),)
-    # esp1500b = $(subst {build.mcu},$(MCU),$(esp1500a))
-    # --chip {build.mcu} 
+#     esp1500b = $(subst {build.mcu},$(MCU),$(esp1500a))
+#     --chip {build.mcu} 
     esp1500b = $(shell echo $(esp1500a) | sed 's:{build.mcu}:$(MCU):g')
 
-    # --port "{serial.port}" 
+#     --port "{serial.port}" 
 ifeq ($(USED_SERIAL_PORT),)
     esp1500c = $(shell echo $(esp1500b) | sed 's:--port {serial.port}::g')
 else 
     esp1500c = $(shell echo $(esp1500b) | sed 's:{serial.port}:$(USED_SERIAL_PORT):g')
 endif
 
-    # --before default_reset --after hard_reset write_flash -z 
-    # --flash_mode {build.flash_mode} 
+#     --before default_reset --after hard_reset write_flash -z 
+#     --flash_mode {build.flash_mode} 
     esp1500d = $(shell echo $(esp1500c) | sed 's:{build.flash_mode}:$(BUILD_FLASH_MODE):g')
 
-    # --flash_freq {build.flash_freq} 
+#     --flash_freq {build.flash_freq} 
     esp1500e = $(shell echo $(esp1500d) | sed 's:{build.flash_freq}:$(BUILD_FLASH_FREQ):g')
 
-    # --flash_size {build.flash_size} 
+#     --flash_size {build.flash_size} 
     esp1500f = $(shell echo $(esp1500e) | sed 's:{build.flash_size}:$(BUILD_FLASH_SIZE):g')
 
-    # {build.bootloader_addr} "{build.path}/{build.project_name}.bootloader.bin" 
+#     {build.bootloader_addr} "{build.path}/{build.project_name}.bootloader.bin" 
     BUILD_BOOTLOADER_ADDR = $(call PARSE_BOARD,$(BOARD_TAG),build.bootloader_addr)
     esp1500g = $(shell echo $(esp1500f) | sed 's:{build.bootloader_addr}:$(BUILD_BOOTLOADER_ADDR):g')
     esp1500h = $(shell echo $(esp1500g) | sed 's:{build.path}/{build.project_name}.bootloader.bin:$(BOOTLOADER_BIN):g')
 
-    # 0x8000 "{build.path}/{build.project_name}.partitions.bin" 
+#     0x8000 "{build.path}/{build.project_name}.partitions.bin" 
     esp1500i = $(shell echo $(esp1500h) | sed 's:{build.path}/{build.project_name}.partitions.bin:$(PARTITIONS_BIN):g')
 
-    # 0xe000 "{runtime.platform.path}/tools/partitions/boot_app0.bin" 
+#     0xe000 "{runtime.platform.path}/tools/partitions/boot_app0.bin" 
     esp1500j = $(shell echo $(esp1500i) | sed 's:{runtime.platform.path}:$(HARDWARE_PATH):g')
 
-    # 0xf70000 "{build.variant.path}/extra/nora_recovery/nora_recovery.ino.bin" 
+#     0xf70000 "{build.variant.path}/extra/nora_recovery/nora_recovery.ino.bin" 
     esp1500k = $(shell echo $(esp1500j) | sed 's:{build.variant.path}:$(VARIANT_PATH):g')
 
-    # 0x10000 "{build.path}/{build.project_name}.bin"
+#     0x10000 "{build.path}/{build.project_name}.bin"
     esp1500l = $(shell echo $(esp1500k) | sed 's:{build.path}/{build.project_name}.bin:$(TARGET_BIN):g')
 
-    # COMMAND_POST_COPY = $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py $(esp1500l)
+#     COMMAND_POST_COPY = $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py $(esp1500l)
 
 # $(info > esp1500b $(esp1500b))
 # $(info > esp1500c $(esp1500c))
@@ -710,7 +710,9 @@ endif
 #
 ifeq ($(UPLOADER),espota)
     COMMAND_UPLOAD = $(UPLOADER_EXEC) -i $(SSH_ADDRESS) -f $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).bin $(UPLOADER_OPTS)
-else
+
+else # UPLOADER
+
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS)
 
 endif # UPLOADER

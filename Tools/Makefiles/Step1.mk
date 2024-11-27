@@ -6,10 +6,73 @@
 # Copyright © Rei Vilo, 2010-2024
 # All rights reserved
 #
-# Last update: 12 Apr 2024 release 14.3.8
+# Last update: 18 Nov release 14.6.0
 #
 
 include $(MAKEFILE_PATH)/Step0.mk
+
+# Functions
+# ----------------------------------
+#
+
+# Function PARSE_BOARD data retrieval from boards.txt
+# result = $(call PARSE_BOARD 'board tag','parameter')
+# Implicit variable BOARDS_TXT
+# Strict search with ending `=` on `^$(1).$(2)=`
+#
+PARSE_BOARD = $(shell if [ -f $(BOARDS_TXT) ] ; then grep ^$(1).$(2)= $(BOARDS_TXT) | cut -d = -f 2- ; fi ; )
+
+# Function PARSE_FILE data retrieval from specified file
+# result = $(call PARSE_FILE 'board tag','parameter','filename')
+# Open search with no ending `=` on `^$(1).$(2)`
+# Pass ending `=` on parameter `$(2)`
+#
+PARSE_FILE = $(shell if [ ! -z $(3) ] ; then if [ -f $(3) ] ; then grep ^$(1).$(2) $(3) | cut -d = -f 2- ; fi ; fi ;)
+
+# Function PARSE_BOARD data retrieval from boards.txt
+# result = $(call SEARCH_FOR,'list of board tags','parameter')
+# Implicit variable BOARDS_TXT
+# 
+SEARCH_FOR = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
+
+# Function VERSION version of library
+# result = $(call VERSION,'list of board tags','parameter')
+# $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+# 
+VERSION = $(shell work=$(2)/$(1)/library.properties ; test=$$(grep version $$work | cut -d= -f2) ; if [ $$test ] ; then echo $(1) release $$test ; else echo "$(1) release ?" ; fi ; )
+# VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work )
+# VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work ; test=$$(grep "version" $$work) ; echo $$test )
+
+# define MESSAGE_ZENITY
+#     $(info ERROR $(1))
+#     $(shell zenity --width=240 --title "emCode" --text "$(1)" --$(2))
+#     $(info .)
+# endef
+
+# GUI options
+#
+# Function MESSAGE_GUI with level option
+# result = MESSAGE_GUI_ERROR(message) for error 
+# result = MESSAGE_GUI_WARNING(message) for warning 
+# result = MESSAGE_GUI_INFO(message) for information
+
+# ZENITY Display a dialogue box with title emCode and message 
+ifeq ($(GUI_OPTION),ZENITY)
+
+    MESSAGE_GUI_ERROR = $(shell zenity --width=240 --title "emCode" --text "$(1)" --error)
+    MESSAGE_GUI_WARNING = $(shell zenity --width=240 --title "emCode" --text "$(1)" --warning)
+    MESSAGE_GUI_INFO = $(shell zenity --width=240 --title "emCode" --text "$(1)" --info)
+
+# NOTIFY Display a notification with title emCode and message
+else ifeq ($(GUI_OPTION),NOTIFY)
+
+    MESSAGE_GUI_ERROR = $(shell notify-send "emCode" "$(1)" -u critical)
+    MESSAGE_GUI_WARNING = $(shell notify-send "emCode" "$(1)" -u normal)
+    MESSAGE_GUI_INFO = $(shell notify-send "emCode" "$(1)" -u low)
+
+else
+#     Nothing
+endif # GUI_OPTION
 
 # Sketch unicity test and extension
 # ----------------------------------
@@ -37,11 +100,17 @@ ifneq ($(SKETCH_EXTENSION),__main_cpp_only__)
     ifneq ($(SKETCH_EXTENSION),_main_cpp_only_)
         ifneq ($(SKETCH_EXTENSION),cpp)
             ifeq ($(words $(wildcard *.$(SKETCH_EXTENSION))), 0)
-                $(error No $(SKETCH_EXTENSION) sketch)
+                $(info ERROR             No $(SKETCH_EXTENSION) sketch)
+                $(info .)
+                $(call MESSAGE_GUI_ERROR,No $(SKETCH_EXTENSION) sketch)
+                $(error Stop)
             endif # SKETCH_EXTENSION
 
             ifneq ($(words $(wildcard *.$(SKETCH_EXTENSION))), 1)
-                $(error More than one $(SKETCH_EXTENSION) sketch)
+                $(info ERROR             More than one $(SKETCH_EXTENSION) sketch)
+                $(info .)
+                $(call MESSAGE_GUI_ERROR,More than one $(SKETCH_EXTENSION) sketch)
+                $(error Stop)
             endif # SKETCH_EXTENSION
         endif # SKETCH_EXTENSION cpp
     endif # SKETCH_EXTENSION
@@ -67,11 +136,11 @@ $(shell mkdir -p $(BUILDS_PATH))
 
 ifeq ($(MAKECMDGOALS),)
     $(info Syntax            make <target> SELECTED_BOARD=<board name>)
-    $(info Error             <target> not defined)
-
-    $(error MAKECMDGOALS not defined)
-
-endif
+    $(info ERROR             <target> not defined)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,make <target> SELECTED_BOARD=<board name>\n<target> not defined)
+    $(error Stop)
+endif # MAKECMDGOALS
 
 # Board selection
 # ----------------------------------
@@ -93,8 +162,10 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
     ifndef BOARD_TAG
         $(info Syntax            make <target> SELECTED_BOARD=<board name>)
-        $(info Error             <board name> not defined)
-        $(error BOARD_TAG not defined)
+        $(info ERROR             <board name> not defined)
+        $(info .)
+        $(call MESSAGE_GUI_ERROR,make <target> SELECTED_BOARD=<board name>\n<board name> not defined)
+        $(error Stop)
     endif # BOARD_TAG
 
 endif # BOOL_SELECT_BOARD
@@ -166,7 +237,7 @@ ARDUINO_APP :=
 ifeq ($(ARDUINO_APP),)
     FLATPAK_APP := $(shell which flatpak)
     ifneq ($(FLATPAK_APP),)
-        # TEST := $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
+#         TEST := $(shell /usr/bin/flatpak info cc.arduino.IDE2 | grep error)
         TEST := $(shell /usr/bin/flatpak list | grep cc.arduino.IDE2)
         ifneq ($(TEST),)
             ARDUINO_APP = arduino-flatpak
@@ -176,12 +247,12 @@ ifeq ($(ARDUINO_APP),)
 endif # ARDUINO_APP
 
 # ifeq ($(ARDUINO_APP),)
-#     # TEST := $(shell find $(APPLICATION_PATH) -name arduino-cli)
+# #     TEST := $(shell find $(APPLICATION_PATH) -name arduino-cli)
 #     TEST := $(which arduino-cli)
 
 #     $(info 2)
-#     # ARDUINO_APP = $(shell which arduino-cli)
-#     # ARDUINO_APP := $(shell arduino-cli version)
+# #     ARDUINO_APP = $(shell which arduino-cli)
+# #     ARDUINO_APP := $(shell arduino-cli version)
 #     ifneq ($(TEST),)
 #         ARDUINO_APP = arduino-cli
 #         ARDUINO_CLI_RELEASE = $(strip $(shell arduino-cli version --format yaml | grep versionstring | cut -d: -f2))
@@ -231,7 +302,10 @@ ifeq ($(shell if [ -f '$(ARDUINO_YAML)' ]; then echo 1 ; fi ),1)
 endif # SKETCHBOOK_DIR
 
 ifeq ($(ARDUINO_PREFERENCES),)
-    $(error Error: run Arduino once and define the sketchbook path)
+    $(info ERROR             Run Arduino once and define the sketchbook path)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,Run Arduino once and define the sketchbook path)
+    $(error Stop)
 endif # ARDUINO_LIBRARY_PATH
 
 ifeq ($(SKETCHBOOK_DIR),)
@@ -241,7 +315,10 @@ endif # SKETCHBOOK_DIR
 endif # SKETCHBOOK_DIR
 
 ifeq ($(shell if [ -d '$(SKETCHBOOK_DIR)' ]; then echo 1 ; fi ),)
-   $(error Error: sketchbook path not found)
+    $(info ERROR             Sketchbook path not found)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,Sketchbook path not found)
+    $(error Stop)
 endif # SKETCHBOOK_DIR
 
 USER_LIB_PATH ?= $(wildcard $(SKETCHBOOK_DIR)/?ibraries)
@@ -310,9 +387,11 @@ SPARK_PATH = $(SPARK_APP)
 #
 # ifeq ($(wildcard $(ARDUINO_APP)),)
 ifeq ($(ARDUINO_APP),)
-    $(info Arduino CLI or IDE required)
-    $(info Error: no application found)
-#    $(error Error: no application found)
+    $(info Message           Arduino CLI or IDE required)
+    $(info ERROR             Arduino CLI or IDE not found)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,Arduino CLI or IDE not found)
+    $(error Stop)
 endif # ARDUINO_APP
 
 # # Arduino-related nightmares
@@ -339,35 +418,6 @@ endif # ARDUINO_APP
 # Builds directory
 #
 OBJDIR = $(BUILDS_PATH)
-
-# Function PARSE_BOARD data retrieval from boards.txt
-# result = $(call PARSE_BOARD 'board tag','parameter')
-# Implicit variable BOARDS_TXT
-# Strict search with ending `=` on `^$(1).$(2)=`
-#
-PARSE_BOARD = $(shell if [ -f $(BOARDS_TXT) ] ; then grep ^$(1).$(2)= $(BOARDS_TXT) | cut -d = -f 2- ; fi ; )
-
-# Function PARSE_FILE data retrieval from specified file
-# result = $(call PARSE_FILE 'board tag','parameter','filename')
-# Open search with no ending `=` on `^$(1).$(2)`
-# Pass ending `=` on parameter `$(2)`
-#
-PARSE_FILE = $(shell if [ ! -z $(3) ] ; then if [ -f $(3) ] ; then grep ^$(1).$(2) $(3) | cut -d = -f 2- ; fi ; fi ;)
-
-# Function PARSE_BOARD data retrieval from boards.txt
-# result = $(call SEARCH_FOR,'list of board tags','parameter')
-# Implicit variable BOARDS_TXT
-# 
-SEARCH_FOR = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
-
-# Function VERSION version of library
-# name of the library, folder path
-# result = $(call VERSION,'list of board tags','parameter')
-# $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
-# 
-VERSION = $(shell work=$(2)/$(1)/library.properties ; test=$$(grep version $$work | cut -d= -f2) ; if [ $$test ] ; then echo $(1) release $$test ; else echo "$(1) release ?" ; fi ; )
-# VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work )
-# VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work ; test=$$(grep "version" $$work) ; echo $$test )
 
 # ~
 # Warnings flags
@@ -430,9 +480,9 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     ifneq ($(findstring RASPI,$(GCC_PREPROCESSOR_DEFINITIONS)),)
         -include $(MAKEFILE_PATH)/RasPiArduino.mk
     else
-        # Arduino IDE and supported boards
+#         Arduino IDE and supported boards
         ifneq ($(ARDUINO_APP),)
-            # . Arduino
+#             . Arduino
             -include $(MAKEFILE_PATH)/ArduinoAVR_181.mk
             -include $(MAKEFILE_PATH)/ArduinoAVR.mk
             -include $(MAKEFILE_PATH)/ArduinoMegaAVR.mk
@@ -444,49 +494,49 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             -include $(MAKEFILE_PATH)/ArduinoESP32.mk
 #            -include $(MAKEFILE_PATH)/ArduinoMBED_pico.mk
 
-            # . Others boards for Arduino 1.8.0
-            # Adafruit
+#             . Others boards for Arduino 1.8.0
+#             Adafruit
             -include $(MAKEFILE_PATH)/AdafruitAVR.mk
             -include $(MAKEFILE_PATH)/AdafruitNRF52.mk
             -include $(MAKEFILE_PATH)/AdafruitSAMD.mk
 
-            # ESP8266 and ESP32
+#             ESP8266 and ESP32
             -include $(MAKEFILE_PATH)/ESP8266.mk
             -include $(MAKEFILE_PATH)/ESP32.mk
 
-            # Intel
+#             Intel
             -include $(MAKEFILE_PATH)/IntelCurie.mk
 
-            # Microsoft
+#             Microsoft
             -include $(MAKEFILE_PATH)/MicrosoftAZ3166.mk
 
-            # Moteino
+#             Moteino
             -include $(MAKEFILE_PATH)/Moteino.mk
 
-            # nRF1 boards
+#             nRF1 boards
             -include $(MAKEFILE_PATH)/nRF51_Boards.mk
 
-            # Raspberry Pi
+#             Raspberry Pi
             -include $(MAKEFILE_PATH)/RasPiPico.mk
 
-            # Seeeduino
+#             Seeeduino
             -include $(MAKEFILE_PATH)/SeeeduinoAVR.mk
             -include $(MAKEFILE_PATH)/SeeeduinoSAMD.mk
             -include $(MAKEFILE_PATH)/SeeeduinoRTL.mk
             -include $(MAKEFILE_PATH)/SeeeduinoNRF52.mk
             -include $(MAKEFILE_PATH)/SeeeduinoMBED.mk
 
-            # SiliconLabs
+#             SiliconLabs
             -include $(MAKEFILE_PATH)/SiliconLabs.mk
 
-            # STM32duino
+#             STM32duino
             -include $(MAKEFILE_PATH)/STM32duino.mk
 
-            # Teensy
+#             Teensy
             -include $(MAKEFILE_PATH)/Teensy.mk
         endif # ARDUINO_APP
 
-        # Energia IDE and supported boards
+#         Energia IDE and supported boards
         ifneq ($(ENERGIA_APP),)
             -include $(MAKEFILE_PATH)/EnergiaMSP430_12.mk
             -include $(MAKEFILE_PATH)/EnergiaMSP430ELF.mk
@@ -511,9 +561,15 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
     ifeq ($(MAKEFILE_NAME),)
         ifneq ($(strip $(BOARD_TAG)),0)
-            $(error $(BOARD_TAG) board is unknown)
+            $(info ERROR             $(BOARD_TAG) board is not defined)
+            $(info .)
+            $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is not defined)
+            $(error Stop)
         else
-            $(error $(BOARD_TAG) board is unknown)
+            $(info ERROR             $(BOARD_TAG) board is unknown)
+            $(info .)
+            $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is unknown)
+            $(error Stop)
         endif # BOARD_TAG 0
     endif # MAKEFILE_NAME
 

@@ -75,8 +75,11 @@ ifeq ($(UPLOADER),bossac)
 else ifeq ($(UPLOADER),cp_uf2)
 
     ifneq ($(BOARD_TAG),feather52840)
-        $(error UF2 not supported by $(CONFIG_NAME).)
-    endif
+        $(info ERROR             UF2 not supported by $(CONFIG_NAME))
+        $(info .)
+        $(call MESSAGE_GUI_ERROR,UF2 not supported by $(CONFIG_NAME))
+        $(error Stop)
+    endif # BOARD_TAG
     MESSAGE_WARNING = BETA! UF2 not yet tested against $(CONFIG_NAME).
 # See https://github.com/adafruit/Adafruit_nRF52_Bootloader#making-your-own-uf2
 # UPLOAD_OFFSET not required when using .hex
@@ -88,8 +91,8 @@ else ifeq ($(UPLOADER),cp_uf2)
 #     USB_TOUCH := $(call PARSE_BOARD,$(BOARD_TAG),upload.use_1200bps_touch)
 #     ifeq ($(USB_TOUCH),true)
 #         USB_RESET = -stty -F $(AVRDUDE_PORT) 1200
-#         # USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
-#     endif
+# #         USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
+#     endif # USB_TOUCH
 
 else ifeq ($(UPLOADER),jlink)
 
@@ -155,7 +158,7 @@ else ifeq ($(UPLOADER),ozone)
 
 else ifeq ($(UPLOADER),nrfutil)
 
-    # USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
+#     USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
     UPLOADER = nrfutil
 
 # adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req 0x00B6 --application sketch.hex sketch.zip
@@ -167,7 +170,7 @@ else ifeq ($(UPLOADER),nrfutil)
 #    UPLOADER_EXEC = export LC_ALL=en_IE.UTF-8 ; export LANG=en_IE.UTF-8 ; $(HARDWARE_PATH)/tools/adafruit-nrfutil/macos/adafruit-nrfutil
 #   UPLOADER_EXEC = $(HARDWARE_PATH)/tools/adafruit-nrfutil/linux/nrfutil-linux
 
-    # UPLOADER_EXEC = $(UTILITIES_PATH)/nrfutil-linux
+#     UPLOADER_EXEC = $(UTILITIES_PATH)/nrfutil-linux
     UPLOADER_EXEC = adafruit-nrfutil
 
     COMMAND_PRE_UPLOAD = $(NRFUTIL_EXEC) dfu genpkg --dev-type 0x0052 --application $(TARGET_HEX) $(TARGET_ZIP)
@@ -181,11 +184,11 @@ else ifeq ($(UPLOADER),nrfutil)
 
     DELAY_BEFORE_UPLOAD = 2
 
-else
+else # UPLOADER
 
     UPLOADER = openocd
     UPLOADER_PATH = /usr
-    # UPLOADER_PATH = $(OTHER_TOOLS_PATH)/openocd/0.11.0-arduino2
+#     UPLOADER_PATH = $(OTHER_TOOLS_PATH)/openocd/0.11.0-arduino2
     UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd
     UPLOADER_OPTS = -d2 -s $(UPLOADER_PATH)/share/openocd/scripts/
     UPLOADER_OPTS += -f $(VARIANT_PATH)/$(call PARSE_BOARD,$(BOARD_TAG),build.openocdscript)
@@ -194,7 +197,8 @@ else
     UPLOADER_COMMAND = program {$(TARGET_HEX)} verify reset ; shutdown ; quit
 # telnet_port disabled;
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "$(UPLOADER_COMMAND)"
-endif
+
+endif # UPLOADER
 
 # $(info >>> TARGET_HEX '$(TARGET_HEX)')
 # $(info >>> UPLOADER '$(UPLOADER)')

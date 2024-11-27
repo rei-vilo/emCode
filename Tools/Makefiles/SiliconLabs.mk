@@ -120,7 +120,7 @@ UPLOADER_PROTOCOL = $(call PARSE_BOARD,$(BOARD_TAG),upload.protocol)
 
 ifeq ($(UPLOADER),openocd)
 
-# /home/reivilo/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s /home/reivilo/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program {/tmp/arduino/sketches/49013B1BA7E8C0ACCF2136108904F353/matter_lightbulb_color.ino.hex}; reset; exit"
+# ~/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s ~/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program {/tmp/arduino/sketches/49013B1BA7E8C0ACCF2136108904F353/matter_lightbulb_color.ino.hex}; reset; exit"
 
     UPLOADER = openocd
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/openocd/$(SILICONLABS_OPENOCD_RELEASE)
@@ -135,19 +135,19 @@ ifeq ($(UPLOADER),openocd)
 
 else # commander or jlink 
 
-    # "/home/reivilo/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander"  flash /home/reivilo/.var/app/cc.arduino.IDE2/cache/arduino/sketches/787161434EF5B388F6727A50919C6517/Blink.ino.elf
+#     ~/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander  flash ~/.var/app/cc.arduino.IDE2/cache/arduino/sketches/787161434EF5B388F6727A50919C6517/Blink.ino.elf
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/simplicitycommander/$(SILICONLABS_TOOLS_RELEASE)
     UPLOADER_EXEC = $(UPLOADER_PATH)/commander
 
     UPLOADER_OPTS =  
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) flash $(TARGET_ELF)
     COMMAND_BOOTLOADER = $(UPLOADER_EXEC) $(UPLOADER_OPTS) flash $(BOOTLOADER_FILE)
-    # identifybyserialport 
+#     identifybyserialport 
 
 endif # UPLOADER
 
 #  Boot-loader
-# "/home/reivilo/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander"  flash /home/reivilo/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/bootloaders/bgm220-explorer-kit-ble-bootloader-apploader.hex
+# ~/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander  flash ~/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/bootloaders/bgm220-explorer-kit-ble-bootloader-apploader.hex
 
 # Tool-chain names
 #
@@ -298,7 +298,6 @@ endif # SILABS_03a
 SILABS_03b = $(shell echo $(SILABS_03a) | sed 's:{build.variant.path}:$(VARIANT_PATH):g')
 SILABS_03c = $(shell echo $(SILABS_03b) | sed 's:{build.gsdk_path}:$(SILABS_GSDK_PATH):g')
 SILABS_03d = $(shell echo $(SILABS_03c) | sed 's:{build.matter_sdk_path}:$(SILABS_MATTER_PATH):g')
-
 
 FLAGS_INCLUDE := $(SILABS_03d)
 
