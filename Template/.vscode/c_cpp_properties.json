@@ -540,7 +540,7 @@
             ]
         },
         {
-            "name": "Arduino_Nano_ESP32",
+            "name": "Arduino_Nano_ESP32_Espressif",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.7/**",
@@ -569,7 +569,7 @@
             ]
         },
         {
-            "name": "Arduino_Nano_ESP32_DFU",
+            "name": "Arduino_Nano_ESP32_Espressif_DFU",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.7/**",
@@ -628,6 +628,35 @@
         },
         {
             "name": "Arduino_Nano_RP2040_mbedOS_MSD",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.1/**",
+                "${env:HOME}/Projets/Arduino/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/7-2017q4/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/cores/arduino/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/mbed_nano/4.0.2/variants/NANO_RP2040_CONNECT/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Arduino_Nano_RP2040_mbedOS_J-Link",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.1/**",
@@ -906,6 +935,278 @@
             "forcedInclude": [
                 "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.7/cores/esp32/Arduino.h",
                 "${env:HOME}/.arduino15/packages/esp32/hardware/esp32/3.0.7/variants/pico32/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_CC1352_EMT",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/Projets/Energia/libraries/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/cc13x2/5.31.0-beta3/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/Projets/Energia/libraries/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/cc13x2/5.31.0-beta3/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/arm-none-eabi-gcc/10-2020-q4-major/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/cc13x2/5.31.0-beta3/cores/cc13x2/ti/runtime/wiring/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/cc13x2/5.31.0-beta3/cores/cc13x2/ti/runtime/wiring/pins_energia.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_MSP430F5529",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/**",
+                "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-gcc-support-files/include",
+                "${env:HOME}/Projets/Energia/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/**",
+                    "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-gcc-support-files/include",
+                    "${env:HOME}/Projets/Energia/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/bin/msp430-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/cores/msp430/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/variants/MSP-EXP430F5529LP/pins_energia.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_MSP430FR5994",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/**",
+                "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-gcc-support-files/include",
+                "${env:HOME}/Projets/Energia/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/**",
+                    "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-gcc-support-files/include/**",
+                    "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-elf/include/**",
+                    "${env:HOME}/Projets/Energia/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/bin/msp430-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/cores/msp430/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/variants/MSP-EXP430FR5994LP/pins_energia.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_MSP430G2553",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/**",
+                "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-gcc-support-files/include",
+                "${env:HOME}/Projets/Energia/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/**",
+                    "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-gcc-support-files/include",
+                    "${env:HOME}/Projets/Energia/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/bin/msp430-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/cores/msp430/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/variants/MSP-EXP430G2553LP/pins_energia.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_MSP430G2553_compact",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430/1.0.7/**",
+                "${env:HOME}/.energia15/packages/energia/tools/msp430-gcc/4.6.6/msp430/include/**",
+                "${env:HOME}/Projets/Energia/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/msp430/1.0.7/**",
+                    "${env:HOME}/.energia15/packages/energia/tools/msp430-gcc/4.6.6/msp430/include/**",
+                    "${env:HOME}/Projets/Energia/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/msp430-gcc/4.6.6/bin/msp430-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430/1.0.7/cores/msp430/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430/1.0.7/variants/launchpad/pins_energia.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_MSP430G2553-ET",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/**",
+                "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-gcc-support-files/include",
+                "${env:HOME}/Projets/Energia/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/**",
+                    "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/msp430-gcc-support-files/include",
+                    "${env:HOME}/Projets/Energia/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/msp430-elf-gcc/9.2.0.50/bin/msp430-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/cores/msp430/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp430elf/2.0.12/variants/MSP-EXP430G2ET2553LP/pins_energia.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_MSP432P401R_EMT",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/Projets/Energia/libraries/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp432r/5.29.0/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/Projets/Energia/libraries/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/msp432r/5.29.0/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/arm-none-eabi-gcc/10-2020-q4-major/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/msp432r/5.29.0/cores/msp432r/ti/runtime/wiring/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp432r/5.29.0/cores/msp432r/ti/runtime/wiring/pins_energia.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_MSP432P4111_EMT",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/Projets/Energia/libraries/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp432p/5.29.0-beta1/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/Projets/Energia/libraries/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/msp432p/5.29.0-beta1/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/arm-none-eabi-gcc/10-2020-q4-major/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/msp432p/5.29.0-beta1/cores/msp432p/ti/runtime/wiring/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/msp432p/5.29.0-beta1/cores/msp432p/ti/runtime/wiring/pins_energia.h"
+            ]
+        },
+        {
+            "name": "LaunchPad_TM4C123_Tiva_C",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.energia15/packages/energia/hardware/tivac/1.0.4/**",
+                "${env:HOME}/Projets/Energia/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.energia15/packages/energia/hardware/tivac/1.0.4/**",
+                    "${env:HOME}/Projets/Energia/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.energia15/packages/energia/tools/arm-none-eabi-gcc/10-2020-q4-major/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "EMCODE=11011",
+                "ENERGIA=21"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.energia15/packages/energia/hardware/tivac/1.0.4/cores/tivac/Energia.h",
+                "${env:HOME}/.energia15/packages/energia/hardware/tivac/1.0.4/variants/EK-TM4C123GXL/pins_energia.h"
             ]
         },
         {
@@ -1257,6 +1558,93 @@
             ]
         },
         {
+            "name": "Raspberry_Pi_Pico2_W_RP2350_J-Link",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/4.0.1-8ec9d6f/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/variants/rpipico2w/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico2_W_RP2350_MSD",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/4.0.1-8ec9d6f/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/variants/rpipico2w/pins_arduino.h"
+            ]
+        },
+        {
+            "name": "Raspberry_Pi_Pico2_W_RP2350_DebugProbe_CMSIS_DAP",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/4.0.1-8ec9d6f/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/variants/rpipico2w/pins_arduino.h"
+            ]
+        },
+        {
             "name": "RedBear_Duo_Native_USB_Port",
             "includePath": [
                 "${workspaceFolder}/**",
@@ -1562,6 +1950,35 @@
             "forcedInclude": [
                 "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.8/cores/nRF52/Arduino.h",
                 "${env:HOME}/.arduino15/packages/Seeeduino/hardware/nrf52/1.1.8/variants/Seeed_XIAO_nRF52840_Sense/variant.h"
+            ]
+        },
+        {
+            "name": "Seeeduino_Xiao_RP2040_PicoProbe",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/**",
+                "${env:HOME}/Projets/Arduino/libraries/**"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "",
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/**",
+                    "${env:HOME}/Projets/Arduino/libraries/**"
+                ]
+            },
+            "intelliSenseMode": "${default}",
+            "compilerPath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-gcc/4.0.1-8ec9d6f/bin/arm-none-eabi-g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "defines": [
+                "EMCODE=11011",
+                "ARDUINO=10813"
+            ],
+            "forcedInclude": [
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/cores/rp2040/Arduino.h",
+                "${env:HOME}/.arduino15/packages/rp2040/hardware/rp2040/4.3.0/variants/seeed_xiao_rp2040/pins_arduino.h"
             ]
         },
         {
