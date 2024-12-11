@@ -28,7 +28,9 @@
     }
 }
 
-.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
     color: red;
     font-weight: bold;
 }
