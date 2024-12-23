@@ -3,12 +3,12 @@
 # ----------------------------------
 # Embedded computing with make
 #
-# Copyright © Rei Vilo, 2010-2024
+# Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 03 Oct 2024 release 14.5.5
+# Last update: 20 Dec 2024 release 14.6.7
 #
 
 # RP2040 Pico for Arduino

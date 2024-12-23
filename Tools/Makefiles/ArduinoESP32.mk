@@ -3,12 +3,12 @@
 # ----------------------------------
 # Embedded computing with make
 #
-# Copyright © Rei Vilo, 2010-2024
+# Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
 # Created by Rei Vilo on 31 Aug 2023 
 # 
-# Last update: 31 Aug 2023 release 14.1.6
+# Last update: 18 Dec 2024 release 14.6.6
 #
 
 # On Linux, install pyserial with 
@@ -58,9 +58,11 @@ BUILD_TARGET = $(call PARSE_BOARD,$(BOARD_TAG),build.target)
 SDK_PATH = $(HARDWARE_PATH)/tools/sdk/$(BUILD_MCU)
 
 # compiler.path={runtime.tools.{build.tarch}-{build.target}-elf-gcc.path}/bin/
-# TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/xtensa-esp32-elf-gcc/$(ESP32_EXTENSA_RELEASE)
-# TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/$(BUILD_TARCH)-$(BUILD_TARGET)-elf-gcc/$(ESP32_EXTENSA_RELEASE)
-TOOL_CHAIN_PATH = $(ARDUINO_PACKAGES_PATH)/esp32/tools/$(BUILD_TARCH)-$(BUILD_TARGET)-elf-gcc/$(ESP32_EXTENSA_RELEASE)
+# TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/xtensa-esp32-elf-gcc/$(ARDUINO_GCC_ESP32_EXTENSA_RELEASE)
+# TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/$(BUILD_TARCH)-$(BUILD_TARGET)-elf-gcc/$(ARDUINO_GCC_ESP32_EXTENSA_RELEASE)
+# TOOL_CHAIN_PATH = $(ARDUINO_PACKAGES_PATH)/esp32/tools/$(BUILD_TARCH)-$(BUILD_TARGET)-elf-gcc/$(ARDUINO_GCC_ESP32_EXTENSA_RELEASE)
+TOOL_CHAIN_PATH = $(ARDUINO_PACKAGES_PATH)/esp32/tools/s3-gcc/$(ARDUINO_GCC_ESP32_EXTENSA_RELEASE)
+
 
 # $(info === TOOL_CHAIN_PATH $(TOOL_CHAIN_PATH))
 # TOOL_CHAIN_PATH = $(HARDWARE_PATH)/tools/xtensa-esp32-elf
@@ -236,6 +238,7 @@ esp1400e = $(shell echo $(esp1400d) | sed 's:{build.usb_mode}:$(BUILD_USB_MODE):
 # $(info >>> esp1400d '$(esp1400d)')
 
 BUILD_EXTRA_FLAGS = $(esp1400e)
+BUILD_EXTRA_FLAGS += $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.disable_pin_remap)
 
 # $(error >>>)
 
@@ -430,14 +433,16 @@ endif
 # $(info > OPTIMISATION= '$(OPTIMISATION)')
 
 # # Based on protocol.txt compiler.cpreprocessor.flags.esp32
-# esp1000a = $(call PARSE_FILE,compiler,cpreprocessor.flags.$(BUILD_MCU),$(HARDWARE_PATH)/platform.txt)
+esp1000a = $(call PARSE_FILE,compiler,cpreprocessor.flags.$(BUILD_MCU),$(HARDWARE_PATH)/platform.txt)
 # # esp1000b = $(filter-out -DESP_PLATFORM -DMBEDTLS_CONFIG_FILE="mbedtls/esp_config.h" -DHAVE_CONFIG_H, $(esp1000a))
-# # esp1000c = $(shell echo $(esp1000b) | sed 's:-I{compiler.sdk.path}:$(HARDWARE_PATH)/tools/sdk:g')
+# esp1000c = $(shell echo $(esp1000b) | sed 's:-I{compiler.sdk.path}:$(HARDWARE_PATH)/tools/sdk:g')
 # # $(info === BUILD_MCU $(BUILD_MCU))
 SDK_PATH = $(HARDWARE_PATH)/tools/sdk/$(BUILD_MCU)
 # esp1000b = $(shell echo $(esp1000a) | sed 's:{compiler.sdk.path}:$(SDK_PATH):g')
 # FLAGS_D += -DUNITY_INCLUDE_CONFIG_H
 # -DARDUINO_CORE_BUILD for core file compilation
+esp1000b = $(shell echo '$(esp1000a)' | sed 's:-I{compiler.sdk.path}:$(HARDWARE_PATH)/tools/sdk:g')
+$(info === esp1000b $(esp1000b))
 
 # INCLUDE_PATH := $(esp1000b)
 INCLUDE_PATH = $(CORE_LIB_PATH)
@@ -487,7 +492,8 @@ ifeq ($(BUILD_DEFINES),)
 endif
 ifeq ($(BOARD_TAG),nano_nora)
     BUILD_DEFINES:=#
-    FLAGS_USB += -DBOARD_HAS_PIN_REMAP -DBOARD_HAS_PSRAM -DUSB_MANUFACTURER='"Arduino"' -DUSB_PRODUCT='"Nano ESP32"'
+#    FLAGS_USB += -DBOARD_HAS_PIN_REMAP -DBOARD_HAS_PSRAM -DUSB_MANUFACTURER='"Arduino"' -DUSB_PRODUCT='"Nano ESP32"'
+    FLAGS_USB += -DBOARD_HAS_PSRAM -DUSB_MANUFACTURER='"Arduino"' -DUSB_PRODUCT='"Nano ESP32"'
 endif
 esp1100h = $(shell echo $(esp1100g) | sed 's:{build.defines}:$(BUILD_DEFINES):g')
 
@@ -517,10 +523,11 @@ EXTRA_FLAGS = $(esp1100l)
 # Common FLAGS_ALL for gcc, g++, assembler and linker
 #
 FLAGS_ALL = -g $(OPTIMISATION) $(FLAGS_WARNING)
+# FLAGS_ALL += $(esp1000b)
 # FLAGS_ALL += -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ -DLWIP_OPEN_SRC
 # FLAGS_ALL += -DESP_PLATFORM -DESP32
 # FLAGS_ALL += -DHAVE_CONFIG_H
-# FLAGS_ALL += -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"
+# FLAGS_ALL += -DMBEDTLS_CONFIG_FILE='"mbedtls/esp_config.h"'
 # FLAGS_ALL += -DGCC_NOT_5_2_0=0 -DWITH_POSIX
 # Standard IDE includes -fno-exceptions and -fexceptions
 # emCode uses -fexceptions only
@@ -539,6 +546,7 @@ FLAGS_ALL += $(addprefix -I, $(INCLUDE_PATH))
 FLAGS_ALL += $(EXTRA_FLAGS) $(BUILD_EXTRA_FLAGS)
 FLAGS_ALL += $(FLAGS_USB) $(FLAGS_D)
 FLAGS_ALL += @$(BUILDS_PATH)/build_opt.h @$(BUILDS_PATH)/files_opts.h
+FLAGS_ALL += -D_TEST_1
 
 # # Specific FLAGS_C for gcc only
 # # gcc uses FLAGS_ALL and FLAGS_C
@@ -567,8 +575,12 @@ FLAGS_ALL += @$(BUILDS_PATH)/build_opt.h @$(BUILDS_PATH)/files_opts.h
 # FLAGS_AS = -x assembler-with-cpp
 
 esp1200a = $(call PARSE_FILE,compiler,cpreprocessor.flags.$(BUILD_MCU)=,$(HARDWARE_PATH)/platform.txt)
-esp1200b = $(shell echo $(esp1200a) | sed 's:{compiler.sdk.path}:$(SDK_PATH):g')
-FLAGS_ALL += $(esp1200b)
+esp1200b = $(shell echo '$(esp1200a)' | sed 's:{compiler.sdk.path}:$(SDK_PATH):g')
+esp1200c = $(filter-out -DMBEDTLS_CONFIG_FILE="mbedtls/esp_config.h", $(esp1200b))
+FLAGS_ALL += $(esp1200c)
+FLAGS_ALL += -D_TEST_2
+FLAGS_ALL += -DMBEDTLS_CONFIG_FILE='"mbedtls/esp_config.h"'
+FLAGS_ALL += -D_TEST_3
 
 FLAGS_ALL += -I$(SDK_PATH)/$(BUILD_MEMORY_TYPE)/include
 
@@ -588,6 +600,7 @@ FLAGS_LD += $(call PARSE_FILE,compiler,c.elf.flags.$(BUILD_MCU)=,$(HARDWARE_PATH
 # -Wl,--gc-sections
 FLAGS_LD += $(EXTRA_FLAGS) $(FLAGS_USB)
 
+# $(info >>> )
 # $(info >>> EXTRA_FLAGS $(EXTRA_FLAGS))
 # $(info >>> FLAGS_USB $(FLAGS_USB))
 # $(info >>> FLAGS_D $(FLAGS_D))

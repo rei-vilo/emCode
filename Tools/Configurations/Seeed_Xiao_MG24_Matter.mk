@@ -1,5 +1,5 @@
 #
-# Arduino Nano 33 BLE.mk
+# Seeed_Xiao_MG24_Matter.mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode
@@ -7,16 +7,17 @@
 # Part of emCode
 # Embedded computing with make
 #
-# Created by: Rei Vilo on 08 Aug 2019
+# Created by: Rei Vilo on 14 Dec 2024
 # Copyright: (c) Rei Vilo, 2010-2025 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 09 Aug 2019 release 11.1.0
+# Last update: 16 Dec 2024 release 14.6.5
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
 #
-BOARD_TAG = nano33ble
+BOARD_TAG = xiao_mg24
+BOARD_TAG1 = xiao_mg24.menu.protocol_stack.matter
 
 # For Arduino 1.5.x, if different from Arduino 1.0.x
 #
@@ -39,15 +40,15 @@ GCC_PREPROCESSOR_DEFINITIONS = ARDUINO
 # with /Contents/Java/** after
 #
 # APPLICATIONS_PATH = /Applications
-# HEADER_SEARCH_PATHS = $HOME/Library/Arduino15/packages/arduino/hardware/mbed/**
+# HEADER_SEARCH_PATHS = $HOME/Library/Arduino15/packages/arduino/hardware/megaavr/**
 
 # Maximum RAM size in bytes
 # given by <tag>.upload.maximum_ram_size in boards.txt for Maple and Teensy
 # given by <tag>.upload.maximum_data_size in boards.txt for Arduino 1.5.x
 #
 # MAX_RAM_SIZE = 1024
-UPLOADER = bossac
+UPLOADER = openocd
 
 # MESSAGE_WARNING = BETA! Not yet tested against $(CONFIG_NAME).
 
-CONFIG_NAME = Arduino Nano 33 BLE
+CONFIG_NAME = Seeed Xiao MG24 Matter

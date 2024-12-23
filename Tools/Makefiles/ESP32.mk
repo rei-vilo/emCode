@@ -3,7 +3,7 @@
 # ----------------------------------
 # Embedded computing with make
 #
-# Copyright © Rei Vilo, 2010-2024
+# Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
 # Last update: 22 Nov 2024 release 14.6.1
@@ -82,7 +82,8 @@ else ifeq ($(BUILD_MCU),esp32h2)
 else ifeq ($(BUILD_MCU),esp32s2) 
     TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/esp-xs2/$(ESP32_EXTENSA_RELEASE)
 else ifeq ($(BUILD_MCU),esp32s3) 
-    TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/esp-xs3/$(ESP32_EXTENSA_RELEASE)
+#     TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/esp-xs3/$(ESP32_EXTENSA_RELEASE)
+    TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/esp-x32/$(ESP32_EXTENSA_RELEASE)
 endif
 
 # compiler.path={runtime.tools.{build.tarch}-{build.target}-elf-gcc.path}/bin/

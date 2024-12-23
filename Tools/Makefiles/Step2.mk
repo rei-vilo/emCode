@@ -3,7 +3,7 @@
 # ----------------------------------
 # Embedded computing with make
 #
-# Copyright © Rei Vilo, 2010-2024
+# Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
 # Last update: 18 Nov release 14.6.0
@@ -877,6 +877,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
         ifneq ($(strip $(s230c)),)
             $(info Missing folders   $(s230c))
             $(info .)
+            $(call MESSAGE_GUI_ERROR,Some user folders are missing\n\n$(s230c))
             $(error Stop)            
         endif
     endif # USER_LIBS_LIST
@@ -954,6 +955,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
         ifneq ($(strip $(s220c)),)
             $(info Missing folders   $(s220c))
             $(info .)
+            $(call MESSAGE_GUI_ERROR,Some local folders are missing\n\n$(s220c))
             $(error Stop)            
         endif
     endif # LOCAL_LIBS_LIST
