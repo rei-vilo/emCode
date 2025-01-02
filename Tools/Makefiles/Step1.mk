@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 18 Nov release 14.6.0
+# Last update: 02 Jan 2025 release 14.6.8
 #
 
 include $(MAKEFILE_PATH)/Step0.mk
@@ -95,21 +95,32 @@ endif # GUI_OPTION
 #     endif # wildcard
 # endif # SKETCH_EXTENSION
 
+# C-compliant project name, empty and default = search
+# 
+ifneq ($(MULTI_INO),1)
+ifeq ($(PROJECT_NAME_AS_IDENTIFIER),)
+    PROJECT_LIST = $(wildcard *.ino)
+    PROJECT_NAME_AS_IDENTIFIER = $(PROJECT_LIST:.ino=)
+endif # PROJECT_NAME_AS_IDENTIFIER
+endif # MULTI_INO
+
+# Unicity check
+# 
 ifneq ($(MULTI_INO),1)
 ifneq ($(SKETCH_EXTENSION),__main_cpp_only__)
     ifneq ($(SKETCH_EXTENSION),_main_cpp_only_)
         ifneq ($(SKETCH_EXTENSION),cpp)
             ifeq ($(words $(wildcard *.$(SKETCH_EXTENSION))), 0)
-                $(info ERROR             No $(SKETCH_EXTENSION) sketch)
+                $(info ERROR             No '.$(SKETCH_EXTENSION)'' sketch)
                 $(info .)
-                $(call MESSAGE_GUI_ERROR,No $(SKETCH_EXTENSION) sketch)
+                $(call MESSAGE_GUI_ERROR,No '.$(SKETCH_EXTENSION)' sketch)
                 $(error Stop)
             endif # SKETCH_EXTENSION
 
             ifneq ($(words $(wildcard *.$(SKETCH_EXTENSION))), 1)
-                $(info ERROR             More than one $(SKETCH_EXTENSION) sketch)
+                $(info ERROR             More than one '.$(SKETCH_EXTENSION)' sketch)
                 $(info .)
-                $(call MESSAGE_GUI_ERROR,More than one $(SKETCH_EXTENSION) sketch)
+                $(call MESSAGE_GUI_ERROR,More than one '.$(SKETCH_EXTENSION)' sketch)
                 $(error Stop)
             endif # SKETCH_EXTENSION
         endif # SKETCH_EXTENSION cpp
@@ -261,7 +272,7 @@ endif # ARDUINO_APP
 
 # TEST := $(shell find $(APPLICATION_PATH) -name arduino-cli)
 # TEST := $(shell /usr/bin/which arduino-cli)
-ARDUINO_CLI_PATH := $(shell find $(APPLICATION_PATH) -name arduino-cli)
+ARDUINO_CLI_PATH := $(firstword $(shell find $(APPLICATION_PATH) -name arduino-cli))
 ifneq ($(ARDUINO_CLI_PATH),)
     ifeq ($(ARDUINO_APP),)
         ARDUINO_APP = arduino-cli

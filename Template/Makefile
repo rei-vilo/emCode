@@ -3,7 +3,7 @@
 # ----------------------------------
 # Embedded computing with make
 #
-# Copyright (c) Rei Vilo, 2010-2024
+# Copyright (c) Rei Vilo, 2010-2025
 # All rights reserved
 # https://emCode.weebly.com
 #
@@ -90,7 +90,7 @@ CURRENT_DIR_SPACE := $(shell pwd)
 CURRENT_DIR := $(shell echo '$(CURRENT_DIR_SPACE)' | sed 's/ /\\\ /g')
 
 # C-compliant project name
-PROJECT_NAME_AS_IDENTIFIER = Template
+# PROJECT_NAME_AS_IDENTIFIER = Template
 
 # Local makefiles
 # EMCODE_TOOLS = $(CURRENT_DIR)/Tools
