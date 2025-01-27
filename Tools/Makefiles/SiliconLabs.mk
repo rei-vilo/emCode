@@ -29,16 +29,7 @@ MAKEFILE_NAME = SiliconLabs
 RELEASE_CORE = $(SILICONLABS_SILABS_RELEASE)
 READY_FOR_EMCODE_NEXT = 1
 
-# # Release check
-# # ----------------------------------
-# #
-# REQUIRED_SILABS_RELEASE = 1.9.8
-# ifeq ($(shell if [[ '$(SILICONLABS_SILABS_RELEASE)' > '$(REQUIRED_SILABS_RELEASE)' ]] || [[ '$(SILICONLABS_SILABS_RELEASE)' = '$(REQUIRED_SILABS_RELEASE)' ]]; then echo 1 ; else echo 0 ; fi ),0)
-# $(error RP2040 release $(REQUIRED_SILABS_RELEASE) or later required, release $(SILICONLABS_SILABS_RELEASE) installed)
-# endif
-
 BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4) $(BOARD_TAG5) $(BOARD_TAG6) $(BOARD_TAG7) $(BOARD_TAG8) $(BOARD_TAG9) $(BOARD_TAG10) 
-# SEARCH_FOR = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
 
 # Arduino RP2040 specifics
 # ----------------------------------
@@ -46,9 +37,7 @@ BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4)
 PLATFORM := Silicon Labs
 BUILD_CORE := SiLabs
 SUB_PLATFORM := SiLabs
-# For an unknwon reason, calling PARSE_BOARD freezes 
 VARIANT = $(call PARSE_BOARD,$(BOARD_TAG),build.variant)
-# VARIANT := $(shell grep ^$(BOARD_TAG).build.variant= $(SILABS_BOARDS)  | cut -d = -f 2-)
 
 PLATFORM_TAG = ARDUINO=$(RELEASE_ARDUINO) ARDUINO_SILABS='"$(SILICONLABS_SILABS_RELEASE)"' EMCODE='"$(RELEASE_NOW)"' $(filter __%__ ,$(GCC_PREPROCESSOR_DEFINITIONS)) 
 APPLICATION_PATH := $(ARDUINO_PATH)
@@ -66,25 +55,13 @@ APP_LIB_PATH := $(HARDWARE_PATH)/libraries
 BOARDS_TXT := $(HARDWARE_PATH)/boards.txt
 BUILD_BOARD = $(call PARSE_BOARD,$(BOARD_TAG),build.board)
 
-# FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name variant.cpp.o)
-
 VARIANT = $(call PARSE_BOARD,$(BOARD_TAG),build.variant)
 VARIANT_PATH = $(HARDWARE_PATH)/variants/$(VARIANT)
 VARIANT_CPP_SRCS = $(shell find $(VARIANT_PATH) -name \*.cpp)
 VARIANT_C_SRCS = $(shell find $(VARIANT_PATH) -name \*.c)
 VARIANT_AS1_SRCS = $(shell find $(VARIANT_PATH) -name \*.S)
-# VARIANT_CPP_SRCS = $(wildcard $(VARIANT_PATH)/*.cpp) # $(VARIANT_PATH)/*/*.cpp
-# VARIANT_C_SRCS = $(wildcard $(VARIANT_PATH)/*.c) # $(VARIANT_PATH)/*/*.c
-# VARIANT_AS1_SRCS = $(wildcard $(VARIANT_PATH)/*.S) # $(VARIANT_PATH)/*/*.S
 VARIANT_OBJ_FILES = $(VARIANT_CPP_SRCS:.cpp=.cpp.o) $(VARIANT_C_SRCS:.c=.c.o) $(VARIANT_AS1_SRCS:.S=.S.o)
 VARIANT_OBJS = $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(VARIANT_OBJ_FILES))
-
-# $(info >>> VARIANT_PATH $(VARIANT_PATH))
-# $(info >>> VARIANT_CPP_SRCS $(VARIANT_CPP_SRCS))
-# $(info >>> VARIANT_C_SRCS $(VARIANT_C_SRCS))
-# $(info >>> VARIANT_AS1_SRCS $(VARIANT_AS1_SRCS))
-# $(info >>> VARIANT_OBJ_FILES $(VARIANT_OBJ_FILES))
-# $(info >>> VARIANT_OBJS $(VARIANT_OBJS))
 
 # Generate main.cpp
 # ----------------------------------
@@ -113,14 +90,9 @@ BOOTLOADER_FILE = $(HARDWARE_PATH)/bootloaders/$(call PARSE_BOARD,$(BOARD_TAG),b
 # Uploader 
 # UPLOADER defined in .mk
 #
-# TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
-# COMMAND_UF2 = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(SILABS_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
-# 
 UPLOADER_PROTOCOL = $(call PARSE_BOARD,$(BOARD_TAG),upload.protocol)
 
 ifeq ($(UPLOADER),openocd)
-
-# ~/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s ~/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program {/tmp/arduino/sketches/49013B1BA7E8C0ACCF2136108904F353/matter_lightbulb_color.ino.hex}; reset; exit"
 
     UPLOADER = openocd
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/openocd/$(SILICONLABS_OPENOCD_RELEASE)
@@ -135,19 +107,14 @@ ifeq ($(UPLOADER),openocd)
 
 else # commander or jlink 
 
-#     ~/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander  flash ~/.var/app/cc.arduino.IDE2/cache/arduino/sketches/787161434EF5B388F6727A50919C6517/Blink.ino.elf
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/simplicitycommander/$(SILICONLABS_TOOLS_RELEASE)
     UPLOADER_EXEC = $(UPLOADER_PATH)/commander
 
     UPLOADER_OPTS =  
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) flash $(TARGET_ELF)
     COMMAND_BOOTLOADER = $(UPLOADER_EXEC) $(UPLOADER_OPTS) flash $(BOOTLOADER_FILE)
-#     identifybyserialport 
 
 endif # UPLOADER
-
-#  Boot-loader
-# ~/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander  flash ~/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/bootloaders/bgm220-explorer-kit-ble-bootloader-apploader.hex
 
 # Tool-chain names
 #
@@ -173,16 +140,8 @@ SYSTEM_OBJS = $(SYSTEM_PATH)/$(SYSTEM_LIB)
 #
 APP_LIB_PATH = $(HARDWARE_PATH)/libraries
 
-# SILABS_00 = $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))
-# SILABS_00 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/utility,$(APP_LIBS_LIST)))
-# SILABS_00 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src,$(APP_LIBS_LIST)))
-# SILABS_00 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src,$(APP_LIBS_LIST)))
-# SILABS_00 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/utility,$(APP_LIBS_LIST)))
-# SILABS_00 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/arch/$(BUILD_CORE),$(APP_LIBS_LIST)))
-# SILABS_00 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/$(BUILD_CORE),$(APP_LIBS_LIST)))
-# SILABS_00 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/src/dhcpserver,$(APP_LIBS_LIST)))
-
 ifneq ($(APP_LIBS_LIST),0)
+
     SILABS_00 = $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d  | egrep -v 'examples'))
 
     APP_LIB_CPP_SRC = $(foreach dir,$(SILABS_00),$(wildcard $(dir)/*.cpp))
@@ -192,29 +151,8 @@ ifneq ($(APP_LIBS_LIST),0)
 
     APP_LIB_OBJS = $(patsubst $(HARDWARE_PATH)/%.cpp,$(OBJDIR)/%.cpp.o,$(APP_LIB_CPP_SRC))
     APP_LIB_OBJS += $(patsubst $(HARDWARE_PATH)/%.c,$(OBJDIR)/%.c.o,$(APP_LIB_C_SRC))
+
 endif # APP_LIBS_LIST
-
-# $(info >>> APP_LIB_PATH $(APP_LIB_PATH))
-# $(info >>> APP_LIBS_LIST $(APP_LIBS_LIST))
-# $(info >>> APP_LIB_OBJS $(APP_LIB_OBJS))
-
-# Now, APPLICATION_PATH contains generic libraries and is duplicated
-# BUILD_APP_LIB_PATH = $(APPLICATION_PATH)/libraries
-# 
-# SILABS_10 = $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))
-# SILABS_10 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/utility,$(APP_LIBS_LIST)))
-# SILABS_10 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src,$(APP_LIBS_LIST)))
-# SILABS_10 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/utility,$(APP_LIBS_LIST)))
-# SILABS_10 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/arch/$(BUILD_CORE),$(APP_LIBS_LIST)))
-# SILABS_10 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/$(BUILD_CORE),$(APP_LIBS_LIST)))
-# 
-# BUILD_APP_LIB_CPP_SRC = $(foreach dir,$(SILABS_10),$(wildcard $(dir)/*.cpp))
-# BUILD_APP_LIB_C_SRC = $(foreach dir,$(SILABS_10),$(wildcard $(dir)/*.c))
-# BUILD_APP_LIB_H_SRC = $(foreach dir,$(SILABS_10),$(wildcard $(dir)/*.h))
-# BUILD_APP_LIB_H_SRC += $(foreach dir,$(SILABS_10),$(wildcard $(dir)/*.hpp))
-# 
-# BUILD_APP_LIB_OBJS = $(patsubst $(APPLICATION_PATH)/%.cpp,$(OBJDIR)/%.cpp.o,$(BUILD_APP_LIB_CPP_SRC))
-# BUILD_APP_LIB_OBJS += $(patsubst $(APPLICATION_PATH)/%.c,$(OBJDIR)/%.c.o,$(BUILD_APP_LIB_C_SRC))
 
 APP_LIBS_LOCK = 1
 
@@ -222,7 +160,6 @@ APP_LIBS_LOCK = 1
 #
 CORE_C_SRCS = $(wildcard $(CORE_LIB_PATH)/*.c $(CORE_LIB_PATH)/*/*.c)
 
-# # SILABS_20 = $(filter-out %main.cpp, $(wildcard $(CORE_LIB_PATH)/*.cpp $(CORE_LIB_PATH)/*/*.cpp $(CORE_LIB_PATH)/*/*/*.cpp $(CORE_LIB_PATH)/*/*/*/*.cpp))
 SILABS_CPP = $(filter-out %main.cpp, $(shell find $(CORE_LIB_PATH) -name \*.cpp))
 CORE_CPP_SRCS = $(filter-out %/$(EXCLUDE_LIST),$(SILABS_CPP))
 
@@ -232,8 +169,6 @@ CORE_AS1_SRCS_OBJ = $(patsubst %.S,%.S.o,$(filter %S, $(CORE_AS1_SRCS)))
 CORE_AS2_SRCS_OBJ = $(patsubst %.s,%.s.o,$(filter %s, $(CORE_AS2_SRCS)))
 
 CORE_OBJ_FILES += $(CORE_C_SRCS:.c=.c.o) $(CORE_CPP_SRCS:.cpp=.cpp.o) $(CORE_AS1_SRCS_OBJ) $(CORE_AS2_SRCS_OBJ)
-# CORE_OBJS += $(patsubst $(CORE_LIB_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
-# CORE_OBJS += $(patsubst $(APPLICATION_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
 CORE_OBJS += $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
 
 CORE_LIBS_LOCK = 1
@@ -242,11 +177,7 @@ CORE_LIBS_LOCK = 1
 #
 MCU_FLAG_NAME = mcpu
 MCU = $(call PARSE_BOARD,$(BOARD_TAG),build.mcu)
-# === MCU cortex-m0plus rp2040
-# MCU = cortex-m0plus
 F_CPU = $(call SEARCH_FOR,$(BOARD_TAG),build.f_cpu)
-
-# $(info === MCU $(MCU))
 
 SILABS_GSDK_VERSION = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),gsdk_folder)
 ifeq ($(SILABS_GSDK_VERSION),)
@@ -277,20 +208,6 @@ SILABS_02c = $(shell echo $(SILABS_02b) | sed 's:{gsdk_folder}:$(SILABS_GSDK_VER
 
 SILABS_GSDK_PATH = $(SILABS_02c)
 
-# $(info >>> SILABS_MATTER_VERSION $(SILABS_MATTER_VERSION))
-# $(info >>> SILABS_01a $(SILABS_01a))
-# $(info >>> SILABS_01b $(SILABS_01b))
-# $(info >>> SILABS_01c $(SILABS_01c))
-# $(info >>> SILABS_MATTER_PATH $(SILABS_MATTER_PATH))
-
-# $(info >>> SILABS_GSDK_VERSION $(SILABS_GSDK_VERSION))
-# $(info >>> SILABS_02a $(SILABS_02a))
-# $(info >>> SILABS_02b $(SILABS_02b))
-# $(info >>> SILABS_02c $(SILABS_02c))
-# $(info >>> SILABS_GSDK_PATH $(SILABS_GSDK_PATH))
-
-# $(error STOP)
-
 SILABS_03a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.include_list)
 ifeq ($(SILABS_03a),)
     SILABS_03a = $(call PARSE_BOARD,$(BOARD_TAG),build.include_list)
@@ -305,15 +222,6 @@ FLAGS_INCLUDE += -I$(CORE_LIB_PATH)
 FLAGS_INCLUDE += -I$(VARIANT_PATH)
 FLAGS_INCLUDE += $(addprefix -I, $(sort $(dir $(APP_LIB_H_SRC) $(BUILD_APP_LIB_H_SRC))))
 FLAGS_INCLUDE += -I$(CORE_LIB_PATH)/api/deprecated
-
-# $(info >>> SILABS_GSDK_PATH $(SILABS_GSDK_PATH))
-# $(info >>> SILABS_02a $(SILABS_02a))
-# $(info >>> SILABS_02b $(SILABS_02b))
-# $(info >>> SILABS_02c $(SILABS_02c))
-# $(info >>> SEARCH_FOR $(BOARD_OPTION_TAGS_LIST).build.include_list)
-# $(info >>> SILABS_03a $(SILABS_03a))
-# $(info >>> SILABS_03b $(SILABS_03b))
-# $(info >>> SILABS_03c $(SILABS_03c))
 
 # Flags for gcc, g++ and linker
 # ----------------------------------
@@ -346,7 +254,6 @@ SILABS_06a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.extra_flags)
 ifeq ($(SILABS_06a),)
     SILABS_06a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
 endif # SILABS_06a
-# # SILABS_06b = $(shell echo $(SILABS_06a) | sed 's:{build.board_specific_macros}:$(FLAGS_MORE):g')
 SILABS_06b = $(patsubst {build.board_specific_macros},$(FLAGS_MORE),$(SILABS_06a))
 
 FLAGS_ALL += $(SILABS_06b)
@@ -359,26 +266,8 @@ SILABS_07b = $(shell echo $(SILABS_07a) | sed 's:{build.gsdk_path}:$(SILABS_GSDK
 SILABS_07c = $(shell echo $(SILABS_07b) | sed 's:{build.variant.path}:$(VARIANT_PATH):g')
 
 SILABS_PRE_LIBS = $(SILABS_07c)
-# $(info >>> SILABS_07a $(SILABS_07a))
-# $(info >>> SILABS_07b $(SILABS_07b))
-# $(info >>> SILABS_07c $(SILABS_07c))
-# $(info >>> SILABS_PRE_LIBS $(SILABS_PRE_LIBS))
 
-# FLAGS_ALL += $(SILABS_07b)
 FLAGS_ALL += $(FLAGS_INCLUDE)
-
-# $(info >>> PLATFORM_TAG $(PLATFORM_TAG))
-# $(info >>> addprefix $(addprefix -D, $(PLATFORM_TAG)))
-# $(info >>> FLAGS_MORE $(FLAGS_MORE))
-# 
-# $(info >>> SILABS_04a $(SILABS_04a))
-# $(info >>> SILABS_05a $(SILABS_05a))
-# $(info >>> SILABS_06b $(SILABS_06b))
-# $(info >>> SILABS_07b $(SILABS_07b))
-# $(info >>> FLAGS_D $(FLAGS_D))
-# $(info >>> FLAGS_ALL $(FLAGS_ALL))
-
-# $(error STOP)
 
 # Specific FLAGS_C for gcc only
 # gcc uses FLAGS_ALL and FLAGS_C
@@ -395,23 +284,10 @@ SILABS_10e = $(shell echo $(SILABS_10d) | sed 's:{build.gsdk_path}:$(SILABS_GSDK
 FLAGS_C := $(SILABS_10e) 
 FLAGS_C += -MMD
 FLAGS_C += -MP
-# FLAGS_C += -MF
-
-# FLAGS_C += "$@.d"
-# FLAGS_C += -iprefix$(HARDWARE_PATH)/
-# FLAGS_C += @$(HARDWARE_PATH)/lib/platform_inc.txt
-# FLAGS_C += $(addprefix -I, $(INCLUDE_PATH))
-
-# $(info >>> SILABS_10a $(SILABS_10a))
-# $(info >>> SILABS_10b $(SILABS_10b))
-# $(info >>> SILABS_10c $(SILABS_10c))
-# $(info >>> SILABS_10d $(SILABS_10d))
-# $(info >>> FLAGS_C $(FLAGS_C))
 
 # Specific FLAGS_CPP for g++ only
 # g++ uses FLAGS_ALL and FLAGS_CPP
 #
-# SILABS_20a = $(call PARSE_BOARD,$(BOARD_TAG),build.cpp_flags)
 SILABS_20a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.cpp_flags)
 ifeq ($(SILABS_20a),)
     SILABS_20a = $(call PARSE_BOARD,$(BOARD_TAG),build.cpp_flags)
@@ -421,12 +297,6 @@ SILABS_20c = $(shell echo $(SILABS_20b) | sed 's:{compiler.warning_flags}:$(FLAG
 SILABS_20d = $(shell echo $(SILABS_20c) | sed 's:{build.float_flags}:$(FLAGS_FLOAT):g')
 
 FLAGS_CPP := $(SILABS_20d) 
-
-# $(info >>> SILABS_20a $(SILABS_20a))
-# $(info >>> SILABS_20b $(SILABS_20b))
-# $(info >>> SILABS_20c $(SILABS_20c))
-# $(info >>> SILABS_20d $(SILABS_20d))
-# $(info >>> FLAGS_CPP $(FLAGS_CPP))
 
 # Specific FLAGS_AS for gcc assembler only
 # gcc assembler uses FLAGS_ALL and FLAGS_AS
@@ -438,13 +308,6 @@ endif # SILABS_30a
 SILABS_30b = $(shell echo $(SILABS_30a) | sed 's:{build.mcu}:$(MCU):g')
 FLAGS_AS := $(SILABS_30b) 
 FLAGS_AS += -x assembler-with-cpp
-
-# $(info >>> SILABS_30a $(SILABS_30a))
-# $(info >>> SILABS_30b $(SILABS_30b))
-# $(info >>> FLAGS_AS $(FLAGS_AS))
-
-# FLAGS_D = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.debug_level)
-# FLAGS_D += $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.debug_port)
 
 # Specific FLAGS_LD for linker only
 # linker uses FLAGS_ALL and FLAGS_LD
@@ -458,7 +321,6 @@ SILABS_40c = $(shell echo $(SILABS_40b) | sed 's:{build.path}/{build.project_nam
 SILABS_40d = $(shell echo $(SILABS_40c) | sed 's:{compiler.mapfile_path}:$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).map:g')
 
 FLAGS_LD := $(SILABS_40d) 
-# FLAGS_LD = -u _printf_float -u _scanf_float
 
 # Specific FLAGS_LIBS for linker only
 #
@@ -467,47 +329,14 @@ ifeq ($(FLAGS_LIBS),)
     FLAGS_LIBS = $(call PARSE_BOARD,$(BOARD_TAG),build.ld_libs)
 endif # FLAGS_LIBS
 
-# FLAGS_LD += $(SILABS_07c)
-
-# $(info >>> SILABS_07c $(SILABS_07c))
-# $(info >>> FLAGS_LD $(FLAGS_LD))
-# $(error STOP)
-
 # Specific FLAGS_OBJCOPY for objcopy only
 # objcopy uses FLAGS_OBJCOPY only
 #
 FLAGS_OBJCOPY = -v -Obinary
 
 # No USB PID VID
-#
-# USB_VID := $(call PARSE_BOARD,$(BOARD_TAG),vid.0)
-# USB_PID := $(call PARSE_BOARD,$(BOARD_TAG),pid.0)
-# USB_FLAGS_VID := $(call PARSE_BOARD,$(BOARD_TAG),build.usbvid)
-# USB_FLAGS_PID := $(call PARSE_BOARD,$(BOARD_TAG),build.usbpid)
-# USB_FLAGS_POWER = $(call PARSE_BOARD,$(BOARD_TAG),build.usbpwr)
-# USB_PRODUCT := $(call PARSE_BOARD,$(BOARD_TAG),build.usb_product)
-# USB_VENDOR := $(call PARSE_BOARD,$(BOARD_TAG),build.usb_manufacturer)
-# 
-# USB_VID = $(shell echo $(USB_FLAGS_VID) | cut -d= -f2)
-# USB_PID = $(shell echo $(USB_FLAGS_PID) | cut -d= -f2)
 
-# $(info >>> $(USB_VID) $(USB_PID))
-# 
-# ifeq ($(USB_VENDOR),)
-#     USB_VENDOR = "Arduino"
-# endif
-
-# USB_FLAGS = -DCFG_TUSB_MCU=OPT_MCU_RP2040
-# USB_FLAGS += -DUSB_VID=$(USB_VID)
-# USB_FLAGS += -DUSB_PID=$(USB_PID)
-# USB_FLAGS += -DUSB_MANUFACTURER='$(USB_VENDOR)'
-# USB_FLAGS += -DUSB_PRODUCT='$(USB_PRODUCT)'
-# USB_FLAGS += $(USB_FLAGS_PID) $(USB_FLAGS_VID) $(USB_FLAGS_POWER) $(USB_STACK)
-
-# Serial 1200 reset
-#
-# USB_TOUCH := $(call PARSE_BOARD,$(BOARD_TAG),upload.protocol)
-# USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
+# No Serial 1200 reset
 
 ifeq ($(MAKECMDGOALS),debug)
     OPTIMISATION ?= -ggdb -g
@@ -519,22 +348,12 @@ INCLUDE_PATH = $(CORE_LIB_PATH) $(VARIANT_PATH)
 INCLUDE_PATH += $(sort $(dir $(APP_LIB_CPP_SRC) $(APP_LIB_C_SRC) $(APP_LIB_H_SRC)))
 INCLUDE_PATH += $(sort $(dir $(BUILD_APP_LIB_CPP_SRC) $(BUILD_APP_LIB_C_SRC) $(BUILD_APP_LIB_H_SRC)))
 
-# rp2000a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
-# FLAGS_MORE = $(filter-out {build.usb_flags}, $(rp2000a))
-# FLAGS_MORE += $(call PARSE_BOARD,$(BOARD_TAG),build.float-abi)
-# FLAGS_MORE += $(call PARSE_BOARD,$(BOARD_TAG),build.fpu)
-
 TARGET_HEXBIN = $(TARGET_HEX)
 
 # Commands
 # ----------------------------------
 # Link command
 #
-# FIRST_O_IN_LD = $$(find $(BUILDS_PATH) -name syscalls.c.o)
-# FIRST_O_IN_LD = $(shell find . -name syscalls.c.o)
-
-# recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {} {} "-T{build.ldscript}" {compiler.ldflags} {object_files} -Wl,-whole-archive "{build.path}/{archive_file}" {compiler.silabs.precompiled_gsdk} -Wl,-no-whole-archive -Wl,--start-group {compiler.ldlibs} {compiler.silabs.precompiled_libs} -Wl,--end-group -o "{build.path}/{build.project_name}.elf"
-
 SILABS_41a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.precompiled_gsdk)
 ifeq ($(SILABS_41a),)
     SILABS_41a = $(call PARSE_BOARD,$(BOARD_TAG),build.precompiled_gsdk)
@@ -543,12 +362,6 @@ SILABS_41b = $(shell echo $(SILABS_41a) | sed 's:{build.variant.path}:$(VARIANT_
 
 SILABS_PRE_GSDK = $(SILABS_41b)
 
-# $(info >>> LOCAL_OBJS $(LOCAL_OBJS))
-# $(info >>> LOCAL_ARCHIVES $(LOCAL_ARCHIVES))
-# $(info >>> USER_ARCHIVES $(USER_ARCHIVES))
-# $(info >>> OBJS_CORE $(OBJS_CORE))
-# $(info >>> TARGET_A $(TARGET_A))
-
 SILABS_42a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.ldscript)
 ifeq ($(SILABS_42a),)
     SILABS_42a = $(call PARSE_BOARD,$(BOARD_TAG),build.ldscript)
@@ -556,22 +369,11 @@ endif # SILABS_42a
 SILABS_42b = $(patsubst {build.variant.path}%,$(VARIANT_PATH)%,$(SILABS_42a))
 LDSCRIPT = $(SILABS_42b)
 
-# $(info >>> SILABS_41a $(SILABS_41a))
-# $(info >>> SILABS_41b $(SILABS_41b))
-# $(info >>> SILABS_42a $(SILABS_42a))
-# $(info >>> SILABS_42b $(SILABS_42b))
-# $(error STOP)
-
-# recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} "-T{build.ldscript}" {compiler.ldflags} {object_files} -Wl,-whole-archive "{build.path}/{archive_file}" {compiler.silabs.precompiled_gsdk} -Wl,-no-whole-archive -Wl,--start-group {compiler.ldlibs} {compiler.silabs.precompiled_libs} -Wl,--end-group -o "{build.path}/{build.project_name}.elf"
-# TARGET_A repalced by OBJS_NON_CORE
-
 COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments $(OBJS_NON_CORE) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -Wl,-whole-archive -L$(OBJDIR) $(TARGET_CORE_A) $(SILABS_PRE_GSDK) -Wl,-no-whole-archive -Wl,--start-group $(FLAGS_LIBS) $(SILABS_PRE_LIBS) -Wl,--end-group $(OUT_PREPOSITION)$@
 
 # Target
 #
 TARGET_HEXBIN = $(TARGET_HEX)
-# TARGET_HEXBIN = $(TARGET_BIN)
-# TARGET_EEP = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).hex
 
 endif # BOARD_TAG
 

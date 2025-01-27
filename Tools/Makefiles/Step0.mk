@@ -9,7 +9,7 @@
 #
 # Created: 03 Jul 2023 release 14.1.4
 #
-# Last update: 18 Nov release 14.6.0
+# Last update: 10 Jan 2025 release 14.6.9
 # 
 
 # Set default values for parameters
@@ -25,6 +25,15 @@ SKETCH_EXTENSION ?= ino
 HIDE_NUMBER ?= false
 HIDE_COMMAND ?= true
 HIDE_INFO ?= false
+HIDE_TOOLS ?= false
+HIDE_ALL ?= false
+
+ifeq ($(HIDE_ALL),true)
+	HIDE_NUMBER := true
+	HIDE_COMMAND := true
+	HIDE_INFO := true
+	HIDE_TOOLS := true
+endif
 
 # For building, keep main and tasks unchanged, false or true, default = false
 #

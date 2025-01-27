@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 18 Nov release 14.6.0
+# Last update: 10 Jan 2025 release 14.6.9
 #
 
 # General table of messages
@@ -978,6 +978,9 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     endif # INFO_USER_ARCHIVES_LIST
 
     $(info ==== Info done ====)
+endif # HIDE_INFO
+
+ifneq ($(HIDE_TOOLS),true)
     $(info .)
     $(info ==== Tools ====)
     $(info ---- Platform ----)
@@ -1723,12 +1726,6 @@ include $(MAKEFILE_PATH)/About.mk
 # Rules
 # ----------------------------------
 #
-all: start_message clean before_compile compile after_compile reset raw_upload serial
-	@echo "==== $(MESSAGE_TASK) done ===="
-
-build: start_message before_compile compile after_compile
-	@echo "==== $(MESSAGE_TASK) done ===="
-
 compile: message_compile $(OBJDIR) $(TARGET_HEXBIN) $(TARGET_EEP) size
 	@echo $(BOARD_TAG) > $(NEW_TAG)
 
@@ -1769,7 +1766,7 @@ $(DEP_FILE): $(OBJDIR) $(DEPS)
 
 # upload: start_message reset raw_upload
 upload: reset raw_upload
-	@echo "==== upload done ==== "
+	@echo "==== Upload done ==== "
 
 reset:
 	@echo "---- Reset ----"
@@ -2404,9 +2401,9 @@ endif # NO_SERIAL_CONSOLE
 endif # NO_SERIAL_CONSOLE
 
 clean:
+	@echo "---- Clean ----"
 	@if [ ! -d $(OBJDIR) ]; then mkdir -p $(OBJDIR); fi
 	@echo "nil" > $(OBJDIR)/nil
-	@echo "---- Clean ----"
 	@if [ -f $(OBJDIR)/Serial.txt ] ; then cp $(OBJDIR)/Serial.txt ./Serial.txt ; fi
 	-@$(REMOVE) -r $(OBJDIR)/*
 	@mkdir -p $(OBJDIR)
@@ -2517,6 +2514,12 @@ endif
 fast: start_message changed before_compile compile after_compile reset raw_upload serial
 	@echo "==== $(MESSAGE_TASK) done ===="
 
+all: start_message clean before_compile compile after_compile reset raw_upload serial
+	@echo "==== $(MESSAGE_TASK) done ===="
+
+build: start_message nothing before_compile compile after_compile
+	@echo "==== $(MESSAGE_TASK) done ===="
+
 make: start_message changed before_compile compile after_compile
 	@echo "==== $(MESSAGE_TASK) done ===="
 
@@ -2537,6 +2540,8 @@ update:
 
 message_core:
 	@echo "==== Core ===="
+
+nothing:
 
 #	if [ -f $(TARGET_CORE_A) ] ; then rm $(TARGET_CORE_A) ; fi
 
