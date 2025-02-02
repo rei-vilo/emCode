@@ -49,12 +49,6 @@ LOCAL_LIBS_LIST =
 #
 WARNING_OPTIONS = 0
 
-# Selected board
-# ----------------------------------
-# Name of the board configuration file
-#
-# SELECTED_BOARD = Raspberry_Pi_Pico_RP2040_MSD
-
 # Compiler options
 # ----------------------------------
 #
