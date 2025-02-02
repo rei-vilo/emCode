@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 10 Jan 2025 release 14.6.9
+# Last update: 21 Jan 2025 release 14.6.10
 #
 
 # RP2040 Pico for Arduino
@@ -29,17 +29,8 @@ MAKEFILE_NAME = RasPiPico
 RELEASE_CORE = $(RP2040_RELEASE)
 READY_FOR_EMCODE_NEXT = 1
 
-# # Release check
-# # ----------------------------------
-# #
-# REQUIRED_RP2040_RELEASE = 1.9.8
-# ifeq ($(shell if [[ '$(RP2040_RELEASE)' > '$(REQUIRED_RP2040_RELEASE)' ]] || [[ '$(RP2040_RELEASE)' = '$(REQUIRED_RP2040_RELEASE)' ]]; then echo 1 ; else echo 0 ; fi ),0)
-# $(error RP2040 release $(REQUIRED_RP2040_RELEASE) or later required, release $(RP2040_RELEASE) installed)
-# endif
-
 BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4) $(BOARD_TAG5) $(BOARD_TAG6) $(BOARD_TAG7) $(BOARD_TAG8) $(BOARD_TAG9) $(BOARD_TAG10) $(BOARD_TAG11) 
 BOARD_TAGS_LIST = $(BOARD_TAG) $(BOARD_OPTION_TAGS_LIST)
-# SEARCH_FOR = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
 
 # Arduino RP2040 specifics
 # ----------------------------------
@@ -66,11 +57,14 @@ APP_LIB_PATH := $(HARDWARE_PATH)/libraries
 BOARDS_TXT := $(HARDWARE_PATH)/boards.txt
 BUILD_BOARD = $(call PARSE_BOARD,$(BOARD_TAG),build.board)
 
+# New with RP2350 
 BUILD_TOOLCHAIN = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.toolchain)
 BUILD_OPTIONS = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.toolchainopts)
 BUILD_PACKAGE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.toolchainpkg)
 
 BUILD_UF2 = $(call PARSE_BOARD,$(BOARD_TAG),build.uf2family)
+
+# FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name variant.cpp.o)
 
 VARIANT = $(call PARSE_BOARD,$(BOARD_TAG),build.variant)
 VARIANT_PATH = $(HARDWARE_PATH)/variants/$(VARIANT)
@@ -102,6 +96,7 @@ endif # KEEP_MAIN
 # UPLOADER defined in .mk
 #
 TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
+# recipe.objcopy.uf2.pattern="{runtime.tools.pqt-picotool.path}/picotool" uf2 convert "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.uf2" {build.uf2family}
 COMMAND_UF2 = $(OTHER_TOOLS_PATH)/pqt-picotool/$(RP2040_PICOTOOL_RELEASE)/picotool uf2 convert $(TARGET_ELF) $(TARGET_BIN_CP) $(BUILD_UF2)
 
 ifeq ($(UPLOADER),cp_uf2)
@@ -111,12 +106,14 @@ ifeq ($(UPLOADER),cp_uf2)
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
     COMMAND_PRE_UPLOAD = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(RP2040_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
     USED_VOLUME_PORT = $(strip $(BOARD_VOLUME))
+
     UPLOADER_PATH = $(HARDWARE_PATH)/tools
     UPLOADER_EXEC = $(UPLOADER_PATH)/uf2conv.py
     UPLOADER_OPTS = --family RP2040 --deploy $(TARGET_BIN_CP)
     COMMAND_UPLOAD = python $(UPLOADER_EXEC) $(UPLOADER_OPTS) 
 
 else ifeq ($(UPLOADER),dfu-util)
+# tools.dfu-util.upload.pattern="{path}/{cmd}" --device {upload.vid}:{upload.pid} -D "{build.path}/{build.project_name}.bin" -a{upload.interface} --dfuse-address={upload.address}:leave
 
     UPLOADER = dfu-util
     USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
@@ -129,18 +126,15 @@ else ifeq ($(UPLOADER),dfu-util)
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -D $(TARGET_BIN)
 
 else ifeq ($(UPLOADER),picoprobe)
-
     UPLOADER = openocd
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/bin
     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd
     UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
-
     UPLOADER_OPTS += -f interface/picoprobe.cfg -f target/$(BUILD_CHIP).cfg
     UPLOADER_COMMAND = verify reset exit
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "program $(TARGET_HEX) $(UPLOADER_COMMAND)"
 
 else ifeq ($(UPLOADER),debugprobe)
-
     UPLOADER = openocd
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/bin
     UPLOADER_EXEC = $(UPLOADER_PATH)/openocd
@@ -165,6 +159,7 @@ else ifeq ($(UPLOADER),jlink)
 
 else # UPLOADER
 
+# tools.openocd.upload.pattern="{path}/{cmd}" {upload.verbose} -s "{path}/share/openocd/scripts/" {bootloader.programmer} {upload.transport} {bootloader.config} -c "telnet_port disabled; init; reset init; halt; adapter speed 10000; program {{build.path}/{build.project_name}.elf}; reset run; shutdown"
     UPLOADER = openocd
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/bin
     UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd
@@ -174,6 +169,7 @@ else # UPLOADER
     UPLOADER_COMMAND = verify reset exit
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "program $(TARGET_HEX) $(UPLOADER_COMMAND)"
 
+#    JLINK_POWER = 1
     JLINK_POWER ?= 0
     ifeq ($(JLINK_POWER),1)
         COMMAND_POWER = printf "power on\ng\nexit\n" > '$(BUILDS_PATH)/power.jlink' ;
@@ -285,9 +281,12 @@ USB_FLAGS += $(USB_FLAGS_PID) $(USB_FLAGS_VID) $(USB_FLAGS_POWER) $(USB_STACK)
 USB_FLAGS += -DPICO_FLASH_SIZE_BYTES=$(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.flash_total)
 USB_FLAGS += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_def.txt
 
+USB_FLAGS += $(call PARSE_FILE,build,flags.sdfatdefines,$(HARDWARE_PATH)/platform.txt)
+
+
+# Define menu.ipstack and menu.usbstack
 BUILD_WIFI = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.wificc)
 ifeq ($(USB_VENDOR),)
-#     BUILD_WIFI = -DWIFICC=CYW43_COUNTRY_WORLDWIDE
     BUILD_WIFI = $(call PARSE_FILE,$(BOARD_TAG),build,wificc)
 endif
 
@@ -298,7 +297,6 @@ USB_FLAGS += -DLWIP_IGMP=1 -DLWIP_CHECKSUM_CTRL_PER_NETIF=1
 # Serial 1200 reset
 #
 USB_TOUCH := $(call PARSE_BOARD,$(BOARD_TAG),upload.protocol)
-# USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
 
 ifeq ($(MAKECMDGOALS),debug)
     OPTIMISATION ?= -ggdb -g
@@ -335,7 +333,6 @@ ifeq ($(FLAG_EXCEPTION),)
     FLAG_EXCEPTION += $(call PARSE_FILE,build,flags.libstdcpp,$(HARDWARE_PATH)/platform.txt)
 endif
 
-# WAS FLAGS_LWIP lwipdefs, NOW FLAGS_W_DEFS libpicowdefs
 FLAGS_W_DEFS = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.libpicowdefs)
 ifeq ($(FLAGS_W_DEFS),)
     FLAGS_W_DEFS := $(call PARSE_FILE,build,libpicowdefs,$(HARDWARE_PATH)/platform.txt)
@@ -400,6 +397,7 @@ FLAGS_ALL += $(FLAGS_NET)
 # Specific FLAGS_C for gcc only
 # gcc uses FLAGS_ALL and FLAGS_C
 #
+# FLAGS_C = -std=gnu11
 FLAGS_C = -c -std=gnu17
 FLAGS_C += -iprefix$(HARDWARE_PATH)/
 FLAGS_C += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_inc.txt
@@ -462,12 +460,18 @@ FLAGS_LIBS += -lm -lc -lstdc++ -lc
 #
 FLAGS_OBJCOPY = -v -Obinary
 
+# FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name pulse_asm.S.o)
+
 # Commands
 # ----------------------------------
 # Link command
 #
+# FIRST_O_IN_LD = $$(find $(BUILDS_PATH) -name syscalls.c.o)
+# FIRST_O_IN_LD = $(shell find . -name syscalls.c.o)
+
 COMMAND_EXTRA_1 = $(OTHER_TOOLS_PATH)/pqt-python3/$(RP2040_PYTHON_RELEASE)/python3 -I $(HARDWARE_PATH)/tools/simplesub.py --input $(HARDWARE_PATH)/lib/$(BUILD_CHIP)/memmap_default.ld --out $(BUILDS_PATH)/memmap_default.ld $(FLAGS_SUB)
 
+# "{compiler.path}{compiler.S.cmd}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} -c "{runtime.platform.path}/boot2/{build.chip}/{build.boot2}.S" "-I{runtime.platform.path}/pico-sdk/src/{build.chip}/hardware_regs/include/" "-I{runtime.platform.path}/pico-sdk/src/common/pico_binary_info/include" -o "{build.path}/boot2.o"
 COMMAND_EXTRA_2 = $(CC) -c $(FLAGS_ALL) -u _printf_float -u _scanf_float -c $(HARDWARE_PATH)/boot2/$(BUILD_CHIP)/$(call PARSE_BOARD,$(BOARD_TAG),build.boot2).S -I$(HARDWARE_PATH)/pico-sdk/src/$(BUILD_CHIP)/hardware_regs/include/ -I$(HARDWARE_PATH)/pico-sdk/src/common/pico_binary_info/include -o $(BUILDS_PATH)/boot2.o 
 
 COMMAND_EXTRA = $(COMMAND_EXTRA_1) ; $(COMMAND_EXTRA_2)

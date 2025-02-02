@@ -37,6 +37,7 @@ BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4)
 PLATFORM := Silicon Labs
 BUILD_CORE := SiLabs
 SUB_PLATFORM := SiLabs
+# For an unknwon reason, calling PARSE_BOARD freezes 
 VARIANT = $(call PARSE_BOARD,$(BOARD_TAG),build.variant)
 
 PLATFORM_TAG = ARDUINO=$(RELEASE_ARDUINO) ARDUINO_SILABS='"$(SILICONLABS_SILABS_RELEASE)"' EMCODE='"$(RELEASE_NOW)"' $(filter __%__ ,$(GCC_PREPROCESSOR_DEFINITIONS)) 
@@ -54,6 +55,8 @@ CORE_LIB_PATH := $(HARDWARE_PATH)/cores/silabs
 APP_LIB_PATH := $(HARDWARE_PATH)/libraries
 BOARDS_TXT := $(HARDWARE_PATH)/boards.txt
 BUILD_BOARD = $(call PARSE_BOARD,$(BOARD_TAG),build.board)
+
+# FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name variant.cpp.o)
 
 VARIANT = $(call PARSE_BOARD,$(BOARD_TAG),build.variant)
 VARIANT_PATH = $(HARDWARE_PATH)/variants/$(VARIANT)
@@ -107,6 +110,7 @@ ifeq ($(UPLOADER),openocd)
 
 else # commander or jlink 
 
+#     ~/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander  flash ~/.var/app/cc.arduino.IDE2/cache/arduino/sketches/787161434EF5B388F6727A50919C6517/Blink.ino.elf
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/simplicitycommander/$(SILICONLABS_TOOLS_RELEASE)
     UPLOADER_EXEC = $(UPLOADER_PATH)/commander
 
@@ -115,6 +119,9 @@ else # commander or jlink
     COMMAND_BOOTLOADER = $(UPLOADER_EXEC) $(UPLOADER_OPTS) flash $(BOOTLOADER_FILE)
 
 endif # UPLOADER
+
+#  Boot-loader
+# ~/.arduino15/packages/SiliconLabs/tools/simplicitycommander/1.14.5/commander  flash ~/.arduino15/packages/SiliconLabs/hardware/silabs/1.0.0/bootloaders/bgm220-explorer-kit-ble-bootloader-apploader.hex
 
 # Tool-chain names
 #
@@ -354,6 +361,8 @@ TARGET_HEXBIN = $(TARGET_HEX)
 # ----------------------------------
 # Link command
 #
+# recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {} {} "-T{build.ldscript}" {compiler.ldflags} {object_files} -Wl,-whole-archive "{build.path}/{archive_file}" {compiler.silabs.precompiled_gsdk} -Wl,-no-whole-archive -Wl,--start-group {compiler.ldlibs} {compiler.silabs.precompiled_libs} -Wl,--end-group -o "{build.path}/{build.project_name}.elf"
+
 SILABS_41a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.precompiled_gsdk)
 ifeq ($(SILABS_41a),)
     SILABS_41a = $(call PARSE_BOARD,$(BOARD_TAG),build.precompiled_gsdk)
@@ -368,6 +377,9 @@ ifeq ($(SILABS_42a),)
 endif # SILABS_42a
 SILABS_42b = $(patsubst {build.variant.path}%,$(VARIANT_PATH)%,$(SILABS_42a))
 LDSCRIPT = $(SILABS_42b)
+
+# recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} "-T{build.ldscript}" {compiler.ldflags} {object_files} -Wl,-whole-archive "{build.path}/{archive_file}" {compiler.silabs.precompiled_gsdk} -Wl,-no-whole-archive -Wl,--start-group {compiler.ldlibs} {compiler.silabs.precompiled_libs} -Wl,--end-group -o "{build.path}/{build.project_name}.elf"
+# TARGET_A replaced by OBJS_NON_CORE
 
 COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments $(OBJS_NON_CORE) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -Wl,-whole-archive -L$(OBJDIR) $(TARGET_CORE_A) $(SILABS_PRE_GSDK) -Wl,-no-whole-archive -Wl,--start-group $(FLAGS_LIBS) $(SILABS_PRE_LIBS) -Wl,--end-group $(OUT_PREPOSITION)$@
 

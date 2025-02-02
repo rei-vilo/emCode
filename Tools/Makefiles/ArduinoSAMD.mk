@@ -24,6 +24,14 @@ MAKEFILE_NAME = ArduinoSAMD
 RELEASE_CORE = $(ARDUINO_SAMD_RELEASE)
 READY_FOR_EMCODE_NEXT = 1
 
+# # Release check
+# # ----------------------------------
+# #
+# REQUIRED_ARDUINO_SAMD_RELEASE = 1.8.11
+# ifeq ($(shell if [[ '$(ARDUINO_SAMD_RELEASE)' > '$(REQUIRED_ARDUINO_SAMD_RELEASE)' ]] || [[ '$(ARDUINO_SAMD_RELEASE)' = '$(REQUIRED_ARDUINO_SAMD_RELEASE)' ]]; then echo 1 ; else echo 0 ; fi ),0)
+# $(error Arduino SAMD release $(REQUIRED_ARDUINO_SAMD_RELEASE) or later required, release $(ARDUINO_SAMD_RELEASE) installed)
+# endif
+
 # Arduino 1.8.0 SAMD specifics
 # ----------------------------------
 #
@@ -47,6 +55,8 @@ CORE_LIB_PATH := $(HARDWARE_PATH)/cores/arduino
 APP_LIB_PATH := $(HARDWARE_PATH)/libraries
 BOARDS_TXT := $(HARDWARE_PATH)/boards.txt
 BUILD_BOARD = $(call PARSE_BOARD,$(BOARD_TAG),build.board)
+
+# FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name variant.cpp.o)
 
 VARIANT = $(call PARSE_BOARD,$(BOARD_TAG),build.variant)
 VARIANT_PATH = $(HARDWARE_PATH)/variants/$(VARIANT)
@@ -118,6 +128,7 @@ else
         UPLOADER = openocd
         UPLOADER_PATH := $(OTHER_TOOLS_PATH)/openocd/$(ARDUINO_SAMD_OPENOCD_RELEASE)
         UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd
+# UPLOADER_OPTS = -d3
         UPLOADER_OPTS = -s $(UPLOADER_PATH)/share/openocd/scripts/
         UPLOADER_OPTS += -f $(VARIANT_PATH)/$(call PARSE_BOARD,$(BOARD_TAG),build.openocdscript)
 
@@ -128,6 +139,7 @@ else
             BOOTLOADER_SIZE = 0x2000
         endif
         UPLOADER_COMMAND = telnet_port disabled; program {$(TARGET_BIN)} verify reset $(BOOTLOADER_SIZE); shutdown
+#       UPLOADER_COMMAND = verify reset $(call PARSE_BOARD,$(BOARD_TAG),build.section.start) exit
         COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "$(UPLOADER_COMMAND)"
 
     endif # UPLOADER
@@ -204,6 +216,8 @@ CORE_AS1_SRCS_OBJ = $(patsubst %.S,%.S.o,$(filter %S, $(CORE_AS_SRCS)))
 CORE_AS2_SRCS_OBJ = $(patsubst %.s,%.s.o,$(filter %s, $(CORE_AS_SRCS)))
 
 CORE_OBJ_FILES += $(CORE_C_SRCS:.c=.c.o) $(CORE_CPP_SRCS:.cpp=.cpp.o) $(CORE_AS1_SRCS_OBJ) $(CORE_AS2_SRCS_OBJ)
+# CORE_OBJS += $(patsubst $(CORE_LIB_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
+# CORE_OBJS += $(patsubst $(APPLICATION_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
 CORE_OBJS += $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
 
 CORE_LIBS_LOCK = 1
@@ -242,6 +256,10 @@ else
     OPTIMISATION ?= -Os -g3
 endif
 
+# INCLUDE_PATH = $(APPLICATION_PATH)/hardware/arduino/samd/system/libsam
+# INCLUDE_PATH += $(APPLICATION_PATH)/hardware/arduino/samd/system/libsam/include
+# INCLUDE_PATH += $(APPLICATION_PATH)/hardware/tools/CMSIS/CMSIS/Include/
+# INCLUDE_PATH += $(APPLICATION_PATH)/hardware/tools/CMSIS/Device/ATMEL/
 INCLUDE_PATH += $(CMSIS_PATH)/CMSIS/Include
 INCLUDE_PATH += $(CMSIS_ATMEL_PATH)/Device/ATMEL
 INCLUDE_PATH += $(CORE_LIB_PATH) $(VARIANT_PATH)
@@ -292,6 +310,10 @@ FLAGS_LD += -Wl,--cref -Wl,-Map,$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).map # Out
 FLAGS_LD += -Wl,--check-sections -Wl,--gc-sections
 FLAGS_LD += -Wl,--unresolved-symbols=report-all
 FLAGS_LD += -Wl,--warn-common -Wl,--warn-section-align
+# FLAGS_LD += -Wl,--check-sections -Wl,--gc-sections -Wl,--entry=Reset_Handl er
+# FLAGS_LD += -Wl,--unresolved-symbols=report-all
+# FLAGS_LD += -Wl,--warn-common -Wl,--warn-section-align -Wl,--warn-unresolved-symbols
+# FLAGS_LD += -Wl,--section-start=.text=$(call PARSE_BOARD,$(BOARD_TAG),build.section.start)
 
 # Specific FLAGS_OBJCOPY for objcopy only
 # objcopy uses FLAGS_OBJCOPY only
@@ -304,6 +326,9 @@ FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name pulse_asm.S.o)
 # ----------------------------------
 # Link command
 #
+# FIRST_O_IN_LD = $$(find $(BUILDS_PATH) -name syscalls.c.o)
+# FIRST_O_IN_LD = $(shell find . -name syscalls.c.o)
+
 COMMAND_LINK = $(CC) -L$(OBJDIR) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -L$(OBJDIR) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -Wl,--start-group -L$(CMSIS_PATH)/CMSIS/Lib/GCC/ -larm_cortexM0l_math -lm $(TARGET_CORE_A) $(TARGET_A) -Wl,--end-group
 
 # Target
