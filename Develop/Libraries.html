@@ -1,0 +1,3706 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Embedded computing for Arduino SDK with GNU make">
+      
+      
+        <meta name="author" content="Rei Vilo">
+      
+      
+        <link rel="canonical" href="https://rei-vilo.github.io/emCode/Develop/Libraries.html">
+      
+      
+        <link rel="prev" href="Write.html">
+      
+      
+        <link rel="next" href="Build.html">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Add libraries to the project - emCode User Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-L8GYGH8EGF"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-L8GYGH8EGF",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-L8GYGH8EGF",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Add libraries to the project - emCode User Manual" >
+      
+        <meta  property="og:description"  content="Embedded computing for Arduino SDK with GNU make" >
+      
+        <meta  property="og:image"  content="https://rei-vilo.github.io/emCode/assets/images/social/Develop/Libraries.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://rei-vilo.github.io/emCode/Develop/Libraries.html" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Add libraries to the project - emCode User Manual" >
+      
+        <meta  name="twitter:description"  content="Embedded computing for Arduino SDK with GNU make" >
+      
+        <meta  name="twitter:image"  content="https://rei-vilo.github.io/emCode/assets/images/social/Develop/Libraries.png" >
+      
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#add-libraries-to-the-project" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+            New release 14.6 adds message and notification options.
+            
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="emCode User Manual" class="md-header__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
+      
+  <img src="../img/Logo-256-eC-Website-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            emCode User Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Add libraries to the project
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rei-vilo/emCode/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Install/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Install emCode
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Develop a project
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Boards/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Manage the boards
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Issues/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Solve issues
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Appendixes/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Appendixes
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="emCode User Manual" class="md-nav__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
+      
+  <img src="../img/Logo-256-eC-Website-white.png" alt="logo">
+
+    </a>
+    emCode User Manual
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rei-vilo/emCode/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Install/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Install emCode
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Install emCode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install/Code.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Visual Studio Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install/Arduino.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install the Arduino tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install/emCode.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install emCode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Develop a project
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Develop a project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="New.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a new project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Import.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import an existing project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Write.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Write the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Add libraries to the project
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Libraries.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Add libraries to the project
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identify-the-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identify the libraries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locate-the-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locate the libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-core-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the core libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-application-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the application libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-users-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the user&rsquo;s libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-local-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the local libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use the libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-the-core-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the core libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-application-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the application libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-users-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the user&rsquo;s libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-local-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the local libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-non-standard-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manage non-standard libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manage non-standard libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#include-non-standard-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Include non-standard folders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-non-standard-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclude non-standard folders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclude libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-pre-compiled-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manage pre-compiled libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manage pre-compiled libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-pre-compiled-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate a pre-compiled library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-a-pre-compiled-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use a pre-compiled library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#share-a-pre-compiled-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Share a pre-compiled library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-a-pre-compiled-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove a pre-compiled library
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Build.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build and upload the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Run.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run and debug the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Other.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use the other targets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Manage the boards
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Manage the boards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/Adafruit/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Adafruit
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Adafruit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Adafruit/ESP32.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feather ESP32
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Adafruit/ESP8266.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feather ESP8266
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Adafruit/nRF52.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feather nRF52832 and nRF52840
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Adafruit/Cortex-M.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feather M0 and M4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Adafruit/RP2040.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feather RP2040
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Adafruit/AVR.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trinket and Trinket Pro AVR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/Arduino/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Arduino
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Arduino
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Arduino/AVR.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino AVR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Arduino/ESP32.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino ESP32
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Arduino/MegaAVR.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino MegaAVR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Arduino/Mbed.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino Mbed-OS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Arduino/nRF52.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino nRF52
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Arduino/RP2040.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino RP2040
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Arduino/SAM.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino SAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Arduino/SAMD.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino SAMD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/Espressif/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Espressif
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Espressif
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Espressif/ESP8266.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Espressif ESP8266
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Espressif/ESP32.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Espressif ESP32
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/Microsoft/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Microsoft
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Microsoft
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Microsoft/AZ3166.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Microsoft AZ3166
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/SiliconLabs/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Silicon Labs
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Silicon Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/SiliconLabs/SiLabs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Silicon Labs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/Seeed/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Seeed
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Seeed
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/Grove_AVR.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grove Beginner Kit for Arduino
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/SenseCAP.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SenseCAP Indicator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/Xiao_ESP32.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xiao ESP32-C3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/Xiao_M0.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xiao M0 and Wio Terminal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/Xiao_nRF.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xiao nRF52840
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/Xiao_mbed.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xiao nRF52840 Mbed-OS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/Xiao_RP2040.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xiao RP2040
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/Xiao_MG24.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xiao MG24
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Seeed/Xiao_Expansion.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xiao expansion board
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/RP2040/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Pico
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Raspberry Pi Pico
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/RP2040/RP2040.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Pico
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/STM32/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    STM32duino
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            STM32duino
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/STM32/STM32.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STM32
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/Teensy/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Teensy
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            Teensy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boards/Teensy/Teensy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teensy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Boards/Other/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Add a board
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            Add a board
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Issues/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Solve issues
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Solve issues
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Issues/Compatibility.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compatibility with Arduino
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Issues/Common.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solutions to common issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Issues/Changes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transition to emCode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Appendixes/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Appendixes
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Appendixes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Appendixes/Release.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Appendixes/History.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release history
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Appendixes/Glossary.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Appendixes/Indexes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index of boards and platforms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Appendixes/Legal.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legal notice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identify-the-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identify the libraries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locate-the-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locate the libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-core-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the core libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-application-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the application libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-users-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the user&rsquo;s libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-local-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the local libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use the libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-the-core-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the core libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-application-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the application libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-users-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the user&rsquo;s libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-local-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the local libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-non-standard-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manage non-standard libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manage non-standard libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#include-non-standard-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Include non-standard folders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-non-standard-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclude non-standard folders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclude libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-pre-compiled-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manage pre-compiled libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manage pre-compiled libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-pre-compiled-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate a pre-compiled library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-a-pre-compiled-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use a pre-compiled library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#share-a-pre-compiled-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Share a pre-compiled library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-a-pre-compiled-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove a pre-compiled library
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="add-libraries-to-the-project">Add libraries to the project<a class="headerlink" href="#add-libraries-to-the-project" title="Permanent link">&para;</a></h1>
+<h2 id="identify-the-libraries">Identify the libraries<a class="headerlink" href="#identify-the-libraries" title="Permanent link">&para;</a></h2>
+<p>There are four kinds of libraries:</p>
+<ul>
+<li>
+<p>The <strong>core libraries</strong> correspond to the Arduino SDK and include all the basic functions required for development. Each platform provides its own set compatible with the Wiring and Arduino framework. One single <code>#include</code> statement in the main sketch and in the header files includes all of them.</p>
+</li>
+<li>
+<p>The <strong>application libraries</strong> are optional libraries to provide additional features, like managing the specific I&sup2;C and SPI ports. They require to be explicitly mentioned with the <code>#include</code> statement on the main sketch and listed on the main <code>Makefile</code> after the <code>APP_LIBS_LIST</code> variable.</p>
+</li>
+<li>
+<p>The <strong>user&rsquo;s libraries</strong> are developed, or downloaded and installed, by the user, and stored under the <code>Library</code> sub-folder on the sketchbook folder. They require to be explicitly mentioned with the <code>#include</code> statement on the main sketch and listed on the main <code>Makefile</code> after the <code>USER_LIBS_LIST</code> variable.</p>
+</li>
+<li>
+<p>The <strong>local libraries</strong> are part of the project and located on the same folder as the main sketch. They require to be explicitly mentioned by the <code>#include</code> statement on the main sketch. By default, all the local libraries are included.</p>
+</li>
+</ul>
+<p>emCode also manages a variant for the local and user&rsquo;s libraries, the pre-compiled libraries.</p>
+<ul>
+<li>Instead of using the source code, the <strong>pre-compiled libraries</strong> are already built and ready to use. Just like the local libraries, they are part of the project and located on the same folder as the main sketch, they require to be explicitly mentioned by the <code>#include</code> statement on the main sketch and they are all included by default.</li>
+</ul>
+<h2 id="locate-the-libraries">Locate the libraries<a class="headerlink" href="#locate-the-libraries" title="Permanent link">&para;</a></h2>
+<h3 id="locate-the-core-libraries">Locate the core libraries<a class="headerlink" href="#locate-the-core-libraries" title="Permanent link">&para;</a></h3>
+<p>The core and application libraries are located under the hidden Arduino folder, generally <code>~/.arduino15</code>, and under the <code>libraries</code> sub-folders of the boards package folders, for example <code>~/.arduino15/packages/arduino/hardware/avr/1.8.6/libraries</code>.</p>
+<h3 id="locate-the-application-libraries">Locate the application libraries<a class="headerlink" href="#locate-the-application-libraries" title="Permanent link">&para;</a></h3>
+<p>The core and application libraries are located under the hidden Arduino folder, generally <code>~/.arduino15</code>, and under the <code>libraries</code> sub-folders of the boards package folders, for example <code>~/.arduino15/packages/arduino/hardware/avr/1.8.6/libraries</code>.</p>
+<h3 id="locate-the-users-libraries">Locate the user&rsquo;s libraries<a class="headerlink" href="#locate-the-users-libraries" title="Permanent link">&para;</a></h3>
+<p>The user&rsquo;s libraries are located in the <code>libraries</code> sub-folder under the sketchbook folder, generally <code>~/Arduino</code>. The <code>~/Arduino/libraries</code> folder contains one sub-folder per library.</p>
+<p>The users&rsquo; libraries should comply with the <a href="https://arduino.github.io/arduino-cli/0.33/library-specification/">Arduino IDE 1.5: Library specification</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</p>
+<h3 id="locate-the-local-libraries">Locate the local libraries<a class="headerlink" href="#locate-the-local-libraries" title="Permanent link">&para;</a></h3>
+<p>The local libraries are located under the folder of the project, with one sub-folder per library.</p>
+<p>The local libraries should comply with the <a href="https://arduino.github.io/arduino-cli/0.33/library-specification/">Arduino IDE 1.5: Library specification</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</p>
+<h2 id="use-the-libraries">Use the libraries<a class="headerlink" href="#use-the-libraries" title="Permanent link">&para;</a></h2>
+<p>Just like any other IDE, using a library in a project requires  specifying an <code>#include</code> statement on the main sketch.</p>
+<p>Additionally, the library needs to be mentioned on the main <code>Makefile</code> to be compiled.</p>
+<p>By default, the main <code>Makefile</code> lists&hellip;</p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<span class="c">#</span>
+<span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0</span>
+
+<span class="c"># User's libraries</span>
+<span class="c">#</span>
+<span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0</span>
+
+<span class="c"># Local libraries</span>
+<span class="c">#</span>
+<span class="err">LOCAL_LIBS_LIST</span><span class="w"> </span><span class="err">=</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>&hellip;with the following options:</p>
+<ul>
+<li>
+<p>All the core libraries are included.</p>
+</li>
+<li>
+<p>No application library is included.</p>
+</li>
+<li>
+<p>No user&rsquo;s library is included.</p>
+</li>
+<li>
+<p>All the local libraries are included.</p>
+</li>
+</ul>
+<p>If a library has been included in the main sketch or in a header file, it needs to be listed on the main <code>Makefile</code> to be compiled. This is a standard procedure</p>
+<h3 id="use-the-core-libraries">Use the core libraries<a class="headerlink" href="#use-the-core-libraries" title="Permanent link">&para;</a></h3>
+<p>All the core libraries part of the Arduino SDK are included for compilation using one single <code>#include</code> statement on the main sketch. The same <code>#include</code> statement is also required on the header files.</p>
+<p>To use the core library,</p>
+<ul>
+<li>Add the <code>#include "Arduino.h"</code> statement on the main sketch or the header file.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// SDK</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"Arduino.h"</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This <code>#include "Arduino.h"</code> statement is compulsory for emCode.</p>
+</div>
+<h3 id="use-the-application-libraries">Use the application libraries<a class="headerlink" href="#use-the-application-libraries" title="Permanent link">&para;</a></h3>
+<p>The application libraries require to be explicitly mentioned with the <code>#include</code> statement on the main sketch and listed on the main <code>Makefile</code>.</p>
+<p>To use an application library,</p>
+<ul>
+<li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>Mention the name of the folder of the library to the variable <code>APP_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<span class="c"># default = 0 = none</span>
+<span class="c">#</span>
+<span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>Set <code>APP_LIBS_LIST</code> to <code>0</code> to include no application library.</li>
+</ul>
+<p>In case of multiple libraries,</p>
+<ul>
+<li>Mention one include with the name of the header file per line.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>Separate the names of the folders of the libraries with a space.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<span class="c">#</span>
+<span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span><span class="w"> </span><span class="err">SPI</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<h3 id="use-the-users-libraries">Use the user&rsquo;s libraries<a class="headerlink" href="#use-the-users-libraries" title="Permanent link">&para;</a></h3>
+<p>The user’s libraries require to be explicitly mentioned with the <code>#include</code> statement on the main sketch and listed on the main <code>Makefile</code>.</p>
+<p>To use a user&rsquo;s library,</p>
+<ul>
+<li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"Ethernet.h"</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>Mention the name of the folder of the library to the variable <code>USER_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># User's libraries</span>
+<span class="c"># default = empty = all</span>
+<span class="c">#</span>
+<span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Ethernet</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>In case of multiple user&rsquo;s libraries,</p>
+<ul>
+<li>Mention one include with the name of the header file per line.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"Ethernet.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"JSON.h"</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>Separate the names of the folders of the libraries with a space.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># User's libraries</span>
+<span class="c"># default = empty = all</span>
+<span class="c">#</span>
+<span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Ethernet</span><span class="w"> </span><span class="err">JSON</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>Remember, only the specified libraries are compiled.</p>
+<ul>
+<li>
+<p>Set <code>USER_LIBS_LIST</code> to <code>0</code> to include no local library.</p>
+</li>
+<li>
+<p>Keep <code>USER_LIBS_LIST</code> empty to include all the include no local libraries.</p>
+</li>
+<li>
+<p>Use the same procedure for pre-compiled libraries.</p>
+</li>
+</ul>
+<p>emCode uses the pre-compiled archives for the local libraries first when they are available.</p>
+<p>To force the compilation of the local libraries over the use of the pre-compiled archives,</p>
+<ul>
+<li>
+<p>Edit the main <code>Makefile</code>;</p>
+</li>
+<li>
+<p>Set <code>USE_ARCHIVES</code> to <code>false</code>.</p>
+</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># For building, use available archives, false or true, default = true</span>
+<span class="err">USE_ARCHIVES</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">false</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<h3 id="use-the-local-libraries">Use the local libraries<a class="headerlink" href="#use-the-local-libraries" title="Permanent link">&para;</a></h3>
+<p>The local libraries require to be explicitly mentioned with the <code>#include</code> statement on the main sketch and listed on the main <code>Makefile</code>.</p>
+<p>To use a local library,</p>
+<ul>
+<li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"LocalLibrary.h"</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>Mention the name of the folder of the library to the variable <code>LOCAL_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Local libraries</span>
+<span class="c"># default = empty = all</span>
+<span class="c">#</span>
+<span class="err">LOCAL_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">LocalLibrary</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>In case of multiple local libraries,</p>
+<ul>
+<li>Mention one include with the name of the header file per line.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"LocalLibrary.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"AnotherLibrary.h"</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>Separate the names of the folders of the libraries with a space.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># Local libraries</span>
+<span class="c"># default = empty = all</span>
+<span class="c">#</span>
+<span class="err">LOCAL_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">LocalLibrary</span><span class="w"> </span><span class="err">AnotherLibrary</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>Remember, only the specified libraries are compiled.</p>
+<ul>
+<li>
+<p>Set <code>LOCAL_LIBS_LIST</code> to <code>0</code> to include no local library.</p>
+</li>
+<li>
+<p>Keep <code>LOCAL_LIBS_LIST</code> empty to include all the include no local libraries.</p>
+</li>
+<li>
+<p>Use the same procedure for pre-compiled libraries.</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A pre-compiled library can&rsquo;t be debugged, as the code source isn&rsquo;t provided.</p>
+</div>
+<p>For more information on how to generate a pre-compiled library,</p>
+<ul>
+<li>Please refer to <a href="#generate-a-pre-compiled-library">Generate a pre-compiled library</a>.</li>
+</ul>
+<h2 id="manage-non-standard-libraries">Manage non-standard libraries<a class="headerlink" href="#manage-non-standard-libraries" title="Permanent link">&para;</a></h2>
+<p>The libraries should comply with the <a href="https://arduino.github.io/arduino-cli/0.33/library-specification/">Arduino IDE 1.5: Library specification</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</p>
+<h3 id="include-non-standard-folders">Include non-standard folders<a class="headerlink" href="#include-non-standard-folders" title="Permanent link">&para;</a></h3>
+<p>However, some libraries do not follow the <a href="https://arduino.github.io/arduino-cli/0.33/library-specification/#layout-of-folders-and-files">Layout of folders and files</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> from the official Arduino library specification.</p>
+<p>This may raise issues during compilation.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>The <a href="https://github.com/Bodmer/TFT_eSPI">TFT_eSPI library</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> includes header and code files in all those sub-folders.</p>
+<html><body><div class="* highlight"><pre><span></span><code>TFT_eSPI/
+├── docs
+│   ├── ESP32 UNO board mod
+│   ├── ESP-IDF
+│   ├── PlatformIO
+│   └── RPi_TFT_connections
+├── examples
+│   ├── 160 x 128
+│   ├── 320 x 240
+│   ├── 480 x 320
+│   ├── DMA test
+│   ├── ePaper
+│   ├── Generic
+│   ├── GUI Widgets
+│   ├── PNG Images
+│   ├── Smooth Fonts
+│   ├── Smooth Graphics
+│   ├── Sprite
+│   └── Test and diagnostics
+├── Extensions
+├── Fonts
+│   ├── Custom
+│   ├── GFXFF
+│   └── TrueType
+├── Processors
+├── TFT_Drivers
+├── Tools
+│   ├── bmp2array4bit
+│   ├── Create_Smooth_Font
+│   └── Screenshot_client
+└── User_Setups
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+</div>
+<ul>
+<li>List all the sub-folders after <code>USER_LIBS_LIST</code>.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">​TFT_eSPI</span><span class="w"> </span><span class="err">TFT_eSPI/Extensions</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/Custom</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/GFXFF</span><span class="w"> </span><span class="err">TFT_eSPI/Fonts/TrueType</span><span class="w"> </span><span class="err">TFT_eSPI/TFT_Drivers</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+</div>
+<h3 id="exclude-non-standard-folders">Exclude non-standard folders<a class="headerlink" href="#exclude-non-standard-folders" title="Permanent link">&para;</a></h3>
+<p>Some libraries include additional folders and files which are not related with the Wiring / Arduino project and may interfere with the compilation.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>The <a href="https://github.com/bblanchon/ArduinoJson">ArduinoJSON library</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> contains the usual folders <code>src</code> and <code>examples</code>, which are consistent with the <a href="https://arduino.github.io/arduino-cli/0.33/library-specification/">Arduino IDE 1.5 Library Specification</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</p>
+<html><body><div class="* highlight"><pre><span></span><code>ArduinoJson/
+├── examples
+│   ├── JsonConfigFile
+│   ├── JsonFilterExample
+│   ├── JsonGeneratorExample
+│   ├── JsonHttpClient
+│   ├── JsonParserExample
+│   ├── JsonServer
+│   ├── JsonUdpBeacon
+│   ├── MsgPackParser
+│   ├── ProgmemExample
+│   └── StringExample
+├── fuzzing
+├── scripts
+├── third-party
+├── tests
+└── src
+    └── ArduinoJson
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>However, the same library also contains the additional folders <code>fuzzing</code>, <code>scripts</code>, <code>third-party</code> and <code>test</code>, which may interfere with the normal compilation.</p>
+<p>On a more recent version of this library, the non-standard folders have migrated under the <code>extras</code> folder.</p>
+</div>
+<p>As a solution,</p>
+<ul>
+<li>
+<p>Zip the non-standard folders.</p>
+</li>
+<li>
+<p>Remove them.</p>
+</li>
+<li>
+<p>Create a new sub-folder <code>extras</code> and move the non-standard folders inside.</p>
+</li>
+</ul>
+<h3 id="exclude-libraries">Exclude libraries<a class="headerlink" href="#exclude-libraries" title="Permanent link">&para;</a></h3>
+<p>Some libraries are specific to a platform but are included in a folder shared with other platforms, and some libraries may conflict with other ones.</p>
+<ul>
+<li>Edit the main <code>Makefile</code> and edit the variable <code>EXCLUDE_LIBS</code> with the libraries to be excluded.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>The <code>WiFi</code> library included among the core libraries is solely designed for the <code>Arduino WiFi Shield</code>.</p>
+<p>With the Arduino 1.0 and 1.5 IDE, the <code>WiFi</code> is included by default in the compilation process, and raises error and warning messages even with the official IDE.</p>
+<p>To exclude the <code>WiFi</code> library and avoid any unnecessary error,</p>
+<ul>
+<li>Mention its name <code>WiFi</code> after the variable <code>EXCLUDE_LIBS</code>.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="c"># List the libraries to be excluded</span>
+<span class="c"># For example, WiFi may crash on Arduino 1.0.2</span>
+<span class="c">#</span>
+<span class="err">EXCLUDE_LIBS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">WiFi</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+</div>
+<p>To use all the libraries,</p>
+<ul>
+<li>Leave the line empty after the <code>EXCLUDE_LIBS</code> variable.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">EXCLUDE_LIBS</span><span class="w"> </span><span class="err">=</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>By default, the <code>EXCLUDE_LIBS</code> is empty and the line has a leading <code>#</code> to comment it.</p>
+<p>The parameter impacts all libraries, core, application, user and local.</p>
+<h2 id="manage-pre-compiled-libraries">Manage pre-compiled libraries<a class="headerlink" href="#manage-pre-compiled-libraries" title="Permanent link">&para;</a></h2>
+<h3 id="generate-a-pre-compiled-library">Generate a pre-compiled library<a class="headerlink" href="#generate-a-pre-compiled-library" title="Permanent link">&para;</a></h3>
+<p>Before generating a pre-compiled library from a local library,</p>
+<ul>
+<li>Check the header and code files are inside a sub-folder.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
+├──<span class="w"> </span>library.properties
+└──<span class="w"> </span>src
+<span class="w">    </span>├──<span class="w"> </span>LocalLibrary.cpp
+<span class="w">    </span>└──<span class="w"> </span>LocalLibrary.h
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>In the example above, <code>LocalLibrary.h</code> and <code>LocalLibrary.cpp</code> are inside the sub-folder <code>LocalLibrary</code>.</p>
+<p>To generate a pre-compiled library,</p>
+<ul>
+<li>
+<p>Presss <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span> and type <code>Tasks: Run Task</code>.</p>
+</li>
+<li>
+<p>Select the <strong>Archive</strong> target and launch it.</p>
+</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span><span class="nv">Archive</span><span class="w"> </span><span class="o">====</span>
+----<span class="w"> </span>Generate<span class="w"> </span>----
+<span class="m">7</span>.1-ARCHIVE<span class="w">       </span>LocalLibrary/src/cortex-m0plus
+----<span class="w"> </span>Update<span class="w"> </span>----
+<span class="m">7</span>.3-ARCHIVE<span class="w">       </span>LocalLibrary/library.properties
+<span class="o">====</span><span class="w"> </span>Archive<span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="o">====</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>In the library sub-folder, the new folder <code>cortex-m0plus</code> has been created cortex-m0plus to include the new file <code>LocalLibrary.a</code>. This is the pre-compiled library.</p>
+<html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
+├──<span class="w"> </span>library.properties
+└──<span class="w"> </span>src
+<span class="w">    </span>├──<span class="w"> </span>cortex-m0plus
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>libLocalLibrary.a
+<span class="w">    </span>├──<span class="w"> </span>LocalLibrary.cpp
+<span class="w">    </span>└──<span class="w"> </span>LocalLibrary.h
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>The <code>library.properties</code> file has been updated with</p>
+<html><body><div class="* highlight"><pre><span></span><code><span class="err">precompiled=true</span>
+<span class="err">ldflags=-lLocalLibrary</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>The folder <code>cortex-m0plus</code> is specific for the Cortex-M0+: the pre-compiled library is valid for the board or MCU it has been compiled against. However, it may not work properly on other Cortex-M0+-based MCUs.</p>
+<p>For more information,</p>
+<ul>
+<li>Please refer to the Arduino specifications for <a href="https://arduino.github.io/arduino-cli/0.33/library-specification/#precompiled-binaries">Precompiled binaries</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
+</ul>
+<h3 id="use-a-pre-compiled-library">Use a pre-compiled library<a class="headerlink" href="#use-a-pre-compiled-library" title="Permanent link">&para;</a></h3>
+<p>The pre-compiled user&rsquo;s and local libraries are used the same way as user&rsquo;s and local libraries.</p>
+<h3 id="share-a-pre-compiled-library">Share a pre-compiled library<a class="headerlink" href="#share-a-pre-compiled-library" title="Permanent link">&para;</a></h3>
+<p>To share the pre-compiled library,</p>
+<ul>
+<li>Just take the folder with the header files and the pre-compiled library, here <code>LocalLibrary.h</code> and <code>LocalLibrary.a</code>, along with <code>library.properties</code>.</li>
+</ul>
+<p>Remember this pre-compiled library is only valid for the board or MCU it has been compiled against. Do not use it with another board or MCU as it may not work properly.</p>
+<h3 id="remove-a-pre-compiled-library">Remove a pre-compiled library<a class="headerlink" href="#remove-a-pre-compiled-library" title="Permanent link">&para;</a></h3>
+<p>To remove the pre-compiled libraries,</p>
+<ul>
+<li>Check the header and code files are inside a sub-folder.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
+├──<span class="w"> </span>library.properties
+└──<span class="w"> </span>src
+<span class="w">    </span>├──<span class="w"> </span>cortex-m0plus
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>libLocalLibrary.a
+<span class="w">    </span>├──<span class="w"> </span>LocalLibrary.cpp
+<span class="w">    </span>└──<span class="w"> </span>LocalLibrary.h
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>In the example above, the sub-folder <code>LocalLibrary</code> should contain <code>LocalLibrary.h</code> and <code>LocalLibrary.cpp</code>.</p>
+<ul>
+<li>Presss <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span> and type <code>Tasks: Run Task</code>.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code><span class="o">====</span><span class="w"> </span><span class="nv">Unarchive</span><span class="w"> </span><span class="o">====</span>
+----<span class="w"> </span>Remove<span class="w"> </span>----
+<span class="m">7</span>.4-UNARCHIVE<span class="w">     </span>LocalLibrary/src/cortex-m0plus
+----<span class="w"> </span>Update<span class="w"> </span>----
+<span class="m">7</span>.5-UNARCHIVE<span class="w">     </span>LocalLibrary/library.properties
+<span class="o">====</span><span class="w"> </span>Unarchive<span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="o">====</span>
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<ul>
+<li>Select the <strong>Unarchive</strong> target and launch it.</li>
+</ul>
+<html><body><div class="* highlight"><pre><span></span><code>LocalLibrary/
+├──<span class="w"> </span>library.properties
+└──<span class="w"> </span>src
+<span class="w">    </span>├──<span class="w"> </span>LocalLibrary.cpp
+<span class="w">    </span>└──<span class="w"> </span>LocalLibrary.h
+</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body></html>
+<p>The archive <code>LocalLibrary.a</code> has been removed and the <code>library.properties</code> file has been updated back to its initial content.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 14, 2023</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 14, 2023</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="Write.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Write the project">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Write the project
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="Build.html" class="md-footer__link md-footer__link--next" aria-label="Next: Build and upload the project">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Build and upload the project
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Rei Vilo, 2010-2025 &bull; All rights reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.6.10"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
