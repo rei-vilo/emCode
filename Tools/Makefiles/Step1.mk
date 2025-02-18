@@ -70,6 +70,13 @@ else ifeq ($(GUI_OPTION),NOTIFY)
     MESSAGE_GUI_WARNING = $(shell notify-send "emCode" "$(1)" -u normal)
     MESSAGE_GUI_INFO = $(shell notify-send "emCode" "$(1)" -u low)
 
+# OSASCRIPT Display a dialogue box with title emCode and message 
+else ifeq ($(GUI_OPTION),OSASCRIPT)
+
+    MESSAGE_GUI_ERROR = $(shell osascript -e 'tell application "System Events" to display dialog "$(1)" with title "emCode" buttons {"OK"} default button {"OK"} with icon 0')
+    MESSAGE_GUI_WARNING = $(shell osascript -e 'tell application "System Events" to display dialog "$(1)" with title "emCode" buttons {"OK"} default button {"OK"} with icon 2')
+    MESSAGE_GUI_INFO = $(shell osascript -e 'tell application "System Events" to display dialog "$(1)" with title "emCode" buttons {"OK"} default button {"OK"} with icon 1')
+
 else
 #     Nothing
 endif # GUI_OPTION

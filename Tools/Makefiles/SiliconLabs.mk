@@ -97,6 +97,7 @@ UPLOADER_PROTOCOL = $(call PARSE_BOARD,$(BOARD_TAG),upload.protocol)
 
 ifeq ($(UPLOADER),openocd)
 
+# ~/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s ~/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program {/tmp/arduino/sketches/49013B1BA7E8C0ACCF2136108904F353/matter_lightbulb_color.ino.hex}; reset; exit"
     UPLOADER = openocd
     UPLOADER_PATH := $(OTHER_TOOLS_PATH)/openocd/$(SILICONLABS_OPENOCD_RELEASE)
     UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd

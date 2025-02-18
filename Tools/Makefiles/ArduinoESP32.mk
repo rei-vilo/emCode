@@ -394,7 +394,7 @@ FIRST_O_IN_A = $(patsubst $(APPLICATION_PATH)/%,$(OBJDIR)/%,$(esp001))
 # #
 # ifeq ($(ARDUINO_PREFERENCES),)
 #     $(error Error: run Arduino once and define the sketchbook path)
-# endif # ARDUINO_LIBRARY_PATH
+# endif # ARDUINO_PREFERENCES
 # 
 # ifeq ($(shell if [ -d '$(SKETCHBOOK_DIR)' ]; then echo 1 ; fi ),)
 #         SKETCHBOOK_DIR = $(shell grep sketchbook.path $(ARDUINO_PREFERENCES) | cut -d = -f 2)
