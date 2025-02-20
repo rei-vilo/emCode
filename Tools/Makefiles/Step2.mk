@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 10 Jan 2025 release 14.6.9
+# Last update: 19 Feb 2025 release 14.7.0
 #
 
 # General table of messages
@@ -979,6 +979,65 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
     $(info ==== Info done ====)
 endif # HIDE_INFO
+
+# ReadMe file for archive
+READ_ME_FILE = $(BUILDS_PATH)/ReadMe.md
+
+$(shell echo "  " > $(READ_ME_FILE)) # Start
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "*Pre-compiled library for Arduino*" >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "## Info" >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Date Time**         $(shell date '+%F %T')" >> $(READ_ME_FILE))
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "## Platform" >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Platform**          $(PLATFORM) $(PLATFORM_VERSION)" >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Board**             $(BOARD_NAME) ($(BOARD_TAG))" >> $(READ_ME_FILE))
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "## Arduino" >> $(READ_ME_FILE))
+ifneq ($(ARDUINO_FLATPAK_RELEASE),)
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Arduino IDE**       FlatPak release $(ARDUINO_FLATPAK_RELEASE)" >> $(READ_ME_FILE))
+endif # ARDUINO_CLI_RELEASE
+ifneq ($(ARDUINO_APPIMAGE_RELEASE),)
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Arduino IDE**       AppImage release $(ARDUINO_APPIMAGE_RELEASE)" >> $(READ_ME_FILE))
+endif # ARDUINO_APPIMAGE_RELEASE
+ifneq ($(ARDUINO_CLI_RELEASE),)
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Arduino CLI**       release $(ARDUINO_CLI_RELEASE)" >> $(READ_ME_FILE))
+endif # ARDUINO_APPIMAGE_RELEASE
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "## Tools" >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Make**              $(shell make -version | head -1 )" >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Tool-chain**        $(shell $(CC) --version | head -1 )" >> $(READ_ME_FILE))
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "## emCode" >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Edition**           $(EMCODE_REFERENCE) release $(EMCODE_RELEASE)" >> $(READ_ME_FILE))
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Template**          $(EMCODE_EDITION) release $(shell grep $(CURRENT_DIR)/Makefile -e 'Last update' | xargs | rev | cut -d' ' -f1 | rev) " >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Makefile**          $(MAKEFILE_NAME) $(MAKEFILE_RELEASE)" >> $(READ_ME_FILE))
+
+RESULT := $(shell if [ -f '$(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk' ] ; then echo 1 ; else echo 0 ; fi)
+ifeq ($(RESULT),1)
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Configuration**     $(CONFIG_NAME) release $(shell grep '$(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk' -e 'Last update' | xargs | rev | cut -d' ' -f1 | rev)" >> $(READ_ME_FILE))
+endif # RESULT
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "---" >> $(READ_ME_FILE))
 
 ifneq ($(HIDE_TOOLS),true)
     $(info .)
@@ -2464,7 +2523,7 @@ endif
 # New
 	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] && [ ! -f $$f/library.properties ] ; then printf '%-16s  %s\r\n' "7.2-ARCHIVE" $$f/library.properties ; printf "name=$$f" > $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
 	@echo "---- Update ----"
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then printf '%-16s  %s\r\n' "7.3-ARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; printf "\nprecompiled=true\nldflags=-l$$f" >> $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
+	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then printf '%-16s  %s\r\n' "7.3-ARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; printf "\nprecompiled=true\nldflags=-l$$f" >> $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; echo "# $$f" > $$f/src/$(MCU)/ReadMe.md ; cat $(READ_ME_FILE) >> $$f/src/$(MCU)/ReadMe.md ; fi ; done ;
 #		@echo "==== Archive done ===="
 
 unarchive:

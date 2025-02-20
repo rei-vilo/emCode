@@ -264,6 +264,15 @@ ifeq ($(ARDUINO_APP),)
     endif # FLATPAK_APP
 endif # ARDUINO_APP
 
+# # macOS with AppleScript
+ifeq ($(OPERATING_SYSTEM),Darwin)
+ifeq ($(ARDUINO_APP),)
+    ARDUINO_APP = /Applications/Arduino\ IDE.app/Contents/Resources/app/lib/backend/resources/arduino-cli
+    ARDUINO_CLI_RELEASE = $(strip $(shell $(ARDUINO_APP) version --format yaml | grep versionstring | cut -d: -f2))
+    ARDUINO_APP = arduino-cli
+endif # ARDUINO_APP
+endif # OPERATING_SYSTEM
+
 # ifeq ($(ARDUINO_APP),)
 # #     TEST := $(shell find $(APPLICATION_PATH) -name arduino-cli)
 #     TEST := $(which arduino-cli)
@@ -302,12 +311,22 @@ endif # ARDUINO_CLI_PATH
 
 # $(error sTOP)
 
-ARDUINO_LIBRARY_PATH = $(HOME)/.arduino15
-ARDUINO_PACKAGES_PATH = $(ARDUINO_LIBRARY_PATH)/packages
-ARDUINO_PREFERENCES = $(ARDUINO_LIBRARY_PATH)/preferences.txt 
-ARDUINO_YAML := $(ARDUINO_LIBRARY_PATH)/arduino-cli.yaml
+ARDUINO_15_LIBRARY_PATH := $(HOME)/.arduino15
+# macOS specifics
+ifeq ($(OPERATING_SYSTEM),Darwin)
+    ARDUINO_15_LIBRARY_PATH := $(HOME)/Library/Arduino15
+endif # OPERATING_SYSTEM
 
-# $(info === ARDUINO_LIBRARY_PATH $(ARDUINO_LIBRARY_PATH))
+ARDUINO_PACKAGES_PATH = $(ARDUINO_15_LIBRARY_PATH)/packages
+
+ARDUINO_IDE_LIBRARY_PATH = $(HOME)/.arduinoIDE
+
+# preferences.txt no longer used
+# ARDUINO_PREFERENCES = $(ARDUINO_LIBRARY_PATH)/preferences.txt 
+ARDUINO_YAML := $(ARDUINO_IDE_LIBRARY_PATH)/arduino-cli.yaml
+
+# $(info === ARDUINO_15_LIBRARY_PATH $(ARDUINO_15_LIBRARY_PATH))
+# $(info === ARDUINO_IDE_LIBRARY_PATH $(ARDUINO_IDE_LIBRARY_PATH))
 # $(info === ARDUINO_PACKAGES_PATH $(ARDUINO_PACKAGES_PATH))
 # $(info === ARDUINO_PREFERENCES $(ARDUINO_PREFERENCES))
 
@@ -319,12 +338,12 @@ ifeq ($(shell if [ -f '$(ARDUINO_YAML)' ]; then echo 1 ; fi ),1)
     SKETCHBOOK_DIR = $(shell grep 'user:' $(ARDUINO_YAML) | cut -d: -f2 | sed -e 's/ //g')
 endif # SKETCHBOOK_DIR
 
-ifeq ($(ARDUINO_PREFERENCES),)
-    $(info ERROR             Run Arduino once and define the sketchbook path)
-    $(info .)
-    $(call MESSAGE_GUI_ERROR,Run Arduino once and define the sketchbook path)
-    $(error Stop)
-endif # ARDUINO_LIBRARY_PATH
+# ifeq ($(ARDUINO_PREFERENCES),)
+#     $(info ERROR             Run Arduino once and define the sketchbook path)
+#     $(info .)
+#     $(call MESSAGE_GUI_ERROR,Run Arduino once and define the sketchbook path)
+#     $(error Stop)
+# endif # ARDUINO_PREFERENCES
 
 ifeq ($(SKETCHBOOK_DIR),)
 ifeq ($(shell if [ -d '$(SKETCHBOOK_DIR)' ]; then echo 1 ; fi ),1)

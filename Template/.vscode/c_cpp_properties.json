@@ -435,7 +435,7 @@
             "name": "Arduino_Nano_33_BLE_mbedOS",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.1/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -464,7 +464,7 @@
             "name": "Arduino_Nano_33_BLE_J-Link",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.1/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -688,7 +688,7 @@
             "name": "Arduino_Nano_RP2040_mbedOS_MSD",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.1/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
@@ -717,7 +717,7 @@
             "name": "Arduino_Nano_RP2040_mbedOS_J-Link",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.1/**",
+                "${env:HOME}/.arduino15/packages/arduino/hardware/mbed_nano/4.2.2/**",
                 "${env:HOME}/Projets/Arduino/libraries/**"
             ],
             "browse": {
