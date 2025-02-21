@@ -3317,20 +3317,20 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
 </ul>
 <p><code>HIDE_NUMBER</code> and <code>HIDE_COMMAND</code> can hide and show the first line or second line. It is recommended to keep at least one option activated.</p>
-<p>Edit the main <code>Makefile</code> to modifiy the default options. </p>
+<p>Edit the main <code>Makefile</code> to modifiy the default options.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># Build option, number and command lines</span>
 <span class="err">HIDE_NUMBER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">true</span>
 <span class="err">HIDE_COMMAND</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">false</span>
 </code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body></html>
-<p>All the messages are displayed on the terminal window of Visual Studio Code. </p>
+<p>All the messages are displayed on the terminal window of Visual Studio Code.</p>
 <p>As an option, the warning and error messages can be displayed as notifications or dialogue boxes.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Console</label><label for="__tabbed_1_2">Notifications</label><label for="__tabbed_1_3">Dialogue boxes</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The warning and error messages are always printed on the terminal window. </p>
-<html><body><div class="* highlight"><pre><span></span><code>*<span class="w">  </span>Executing<span class="w"> </span>task:<span class="w"> </span>make<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span>LaunchPad_MSP432P401R_EMT<span class="w"> </span>
+<p>The warning and error messages are always printed on the terminal window.</p>
+<html><body><div class="* highlight"><pre><span></span><code>*<span class="w">  </span>Executing<span class="w"> </span>task:<span class="w"> </span>make<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span>LaunchPad_MSP432P401R_EMT
 ERROR<span class="w">             </span>MSP-EXP432P401R<span class="w"> </span>board<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>defined
 .
 ~/.emCode/Tools/Makefiles/Step1.mk:567:<span class="w"> </span>***<span class="w"> </span>Stop.<span class="w"> </span>Stop.
@@ -3341,12 +3341,12 @@ document$.subscribe(() => { lightbox.reload() });
 <div class="tabbed-block">
 <p>The notifications rely on <code>notify-send</code>.</p>
 <p><img alt="" src="img/Notification.png" /></p>
-<p>Install the utility with </p>
+<p>Install the utility with</p>
 <html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libnotify-bin
 </span></code></pre></div></td></tr></table></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body></html>
-<p>Edit the main <code>Makefile</code> to add the notification option. </p>
+<p>Edit the main <code>Makefile</code> to add the notification option.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># GUI option for messages</span>
 <span class="err">GUI_OPTION</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">NOTIFY</span>
 </code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
@@ -3355,8 +3355,8 @@ document$.subscribe(() => { lightbox.reload() });
 </div>
 <div class="tabbed-block">
 <p>The dialogue boxes rely on <code>zenity</code>.</p>
-<p><img alt="" src="img/DialogueBox.png" /> </p>
-<p>Edit the main <code>Makefile</code> to add the dialogue box option. </p>
+<p><img alt="" src="img/DialogueBox.png" /></p>
+<p>Edit the main <code>Makefile</code> to add the dialogue box option.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="c"># GUI option for messages</span>
 <span class="err">GUI_OPTION</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">ZENITY</span>
 </code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
@@ -3496,7 +3496,7 @@ document$.subscribe(() => { lightbox.reload() });
 </tr>
 </tbody>
 </table>
-<p>By default, <code>USER_LIB_PATH</code> refer to the <code>library</code> sub-folder of the sketchbook folder <code>Arduino</code> defined by Arduino. </p>
+<p>By default, <code>USER_LIB_PATH</code> refer to the <code>library</code> sub-folder of the sketchbook folder <code>Arduino</code> defined by Arduino.</p>
 <p>When specified, <code>USER_LIB_PATH</code> could be an absolute or a relative path.</p>
 <html><body><div class="* highlight"><pre><span></span><code><span class="err">USER_LIB_PATH</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/home/User/Projects/Libraries</span>
 <span class="err">USER_LIB_PATH</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">../Libraries</span>
@@ -3506,7 +3506,7 @@ document$.subscribe(() => { lightbox.reload() });
 <h3 id="run-batch-build">Run batch build<a class="headerlink" href="#run-batch-build" title="Permanent link">&para;</a></h3>
 <p>emCode can process batch build.</p>
 <ul>
-<li>Open a Terminal window; </li>
+<li>Open a Terminal window;</li>
 </ul>
 <p>If the current folder contains different projects, one per sub-folder,</p>
 <ul>
@@ -3516,14 +3516,14 @@ document$.subscribe(() => { lightbox.reload() });
 <span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">"HIDE_ALL=true"</span>
 
 <span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>*/<span class="w"> </span><span class="p">;</span>
-<span class="k">do</span><span class="w"> </span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"&gt;&gt;&gt; </span><span class="nv">$f</span><span class="s2">"</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$f</span>/*.ino<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="k">then</span><span class="w"> </span>
-<span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$f</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
-<span class="w">        </span>make<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span><span class="nv">$BOARD</span><span class="w"> </span><span class="nv">$OPTIONS</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"&gt;&gt;&gt; </span><span class="nv">$f</span><span class="s2">"</span><span class="w"> </span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$f</span>/*.ino<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span>
+<span class="w">    </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$f</span><span class="w"> </span><span class="p">;</span>
+<span class="w">        </span>make<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span><span class="nv">$BOARD</span><span class="w"> </span><span class="nv">$OPTIONS</span><span class="w"> </span><span class="p">;</span>
 <span class="w">        </span><span class="nb">cd</span><span class="w"> </span>..<span class="w"> </span><span class="p">;</span>
-<span class="w">    </span><span class="k">fi</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">fi</span><span class="w"> </span><span class="p">;</span>
 <span class="k">done</span>
 </code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
@@ -3619,7 +3619,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 18, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 20, 2025</span>
   </span>
 
     
