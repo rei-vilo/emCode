@@ -2,7 +2,7 @@
 
 *Embedded computing for Arduino SDK with GNU make*
 
-[![Release](https://img.shields.io/github/v/release/rei-vilo/emCode)](https://github.com/rei-vilo/emCode/releases) [![](https://img.shields.io/badge/-Documentation-blue)](https://rei-vilo.github.io/emCode/) [![Downloads](https://img.shields.io/github/downloads/rei-vilo/emCode/total.svg)]()
+[![Release](https://img.shields.io/github/v/release/rei-vilo/emCode)](https://github.com/rei-vilo/emCode/releases) [![](https://img.shields.io/badge/-Documentation-blue)](https://rei-vilo.github.io/emCode/) [![Downloads](https://img.shields.io/github/downloads/rei-vilo/emCode/total.svg)]() [![Github Downloads (monthly)](https://img.shields.io/github/downloads/rei-vilo/emCode/latest/total.svg)]()
 
 
 emCode is a set of tools to ease development for the most popular embedded computing boards. Those tools are designed to be used with the excellent Visual Studio Code IDE.
