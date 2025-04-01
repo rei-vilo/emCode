@@ -185,8 +185,8 @@ else
                     $(shell stty -F $(AVRDUDE_PORT) 1200)
                     ifneq ($(DELAY_BEFORE_UPLOAD),)
                        $(shell sleep 5)
-                    endif
-                endif
+                    endif # DELAY_BEFORE_UPLOAD
+                endif # BEFORE_VOLUME_PORT
 
 #                     $(info USB_RESET 2 '$(USB_RESET)')
 #                     $(info DELAY_BEFORE_UPLOAD 2 '$(DELAY_BEFORE_UPLOAD)')
@@ -204,7 +204,7 @@ else
                     $(info .)
                     $(call MESSAGE_GUI_ERROR,Volume not available)
                     $(error Stop)
-                endif
+                endif # USED_VOLUME_PORT
                 $(shell ls -1 $(BOARD_PORT) > $(BUILDS_PATH)/serial.txt)
 
             else ifeq ($(UPLOADER),stlink)
@@ -222,7 +222,7 @@ else
                     $(info .)
                     $(call MESSAGE_GUI_ERROR,Serial port of kind '$(BOARD_PORT)' not found)
                     $(error Stop)
-                endif
+                endif # BOARD_PORT
                 $(shell ls -1 $(BOARD_PORT) > $(BUILDS_PATH)/serial.txt)
 
             else ifeq ($(UPLOADER),spark_wifi)
@@ -515,7 +515,8 @@ LOCAL_LIB_PATH = .
 # endif
 
 ifndef LOCAL_LIBS_LIST
-    s206 = $(dir $(shell find $(LOCAL_LIB_PATH) -path "*/examples/*" ! -prune -o -name \*.h -o -name \*.hpp))
+    # s206 = $(dir $(shell find $(LOCAL_LIB_PATH) -path "*/examples/*" ! -prune -o -name \*.h -o -name \*.hpp))
+    s206 = $(dir $(shell find $(LOCAL_LIB_PATH) -type d \( -name examples -o -name tests \) -prune -o \( -name \*.h -o -name \*.hpp \) -print))
     s212 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(sort $(s206))))
     LOCAL_LIBS_LIST = $(shell echo $(s212)' ' | sed 's://:/:g' | sed 's:/ : :g')
     s213 = $(s212)
@@ -524,7 +525,8 @@ endif # LOCAL_LIBS_LIST
 ifneq ($(strip $(LOCAL_LIBS_LIST)),0)
     s207 = $(patsubst %,$(LOCAL_LIB_PATH)/%,$(LOCAL_LIBS_LIST))
 #     s208 = $(sort $(dir $(foreach dir,$(s207),$(shell find $(dir) -name \*.h -o -name \*.hpp))))
-    s208 = $(dir $(foreach dir,$(s207),$(shell find $(dir) -path "*/examples/*" ! -prune -o -name \*.h -o -name \*.hpp)))
+    # s208 = $(dir $(foreach dir,$(s207),$(shell find $(dir) -path "*/examples/*" ! -prune -o -name \*.h -o -name \*.hpp)))
+    s208 = $(dir $(foreach dir,$(s207),$(shell find $(dir) -type d \( -name examples -o -name tests \) -prune -o \( -name \*.h -o -name \*.hpp \) -print)))
 #     s213 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(sort $(s207))))
     s213 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(s207)))
     LOCAL_LIBS = $(shell echo $(s208)' ' | sed 's://:/:g' | sed 's:/ : :g')
@@ -721,11 +723,12 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
     ifneq ($(SERIAL_PORT),)
         USED_SERIAL_PORT := $(SERIAL_PORT)
-    endif
+    endif # SERIAL_PORT
 
 endif # BOOL_SELECT_BOARD
 
 ifneq ($(MAKECMDGOALS),upload)
+ifneq ($(MAKECMDGOALS),clean)
 
 # Work before building and linking
 # ----------------------------------
@@ -759,6 +762,7 @@ endif # UTILITIES_PATH
 $(info ==== End of initial tasks ====)
 
 endif # MAKECMDGOALS upload
+endif # MAKECMDGOALS clean
 
 ifeq ($(MAKECMDGOALS),upload)
     HIDE_INFO ?= true
@@ -772,257 +776,124 @@ ifneq ($(MESSAGE_CRITICAL),)
 # $(shell export SUBTITLE='Warning' ; export MESSAGE='$(MESSAGE_WARNING)' ; $(UTILITIES_PATH)/Notify.app/Contents/MacOS/applet)
 endif # MESSAGE_CRITICAL
 
-ifneq ($(HIDE_INFO),true)
-ifeq ($(UNKNOWN_BOARD),1)
-    $(info .)
-    $(info ==== Info ====)
-    $(info ERROR              $(BOARD_TAG) board is unknown)
-    $(info .)
-    $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is unknown)
-    $(error Stop)
-
-    $(info ==== Info done ====)
-endif # UNKNOWN_BOARD
-
-ifeq ($(BOOL_SELECT_BOARD),1)
-    $(info .)
-    $(info ==== Info ====)
-    $(info Date Time         $(shell date '+%F %T'))
-    $(info ---- Project ----)
-    $(info Target            $(MAKECMDGOALS))
-#     $(info Name              $(PROJECT_NAME_AS_IDENTIFIER) ($(SKETCH_EXTENSION)))
-    $(info Name              $(PROJECT_NAME_AS_IDENTIFIER))
-
-    ifneq ($(MESSAGE_WARNING),)
-        $(call MESSAGE_ZENITY_WARNING,$(MESSAGE_WARNING))
-        $(info WARNING                       $(MESSAGE_WARNING))
-    endif # MESSAGE_WARNING
-    ifneq ($(MESSAGE_INFO),)
-        $(info Information       $(MESSAGE_INFO))
-    endif # MESSAGE_INFO
-
-    ifneq ($(USB_VID),)
-        $(info USB               VID = $(USB_VID), PID = $(USB_PID))
-    endif # USB_VID
-
-    $(info ---- Port ----)
-    $(info Uploader          $(UPLOADER))
-
-    ifeq ($(UPLOADER),avrdude)
-        ifeq ($(AVRDUDE_NO_SERIAL_PORT),1)
-            $(info AVRdude       no serial port)
-        else
-            $(info AVRdude       $(AVRDUDE_PORT))
-        endif # AVRDUDE_NO_SERIAL_PORT
-        ifneq ($(AVRDUDE_PROGRAMMER),)
-            $(info Programmer    $(AVRDUDE_PROGRAMMER))
-        endif # AVRDUDE_PROGRAMMER
-        ifneq ($(BOOTLOADER),)
-            $(info Boot-loader   $(BOOTLOADER))
-        endif # BOOTLOADER
-    endif # UPLOADER
-
-    ifeq ($(UPLOADER),mspdebug)
-        $(info Protocol          $(UPLOADER_PROTOCOL))
-    endif # UPLOADER
-
-    ifeq ($(AVRDUDE_NO_SERIAL_PORT),1)
-        $(info Serial            no serial port)
-    else ifeq ($(BOARD_PORT),ssh)
-        $(info Serial            $(SSH_ADDRESS))
-    else
-        $(info Serial            $(USED_SERIAL_PORT))
-    endif # AVRDUDE_NO_SERIAL_PORT
-
-    ifeq ($(UPLOADER),xds110)
-    ifneq ($(XDS110_SERIAL),)
-        $(info XDS110            $(XDS110_SERIAL))
-    endif # XDS110_SERIAL
-    endif # UPLOADER
-
-    ifeq ($(UPLOADER),jlink)
-    ifneq ($(JLINK_SERIAL),)
-        $(info J-Link            $(JLINK_SERIAL))
-    endif # JLINK_SERIAL
-    endif # UPLOADER
-
-    $(info ---- Core libraries ----)
-    $(info From              $(CORE_LIB_PATH)) # | cut -d. -f1,2
-    $(info List              $(notdir $(CORE_LIBS_LIST)))
-#     $(foreach file,$(CORE_LIBS_LIST),$(info . $(file) release $(shell grep version $(CORE_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
-
-    ifneq ($(strip $(APP_LIBS_LIST)),0)
-        $(info ---- Application libraries ----)
-        $(info From              $(basename $(APP_LIB_PATH))) # | cut -d. -f1,2
-        ifneq ($(strip $(APP_LIBS_LIST)),)
-            $(info List              $(filter-out 0,$(sort $(basename $(APP_LIBS_LIST)) $(basename $(notdir $(BUILD_APP_LIBS_LIST))))))
-#             $(foreach file,$(APP_LIBS_LIST),$(info . $(file) release $(shell grep version $(APP_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
-            $(foreach file,$(APP_LIBS_LIST),$(info Library           $(call VERSION,$(file),$(APP_LIB_PATH))))
-
-        endif # APP_LIBS_LIST
-    endif # APP_LIBS_LIST
-
-    $(info ---- User libraries and archives ----)
-#    $(info From              $(SKETCHBOOK_DIR))
-    $(info From              $(USER_LIB_PATH))
-
-    ifneq ($(strip $(USER_LIBS_LIST)),0) # none
-    ifneq ($(strip $(USER_LIBS_LIST)),) # all
-
-#         s230a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
-        s230a := $(shell find $(USER_LIB_PATH) -type d)
-        s230b := $(subst $(USER_LIB_PATH)/,,$(s230a))
-        s230c := $(filter-out $(s230b),$(USER_LIBS_LIST))
-
-        ifneq ($(strip $(s230c)),)
-            $(info Missing folders   $(s230c))
-            $(info .)
-            $(call MESSAGE_GUI_ERROR,Some user folders are missing\n\n$(s230c))
-            $(error Stop)            
-        endif
-    endif # USER_LIBS_LIST
-    endif # USER_LIBS_LIST
-
-    ifneq ($(strip $(INFO_USER_UNARCHIVES_LIST)),)
-        ifeq ($(strip $(USER_LIBS_LIST)),0)
-            $(info Libraries         None)
-        else
-            $(info Libraries         $(INFO_USER_UNARCHIVES_LIST))
-#             $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
-            $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(USER_LIB_PATH))))
-
-        endif # USER_LIBS_LIST
-    endif # INFO_USER_UNARCHIVES_LIST
-    ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
-        $(info Archives          $(INFO_USER_ARCHIVES_LIST))
-#         $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
-        $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(USER_LIB_PATH))))
-    endif # INFO_USER_ARCHIVES_LIST
-
-#     $(info ---- Local libraries ----)
-#     $(info From              $(CURRENT_DIR))
-# 
-#     ifneq ($(wildcard $(LOCAL_LIB_PATH)/*.h),)
-#         $(info List              $(subst .h,,$(notdir $(wildcard $(LOCAL_LIB_PATH)/*.h))))
-#     endif # LOCAL_LIB_PATH
-#     ifneq ($(wildcard $(LOCAL_LIB_PATH)/*.hpp),)
-#         $(info List              $(subst .hpp,,$(notdir $(wildcard $(LOCAL_LIB_PATH)/*.hpp))))
-#     endif # LOCAL_LIB_PATH
-#     ifneq ($(strip $(LOCAL_LIBS_LIST)),)
-#         $(info List              $(subst / , ,$(LOCAL_LIBS_LIST) ))
-# #        $(shell "echo  . $(LOCAL_LIBS_LIST) | sed 's/\/ / /g'")
-#     endif # LOCAL_LIBS_LIST
-#     ifeq ($(wildcard $(LOCAL_LIB_PATH)/*.h),)
-#     ifeq ($(wildcard $(LOCAL_LIB_PATH)/*.hpp),)
-#     ifeq ($(strip $(LOCAL_LIBS_LIST)),)
-#         $(info List              (empty))
-#     endif # LOCAL_LIBS_LIST
-#     endif # LOCAL_LIB_PATH
-#     endif # LOCAL_LIB_PATH
-# 
-#     ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
-#         $(info List*             $(INFO_LOCAL_UNARCHIVES_LIST))
-#     endif # INFO_LOCAL_UNARCHIVES_LIST
-# 
-#     ifneq ($(strip $(LOCAL_ARCHIVES)),)
-#         $(info ---- Local archives ----)
-#         $(info From              $(CURRENT_DIR))
-# #        ifneq ($(wildcard $(LOCAL_LIB_PATH)/*.a),)
-# # Old
-# # New
-#         $(info List              $(subst lib,,$(subst .a,,$(notdir $(LOCAL_ARCHIVES)))))
-# #        $(info List              $(subst lib,,$(subst .a,,$(notdir $(foreach dir,$(LOCAL_LIBS_LIST),$(wildcard $(dir)/src/$(MCU)/*.a))))))
-# #        endif
-# #        ifneq ($(strip $(LOCAL_LIBS_LIST)),)
-# #			@echo '$(LOCAL_LIBS_LIST) ' | sed 's/\/ / /g'
-# #        endif
-#     endif # LOCAL_ARCHIVES
-#     ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
-#         $(info List*             $(INFO_LOCAL_ARCHIVES_LIST))
-#     endif # INFO_LOCAL_ARCHIVES_LIST
-
-    $(info ---- Local libraries and archives ----)
-    $(info From              $(CURRENT_DIR))
-
-    ifneq ($(strip $(LOCAL_LIBS_LIST)),0) # none
-    ifneq ($(strip $(LOCAL_LIBS_LIST)),) # all
-
-#         s220a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
-        s220a := $(shell find $(LOCAL_LIB_PATH) -type d)
-        s220b := $(subst ./,,$(s220a))
-        s220c := $(filter-out $(s220b),$(LOCAL_LIBS_LIST))
-
-        ifneq ($(strip $(s220c)),)
-            $(info Missing folders   $(s220c))
-            $(info .)
-            $(call MESSAGE_GUI_ERROR,Some local folders are missing\n\n$(s220c))
-            $(error Stop)            
-        endif
-    endif # LOCAL_LIBS_LIST
-    endif # LOCAL_LIBS_LIST
-
-    ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
-        $(info Libraries         $(INFO_LOCAL_UNARCHIVES_LIST))
-
-#         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info $(CURRENT_DIR)/$(file)/library.properties))
-#         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
-        $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(CURRENT_DIR))))
-
-#         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell printf '%-18s %s\n' $(file) $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
-
-    endif # INFO_USER_UNARCHIVES_LIST
-    ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
-        $(info Archives          $(INFO_LOCAL_ARCHIVES_LIST))
-#         $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
-        $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(CURRENT_DIR))))
-    endif # INFO_USER_ARCHIVES_LIST
-
-    $(info ==== Info done ====)
-endif # HIDE_INFO
-
 # ReadMe file for archive
-READ_ME_FILE = $(BUILDS_PATH)/ReadMe.md
+
+$(info ---- Summary ----)
+$(info File              $(READ_ME_FILE))
 
 $(shell echo "  " > $(READ_ME_FILE)) # Start
 
+# $(shell echo "  " >> $(READ_ME_FILE))
+# $(shell echo "*Pre-compiled library for Arduino*" >> $(READ_ME_FILE))
 $(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "*Pre-compiled library for Arduino*" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "## Info" >> $(READ_ME_FILE))
+$(shell echo "## Target" >> $(READ_ME_FILE))
 $(shell echo "  " >> $(READ_ME_FILE))
 $(shell echo "**Date Time**         $(shell date '+%F %T')" >> $(READ_ME_FILE))
-
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "## Platform" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Platform**          $(PLATFORM) $(PLATFORM_VERSION)" >> $(READ_ME_FILE))
 $(shell echo "  " >> $(READ_ME_FILE))
 $(shell echo "**Board**             $(BOARD_NAME) ($(BOARD_TAG))" >> $(READ_ME_FILE))
 
 $(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "## Arduino" >> $(READ_ME_FILE))
+$(shell echo "## Libraries and archives" >> $(READ_ME_FILE))
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "### Core and Application" >> $(READ_ME_FILE))
+
+FLAG_LIBRARIES:=0
+ifneq ($(wildcard $(TARGET_CORE_A)),)
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Archive**           $(SELECTED_BOARD) release $(RELEASE_CORE)" >> $(READ_ME_FILE))
+    FLAG_LIBRARIES:=1
+endif # TARGET_CORE_A
+
+# APP_LIB_PATH := /home/reivilo/.arduino15/packages/RedBear/hardware/STM32F2/0.3.3/libraries/
+
+ifneq ($(strip $(APP_LIBS_LIST)),0)
+    ifneq ($(strip $(APP_LIBS_LIST)),)
+        $(foreach file,$(APP_LIBS_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(APP_LIB_PATH))" >> $(READ_ME_FILE)))
+        FLAG_LIBRARIES:=1
+    endif # APP_LIBS_LIST
+endif # APP_LIBS_LIST
+
+ifeq ($(FLAG_LIBRARIES),0)
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "None" >> $(READ_ME_FILE))
+endif # FLAG_LIBRARIES
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "### User" >> $(READ_ME_FILE))
+
+FLAG_LIBRARIES:=0
+ifneq ($(strip $(INFO_USER_UNARCHIVES_LIST)),)
+    ifneq ($(strip $(USER_LIBS_LIST)),0)
+        $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(USER_LIB_PATH))" >> $(READ_ME_FILE)))
+        FLAG_LIBRARIES:=1
+    endif # USER_LIBS_LIST
+endif # INFO_USER_UNARCHIVES_LIST
+
+ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
+    $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Archive**           $(call VERSION,$(file),$(USER_LIB_PATH))" >> $(READ_ME_FILE)))
+        FLAG_LIBRARIES:=1
+endif # INFO_USER_ARCHIVES_LIST
+
+ifeq ($(FLAG_LIBRARIES),0)
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "None" >> $(READ_ME_FILE))
+endif # FLAG_LIBRARIES
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "### Local" >> $(READ_ME_FILE))
+
+FLAG_LIBRARIES:=0
+ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
+    $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(CURRENT_DIR))" >> $(READ_ME_FILE)))
+    FLAG_LIBRARIES:=1
+endif # INFO_USER_UNARCHIVES_LIST 
+
+ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
+    $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Archive**           $(call VERSION,$(file),$(CURRENT_DIR))" >> $(READ_ME_FILE)))
+    FLAG_LIBRARIES:=1
+endif # INFO_USER_ARCHIVES_LIST
+
+ifeq ($(FLAG_LIBRARIES),0)
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "None" >> $(READ_ME_FILE))
+endif # FLAG_LIBRARIES
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "## Tools" >> $(READ_ME_FILE))
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "### Arduino" >> $(READ_ME_FILE))
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "**Arduino**           release $(ARDUINO_IDE_RELEASE)" >> $(READ_ME_FILE))
+
 ifneq ($(ARDUINO_FLATPAK_RELEASE),)
     $(shell echo "  " >> $(READ_ME_FILE))
     $(shell echo "**Arduino IDE**       FlatPak release $(ARDUINO_FLATPAK_RELEASE)" >> $(READ_ME_FILE))
-endif # ARDUINO_CLI_RELEASE
+endif # ARDUINO_FLATPAK_RELEASE
+
 ifneq ($(ARDUINO_APPIMAGE_RELEASE),)
     $(shell echo "  " >> $(READ_ME_FILE))
     $(shell echo "**Arduino IDE**       AppImage release $(ARDUINO_APPIMAGE_RELEASE)" >> $(READ_ME_FILE))
 endif # ARDUINO_APPIMAGE_RELEASE
+
 ifneq ($(ARDUINO_CLI_RELEASE),)
     $(shell echo "  " >> $(READ_ME_FILE))
     $(shell echo "**Arduino CLI**       release $(ARDUINO_CLI_RELEASE)" >> $(READ_ME_FILE))
-endif # ARDUINO_APPIMAGE_RELEASE
+endif # ARDUINO_CLI_RELEASE
 
 $(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "## Tools" >> $(READ_ME_FILE))
+$(shell echo "**Platform**          $(PLATFORM) $(PLATFORM_VERSION)" >> $(READ_ME_FILE))
+
+$(shell echo "  " >> $(READ_ME_FILE))
+$(shell echo "### Tool-chain" >> $(READ_ME_FILE))
 $(shell echo "  " >> $(READ_ME_FILE))
 $(shell echo "**Make**              $(shell make -version | head -1 )" >> $(READ_ME_FILE))
 $(shell echo "  " >> $(READ_ME_FILE))
 $(shell echo "**Tool-chain**        $(shell $(CC) --version | head -1 )" >> $(READ_ME_FILE))
 
 $(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "## emCode" >> $(READ_ME_FILE))
+$(shell echo "### emCode" >> $(READ_ME_FILE))
 $(shell echo "  " >> $(READ_ME_FILE))
 $(shell echo "**Edition**           $(EMCODE_REFERENCE) release $(EMCODE_RELEASE)" >> $(READ_ME_FILE))
 
@@ -1036,9 +907,220 @@ ifeq ($(RESULT),1)
 $(shell echo "  " >> $(READ_ME_FILE))
 $(shell echo "**Configuration**     $(CONFIG_NAME) release $(shell grep '$(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk' -e 'Last update' | xargs | rev | cut -d' ' -f1 | rev)" >> $(READ_ME_FILE))
 endif # RESULT
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "---" >> $(READ_ME_FILE))
+# $(shell echo "  " >> $(READ_ME_FILE))
+# $(shell echo "---" >> $(READ_ME_FILE))
+$(info ---- End of Summary ----)
 
+ifneq ($(HIDE_INFO),true)
+    ifeq ($(UNKNOWN_BOARD),1)
+        $(info .)
+        $(info ==== Info ====)
+        $(info ERROR              $(BOARD_TAG) board is unknown)
+        $(info .)
+        $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is unknown)
+        $(error Stop)
+
+        $(info ==== Info done ====)
+    endif # UNKNOWN_BOARD
+
+    ifeq ($(BOOL_SELECT_BOARD),1)
+        $(info .)
+        $(info ==== Info ====)
+        $(info Date Time         $(shell date '+%F %T'))
+        $(info ---- Project ----)
+        $(info Target            $(MAKECMDGOALS))
+    #     $(info Name              $(PROJECT_NAME_AS_IDENTIFIER) ($(SKETCH_EXTENSION)))
+        $(info Name              $(PROJECT_NAME_AS_IDENTIFIER))
+
+        ifneq ($(MESSAGE_WARNING),)
+            $(call MESSAGE_ZENITY_WARNING,$(MESSAGE_WARNING))
+            $(info WARNING                       $(MESSAGE_WARNING))
+        endif # MESSAGE_WARNING
+        ifneq ($(MESSAGE_INFO),)
+            $(info Information       $(MESSAGE_INFO))
+        endif # MESSAGE_INFO
+
+        ifneq ($(USB_VID),)
+            $(info USB               VID = $(USB_VID), PID = $(USB_PID))
+        endif # USB_VID
+
+        $(info ---- Port ----)
+        $(info Uploader          $(UPLOADER))
+
+        ifeq ($(UPLOADER),avrdude)
+            ifeq ($(AVRDUDE_NO_SERIAL_PORT),1)
+                $(info AVRdude       no serial port)
+            else
+                $(info AVRdude       $(AVRDUDE_PORT))
+            endif # AVRDUDE_NO_SERIAL_PORT
+            ifneq ($(AVRDUDE_PROGRAMMER),)
+                $(info Programmer    $(AVRDUDE_PROGRAMMER))
+            endif # AVRDUDE_PROGRAMMER
+            ifneq ($(BOOTLOADER),)
+                $(info Boot-loader   $(BOOTLOADER))
+            endif # BOOTLOADER
+        endif # UPLOADER
+
+        ifeq ($(UPLOADER),mspdebug)
+            $(info Protocol          $(UPLOADER_PROTOCOL))
+        endif # UPLOADER
+
+        ifeq ($(AVRDUDE_NO_SERIAL_PORT),1)
+            $(info Serial            no serial port)
+        else ifeq ($(BOARD_PORT),ssh)
+            $(info Serial            $(SSH_ADDRESS))
+        else
+            $(info Serial            $(USED_SERIAL_PORT))
+        endif # AVRDUDE_NO_SERIAL_PORT
+
+        ifeq ($(UPLOADER),xds110)
+        ifneq ($(XDS110_SERIAL),)
+            $(info XDS110            $(XDS110_SERIAL))
+        endif # XDS110_SERIAL
+        endif # UPLOADER
+
+        ifeq ($(UPLOADER),jlink)
+        ifneq ($(JLINK_SERIAL),)
+            $(info J-Link            $(JLINK_SERIAL))
+        endif # JLINK_SERIAL
+        endif # UPLOADER
+
+        $(info ---- Core libraries ----)
+        $(info From              $(CORE_LIB_PATH)) # | cut -d. -f1,2
+        $(info List              $(notdir $(CORE_LIBS_LIST)))
+    #     $(foreach file,$(CORE_LIBS_LIST),$(info . $(file) release $(shell grep version $(CORE_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+
+        ifneq ($(strip $(APP_LIBS_LIST)),0)
+            $(info ---- Application libraries ----)
+            $(info From              $(basename $(APP_LIB_PATH))) # | cut -d. -f1,2
+            ifneq ($(strip $(APP_LIBS_LIST)),)
+                $(info List              $(filter-out 0,$(sort $(basename $(APP_LIBS_LIST)) $(basename $(notdir $(BUILD_APP_LIBS_LIST))))))
+    #             $(foreach file,$(APP_LIBS_LIST),$(info . $(file) release $(shell grep version $(APP_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+                $(foreach file,$(APP_LIBS_LIST),$(info Library           $(call VERSION,$(file),$(APP_LIB_PATH))))
+
+            endif # APP_LIBS_LIST
+        endif # APP_LIBS_LIST
+
+        $(info ---- User libraries and archives ----)
+    #    $(info From              $(SKETCHBOOK_DIR))
+        $(info From              $(USER_LIB_PATH))
+
+        ifneq ($(strip $(USER_LIBS_LIST)),0) # none
+        ifneq ($(strip $(USER_LIBS_LIST)),) # all
+
+    #         s230a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
+            s230a := $(shell find $(USER_LIB_PATH) -type d)
+            s230b := $(subst $(USER_LIB_PATH)/,,$(s230a))
+            s230c := $(filter-out $(s230b),$(USER_LIBS_LIST))
+
+            ifneq ($(strip $(s230c)),)
+                $(info Missing folders   $(s230c))
+                $(info .)
+                $(call MESSAGE_GUI_ERROR,Some user folders are missing\n\n$(s230c))
+                $(error Stop)            
+            endif
+        endif # USER_LIBS_LIST
+        endif # USER_LIBS_LIST
+
+        ifneq ($(strip $(INFO_USER_UNARCHIVES_LIST)),)
+            ifeq ($(strip $(USER_LIBS_LIST)),0)
+                $(info Libraries         None)
+            else
+                $(info Libraries         $(INFO_USER_UNARCHIVES_LIST))
+    #             $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+                $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(USER_LIB_PATH))))
+
+            endif # USER_LIBS_LIST
+        endif # INFO_USER_UNARCHIVES_LIST
+        ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
+            $(info Archives          $(INFO_USER_ARCHIVES_LIST))
+    #         $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(USER_LIB_PATH)/$(file)/library.properties | cut -d= -f2)))
+            $(foreach file,$(INFO_USER_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(USER_LIB_PATH))))
+        endif # INFO_USER_ARCHIVES_LIST
+
+    #     $(info ---- Local libraries ----)
+    #     $(info From              $(CURRENT_DIR))
+    # 
+    #     ifneq ($(wildcard $(LOCAL_LIB_PATH)/*.h),)
+    #         $(info List              $(subst .h,,$(notdir $(wildcard $(LOCAL_LIB_PATH)/*.h))))
+    #     endif # LOCAL_LIB_PATH
+    #     ifneq ($(wildcard $(LOCAL_LIB_PATH)/*.hpp),)
+    #         $(info List              $(subst .hpp,,$(notdir $(wildcard $(LOCAL_LIB_PATH)/*.hpp))))
+    #     endif # LOCAL_LIB_PATH
+    #     ifneq ($(strip $(LOCAL_LIBS_LIST)),)
+    #         $(info List              $(subst / , ,$(LOCAL_LIBS_LIST) ))
+    # #        $(shell "echo  . $(LOCAL_LIBS_LIST) | sed 's/\/ / /g'")
+    #     endif # LOCAL_LIBS_LIST
+    #     ifeq ($(wildcard $(LOCAL_LIB_PATH)/*.h),)
+    #     ifeq ($(wildcard $(LOCAL_LIB_PATH)/*.hpp),)
+    #     ifeq ($(strip $(LOCAL_LIBS_LIST)),)
+    #         $(info List              (empty))
+    #     endif # LOCAL_LIBS_LIST
+    #     endif # LOCAL_LIB_PATH
+    #     endif # LOCAL_LIB_PATH
+    # 
+    #     ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
+    #         $(info List*             $(INFO_LOCAL_UNARCHIVES_LIST))
+    #     endif # INFO_LOCAL_UNARCHIVES_LIST
+    # 
+    #     ifneq ($(strip $(LOCAL_ARCHIVES)),)
+    #         $(info ---- Local archives ----)
+    #         $(info From              $(CURRENT_DIR))
+    # #        ifneq ($(wildcard $(LOCAL_LIB_PATH)/*.a),)
+    # # Old
+    # # New
+    #         $(info List              $(subst lib,,$(subst .a,,$(notdir $(LOCAL_ARCHIVES)))))
+    # #        $(info List              $(subst lib,,$(subst .a,,$(notdir $(foreach dir,$(LOCAL_LIBS_LIST),$(wildcard $(dir)/src/$(MCU)/*.a))))))
+    # #        endif
+    # #        ifneq ($(strip $(LOCAL_LIBS_LIST)),)
+    # #			@echo '$(LOCAL_LIBS_LIST) ' | sed 's/\/ / /g'
+    # #        endif
+    #     endif # LOCAL_ARCHIVES
+    #     ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
+    #         $(info List*             $(INFO_LOCAL_ARCHIVES_LIST))
+    #     endif # INFO_LOCAL_ARCHIVES_LIST
+
+        $(info ---- Local libraries and archives ----)
+        $(info From              $(CURRENT_DIR))
+
+        ifneq ($(strip $(LOCAL_LIBS_LIST)),0) # none
+        ifneq ($(strip $(LOCAL_LIBS_LIST)),) # all
+
+    #         s220a := $(shell find $(LOCAL_LIB_PATH) -maxdepth 1 -type d)
+            s220a := $(shell find $(LOCAL_LIB_PATH) -type d)
+            s220b := $(subst ./,,$(s220a))
+            s220c := $(filter-out $(s220b),$(LOCAL_LIBS_LIST))
+
+            ifneq ($(strip $(s220c)),)
+                $(info Missing folders   $(s220c))
+                $(info .)
+                $(call MESSAGE_GUI_ERROR,Some local folders are missing\n\n$(s220c))
+                $(error Stop)            
+            endif
+        endif # LOCAL_LIBS_LIST
+        endif # LOCAL_LIBS_LIST
+
+        ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
+            $(info Libraries         $(INFO_LOCAL_UNARCHIVES_LIST))
+
+    #         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info $(CURRENT_DIR)/$(file)/library.properties))
+    #         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+            $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info Library           $(call VERSION,$(file),$(CURRENT_DIR))))
+
+    #         $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell printf '%-18s %s\n' $(file) $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+
+        endif # INFO_USER_UNARCHIVES_LIST
+        ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
+            $(info Archives          $(INFO_LOCAL_ARCHIVES_LIST))
+    #         $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
+            $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(info Archive           $(call VERSION,$(file),$(CURRENT_DIR))))
+        endif # INFO_USER_ARCHIVES_LIST
+
+        $(info ==== Info done ====)
+    endif # BOOL_SELECT_BOARD
+endif # HIDE_INFO
+
+ifeq ($(BOOL_SELECT_BOARD),1)
 ifneq ($(HIDE_TOOLS),true)
     $(info .)
     $(info ==== Tools ====)
@@ -1077,7 +1159,7 @@ ifneq ($(HIDE_TOOLS),true)
     ifneq ($(UPLOADER),ozone)
         ifneq (,$(wildcard $(GDB)))
             $(info GDB               $(shell $(GDB) --version | head -1 ))
-        endif
+        endif # GDB
     endif # UPLOADER
     endif # MAKECMDGOALS
 
@@ -1111,13 +1193,13 @@ ifneq ($(HIDE_TOOLS),true)
     $(info ---- Arduino ----)
     ifneq ($(ARDUINO_FLATPAK_RELEASE),)
         $(info Arduino IDE       FlatPak release $(ARDUINO_FLATPAK_RELEASE))
-    endif # ARDUINO_CLI_RELEASE
+    endif # ARDUINO_FLATPAK_RELEASE
     ifneq ($(ARDUINO_APPIMAGE_RELEASE),)
         $(info Arduino IDE       AppImage release $(ARDUINO_APPIMAGE_RELEASE))
     endif # ARDUINO_APPIMAGE_RELEASE
     ifneq ($(ARDUINO_CLI_RELEASE),)
         $(info Arduino CLI       release $(ARDUINO_CLI_RELEASE))
-    endif # ARDUINO_APPIMAGE_RELEASE
+    endif # ARDUINO_CLI_RELEASE
 
     $(info ---- Other ----)
 #    $(info Check new release	$(shell grep $(EMCODE_APP)/parameters.txt -e allowCheck.newRelease | cut -d= -f2))
@@ -1135,7 +1217,7 @@ ifneq ($(HIDE_TOOLS),true)
         $(info Core archive      Generate $(SELECTED_BOARD)_$(RELEASE_CORE).a)
     else
         $(info Core archive      Use $(SELECTED_BOARD)_$(RELEASE_CORE).a)
-    endif
+    endif # TARGET_CORE_A
 
     $(info ==== Tools done ====)
 endif # BOOL_SELECT_BOARD
@@ -1151,7 +1233,7 @@ endif # SERIAL_EXEC
 
 ifneq ($(strip $(OLD_TAG)),)
     OLD_USED_SERIAL_PORT = $(shell if [ -f $(OLD_TAG) ] ; then cat $(OLD_TAG) ; fi )
-endif
+endif # OLD_TAG
 # $(info ==== OLD_USED_SERIAL_PORT $(OLD_USED_SERIAL_PORT))
 ifneq ($(USED_SERIAL_PORT),$(OLD_USED_SERIAL_PORT))
 	CURRENT_EXEC :=#
@@ -1217,20 +1299,20 @@ else
         FLAGS_WARNING = -w
     else
         FLAGS_WARNING = $(addprefix -W, $(WARNING_OPTIONS))
-    endif
+    endif # WARNING_OPTIONS
 endif # WARNING_OPTIONS
 
 ifneq ($(strip $(COMPILER_OPTIONS)),0)
     ifneq ($(COMPILER_OPTIONS),)
         FLAGS_ALL += $(COMPILER_OPTIONS)
         FLAGS_LD += $(COMPILER_OPTIONS)
-    endif
+    endif # COMPILER_OPTIONS
 endif # COMPILER_OPTIONS
 
 ifneq ($(strip $(LINKER_OPTIONS)),0)
     ifneq ($(LINKER_OPTIONS),)
         FLAGS_LD += $(LINKER_OPTIONS)
-    endif
+    endif # LINKER_OPTIONS
 endif # LINKER_OPTIONS
 
 ifeq ($(OPTIMISATION),)
@@ -2502,13 +2584,15 @@ ifneq ($(BOOL_CHANGED_BOARD),0)
 	$(call SHOW,"7.0-ARCHIVE","Build required")
 
 	$(QUIET)make build -j SELECTED_BOARD=$(SELECTED_BOARD) HIDE_INFO=true USE_ARCHIVES=false
-endif
+endif # BOOL_CHANGED_BOARD
 
 #		@echo ". LOCAL_LIBS_LIST_TOP= "$(LOCAL_LIBS_LIST_TOP)
 #		@echo ". BUILDS_PATH= "$(BUILDS_PATH)
 #		@echo ". MCU= "$(MCU)
 
 	@echo "---- Generate ----"
+#		@echo ">>> MCU = $(MCU)"
+
 #		@echo .$(LOCAL_LIBS_LIST).
 # Old
 #		$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then $(AR) rcs $$f/$$f.a $$(find $(BUILDS_PATH)/$$f/ -name *.o) ; printf '%-16s\t%s\r\n' "7.1-ARCHIVE" $$f/$$f.a ; echo $(BOARD_TAG) > $$f/$(BOARD_TAG).board ; fi ; done ;
@@ -2523,7 +2607,8 @@ endif
 # New
 	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] && [ ! -f $$f/library.properties ] ; then printf '%-16s  %s\r\n' "7.2-ARCHIVE" $$f/library.properties ; printf "name=$$f" > $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
 	@echo "---- Update ----"
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then printf '%-16s  %s\r\n' "7.3-ARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; printf "\nprecompiled=true\nldflags=-l$$f" >> $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; echo "# $$f" > $$f/src/$(MCU)/ReadMe.md ; cat $(READ_ME_FILE) >> $$f/src/$(MCU)/ReadMe.md ; fi ; done ;
+	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then printf '%-16s  %s\r\n' "7.3-ARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; printf "\nprecompiled=true\nldflags=-l$$f" >> $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
+	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then echo "# Pre-compiled library $$f" > $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "  " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "## Content" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "   " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; for a in $$($(AR) t $$f/src/$(MCU)/lib$$f.a) ; do echo " * $${a%.*.*}" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; done ; cat $(READ_ME_FILE) >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "  " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "---" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; fi ; done ;
 #		@echo "==== Archive done ===="
 
 unarchive:
@@ -2561,14 +2646,33 @@ ifneq ($(COMMAND_BEFORE_COMPILE),)
 	$(call SHOW,"1.0-BEFORE",$(MESSAGE_BEFORE))
         
 	$(QUIET)$(COMMAND_BEFORE_COMPILE)
-endif
+endif # COMMAND_BEFORE_COMPILE
 
 after_compile:
 ifneq ($(COMMAND_AFTER_COMPILE),)
 	$(call SHOW,"1.1-AFTER",$(MESSAGE_AFTER))
         
 	$(QUIET)$(COMMAND_AFTER_COMPILE)
-endif
+endif # COMMAND_AFTER_COMPILE
+
+	$(QUIET)echo "# Project $(PROJECT_NAME_AS_IDENTIFIER)" > $(READ_ME_NAME)
+	$(QUIET)cat $(READ_ME_FILE) >> $(READ_ME_NAME) 
+	$(QUIET)echo "  " >> $(READ_ME_NAME)
+
+	$(QUIET)echo "### GitHub" >> $(READ_ME_NAME) 
+	$(QUIET)echo "  " >> $(READ_ME_NAME)
+
+ifneq ($(wildcard $(CURRENT_DIR)/.git/*),)
+	$(QUIET)echo "**Commit**        $$(git log -1 | tail -1)" >> $(READ_ME_NAME)
+	$(QUIET)echo "  " >> $(READ_ME_NAME)
+	$(QUIET)echo "**Branch**            $$(git branch | grep \* | cut -d ' ' -f2)" >> $(READ_ME_NAME)
+	$(QUIET)echo "  " >> $(READ_ME_NAME)
+else
+	$(QUIET)echo "None" >> $(READ_ME_NAME)
+	$(QUIET)echo "  " >> $(READ_ME_NAME)
+endif # wildcard .git/
+
+	$(QUIET)echo "---" >> $(READ_ME_NAME)
 
 fast: start_message changed before_compile compile after_compile reset raw_upload serial
 	@echo "==== $(MESSAGE_TASK) done ===="
@@ -2630,8 +2734,8 @@ bootloader:
 ifneq ($(COMMAND_BOOTLOADER),)
 	$(call SHOW,"1.10-BOOTLOADER","")
 	$(QUIET)$(COMMAND_BOOTLOADER)
-else
-endif
+endif # COMMAND_BOOTLOADER
+
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 # debug:
@@ -2643,4 +2747,4 @@ endif
 #.NOTPARALLEL:
 
 # cat Step2.mk | grep -e "^[A-z]\+:" | cut -d: -f1
-.PHONY: all after_compile before_compile boards build changed clean compile depends fast info ispload make start_message message_compile raw_upload reset serial size upload archive do_archive unarchive arguments update
+.PHONY: all after_compile before_compile boards build changed clean compile depends fast info ispload make start_message message_compile raw_upload reset serial size upload archive do_archive unarchive arguments update 

@@ -29,11 +29,11 @@ HIDE_TOOLS ?= false
 HIDE_ALL ?= false
 
 ifeq ($(HIDE_ALL),true)
-	HIDE_NUMBER := true
-	HIDE_COMMAND := true
-	HIDE_INFO := true
-	HIDE_TOOLS := true
-endif
+    HIDE_NUMBER := true
+    HIDE_COMMAND := true
+    HIDE_INFO := true
+    HIDE_TOOLS := true
+endif # HIDE_ALL
 
 # For building, keep main and tasks unchanged, false or true, default = false
 #
@@ -84,5 +84,5 @@ OPERATING_SYSTEM := $(shell uname -s)
 GUI_OPTION = NOTIFY
 
 ifeq ($(OPERATING_SYSTEM),Darwin)
-	GUI_OPTION = OSASCRIPT
+    GUI_OPTION = OSASCRIPT
 endif # OPERATING_SYSTEM

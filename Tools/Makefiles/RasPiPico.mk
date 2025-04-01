@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 21 Jan 2025 release 14.6.10
+# Last update: 04 Mar 2025 release 14.7.2
 #
 
 # RP2040 Pico for Arduino
@@ -22,7 +22,7 @@ ifneq ($(wildcard $(ARDUINO_RP2040_INITIAL)/hardware/rp2040),)
     RP2040_APP = $(ARDUINO_RP2040_INITIAL)
     RP2040_PATH = $(RP2040_APP)
     RP2040_BOARDS = $(RP2040_APP)/hardware/rp2040/$(RP2040_RELEASE)/boards.txt
-endif
+endif # ARDUINO_RP2040_INITIAL
 
 ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(RP2040_BOARDS)),)
 MAKEFILE_NAME = RasPiPico
@@ -253,7 +253,11 @@ CORE_LIBS_LOCK = 1
 MCU_FLAG_NAME = mcpu
 BUILD_CHIP = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.chip)
 
-MCU = cortex-m0plus
+
+MCU := $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.mcu)
+ifeq ($(MCU),)
+    MCU := $(call PARSE_BOARD,$(BOARD_TAG),build.mcu)
+endif # MCU
 F_CPU = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.f_cpu)
 
 #  USB flags
@@ -273,7 +277,7 @@ USB_STACK := $(rp1000b)
 
 ifeq ($(USB_VENDOR),)
     USB_VENDOR = "Arduino"
-endif
+endif # USB_VENDOR
 
 USB_FLAGS += -DUSB_MANUFACTURER='$(USB_VENDOR)'
 USB_FLAGS += -DUSB_PRODUCT='$(USB_PRODUCT)'
@@ -283,12 +287,11 @@ USB_FLAGS += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_def.txt
 
 USB_FLAGS += $(call PARSE_FILE,build,flags.sdfatdefines,$(HARDWARE_PATH)/platform.txt)
 
-
 # Define menu.ipstack and menu.usbstack
 BUILD_WIFI = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.wificc)
 ifeq ($(USB_VENDOR),)
     BUILD_WIFI = $(call PARSE_FILE,$(BOARD_TAG),build,wificc)
-endif
+endif # USB_VENDOR
 
 USB_FLAGS += $(FLAGS_W_DEFS)
 USB_FLAGS += $(BUILD_WIFI)
@@ -324,14 +327,14 @@ TARGET_HEXBIN = $(TARGET_UF2)
 FLAG_STACK = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.flags.stackprotect)
 ifeq ($(FLAG_STACK),)
     FLAG_STACK := $(call PARSE_FILE,build,flags.stackprotect,$(HARDWARE_PATH)/platform.txt)
-endif
+endif # FLAG_STACK
 
 FLAG_EXCEPTION = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.flags.exceptions)
 FLAG_EXCEPTION += $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.flags.libstdcpp)
 ifeq ($(FLAG_EXCEPTION),)
     FLAG_EXCEPTION := $(call PARSE_FILE,build,flags.exceptions,$(HARDWARE_PATH)/platform.txt)
     FLAG_EXCEPTION += $(call PARSE_FILE,build,flags.libstdcpp,$(HARDWARE_PATH)/platform.txt)
-endif
+endif # FLAG_EXCEPTION
 
 FLAGS_W_DEFS = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.libpicowdefs)
 ifeq ($(FLAGS_W_DEFS),)
@@ -363,7 +366,7 @@ BUILD_RAM_LENGTH = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.ram_length)
 BUILD_PSRAM_LENGTH = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.psram_length)
 ifeq ($(BUILD_PSRAM_LENGTH),)
     BUILD_PSRAM_LENGTH = 0
-endif
+endif # BUILD_PSRAM_LENGTH
 
 FLAGS_SUB  = --sub __FLASH_LENGTH__ $(BUILD_FLASH_LENGTH) 
 FLAGS_SUB += --sub __EEPROM_START__ $(BUILD_EEPROM_START) 

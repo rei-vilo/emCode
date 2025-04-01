@@ -347,7 +347,7 @@ ifeq ($(ARDUINO_NRF52_RELEASE),1.0.1)
     COMMAND_POST_COPY = $(OTHER_TOOLS_PATH)/nrf5x-cl-tools/$(ARDUINO_NRF5X_TOOLS_RELEASE)/mergehex/mergehex --merge $(HARDWARE_PATH)/firmwares/primo/softdevice/s132_nrf52_2.0.0_softdevice.hex $(TARGET_HEX) --output $(OBJDIR)/$(BINARY_SPECIFIC_NAME)-merged.hex --quiet
 else
 # For 1.0.2
-	COMMAND_POST_COPY = $(OTHER_TOOLS_PATH)/nrf5x-cl-tools/$(ARDUINO_NRF5X_TOOLS_RELEASE)/mergehex/mergehex --merge $(HARDWARE_PATH)/firmwares/primo/softdevice/s132_nrf52_2.0.0_softdevice.hex $(HARDWARE_PATH)/bootloaders/$(call PARSE_BOARD,$(BOARD_TAG),bootloader.file) $(TARGET_HEX) --output $(OBJDIR)/$(BINARY_SPECIFIC_NAME)-merged.hex --quiet
+    COMMAND_POST_COPY = $(OTHER_TOOLS_PATH)/nrf5x-cl-tools/$(ARDUINO_NRF5X_TOOLS_RELEASE)/mergehex/mergehex --merge $(HARDWARE_PATH)/firmwares/primo/softdevice/s132_nrf52_2.0.0_softdevice.hex $(HARDWARE_PATH)/bootloaders/$(call PARSE_BOARD,$(BOARD_TAG),bootloader.file) $(TARGET_HEX) --output $(OBJDIR)/$(BINARY_SPECIFIC_NAME)-merged.hex --quiet
 endif
 
 # Upload command

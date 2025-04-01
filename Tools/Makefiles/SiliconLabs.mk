@@ -150,7 +150,7 @@ APP_LIB_PATH = $(HARDWARE_PATH)/libraries
 
 ifneq ($(APP_LIBS_LIST),0)
 
-    SILABS_00 = $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d  | egrep -v 'examples'))
+    SILABS_00 = $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d  | egrep -v 'examples' | egrep -v 'extras'))
 
     APP_LIB_CPP_SRC = $(foreach dir,$(SILABS_00),$(wildcard $(dir)/*.cpp))
     APP_LIB_C_SRC = $(foreach dir,$(SILABS_00),$(wildcard $(dir)/*.c))
@@ -382,7 +382,7 @@ LDSCRIPT = $(SILABS_42b)
 # recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} "-T{build.ldscript}" {compiler.ldflags} {object_files} -Wl,-whole-archive "{build.path}/{archive_file}" {compiler.silabs.precompiled_gsdk} -Wl,-no-whole-archive -Wl,--start-group {compiler.ldlibs} {compiler.silabs.precompiled_libs} -Wl,--end-group -o "{build.path}/{build.project_name}.elf"
 # TARGET_A replaced by OBJS_NON_CORE
 
-COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments $(OBJS_NON_CORE) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -Wl,-whole-archive -L$(OBJDIR) $(TARGET_CORE_A) $(SILABS_PRE_GSDK) -Wl,-no-whole-archive -Wl,--start-group $(FLAGS_LIBS) $(SILABS_PRE_LIBS) -Wl,--end-group $(OUT_PREPOSITION)$@
+COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments -Wl,-whole-archive $(OBJS_NON_CORE) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -L$(OBJDIR) $(TARGET_CORE_A) $(SILABS_PRE_GSDK) -Wl,-no-whole-archive -Wl,--start-group $(FLAGS_LIBS) $(SILABS_PRE_LIBS) -Wl,--end-group $(OUT_PREPOSITION)$@
 
 # Target
 #

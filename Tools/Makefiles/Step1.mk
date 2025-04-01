@@ -43,6 +43,90 @@ VERSION = $(shell work=$(2)/$(1)/library.properties ; test=$$(grep version $$wor
 # VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work )
 # VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work ; test=$$(grep "version" $$work) ; echo $$test )
 
+# define CHECK_RELEASE = 
+#     $(info Warning           $(1) $(4) expected, $(shell if [ -d $(ARDUINO_PACKAGES_PATH)/$(2)/hardware/$(3) ] ; then basename $(ARDUINO_PACKAGES_PATH)/$(2)/hardware/$(3)/* -d ; else echo "none" ; fi) found)
+# endef
+
+# $(call CHECK_RELEASE,STM32duino,STMicroelectronics,stm32,$(STM32DUINO_RELEASE))
+
+# define CHECK_RELEASE = 
+
+#     $(info $(shell CHECK_PATH=$(ARDUINO_PACKAGES_PATH)/$(2)/hardware/$(3) ; if [ -d $$CHECK_PATH ]; then FOUND_PATH=$$(basename $$CHECK_PATH/* -d) ; else FOUND_PATH="none" ; fi ; if [ "$$FOUND_PATH" != "$(4)" ] ; then printf "%-18s %s expected, %s found" $(1) $(4) $$FOUND_PATH ; fi ))
+
+# endef
+
+include $(MAKEFILE_PATH)/About.mk
+ 
+READ_ME_NAME := Summary.md
+READ_ME_FILE := $(BUILDS_PATH)/$(READ_ME_NAME)
+
+ARDUINO_15_LIBRARY_PATH := $(HOME)/.arduino15
+# macOS specifics
+ifeq ($(OPERATING_SYSTEM),Darwin)
+    ARDUINO_15_LIBRARY_PATH := $(HOME)/Library/Arduino15
+endif # OPERATING_SYSTEM
+
+ARDUINO_PACKAGES_PATH = $(ARDUINO_15_LIBRARY_PATH)/packages
+
+ARDUINO_IDE_LIBRARY_PATH = $(HOME)/.arduinoIDE
+
+# preferences.txt no longer used
+# ARDUINO_PREFERENCES = $(ARDUINO_LIBRARY_PATH)/preferences.txt 
+ARDUINO_IDE_YAML := $(ARDUINO_IDE_LIBRARY_PATH)/arduino-cli.yaml
+ARDUINO_15_YAML := $(ARDUINO_15_LIBRARY_PATH)/arduino-cli.yaml
+
+# $(info === ARDUINO_15_LIBRARY_PATH $(ARDUINO_15_LIBRARY_PATH))
+# $(info === ARDUINO_IDE_LIBRARY_PATH $(ARDUINO_IDE_LIBRARY_PATH))
+# $(info === ARDUINO_PACKAGES_PATH $(ARDUINO_PACKAGES_PATH))
+# $(info === ARDUINO_PREFERENCES $(ARDUINO_PREFERENCES))
+
+define CHECK_RELEASE = 
+
+    $(info $(shell CHECK_PATH=$(ARDUINO_PACKAGES_PATH)/$(2)/hardware/$(3) ; if [ -d $$CHECK_PATH ]; then FOUND_PATH=$$(basename $$CHECK_PATH/* -d) ; else FOUND_PATH="none" ; fi ; if [ "$$FOUND_PATH" != "$(4)" ] ; then printf "%-18s %s expected, %s found" "$(1)" $(4) $$FOUND_PATH ; else printf "%-18s %s expected and found" "$(1)" $(4) ; fi ))
+
+endef
+
+# $(call CHECK_RELEASE,Name,)
+# 1 Name
+# 2 Platform from .arduino15/packages/<platform>/hardware/<sub-platform>
+# 3 Sub-platform from .arduino15/packages/<platform>/hardware/<sub-platform>
+# 4 Expected release $(..._RELEASE) from About.mk
+#
+define LIST_PLATFORMS
+
+    $(info --- Checks ---)
+
+    $(call CHECK_RELEASE,Adafruit SAMD,adafruit,samd,$(ADAFRUIT_SAMD_RELEASE))
+    $(call CHECK_RELEASE,Adafruit nRF52,adafruit,nrf52,$(ADAFRUIT_NRF52_RELEASE))
+
+    $(call CHECK_RELEASE,Arduino Nano,arduino,mbed_nano,$(ARDUINO_MBED_NANO_RELEASE))
+    $(call CHECK_RELEASE,Arduino RP2040,arduino,mbed_rp2040,$(ARDUINO_MBED_PICO_RELEASE))
+    $(call CHECK_RELEASE,Arduino ESP32,arduino,esp32,$(ARDUINO_ESP32_RELEASE))
+    $(call CHECK_RELEASE,Arduino SAM,arduino,sam,$(ARDUINO_SAM_RELEASE))
+    $(call CHECK_RELEASE,Arduino SAMD,arduino,samd,$(ARDUINO_SAMD_RELEASE))
+
+    $(call CHECK_RELEASE,Espressif ESP32,esp32,esp32,$(ESP32_RELEASE))
+
+    $(call CHECK_RELEASE,Intel Curie,Intel,arc32,$(INTEL_CURIE_RELEASE))
+
+    $(call CHECK_RELEASE,Microsoft,AZ3166,stm32f4,$(MICROSOFT_AZ3166_RELEASE))
+
+    $(call CHECK_RELEASE,RedBear,RedBear,STM32F2,$(REDBEAR_DUO_RELEASE))
+
+    $(call CHECK_RELEASE,SiLabs,SiliconLabs,silabs,$(SILICONLABS_SILABS_RELEASE))
+
+    $(call CHECK_RELEASE,STM32duino,STMicroelectronics,stm32,$(STM32DUINO_RELEASE))
+
+    $(call CHECK_RELEASE,RP2040,rp2040,rp2040,$(RP2040_RELEASE))
+
+    $(call CHECK_RELEASE,Teensy,teensy,avr,$(TEENSY_RELEASE))
+
+    $(info --- End of Checks ---)
+
+endef
+
+#    FOUND_PATH:=$(shell if [ -d $(CHECK_PATH) ] ; then echo $(CHECK_PATH)/* -d ; else echo "none" ; fi)
+
 # define MESSAGE_ZENITY
 #     $(info ERROR $(1))
 #     $(shell zenity --width=240 --title "emCode" --text "$(1)" --$(2))
@@ -78,7 +162,7 @@ else ifeq ($(GUI_OPTION),OSASCRIPT)
     MESSAGE_GUI_INFO = $(shell osascript -e 'tell application "System Events" to display dialog "$(1)" with title "emCode" buttons {"OK"} default button {"OK"} with icon 1')
 
 else
-#     Nothing
+# Nothing
 endif # GUI_OPTION
 
 # Sketch unicity test and extension
@@ -154,9 +238,10 @@ $(shell mkdir -p $(BUILDS_PATH))
 
 ifeq ($(MAKECMDGOALS),)
     $(info Syntax            make <target> SELECTED_BOARD=<board name>)
+    $(info <target>          $(MAKECMDGOALS))
     $(info ERROR             <target> not defined)
     $(info .)
-    $(call MESSAGE_GUI_ERROR,make <target> SELECTED_BOARD=<board name>\n<target> not defined)
+    $(call MESSAGE_GUI_ERROR,make <target> SELECTED_BOARD=<board name>\n\n'<target> $(MAKECMDGOALS)'\n<target> not defined)
     $(error Stop)
 endif # MAKECMDGOALS
 
@@ -180,9 +265,13 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 
     ifndef BOARD_TAG
         $(info Syntax            make <target> SELECTED_BOARD=<board name>)
+        $(info <board name>      $(SELECTED_BOARD))
         $(info ERROR             <board name> not defined)
         $(info .)
-        $(call MESSAGE_GUI_ERROR,make <target> SELECTED_BOARD=<board name>\n<board name> not defined)
+
+        $(call LIST_PLATFORMS)
+
+        $(call MESSAGE_GUI_ERROR,make <target> SELECTED_BOARD=<board name>\n\n<board name> '$(SELECTED_BOARD)'\n<board name> not defined or unknown)
         $(error Stop)
     endif # BOARD_TAG
 
@@ -309,33 +398,18 @@ endif # ARDUINO_CLI_PATH
 # $(info 3 arduino-cli $(shell find $(APPLICATION_PATH) -name arduino-cli))
 # $(info >>> ARDUINO_APP $(ARDUINO_APP))
 
-# $(error sTOP)
-
-ARDUINO_15_LIBRARY_PATH := $(HOME)/.arduino15
-# macOS specifics
-ifeq ($(OPERATING_SYSTEM),Darwin)
-    ARDUINO_15_LIBRARY_PATH := $(HOME)/Library/Arduino15
-endif # OPERATING_SYSTEM
-
-ARDUINO_PACKAGES_PATH = $(ARDUINO_15_LIBRARY_PATH)/packages
-
-ARDUINO_IDE_LIBRARY_PATH = $(HOME)/.arduinoIDE
-
-# preferences.txt no longer used
-# ARDUINO_PREFERENCES = $(ARDUINO_LIBRARY_PATH)/preferences.txt 
-ARDUINO_YAML := $(ARDUINO_IDE_LIBRARY_PATH)/arduino-cli.yaml
-
-# $(info === ARDUINO_15_LIBRARY_PATH $(ARDUINO_15_LIBRARY_PATH))
-# $(info === ARDUINO_IDE_LIBRARY_PATH $(ARDUINO_IDE_LIBRARY_PATH))
-# $(info === ARDUINO_PACKAGES_PATH $(ARDUINO_PACKAGES_PATH))
-# $(info === ARDUINO_PREFERENCES $(ARDUINO_PREFERENCES))
+# $(error STOP)
 
 # Sketchbook/Libraries path
 # wildcard required for ~ management
 # ?ibraries required for libraries and Libraries
 #
-ifeq ($(shell if [ -f '$(ARDUINO_YAML)' ]; then echo 1 ; fi ),1)
-    SKETCHBOOK_DIR = $(shell grep 'user:' $(ARDUINO_YAML) | cut -d: -f2 | sed -e 's/ //g')
+ifeq ($(shell if [ -f '$(ARDUINO_IDE_YAML)' ]; then echo 1 ; fi ),1)
+    SKETCHBOOK_DIR = $(shell grep 'user:' $(ARDUINO_IDE_YAML) | cut -d: -f2 | sed -e 's/ //g')
+endif # SKETCHBOOK_DIR
+
+ifeq ($(shell if [ -f '$(ARDUINO_15_YAML)' ]; then echo 1 ; fi ),1)
+    SKETCHBOOK_DIR = $(shell grep 'user:' $(ARDUINO_15_YAML) | cut -d: -f2 | sed -e 's/ //g')
 endif # SKETCHBOOK_DIR
 
 # ifeq ($(ARDUINO_PREFERENCES),)
@@ -506,7 +580,7 @@ endif # WARNING_OPTIONS
 ifeq ($(BOOL_SELECT_BOARD),1)
 # List of sub-paths to be excluded
 #
-    EXCLUDE_NAMES = Example example Examples examples Archive archive Archives archives
+    EXCLUDE_NAMES = Example example Examples examples Archive archive Archives archives Test test Tests tests
     EXCLUDE_NAMES += Documentation documentation Reference reference
     EXCLUDE_NAMES += ArduinoTestSuite tests test .git linux extra extras linux
     EXCLUDE_NAMES += $(EXCLUDE_LIBS)
@@ -556,6 +630,9 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 #             Raspberry Pi
             -include $(MAKEFILE_PATH)/RasPiPico.mk
 
+#             RedBear
+            -include $(MAKEFILE_PATH)/RedBearLabDUO.mk
+
 #             Seeeduino
             -include $(MAKEFILE_PATH)/SeeeduinoAVR.mk
             -include $(MAKEFILE_PATH)/SeeeduinoSAMD.mk
@@ -591,12 +668,15 @@ ifeq ($(BOOL_SELECT_BOARD),1)
 #            -include $(MAKEFILE_PATH)/EnergiaC2000.mk
             -include $(MAKEFILE_PATH)/EnergiaCC1300EMT.mk
             -include $(MAKEFILE_PATH)/EnergiaCC13x2EMT.mk
-            -include $(MAKEFILE_PATH)/EnergiaCC2600EMT.mk
+#            -include $(MAKEFILE_PATH)/EnergiaCC2600EMT.mk
         endif # ENERGIA_APP
 
     endif # GCC_PREPROCESSOR_DEFINITIONS
 
     ifeq ($(MAKEFILE_NAME),)
+
+        $(call LIST_PLATFORMS)
+        
         ifneq ($(strip $(BOARD_TAG)),0)
             $(info ERROR             $(BOARD_TAG) board is not defined)
             $(info .)

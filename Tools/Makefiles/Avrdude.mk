@@ -32,7 +32,7 @@ ifndef AVRDUDE_PATH
 
 # Old location under /Applications/Arduino.app
     ifeq ($(CHECK_AVRDUDE),0)
-	    AVRDUDE_PATH = $(APPLICATION_PATH)/hardware/tools/avr
+        AVRDUDE_PATH = $(APPLICATION_PATH)/hardware/tools/avr
     endif
 endif
 

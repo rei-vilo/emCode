@@ -40,10 +40,10 @@ OTHER_TOOLS_PATH = $(ARDUINO_AVR_PATH)/tools/avrdude/$(ARDUINO_AVRDUDE_RELEASE)
 # With ArduinoCC 1.6.7, AVR 1.6.9 is back under Arduino.app
 ifeq ($(wildcard $(TOOL_CHAIN_PATH)),)
     TOOL_CHAIN_PATH = $(ARDUINO_PATH)/hardware/tools/avr
-endif
+endif # TOOL_CHAIN_PATH
 ifeq ($(wildcard $(OTHER_TOOLS_PATH)),)
     OTHER_TOOLS_PATH = $(ARDUINO_PATH)/hardware/tools/avr
-endif
+endif # OTHER_TOOLS_PATH
 
 BUILD_CORE = avr
 SUB_PLATFORM = avr
@@ -80,7 +80,7 @@ $(shell echo " " >> ./main.cpp)
 $(shell echo "#include \"$(PROJECT_NAME_AS_IDENTIFIER).$(SKETCH_EXTENSION)\"" >> ./main.cpp)
 $(shell echo " " >> ./main.cpp)
 $(shell echo "#endif // EMCODE" >> ./main.cpp)
-endif
+endif # KEEP_MAIN
 
 # Two locations for Adafruit libraries
 #
@@ -115,7 +115,7 @@ ifneq ($(wildcard $(APPLICATION_PATH)/hardware/arduino/avr/variants/$(VARIANT)),
     VARIANT_PATH = $(APPLICATION_PATH)/hardware/arduino/avr/variants/$(VARIANT)
 else
     VARIANT_PATH = $(HARDWARE_PATH)/variants/$(VARIANT)
-endif
+endif # VARIANT
 
 # Tool-chain names
 #
@@ -145,7 +145,7 @@ ifneq ($(USB_VID),)
     USB_FLAGS += -DUSBCON
     USB_FLAGS += -DUSB_MANUFACTURER='$(USB_VENDOR)'
     USB_FLAGS += -DUSB_PRODUCT='$(USB_PRODUCT)'
-endif
+endif # USB_VID
 
 INCLUDE_PATH = $(CORE_LIB_PATH) $(APP_LIB_PATH) $(VARIANT_PATH) $(HARDWARE_PATH)
 INCLUDE_PATH += $(sort $(dir $(APP_LIB_CPP_SRC) $(APP_LIB_C_SRC) $(APP_LIB_H_SRC)))
@@ -210,7 +210,7 @@ COMMAND_LINK = $(CC) $(OUT_PREPOSITION)$@ $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER
 #
 # COMMAND_UPLOAD = $(AVRDUDE_EXEC) -p$(AVRDUDE_MCU) -D -c$(AVRDUDE_PROGRAMMER) -C$(AVRDUDE_CONF) -Uflash:w:$(TARGET_HEX):i
 
-endif
+endif # ADAFRUIT_AVR_BOARDS
 
 endif # MAKEFILE_NAME
 

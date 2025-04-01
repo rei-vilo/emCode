@@ -107,7 +107,7 @@ else ifeq ($(UPLOADER),cp_hex)
     USED_VOLUME_PORT = $(strip $(BOARD_VOLUME))
 
 else ifeq ($(UPLOADER),openocd)
-	UPLOADER_EXEC = openocd
+    UPLOADER_EXEC = openocd
     UPLOADER_OPTS = -f interface/stlink.cfg 
     ifeq ($(findstring NUCLEO_L4,$(BOARD_NAME)),)
         UPLOADER_OPTS += -f board/st_nucleo_l4.cfg 

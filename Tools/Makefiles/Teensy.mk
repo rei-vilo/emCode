@@ -83,7 +83,7 @@ else ifeq ($(BUILD_SUBCORE),teensy3)
 
 else ifeq ($(BUILD_SUBCORE),teensy4)
 
-	include $(MAKEFILE_PATH)/Teensy3.mk
+    include $(MAKEFILE_PATH)/Teensy3.mk
 
 else # BUILD_SUBCORE
 
@@ -172,8 +172,8 @@ COMMAND_COPY = $(OBJCOPY) -O ihex -R .eeprom $< $@
 #
 ## COMMAND_LINK = $(CC) $(OUT_PREPOSITION)$@ $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(TARGET_A) $(FLAGS_LD)
 # COMMAND_LINK = $(CC) $(OUT_PREPOSITION)$@ $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(TARGET_CORE_A) $(TARGET_A) $(FLAGS_LD)
-# Teensy seems to dislike archives
-COMMAND_LINK = $(CC) $(OUT_PREPOSITION)$@ $(OBJS_NON_CORE) $(TARGET_CORE_A) $(FLAGS_LD)
+# Teensy seems to dislike archives unless using --start-group and --end-group
+COMMAND_LINK = $(CC) $(OUT_PREPOSITION)$@ -Wl,--start-group $(OBJS_NON_CORE) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(TARGET_CORE_A) -Wl,--end-group $(FLAGS_LD)
 
 endif # BOARD_CHECK
 

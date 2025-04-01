@@ -11,7 +11,7 @@
 # Copyright: (c) Rei Vilo, 2010-2025 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 26 Aug 2024 release 14.5.0
+# Last update: 14 Mar 2025 release 14.7.4
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
@@ -20,7 +20,7 @@ BOARD_TAG = rpipico
 # Program / File system
 BOARD_TAG1 = rpipico.menu.flash.2097152_0
 # Speed nominal = 133
-BOARD_TAG2 = rpipico.menu.freq.125
+BOARD_TAG2 = rpipico.menu.freq.200
 # Debug port, requires TinyUSB
 BOARD_TAG3 = rpipico.menu.dbgport.Disabled
 # BOARD_TAG3 = rpipico.menu.dbgport.Serial

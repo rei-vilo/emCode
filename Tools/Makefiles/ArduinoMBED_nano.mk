@@ -113,11 +113,11 @@ else ifeq ($(UPLOADER),dfu-util)
 
     UPLOADER = dfu-util
     USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
-	UPLOADER_PATH = $(OTHER_TOOLS_PATH)/dfu-util/bin
-	UPLOADER_EXEC = $(UPLOADER_PATH)/dfu-util
-	UPLOADER_OPTS = $(UPLOADER_PATH)
-	UPLOADER_OPTS += --device $(call PARSE_BOARD,$(BOARD_TAG),upload.vid):$(call PARSE_BOARD,$(BOARD_TAG),upload.pid)
-	UPLOADER_OPTS += -a$(call PARSE_BOARD,$(BOARD_TAG),upload.interface)
+    UPLOADER_PATH = $(OTHER_TOOLS_PATH)/dfu-util/bin
+    UPLOADER_EXEC = $(UPLOADER_PATH)/dfu-util
+    UPLOADER_OPTS = $(UPLOADER_PATH)
+    UPLOADER_OPTS += --device $(call PARSE_BOARD,$(BOARD_TAG),upload.vid):$(call PARSE_BOARD,$(BOARD_TAG),upload.pid)
+    UPLOADER_OPTS += -a$(call PARSE_BOARD,$(BOARD_TAG),upload.interface)
     UPLOADER_OPTS += -dfuse-address=$(call PARSE_BOARD,$(BOARD_TAG),upload.address):leave
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -D $(TARGET_BIN)
 

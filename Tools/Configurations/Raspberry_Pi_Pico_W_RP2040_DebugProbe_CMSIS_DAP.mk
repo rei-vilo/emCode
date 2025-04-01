@@ -12,7 +12,7 @@
 # Copyright: (c) Rei Vilo, 2010-2025 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 26 Aug 2024 release 14.5.0
+# Last update: 14 Mar 2025 release 14.7.4
 
 # Declare udev for Linux
 # echo 'SUBSYSTEMS = = "usb", ATTRS{idVendor} = = "2e8a", ATTRS{idProduct} = = "0004", GROUP = "users", MODE = "0666"' | sudo tee -a /etc/udev/rules.d/98-DebugProbe.rules
@@ -25,7 +25,7 @@ BOARD_TAG = rpipicow
 # Program / File system
 BOARD_TAG1 = rpipicow.menu.flash.2097152_0
 # Speed nominal = 133
-BOARD_TAG2 = rpipicow.menu.freq.125
+BOARD_TAG2 = rpipicow.menu.freq.200
 # Debug port, requires TinyUSB
 BOARD_TAG3 = rpipicow.menu.dbgport.Disabled
 # BOARD_TAG3 = rpipicow.menu.dbgport.Serial

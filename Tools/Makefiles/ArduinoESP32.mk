@@ -100,7 +100,7 @@ endif
 
 # MAX_FLASH_SIZE might have already been defined in the board confguration file or in the main makefile.
 ifeq ($(MAX_FLASH_SIZE),)
-	MAX_FLASH_SIZE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),upload.maximum_size)
+    MAX_FLASH_SIZE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),upload.maximum_size)
 endif
 # Not all variants define a specific MAX_FLASH_SIZE, take default one
 ifeq ($(MAX_FLASH_SIZE),)

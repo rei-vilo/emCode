@@ -93,7 +93,7 @@ else ifeq ($(UPLOADER),jlink)
     UPLOADER = jlink
     UPLOADER_PATH = $(SEGGER_PATH)/JLink
     UPLOADER_EXEC = $(UPLOADER_PATH)/JLinkExe
-	SHARED_OPTS = -device $(JLINK_DEVICE) -if swd -speed 4000
+    SHARED_OPTS = -device $(JLINK_DEVICE) -if swd -speed 4000
     UPLOADER_OPTS = $(SHARED_OPTS) -commanderscript '$(BUILDS_PATH)/upload.jlink'
 
 # Prepare the .jlink scripts

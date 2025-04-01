@@ -270,7 +270,7 @@ endif
 APP_LIBS_LIST += Bluefruit52Lib
 
 # Now, adding some extra non-standard sub-folders manually
-ada1000 = $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d  | egrep -v 'examples'))
+ada1000 = $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d | egrep -v 'examples'))
 
 # Pick and sort
 APP_LIB_CPP_SRC = $(foreach dir,$(ada1000),$(wildcard $(dir)/*.cpp))

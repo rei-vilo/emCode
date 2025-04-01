@@ -246,7 +246,7 @@ else
 endif
 
 ifeq ($(MAKECMDGOALS),debug)
-	OPTIMISATION ?= -Os -g
+    OPTIMISATION ?= -Os -g
 #    OPTIMISATION ?= -Os -g
 else
     OPTIMISATION ?= -Os -g3
