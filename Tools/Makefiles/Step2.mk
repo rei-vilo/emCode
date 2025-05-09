@@ -765,7 +765,11 @@ endif # MAKECMDGOALS upload
 endif # MAKECMDGOALS clean
 
 ifeq ($(MAKECMDGOALS),upload)
-    HIDE_INFO ?= true
+    HIDE_INFO := true
+endif # MAKECMDGOALS upload
+
+ifeq ($(MAKECMDGOALS),clean)
+    HIDE_INFO := true
 endif # MAKECMDGOALS upload
 
 ifneq ($(MESSAGE_CRITICAL),)
@@ -776,140 +780,144 @@ ifneq ($(MESSAGE_CRITICAL),)
 # $(shell export SUBTITLE='Warning' ; export MESSAGE='$(MESSAGE_WARNING)' ; $(UTILITIES_PATH)/Notify.app/Contents/MacOS/applet)
 endif # MESSAGE_CRITICAL
 
+# $(info > MAKECMDGOALS $(MAKECMDGOALS))
+# $(info > HIDE_INFO $(HIDE_INFO))
+
 # ReadMe file for archive
+ifneq ($(HIDE_INFO),true)
+    $(info ---- Summary ----)
+    $(info File              $(READ_ME_FILE))
 
-$(info ---- Summary ----)
-$(info File              $(READ_ME_FILE))
+    $(shell echo "  " > $(READ_ME_FILE)) # Start
 
-$(shell echo "  " > $(READ_ME_FILE)) # Start
-
-# $(shell echo "  " >> $(READ_ME_FILE))
-# $(shell echo "*Pre-compiled library for Arduino*" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "## Target" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Date Time**         $(shell date '+%F %T')" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Board**             $(BOARD_NAME) ($(BOARD_TAG))" >> $(READ_ME_FILE))
-
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "## Libraries and archives" >> $(READ_ME_FILE))
-
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "### Core and Application" >> $(READ_ME_FILE))
-
-FLAG_LIBRARIES:=0
-ifneq ($(wildcard $(TARGET_CORE_A)),)
+    # $(shell echo "  " >> $(READ_ME_FILE))
+    # $(shell echo "*Pre-compiled library for Arduino*" >> $(READ_ME_FILE))
     $(shell echo "  " >> $(READ_ME_FILE))
-    $(shell echo "**Archive**           $(SELECTED_BOARD) release $(RELEASE_CORE)" >> $(READ_ME_FILE))
-    FLAG_LIBRARIES:=1
-endif # TARGET_CORE_A
+    $(shell echo "## Target" >> $(READ_ME_FILE))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Date Time**         $(shell date '+%F %T')" >> $(READ_ME_FILE))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Board**             $(BOARD_NAME) ($(BOARD_TAG))" >> $(READ_ME_FILE))
 
-# APP_LIB_PATH := /home/reivilo/.arduino15/packages/RedBear/hardware/STM32F2/0.3.3/libraries/
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "## Libraries and archives" >> $(READ_ME_FILE))
 
-ifneq ($(strip $(APP_LIBS_LIST)),0)
-    ifneq ($(strip $(APP_LIBS_LIST)),)
-        $(foreach file,$(APP_LIBS_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(APP_LIB_PATH))" >> $(READ_ME_FILE)))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "### Core and Application" >> $(READ_ME_FILE))
+
+    FLAG_LIBRARIES:=0
+    ifneq ($(wildcard $(TARGET_CORE_A)),)
+        $(shell echo "  " >> $(READ_ME_FILE))
+        $(shell echo "**Archive**           $(SELECTED_BOARD) release $(RELEASE_CORE)" >> $(READ_ME_FILE))
         FLAG_LIBRARIES:=1
+    endif # TARGET_CORE_A
+
+    # APP_LIB_PATH := /home/reivilo/.arduino15/packages/RedBear/hardware/STM32F2/0.3.3/libraries/
+
+    ifneq ($(strip $(APP_LIBS_LIST)),0)
+        ifneq ($(strip $(APP_LIBS_LIST)),)
+            $(foreach file,$(APP_LIBS_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(APP_LIB_PATH))" >> $(READ_ME_FILE)))
+            FLAG_LIBRARIES:=1
+        endif # APP_LIBS_LIST
     endif # APP_LIBS_LIST
-endif # APP_LIBS_LIST
 
-ifeq ($(FLAG_LIBRARIES),0)
+    ifeq ($(FLAG_LIBRARIES),0)
+        $(shell echo "  " >> $(READ_ME_FILE))
+        $(shell echo "None" >> $(READ_ME_FILE))
+    endif # FLAG_LIBRARIES
+
     $(shell echo "  " >> $(READ_ME_FILE))
-    $(shell echo "None" >> $(READ_ME_FILE))
-endif # FLAG_LIBRARIES
+    $(shell echo "### User" >> $(READ_ME_FILE))
 
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "### User" >> $(READ_ME_FILE))
+    FLAG_LIBRARIES:=0
+    ifneq ($(strip $(INFO_USER_UNARCHIVES_LIST)),)
+        ifneq ($(strip $(USER_LIBS_LIST)),0)
+            $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(USER_LIB_PATH))" >> $(READ_ME_FILE)))
+            FLAG_LIBRARIES:=1
+        endif # USER_LIBS_LIST
+    endif # INFO_USER_UNARCHIVES_LIST
 
-FLAG_LIBRARIES:=0
-ifneq ($(strip $(INFO_USER_UNARCHIVES_LIST)),)
-    ifneq ($(strip $(USER_LIBS_LIST)),0)
-        $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(USER_LIB_PATH))" >> $(READ_ME_FILE)))
+    ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
+        $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Archive**           $(call VERSION,$(file),$(USER_LIB_PATH))" >> $(READ_ME_FILE)))
+            FLAG_LIBRARIES:=1
+    endif # INFO_USER_ARCHIVES_LIST
+
+    ifeq ($(FLAG_LIBRARIES),0)
+        $(shell echo "  " >> $(READ_ME_FILE))
+        $(shell echo "None" >> $(READ_ME_FILE))
+    endif # FLAG_LIBRARIES
+
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "### Local" >> $(READ_ME_FILE))
+
+    FLAG_LIBRARIES:=0
+    ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
+        $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(CURRENT_DIR))" >> $(READ_ME_FILE)))
         FLAG_LIBRARIES:=1
-    endif # USER_LIBS_LIST
-endif # INFO_USER_UNARCHIVES_LIST
+    endif # INFO_USER_UNARCHIVES_LIST 
 
-ifneq ($(strip $(INFO_USER_ARCHIVES_LIST)),)
-    $(foreach file,$(INFO_USER_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Archive**           $(call VERSION,$(file),$(USER_LIB_PATH))" >> $(READ_ME_FILE)))
+    ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
+        $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Archive**           $(call VERSION,$(file),$(CURRENT_DIR))" >> $(READ_ME_FILE)))
         FLAG_LIBRARIES:=1
-endif # INFO_USER_ARCHIVES_LIST
+    endif # INFO_USER_ARCHIVES_LIST
 
-ifeq ($(FLAG_LIBRARIES),0)
+    ifeq ($(FLAG_LIBRARIES),0)
+        $(shell echo "  " >> $(READ_ME_FILE))
+        $(shell echo "None" >> $(READ_ME_FILE))
+    endif # FLAG_LIBRARIES
+
     $(shell echo "  " >> $(READ_ME_FILE))
-    $(shell echo "None" >> $(READ_ME_FILE))
-endif # FLAG_LIBRARIES
+    $(shell echo "## Tools" >> $(READ_ME_FILE))
 
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "### Local" >> $(READ_ME_FILE))
-
-FLAG_LIBRARIES:=0
-ifneq ($(strip $(INFO_LOCAL_UNARCHIVES_LIST)),)
-    $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Library**           $(call VERSION,$(file),$(CURRENT_DIR))" >> $(READ_ME_FILE)))
-    FLAG_LIBRARIES:=1
-endif # INFO_USER_UNARCHIVES_LIST 
-
-ifneq ($(strip $(INFO_LOCAL_ARCHIVES_LIST)),)
-    $(foreach file,$(INFO_LOCAL_ARCHIVES_LIST),$(shell echo "   " >> $(READ_ME_FILE) ; echo "**Archive**           $(call VERSION,$(file),$(CURRENT_DIR))" >> $(READ_ME_FILE)))
-    FLAG_LIBRARIES:=1
-endif # INFO_USER_ARCHIVES_LIST
-
-ifeq ($(FLAG_LIBRARIES),0)
     $(shell echo "  " >> $(READ_ME_FILE))
-    $(shell echo "None" >> $(READ_ME_FILE))
-endif # FLAG_LIBRARIES
-
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "## Tools" >> $(READ_ME_FILE))
-
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "### Arduino" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Arduino**           release $(ARDUINO_IDE_RELEASE)" >> $(READ_ME_FILE))
-
-ifneq ($(ARDUINO_FLATPAK_RELEASE),)
+    $(shell echo "### Arduino" >> $(READ_ME_FILE))
     $(shell echo "  " >> $(READ_ME_FILE))
-    $(shell echo "**Arduino IDE**       FlatPak release $(ARDUINO_FLATPAK_RELEASE)" >> $(READ_ME_FILE))
-endif # ARDUINO_FLATPAK_RELEASE
+    $(shell echo "**Arduino**           release $(ARDUINO_IDE_RELEASE)" >> $(READ_ME_FILE))
 
-ifneq ($(ARDUINO_APPIMAGE_RELEASE),)
+    ifneq ($(ARDUINO_FLATPAK_RELEASE),)
+        $(shell echo "  " >> $(READ_ME_FILE))
+        $(shell echo "**Arduino IDE**       FlatPak release $(ARDUINO_FLATPAK_RELEASE)" >> $(READ_ME_FILE))
+    endif # ARDUINO_FLATPAK_RELEASE
+
+    ifneq ($(ARDUINO_APPIMAGE_RELEASE),)
+        $(shell echo "  " >> $(READ_ME_FILE))
+        $(shell echo "**Arduino IDE**       AppImage release $(ARDUINO_APPIMAGE_RELEASE)" >> $(READ_ME_FILE))
+    endif # ARDUINO_APPIMAGE_RELEASE
+
+    ifneq ($(ARDUINO_CLI_RELEASE),)
+        $(shell echo "  " >> $(READ_ME_FILE))
+        $(shell echo "**Arduino CLI**       release $(ARDUINO_CLI_RELEASE)" >> $(READ_ME_FILE))
+    endif # ARDUINO_CLI_RELEASE
+
     $(shell echo "  " >> $(READ_ME_FILE))
-    $(shell echo "**Arduino IDE**       AppImage release $(ARDUINO_APPIMAGE_RELEASE)" >> $(READ_ME_FILE))
-endif # ARDUINO_APPIMAGE_RELEASE
+    $(shell echo "**Platform**          $(PLATFORM) $(PLATFORM_VERSION)" >> $(READ_ME_FILE))
 
-ifneq ($(ARDUINO_CLI_RELEASE),)
     $(shell echo "  " >> $(READ_ME_FILE))
-    $(shell echo "**Arduino CLI**       release $(ARDUINO_CLI_RELEASE)" >> $(READ_ME_FILE))
-endif # ARDUINO_CLI_RELEASE
+    $(shell echo "### Tool-chain" >> $(READ_ME_FILE))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Make**              $(shell make -version | head -1 )" >> $(READ_ME_FILE))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Tool-chain**        $(shell $(CC) --version | head -1 )" >> $(READ_ME_FILE))
 
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Platform**          $(PLATFORM) $(PLATFORM_VERSION)" >> $(READ_ME_FILE))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "### emCode" >> $(READ_ME_FILE))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Edition**           $(EMCODE_REFERENCE) release $(EMCODE_RELEASE)" >> $(READ_ME_FILE))
 
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "### Tool-chain" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Make**              $(shell make -version | head -1 )" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Tool-chain**        $(shell $(CC) --version | head -1 )" >> $(READ_ME_FILE))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Template**          $(EMCODE_EDITION) release $(shell grep $(CURRENT_DIR)/Makefile -e 'Last update' | xargs | rev | cut -d' ' -f1 | rev) " >> $(READ_ME_FILE))
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Makefile**          $(MAKEFILE_NAME) $(MAKEFILE_RELEASE)" >> $(READ_ME_FILE))
 
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "### emCode" >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Edition**           $(EMCODE_REFERENCE) release $(EMCODE_RELEASE)" >> $(READ_ME_FILE))
-
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Template**          $(EMCODE_EDITION) release $(shell grep $(CURRENT_DIR)/Makefile -e 'Last update' | xargs | rev | cut -d' ' -f1 | rev) " >> $(READ_ME_FILE))
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Makefile**          $(MAKEFILE_NAME) $(MAKEFILE_RELEASE)" >> $(READ_ME_FILE))
-
-RESULT := $(shell if [ -f '$(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk' ] ; then echo 1 ; else echo 0 ; fi)
-ifeq ($(RESULT),1)
-$(shell echo "  " >> $(READ_ME_FILE))
-$(shell echo "**Configuration**     $(CONFIG_NAME) release $(shell grep '$(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk' -e 'Last update' | xargs | rev | cut -d' ' -f1 | rev)" >> $(READ_ME_FILE))
-endif # RESULT
-# $(shell echo "  " >> $(READ_ME_FILE))
-# $(shell echo "---" >> $(READ_ME_FILE))
-$(info ---- End of Summary ----)
+    RESULT := $(shell if [ -f '$(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk' ] ; then echo 1 ; else echo 0 ; fi)
+    ifeq ($(RESULT),1)
+    $(shell echo "  " >> $(READ_ME_FILE))
+    $(shell echo "**Configuration**     $(CONFIG_NAME) release $(shell grep '$(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk' -e 'Last update' | xargs | rev | cut -d' ' -f1 | rev)" >> $(READ_ME_FILE))
+    endif # RESULT
+    # $(shell echo "  " >> $(READ_ME_FILE))
+    # $(shell echo "---" >> $(READ_ME_FILE))
+    $(info ---- End of Summary ----)
+endif # HIDE_INFO
 
 ifneq ($(HIDE_INFO),true)
     ifeq ($(UNKNOWN_BOARD),1)

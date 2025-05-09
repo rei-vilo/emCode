@@ -1,5 +1,5 @@
 #
-# SiliconLabs_BG27_BLE.mk
+# SiliconLabs_BG27_NoStack.mk
 # Board config file
 # ----------------------------------
 # Developed with emCode
@@ -17,7 +17,7 @@
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
 #
 BOARD_TAG = xg27devkit
-BOARD_TAG1 = xg27devkit.menu.protocol_stack.ble_silabs
+BOARD_TAG1 = xg27devkit.menu.protocol_stack.none
 
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
@@ -42,4 +42,4 @@ GCC_PREPROCESSOR_DEFINITIONS =
 
 UPLOADER = jlink
 
-CONFIG_NAME = SiliconLabs BG27 BLE
+CONFIG_NAME = SiliconLabs BG27 no stack

@@ -1,5 +1,5 @@
 #
-# SiliconLabs_BG27_BLE.mk
+# SiliconLabs_BGM220_NoStack.mk
 # Board config file
 # ----------------------------------
 # Developed with emCode
@@ -7,17 +7,17 @@
 # Part of emCode
 # Embedded computing with make
 #
-# Created by: Rei Vilo on 20 Jan 2024
+# Created by: Rei Vilo on 17 Mar 2025
 # Copyright: (c) Rei Vilo, 2010-2025 https://emCode.weebly.com
 # Licence: All rights reserved
 #
-# Last update: 02 Aug 2024 release 14.4.10
+# Last update: 17 Mar 2025 release 14.7.6
 
 # Board identifier
 # See Boards.txt for <tag>.name = Arduino Uno (16 MHz)
 #
-BOARD_TAG = xg27devkit
-BOARD_TAG1 = xg27devkit.menu.protocol_stack.ble_silabs
+BOARD_TAG = bgm220explorerkit
+BOARD_TAG1 = bgm220explorerkit.menu.protocol_stack.none
 
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
@@ -42,4 +42,4 @@ GCC_PREPROCESSOR_DEFINITIONS =
 
 UPLOADER = jlink
 
-CONFIG_NAME = SiliconLabs BG27 BLE
+CONFIG_NAME = SiliconLabs BGM220 no stack

@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 04 Mar 2025 release 14.7.2
+# Last update: 10 Apr 2025 release 14.7.9
 #
 
 # RP2040 Pico for Arduino
