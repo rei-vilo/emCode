@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 19 Feb 2025 release 14.7.0
+# Last update: 10 Jun 2025 release 14.7.12
 #
 
 # General table of messages
@@ -89,14 +89,22 @@ ifeq ($(UPLOADER),xds110)
 # xdsdfu -e | grep "Serial Num" | rev | cut -d\  -f1 | rev
 # Use XDS EmuPack from https://software-dl.ti.com/ccs/esd/documents/xdsdebugprobes/emu_xds_software_package_download.html
 # Place xdsdfu under UTILITIES_PATH
-  XDS110_USB := $(shell $(UTILITIES_PATH)/xdsdfu -e | grep "Serial Num" | xargs | rev | cut -d\  -f1 | rev)
+#   XDS110_USB := $(shell $(UTILITIES_PATH)/xdsdfu -e | grep "Serial Num" | xargs | rev | cut -d\  -f1 | rev)
+  XDS110_USB := $(shell $(UTILITIES_PATH)/xdsdfu -e | grep "Serial Num" | sed "s/Serial Num://g")
+#   $(info >>> XDS110_USB $(XDS110_USB))
+#   $(info >>> UTILITIES_PATH $(UTILITIES_PATH))
 
   ifeq ($(XDS110_SERIAL),)
 
     XDS110_FIRST = $(firstword $(XDS110_USB))
     XDS110_NUMBER = $(words $(XDS110_USB))
 
-    XDS110_LIST := {"$(shell echo $(XDS110_USB) | sed 's: :", ":g')"}
+    # XDS110_LIST := {"$(shell echo $(XDS110_USB) | sed 's: :", ":g')"}
+    XDS110_LIST := "$(shell echo $(XDS110_USB) | sed 's: :" ":g')"
+
+    # $(info >>> XDS110_FIRST $(XDS110_FIRST))
+    # $(info >>> XDS110_NUMBER $(XDS110_NUMBER))
+    # $(info >>> XDS110_LIST $(XDS110_LIST))
 
     ifeq ($(XDS110_NUMBER),0)
         $(info ERROR              No XDS110 connected)
@@ -104,7 +112,8 @@ ifeq ($(UPLOADER),xds110)
         $(call MESSAGE_GUI_ERROR,No XDS110 connected)
         $(error Stop)
     else ifneq ($(XDS110_NUMBER),1)
-        XDS110_SERIAL := $(shell zenity --width=240 --list --title="emCode" --column="XDS110" $(XDS110_LIST) -text=="Multiple programmers: choose one.")
+        # XDS110_SERIAL := $(shell zenity --width=240 --list --title="emCode" --column="XDS110" $(XDS110_LIST) -text=="Multiple programmers: choose one.")
+        XDS110_SERIAL := $(shell zenity --width=240 --list --title="emCode" --column="XDS110" $(XDS110_LIST) --text "Multiple programmers: choose one.")
     else
         XDS110_SERIAL := $(XDS110_FIRST)
     endif # XDS110_NUMBER
@@ -289,9 +298,13 @@ ifneq ($(HIDE_NUMBER),true)
     SHOW = @printf '%-18s%s\r\n' $(1) $(subst $(BUILDS_PATH)/,,$(2))
 endif # HIDE_NUMBER
 
-ifeq ($(HIDE_COMMAND),true)
-    QUIET = @
-endif # HIDE_COMMAND
+ifeq ($(HIDE_COMMAND_BUILD),true)
+    QUIET_BUILD = @
+endif # HIDE_COMMAND_BUILD
+
+ifeq ($(HIDE_COMMAND_UPLOAD),true)
+    QUIET_UPLOAD = @
+endif # HIDE_COMMAND_UPLOAD
 
 # Find version of the platform
 #
@@ -784,7 +797,7 @@ endif # MESSAGE_CRITICAL
 # $(info > HIDE_INFO $(HIDE_INFO))
 
 # ReadMe file for archive
-ifneq ($(HIDE_INFO),true)
+# ifneq ($(HIDE_INFO),true)
     $(info ---- Summary ----)
     $(info File              $(READ_ME_FILE))
 
@@ -917,32 +930,32 @@ ifneq ($(HIDE_INFO),true)
     # $(shell echo "  " >> $(READ_ME_FILE))
     # $(shell echo "---" >> $(READ_ME_FILE))
     $(info ---- End of Summary ----)
-endif # HIDE_INFO
+# endif # HIDE_INFO
+
+ifeq ($(UNKNOWN_BOARD),1)
+    $(info .)
+    $(info ==== Info ====)
+    $(info ERROR              $(BOARD_TAG) board is unknown)
+    $(info .)
+    $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is unknown)
+    $(error Stop)
+
+    $(info ==== Info done ====)
+endif # UNKNOWN_BOARD
 
 ifneq ($(HIDE_INFO),true)
-    ifeq ($(UNKNOWN_BOARD),1)
-        $(info .)
-        $(info ==== Info ====)
-        $(info ERROR              $(BOARD_TAG) board is unknown)
-        $(info .)
-        $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is unknown)
-        $(error Stop)
-
-        $(info ==== Info done ====)
-    endif # UNKNOWN_BOARD
-
     ifeq ($(BOOL_SELECT_BOARD),1)
         $(info .)
         $(info ==== Info ====)
         $(info Date Time         $(shell date '+%F %T'))
         $(info ---- Project ----)
         $(info Target            $(MAKECMDGOALS))
-    #     $(info Name              $(PROJECT_NAME_AS_IDENTIFIER) ($(SKETCH_EXTENSION)))
+        # $(info Name              $(PROJECT_NAME_AS_IDENTIFIER) ($(SKETCH_EXTENSION)))
         $(info Name              $(PROJECT_NAME_AS_IDENTIFIER))
 
         ifneq ($(MESSAGE_WARNING),)
             $(call MESSAGE_ZENITY_WARNING,$(MESSAGE_WARNING))
-            $(info WARNING                       $(MESSAGE_WARNING))
+            $(info WARNING           $(MESSAGE_WARNING))
         endif # MESSAGE_WARNING
         ifneq ($(MESSAGE_INFO),)
             $(info Information       $(MESSAGE_INFO))
@@ -1375,49 +1388,49 @@ $(OBJDIR)/%.cpp.o: $(HARDWARE_PATH)/%.cpp
 	$(call SHOW,"1.1-CORE CPP","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.c.o: $(HARDWARE_PATH)/%.c
 	$(call SHOW,"1.2-CORE C","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_C)  "$<"  $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_C)  "$<"  $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.s.o: $(HARDWARE_PATH)/%.s
 	$(call SHOW,"1.3-CORE AS","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.S.o: $(HARDWARE_PATH)/%.S
 	$(call SHOW,"1.4-CORE AS","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.d: $(HARDWARE_PATH)/%.c
 	$(call SHOW,"1.5-CORE D","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_C) "$<" -MF $@ -MT $(@:.d=.c.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_C) "$<" -MF $@ -MT $(@:.d=.c.o)
 
 $(OBJDIR)/%.d: $(HARDWARE_PATH)/%.cpp
 	$(call SHOW,"1.6-CORE D","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -MM $(FLAGS_ALL) $(FLAGS_CPP) "$<" -MF $@ -MT $(@:.d=.cpp.o)
+	$(QUIET_BUILD)$(CXX) -MM $(FLAGS_ALL) $(FLAGS_CPP) "$<" -MF $@ -MT $(@:.d=.cpp.o)
 
 $(OBJDIR)/%.d: $(HARDWARE_PATH)/%.S
 	$(call SHOW,"1.7-CORE D","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.S.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.S.o)
 
 $(OBJDIR)/%.d: $(HARDWARE_PATH)/%.s
 	$(call SHOW,"1.8-CORE D","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.s.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.s.o)
 
 # endif # TARGET_CORE_A
 
@@ -1427,49 +1440,49 @@ $(OBJDIR)/%.cpp.o: $(APPLICATION_PATH)/%.cpp
 	$(call SHOW,"2.1-APP CPP","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.c.o: $(APPLICATION_PATH)/%.c
 	$(call SHOW,"2.2-APP C","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_C) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_C) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.s.o: $(APPLICATION_PATH)/%.s
 	$(call SHOW,"2.3-APP AS","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.S.o: $(APPLICATION_PATH)/%.S
 	$(call SHOW,"2.4-APP AS","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.d: $(APPLICATION_PATH)/%.c
 	$(call SHOW,"2.5-APP D","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_C) "$<" -MF $@ -MT $(@:.d=.c.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_C) "$<" -MF $@ -MT $(@:.d=.c.o)
 
 $(OBJDIR)/%.d: $(APPLICATION_PATH)/%.cpp
 	$(call SHOW,"2.6-APP D","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -MM $(FLAGS_ALL) $(FLAGS_CPP) "$<" -MF $@ -MT $(@:.d=.cpp.o)
+	$(QUIET_BUILD)$(CXX) -MM $(FLAGS_ALL) $(FLAGS_CPP) "$<" -MF $@ -MT $(@:.d=.cpp.o)
 
 $(OBJDIR)/%.d: $(APPLICATION_PATH)/%.S
 	$(call SHOW,"2.7-APP D","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.S.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.S.o)
 
 $(OBJDIR)/%.d: $(APPLICATION_PATH)/%.s
 	$(call SHOW,"2.8-APP D","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.s.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.s.o)
 
 # 3- USER library sources
 #
@@ -1477,25 +1490,25 @@ $(OBJDIR)/user/%.cpp.o: $(USER_LIB_PATH)/%.cpp
 	$(call SHOW,"3.1-USER CPP","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/user/%.c.o: $(USER_LIB_PATH)/%.c
 	$(call SHOW,"3.2-USER C","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_C) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_C) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/user/%.d: $(USER_LIB_PATH)/%.cpp
 	$(call SHOW,"3.3-USER CPP","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -MM $(FLAGS_ALL) $(FLAGS_CPP) "$<" -MF $@ -MT $(@:.d=.cpp.o)
+	$(QUIET_BUILD)$(CXX) -MM $(FLAGS_ALL) $(FLAGS_CPP) "$<" -MF $@ -MT $(@:.d=.cpp.o)
 
 $(OBJDIR)/user/%.d: $(USER_LIB_PATH)/%.c
 	$(call SHOW,"3.4-USER C","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_C) "$<" -MF $@ -MT $(@:.d=.c.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_C) "$<" -MF $@ -MT $(@:.d=.c.o)
 
 # 4- LOCAL library sources
 # .o rules are for objects, .d for dependency tracking
@@ -1504,55 +1517,55 @@ $(OBJDIR)/%.c.o: %.c
 	$(call SHOW,"4.1-LOCAL C","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_C) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_C) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.cc.o: %.cc
 	$(call SHOW,"4.2-LOCAL CC","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.cpp.o: %.cpp
 	$(call SHOW,"4.3-LOCAL CPP",$@,$(patsubst $<,$(BUILDS_PATH),))
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CXX) -c $(FLAGS_ALL) $(FLAGS_CPP) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.S.o: %.S
 	$(call SHOW,"4.4-LOCAL AS","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.s.o: %.s
 	$(call SHOW,"4.5-LOCAL AS","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
+	$(QUIET_BUILD)$(CC) -c $(FLAGS_ALL) $(FLAGS_AS) "$<" $(OUT_PREPOSITION)"$@"
 
 $(OBJDIR)/%.d: %.c
 	$(call SHOW,"4.6-LOCAL C","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_C) "$<" -MF $@ -MT $(@:.d=.c.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_C) "$<" -MF $@ -MT $(@:.d=.c.o)
 
 $(OBJDIR)/%.d: %.cpp
 	$(call SHOW,"4.7-LOCAL CPP","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CXX) -MM $(FLAGS_ALL) $(FLAGS_CPP) "$<" -MF $@ -MT $(@:.d=.cpp.o)
+	$(QUIET_BUILD)$(CXX) -MM $(FLAGS_ALL) $(FLAGS_CPP) "$<" -MF $@ -MT $(@:.d=.cpp.o)
 
 $(OBJDIR)/%.d: %.S
 	$(call SHOW,"4.8-LOCAL AS","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.S.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.S.o)
 
 $(OBJDIR)/%.d: %.s
 	$(call SHOW,"4.9-LOCAL AS","$@","$<")
 
 	@mkdir -p "$(dir $@)"
-	$(QUIET)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.s.o)
+	$(QUIET_BUILD)$(CC) -MM $(FLAGS_ALL) $(FLAGS_AS) "$<" -MF $@ -MT $(@:.d=.s.o)
 
 # 5- Archive and Link
 # ----------------------------------
@@ -1565,10 +1578,10 @@ $(TARGET_CORE_A): $(OBJS_CORE)
 #	@echo OBJS_CORE $(OBJS_CORE) 
 
 ifneq ($(FIRST_O_IN_CORE_A),)
-	$(QUIET)$(AR) rcs $(TARGET_CORE_A) $(FIRST_O_IN_CORE_A)
+	$(QUIET_BUILD)$(AR) rcs $(TARGET_CORE_A) $(FIRST_O_IN_CORE_A)
 endif # FIRST_O_IN_CORE_A
 
-	$(QUIET)$(AR) rcs $(TARGET_CORE_A) $(patsubst %,"%",$(OBJS_CORE))
+	$(QUIET_BUILD)$(AR) rcs $(TARGET_CORE_A) $(patsubst %,"%",$(OBJS_CORE))
 
 endif # TARGET_CORE_A
 
@@ -1577,49 +1590,49 @@ $(TARGET_A): $(OBJS_NON_CORE)
 	$(call SHOW,"5.1-ARCHIVE",$(TARGET_A),.)
 
 ifneq ($(FIRST_O_IN_A),)
-	$(QUIET)$(AR) rcs $(TARGET_A) $(FIRST_O_IN_A)
+	$(QUIET_BUILD)$(AR) rcs $(TARGET_A) $(FIRST_O_IN_A)
 endif # FIRST_O_IN_A
 
 ifneq ($(COMMAND_ARCHIVE),)
-	$(QUIET)$(COMMAND_ARCHIVE)
+	$(QUIET_BUILD)$(COMMAND_ARCHIVE)
 else
 ifeq ($(PLATFORM),IntelEdisonYocto)
     ifneq ($(REMOTE_OBJS),)
-		$(QUIET)$(AR) rcs $(TARGET_A) $(patsubst %,"%",$(REMOTE_OBJS))
+		$(QUIET_BUILD)$(AR) rcs $(TARGET_A) $(patsubst %,"%",$(REMOTE_OBJS))
     endif # REMOTE_OBJS
 else
-	$(QUIET)$(AR) rcs $(TARGET_A) $(patsubst %,"%",$(REMOTE_OBJS))
+	$(QUIET_BUILD)$(AR) rcs $(TARGET_A) $(patsubst %,"%",$(REMOTE_OBJS))
 endif # PLATFORM
 endif # COMMAND_ARCHIVE
 
 ifneq ($(COMMAND_EXTRA),)
 	$(call SHOW,"5.2-EXTRA",$@,.)
 
-	$(QUIET)$(COMMAND_EXTRA)
+	$(QUIET_BUILD)$(COMMAND_EXTRA)
 endif # COMMAND_EXTRA
 
 $(TARGET_ELF): $(TARGET_CORE_A) $(TARGET_A)
 ifneq ($(COMMAND_LINK),)
 	$(call SHOW,"5.3-LINK",$@,.)
 
-	$(QUIET)$(COMMAND_LINK)
+	$(QUIET_BUILD)$(COMMAND_LINK)
 
 else
 	$(call SHOW,"5.4-LINK default",$@,.)
 
-	$(QUIET)$(CXX) $(OUT_PREPOSITION)"$@" $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(TARGET_CORE_A) $(TARGET_A) $(FLAGS_LD)
+	$(QUIET_BUILD)$(CXX) $(OUT_PREPOSITION)"$@" $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(TARGET_CORE_A) $(TARGET_A) $(FLAGS_LD)
 endif # COMMAND_LINK
 
 $(TARGET_OUT): $(OBJS_CORE) $(OBJ_NON_CORE)
 # ifeq ($(BUILD_CORE),c2000)
 # 	$(call SHOW,"5.5-ARCHIVE",$@,.)
 # 
-# 	$(QUIET)$(AR) r $(TARGET_A) $(FIRST_O_IN_A)
-# 	$(QUIET)$(AR) r $(TARGET_A) $(REMOTE_OBJS)
+# 	$(QUIET_BUILD)$(AR) r $(TARGET_A) $(FIRST_O_IN_A)
+# 	$(QUIET_BUILD)$(AR) r $(TARGET_A) $(REMOTE_OBJS)
 # 
 # 	$(call SHOW,"5.6-LINK",$@,.)
 # 
-# 	$(QUIET)$(CC) $(FLAGS_ALL) $(FLAGS_LD) $(OUT_PREPOSITION)"$@" $(LOCAL_OBJS) $(TARGET_A) $(COMMAND_FILES) -l$(LDSCRIPT)
+# 	$(QUIET_BUILD)$(CC) $(FLAGS_ALL) $(FLAGS_LD) $(OUT_PREPOSITION)"$@" $(LOCAL_OBJS) $(TARGET_A) $(COMMAND_FILES) -l$(LDSCRIPT)
 # 
 # else
 	$(call SHOW,"5.7-LINK",$@,.)
@@ -1633,65 +1646,65 @@ $(OBJDIR)/%.hex: $(OBJDIR)/%.elf
 	$(call SHOW,"6.1-COPY HEX","$@","$<")
 
 ifneq ($(COMMAND_COPY),)
-	$(QUIET)$(COMMAND_COPY)
+	$(QUIET_BUILD)$(COMMAND_COPY)
     ifneq ($(COMMAND_POST_COPY),)
 		$(call SHOW,"6.2-POST HEX","$@","$<")
-		$(QUIET)$(COMMAND_POST_COPY)
+		$(QUIET_BUILD)$(COMMAND_POST_COPY)
 
     endif # COMMAND_COPY_POST
 else
-	$(QUIET)$(OBJCOPY) -O ihex -R .eeprom "$<" $@
+	$(QUIET_BUILD)$(OBJCOPY) -O ihex -R .eeprom "$<" $@
 
 endif # COMMAND_COPY
 
 ifneq ($(SOFTDEVICE),)
 	$(call SHOW,"6.3-COPY HEX","$@","$<")
 
-	$(QUIET)$(MERGE_PATH)/$(MERGE_EXEC) $(SOFTDEVICE_HEX) -intel $(CURRENT_DIR)/$@ -intel $(OUT_PREPOSITION)$(CURRENT_DIR)/combined.hex $(MERGE_OPTS)
-	$(QUIET)mv $(CURRENT_DIR)/combined.hex $(CURRENT_DIR)/$@
+	$(QUIET_BUILD)$(MERGE_PATH)/$(MERGE_EXEC) $(SOFTDEVICE_HEX) -intel $(CURRENT_DIR)/$@ -intel $(OUT_PREPOSITION)$(CURRENT_DIR)/combined.hex $(MERGE_OPTS)
+	$(QUIET_BUILD)mv $(CURRENT_DIR)/combined.hex $(CURRENT_DIR)/$@
 endif # SOFTDEVICE
 
 $(OBJDIR)/%.bin: $(OBJDIR)/%.elf
 	$(call SHOW,"6.4-COPY BIN","$@","$<")
 
 ifneq ($(COMMAND_COPY),)
-	$(QUIET)$(COMMAND_COPY)
+	$(QUIET_BUILD)$(COMMAND_COPY)
     ifneq ($(COMMAND_POST_COPY),)
 		$(call SHOW,"6.5-POST BIN","$@","$<")
-		$(QUIET)$(COMMAND_POST_COPY)
+		$(QUIET_BUILD)$(COMMAND_POST_COPY)
     endif # COMMAND_POST_COPY
 else
-	$(QUIET)$(OBJCOPY) -O binary "$<" $@
+	$(QUIET_BUILD)$(OBJCOPY) -O binary "$<" $@
 endif # COMMAND_COPY
 
 $(OBJDIR)/%.bin2: $(OBJDIR)/%.elf
 	$(call SHOW,"6.6-COPY BIN","$@","$<")
 
-#	$(QUIET)$(ESP_POST_COMPILE) -eo $(BOOTLOADER_ELF) -bo $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)_$(ADDRESS_BIN1).bin -bm $(FLAGS_OBJCOPY) -bf $(BUILD_FLASH_FREQ) -bz $(BUILD_FLASH_SIZE) -bs .text -bp 4096 -ec -eo "$<" -bs .irom0.text -bs .text -bs .data -bs .rodata -bc -ec
-	$(QUIET)$(POST_COMPILE_COMMAND)
+#	$(QUIET_BUILD)$(ESP_POST_COMPILE) -eo $(BOOTLOADER_ELF) -bo $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)_$(ADDRESS_BIN1).bin -bm $(FLAGS_OBJCOPY) -bf $(BUILD_FLASH_FREQ) -bz $(BUILD_FLASH_SIZE) -bs .text -bp 4096 -ec -eo "$<" -bs .irom0.text -bs .text -bs .data -bs .rodata -bc -ec
+	$(QUIET_BUILD)$(POST_COMPILE_COMMAND)
 
-	$(QUIET)cp $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)_$(ADDRESS_BIN1).bin $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).bin
+	$(QUIET_BUILD)cp $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)_$(ADDRESS_BIN1).bin $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).bin
 
 $(OBJDIR)/%.eep: $(OBJDIR)/%.elf
 	$(call SHOW,"6.7-COPY EEP","$@","$<")
 
-	-$(QUIET)$(OBJCOPY) -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 "$<" $@
+	-$(QUIET_BUILD)$(OBJCOPY) -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 "$<" $@
 
 $(OBJDIR)/%.lss: $(OBJDIR)/%.elf
 	$(call SHOW,"6.8-COPY LSS","$@","$<")
 
-	$(QUIET)$(OBJDUMP) -h -S "$<" > $@
+	$(QUIET_BUILD)$(OBJDUMP) -h -S "$<" > $@
 
 $(OBJDIR)/%.sym: $(OBJDIR)/%.elf
 	$(call SHOW,"6.9-COPY SYM","$@","$<")
 
-	$(QUIET)$(NM) -n "$<" > $@
+	$(QUIET_BUILD)$(NM) -n "$<" > $@
 
 # $(OBJDIR)/%.txt: $(OBJDIR)/%.out
 # 	$(call SHOW,"6.8-COPY","$@","$<")
 # 
 # 	echo ' -boot -sci8 -a "$<" -o $@'
-# 	$(QUIET)$(OBJCOPY) -boot -sci8 -a "$<" -o $@
+# 	$(QUIET_BUILD)$(OBJCOPY) -boot -sci8 -a "$<" -o $@
 
 $(OBJDIR)/%.mcu: $(OBJDIR)/%.elf
 	$(call SHOW,"6.10-COPY MCU","$@","$<")
@@ -1703,32 +1716,32 @@ $(OBJDIR)/%.mcu: $(OBJDIR)/%.elf
 $(OBJDIR)/%.vxp: $(OBJDIR)/%.elf
 	$(call SHOW,"6.11-COPY VXP","$@","$<")
 
-	$(QUIET)cp $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf $(OBJDIR)/$(BINARY_SPECIFIC_NAME)2.elf
-	$(QUIET)$(OBJCOPY) -i $<
-	$(QUIET)mv $(OBJDIR)/$(BINARY_SPECIFIC_NAME)2.elf $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf
+	$(QUIET_BUILD)cp $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf $(OBJDIR)/$(BINARY_SPECIFIC_NAME)2.elf
+	$(QUIET_BUILD)$(OBJCOPY) -i $<
+	$(QUIET_BUILD)mv $(OBJDIR)/$(BINARY_SPECIFIC_NAME)2.elf $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf
 
 $(OBJDIR)/%: $(OBJDIR)/%.elf
 	$(call SHOW,"6.12-COPY","$@","$<")
 
-	$(QUIET)cp "$<" $@
+	$(QUIET_BUILD)cp "$<" $@
 
 $(OBJDIR)/%.iap: $(OBJDIR)/%.elf
 	$(call SHOW,"6.13-COPY IAP","$@","$<")
 
-	$(QUIET)$(OBJCOPY) -O binary -R .boot "$<" $@
+	$(QUIET_BUILD)$(OBJCOPY) -O binary -R .boot "$<" $@
 
 $(TARGET_AXF): $(TARGET_ELF)
 #$(OBJDIR)/%.axf: $(OBJDIR)/%.elf
 	$(call SHOW,"6.14-COPY AXF","$@","$<")
-	$(QUIET)$(POST_COMPILE_COMMAND)
-	$(QUIET)$(COMMAND_COPY)
+	$(QUIET_BUILD)$(POST_COMPILE_COMMAND)
+	$(QUIET_BUILD)$(COMMAND_COPY)
 
 $(TARGET_UF2): $(TARGET_ELF)
 $(OBJDIR)/%.uf2: $(OBJDIR)/%.elf
 ifneq ($(COMMAND_UF2),)
 	$(call SHOW,"6.15-COPY UF2",$@,.)
 
-	$(QUIET)$(COMMAND_UF2)
+	$(QUIET_BUILD)$(COMMAND_UF2)
 endif # COMMAND_UF2
 
 # Size of file
@@ -1882,11 +1895,24 @@ compile: message_compile $(OBJDIR) $(TARGET_HEXBIN) $(TARGET_EEP) size
 		@echo $(TEENSY_F_CPU) >> $(NEW_TAG)
     endif # TEENSY_F_CPU
 
+	@echo "  " >> $(READ_ME_FILE)
+	@echo "### Size" >> $(READ_ME_FILE)
+
     ifeq ($(COMMAND_SIZE),)
 
 		@echo '---- Size ----'
 		@echo 'Estimated Flash  ' $(shell $(FLASH_SIZE)) $(MAX_FLASH_BYTES);
 		@echo 'Estimated SRAM   ' $(shell $(RAM_SIZE)) $(MAX_RAM_BYTES);
+
+		$(QUIET_BUILD)echo "# Project $(PROJECT_NAME_AS_IDENTIFIER)" > $(READ_ME_NAME)
+
+		@echo "  " >> $(READ_ME_FILE)
+		@echo '**Estimated Flash**   '$(shell $(FLASH_SIZE)) $(MAX_FLASH_BYTES) >> $(READ_ME_FILE)
+		@echo "  " >> $(READ_ME_FILE)
+		@echo '**Estimated SRAM**    '$(shell $(RAM_SIZE)) $(MAX_RAM_BYTES) >> $(READ_ME_FILE)
+
+		$(QUIET_BUILD)cat $(READ_ME_FILE) >> $(READ_ME_NAME) 
+		$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
 
 #		@if [ $(shell $(FLASH_SIZE)) -gt $(MAX_FLASH_SIZE) ] ; then osascript -e 'tell application "System Events" to display dialog "Flash: $(shell $(FLASH_SIZE)) bytes used > $(MAX_FLASH_SIZE) available" buttons {"OK"} default button {"OK"} with icon POSIX file ("$(UTILITIES_PATH)/TemplateIcon.icns") with title "emCode" giving up after 5'; exit 2 ; fi
 #		@if [ $(shell $(RAM_SIZE)) -gt $(MAX_RAM_SIZE) ] ; then osascript -e 'tell application "System Events" to display dialog "RAM: $(shell $(RAM_SIZE)) bytes used > $(MAX_RAM_SIZE) available " buttons {"OK"} default button {"OK"} with icon POSIX file ("$(UTILITIES_PATH)/TemplateIcon.icns") with title "emCode" giving up after 5'; exit 2 ; fi
@@ -1896,14 +1922,37 @@ compile: message_compile $(OBJDIR) $(TARGET_HEXBIN) $(TARGET_EEP) size
 		@echo '---- Size ----'
 		@echo 'Estimated Flash    ' $(shell $(FLASH_SIZE)) $(MAX_FLASH_BYTES);
 
+		@echo "  " >> $(READ_ME_FILE)
+		@echo '**Estimated Flash**   '$(shell $(FLASH_SIZE)) $(MAX_FLASH_BYTES) >> $(READ_ME_FILE)
+
     endif # COMMAND_SIZE
 
 	@echo 'Elapsed time     ' $(shell $(UTILITIES_PATH)/emCode_chrono $(BUILDS_PATH) -s)
 
     ifneq ($(COMMAND_FINAL),)
 		@echo '---- Final ----'
-		$(QUIET)$(COMMAND_FINAL)
+		$(QUIET_BUILD)$(COMMAND_FINAL)
     endif # COMMAND_FINAL
+
+	$(QUIET_BUILD)echo "### GitHub" >> $(READ_ME_NAME) 
+	$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
+
+ifneq ($(wildcard $(CURRENT_DIR)/.git/*),)
+
+	$(QUIET_BUILD)echo "**Commit**        $$(git log -1 | tail -1)" >> $(READ_ME_NAME)
+	$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
+	$(QUIET_BUILD)echo "**Branch**            $$(git branch | grep \* | cut -d ' ' -f2)" >> $(READ_ME_NAME)
+	$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
+
+else
+
+	$(QUIET_BUILD)echo "None" >> $(READ_ME_NAME)
+	$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
+
+endif # wildcard .git/
+
+	$(QUIET_BUILD)echo "---" >> $(READ_ME_NAME)
+
 
 $(OBJDIR):
 	@echo "---- Build ----"
@@ -1958,7 +2007,7 @@ else
         endif # AVRDUDE_PORT
 #		$(USB_RESET) $(USED_SERIAL_PORT)
         ifneq ($(DELAY_BEFORE_UPLOAD),)
-		$(QUIET)sleep $(DELAY_BEFORE_UPLOAD)
+		$(QUIET_BUILD)sleep $(DELAY_BEFORE_UPLOAD)
         endif # DELAY_BEFORE_UPLOAD
 #		@ls $(USED_SERIAL_PORT)
       endif # USB_RESET
@@ -1984,7 +2033,7 @@ raw_upload:
 # ifneq ($(USB_RESET),)
 #		$(call SHOW,"10.0-UPLOAD")
 #
-#		$(QUIET)$(USB_RESET)
+#		$(QUIET_UPLOAD)$(USB_RESET)
 # endif
 
 # ifeq ($(UPLOADER),jlink)
@@ -2014,7 +2063,7 @@ endif # MESSAGE_RESET
 ifneq ($(COMMAND_PRE_UPLOAD),)
 	$(call SHOW,"10.70-PREPARE",$(UPLOADER))
 
-	$(QUIET)$(COMMAND_PRE_UPLOAD)
+	$(QUIET_UPLOAD)$(COMMAND_PRE_UPLOAD)
 endif # COMMAND_PRE_UPLOAD
 
 ifeq ($(UPLOADER),lightblue_loader_cli)
@@ -2022,7 +2071,7 @@ ifeq ($(UPLOADER),lightblue_loader_cli)
 #     ifeq ($(BEAN_NAME),)
 # 		$(eval BEAN_NAME = $(shell grep ^BEAN_NAME '$(BOARD_FILE)' | cut -d= -f 2- | sed 's/^ //'))
 #     endif # BEAN_NAME
-# 	$(QUIET)$(COMMAND_UPLOAD)
+# 	$(QUIET_UPLOAD)$(COMMAND_UPLOAD)
 
 else ifeq ($(strip $(COMMAND_UPLOAD)),0)
 	$(call SHOW,"10.0-UPLOAD",$(UPLOADER))
@@ -2031,17 +2080,17 @@ else ifneq ($(COMMAND_UPLOAD),)
 	$(call SHOW,"10.80-UPLOAD",$(UPLOADER))
 
     ifneq ($(DELAY_BEFORE_UPLOAD),)
-		$(QUIET)sleep $(DELAY_BEFORE_UPLOAD)
+		$(QUIET_UPLOAD)sleep $(DELAY_BEFORE_UPLOAD)
     endif # DELAY_BEFORE_UPLOAD
 
     ifneq ($(MESSAGE_UPLOAD),)
 		@$(MESSAGE_UPLOAD)
     endif # MESSAGE_UPLOAD
 
-	$(QUIET)$(COMMAND_UPLOAD)
+	$(QUIET_UPLOAD)$(COMMAND_UPLOAD)
 
     ifneq ($(DELAY_AFTER_UPLOAD),)
-		$(QUIET)sleep $(DELAY_AFTER_UPLOAD)
+		$(QUIET_UPLOAD)sleep $(DELAY_AFTER_UPLOAD)
     endif # DELAY_AFTER_UPLOAD
 
 else ifeq ($(BOARD_PORT),pgm)
@@ -2190,7 +2239,7 @@ else ifeq ($(PLATFORM),RedBearLab)
 
 			$(UPLOADER_EXEC) $(UPLOADER_OPTS) "$(TARGET_BIN)"
         else
-			$(QUIET)$(OBJCOPY) -O ihex -I binary $(TARGET_BIN) $(TARGET_HEX)
+			$(QUIET_UPLOAD)$(OBJCOPY) -O ihex -I binary $(TARGET_BIN) $(TARGET_HEX)
 			$(AVRDUDE_EXEC) $(AVRDUDE_COM_OPTS) $(AVRDUDE_OPTS) -P$(USED_SERIAL_PORT) -Uflash:w:$(TARGET_HEX):i
         endif # UPLOADER
 	sleep 2
@@ -2226,7 +2275,7 @@ else ifeq ($(UPLOADER),bossac)
 	$(call SHOW,"10.14-UPLOAD",$(UPLOADER))
 
     ifneq ($(DELAY_BEFORE_UPLOAD),)
-		$(QUIET)sleep $(DELAY_BEFORE_UPLOAD)
+		$(QUIET_UPLOAD)sleep $(DELAY_BEFORE_UPLOAD)
     endif # DELAY_BEFORE_UPLOAD
 	$(UPLOADER_EXEC) $(UPLOADER_OPTS) $(TARGET_BIN) -R
 
@@ -2377,7 +2426,7 @@ else ifeq ($(UPLOADER),cp_uf2)
 		$(call SHOW,"10.31-UPLOAD",$(UPLOADER))
 
         ifneq ($(DELAY_BEFORE_UPLOAD),)
-		    $(QUIET)sleep $(DELAY_BEFORE_UPLOAD)
+		    $(QUIET_UPLOAD)sleep $(DELAY_BEFORE_UPLOAD)
         endif # DELAY_BEFORE_UPLOAD
 
 		cp "$(TARGET_BIN_CP)" "$(BOARD_VOLUME)"
@@ -2391,7 +2440,7 @@ else ifeq ($(UPLOADER),cp_hex)
 		$(call SHOW,"10.42-UPLOAD",$(UPLOADER))
 
         ifneq ($(DELAY_BEFORE_UPLOAD),)
-		    $(QUIET)sleep $(DELAY_BEFORE_UPLOAD)
+		    $(QUIET_UPLOAD)sleep $(DELAY_BEFORE_UPLOAD)
         endif # DELAY_BEFORE_UPLOAD
 
 		cp "$(TARGET_BIN_CP)" "$(BOARD_VOLUME)"
@@ -2403,7 +2452,7 @@ else ifeq ($(UPLOADER),cp_bin)
 		$(call SHOW,"10.43-UPLOAD",$(UPLOADER))
         
         ifneq ($(DELAY_BEFORE_UPLOAD),)
-		    $(QUIET)sleep $(DELAY_BEFORE_UPLOAD)
+		    $(QUIET_UPLOAD)sleep $(DELAY_BEFORE_UPLOAD)
         endif # DELAY_BEFORE_UPLOAD
 
 		cp "$(TARGET_BIN_CP)" "$(BOARD_VOLUME)"
@@ -2454,7 +2503,7 @@ endif # MESSAGE_POST_RESET
 ifneq ($(COMMAND_CONCLUDE),)
 	$(call SHOW,"10.90-CONCLUDE",$(UPLOADER))
 
-	$(QUIET)$(COMMAND_CONCLUDE)
+	$(QUIET_UPLOAD)$(COMMAND_CONCLUDE)
 endif # COMMAND_CONCLUDE
 
 ispload: $(TARGET_HEX)
@@ -2591,7 +2640,7 @@ do_archive:
 ifneq ($(BOOL_CHANGED_BOARD),0)
 	$(call SHOW,"7.0-ARCHIVE","Build required")
 
-	$(QUIET)make build -j SELECTED_BOARD=$(SELECTED_BOARD) HIDE_INFO=true USE_ARCHIVES=false
+	$(QUIET_BUILD)make build -j SELECTED_BOARD=$(SELECTED_BOARD) HIDE_INFO=true USE_ARCHIVES=false
 endif # BOOL_CHANGED_BOARD
 
 #		@echo ". LOCAL_LIBS_LIST_TOP= "$(LOCAL_LIBS_LIST_TOP)
@@ -2603,9 +2652,9 @@ endif # BOOL_CHANGED_BOARD
 
 #		@echo .$(LOCAL_LIBS_LIST).
 # Old
-#		$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then $(AR) rcs $$f/$$f.a $$(find $(BUILDS_PATH)/$$f/ -name *.o) ; printf '%-16s\t%s\r\n' "7.1-ARCHIVE" $$f/$$f.a ; echo $(BOARD_TAG) > $$f/$(BOARD_TAG).board ; fi ; done ;
+#		$(QUIET_BUILD)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then $(AR) rcs $$f/$$f.a $$(find $(BUILDS_PATH)/$$f/ -name *.o) ; printf '%-16s\t%s\r\n' "7.1-ARCHIVE" $$f/$$f.a ; echo $(BOARD_TAG) > $$f/$(BOARD_TAG).board ; fi ; done ;
 # New
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then mkdir -p $$f/src/$(MCU) ; $(AR) rcs $$f/src/$(MCU)/lib$$f.a $$(find $(BUILDS_PATH)/$$f/ -name *.o) ; printf '%-16s  %s\r\n' "7.1-ARCHIVE" $$f/src/$(MCU) ; fi ; done ;
+	$(QUIET_BUILD)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then mkdir -p $$f/src/$(MCU) ; $(AR) rcs $$f/src/$(MCU)/lib$$f.a $$(find $(BUILDS_PATH)/$$f/ -name *.o) ; printf '%-16s  %s\r\n' "7.1-ARCHIVE" $$f/src/$(MCU) ; fi ; done ;
 
 # Old
 #		@echo "---- Rename ----"
@@ -2613,10 +2662,10 @@ endif # BOOL_CHANGED_BOARD
 #		@for f in $(LOCAL_LIBS_LIST) ; do find $$f -name '*.cpp' -exec sh -c 'mv "$$0" "$${0%.cpp}._cpp"' {} \; ; done ;
 #		@for f in $(LOCAL_LIBS_LIST) ; do find $$f/ -name '*.c' -exec sh -c 'mv "$$0" "$${0%.c}._c"' {} \; ; done ;
 # New
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] && [ ! -f $$f/library.properties ] ; then printf '%-16s  %s\r\n' "7.2-ARCHIVE" $$f/library.properties ; printf "name=$$f" > $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
+	$(QUIET_BUILD)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] && [ ! -f $$f/library.properties ] ; then printf '%-16s  %s\r\n' "7.2-ARCHIVE" $$f/library.properties ; printf "name=$$f" > $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
 	@echo "---- Update ----"
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then printf '%-16s  %s\r\n' "7.3-ARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; printf "\nprecompiled=true\nldflags=-l$$f" >> $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then echo "# Pre-compiled library $$f" > $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "  " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "## Content" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "   " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; for a in $$($(AR) t $$f/src/$(MCU)/lib$$f.a) ; do echo " * $${a%.*.*}" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; done ; cat $(READ_ME_FILE) >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "  " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "---" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; fi ; done ;
+	$(QUIET_BUILD)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then printf '%-16s  %s\r\n' "7.3-ARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; printf "\nprecompiled=true\nldflags=-l$$f" >> $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
+	$(QUIET_BUILD)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $(BUILDS_PATH)/$$f ] ; then echo "# Pre-compiled library $$f" > $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "  " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "## Content" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "   " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; for a in $$($(AR) t $$f/src/$(MCU)/lib$$f.a) ; do echo " * $${a%.*.*}" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; done ; cat $(READ_ME_FILE) >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "  " >> $$f/src/$(MCU)/$(READ_ME_NAME) ; echo "---" >> $$f/src/$(MCU)/$(READ_ME_NAME) ; fi ; done ;
 #		@echo "==== Archive done ===="
 
 unarchive:
@@ -2635,9 +2684,9 @@ unarchive:
 # #		@for f in $(LOCAL_LIBS_LIST) ; do find $$f/ -name '*._c' -exec sh -c 'echo "$$0" to "$${0%._c}.c"' {} \; ; done ;
 # 		@for f in $(LOCAL_LIBS_LIST) ; do find $$f/ -name '*._c' -exec sh -c 'mv "$$0" "$${0%._c}.c"' {} \; ; done ;
 # New		
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $$f/src/$(MCU) ] ; then $(REMOVE) -r $$f/src/$(MCU) ; printf '%-16s  %s\r\n' "7.4-UNARCHIVE" $$f/src/$(MCU) ; fi ; done ;
+	$(QUIET_BUILD)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -d $$f/src/$(MCU) ] ; then $(REMOVE) -r $$f/src/$(MCU) ; printf '%-16s  %s\r\n' "7.4-UNARCHIVE" $$f/src/$(MCU) ; fi ; done ;
 	@echo "---- Update ----"
-	$(QUIET)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -f $$f/library.properties ] ; then printf '%-16s  %s\r\n' "7.5-UNARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
+	$(QUIET_BUILD)for f in $(LOCAL_LIBS_LIST_TOP) ; do if [ -f $$f/library.properties ] ; then printf '%-16s  %s\r\n' "7.5-UNARCHIVE" $$f/library.properties ; sed -i -z 's:dot_a_linkage=.*::g' $$f/library.properties ; sed -i -z 's:precompiled=.*::g' $$f/library.properties ; sed -i -z 's:FLAGS_LD=.*::g' $$f/library.properties ; sed -i '/^$$/d' $$f/library.properties ; fi ; done ;
 	@echo "==== Unarchive done ===="
 
 # boards:
@@ -2653,34 +2702,15 @@ before_compile:
 ifneq ($(COMMAND_BEFORE_COMPILE),)
 	$(call SHOW,"1.0-BEFORE",$(MESSAGE_BEFORE))
         
-	$(QUIET)$(COMMAND_BEFORE_COMPILE)
+	$(QUIET_BUILD)$(COMMAND_BEFORE_COMPILE)
 endif # COMMAND_BEFORE_COMPILE
 
 after_compile:
 ifneq ($(COMMAND_AFTER_COMPILE),)
 	$(call SHOW,"1.1-AFTER",$(MESSAGE_AFTER))
         
-	$(QUIET)$(COMMAND_AFTER_COMPILE)
+	$(QUIET_BUILD)$(COMMAND_AFTER_COMPILE)
 endif # COMMAND_AFTER_COMPILE
-
-	$(QUIET)echo "# Project $(PROJECT_NAME_AS_IDENTIFIER)" > $(READ_ME_NAME)
-	$(QUIET)cat $(READ_ME_FILE) >> $(READ_ME_NAME) 
-	$(QUIET)echo "  " >> $(READ_ME_NAME)
-
-	$(QUIET)echo "### GitHub" >> $(READ_ME_NAME) 
-	$(QUIET)echo "  " >> $(READ_ME_NAME)
-
-ifneq ($(wildcard $(CURRENT_DIR)/.git/*),)
-	$(QUIET)echo "**Commit**        $$(git log -1 | tail -1)" >> $(READ_ME_NAME)
-	$(QUIET)echo "  " >> $(READ_ME_NAME)
-	$(QUIET)echo "**Branch**            $$(git branch | grep \* | cut -d ' ' -f2)" >> $(READ_ME_NAME)
-	$(QUIET)echo "  " >> $(READ_ME_NAME)
-else
-	$(QUIET)echo "None" >> $(READ_ME_NAME)
-	$(QUIET)echo "  " >> $(READ_ME_NAME)
-endif # wildcard .git/
-
-	$(QUIET)echo "---" >> $(READ_ME_NAME)
 
 fast: start_message changed before_compile compile after_compile reset raw_upload serial
 	@echo "==== $(MESSAGE_TASK) done ===="
@@ -2725,13 +2755,13 @@ changed_core:
 core: message_core changed_core before_compile $(OBJDIR) $(CORE_OBJS) $(BUILD_CORE_OBJS)
 
 ifneq ($(FIRST_O_IN_CORE_A),)
-	$(QUIET)$(AR) rcs $(TARGET_CORE_A) $(FIRST_O_IN_CORE_A)
+	$(QUIET_BUILD)$(AR) rcs $(TARGET_CORE_A) $(FIRST_O_IN_CORE_A)
 endif # FIRST_O_IN_CORE_A
 
 	@echo "---- Archive core -----"
 	$(call SHOW,"1.9-CORE AR",$(TARGET_CORE_A))
 
-	$(QUIET)$(AR) rcs $(TARGET_CORE_A) $(patsubst %,"%",$(OBJS_CORE))
+	$(QUIET_BUILD)$(AR) rcs $(TARGET_CORE_A) $(patsubst %,"%",$(OBJS_CORE))
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 info:
@@ -2741,7 +2771,7 @@ bootloader:
 	@echo "==== $(MESSAGE_TASK) ===="
 ifneq ($(COMMAND_BOOTLOADER),)
 	$(call SHOW,"1.10-BOOTLOADER","")
-	$(QUIET)$(COMMAND_BOOTLOADER)
+	$(QUIET_BUILD)$(COMMAND_BOOTLOADER)
 endif # COMMAND_BOOTLOADER
 
 	@echo "==== $(MESSAGE_TASK) done ===="

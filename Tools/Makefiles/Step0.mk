@@ -35,6 +35,9 @@ ifeq ($(HIDE_ALL),true)
     HIDE_TOOLS := true
 endif # HIDE_ALL
 
+HIDE_COMMAND_BUILD ?= $(HIDE_COMMAND)
+HIDE_COMMAND_UPLOAD ?= $(HIDE_COMMAND)
+
 # For building, keep main and tasks unchanged, false or true, default = false
 #
 KEEP_MAIN ?= false

@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 17 May 2024 release 14.4.1
+# Last update: 02 Jun 2025 release 14.7.11
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -84,7 +84,8 @@ else ifeq ($(UPLOADER),cp_uf2)
 # See https://github.com/adafruit/Adafruit_nRF52_Bootloader#making-your-own-uf2
 # UPLOAD_OFFSET not required when using .hex
 # UPLOAD_OFFSET = 0x26000
-    FAMILY_UF2 = 0xADA52840
+    # FAMILY_UF2 = 0xADA52840
+    FAMILY_UF2 = $(call PARSE_BOARD,$(BOARD_TAG),build.uf2_family)
     USB_RESET = #
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
     COMMAND_PRE_UPLOAD = python $(ADAFRUIT_NRF52_APP)/hardware/nrf52/$(ADAFRUIT_NRF52_RELEASE)/tools/uf2conv/uf2conv.py -c -o $(TARGET_BIN_CP) -f $(FAMILY_UF2) $(TARGET_HEX)

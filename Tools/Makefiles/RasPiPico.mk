@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 10 Apr 2025 release 14.7.9
+# Last update: 23 Jun 2025 release 14.7.13
 #
 
 # RP2040 Pico for Arduino
@@ -141,7 +141,7 @@ else ifeq ($(UPLOADER),debugprobe)
     UPLOADER_OPTS += -s $(OTHER_TOOLS_PATH)/pqt-openocd/$(RP2040_OPENOCD_PICOPROBE_RELEASE)/share/openocd/scripts
     UPLOADER_OPTS += -f interface/cmsis-dap.cfg -f target/$(BUILD_CHIP).cfg
     UPLOADER_OPTS += -c "init; adapter speed 5000;"
-    UPLOADER_COMMAND = verify reset exit
+    UPLOADER_COMMAND = verify; reset; exit
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "program $(TARGET_ELF) $(UPLOADER_COMMAND)"
 
 else ifeq ($(UPLOADER),jlink)
@@ -184,6 +184,7 @@ MAX_RAM_SIZE := $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),upload.maximum_data_
 
 # Tool-chain names
 #
+# CCACHE_PATH = ~/Applications/bin/ccache
 CC = $(APP_TOOLS_PATH)/$(BUILD_TOOLCHAIN)-gcc
 CXX = $(APP_TOOLS_PATH)/$(BUILD_TOOLCHAIN)-g++
 AR = $(APP_TOOLS_PATH)/$(BUILD_TOOLCHAIN)-ar
