@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -2007,8 +2007,6 @@
     
       
         
-          
-        
       
         
       
@@ -2026,9 +2024,8 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
         
           
-          <div class="md-nav__link md-nav__container">
-            <a href="../RP2040/index.html" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -2037,14 +2034,8 @@
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_8">
@@ -2054,6 +2045,27 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RaspberryPi/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2062,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RP2040/RP2040.html" class="md-nav__link">
+      <a href="../RaspberryPi/RP2040.md" class="md-nav__link">
         
   
   
@@ -2892,8 +2904,12 @@
 <h2 id="upload-to-esp32-cam-board">Upload to ESP32-CAM board<a class="headerlink" href="#upload-to-esp32-cam-board" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="img/Logo-064-Espressif-Systems.png" /> The ESP32-CAM board comes with no built-in programmer and features a unique <span class="keys"><kbd class="key-reset">Reset</kbd></span> button.</p>
 <p>Flashing the board requires an external programmer and a specific procedure to put the board in programming mode.</p>
-<p><center><img alt="" src="img/ESP32-FTDI.png" /></center>
-<center><em>Example of connection with a FTDI programmer</em></center></p>
+<figure>
+<p><img alt="" src="img/ESP32-FTDI.png" /></p>
+<figcaption>
+<p>Example of connection with a FTDI programmer</p>
+</figcaption>
+</figure>
 <p>Proceed as follow:</p>
 <ul>
 <li>Connect the <code>+3.3V</code>, <code>Ground</code>, <code>U0R</code> and <code>U0T</code> pins of the board to the corresponding pins of the external programmer.</li>
@@ -2983,7 +2999,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Select <code>L41009S9</code> on the dialogue window.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/XDS110_L41009S9.png" /></center></p>
+<p><img alt="" src="img/XDS110_L41009S9.png" /></p>
 <ul>
 <li>Click <strong>OK</strong>.</li>
 </ul>
@@ -3010,7 +3026,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Select <code>L41009PJ</code> on the dialogue window.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/XDS110_L41009PJ.png" /></center></p>
+<p><img alt="" src="img/XDS110_L41009PJ.png" /></p>
 <ul>
 <li>Click <strong>OK</strong>.</li>
 </ul>
@@ -3075,11 +3091,11 @@ document$.subscribe(() => { lightbox.reload() });
 <p>For the LaunchPad C2000 F28027, configure <code>S4 SERIAL</code> on.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/350-01-200.png" /></center></p>
+<p><img alt="" src="img/350-01-200.png" /></p>
 <ul>
 <li>Configure <code>S1 BOOT</code> on-on-on or up-up-up.</li>
 </ul>
-<p><center><img alt="" src="img/350-02-200.png" /></center></p>
+<p><img alt="" src="img/350-02-200.png" /></p>
 <ul>
 <li>
 <p>Plug the LaunchPad C2000 board in.</p>
@@ -3099,9 +3115,9 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Remove jumper <code>J6</code> and place jumper <code>J7</code>.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/351-01-200.png" /></center></p>
+<p><img alt="" src="img/351-01-200.png" /></p>
 <p>Configure <code>S1 BOOT</code> on-on-on or up-up-up.</p>
-<p><center><img alt="" src="img/351-02-200.png" /></center></p>
+<p><img alt="" src="img/351-02-200.png" /></p>
 <ul>
 <li>
 <p>Plug the LaunchPad C2000 board in.</p>
@@ -3121,7 +3137,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Configure <code>S1 BOOT</code> on-on-on or up-up-up.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/351-03-200.png" /></center></p>
+<p><img alt="" src="img/351-03-200.png" /></p>
 <ul>
 <li>
 <p>Plug the LaunchPad C2000 board in.</p>
@@ -3145,8 +3161,12 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Place a wire from <code>JTAG J8</code> (emulator side) to <code>SOP 2</code> (CC3200) side.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/352-01-420.png" /></center>
-<center><em>Uploading requires <code>TCK</code> connected to <code>SOP 2</code></em> </center></p>
+<figure>
+<p><img alt="" src="img/352-01-420.png" /></p>
+<figcaption>
+<p>Uploading requires <code>TCK</code> connected to <code>SOP 2</code></p>
+</figcaption>
+</figure>
 <ul>
 <li>
 <p>Plug the LaunchPad CC3200 WiFi board.</p>
@@ -3171,8 +3191,12 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Place the <code>SOP 2</code> jumper.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/352-02-420.png" /></center>
-<center><em>Debugging requires <code>TCK</code> and <code>SOP 2</code> jumpers placed on</em></center></p>
+<figure>
+<p><img alt="" src="img/352-02-420.png" /></p>
+<figcaption>
+<p>Debugging requires <code>TCK</code> and <code>SOP 2</code> jumpers placed on</p>
+</figcaption>
+</figure>
 <ul>
 <li>
 <p>Plug the LaunchPad CC3200 WiFi board.</p>
@@ -3202,15 +3226,15 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Connect the LaunchPad to the computer.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/Logo-128-Uniflash.png" /></center></p>
+<p><img alt="" src="img/Logo-128-Uniflash.png" /></p>
 <ul>
 <li>Open <strong>Uniflash</strong> and select the <code>CC3220SF-LAUNCHXL</code> from the list of devices.</li>
 </ul>
-<p><center><img alt="" src="img/352-03-640.png" /></center></p>
+<p><img alt="" src="img/352-03-640.png" /></p>
 <ul>
 <li>Click <strong>Start Image Creator</strong>.</li>
 </ul>
-<p><center><img alt="" src="img/352-04-640.png" /></center></p>
+<p><img alt="" src="img/352-04-640.png" /></p>
 <ul>
 <li>
 <p>Click <strong>New Project</strong></p>
@@ -3225,7 +3249,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Set <strong>Device Mode</strong> to <strong>Develop</strong>.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/352-07-640.png" /></center></p>
+<p><img alt="" src="img/352-07-640.png" /></p>
 <ul>
 <li>
 <p>Click <strong>Create Project</strong>.</p>
@@ -3237,11 +3261,11 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Under <strong>General &gt; Settings</strong>, make sure <strong>Image mode</strong> is set to <code>Development</code>.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/352-05-640.png" /></center></p>
+<p><img alt="" src="img/352-05-640.png" /></p>
 <ul>
 <li>Click the <strong>Generate Image</strong> button, pictured with a flame. Sometimes, this button is not active. In that case, select the <strong>Create Image</strong> button instead.</li>
 </ul>
-<p><center><img alt="" src="img/352-06-640.png" /></center></p>
+<p><img alt="" src="img/352-06-640.png" /></p>
 <ul>
 <li>Click <strong>Program Image (Create &amp; Program)</strong>.</li>
 </ul>
@@ -3276,12 +3300,12 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
 </ul>
 <p>If the firmware needs to be updated, a window pops-up.</p>
-<p><center><img alt="" src="img/353-01-360.png" /></center></p>
+<p><img alt="" src="img/353-01-360.png" /></p>
 <p>In that case, follow the instructions.</p>
 <ul>
 <li>Call the menu <strong>Tools &gt; Update programmer</strong>.</li>
 </ul>
-<p><center><img alt="" src="img/353-02-200.png" /></center></p>
+<p><img alt="" src="img/353-02-200.png" /></p>
 <ul>
 <li>
 <p>Check that the upload of the sketch works correctly.</p>
@@ -3314,7 +3338,7 @@ document$.subscribe(() => { lightbox.reload() });
 <li>Connect the Microsoft Azure IoT DevKit module to the computer.</li>
 </ul>
 <p>A new volume called <code>AZ3166</code> appears.</p>
-<p><center><img alt="" src="img/356-01-200.png" /></center></p>
+<p><img alt="" src="img/356-01-200.png" /></p>
 <ul>
 <li>
 <p>Select the <code>Microsoft IoT DevKit (MSD)</code> board.</p>
@@ -3324,7 +3348,7 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
 </ul>
 <p>During the upload process, a warning notification may appear.
-   <center><img alt="" src="img/356-02-360.png" /></center></p>
+   <img alt="" src="img/356-02-360.png" /></p>
 <ul>
 <li>Click on <strong>Close</strong> to close the notification.</li>
 </ul>
@@ -3340,7 +3364,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Wait for the message window:</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/357-01-360.png" /></center></p>
+<p><img alt="" src="img/357-01-360.png" /></p>
 <ul>
 <li>
 <p>Press the <span class="keys"><kbd class="key-reset">Reset</kbd></span> and <code>FLASH</code> buttons on the board.</p>
@@ -3352,11 +3376,11 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Release then the <code>FLASH</code> button.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/357-02-420.png" /></center></p>
+<p><img alt="" src="img/357-02-420.png" /></p>
 <ul>
 <li>Click on <strong>OK</strong>.</li>
 </ul>
-<p><center><img alt="" src="img/357-03-360.png" /></center></p>
+<p><img alt="" src="img/357-03-360.png" /></p>
 <p>For more information,</p>
 <ul>
 <li>Please refer to the <a href="https://www.esp8266.com" rel="noopener" target="_blank">ESP8266 Community Forum</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
@@ -3418,7 +3442,7 @@ document$.subscribe(() => { lightbox.reload() });
 <h3 id="enter-ip-address">Enter IP address<a class="headerlink" href="#enter-ip-address" title="Permanent link">&para;</a></h3>
 <p>During the first compilation, emCode looks for the ESP8266 or NodeMCU board.</p>
 <p>If the ESP8266 or NodeMCU board isn&rsquo;t found on the network, a window asks for the IP address.</p>
-<p><center><img alt="" src="img/359-01-360.png" /></center></p>
+<p><img alt="" src="img/359-01-360.png" /></p>
 <ul>
 <li>
 <p>Enter the IP address of the ESP8266 or NodeMCU board.</p>
@@ -3445,7 +3469,7 @@ document$.subscribe(() => { lightbox.reload() });
 <li>Launch any of the targets <strong>All</strong>, <strong>Upload</strong> or <strong>Fast</strong>.</li>
 </ul>
 <p>A window may ask for allowing incoming network connections.</p>
-<p><center><img alt="" src="img/360-01-360.png" /></center></p>
+<p><img alt="" src="img/360-01-360.png" /></p>
 <ul>
 <li>Click on <strong>Allow</strong> to proceed.</li>
 </ul>
@@ -3484,7 +3508,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 9, 2025 18:01:56">May 9, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 20, 2025 14:15:35 CET">February 20, 2025</span>
   </span>
 
     
@@ -3494,7 +3518,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 9, 2025 18:01:56">May 9, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 14, 2023 13:25:44 CEST">September 14, 2023</span>
   </span>
 
     
@@ -3558,7 +3582,7 @@ document$.subscribe(() => { lightbox.reload() });
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.9"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.13"}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

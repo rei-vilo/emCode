@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -2007,8 +2007,6 @@
     
       
         
-          
-        
       
         
       
@@ -2026,9 +2024,8 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
         
           
-          <div class="md-nav__link md-nav__container">
-            <a href="../RP2040/index.html" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -2037,14 +2034,8 @@
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_8">
@@ -2054,6 +2045,27 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RaspberryPi/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2062,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RP2040/RP2040.html" class="md-nav__link">
+      <a href="../RaspberryPi/RP2040.md" class="md-nav__link">
         
   
   
@@ -2905,15 +2917,15 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Select the board, here the <code>Arduino Uno</code> board.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/375-01-360.png" /></center></p>
+<p><img alt="" src="img/375-01-360.png" /></p>
 <ul>
 <li>Select the programmer, here the <code>USBtinyASP</code> programmer.</li>
 </ul>
-<p><center><img alt="" src="img/376-01-360.png" /></center></p>
+<p><img alt="" src="img/376-01-360.png" /></p>
 <ul>
 <li>Click on <strong>Burn Boot-Loader</strong>.</li>
 </ul>
-<p><center><img alt="" src="img/376-02-360.png" /></center></p>
+<p><img alt="" src="img/376-02-360.png" /></p>
 <p>You can now upload the sketch to the board using the standard USB connection again.</p>
 <p>For more information,</p>
 <ul>
@@ -2974,15 +2986,15 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Call the from the menu <strong>Tools &gt; Board</strong> menu and select the board, here Arduino Zero (programming port).</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/378-01-420.png" /></center></p>
+<p><img alt="" src="img/378-01-420.png" /></p>
 <ul>
 <li>Call the <strong>Tools &gt; Programmer</strong> menu and select the programmer, here Atmel EDBG.</li>
 </ul>
-<p><center><img alt="" src="img/378-02-420.png" /></center></p>
+<p><img alt="" src="img/378-02-420.png" /></p>
 <ul>
 <li>Click on <strong>Burn Boot-Loader</strong>.</li>
 </ul>
-<p><center><img alt="" src="img/378-03-420.png" /></center></p>
+<p><img alt="" src="img/378-03-420.png" /></p>
 <p>For more information,</p>
 <ul>
 <li>Please refer to the <a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/restoring-bootloader#arduino-zero" rel="noopener" target="_blank">Restoring Boot-Loader &ndash; Arduino Zero</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span> page at the Adafruit website.</li>
@@ -3054,7 +3066,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Launch <strong>mplab_ipe</strong>.</p>
 </li>
 </ul>
-<p><center><img alt="" src="img/Logo-064-mplab.png" /></center></p>
+<p><img alt="" src="img/Logo-064-mplab.png" /></p>
 <ul>
 <li>Select the MCU corresponding to the board.</li>
 </ul>
@@ -3083,7 +3095,7 @@ document$.subscribe(() => { lightbox.reload() });
 <ul>
 <li>Select the <code>.hex</code> file for the boot-loader. Make sure you&rsquo;ve selected the relevant boot-loader, here the <code>PIC32-avrdude-bootloader-master/bootloaders/chipKIT-Bootloaders/dist/Uno32/production/chipKIT-Bootloaders.production.hex</code> for the chipKIT Uno32 board.</li>
 </ul>
-<p><center><img alt="" src="img/380-01-420.png" /></center></p>
+<p><img alt="" src="img/380-01-420.png" /></p>
 <ul>
 <li>
 <p>Press <strong>Program</strong>.</p>
@@ -3132,7 +3144,7 @@ document$.subscribe(() => { lightbox.reload() });
 <ul>
 <li>Locate on the sub-folders the different binaries mentioned on the <code>ReadMe</code> file.</li>
 </ul>
-<p><center><img alt="" src="img/382-01-260.png" /></center></p>
+<p><img alt="" src="img/382-01-260.png" /></p>
 <ul>
 <li>Open a <strong>Terminal</strong> window and launch the upload command.</li>
 </ul>
@@ -3183,7 +3195,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 9, 2025 18:01:56">May 9, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 20, 2025 14:15:35 CET">February 20, 2025</span>
   </span>
 
     
@@ -3193,7 +3205,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 9, 2025 18:01:56">May 9, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 14, 2023 13:25:44 CEST">September 14, 2023</span>
   </span>
 
     
@@ -3257,7 +3269,7 @@ document$.subscribe(() => { lightbox.reload() });
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.9"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.13"}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
