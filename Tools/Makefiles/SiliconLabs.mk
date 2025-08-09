@@ -8,7 +8,7 @@
 #
 # Created: 12 Jan 2024 release 14.3.0
 #
-# Last update: 17 May 2024 release 14.4.0
+# Last update: 25 Jul 2025 release 14.7.16
 #
 
 # Silicon Labs for Arduino
@@ -40,7 +40,8 @@ SUB_PLATFORM := SiLabs
 # For an unknwon reason, calling PARSE_BOARD freezes 
 VARIANT = $(call PARSE_BOARD,$(BOARD_TAG),build.variant)
 
-PLATFORM_TAG = ARDUINO=$(RELEASE_ARDUINO) ARDUINO_SILABS='"$(SILICONLABS_SILABS_RELEASE)"' EMCODE='"$(RELEASE_NOW)"' $(filter __%__ ,$(GCC_PREPROCESSOR_DEFINITIONS)) 
+# PLATFORM_TAG is replaced by FLAGS_D with compiler.define
+# PLATFORM_TAG = ARDUINO=$(RELEASE_ARDUINO) ARDUINO_SILABS='"$(SILICONLABS_SILABS_RELEASE)"' EMCODE='"$(RELEASE_NOW)"' $(filter __%__ ,$(GCC_PREPROCESSOR_DEFINITIONS)) 
 APPLICATION_PATH := $(ARDUINO_PATH)
 PLATFORM_VERSION := $(SILICONLABS_SILABS_RELEASE) for Arduino $(ARDUINO_IDE_RELEASE)
 
@@ -51,10 +52,12 @@ OTHER_TOOLS_PATH = $(SILABS_PATH)/tools
 # New GCC for ARM tool-suite
 APP_TOOLS_PATH := $(TOOL_CHAIN_PATH)/bin
 
-CORE_LIB_PATH := $(HARDWARE_PATH)/cores/silabs
+CORE_LIB_PATH := $(HARDWARE_PATH)/cores/gecko
 APP_LIB_PATH := $(HARDWARE_PATH)/libraries
 BOARDS_TXT := $(HARDWARE_PATH)/boards.txt
 BUILD_BOARD = $(call PARSE_BOARD,$(BOARD_TAG),build.board)
+BUILD_PLATFORM = $(call PARSE_BOARD,$(BOARD_TAG),build.platform)
+BUILD_ARCH = SILABS
 
 # FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name variant.cpp.o)
 
@@ -244,12 +247,24 @@ FLAGS_FLOAT = $(call PARSE_BOARD,$(BOARD_TAG),build.float_flags)
 # {compiler.optimization_flags} {compiler.define} {build.extra_flags} {compiler.silabs.flags}={build.include_list} {includes}
 #
 SILABS_04a = $(call PARSE_FILE,build,compiler.optimization_flags,$(HARDWARE_PATH)/platform.txt)
-
 FLAGS_ALL = $(SILABS_04a)
 
-FLAGS_D = -DF_CPU=$(F_CPU)
-FLAGS_D += $(addprefix -D, $(PLATFORM_TAG))
-FLAGS_D += -DARDUINO_$(call PARSE_BOARD,$(BOARD_TAG),build.board) -DARDUINO_ARCH_SILABS
+# compiler.define=-DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_SILABS="{version}" -DARDUINO_BOARD_{build.board} -DARDUINO_ARCH_{build.arch} -DARDUINO_SILABS_{build.platform}
+SILABS_08a = $(call PARSE_FILE,compiler,define,$(HARDWARE_PATH)/platform.txt)
+SILABS_08b = $(shell echo $(SILABS_08a) | sed 's:{build.f_cpu}:$(F_CPU):g')
+SILABS_08c = $(shell echo $(SILABS_08b) | sed 's:{runtime.ide.version}:$(RELEASE_ARDUINO):g')
+SILABS_08d = $(shell echo $(SILABS_08c) | sed 's:-DARDUINO_SILABS="{version}"::g')
+SILABS_08e = $(shell echo $(SILABS_08d) | sed 's:{build.board}:$(BUILD_BOARD):g')
+SILABS_08f = $(shell echo $(SILABS_08e) | sed 's:{build.arch}:$(BUILD_ARCH):g')
+SILABS_08g = $(shell echo $(SILABS_08f) | sed 's:{build.platform}:$(BUILD_PLATFORM):g')
+
+FLAGS_D = $(SILABS_08g)
+FLAGS_D += -DARDUINO_SILABS='"$(SILICONLABS_SILABS_RELEASE)"'
+FLAGS_D += -DEMCODE='"$(RELEASE_NOW)"'
+
+# FLAGS_D = -DF_CPU=$(F_CPU)
+# FLAGS_D += $(addprefix -D, $(PLATFORM_TAG))
+# FLAGS_D += -DARDUINO_$(call PARSE_BOARD,$(BOARD_TAG),build.board) -DARDUINO_ARCH_SILABS
 
 FLAGS_ALL += $(FLAGS_D)
 FLAGS_ALL += $(OPTIMISATION) $(FLAGS_WARNING) 
@@ -358,6 +373,8 @@ INCLUDE_PATH += $(sort $(dir $(BUILD_APP_LIB_CPP_SRC) $(BUILD_APP_LIB_C_SRC) $(B
 
 TARGET_HEXBIN = $(TARGET_HEX)
 
+FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name crt0.S.o)
+
 # Commands
 # ----------------------------------
 # Link command
@@ -383,6 +400,8 @@ LDSCRIPT = $(SILABS_42b)
 # TARGET_A replaced by OBJS_NON_CORE
 
 COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments -Wl,-whole-archive $(OBJS_NON_CORE) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -L$(OBJDIR) $(TARGET_CORE_A) $(SILABS_PRE_GSDK) -Wl,-no-whole-archive -Wl,--start-group $(FLAGS_LIBS) $(SILABS_PRE_LIBS) -Wl,--end-group $(OUT_PREPOSITION)$@
+
+# COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments -Wl,-whole-archive $(OBJS_NON_CORE) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -L$(OBJDIR) $(OBJS_CORE) $(SILABS_PRE_GSDK) -Wl,-no-whole-archive -Wl,--start-group $(FLAGS_LIBS) $(SILABS_PRE_LIBS) -Wl,--end-group $(OUT_PREPOSITION)$@
 
 # Target
 #

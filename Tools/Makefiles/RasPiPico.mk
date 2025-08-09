@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 23 Jun 2025 release 14.7.13
+# Last update: 09 Aug 2025 release 14.7.18
 #
 
 # RP2040 Pico for Arduino
@@ -233,16 +233,20 @@ APP_LIB_OBJS += $(patsubst $(HARDWARE_PATH)/%.c,$(OBJDIR)/%.c.o,$(APP_LIB_C_SRC)
 
 APP_LIBS_LOCK = 1
 
-# One location for core libraries
+#  New 4.7.0
+# One location but multiple sub-locations for core libraries
 #
-CORE_C_SRCS = $(wildcard $(CORE_LIB_PATH)/*.c $(CORE_LIB_PATH)/*/*.c)
+# CORE_C_SRCS = $(wildcard $(CORE_LIB_PATH)/*.c $(CORE_LIB_PATH)/*/*.c)
+CORE_C_SRCS = $(shell find $(CORE_LIB_PATH) -name \*.c)
 
 rp2040_20 = $(filter-out %main.cpp, $(shell find $(CORE_LIB_PATH) -name \*.cpp))
 CORE_CPP_SRCS = $(filter-out %/$(EXCLUDE_LIST),$(rp2040_20))
 
-CORE_AS_SRCS = $(wildcard $(CORE_LIB_PATH)/*.S)
-CORE_AS1_SRCS_OBJ = $(patsubst %.S,%.S.o,$(filter %S, $(CORE_AS_SRCS)))
-CORE_AS2_SRCS_OBJ = $(patsubst %.s,%.s.o,$(filter %s, $(CORE_AS_SRCS)))
+# CORE_AS_SRCS = $(wildcard $(CORE_LIB_PATH)/*.S)
+CORE_AS1_SRCS = $(shell find $(CORE_LIB_PATH) -name \*.S)
+CORE_AS2_SRCS = $(shell find $(CORE_LIB_PATH) -name \*.s)
+CORE_AS1_SRCS_OBJ = $(patsubst %.S,%.S.o,$(filter %S, $(CORE_AS1_SRCS)))
+CORE_AS2_SRCS_OBJ = $(patsubst %.s,%.s.o,$(filter %s, $(CORE_AS2_SRCS)))
 
 CORE_OBJ_FILES += $(CORE_C_SRCS:.c=.c.o) $(CORE_CPP_SRCS:.cpp=.cpp.o) $(CORE_AS1_SRCS_OBJ) $(CORE_AS2_SRCS_OBJ)
 CORE_OBJS += $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
@@ -284,9 +288,8 @@ USB_FLAGS += -DUSB_MANUFACTURER='$(USB_VENDOR)'
 USB_FLAGS += -DUSB_PRODUCT='$(USB_PRODUCT)'
 USB_FLAGS += $(USB_FLAGS_PID) $(USB_FLAGS_VID) $(USB_FLAGS_POWER) $(USB_STACK)
 USB_FLAGS += -DPICO_FLASH_SIZE_BYTES=$(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.flash_total)
+USB_FLAGS += @$(HARDWARE_PATH)/lib/platform_def.txt
 USB_FLAGS += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_def.txt
-
-USB_FLAGS += $(call PARSE_FILE,build,flags.sdfatdefines,$(HARDWARE_PATH)/platform.txt)
 
 # Define menu.ipstack and menu.usbstack
 BUILD_WIFI = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.wificc)
@@ -294,9 +297,14 @@ ifeq ($(USB_VENDOR),)
     BUILD_WIFI = $(call PARSE_FILE,$(BOARD_TAG),build,wificc)
 endif # USB_VENDOR
 
+# Define sdfatdefines
+FLAGS_SDFAT_DEFS = $(call PARSE_FILE,build,sdfatdefines,$(HARDWARE_PATH)/platform.txt)
+# $(info >>> FLAGS_SDFAT_DEFS $(FLAGS_SDFAT_DEFS))
+
 USB_FLAGS += $(FLAGS_W_DEFS)
+USB_FLAGS += $(FLAGS_SDFAT_DEFS)
 USB_FLAGS += $(BUILD_WIFI)
-USB_FLAGS += -DLWIP_IGMP=1 -DLWIP_CHECKSUM_CTRL_PER_NETIF=1
+USB_FLAGS += -DLWIP_CHECKSUM_CTRL_PER_NETIF=1
 
 # Serial 1200 reset
 #
@@ -391,7 +399,8 @@ FLAGS_ALL += -pipe
 FLAGS_ALL += $(addprefix -D, $(PLATFORM_TAG)) # printf=iprintf
 FLAGS_ALL += -DF_CPU=$(F_CPU)
 FLAGS_ALL += -DARDUINO_$(BUILD_BOARD)
-FLAGS_ALL += -BOARD_NAME='"$(BOARD_NAME)"'
+FLAGS_ALL += -DBOARD_NAME='"$(BUILD_BOARD)"'
+FLAGS_ALL += -DARDUINO_$(call PARSE_BOARD,$(BOARD_TAG),build.board)
 
 FLAGS_ALL += $(FLAGS_D)
 FLAGS_ALL += $(FLAGS_MORE) -MMD
@@ -433,19 +442,23 @@ FLAGS_D += $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.debug_port)
 rp2200a = $(call PARSE_FILE,compiler,wrap,$(HARDWARE_PATH)/platform.txt)
 rp2200b = $(shell echo $(rp2200a) | sed 's:{runtime.platform.path}:$(HARDWARE_PATH):g')
 rp2200c = $(shell echo $(rp2200b) | sed 's:{build.chip}:$(BUILD_CHIP):g')
-BUILD_WRAP = $(rp2300c)
+BUILD_WRAP = $(rp2200c)
 
-rp2100a = $(call PARSE_BOARD,$(BOARD_TAG),compiler.ldflags)
+# rp2100a = $(call PARSE_BOARD,$(BOARD_TAG),compiler.ldflags)
+rp2100a = $(call PARSE_FILE,compiler,ldflags,$(HARDWARE_PATH)/platform.txt)
 rp2100b = $(shell echo $(rp2100a) | sed 's:{compiler.wrap}:$(BUILD_WRAP):g')
+
+# $(info >>> rp2100a $(rp2100a))
+# $(info >>> rp2100b $(rp2100b))
 
 FLAGS_LD = $(rp2100b)
 FLAGS_LD += $(BUILD_OPTIONS)
 FLAGS_LD += -u _printf_float -u _scanf_float
 FLAGS_LD += @$(HARDWARE_PATH)/lib/$(BUILD_CHIP)/platform_wrap.txt
 FLAGS_LD += @$(HARDWARE_PATH)/lib/core_wrap.txt
-FLAGS_LD += -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--unresolved-symbols=report-all
-FLAGS_LD += -Wl,--warn-common
-FLAGS_LD += -Wl,--undefined=runtime_init_install_ram_vector_table
+# FLAGS_LD += -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--unresolved-symbols=report-all
+# FLAGS_LD += -Wl,--warn-common
+# FLAGS_LD += -Wl,--undefined=runtime_init_install_ram_vector_table
 FLAGS_LD += -Wl,--script=$(BUILDS_PATH)/memmap_default.ld
 FLAGS_LD += -Wl,-Map,$(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).map 
 FLAGS_LD += -Wl,--no-warn-rwx-segments

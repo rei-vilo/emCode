@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 10 Jun 2025 release 14.7.12
+# Last update: 05 Jul 2025 release 14.7.14
 #
 
 # General table of messages
@@ -530,7 +530,7 @@ LOCAL_LIB_PATH = .
 ifndef LOCAL_LIBS_LIST
     # s206 = $(dir $(shell find $(LOCAL_LIB_PATH) -path "*/examples/*" ! -prune -o -name \*.h -o -name \*.hpp))
     s206 = $(dir $(shell find $(LOCAL_LIB_PATH) -type d \( -name examples -o -name tests \) -prune -o \( -name \*.h -o -name \*.hpp \) -print))
-    s212 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(sort $(s206))))
+    s212 = $(sort $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(sort $(s206)))))
     LOCAL_LIBS_LIST = $(shell echo $(s212)' ' | sed 's://:/:g' | sed 's:/ : :g')
     s213 = $(s212)
 endif # LOCAL_LIBS_LIST
@@ -541,8 +541,9 @@ ifneq ($(strip $(LOCAL_LIBS_LIST)),0)
     # s208 = $(dir $(foreach dir,$(s207),$(shell find $(dir) -path "*/examples/*" ! -prune -o -name \*.h -o -name \*.hpp)))
     s208 = $(dir $(foreach dir,$(s207),$(shell find $(dir) -type d \( -name examples -o -name tests \) -prune -o \( -name \*.h -o -name \*.hpp \) -print)))
 #     s213 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(sort $(s207))))
-    s213 = $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(s207)))
-    LOCAL_LIBS = $(shell echo $(s208)' ' | sed 's://:/:g' | sed 's:/ : :g')
+    s213 = $(sort $(subst $(LOCAL_LIB_PATH)/,,$(filter-out $(EXCLUDE_LIST)/,$(s207))))
+    s214 = $(shell echo $(s208)' ' | sed 's://:/:g' | sed 's:/ : :g')
+    LOCAL_LIBS = $(sort $(s214))
 endif # LOCAL_LIBS_LIST
 
 # LOCAL_LIBS_LIST_TOP = $(s212)
@@ -797,7 +798,15 @@ endif # MESSAGE_CRITICAL
 # $(info > HIDE_INFO $(HIDE_INFO))
 
 # ReadMe file for archive
-# ifneq ($(HIDE_INFO),true)
+HIDE_SUMMARY = false
+ifeq ($(MAKECMDGOALS),clean)
+    HIDE_SUMMARY := true
+endif # MAKECMDGOALS
+ifeq ($(MAKECMDGOALS),document)
+    HIDE_SUMMARY := true
+endif # MAKECMDGOALS
+
+ifneq ($(HIDE_SUMMARY),true)
     $(info ---- Summary ----)
     $(info File              $(READ_ME_FILE))
 
@@ -930,7 +939,7 @@ endif # MESSAGE_CRITICAL
     # $(shell echo "  " >> $(READ_ME_FILE))
     # $(shell echo "---" >> $(READ_ME_FILE))
     $(info ---- End of Summary ----)
-# endif # HIDE_INFO
+endif # HIDE_SUMMARY
 
 ifeq ($(UNKNOWN_BOARD),1)
     $(info .)
@@ -1176,13 +1185,13 @@ ifneq ($(HIDE_TOOLS),true)
         $(info Support files     msp430-gcc-support-files $(shell if [ -f $(TOOL_CHAIN_PATH)/msp430-gcc-support-files/Revisions_Header.txt ] ; then grep $(TOOL_CHAIN_PATH)/msp430-gcc-support-files/Revisions_Header.txt -e ^Build | head -1 | sed 's:^Build ::' ; fi))
     endif # BUILD_CORE msp430elf
 
-    ifeq ($(MAKECMDGOALS),debug)
-    ifneq ($(UPLOADER),ozone)
-        ifneq (,$(wildcard $(GDB)))
-            $(info GDB               $(shell $(GDB) --version | head -1 ))
-        endif # GDB
-    endif # UPLOADER
-    endif # MAKECMDGOALS
+    # ifeq ($(MAKECMDGOALS),debug)
+    # ifneq ($(UPLOADER),ozone)
+    #     ifneq (,$(wildcard $(GDB)))
+    #         $(info GDB               $(shell $(GDB) --version | head -1 ))
+    #     endif # GDB
+    # endif # UPLOADER
+    # endif # MAKECMDGOALS
 
     $(info ---- Configuration ----)
     $(info OS                $(shell uname -a))
@@ -1885,6 +1894,13 @@ include $(MAKEFILE_PATH)/About.mk
 # $(info >>> TARGET_CORE_A $(TARGET_CORE_A)) 
 # $(info >>> TARGET_A $(TARGET_A))
 
+# ifneq ($(COMMAND_BEFORE_COMPILE),)
+#     $(info "1.0-BEFORE",$(MESSAGE_BEFORE))
+
+#     $(info >>> $(COMMAND_BEFORE_COMPILE))
+#     $(shell $(COMMAND_BEFORE_COMPILE))
+# endif # COMMAND_BEFORE_COMPILE
+
 # Rules
 # ----------------------------------
 #
@@ -2096,8 +2112,8 @@ else ifneq ($(COMMAND_UPLOAD),)
 else ifeq ($(BOARD_PORT),pgm)
 	$(call SHOW,"10.3-UPLOAD",$(UPLOADER))
 
-	@if [ -f $(UTILITIES_PATH)/emCode_debug ]; then export PROJECT_EXTENSION=$(PROJECT_EXTENSION) ; export UPLOADER=$(UPLOADER) ; export JLINK_POWER=$(JLINK_POWER) ; export BUILDS_PATH='$(BUILDS_PATH_SPACE)' ; $(UTILITIES_PATH)/emCode_debug '$(BUILDS_PATH_SPACE)' ; fi;
-	@osascript -e 'tell application "Terminal" to do script "$(MDB) \"$(BUILDS_PATH_SPACE)/mdb.txt\""'
+	# @if [ -f $(UTILITIES_PATH)/emCode_debug ]; then export PROJECT_EXTENSION=$(PROJECT_EXTENSION) ; export UPLOADER=$(UPLOADER) ; export JLINK_POWER=$(JLINK_POWER) ; export BUILDS_PATH='$(BUILDS_PATH_SPACE)' ; $(UTILITIES_PATH)/emCode_debug '$(BUILDS_PATH_SPACE)' ; fi;
+	# @osascript -e 'tell application "Terminal" to do script "$(MDB) \"$(BUILDS_PATH_SPACE)/mdb.txt\""'
 
 else ifeq ($(BOARD_PORT),ssh)
 	$(call SHOW,"10.4-UPLOAD",$(UPLOADER))
@@ -2522,81 +2538,81 @@ ifeq ($(UPLOADER),avrdude)
 			-U lock:w:$(ISP_LOCK_FUSE_POST):m
 endif # UPLOADER avrdude
 
-serial: reset
-ifneq ($(NO_SERIAL_CONSOLE),1)
-ifneq ($(NO_SERIAL_CONSOLE),true)
-	@echo "---- Serial ----"
-    ifneq ($(DELAY_BEFORE_SERIAL),)
-		@sleep $(DELAY_BEFORE_SERIAL)
-    endif # DELAY_BEFORE_SERIAL
+# serial: reset
+# ifneq ($(NO_SERIAL_CONSOLE),1)
+# ifneq ($(NO_SERIAL_CONSOLE),true)
+# 	@echo "---- Serial ----"
+#     ifneq ($(DELAY_BEFORE_SERIAL),)
+# 		@sleep $(DELAY_BEFORE_SERIAL)
+#     endif # DELAY_BEFORE_SERIAL
 
-    ifneq ($(COMMAND_SERIAL),)
-		$(call SHOW,"11.90-SERIAL",$(UPLOADER))
+#     ifneq ($(COMMAND_SERIAL),)
+# 		$(call SHOW,"11.90-SERIAL",$(UPLOADER))
 
-#		osascript -e 'tell application "Terminal" to do script "$(COMMAND_SERIAL)"' -e 'tell application "Terminal" to activate'
-		$(COMMAND_SERIAL)
+# #		osascript -e 'tell application "Terminal" to do script "$(COMMAND_SERIAL)"' -e 'tell application "Terminal" to activate'
+# 		$(COMMAND_SERIAL)
 
-    else ifeq ($(BOARD_PORT),ssh)
-        ifeq ($(BOARD_TAG),yun)
-			$(call SHOW,"11.1-SERIAL",$(UPLOADER))
+#     else ifeq ($(BOARD_PORT),ssh)
+#         ifeq ($(BOARD_TAG),yun)
+# 			$(call SHOW,"11.1-SERIAL",$(UPLOADER))
 
-#			osascript -e 'tell application "Terminal" to do script "$(UTILITIES_PATH)/sshpass -p $(SSH_PASSWORD) ssh root@$(SSH_ADDRESS) exec telnet localhost 6571"' -e 'tell application "Terminal" to activate'
-			$(UTILITIES_PATH)/sshpass -p $(SSH_PASSWORD) ssh root@$(SSH_ADDRESS) exec telnet localhost 6571
-        endif # BOARD_TAG
+# #			osascript -e 'tell application "Terminal" to do script "$(UTILITIES_PATH)/sshpass -p $(SSH_PASSWORD) ssh root@$(SSH_ADDRESS) exec telnet localhost 6571"' -e 'tell application "Terminal" to activate'
+# 			$(UTILITIES_PATH)/sshpass -p $(SSH_PASSWORD) ssh root@$(SSH_ADDRESS) exec telnet localhost 6571
+#         endif # BOARD_TAG
 
-    else ifeq ($(AVRDUDE_NO_SERIAL_PORT),1)
-		@echo "The programmer provides no serial port"
+#     else ifeq ($(AVRDUDE_NO_SERIAL_PORT),1)
+# 		@echo "The programmer provides no serial port"
 
-    else ifeq ($(UPLOADER),teensy_flash)
-		$(call SHOW,"11.2-SERIAL",$(UPLOADER))
+#     else ifeq ($(UPLOADER),teensy_flash)
+# 		$(call SHOW,"11.2-SERIAL",$(UPLOADER))
 
-#		osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $$(ls $(BOARD_PORT)) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
-		$(SERIAL_EXEC) $$(ls $(BOARD_PORT)) $(SERIAL_BAUDRATE)
+# #		osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $$(ls $(BOARD_PORT)) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
+# 		$(SERIAL_EXEC) $$(ls $(BOARD_PORT)) $(SERIAL_BAUDRATE)
 
-    else ifeq ($(UPLOADER),lightblue_loader_cli)
-		$(call SHOW,"11.71-SERIAL",$(UPLOADER))
+#     else ifeq ($(UPLOADER),lightblue_loader_cli)
+# 		$(call SHOW,"11.71-SERIAL",$(UPLOADER))
 
-#		osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC)"' -e 'tell application "Terminal" to activate'
-		$(SERIAL_EXEC)  
+# #		osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC)"' -e 'tell application "Terminal" to activate'
+# 		$(SERIAL_EXEC)  
 
-    else ifeq ($(UPLOADER),lightblue_loader)
-		$(call SHOW,"11.3-SERIAL",$(UPLOADER))
+#     else ifeq ($(UPLOADER),lightblue_loader)
+# 		$(call SHOW,"11.3-SERIAL",$(UPLOADER))
 
-#		osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $$(ls $(BOARD_PORT)) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
-		$(SERIAL_EXEC) $$(ls $(BOARD_PORT)) $(SERIAL_BAUDRATE)
+# #		osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $$(ls $(BOARD_PORT)) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
+# 		$(SERIAL_EXEC) $$(ls $(BOARD_PORT)) $(SERIAL_BAUDRATE)
 
-    else ifneq ($(USED_SERIAL_PORT),)
-        ifneq ($(DUAL_USB),)
-            ifneq ($(CURRENT_EXEC),)
-				$(call SHOW,"11.41-SERIAL",$(UPLOADER))
+#     else ifneq ($(USED_SERIAL_PORT),)
+#         ifneq ($(DUAL_USB),)
+#             ifneq ($(CURRENT_EXEC),)
+# 				$(call SHOW,"11.41-SERIAL",$(UPLOADER))
 
-				@echo Dual USB, console $(SERIAL_EXEC) already running
-            else
-				$(call SHOW,"11.42-SERIAL",$(UPLOADER))
+# 				@echo Dual USB, console $(SERIAL_EXEC) already running
+#             else
+# 				$(call SHOW,"11.42-SERIAL",$(UPLOADER))
 
-				$(SERIAL_EXEC) $(USED_SERIAL_PORT) $(SERIAL_BAUDRATE)
-#				osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $(USED_SERIAL_PORT) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
-            endif # CURRENT_EXEC
-        else
-			$(call SHOW,"11.43-SERIAL",$(UPLOADER))
+# 				$(SERIAL_EXEC) $(USED_SERIAL_PORT) $(SERIAL_BAUDRATE)
+# #				osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $(USED_SERIAL_PORT) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
+#             endif # CURRENT_EXEC
+#         else
+# 			$(call SHOW,"11.43-SERIAL",$(UPLOADER))
 
-			$(SERIAL_EXEC) $(USED_SERIAL_PORT) $(SERIAL_BAUDRATE)
-#			osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $(USED_SERIAL_PORT) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
-        endif # DUAL_USB
-		@echo $(USED_SERIAL_PORT) > $(NEW_TAG)
+# 			$(SERIAL_EXEC) $(USED_SERIAL_PORT) $(SERIAL_BAUDRATE)
+# #			osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $(USED_SERIAL_PORT) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
+#         endif # DUAL_USB
+# 		@echo $(USED_SERIAL_PORT) > $(NEW_TAG)
 
-    else ifeq ($(UPLOADER),jlink)
-        ifneq ($(JLINK_SERIAL),)
-			$(call SHOW,"11.44-SERIAL",$(UPLOADER))
+#     else ifeq ($(UPLOADER),jlink)
+#         ifneq ($(JLINK_SERIAL),)
+# 			$(call SHOW,"11.44-SERIAL",$(UPLOADER))
 
-            $(SERIAL_EXEC) $(JLINK_SERIAL) $(SERIAL_BAUDRATE)
-#			osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $(JLINK_SERIAL) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
-        endif # JLINK_SERIAL
-    else # UPLOADER
-		@echo "No serial port available"
-    endif # COMMAND_SERIAL
-endif # NO_SERIAL_CONSOLE
-endif # NO_SERIAL_CONSOLE
+#             $(SERIAL_EXEC) $(JLINK_SERIAL) $(SERIAL_BAUDRATE)
+# #			osascript -e 'tell application "Terminal" to do script "$(SERIAL_EXEC) $(JLINK_SERIAL) $(SERIAL_BAUDRATE)"' -e 'tell application "Terminal" to activate'
+#         endif # JLINK_SERIAL
+#     else # UPLOADER
+# 		@echo "No serial port available"
+#     endif # COMMAND_SERIAL
+# endif # NO_SERIAL_CONSOLE
+# endif # NO_SERIAL_CONSOLE
 
 clean:
 	@echo "---- Clean ----"
@@ -2607,7 +2623,7 @@ clean:
 	@mkdir -p $(OBJDIR)
 	@if [ -f ./Serial.txt ] ; then mv ./Serial.txt $(OBJDIR)/Serial.txt ; fi
 
-changed:
+change:
 	@echo "---- Clean changed ----"
 ifeq ($(BOOL_CHANGED_BOARD),1)
 	@if [ ! -d $(OBJDIR) ]; then mkdir $(OBJDIR); fi
@@ -2712,7 +2728,7 @@ ifneq ($(COMMAND_AFTER_COMPILE),)
 	$(QUIET_BUILD)$(COMMAND_AFTER_COMPILE)
 endif # COMMAND_AFTER_COMPILE
 
-fast: start_message changed before_compile compile after_compile reset raw_upload serial
+fast: start_message change before_compile compile after_compile reset raw_upload serial
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 all: start_message clean before_compile compile after_compile reset raw_upload serial
@@ -2721,7 +2737,7 @@ all: start_message clean before_compile compile after_compile reset raw_upload s
 build: start_message nothing before_compile compile after_compile
 	@echo "==== $(MESSAGE_TASK) done ===="
 
-make: start_message changed before_compile compile after_compile
+make: start_message change before_compile compile after_compile
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 # archive: start_message changed compile do_archive
@@ -2785,4 +2801,4 @@ endif # COMMAND_BOOTLOADER
 #.NOTPARALLEL:
 
 # cat Step2.mk | grep -e "^[A-z]\+:" | cut -d: -f1
-.PHONY: all after_compile before_compile boards build changed clean compile depends fast info ispload make start_message message_compile raw_upload reset serial size upload archive do_archive unarchive arguments update 
+.PHONY: all after_compile before_compile boards build change clean compile depends fast info ispload make start_message message_compile raw_upload reset size upload archive do_archive unarchive arguments update 

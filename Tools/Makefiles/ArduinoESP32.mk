@@ -8,7 +8,7 @@
 #
 # Created by Rei Vilo on 31 Aug 2023 
 # 
-# Last update: 18 Dec 2024 release 14.6.6
+# Last update: 06 Aug 2025 release 14.7.17
 #
 
 # On Linux, install pyserial with 
@@ -66,6 +66,7 @@ TOOL_CHAIN_PATH = $(ARDUINO_PACKAGES_PATH)/esp32/tools/s3-gcc/$(ARDUINO_GCC_ESP3
 
 # $(info === TOOL_CHAIN_PATH $(TOOL_CHAIN_PATH))
 # TOOL_CHAIN_PATH = $(HARDWARE_PATH)/tools/xtensa-esp32-elf
+
 OTHER_TOOLS_PATH = $(APPLICATION_PATH)/tools/esptool_py/$(ESP32_TOOLS_RELEASE)
 ESP32_TOOLS_PATH = $(ARDUINO_PACKAGES_PATH)/esp32/tools/esptool_py/$(ESP32_TOOLS_RELEASE)
 # OTHER_TOOLS_PATH = $(HARDWARE_PATH)/tools
@@ -74,7 +75,7 @@ ESP32_TOOLS_PATH = $(ARDUINO_PACKAGES_PATH)/esp32/tools/esptool_py/$(ESP32_TOOLS
 #
 PLATFORM_TAG += ARDUINO_BOARD='"$(BUILD_BOARD)"' ARDUINO_VARIANT='"$(BUILD_VARIANT)"'
 
-ESP_POST_COMPILE = $(PYTHON_EXEC) $(APPLICATION_PATH)/tools/esptool.py/$(ESP32_TOOLS_RELEASE)/esptool.py
+ESP_POST_COMPILE = $(APPLICATION_PATH)/tools/esptool.py/$(ESP32_TOOLS_RELEASE)/esptool
 BOOTLOADER_ELF = $(HARDWARE_PATH)/bootloaders/eboot/eboot.elf
 
 # Complicated menu system for Arduino 1.5
@@ -263,11 +264,11 @@ else
 #     COMMAND_COPY = $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $(BOOTLOADER_BIN) $(BOOTLOADER_SOURCE_ELF) ;
 
 # recipe.objcopy.bin.pattern_args=--chip {build.mcu} elf2image --flash_mode "{build.flash_mode}" --flash_freq "{build.flash_freq}" --flash_size "{build.flash_size}" --elf-sha256-offset 0xb0 -o "{build.path}/{build.project_name}.bin" "{build.path}/{build.project_name}.elf"
-    COMMAND_COPY += $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $(TARGET_BIN) $(TARGET_ELF) ;
+    COMMAND_COPY += $(ESP32_TOOLS_PATH)/esptool --chip $(MCU) elf2image --flash-mode $(BUILD_FLASH_MODE) --flash-freq $(BUILD_FLASH_FREQ) --flash-size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $(TARGET_BIN) $(TARGET_ELF) ;
 
     COMMAND_COPY += $(PYTHON_EXEC) $(HARDWARE_PATH)/tools/gen_esp32part.py -q $(PARTITIONS_CSV) $(PARTITIONS_BIN) ;
 
-    COMMAND_BEFORE_COMPILE += $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) -o $(BOOTLOADER_BIN) $(BOOTLOADER_SOURCE_ELF) ;
+    COMMAND_BEFORE_COMPILE += $(ESP32_TOOLS_PATH)/esptool --chip $(MCU) elf2image --flash-mode $(BUILD_FLASH_MODE) --flash-freq $(BUILD_FLASH_FREQ) --flash-size $(BUILD_FLASH_SIZE) -o $(BOOTLOADER_BIN) $(BOOTLOADER_SOURCE_ELF) ;
 
     MESSAGE_BEFORE += " and bootloader"
     
@@ -442,7 +443,7 @@ SDK_PATH = $(HARDWARE_PATH)/tools/sdk/$(BUILD_MCU)
 # FLAGS_D += -DUNITY_INCLUDE_CONFIG_H
 # -DARDUINO_CORE_BUILD for core file compilation
 esp1000b = $(shell echo '$(esp1000a)' | sed 's:-I{compiler.sdk.path}:$(HARDWARE_PATH)/tools/sdk:g')
-$(info === esp1000b $(esp1000b))
+# $(info === esp1000b $(esp1000b))
 
 # INCLUDE_PATH := $(esp1000b)
 INCLUDE_PATH = $(CORE_LIB_PATH)
@@ -713,7 +714,7 @@ endif
 # $(info > esp1500j $(esp1500j))
 # $(info > esp1500k $(esp1500k))
 else
-    COMMAND_POST_COPY = $(PYTHON_EXEC) $(ESP32_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) -o $@ $<
+    COMMAND_POST_COPY = $(ESP32_TOOLS_PATH)/esptool --chip $(MCU) elf2image --flash-mode $(BUILD_FLASH_MODE) --flash-freq $(BUILD_FLASH_FREQ) --flash-size $(BUILD_FLASH_SIZE) -o $@ $<
 endif
 
 # COMMAND_POST_COPY = $(PYTHON_EXEC) $(HARDWARE_PATH)/tools/esptool.py --chip esp32 elf2image --flash_mode $(call PARSE_BOARD,$(BOARD_TAG),build.flash_mode) --flash_freq 80m --flash_size $(call PARSE_BOARD,$(BOARD_TAG),build.flash_size) -o $@ $<

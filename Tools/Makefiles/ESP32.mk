@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 28 Mar 2025 release 14.7.7
+# Last update: 06 Aug 2025 release 14.7.17
 #
 
 # On Linux, install pyserial with 
@@ -34,6 +34,13 @@ ifeq ($(wildcard $(EMCODE_TOOLS)/Cores/$(SELECTED_BOARD)_$(RELEASE_CORE).a),)
 else
     FLAG_BUILD_CORE_A = 0
 endif
+
+# Parallel build fails against ESP32 starting release 3.2.1
+# Using sequential build instead (make).
+ifeq ($(MAKECMDGOALS),build)
+    MAKECMDGOALS := make
+    $(info Changed MAKECMDGOALS to '$(MAKECMDGOALS)') 
+endif # MAKECMDGOALS
 
 # ESP32 specifics
 # ----------------------------------
@@ -84,7 +91,7 @@ OTHER_TOOLS_PATH = $(APPLICATION_PATH)/tools/esptool_py/$(ESP32_TOOLS_RELEASE)
 #
 PLATFORM_TAG += ARDUINO_BOARD='"$(BUILD_BOARD)"' ARDUINO_VARIANT='"$(BUILD_VARIANT)"'
 
-ESP_POST_COMPILE = $(PYTHON_EXEC) $(APPLICATION_PATH)/tools/esptool.py/$(ESP32_TOOLS_RELEASE)/esptool.py
+ESP_POST_COMPILE = $(APPLICATION_PATH)/tools/esptool.py/$(ESP32_TOOLS_RELEASE)/esptool
 BOOTLOADER_ELF = $(HARDWARE_PATH)/bootloaders/eboot/eboot.elf
 
 # Complicated menu system for Arduino 1.5
@@ -234,7 +241,7 @@ ifneq ($(BOOTLOADER_SOURCE_BIN),)
 else
 #    BOOTLOADER_BUILDS_BIN = $(SDK_PATH)/bin/bootloader_$(BUILD_FLASH_MODE)_$(BUILD_FLASH_FREQ).bin
     BOOTLOADER_SOURCE_ELF = $(SDK_PATH)/bin/bootloader_$(BUILD_FLASH_MODE)_$(BUILD_FLASH_FREQ).elf
-    COMMAND_COPY = $(PYTHON_EXEC) $(OTHER_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) -o $(BOOTLOADER_BUILDS_BIN) $(BOOTLOADER_SOURCE_ELF) ;
+    COMMAND_COPY = $(OTHER_TOOLS_PATH)/esptool --chip $(MCU) elf2image --flash-mode $(BUILD_FLASH_MODE) --flash-freq $(BUILD_FLASH_FREQ) --flash-size $(BUILD_FLASH_SIZE) -o $(BOOTLOADER_BUILDS_BIN) $(BOOTLOADER_SOURCE_ELF) ;
 endif # BOOTLOADER_SOURCE_BIN
 # $(info === BOOTLOADER_BUILDS_BIN $(BOOTLOADER_BUILDS_BIN))
 
@@ -292,11 +299,11 @@ else # UPLOADER
 
     UPLOADER = esptool
     UPLOADER_PATH = $(OTHER_TOOLS_PATH)
-    UPLOADER_EXEC = $(PYTHON_EXEC) $(UPLOADER_PATH)/esptool.py
+    UPLOADER_EXEC = $(OTHER_TOOLS_PATH)/esptool
     UPLOADER_OPTS = --chip $(MCU) --port $(USED_SERIAL_PORT) --baud 921600
     UPLOADER_OPTS += --before default_reset --after hard_reset write_flash -z
-    UPLOADER_OPTS += --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) 
-    UPLOADER_OPTS += --flash_size $(BUILD_FLASH_SIZE)
+    UPLOADER_OPTS += --flash-mode $(BUILD_FLASH_MODE) --flash-freq $(BUILD_FLASH_FREQ) 
+    UPLOADER_OPTS += --flash-size $(BUILD_FLASH_SIZE)
     UPLOADER_OPTS += $(call PARSE_BOARD,$(BOARD_TAG),build.bootloader_addr) $(BOOTLOADER_BUILDS_BIN)
     UPLOADER_OPTS += 0x8000 $(PARTITIONS_BUILDS_BIN)
     UPLOADER_OPTS += 0xe000 $(HARDWARE_PATH)/tools/partitions/boot_app0.bin
@@ -503,7 +510,7 @@ FLAGS_LD += -L$(SDK_PATH)/$(BUILD_MEMORY_TYPE)
 # "-L{compiler.sdk.path}/lib" "-L{compiler.sdk.path}/ld" "-L{compiler.sdk.path}/{build.memory_type}" 
 
 # FLAGS_LD = -DFLAGS_LD $(call PARSE_FILE,compiler,elf.extra_flags=,$(HARDWARE_PATH)/platform.txt)
-FLAGS_C += -Wl,--wrap=esp_panic_handler
+FLAGS_C += -Werror=return-type # -Wl,--wrap=esp_panic_handler
 
 esp1800a = $(call PARSE_FILE,compiler,c.elf.flags=,$(HARDWARE_PATH)/platform.txt)
 esp1800b = $(shell echo '$(esp1800a)' | sed 's:{compiler.sdk.path}:$(SDK_PATH):g')
@@ -549,8 +556,8 @@ BOOTLOADER_BUILDS_BIN = $(BUILDS_PATH)/bootloader.bin
 BOOTLOADER_VARIANT_BIN = $(VARIANT_PATH)/$(BUILD_BOOTLOADER).bin
 
 # recipe.hooks.prebuild.4.pattern=/usr/bin/env bash -c "[ -f "{build.source.path}"/bootloader.bin ] && cp -f "{build.source.path}"/bootloader.bin "{build.path}"/{build.project_name}.bootloader.bin || ( [ -f "{build.variant.path}"/{build.custom_bootloader}.bin ] && cp "{build.variant.path}"/{build.custom_bootloader}.bin "{build.path}"/{build.project_name}.bootloader.bin || "{tools.esptool_py.path}"/{tools.esptool_py.cmd} {recipe.hooks.prebuild.4.pattern_args} "{build.path}"/{build.project_name}.bootloader.bin "{compiler.sdk.path}"/bin/bootloader_{build.boot}_{build.boot_freq}.elf )"
-# recipe.hooks.prebuild.4.pattern_args=--chip {build.mcu} elf2image --flash_mode {build.flash_mode} --flash_freq {build.img_freq} --flash_size {build.flash_size} -o
-COMMAND_BEFORE_COMPILE += [ -f $(CURRENT_DIR)/bootloader.bin ] && cp -f $(CURRENT_DIR)/bootloader.bin $(BOOTLOADER_BUILDS_BIN) || ( [ -f $(BOOTLOADER_VARIANT_BIN) ] && cp $(BOOTLOADER_VARIANT_BIN) $(BOOTLOADER_BUILDS_BIN) || $(PYTHON_EXEC) $(OTHER_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_IMG_FREQ) --flash_size $(BUILD_FLASH_SIZE) -o $(BOOTLOADER_BUILDS_BIN) $(SDK_PATH)/bin/bootloader_$(BUILD_BOOT)_$(BUILD_BOOT_FREQ).elf ) ; 
+# recipe.hooks.prebuild.4.pattern_args=--chip {build.mcu} elf2image --flash-mode {build.flash_mode} --flash-freq {build.img_freq} --flash-size {build.flash_size} -o
+COMMAND_BEFORE_COMPILE += [ -f $(CURRENT_DIR)/bootloader.bin ] && cp -f $(CURRENT_DIR)/bootloader.bin $(BOOTLOADER_BUILDS_BIN) || ( [ -f $(BOOTLOADER_VARIANT_BIN) ] && cp $(BOOTLOADER_VARIANT_BIN) $(BOOTLOADER_BUILDS_BIN) || $(OTHER_TOOLS_PATH)/esptool --chip $(MCU) elf2image --flash-mode $(BUILD_FLASH_MODE) --flash-freq $(BUILD_IMG_FREQ) --flash-size $(BUILD_FLASH_SIZE) -o $(BOOTLOADER_BUILDS_BIN) $(SDK_PATH)/bin/bootloader_$(BUILD_BOOT)_$(BUILD_BOOT_FREQ).elf ) ; 
 
 OPTION_BUILDS_H = $(BUILDS_PATH)/build_opt.h
 PARTITIONS_VARIANT_CSV = $(VARIANT_PATH)/$(BUILD_PARTITIONS).csv
@@ -593,7 +600,7 @@ COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL
 
 # Copy command
 #
-COMMAND_COPY = $(PYTHON_EXEC) $(OTHER_TOOLS_PATH)/esptool.py --chip $(MCU) elf2image --flash_mode $(BUILD_FLASH_MODE) --flash_freq $(BUILD_FLASH_FREQ) --flash_size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $@ $<
+COMMAND_COPY = $(OTHER_TOOLS_PATH)/esptool --chip $(MCU) elf2image --flash-mode $(BUILD_FLASH_MODE) --flash-freq $(BUILD_FLASH_FREQ) --flash-size $(BUILD_FLASH_SIZE) --elf-sha256-offset 0xb0 -o $@ $<
 
 COMMAND_POST_COPY = $(PYTHON_EXEC) $(HARDWARE_PATH)/tools/gen_esp32part.py -q $(PARTITIONS_BUILDS_CSV) $(PARTITIONS_BUILDS_BIN) ;
 
@@ -603,8 +610,8 @@ COMMAND_POST_COPY += [ ! -d $(BUILDS_PATH)/libraries/Insights ] || $(PYTHON_EXEC
 # recipe.hooks.objcopy.postobjcopy.2.pattern=/usr/bin/env bash -c "[ ! -d "{build.path}"/libraries/ESP_SR ] || [ ! -f "{compiler.sdk.path}"/esp_sr/srmodels.bin ] || cp -f "{compiler.sdk.path}"/esp_sr/srmodels.bin "{build.path}"/srmodels.bin"
 COMMAND_POST_COPY += [ ! -d $(BUILDS_PATH)/libraries/ESP_SR ] || [ ! -f $(APPLICATION_PATH)/tools/esp32-arduino-libs/$(ESP32_IDF_RELEASE)/$(BUILD_MCU)/esp_sr/srmodels.bin ] || cp -f $(APPLICATION_PATH)/tools/esp32-arduino-libs/$(ESP32_IDF_RELEASE)/$(BUILD_MCU)/esp_sr/srmodels.bin $(BUILDS_PATH)/srmodels.bin ;
 
-# recipe.hooks.objcopy.postobjcopy.3.pattern_args=--chip {build.mcu} merge_bin -o "{build.path}/{build.project_name}.merged.bin" --fill-flash-size {build.flash_size} --flash_mode keep --flash_freq keep --flash_size keep {build.bootloader_addr} "{build.path}/{build.project_name}.bootloader.bin" 0x8000 "{build.path}/{build.project_name}.partitions.bin" 0xe000 "{runtime.platform.path}/tools/partitions/boot_app0.bin" 0x10000 "{build.path}/{build.project_name}.bin"
-COMMAND_POST_COPY += $(PYTHON_EXEC) $(OTHER_TOOLS_PATH)/esptool.py --chip $(MCU) merge_bin -o $(BUILDS_PATH)/merged_bin --fill-flash-size $(BUILD_FLASH_SIZE) --flash_mode keep --flash_freq keep --flash_size keep 0x0 $(BUILDS_PATH)/bootloader.bin 0x8000 $(BUILDS_PATH)/partitions.bin 0xe000 $(HARDWARE_PATH)/tools/partitions/boot_app0.bin 0x10000 $(TARGET_BIN) ;
+# recipe.hooks.objcopy.postobjcopy.3.pattern_args=--chip {build.mcu} merge_bin -o "{build.path}/{build.project_name}.merged.bin" --fill-flash-size {build.flash_size} --flash-mode keep --flash-freq keep --flash-size keep {build.bootloader_addr} "{build.path}/{build.project_name}.bootloader.bin" 0x8000 "{build.path}/{build.project_name}.partitions.bin" 0xe000 "{runtime.platform.path}/tools/partitions/boot_app0.bin" 0x10000 "{build.path}/{build.project_name}.bin"
+COMMAND_POST_COPY += $(OTHER_TOOLS_PATH)/esptool --chip $(MCU) merge-bin -o $(BUILDS_PATH)/merged_bin --pad-to-size $(BUILD_FLASH_SIZE) --flash-mode keep --flash-freq keep --flash-size keep 0x0 $(BUILDS_PATH)/bootloader.bin 0x8000 $(BUILDS_PATH)/partitions.bin 0xe000 $(HARDWARE_PATH)/tools/partitions/boot_app0.bin 0x10000 $(TARGET_BIN) ;
 
 # Upload command
 #
