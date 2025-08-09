@@ -12,28 +12,28 @@
         <meta name="author" content="Rei Vilo">
       
       
-        <link rel="canonical" href="https://rei-vilo.github.io/emCode/Develop/New.html">
+        <link rel="canonical" href="https://rei-vilo.github.io/emCode/Boards/LaunchPad/TivaC.html">
       
       
-        <link rel="prev" href="index.html">
+        <link rel="prev" href="MSP432.html">
       
       
-        <link rel="next" href="Import.html">
+        <link rel="next" href="MultiTask.html">
       
       
-      <link rel="icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Create a new project - emCode User Manual</title>
+        <title>LaunchPad Tiva C - emCode User Manual</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -54,9 +54,9 @@
       
     
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -75,11 +75,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Create a new project - emCode User Manual" >
+        <meta  property="og:title"  content="LaunchPad Tiva C - emCode User Manual" >
       
         <meta  property="og:description"  content="Embedded computing for Arduino SDK with GNU make" >
       
-        <meta  property="og:image"  content="https://rei-vilo.github.io/emCode/assets/images/social/Develop/New.png" >
+        <meta  property="og:image"  content="https://rei-vilo.github.io/emCode/assets/images/social/Boards/LaunchPad/TivaC.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -87,19 +87,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://rei-vilo.github.io/emCode/Develop/New.html" >
+        <meta  property="og:url"  content="https://rei-vilo.github.io/emCode/Boards/LaunchPad/TivaC.html" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Create a new project - emCode User Manual" >
+        <meta  name="twitter:title"  content="LaunchPad Tiva C - emCode User Manual" >
       
         <meta  name="twitter:description"  content="Embedded computing for Arduino SDK with GNU make" >
       
-        <meta  name="twitter:image"  content="https://rei-vilo.github.io/emCode/assets/images/social/Develop/New.png" >
+        <meta  name="twitter:image"  content="https://rei-vilo.github.io/emCode/assets/images/social/Boards/LaunchPad/TivaC.png" >
       
     
     
-   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -108,7 +108,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-a-new-project" class="md-skip">
+        <a href="#manage-the-launchpad-tiva-c-boards" class="md-skip">
           Skip to content
         </a>
       
@@ -143,8 +143,8 @@
               </button>
             
             
-            New release 14.7 adds a ReadMe file for the Archive target.
-            
+New release 14.7 adds a ReadMe file for the Archive target.
+
           </div>
           
             <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
@@ -164,9 +164,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../index.html" title="emCode User Manual" class="md-header__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
+    <a href="../../index.html" title="emCode User Manual" class="md-header__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
       
-  <img src="../img/Logo-256-eC-Website-white.png" alt="logo">
+  <img src="../../img/Logo-256-eC-Website-white.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -183,7 +183,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Create a new project
+              LaunchPad Tiva C
             
           </span>
         </div>
@@ -273,7 +273,7 @@
         <a href="https://github.com/rei-vilo/emCode/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -295,7 +295,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../index.html" class="md-tabs__link">
+      <a href="../../index.html" class="md-tabs__link">
         
   
   
@@ -316,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Install/index.html" class="md-tabs__link">
+        <a href="../../Install/index.html" class="md-tabs__link">
           
   
   
@@ -334,13 +334,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="index.html" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../Develop/index.html" class="md-tabs__link">
           
   
   
@@ -358,11 +356,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../Boards/index.html" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../index.html" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Issues/index.html" class="md-tabs__link">
+        <a href="../../Issues/index.html" class="md-tabs__link">
           
   
   
@@ -406,7 +406,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Appendixes/index.html" class="md-tabs__link">
+        <a href="../../Appendixes/index.html" class="md-tabs__link">
           
   
   
@@ -448,9 +448,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="emCode User Manual" class="md-nav__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
+    <a href="../../index.html" title="emCode User Manual" class="md-nav__button md-logo" aria-label="emCode User Manual" data-md-component="logo">
       
-  <img src="../img/Logo-256-eC-Website-white.png" alt="logo">
+  <img src="../../img/Logo-256-eC-Website-white.png" alt="logo">
 
     </a>
     emCode User Manual
@@ -460,7 +460,7 @@
       <a href="https://github.com/rei-vilo/emCode/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -477,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         
   
   
@@ -526,7 +526,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Install/index.html" class="md-nav__link ">
+            <a href="../../Install/index.html" class="md-nav__link ">
               
   
   
@@ -561,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Install/Code.html" class="md-nav__link">
+      <a href="../../Install/Code.html" class="md-nav__link">
         
   
   
@@ -584,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Install/Arduino.html" class="md-nav__link">
+      <a href="../../Install/Arduino.html" class="md-nav__link">
         
   
   
@@ -607,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Install/emCode.html" class="md-nav__link">
+      <a href="../../Install/emCode.html" class="md-nav__link">
         
   
   
@@ -634,6 +634,567 @@
       
   
   
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Develop/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Develop a project
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Develop a project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Develop/Projects/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Manage the project
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Manage the project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Projects/New.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create a new project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Projects/Import.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Import an existing project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Projects/Write.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Write the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Develop/Libraries/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Manage the libraries
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Manage the libraries
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Libraries/Locate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locate the libraries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Libraries/Use.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use the libraries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Libraries/NonStandard.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage non-standard libraries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Libraries/PreCompiled.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage pre-compiled libraries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Develop/Targets/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Select the targets
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Select the targets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Targets/Build.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Targets/Upload.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Upload the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Targets/Run.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Run the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Targets/Debug.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debug the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Develop/Targets/Other.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use other targets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -643,6 +1204,14 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -673,326 +1242,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="index.html" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    Develop a project
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Develop a project
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Create a new project
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="New.html" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Create a new project
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-new-project_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a new project
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#select-the-board" class="md-nav__link">
-    <span class="md-ellipsis">
-      Select the board
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customise-the-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      Customise the project
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Import.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Import an existing project
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Write.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Write the project
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Libraries.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Add libraries to the project
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Build.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Build and upload the project
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Run.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Run and debug the project
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Other.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Use the other targets
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../Boards/index.html" class="md-nav__link ">
+            <a href="../index.html" class="md-nav__link ">
               
   
   
@@ -1005,13 +1259,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Manage the boards
@@ -1060,7 +1314,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/Adafruit/index.html" class="md-nav__link ">
+            <a href="../Adafruit/index.html" class="md-nav__link ">
               
   
   
@@ -1095,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Adafruit/ESP32.html" class="md-nav__link">
+      <a href="../Adafruit/ESP32.html" class="md-nav__link">
         
   
   
@@ -1118,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Adafruit/ESP8266.html" class="md-nav__link">
+      <a href="../Adafruit/ESP8266.html" class="md-nav__link">
         
   
   
@@ -1141,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Adafruit/nRF52.html" class="md-nav__link">
+      <a href="../Adafruit/nRF52.html" class="md-nav__link">
         
   
   
@@ -1164,7 +1418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Adafruit/Cortex-M.html" class="md-nav__link">
+      <a href="../Adafruit/Cortex-M.html" class="md-nav__link">
         
   
   
@@ -1187,7 +1441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Adafruit/RP2040.html" class="md-nav__link">
+      <a href="../Adafruit/RP2040.html" class="md-nav__link">
         
   
   
@@ -1210,7 +1464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Adafruit/AVR.html" class="md-nav__link">
+      <a href="../Adafruit/AVR.html" class="md-nav__link">
         
   
   
@@ -1278,7 +1532,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/Arduino/index.html" class="md-nav__link ">
+            <a href="../Arduino/index.html" class="md-nav__link ">
               
   
   
@@ -1313,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Arduino/AVR.html" class="md-nav__link">
+      <a href="../Arduino/AVR.html" class="md-nav__link">
         
   
   
@@ -1336,7 +1590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Arduino/ESP32.html" class="md-nav__link">
+      <a href="../Arduino/ESP32.html" class="md-nav__link">
         
   
   
@@ -1359,7 +1613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Arduino/MegaAVR.html" class="md-nav__link">
+      <a href="../Arduino/MegaAVR.html" class="md-nav__link">
         
   
   
@@ -1382,7 +1636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Arduino/Mbed.html" class="md-nav__link">
+      <a href="../Arduino/Mbed.html" class="md-nav__link">
         
   
   
@@ -1405,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Arduino/nRF52.html" class="md-nav__link">
+      <a href="../Arduino/nRF52.html" class="md-nav__link">
         
   
   
@@ -1428,7 +1682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Arduino/RP2040.html" class="md-nav__link">
+      <a href="../Arduino/RP2040.html" class="md-nav__link">
         
   
   
@@ -1451,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Arduino/SAM.html" class="md-nav__link">
+      <a href="../Arduino/SAM.html" class="md-nav__link">
         
   
   
@@ -1474,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Arduino/SAMD.html" class="md-nav__link">
+      <a href="../Arduino/SAMD.html" class="md-nav__link">
         
   
   
@@ -1530,7 +1784,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/Espressif/index.html" class="md-nav__link ">
+            <a href="../Espressif/index.html" class="md-nav__link ">
               
   
   
@@ -1565,7 +1819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Espressif/ESP8266.html" class="md-nav__link">
+      <a href="../Espressif/ESP8266.html" class="md-nav__link">
         
   
   
@@ -1588,7 +1842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Espressif/ESP32.html" class="md-nav__link">
+      <a href="../Espressif/ESP32.html" class="md-nav__link">
         
   
   
@@ -1642,7 +1896,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/Microsoft/index.html" class="md-nav__link ">
+            <a href="../Microsoft/index.html" class="md-nav__link ">
               
   
   
@@ -1677,7 +1931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Microsoft/AZ3166.html" class="md-nav__link">
+      <a href="../Microsoft/AZ3166.html" class="md-nav__link">
         
   
   
@@ -1731,7 +1985,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/SiliconLabs/index.html" class="md-nav__link ">
+            <a href="../SiliconLabs/index.html" class="md-nav__link ">
               
   
   
@@ -1766,7 +2020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/SiliconLabs/SiLabs.html" class="md-nav__link">
+      <a href="../SiliconLabs/SiLabs.html" class="md-nav__link">
         
   
   
@@ -1836,7 +2090,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/Seeed/index.html" class="md-nav__link ">
+            <a href="../Seeed/index.html" class="md-nav__link ">
               
   
   
@@ -1871,7 +2125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/Grove_AVR.html" class="md-nav__link">
+      <a href="../Seeed/Grove_AVR.html" class="md-nav__link">
         
   
   
@@ -1894,7 +2148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/SenseCAP.html" class="md-nav__link">
+      <a href="../Seeed/SenseCAP.html" class="md-nav__link">
         
   
   
@@ -1917,7 +2171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/Xiao_ESP32.html" class="md-nav__link">
+      <a href="../Seeed/Xiao_ESP32.html" class="md-nav__link">
         
   
   
@@ -1940,7 +2194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/Xiao_M0.html" class="md-nav__link">
+      <a href="../Seeed/Xiao_M0.html" class="md-nav__link">
         
   
   
@@ -1963,7 +2217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/Xiao_nRF.html" class="md-nav__link">
+      <a href="../Seeed/Xiao_nRF.html" class="md-nav__link">
         
   
   
@@ -1986,7 +2240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/Xiao_mbed.html" class="md-nav__link">
+      <a href="../Seeed/Xiao_mbed.html" class="md-nav__link">
         
   
   
@@ -2009,7 +2263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/Xiao_RP2040.html" class="md-nav__link">
+      <a href="../Seeed/Xiao_RP2040.html" class="md-nav__link">
         
   
   
@@ -2032,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/Xiao_MG24.html" class="md-nav__link">
+      <a href="../Seeed/Xiao_MG24.html" class="md-nav__link">
         
   
   
@@ -2055,7 +2309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Seeed/Xiao_Expansion.html" class="md-nav__link">
+      <a href="../Seeed/Xiao_Expansion.html" class="md-nav__link">
         
   
   
@@ -2109,7 +2363,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/RaspberryPi/index.html" class="md-nav__link ">
+            <a href="../RaspberryPi/index.html" class="md-nav__link ">
               
   
   
@@ -2144,7 +2398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/RaspberryPi/RP2040.html" class="md-nav__link">
+      <a href="../RaspberryPi/RP2040.html" class="md-nav__link">
         
   
   
@@ -2198,7 +2452,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/STM32/index.html" class="md-nav__link ">
+            <a href="../STM32/index.html" class="md-nav__link ">
               
   
   
@@ -2233,7 +2487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/STM32/STM32.html" class="md-nav__link">
+      <a href="../STM32/STM32.html" class="md-nav__link">
         
   
   
@@ -2287,7 +2541,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/Teensy/index.html" class="md-nav__link ">
+            <a href="../Teensy/index.html" class="md-nav__link ">
               
   
   
@@ -2322,12 +2576,383 @@
   
   
     <li class="md-nav__item">
-      <a href="../Boards/Teensy/Teensy.html" class="md-nav__link">
+      <a href="../Teensy/Teensy.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Teensy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            LaunchPad
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Energia.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Install the Energia tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CC13x0.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad CC13x0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CC13x2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad CC13x2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CC3200.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad CC3200
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CC3220.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad CC3220
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MSP430.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad MSP430
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MSP432.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad MSP432
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad Tiva C
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="TivaC.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    LaunchPad Tiva C
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#develop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Develop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MultiTask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Develop multi-tasks projects
     
   </span>
   
@@ -2370,11 +2995,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Boards/Other/index.html" class="md-nav__link ">
+            <a href="../Other/index.html" class="md-nav__link ">
               
   
   
@@ -2388,8 +3013,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_11">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
             <span class="md-nav__icon md-icon"></span>
             Add a board
           </label>
@@ -2446,7 +3071,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Issues/index.html" class="md-nav__link ">
+            <a href="../../Issues/index.html" class="md-nav__link ">
               
   
   
@@ -2481,7 +3106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Issues/Compatibility.html" class="md-nav__link">
+      <a href="../../Issues/Compatibility.html" class="md-nav__link">
         
   
   
@@ -2504,7 +3129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Issues/Common.html" class="md-nav__link">
+      <a href="../../Issues/Common.html" class="md-nav__link">
         
   
   
@@ -2527,7 +3152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Issues/Changes.html" class="md-nav__link">
+      <a href="../../Issues/Changes.html" class="md-nav__link">
         
   
   
@@ -2588,7 +3213,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Appendixes/index.html" class="md-nav__link ">
+            <a href="../../Appendixes/index.html" class="md-nav__link ">
               
   
   
@@ -2623,7 +3248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Appendixes/Release.html" class="md-nav__link">
+      <a href="../../Appendixes/Release.html" class="md-nav__link">
         
   
   
@@ -2646,7 +3271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Appendixes/History.html" class="md-nav__link">
+      <a href="../../Appendixes/History.html" class="md-nav__link">
         
   
   
@@ -2669,7 +3294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Appendixes/Glossary.html" class="md-nav__link">
+      <a href="../../Appendixes/Glossary.html" class="md-nav__link">
         
   
   
@@ -2692,7 +3317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Appendixes/Indexes.html" class="md-nav__link">
+      <a href="../../Appendixes/Indexes.html" class="md-nav__link">
         
   
   
@@ -2715,7 +3340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Appendixes/Legal.html" class="md-nav__link">
+      <a href="../../Appendixes/Legal.html" class="md-nav__link">
         
   
   
@@ -2767,27 +3392,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-new-project_1" class="md-nav__link">
+  <a href="#install" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new project
+      Install
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#select-the-board" class="md-nav__link">
+  <a href="#develop" class="md-nav__link">
     <span class="md-ellipsis">
-      Select the board
+      Develop
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#customise-the-project" class="md-nav__link">
+  <a href="#upload" class="md-nav__link">
     <span class="md-ellipsis">
-      Customise the project
+      Upload
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug
     </span>
   </a>
   
@@ -2807,71 +3441,31 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <a href="../../Appendixes/Indexes.html#tag:legacy" class="md-tag">Legacy</a>
+      
+    
+  </nav>
 
 
-<h1 id="create-a-new-project">Create a new project<a class="headerlink" href="#create-a-new-project" title="Permanent link">&para;</a></h1>
-<h2 id="create-a-new-project_1">Create a new project<a class="headerlink" href="#create-a-new-project_1" title="Permanent link">&para;</a></h2>
-<p>To create a new project,</p>
+
+<h1 id="manage-the-launchpad-tiva-c-boards">Manage the LaunchPad Tiva C boards<a class="headerlink" href="#manage-the-launchpad-tiva-c-boards" title="Permanent link">&para;</a></h1>
+<p>The LaunchPad Tiva C platform includes the LaunchPad TM4C123 (previously LaunchPad LM4F120 Stellaris) and the LaunchPad TM4C129 with Ethernet connectivity (now LaunchPad MSP432E401Y).</p>
+<p>The Tiva C LaunchPads do not support RTOS.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>To install the Tiva C LaunchPad,</p>
 <ul>
-<li>
-<p>Copy the folder <code>~/.emCode/Template</code> to a new location.</p>
-</li>
-<li>
-<p>Rename the folder.</p>
-</li>
-<li>
-<p>Open it with <strong>Visual Studio Code</strong>.</p>
-</li>
+<li>Please follow the instructions provided at <a href="https://energia.nu/guide/install/linux/" rel="noopener" target="_blank">Setup Energia on Linux</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span>.</li>
 </ul>
-<p>If you want to change the name of the main sketch <code>Template</code>, for example <code>MyProject</code>:</p>
-<ul>
-<li>
-<p>Rename the <code>Template.ino</code> file with the new name <code>MyProject.ino</code>;</p>
-</li>
-<li>
-<p>Edit the main <code>Makefile</code> and change the value of the <code>PROJECT_NAME_AS_IDENTIFIER</code> variable accordingly.</p>
-</li>
-</ul>
-<html><body><div class="* highlight"><pre><span></span><code><span class="c"># C-compliant project name</span>
-<span class="err">PROJECT_NAME_AS_IDENTIFIER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">MyProject</span>
-</code></pre></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body></html>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>As for the standard Arduino IDE, avoid spaces and special characters in the path and name of the project.</p>
-</div>
-<p>If <code>PROJECT_NAME_AS_IDENTIFIER</code> is not specified, the compilation process will search for an<code>.ino</code> file in the project folder and check for its unicity.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Multi-tasking projects with multiple sketches require <code>PROJECT_NAME_AS_IDENTIFIER</code> set to the name of the main sketch.</p>
-</div>
-<h2 id="select-the-board">Select the board<a class="headerlink" href="#select-the-board" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p>Select the main sketch on the left pane.</p>
-</li>
-<li>
-<p>Select the board on the drop-down list on the bottom line.</p>
-</li>
-</ul>
-<p>The names of the boards always starts with the platform and then the MCU, and ends with an option.</p>
-<p>As examples, <code>Adafruit_Feather_M0_USB</code>, <code>Raspberry_Pi_Pico_W_RP2040_PicoProbe</code> or <code>Teensy_4.1</code>.</p>
-<p>The board can be changed afterwards with the same procedure.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Visual Studio Code shows the list of the boards only when a sketch <code>.ino</code>, a header <code>.h</code> or a code file <code>.cpp</code> is selected.</p>
-</div>
-<p>If your board is not listed, you can create a configuration file.</p>
-<ul>
-<li>Please refer to the section <a href="../../Boards/Other">Add a board</a>.</li>
-</ul>
-<h2 id="customise-the-project">Customise the project<a class="headerlink" href="#customise-the-project" title="Permanent link">&para;</a></h2>
-<p>On the differnt files <code>ReadMe.md</code>, main sketch <code>Template.ino</code>, local library <code>LocalLibrary.cpp</code> and <code>LocalLibrary.h</code>:</p>
-<ul>
-<li>Adapt the fields <code>&lt;#project#&gt;</code> and <code>&lt;#details#&gt;</code>, <code>&lt;#author#&gt;</code>, <code>&lt;#date#&gt;</code> and <code>&lt;#version#&gt;</code>, <code>&lt;#copyright#&gt;</code> and <code>&lt;#licence#&gt;</code>.</li>
-</ul>
-<p>Alternatively, press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-h">H</kbd></span> to use the find-and-replace function of Visual Studio Code.</p>
+<h2 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h2>
+<p>The LaunchPad Tiva C support the Energia framework only.</p>
+<h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">&para;</a></h2>
+<h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
+<p>Refer to the section <a href="Energia.html#debug">Install OpenOCD</a>.</p>
 
 
 
@@ -2894,7 +3488,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 21, 2025 11:50:50 CET">February 21, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 9, 2025 17:08:21 CEST">August 9, 2025</span>
   </span>
 
     
@@ -2904,7 +3498,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 14, 2023 13:25:44 CEST">September 14, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 9, 2025 17:08:21 CEST">August 9, 2025</span>
   </span>
 
     
@@ -2943,7 +3537,7 @@ document$.subscribe(() => { lightbox.reload() });
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Develop a project">
+          <a href="MSP432.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: LaunchPad MSP432">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2953,20 +3547,20 @@ document$.subscribe(() => { lightbox.reload() });
                 Previous
               </span>
               <div class="md-ellipsis">
-                Develop a project
+                LaunchPad MSP432
               </div>
             </div>
           </a>
         
         
           
-          <a href="Import.html" class="md-footer__link md-footer__link--next" aria-label="Next: Import an existing project">
+          <a href="MultiTask.html" class="md-footer__link md-footer__link--next" aria-label="Next: Develop multi-tasks projects">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Import an existing project
+                Develop multi-tasks projects
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2987,10 +3581,8 @@ document$.subscribe(() => { lightbox.reload() });
     </div>
   
   
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
+    Made with <a href="https://www.mkdocs.org/" target="_blank" rel="noopener">MkDocs</a> 
+and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
   
 </div>
       
@@ -3006,11 +3598,13 @@ document$.subscribe(() => { lightbox.reload() });
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.13"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.18"}</script>
     
     
-      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
