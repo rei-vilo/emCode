@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 09 Aug 2025 release 14.7.18
+# Last update: 13 Aug 2025 release 14.7.19
 #
 
 # RP2040 Pico for Arduino
@@ -435,6 +435,8 @@ FLAGS_AS = -x assembler-with-cpp
 
 FLAGS_D = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.debug_level)
 FLAGS_D += $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.debug_port)
+FLAGS_D += $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.os)
+FLAGS_D += $(call PARSE_BOARD,$(BOARD_TAG),build.led)
 
 # Specific FLAGS_LD for linker only
 # linker uses FLAGS_ALL and FLAGS_LD

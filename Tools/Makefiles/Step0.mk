@@ -42,6 +42,7 @@ HIDE_COMMAND_UPLOAD ?= $(HIDE_COMMAND)
 #
 KEEP_MAIN ?= false
 KEEP_TASKS ?= false
+KEEP_LOCAL ?= false
 
 # For building, use available archives, false or true, default = true
 # 

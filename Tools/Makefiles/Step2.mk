@@ -2634,12 +2634,14 @@ ifeq ($(BOOL_CHANGED_BOARD),1)
 	@if [ -f ./Serial.txt ] ; then mv ./Serial.txt $(OBJDIR)/Serial.txt ; fi
 	-@killall $(SERIAL_EXEC)
 	@echo "Remove all"
-else
+else 
+ifneq ($(strip $(KEEP_LOCAL)),true)
 #		$(REMOVE) $(LOCAL_OBJS)
 	@for f in $(LOCAL_OBJS) ; do if [ -f $$f ] ; then $(REMOVE) $$f ; fi ; done
 	@for d in $(LOCAL_LIBS_LIST) ; do if [ -d $(BUILDS_PATH)/$$d ] ; then $(REMOVE) -r $(BUILDS_PATH)/$$d ; fi ; done
 	@echo "Remove local only"
 	@if [ -f $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf ] ; then $(REMOVE) $(OBJDIR)/$(BINARY_SPECIFIC_NAME).* ; fi ;
+endif # KEEP_LOCAL
 endif # BOOL_CHANGED_BOARD
 
 depends: $(DEPS)
