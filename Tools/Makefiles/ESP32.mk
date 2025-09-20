@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 06 Aug 2025 release 14.7.17
+# Last update: 18 Sep 2025 release 14.7.22
 #
 
 # On Linux, install pyserial with 
