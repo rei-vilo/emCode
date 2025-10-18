@@ -3747,25 +3747,24 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">cd</span><span class="w"> </span>~/.local
-</span><span class="">curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/.local
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
 <ul>
 <li>Ensure that <code>~/.local/bin</code> is listed in <code>$PATH</code>.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+</code></pre></div>
 <p>Otherwise,</p>
 <ul>
 <li>Edit  <code>~/.bashrc</code></li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.bashrc
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>~/.bashrc
+</code></pre></div>
 <ul>
 <li>Add <code>~/.local/bin</code> to <code>$PATH</code></li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">export</span><span class="w"> </span><span class="err">PATH=$PATH:~/.local/bin</span>
+<div class="highlight"><pre><span></span><code><span class="err">export</span><span class="w"> </span><span class="err">PATH=$PATH:~/.local/bin</span>
 </code></pre></div>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
@@ -3784,19 +3783,18 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>config<span class="w"> </span>init
-</span>Config<span class="w"> </span>file<span class="w"> </span>written<span class="w"> </span>to:<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>config<span class="w"> </span>init
+Config<span class="w"> </span>file<span class="w"> </span>written<span class="w"> </span>to:<span class="w"> </span>~/.arduino15/arduino-cli.yaml
+</code></pre></div>
 <ul>
 <li>Edit it with</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
+</code></pre></div>
 <ul>
 <li>Set the sketchbook folder;</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/Projects/Arduino</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/Projects/Arduino</span>
 </code></pre></div>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> and <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
@@ -3814,19 +3812,19 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
+</code></pre></div>
 <p>The parameter <code>arduino:avr</code> refers to the name of the boards.</p>
 <h3 id="add-urls-for-new-boards">Add URLs for new boards<a class="headerlink" href="#add-urls-for-new-boards" title="Permanent link">¶</a></h3>
 <ul>
 <li>Open the configuration file <code>arduino-cli.yaml</code>;</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>~/.arduino15/arduino-cli.yaml
+</code></pre></div>
 <ul>
 <li>Add the other boards;</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="nt">board_manager</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">board_manager</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">additional_urls</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://adafruit.github.io/arduino-board-index/package_adafruit_index.json</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://downloads.arduino.cc/packages/package_mbed_index.json</span>
@@ -3849,8 +3847,8 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>install<span class="w"> </span>ArduinoBLE
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>lib<span class="w"> </span>install<span class="w"> </span>ArduinoBLE
+</code></pre></div>
 <h3 id="check-and-update-the-boards">Check and update the boards<a class="headerlink" href="#check-and-update-the-boards" title="Permanent link">¶</a></h3>
 <ul>
 <li>
@@ -3860,10 +3858,9 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Check the cores</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>update-index
-</span><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>upgrade
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>update-index
+arduino-cli<span class="w"> </span>core<span class="w"> </span>upgrade
+</code></pre></div>
 <h3 id="check-and-update-the-libraries">Check and update the libraries<a class="headerlink" href="#check-and-update-the-libraries" title="Permanent link">¶</a></h3>
 <ul>
 <li>
@@ -3873,10 +3870,9 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Check the libraries.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>update-index
-</span><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>upgrade
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>lib<span class="w"> </span>update-index
+arduino-cli<span class="w"> </span>lib<span class="w"> </span>upgrade
+</code></pre></div>
 <h2 id="use-the-arduino-ide">Use the Arduino IDE<a class="headerlink" href="#use-the-arduino-ide" title="Permanent link">¶</a></h2>
 <h3 id="install-the-arduino-ide">Install the Arduino IDE<a class="headerlink" href="#install-the-arduino-ide" title="Permanent link">¶</a></h3>
 <p><img align="right" alt="" src="img/Logo-064-Arduino-IDE.png"> To install the Arduino IDE,</p>
@@ -3944,7 +3940,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 </ul>
 <h3 id="add-urls-for-new-boards_1">Add URLs for new boards<a class="headerlink" href="#add-urls-for-new-boards_1" title="Permanent link">¶</a></h3>
 <p>The <strong>Boards Manager</strong> lists the boards based on a set of URLs. To add a new board, the relevant URL should be added. The URL corresponds to a JSON file.</p>
-<div class="* highlight"><pre><span></span><code>https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+<div class="highlight"><pre><span></span><code>https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
 https://downloads.arduino.cc/packages/package_mbed_index.json
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
@@ -4171,7 +4167,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>

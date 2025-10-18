@@ -3552,7 +3552,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json</span>
+<div class="highlight"><pre><span></span><code><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json</span>
 </code></pre></div>
 <ul>
 <li>
@@ -3562,8 +3562,8 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>STMicroelectronics:stm32
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>STMicroelectronics:stm32
+</code></pre></div>
 <p>For more information,</p>
 <ul>
 <li>Please refer to the <a href="https://github.com/stm32duino/wiki/wiki/Getting-Started" rel="noopener" target="_blank">Getting Started</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> page and the <a href="https://github.com/stm32duino/wiki/wiki/Getting-Started#add-stm32-boards-support-to-arduino" rel="noopener" target="_blank">Add STM32 boards support to Arduino</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> section on the GitHub repository.</li>
@@ -3577,12 +3577,12 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Open <code>.bashrc</code>.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span>~/.bashrc
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>~/.bashrc
+</code></pre></div>
 <ul>
 <li>Add</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/Applications/STM32CubeProgrammer/bin
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/Applications/STM32CubeProgrammer/bin
 </code></pre></div>
 <ul>
 <li>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>.</li>
@@ -3625,7 +3625,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Just add on the main sketch the <code>SystemClock_Config()</code>.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">SystemClock_Config</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">SystemClock_Config</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="n">RCC_OscInitTypeDef</span><span class="w"> </span><span class="n">RCC_OscInitStruct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
 <span class="w">  </span><span class="n">RCC_ClkInitTypeDef</span><span class="w"> </span><span class="n">RCC_ClkInitStruct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
@@ -3669,7 +3669,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <details class="example">
 <summary>Example</summary>
 <p>The example below targets the Nucleo-64 STM32F401R board.</p>
-<div class="* highlight"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
@@ -3821,7 +3821,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

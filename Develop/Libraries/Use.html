@@ -3470,7 +3470,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Just like any other IDE, using a library in a project requires  specifying an <code>#include</code> statement on the main sketch.</p>
 <p>Additionally, the library needs to be mentioned on the main <code>Makefile</code> to be compiled.</p>
 <p>By default, the main <code>Makefile</code> lists…</p>
-<div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c"># Application libraries</span>
 <span class="c">#</span>
 <span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0</span>
 
@@ -3504,7 +3504,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Add the <code>#include "Arduino.h"</code> statement on the main sketch or the header file.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c1">// SDK</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// SDK</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Arduino.h"</span>
 </code></pre></div>
 <div class="admonition warning">
@@ -3518,13 +3518,13 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
 </code></pre></div>
 <ul>
 <li>Mention the name of the folder of the library to the variable <code>APP_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c"># Application libraries</span>
 <span class="c"># default = 0 = none</span>
 <span class="c">#</span>
 <span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
@@ -3536,14 +3536,14 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Mention one include with the name of the header file per line.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
 </code></pre></div>
 <ul>
 <li>Separate the names of the folders of the libraries with a space.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c"># Application libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c"># Application libraries</span>
 <span class="c">#</span>
 <span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span><span class="w"> </span><span class="err">SPI</span>
 </code></pre></div>
@@ -3553,13 +3553,13 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Ethernet.h"</span>
 </code></pre></div>
 <ul>
 <li>Mention the name of the folder of the library to the variable <code>USER_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c"># User's libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c"># User's libraries</span>
 <span class="c"># default = empty = all</span>
 <span class="c">#</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Ethernet</span>
@@ -3568,14 +3568,14 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Mention one include with the name of the header file per line.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Ethernet.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"JSON.h"</span>
 </code></pre></div>
 <ul>
 <li>Separate the names of the folders of the libraries with a space.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c"># User's libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c"># User's libraries</span>
 <span class="c"># default = empty = all</span>
 <span class="c">#</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Ethernet</span><span class="w"> </span><span class="err">JSON</span>
@@ -3602,7 +3602,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Set <code>USE_ARCHIVES</code> to <code>false</code>.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c"># For building, use available archives, false or true, default = true</span>
+<div class="highlight"><pre><span></span><code><span class="c"># For building, use available archives, false or true, default = true</span>
 <span class="err">USE_ARCHIVES</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">false</span>
 </code></pre></div>
 <h2 id="use-the-local-libraries">Use the local libraries<a class="headerlink" href="#use-the-local-libraries" title="Permanent link">¶</a></h2>
@@ -3611,13 +3611,13 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Add the corresponding <code>#include</code> statement with the name of the header file on the main sketch or the header file.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"LocalLibrary.h"</span>
 </code></pre></div>
 <ul>
 <li>Mention the name of the folder of the library to the variable <code>LOCAL_LIBS_LIST</code> in the main <code>Makefile</code>.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c"># Local libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c"># Local libraries</span>
 <span class="c"># default = empty = all</span>
 <span class="c">#</span>
 <span class="err">LOCAL_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">LocalLibrary</span>
@@ -3626,14 +3626,14 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Mention one include with the name of the header file per line.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Include application, user and local libraries</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"LocalLibrary.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"AnotherLibrary.h"</span>
 </code></pre></div>
 <ul>
 <li>Separate the names of the folders of the libraries with a space.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c"># Local libraries</span>
+<div class="highlight"><pre><span></span><code><span class="c"># Local libraries</span>
 <span class="c"># default = empty = all</span>
 <span class="c">#</span>
 <span class="err">LOCAL_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">LocalLibrary</span><span class="w"> </span><span class="err">AnotherLibrary</span>
@@ -3790,7 +3790,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

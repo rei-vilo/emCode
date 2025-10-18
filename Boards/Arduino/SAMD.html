@@ -3557,8 +3557,8 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:samd
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:samd
+</code></pre></div>
 <h2 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">¶</a></h2>
 <h2 id="upload-to-arduino-m0-pro">Upload to Arduino M0 Pro<a class="headerlink" href="#upload-to-arduino-m0-pro" title="Permanent link">¶</a></h2>
 <p><img align="right" alt="" src="img/Logo-064-Arduino-IDE.png"> TheArduino M0 Pro has two USB connectors: one called native and another called programmer. Both can be used to upload a sketch.</p>
@@ -3593,14 +3593,19 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <h3 id="declare-the-arduino-zero-cmsis-dap-device">Declare the Arduino Zero CMSIS-DAP device<a class="headerlink" href="#declare-the-arduino-zero-cmsis-dap-device" title="Permanent link">¶</a></h3>
 <p>On Linux, the Arduino Zero CMSIS-DAP device may need to be declared.</p>
 <ul>
-<li>Open a <strong>Terminal</strong> window and run</li>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Run</p>
+</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>nano<span class="w"> </span>/etc/udev/rules.d/98-openocd.rules
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/udev/rules.d/98-openocd.rules
+</code></pre></div>
 <ul>
 <li>Edit</li>
 </ul>
-<div class="* highlight"><pre><span></span><code>ACTION!<span class="o">=</span><span class="s2">"add|change"</span>,<span class="w"> </span><span class="nv">GOTO</span><span class="o">=</span><span class="s2">"openocd_rules_end"</span>
+<div class="highlight"><pre><span></span><code>ACTION!<span class="o">=</span><span class="s2">"add|change"</span>,<span class="w"> </span><span class="nv">GOTO</span><span class="o">=</span><span class="s2">"openocd_rules_end"</span>
 SUBSYSTEM!<span class="o">=</span><span class="s2">"usb|tty|hidraw"</span>,<span class="w"> </span><span class="nv">GOTO</span><span class="o">=</span><span class="s2">"openocd_rules_end"</span>
 ATTRS<span class="o">{</span>product<span class="o">}==</span><span class="s2">"*CMSIS-DAP*"</span>,<span class="w"> </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">"664"</span>,<span class="w"> </span><span class="nv">GROUP</span><span class="o">=</span><span class="s2">"plugdev"</span>
 <span class="nv">LABEL</span><span class="o">=</span><span class="s2">"openocd_rules_end"</span>
@@ -3613,8 +3618,8 @@ ATTRS<span class="o">{</span>product<span class="o">}==</span><span class="s2">"
 <p>Update with</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
+</code></pre></div>
 <p>For more information on CMSIS-DAP,</p>
 <ul>
 <li>Please refer to <a href="https://arduino.stackexchange.com/questions/28566/arduino-zero-error-unable-to-find-cmsis-dap-device">Arduino Zero error: unable to find CMSIS-DAP device</a></li>
@@ -3751,7 +3756,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

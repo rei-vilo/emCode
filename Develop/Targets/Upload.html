@@ -3456,7 +3456,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Uncomment the line <code>BOARD_PORT</code> by removing the leading <code>#</code> and define the serial port.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">BOARD_PORT</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/dev/tty.usbACM1</span>
+<div class="highlight"><pre><span></span><code><span class="err">BOARD_PORT</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/dev/tty.usbACM1</span>
 </code></pre></div>
 <p>To know the USB port name of the active board, proceed as follow:</p>
 <ul>
@@ -3470,10 +3470,9 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run the following command and note the name of the port.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ls<span class="w"> </span>/dev/ttyACM*
-</span>/dev/tty.usbACM1
-</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyACM*
+/dev/tty.usbACM1
+</code></pre></div>
 <p>By default, the speed of the serial port is set to <code>1152000</code>. To change it,</p>
 <ul>
 <li>
@@ -3483,7 +3482,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Uncomment the line <code>SERIAL_BAUDRATE</code> and set the desired speed.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">SERIAL_BAUDRATE</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">serial</span><span class="w"> </span><span class="err">console,</span><span class="w"> </span><span class="err">115200</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">default</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">SERIAL_BAUDRATE</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">serial</span><span class="w"> </span><span class="err">console,</span><span class="w"> </span><span class="err">115200</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">default</span>
 <span class="w"> </span><span class="err">Uncomment</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">specify</span><span class="w"> </span><span class="err">another</span><span class="w"> </span><span class="err">speed</span>
 
 <span class="err">SERIAL_BAUDRATE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">230400</span>
@@ -3625,7 +3624,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

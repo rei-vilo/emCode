@@ -3865,7 +3865,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <h3 id="declare-functions-prototypes-on-main-sketch">Declare functions prototypes on main sketch<a class="headerlink" href="#declare-functions-prototypes-on-main-sketch" title="Permanent link">¶</a></h3>
 <p>The main consequence of true C++ is the need for declaring prototypes of the functions in the main sketch.</p>
 <p>In the example provided below, the prototype for <code>functionB()</code> is required, as <code>functionB()</code> is called by <code>functionA()</code> but defined after.</p>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Prototypes</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Prototypes</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">functionA</span><span class="p">();</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">functionB</span><span class="p">();</span>
 
@@ -3886,7 +3886,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Prototypes are fully compatible with the standard Arduino IDE.</p>
 <h3 id="include-core-library-on-main-sketch">Include core library on main sketch<a class="headerlink" href="#include-core-library-on-main-sketch" title="Permanent link">¶</a></h3>
 <p>The same <code>#include</code> statement to the core library is required on each header file of each library, as it is recommended for the standard Arduino IDE.</p>
-<div class="* highlight"><pre><span></span><code><span class="c1">// SDK</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// SDK</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Arduino.h"</span>
 </code></pre></div>
 <p>For more information on library development,</p>
@@ -3935,12 +3935,12 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <h3 id="check-the-name-of-the-functions-of-the-tasks">Check the name of the functions of the tasks<a class="headerlink" href="#check-the-name-of-the-functions-of-the-tasks" title="Permanent link">¶</a></h3>
 <p>Each task includes its own <code>setup()</code> and <code>loop()</code> functions with the name of the task.</p>
 <p>When emCode allows any combinations of <code>setup</code> and <code>loop</code> in the names of the functions,</p>
-<div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_setup</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">TaskCode_setup</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setupTaskCode</span><span class="p">()</span>
 </code></pre></div>
 <p>The latest release of Energia requires <code>loop</code> and <code>setup</code> to be mentioned as prefixes.</p>
-<div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">setup_TaskCode</span><span class="p">()</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">setupTaskCode</span><span class="p">()</span>
 </code></pre></div>
 <ul>
@@ -3960,7 +3960,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Add an empty <code>LoopRtos()</code> function.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">LoopRtos</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">LoopRtos</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="p">;</span>
 <span class="p">}</span>
@@ -3981,10 +3981,10 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Add the pre-processing statement on the impacted header files.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#define ENERGIA_MT</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define ENERGIA_MT</span>
 </code></pre></div>
 <p>Because an Energia MT project has <code>ARDUINO</code> and <code>ENERGIA</code> already defined, those variables need to be tested in a given order.</p>
-<div class="* highlight"><pre><span></span><code><span class="cp">#if defined(ENERGIA_MT)</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#if defined(ENERGIA_MT)</span>
 <span class="c1">// Energia MT specific</span>
 <span class="cp">#elif defined(ENERGIA)</span>
 <span class="c1">// Energia specific</span>
@@ -4001,7 +4001,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>The different platforms share most of the framework in common, except limited but annoying differences. Most of the code is the same, except a small number of lines. So we use pre-processing statements to write code for different platforms.</p>
 <p>The most pre-processing used statements are <code>#if #elif #endif</code> and <code>#defined()</code>.</p>
 <p>One example is the number of the pin for the LED,</p>
-<div class="* highlight"><pre><span></span><code><span class="c1">// myLED pin number</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// myLED pin number</span>
 <span class="cp">#if defined(ENERGIA) </span><span class="c1">// All LaunchPad boards supported by Energia</span>
 <span class="w">    </span><span class="n">myLED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RED_LED</span><span class="p">;</span>
 <span class="cp">#elif defined(DIGISPARK) </span><span class="c1">// Digispark specific</span>
@@ -4035,7 +4035,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>The first approach is MCU-based and relies solely on the micro-controller type.</p>
 <p>This approach is compatible with the respective IDEs, as no new environment variable is created or required.</p>
 <p>In the Arduino case, two frameworks exist so the IDE variable <code>ARDUINO</code> is required for disambiguation.</p>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Core library for code-sense - MCU-based</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Core library for code-sense - MCU-based</span>
 <span class="cp">#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega32U4__) || defined(__SAM3X8E__) || defined(__AVR_ATmega168__) </span><span class="c1">// Arduino specific</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Arduino.h"</span>
 <span class="cp">#elif defined(i586) </span><span class="c1">// Galileo specific</span>
@@ -4065,7 +4065,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Each IDE defines a specific environment variable which includes the boards type it supports, and optionally the framework version.</p>
 <p>For example, the Arduino IDE defines <code>ARDUINO=23</code>, <code>ARDUINO=101</code> or <code>ARDUINO=150</code>, depending on the version installed.</p>
 <p>The variable is then passed on to the tool-chain with <code>-D</code>, as <code>-DARDUINO=101</code> or <code>-DARDUINO=150</code>.</p>
-<div class="* highlight"><pre><span></span><code><span class="c1">// Core library for code-sense - IDE-based</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Core library for code-sense - IDE-based</span>
 <span class="cp">#if defined(WIRING) </span><span class="c1">// Wiring specific</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wiring.h"</span>
 <span class="cp">#elif defined(MAPLE_IDE) </span><span class="c1">// Maple specific</span>
@@ -4106,10 +4106,10 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Similarly, avoid spaces in the name and path of the sketchbook folder.</p>
 <h2 id="use-the-emcode-pre-processing-variable">Use the EMCODE pre-processing variable<a class="headerlink" href="#use-the-emcode-pre-processing-variable" title="Permanent link">¶</a></h2>
 <p>emCode exposes the pre-processing variable <code>EMCODE</code> with the release number as value.</p>
-<div class="* highlight"><pre><span></span><code><span class="err">EMCODE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">140104</span>
+<div class="highlight"><pre><span></span><code><span class="err">EMCODE</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">140104</span>
 </code></pre></div>
 <p>The variable and the value are passed on to the compiler and the linker as a <code>-D</code> parameter.</p>
-<div class="* highlight"><pre><span></span><code><span class="err">-DEMCODE=140104</span>
+<div class="highlight"><pre><span></span><code><span class="err">-DEMCODE=140104</span>
 </code></pre></div>
 <p>This allows to manage conditional pre-processing statements as <code>#define</code> and <code>#include</code> based on the IDE used, either Visual Studio Code with emCode or the standard Arduino IDE.</p>
 <p>This also allows to open an emCode project with the standard Arduino IDE and compile it.</p>
@@ -4246,7 +4246,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>

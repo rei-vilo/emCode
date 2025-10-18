@@ -3576,25 +3576,30 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:esp32
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:esp32
+</code></pre></div>
 <h2 id="upload-with-dfu-util">Upload with dfu-util<a class="headerlink" href="#upload-with-dfu-util" title="Permanent link">¶</a></h2>
 <p>The Arduino Nano ESP32 uses a specific uploader.</p>
 <p>On Linux, the device table needs to be updated.</p>
 <ul>
-<li>Launch</li>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Launch</p>
+</li>
 </ul>
-<div class="* highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/udev/rules.d/99-arduino.rules
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/udev/rules.d/99-arduino.rules
 </code></pre></div>
 <ul>
 <li>Add the following line.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="nv">SUBSYSTEMS</span><span class="o">==</span><span class="s2">"usb"</span>,<span class="w"> </span>ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"2341"</span>,<span class="w"> </span><span class="nv">GROUP</span><span class="o">=</span><span class="s2">"plugdev"</span>,<span class="w"> </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">"0666"</span>
+<div class="highlight"><pre><span></span><code><span class="nv">SUBSYSTEMS</span><span class="o">==</span><span class="s2">"usb"</span>,<span class="w"> </span>ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"2341"</span>,<span class="w"> </span><span class="nv">GROUP</span><span class="o">=</span><span class="s2">"plugdev"</span>,<span class="w"> </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">"0666"</span>
 </code></pre></div>
 <ul>
 <li>Reload the devices table.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
 </code></pre></div>
 <p>For more information on <code>udev</code> rules,</p>
 <ul>
@@ -3744,7 +3749,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

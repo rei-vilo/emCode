@@ -3635,26 +3635,26 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">U8g2</span>
 </code></pre></div>
 <ul>
 <li>Edit the main sketch.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"U8x8lib.h"</span>
 </code></pre></div>
 <h3 id="use-the-libraries-for-clock">Use the libraries for clock<a class="headerlink" href="#use-the-libraries-for-clock" title="Permanent link">¶</a></h3>
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Wire</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">U8g2</span>
 </code></pre></div>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Wire.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"PCF8563.h"</span>
 </code></pre></div>
 <h3 id="use-the-libraries-for-buzzer">Use the libraries for buzzer<a class="headerlink" href="#use-the-libraries-for-buzzer" title="Permanent link">¶</a></h3>
@@ -3666,39 +3666,39 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Adafruit_Zero_DMA</span><span class="w"> </span><span class="err">Seeed_Arduino_FS</span>
 </code></pre></div>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"Seeed_Arduino_FS.h"</span>
 </code></pre></div>
 <p>or</p>
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Adafruit_Zero_DMA</span><span class="w"> </span><span class="err">SD</span>
 </code></pre></div>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"SD.h"</span>
 </code></pre></div>
 <p>For the Xiao nRF52840,</p>
 <ul>
 <li>Add to the main <code>Makefile</code>;</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SPI</span>
 <span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">SdFat</span>
 </code></pre></div>
 <ul>
 <li>Add to the main sketch.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"SPI.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"SdFat.h"</span>
 </code></pre></div>
 <h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">¶</a></h2>
@@ -3836,7 +3836,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

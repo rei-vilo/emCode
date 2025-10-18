@@ -3368,91 +3368,6 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p class="admonition-title">Warning</p>
 <p>The software for the Seeed Xiao nRF51840 board is not stable enough. Support has been put on hold.</p>
 </div>
-<!--
-## Install the Seeed Xiao nRF52840
-
-* Ensure **Arduino-CLI** is installed.
-
-* Open a **Terminal** window.
-
-* Run
-
-<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>Seeeduino:nrf52@1.1.1
-</span></code></pre></div></td></tr></table></div></body></html>
-
-!!! warning
-    Release `1.1.3` does not work. Use release `1.1.1` instead.
-
-To install the library for Bluetooth, run
-
-<html><body><div class="* hl_lines highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>lib<span class="w"> </span>install<span class="w"> </span>ArduinoBLE
-</span></code></pre></div></td></tr></table></div></body></html>
-
-## Develop
-
-### Use the built-in LEDs
-
-Built-in LEDs use reverse logic.
-
-* `LOW` to turn them on;
-* `HIGH` to turn them off.
-
-### Use the libraries for Serial port
-
-* Edit the main `Makefile` to list the required libraries for the serial port.
-
-<html><body><div class="* highlight"><pre><span></span><code>APP_LIBS_LIST += Adafruit_TinyUSB_Arduino
-</code></pre></div></body></html>
-
-* Add to the main sketch
-
-<html><body><div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Adafruit_TinyUSB.h"</span>
-</code></pre></div></body></html>
-
-### Use the libraries for IMU
-
-* Edit the main `Makefile` to list the required libraries for the LSM6DS3.
-
-<html><body><div class="* highlight"><pre><span></span><code>USER_LIBS_LIST = Seeed_Arduino_LSM6DS3
-</code></pre></div></body></html>
-
-### Use the libraries for microphone
-
-* Add to the main sketch.
-
-<html><body><div class="* highlight"><pre><span></span><code>USER_LIBS_LIST = Seeed_Arduino_Mic
-</code></pre></div></body></html>
-
-### Use the libraries for Bluetooth
-
-* Edit the main `Makefile` to list the required libraries.
-
-<html><body><div class="* highlight"><pre><span></span><code>USER_LIBS_LIST = ArduinoBLE
-</code></pre></div></body></html>
-
-### Use the libraries for SD
-
-## Check the tests
-
-The test protocol includes building and linking, uploading and running a sketch on the boards using those versions of the IDEs and plug-ins. Boards packages are versioned but not dated.
-
-| | Platform | IDE | Package | Comment
----- | ---- | ---- | ---- | ---- | ----
-![](img/Logo-064-Seeeduino.png) | **Seeeduino** | Arduino 1.8 | AVR 1.3.0 | | For Seeed and Seeed Grove Beginner Kit
-| | | | SAMD 1.8.0 | | For Xiao SAMD and Wio Terminal boards
-| | | | Realtek 3.0.7 | | For RTL8720DN on Wio Terminal board
-
-## Visit the official websites
-
-![](img/Logo-064-Seeed.png) | **Seeeduino**
-:---- | ----
-IDE | Arduino-CLI or Arduino IDE
-Website | <https://www.seeedstudio.com> :octicons-link-external-16:
-Download | <https://wiki.seeedstudio.com/Seeed_Arduino_Boards> :octicons-link-external-16:
-Wiki | <https://wiki.seeedstudio.com/Seeeduino_v4.2/> :octicons-link-external-16:
-Xiao nRF52840 | <https://wiki.seeedstudio.com/XIAO_BLE/> :octicons-link-external-16:
-Forum | <https://forum.seeedstudio.com/> :octicons-link-external-16:
--->
 
 
 
@@ -3585,7 +3500,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

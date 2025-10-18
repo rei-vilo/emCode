@@ -3640,7 +3640,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+<div class="highlight"><pre><span></span><code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 </code></pre></div>
 <ul>
 <li>
@@ -3650,8 +3650,8 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>rp2040:rp2040
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>rp2040:rp2040
+</code></pre></div>
 <p>For more information on the installation of the Arduino IDE,</p>
 <ul>
 <li>Please refer to the <a href="https://github.com/earlephilhower/arduino-pico#installing-via-arduino-boards-manager" rel="noopener" target="_blank">Installing via Arduino Boards Manager</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> section on the GitHub repository and to the extensive <a href="https://arduino-pico.readthedocs.io/en/latest/" rel="noopener" target="_blank">Arduino-Pico</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> documentation.</li>
@@ -3663,10 +3663,9 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Declare it with</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">echo</span><span class="w"> </span><span class="s1">'SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0004", GROUP="users", MODE="0666"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/udev/rules.d/98-PicoProbe.rules
-</span><span class="">sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">'SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0004", GROUP="users", MODE="0666"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/udev/rules.d/98-PicoProbe.rules
+sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
+</code></pre></div>
 <p>For more information,</p>
 <ul>
 <li>Please refer to <a href="https://github.com/earlephilhower/arduino-pico#uploading-sketches-with-picoprobe" rel="noopener" target="_blank">Uploading Sketches with Picoprobe</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span>.</li>
@@ -3676,10 +3675,9 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Declare it with</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">echo</span><span class="w"> </span><span class="s1">'ATTRS{product}=="*CMSIS-DAP*", MODE="664", GROUP="plugdev"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/udev/rules.d/98-CMSIS-DAP.rules
-</span><span class="">sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">'ATTRS{product}=="*CMSIS-DAP*", MODE="664", GROUP="plugdev"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/udev/rules.d/98-CMSIS-DAP.rules
+sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
+</code></pre></div>
 <p>For more information,</p>
 <ul>
 <li>Please refer to <a href="https://github.com/earlephilhower/arduino-pico#uploading-sketches-with-pico-debug" rel="noopener" target="_blank">Uploading Sketches with pico-debug</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span>.</li>
@@ -3689,10 +3687,9 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Declare it with</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="nb">echo</span><span class="w"> </span><span class="s1">'SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", GROUP="users", MODE="0666"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/udev/rules.d/98-DebugProbe.rules
-</span><span class="">sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">'SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", GROUP="users", MODE="0666"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/udev/rules.d/98-DebugProbe.rules
+sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
+</code></pre></div>
 <p>For more information,</p>
 <ul>
 <li>Please refer to <a href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html" rel="noopener" target="_blank">Raspberry Pi Debug Probe</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span>.</li>
@@ -3702,13 +3699,13 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Edit the main <code>Makefile</code> to list the required libraries.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">WiFi</span><span class="w"> </span><span class="err">Updater</span><span class="w"> </span><span class="err">MD5Builder</span><span class="w"> </span><span class="err">lwIP_Ethernet</span><span class="w"> </span><span class="err">lwIP_CYW43</span><span class="w"> </span><span class="err">SPI</span><span class="w"> </span><span class="err">LittleFS</span><span class="w"> </span><span class="err">PicoOTA</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">WiFi</span><span class="w"> </span><span class="err">Updater</span><span class="w"> </span><span class="err">MD5Builder</span><span class="w"> </span><span class="err">lwIP_Ethernet</span><span class="w"> </span><span class="err">lwIP_CYW43</span><span class="w"> </span><span class="err">SPI</span><span class="w"> </span><span class="err">LittleFS</span><span class="w"> </span><span class="err">PicoOTA</span>
 </code></pre></div>
 <h3 id="use-the-libraries-for-bluetooth">Use the libraries for Bluetooth<a class="headerlink" href="#use-the-libraries-for-bluetooth" title="Permanent link">¶</a></h3>
 <ul>
 <li>Edit the main <code>Makefile</code> to list the required libraries.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">BTstackLib</span><span class="w"> </span><span class="err">SPI</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">BTstackLib</span><span class="w"> </span><span class="err">SPI</span>
 </code></pre></div>
 <h2 id="build">Build<a class="headerlink" href="#build" title="Permanent link">¶</a></h2>
 <p>The size reported by emCode may differ from the Arduino IDE.</p>
@@ -3903,7 +3900,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

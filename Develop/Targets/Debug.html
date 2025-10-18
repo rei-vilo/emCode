@@ -3597,24 +3597,32 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>On the main <code>Makefile</code>, set the variable <code>JLINK_POWER</code> to <code>1</code>.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">JLINK_POWER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
+<div class="highlight"><pre><span></span><code><span class="err">JLINK_POWER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
 </code></pre></div>
+<p>Alternatively, </p>
 <ul>
-<li>Alternatively, launch <strong>JLinkExe</strong>.</li>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Launch <strong>JLinkExe</strong>.</p>
+</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>JLinkExe
+</code></pre></div>
+<p>The prompt is displayed.</p>
+<div class="highlight"><pre><span></span><code>J-Link&gt;
+</code></pre></div>
 <ul>
 <li>Enter the corresponding command.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
-<span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="w"> </span>power<span class="w"> </span>on
-</span><span class=""><span class="w"> </span><span class="nb">exit</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>power<span class="w"> </span>on
+<span class="w"> </span><span class="nb">exit</span>
+</code></pre></div>
 <ul>
 <li>Or enter the corresponding command on <strong>Ozone</strong>.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code>Edit.SysVar<span class="o">(</span>VAR_TARGET_POWER_ON,1<span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>Edit.SysVar<span class="o">(</span>VAR_TARGET_POWER_ON,1<span class="o">)</span><span class="p">;</span>
 </code></pre></div>
 <p>For more information,</p>
 <ul>
@@ -3652,21 +3660,28 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Launch J-Link.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>JLinkExe
+</code></pre></div>
+<p>The prompt is displayed.</p>
+<div class="highlight"><pre><span></span><code>J-Link&gt;
+</code></pre></div>
 <ul>
 <li>Run the following commands after the <code>J-Link&gt;</code> prompt.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
-<span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">vcom<span class="w"> </span><span class="nb">enable</span>
-</span><span class=""><span class="nb">exit</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>vcom<span class="w"> </span><span class="nb">enable</span>
+<span class="nb">exit</span>
+</code></pre></div>
 <p>If the probe has the serial number <code>123456789</code>, the serial port is re-routed to <code>/dev/tty.usbmodem000123456789</code>.</p>
 <ul>
-<li>Just open a <strong>Terminal</strong> window and launch the following command with the correct speed.</li>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Launch the following command with the correct speed.</p>
+</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">screen<span class="w"> </span>/dev/tty.usbmodem000123456789<span class="w"> </span><span class="m">9600</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>/dev/tty.usbmodem000123456789<span class="w"> </span><span class="m">9600</span>
+</code></pre></div>
 <p>To disable it,</p>
 <ul>
 <li>Proceed as before, but select <strong>Disable</strong> below <strong>Virtual COM-Port</strong> instead.</li>
@@ -3680,15 +3695,17 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Launch J-Link.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>JLinkExe
+</code></pre></div>
+<p>The prompt is displayed.</p>
+<div class="highlight"><pre><span></span><code>J-Link&gt;
+</code></pre></div>
 <ul>
 <li>Run the following commands after the <code>J-Link&gt;</code> prompt.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
-<span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="w"> </span>vcom<span class="w"> </span>disable
-</span><span class=""><span class="w"> </span><span class="nb">exit</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>vcom<span class="w"> </span>disable
+<span class="w"> </span><span class="nb">exit</span>
+</code></pre></div>
 <p>For more information,</p>
 <ul>
 <li>Please refer to the section VCOM Functionality on the page <a href="https://www.segger.com/products/debug-probes/j-link" rel="noopener" target="_blank">J-Link Debug Probes</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span>.</li>
@@ -3698,7 +3715,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Enter the corresponding command.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code>Project.SetOSPlugin("FreeRTOSPlugin_CM4");
+<div class="highlight"><pre><span></span><code>Project.SetOSPlugin("FreeRTOSPlugin_CM4");
 </code></pre></div>
 <p>For more information,</p>
 <ul>
@@ -3873,7 +3890,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

@@ -3755,7 +3755,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 </ul>
 <h3 id="add-urls-for-new-boards">Add URLs for new boards<a class="headerlink" href="#add-urls-for-new-boards" title="Permanent link">¶</a></h3>
 <p>The <strong>Boards Manager</strong> lists the boards based on a set of URLs. To add a new board, the relevant URL should be added. The URL corresponds to a JSON file.</p>
-<div class="* highlight"><pre><span></span><code>https://www.adafruit.com/package_adafruit_index.json
+<div class="highlight"><pre><span></span><code>https://www.adafruit.com/package_adafruit_index.json
 </code></pre></div>
 <ul>
 <li>Call the menu <strong>Energia &gt; Preferences</strong>.</li>
@@ -3810,7 +3810,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Ensure the <strong>Additional boards manager URLs</strong> list includes</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code>https://s3.amazonaws.com/energiaUS/packages/package_cc13x2_index.json
+<div class="highlight"><pre><span></span><code>https://s3.amazonaws.com/energiaUS/packages/package_cc13x2_index.json
 https:///s3.amazonaws.com/energiaUS/packages/package_msp432p_index.json
 https://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json
 </code></pre></div>
@@ -3838,7 +3838,7 @@ https://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json
 <ul>
 <li>Download the <a href="https://s3.amazonaws.com/energiaUS/files/71-ti-permissions.rules" rel="noopener" target="_blank">71-ti-permissions.rules</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span>.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"usb"</span>,ENV<span class="o">{</span>DEVTYPE<span class="o">}==</span><span class="s2">"usb_device"</span>,ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0403"</span>,ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"a6d0"</span>,MODE:<span class="o">=</span><span class="s2">"0666"</span>
+<div class="highlight"><pre><span></span><code><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"usb"</span>,ENV<span class="o">{</span>DEVTYPE<span class="o">}==</span><span class="s2">"usb_device"</span>,ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0403"</span>,ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"a6d0"</span>,MODE:<span class="o">=</span><span class="s2">"0666"</span>
 <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"usb"</span>,ENV<span class="o">{</span>DEVTYPE<span class="o">}==</span><span class="s2">"usb_device"</span>,ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0403"</span>,ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"a6d1"</span>,MODE:<span class="o">=</span><span class="s2">"0666"</span>
 <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"usb"</span>,ENV<span class="o">{</span>DEVTYPE<span class="o">}==</span><span class="s2">"usb_device"</span>,ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0403"</span>,ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"6010"</span>,MODE:<span class="o">=</span><span class="s2">"0666"</span>
 <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"usb"</span>,ENV<span class="o">{</span>DEVTYPE<span class="o">}==</span><span class="s2">"usb_device"</span>,ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"1cbe"</span>,ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"00fd"</span>,MODE:<span class="o">=</span><span class="s2">"0666"</span>
@@ -3857,15 +3857,20 @@ ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">
 <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"usb"</span>,<span class="w"> </span>ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"0451"</span>,<span class="w"> </span>ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">"c32a"</span>,<span class="w"> </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">"0660"</span>,<span class="w"> </span><span class="nv">GROUP</span><span class="o">=</span><span class="s2">"dialout"</span>,<span class="w"> </span><span class="nv">RUN</span><span class="o">+=</span><span class="s2">"/sbin/modprobe ftdi-sio"</span><span class="w"> </span><span class="nv">RUN</span><span class="o">+=</span><span class="s2">"/bin/sh -c '/bin/echo 0451 c32a &gt; /sys/bus/usb-serial/drivers/ftdi_sio/new_id'"</span>
 </code></pre></div>
 <ul>
-<li>On the folder, open a Terminal and launch</li>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Launch on the folder</p>
+</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>mv<span class="w"> </span>/71-ti-permissions.rules<span class="w"> </span>/etc/udev/rules.d/
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/71-ti-permissions.rules<span class="w"> </span>/etc/udev/rules.d/
+</code></pre></div>
 <ul>
 <li>Relaunch the device service with</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>service<span class="w"> </span>udev<span class="w"> </span>restart
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>service<span class="w"> </span>udev<span class="w"> </span>restart
+</code></pre></div>
 <h2 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">¶</a></h2>
 <p><img alt="" src="img/Logo-064-Energia-1.png"> Starting release 1.6.10E18, the Energia IDE includes a <strong>Libraries Manager</strong> for downloading and installing additional libraries. It relies on a list of URLs managed centrally by Energia.</p>
 <h3 id="install-additional-libraries">Install additional libraries<a class="headerlink" href="#install-additional-libraries" title="Permanent link">¶</a></h3>
@@ -3903,8 +3908,8 @@ ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">
 <p>The Energia package installs OpenOCD release <code>0.10.0+dev</code>.</p>
 <h3 id="install-openocd-from-distribution">Install OpenOCD from distribution<a class="headerlink" href="#install-openocd-from-distribution" title="Permanent link">¶</a></h3>
 <p>Install OpenOCD from the Linux distribution with </p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openocd
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openocd
+</code></pre></div>
 <h3 id="build-openocd-from-source-code">Build OpenOCD from source code<a class="headerlink" href="#build-openocd-from-source-code" title="Permanent link">¶</a></h3>
 <p>Some LaunchPad boards require a specific installation of <strong>OpenOCD</strong>. This is done by specifying options at build-time.</p>
 <p>For example, the CC3200 LaunchPad requires the <code>--enable-ft2232_libftdi --enable-stlink</code> options with OpenOCD version 0.9.0, but no longer with OpenOCD version 0.10.0.</p>
@@ -4075,7 +4080,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

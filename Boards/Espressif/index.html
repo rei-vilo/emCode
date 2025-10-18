@@ -3408,13 +3408,12 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Launch one of the following commands.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">which<span class="w"> </span>python3
-</span><span class="">python3<span class="w"> </span>--version
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>which<span class="w"> </span>python3
+python3<span class="w"> </span>--version
+</code></pre></div>
 <p>If the answers are <code>python3 not found</code> or <code>command not found: python3</code>, Python 3 needs to be installed.</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3
+</code></pre></div>
 <p>The ESP8266 utilities call Python 3 from a specific non-standard folder, and may raise an error.</p>
 <p>To fix this issue,</p>
 <ul>
@@ -3425,15 +3424,13 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Launch the following commands.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">which<span class="w"> </span>python3
-</span>/usr/local/bin/
-</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>which<span class="w"> </span>python3
+/usr/local/bin/
+</code></pre></div>
 <p>The answer may differ from the example above. Note the path, here <code>/usr/local/bin/</code>, for the next step.</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>mkdir<span class="w"> </span>/usr/local/bin/
-</span><span class="">sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/python3<span class="w"> </span>/usr/local/bin/python3
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>/usr/local/bin/
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/python3<span class="w"> </span>/usr/local/bin/python3
+</code></pre></div>
 <p>It creates a symbolic link for <code>python3</code> with the path expected by the ESP8266 utilities.</p>
 <p>For more information on the installation process,</p>
 <ul>
@@ -3441,8 +3438,8 @@ New release 14.7 adds a ReadMe file for the Archive target.
 </ul>
 <h2 id="install-pyserial">Install pyserial<a class="headerlink" href="#install-pyserial" title="Permanent link">¶</a></h2>
 <p>If compilation fails and complains about missing Serial package, pyserial needs to be installed.</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">pip<span class="w"> </span>install<span class="w"> </span>pyserial<span class="w"> </span>--break-system-packages
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pyserial<span class="w"> </span>--break-system-packages
+</code></pre></div>
 <p><code>--break-system-packages</code>  allows to install the package system-wide.</p>
 <h2 id="install-the-usb-drivers">Install the USB drivers<a class="headerlink" href="#install-the-usb-drivers" title="Permanent link">¶</a></h2>
 <p>Depending on the board, a 3.3 V FTDI programmer may be required. The ESP8266-based board requires up to 400 mA.</p>
@@ -3470,7 +3467,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <tr>
 <td><img alt="" src="img/Logo-064-Espressif-Systems.png"></td>
 <td>ESP32</td>
-<td>3.3.1</td>
+<td>3.3.2</td>
 <td>Valid for other ESP32-based boards<br>except Arduino Nano ESP32</td>
 </tr>
 <tr>
@@ -3482,7 +3479,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <tr>
 <td><img alt="" src="img/Logo-064-eC.png"></td>
 <td>emCode</td>
-<td>14.7.22</td>
+<td>14.7.25</td>
 <td></td>
 </tr>
 </tbody>
@@ -3692,7 +3689,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

@@ -3566,7 +3566,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Ensure the <strong>Additional boards manager URLs</strong> list includes</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code>http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json
+<div class="highlight"><pre><span></span><code>http://s3.amazonaws.com/energiaUS/packages/package_msp430_elf_GCC_index.json
 </code></pre></div>
 <ul>
 <li>
@@ -3605,7 +3605,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Uncomment the line containing <code>ENERGIA_GCC_MSP_LARGE_RELEASE</code>.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code>ENERGIA_GCC_MSP_LARGE_RELEASE   = 7.3.1.24
+<div class="highlight"><pre><span></span><code>ENERGIA_GCC_MSP_LARGE_RELEASE   = 7.3.1.24
 </code></pre></div>
 <p>The boards with large memory model are: MSP430FR5969 (64 kB), MSP430FR5994 (256 kB), MSP430FR6989 (128 kB), MSP430F5529 (128 kB).</p>
 <p>For more information on the installation of release 7.3.1 of the GCC tool-chain for MSP430,</p>
@@ -3629,7 +3629,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Add the line</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="c"># Boards with small memory use msp430-gcc/4.6.6.</span>
+<div class="highlight"><pre><span></span><code><span class="c"># Boards with small memory use msp430-gcc/4.6.6.</span>
 <span class="c"># Force msp430-elf-gcc/9.2.0.50 with</span>
 <span class="c"># FORCE_GCC_MSP430ELF = 1</span>
 <span class="err">FORCE_GCC_MSP430ELF</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1</span>
@@ -3650,27 +3650,25 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Unzip.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="n">tar</span><span class="w"> </span><span class="n">xvfz</span><span class="w"> </span><span class="n">mspdebug</span><span class="mf">-0.25</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="n">tar</span><span class="w"> </span><span class="n">xvfz</span><span class="w"> </span><span class="n">mspdebug</span><span class="mf">-0.25</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</code></pre></div>
 <ul>
 <li>Install dependencies.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">libusb</span><span class="o">-</span><span class="n">dev</span>
-</span><span class=""><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">libreadline</span><span class="o">-</span><span class="n">dev</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">libusb</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">libreadline</span><span class="o">-</span><span class="n">dev</span>
+</code></pre></div>
 <ul>
 <li>Build.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="n">cd</span><span class="w"> </span><span class="n">mspdebug</span><span class="mf">-0.25</span>
-</span><span class=""><span class="n">make</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="n">mspdebug</span><span class="mf">-0.25</span>
+<span class="n">make</span>
+</code></pre></div>
 <ul>
 <li>Install.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class=""><span class="n">sudo</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">install</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">install</span>
+</code></pre></div>
 <p>For more information about <strong>MSPDebug</strong>, </p>
 <ul>
 <li>Please refer to the <a href="https://dlbeer.co.nz/mspdebug/" rel="noopener" target="_blank">MSPDebug</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> website.</li>
@@ -3807,7 +3805,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

@@ -3491,24 +3491,23 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Open a <strong>Terminal</strong> window and launch <strong>JLinkExe</strong>.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">JLinkExe
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>JLinkExe
+</code></pre></div>
+<p>The prompt is displayed.</p>
+<div class="highlight"><pre><span></span><code>J-Link&gt;
+</code></pre></div>
 <ul>
 <li>Connect and define the interface, device and speed.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
-<span class="normal">J-Link&gt;</span>
-<span class="normal">J-Link&gt;</span>
-<span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">connect
-</span><span class="">selectinterface<span class="w"> </span>swd
-</span><span class="">device<span class="w"> </span>ATSAMD21G18
-</span><span class="">speed<span class="w"> </span><span class="m">400080</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>connect
+selectinterface<span class="w"> </span>swd
+device<span class="w"> </span>ATSAMD21G18
+speed<span class="w"> </span><span class="m">400080</span>
+</code></pre></div>
 <p>Upload the boot-loader and quit.</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">J-Link&gt;</span>
-<span class="normal">J-Link&gt;</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">loadfile<span class="w"> </span>~/Downloads/featherm0bootloader_160305.hex
-</span><span class=""><span class="nb">exit</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>loadfile<span class="w"> </span>~/Downloads/featherm0bootloader_160305.hex
+<span class="nb">exit</span>
+</code></pre></div>
 <p>You can now upload the sketch to the Adafruit Feather M0 board using the standard USB connection again.</p>
 <p>For more information,</p>
 <ul>
@@ -3560,7 +3559,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Add the reference to Arduino, as per the procedure <a href="../../Install/Section4/#add-urls-for-new-boards">Add URLs for new boards</a>.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code>https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
+<div class="highlight"><pre><span></span><code>https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json
 </code></pre></div>
 <ul>
 <li>
@@ -3574,7 +3573,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Edit the Arduino Uno board or the My Board configuration file, and add</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">BOOTLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">minicore</span>
+<div class="highlight"><pre><span></span><code><span class="err">BOOTLOADER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">minicore</span>
 </code></pre></div>
 <ul>
 <li>Select it.</li>
@@ -3749,7 +3748,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Check the ReadMe file: it provides the list of the binary files to upload and the addresses to target.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code>download:
+<div class="highlight"><pre><span></span><code>download:
 boot_v1.2+.bin     0x00000
 user1.512.new.bin  0x01000
 blank.bin          0x3e000 &amp; 0x7e000
@@ -3761,8 +3760,8 @@ blank.bin          0x3e000 &amp; 0x7e000
 <ul>
 <li>Open a <strong>Terminal</strong> window and launch the upload command.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">esptool.py<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-12345678<span class="w"> </span>--baud<span class="w"> </span><span class="m">115200</span><span class="w"> </span>write_flash<span class="w"> </span>0x00000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/boot_v1.2.bin<span class="w"> </span>0x01000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/at/user1.512.new.bin<span class="w"> </span>0x3e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin<span class="w"> </span>0x7e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>esptool.py<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-12345678<span class="w"> </span>--baud<span class="w"> </span><span class="m">115200</span><span class="w"> </span>write_flash<span class="w"> </span>0x00000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/boot_v1.2.bin<span class="w"> </span>0x01000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/at/user1.512.new.bin<span class="w"> </span>0x3e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin<span class="w"> </span>0x7e000<span class="w"> </span>esp_iot_sdk_v1.0.0/bin/blank.bin
+</code></pre></div>
 <ul>
 <li>
 <p>In case the binary files and target addresses are different, adapt the upload command accordingly.</p>
@@ -3878,7 +3877,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

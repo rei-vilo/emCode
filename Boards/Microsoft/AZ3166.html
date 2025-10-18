@@ -3553,7 +3553,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Ensure the <code>arduino-cli.yaml</code> configuration file for Arduino-CLI or the <strong>Additional boards manager URLs</strong> for Arduino IDE includes</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code>https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json
+<div class="highlight"><pre><span></span><code>https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json
 </code></pre></div>
 <ul>
 <li>
@@ -3563,7 +3563,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>AZ3166:stm32f4
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>AZ3166:stm32f4
 </code></pre></div>
 <p>For more information on the installation of the Arduino IDE,</p>
 <ul>
@@ -3592,31 +3592,31 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Edit the main <code>Makefile</code> to list the required libraries.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIB_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">WiFi</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIB_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">WiFi</span>
 </code></pre></div>
 <ul>
 <li>Add to the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"AZ3166WiFi.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"AZ3166WiFi.h"</span>
 </code></pre></div>
 <h3 id="use-the-libraries-for-the-sensors">Use the libraries for the sensors<a class="headerlink" href="#use-the-libraries-for-the-sensors" title="Permanent link">¶</a></h3>
 <p>The sensors include the HTS221 for humidity and temperature, the LPS22HB for pressure, the LIS2MDL for magnetometer and the LSM6DSL for accelerometer and gyroscope.</p>
 <ul>
 <li>Edit the main <code>Makefile</code> to list the required libraries.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIB_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Sensors</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIB_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Sensors</span>
 </code></pre></div>
 <ul>
 <li>Add to the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Sensors.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"Sensors.h"</span>
 </code></pre></div>
 <h3 id="use-the-libraries-for-the-display">Use the libraries for the display<a class="headerlink" href="#use-the-libraries-for-the-display" title="Permanent link">¶</a></h3>
 <p>There is no need to edit the main <code>Makefile</code>.</p>
 <ul>
 <li>Add to the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"OledDisplay.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"OledDisplay.h"</span>
 </code></pre></div>
 <h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">¶</a></h2>
 <p>For more information,</p>
@@ -3633,12 +3633,10 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Register the <code>udev</code> profile for OpenOCD.</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>cp<span class="w"> </span>~/..arduino15/packages/AZ3166/tools/openocd/0.10.0/contrib/60-openocd.rules<span class="w"> </span>/etc/udev/rules.d/
-</span><span class="">sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
-</span><span class="">sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>plugdev<span class="w"> </span><span class="k">$(</span>whoami<span class="k">)</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>~/..arduino15/packages/AZ3166/tools/openocd/0.10.0/contrib/60-openocd.rules<span class="w"> </span>/etc/udev/rules.d/
+sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>plugdev<span class="w"> </span><span class="k">$(</span>whoami<span class="k">)</span>
+</code></pre></div>
 
 
 
@@ -3771,7 +3769,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

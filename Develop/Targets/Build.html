@@ -3579,7 +3579,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Remove the <code>"-j",</code> line from the task arguments.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w">    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Build"</span><span class="p">,</span>
 <span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span>
@@ -3607,21 +3607,21 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Add the parameters to the variable <code>COMPILER_OPTIONS</code> in the main <code>Makefile</code>.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Compiler</span><span class="w"> </span><span class="err">options</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Compiler</span><span class="w"> </span><span class="err">options</span>
 <span class="w"> </span><span class="err">----------------------------------</span>
 <span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">0</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">empty,</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">additional</span><span class="w"> </span><span class="err">options</span>
 
 <span class="err">COMPILER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-fpermissive</span>
 </code></pre></div>
 <p>In this example, <code>-fpermissive</code> has been added.</p>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Compiler</span><span class="w"> </span><span class="err">options</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Compiler</span><span class="w"> </span><span class="err">options</span>
 <span class="w"> </span><span class="err">----------------------------------</span>
 <span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">0</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">empty,</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">additional</span><span class="w"> </span><span class="err">options</span>
 
 <span class="err">COMPILER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-Wl,-u,_printf_float,-u,-_scanf_float</span>
 </code></pre></div>
 <p>In this example, formatting float numbers has been added.</p>
-<div class="* highlight"><pre><span></span><code><span class="err">COMPILER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-flto</span>
+<div class="highlight"><pre><span></span><code><span class="err">COMPILER_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">-flto</span>
 </code></pre></div>
 <p>In this example, the <code>-flto</code> implements link time optimisation on GCC to optimise the executable size.</p>
 <p>For more information on the authorised parameters,</p>
@@ -3638,7 +3638,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Add the parameters to the variable <code>LINKER_OPTIONS</code> in the main <code>Makefile</code>.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Compiler</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">linker</span><span class="w"> </span><span class="err">options</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Compiler</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">linker</span><span class="w"> </span><span class="err">options</span>
 <span class="w"> </span><span class="err">----------------------------------</span>
 <span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">0</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">empty,</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">additional</span><span class="w"> </span><span class="err">options</span>
 
@@ -3654,7 +3654,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Contrary to errors, warnings don’t stop compilation but they point at possible cause of errors.</p>
 <p>The variable <code>WARNING_OPTIONS</code> on the main <code>Makefile</code> selects the scope of the warning messages.</p>
 <p>By default, the variable <code>WARNING_OPTIONS</code> is set to 0: no warning messages are reported.</p>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Warning</span><span class="w"> </span><span class="err">options</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Warning</span><span class="w"> </span><span class="err">options</span>
 <span class="w"> </span><span class="err">----------------------------------</span>
 <span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">example,</span><span class="w"> </span><span class="err">unused</span><span class="w"> </span><span class="err">variables</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">unused-variable.</span>
 
@@ -3666,7 +3666,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">0</span>
 </code></pre></div>
 <p>If <code>WARNING_OPTIONS</code> is left empty, all warnings are displayed. This is the same as <code>WARNING_OPTIONS = all</code>.</p>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Warning</span><span class="w"> </span><span class="err">options</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Warning</span><span class="w"> </span><span class="err">options</span>
 
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">all</span>
 </code></pre></div>
@@ -3677,14 +3677,14 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>To check all the unused elements and save precious SRAM and Flash memory, define the following warning options.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Warning</span><span class="w"> </span><span class="err">options</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Warning</span><span class="w"> </span><span class="err">options</span>
 
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">unused-variable</span><span class="w"> </span><span class="err">unused-function</span><span class="w"> </span><span class="err">unused-label</span><span class="w"> </span><span class="err">unused-value</span>
 </code></pre></div>
 <ul>
 <li>To check all the use of <code>NULL</code>, define the following warning options.</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Warning</span><span class="w"> </span><span class="err">options</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Warning</span><span class="w"> </span><span class="err">options</span>
 
 <span class="err">WARNING_OPTIONS</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">conversion-null</span><span class="w"> </span><span class="err">pointer-arith</span>
 </code></pre></div>
@@ -3706,7 +3706,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Define a binary specific name.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">C-compliant</span><span class="w"> </span><span class="err">project</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">extension</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">C-compliant</span><span class="w"> </span><span class="err">project</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">extension</span>
 <span class="err">PROJECT_NAME_AS_IDENTIFIER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">embed1</span>
 
 <span class="w"> </span><span class="err">Binary</span><span class="w"> </span><span class="err">name,</span><span class="w"> </span><span class="err">default=emcode</span>
@@ -3716,12 +3716,12 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Just enter whatever value after <code>BINARY_SPECIFIC_NAME</code> to set another name,</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Binary</span><span class="w"> </span><span class="err">name,</span><span class="w"> </span><span class="err">default=emcode</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Binary</span><span class="w"> </span><span class="err">name,</span><span class="w"> </span><span class="err">default=emcode</span>
 <span class="err">BINARY_SPECIFIC_NAME</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">myBinarySpecificName</span>
 </code></pre></div>
 <h2 id="define-message-options">Define message options<a class="headerlink" href="#define-message-options" title="Permanent link">¶</a></h2>
 <p>The terminal window of Visual Studio Code reports the progress of the task with two lines.</p>
-<div class="* highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">4.3</span><span class="o">-</span><span class="n">LOCAL</span><span class="w"> </span><span class="n">CPP</span><span class="w">     </span><span class="n">main</span><span class="p">.</span><span class="n">cpp</span><span class="p">.</span><span class="n">o</span>
 <span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">pqt</span><span class="o">-</span><span class="n">gcc</span><span class="o">/</span><span class="mf">4.0.1</span><span class="mi">-8</span><span class="n">ec9d6f</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">-</span><span class="n">g</span><span class="o">++</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="n">Werror</span><span class="o">=</span><span class="k">return</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="o">-</span><span class="n">Wno</span><span class="o">-</span><span class="n">psabi</span><span class="w"> </span><span class="o">-</span><span class="n">Os</span><span class="w"> </span><span class="o">-</span><span class="n">g3</span><span class="w"> </span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="o">-</span><span class="n">march</span><span class="o">=</span><span class="n">armv6</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="n">mcpu</span><span class="o">=</span><span class="n">cortex</span><span class="o">-</span><span class="n">m0plus</span><span class="w"> </span><span class="o">-</span><span class="n">mthumb</span><span class="w"> </span><span class="o">-</span><span class="n">ffunction</span><span class="o">-</span><span class="n">sections</span><span class="w"> </span><span class="o">-</span><span class="n">fdata</span><span class="o">-</span><span class="n">sections</span><span class="w"> </span><span class="o">-</span><span class="n">fno</span><span class="o">-</span><span class="n">exceptions</span><span class="w"> </span><span class="o">-</span><span class="n">lstdc</span><span class="o">++</span><span class="w"> </span><span class="o">-</span><span class="n">pipe</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO</span><span class="o">=</span><span class="mi">20302</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_ARCH_RP2040</span><span class="w"> </span><span class="o">-</span><span class="n">DEMCODE</span><span class="o">=</span><span class="mi">140506</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_VARIANT</span><span class="o">=</span><span class="err">'</span><span class="s">"rpipico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DF_CPU</span><span class="o">=</span><span class="mf">125000000L</span><span class="w"> </span><span class="o">-</span><span class="n">DARDUINO_RASPBERRY_PI_PICO</span><span class="w"> </span><span class="o">-</span><span class="n">BOARD_NAME</span><span class="o">=</span><span class="err">'</span><span class="s">"Raspberry Pi Pico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">MMD</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV6</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV4</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IGMP</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_CHECKSUM_CTRL_PER_NETIF</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="p">.</span><span class="o">/</span><span class="n">LocalLibrary</span><span class="o">/</span><span class="n">src</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="p">.</span><span class="w"> </span><span class="o">-</span><span class="n">DUSB_MANUFACTURER</span><span class="o">=</span><span class="err">'</span><span class="s">"Raspberry Pi"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DUSB_PRODUCT</span><span class="o">=</span><span class="err">'</span><span class="s">"Pico"</span><span class="err">'</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_PID</span><span class="o">=</span><span class="mh">0x000a</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_VID</span><span class="o">=</span><span class="mh">0x2e8a</span><span class="w"> </span><span class="o">-</span><span class="n">DUSBD_MAX_POWER_MA</span><span class="o">=</span><span class="mi">250</span><span class="w"> </span><span class="o">-</span><span class="n">DPICO_FLASH_SIZE_BYTES</span><span class="o">=</span><span class="mi">2097152</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">platform_def</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV6</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IPV4</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_IGMP</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">DLWIP_CHECKSUM_CTRL_PER_NETIF</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="n">fno</span><span class="o">-</span><span class="n">rtti</span><span class="w"> </span><span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">gnu</span><span class="o">++</span><span class="mi">17</span><span class="w"> </span><span class="o">-</span><span class="n">iprefix</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">platform_inc</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">core_inc</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">cores</span><span class="o">/</span><span class="n">rp2040</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">variants</span><span class="o">/</span><span class="n">rpipico</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">~/</span><span class="p">.</span><span class="n">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">RaspberryPi</span><span class="o">/</span><span class="mf">4.1.1</span><span class="o">/</span><span class="n">include</span><span class="w"> </span><span class="s">"main.cpp"</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="s">"~/Projets/emCode/embed1/.builds/main.cpp.o"</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -3735,7 +3735,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 </ul>
 <p><code>HIDE_NUMBER</code> and <code>HIDE_COMMAND</code> can hide and show the first line or second line. It is recommended to keep at least one option activated.</p>
 <p>Edit the main <code>Makefile</code> to modifiy the default options.</p>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Build</span><span class="w"> </span><span class="err">option,</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">command</span><span class="w"> </span><span class="err">lines</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Build</span><span class="w"> </span><span class="err">option,</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">command</span><span class="w"> </span><span class="err">lines</span>
 <span class="err">HIDE_NUMBER</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">true</span>
 <span class="err">HIDE_COMMAND</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">false</span>
 </code></pre></div>
@@ -3745,7 +3745,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The warning and error messages are always printed on the terminal window.</p>
-<div class="* highlight"><pre><span></span><code>*<span class="w">  </span>Executing<span class="w"> </span>task:<span class="w"> </span>make<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span>LaunchPad_MSP432P401R_EMT
+<div class="highlight"><pre><span></span><code>*<span class="w">  </span>Executing<span class="w"> </span>task:<span class="w"> </span>make<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span>LaunchPad_MSP432P401R_EMT
 ERROR<span class="w">             </span>MSP-EXP432P401R<span class="w"> </span>board<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>defined
 .
 ~/.emCode/Tools/Makefiles/Step1.mk:567:<span class="w"> </span>***<span class="w"> </span>Stop.<span class="w"> </span>Stop.
@@ -3755,10 +3755,10 @@ ERROR<span class="w">             </span>MSP-EXP432P401R<span class="w"> </span>
 <p>The notifications rely on <code>notify-send</code>.</p>
 <p><img alt="" src="img/Notification.png"></p>
 <p>Install the utility with</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libnotify-bin
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libnotify-bin
+</code></pre></div>
 <p>Edit the main <code>Makefile</code> to add the notification option.</p>
-<div class="* highlight"><pre><span></span><code><span class="c"># GUI option for messages</span>
+<div class="highlight"><pre><span></span><code><span class="c"># GUI option for messages</span>
 <span class="err">GUI_OPTION</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">NOTIFY</span>
 </code></pre></div>
 </div>
@@ -3766,7 +3766,7 @@ ERROR<span class="w">             </span>MSP-EXP432P401R<span class="w"> </span>
 <p>The dialogue boxes rely on <code>zenity</code>.</p>
 <p><img alt="" src="img/DialogueBox.png"></p>
 <p>Edit the main <code>Makefile</code> to add the dialogue box option.</p>
-<div class="* highlight"><pre><span></span><code><span class="c"># GUI option for messages</span>
+<div class="highlight"><pre><span></span><code><span class="c"># GUI option for messages</span>
 <span class="err">GUI_OPTION</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">ZENITY</span>
 </code></pre></div>
 </div>
@@ -3786,12 +3786,12 @@ ERROR<span class="w">             </span>MSP-EXP432P401R<span class="w"> </span>
 <p>Define the bash command.</p>
 </li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="w"> </span><span class="err">Final</span><span class="w"> </span><span class="err">command</span><span class="w"> </span><span class="err">after</span><span class="w"> </span><span class="err">make,</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="err">Final</span><span class="w"> </span><span class="err">command</span><span class="w"> </span><span class="err">after</span><span class="w"> </span><span class="err">make,</span>
 <span class="err">COMMAND_FINAL</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">cp</span><span class="w"> </span><span class="err">$(TARGET_HEX)</span><span class="w"> </span><span class="err">$(CURRENT_DIR)/</span>
 </code></pre></div>
 <p>In the example, the final command copies the binary <code>.hex</code> to the folder of the project.</p>
 <p>The <strong>Report Navigator</strong> displays the final command.</p>
-<div class="* highlight"><pre><span></span><code><span class="err">----</span><span class="w"> </span><span class="err">Final</span><span class="w"> </span><span class="err">----</span>
+<div class="highlight"><pre><span></span><code><span class="err">----</span><span class="w"> </span><span class="err">Final</span><span class="w"> </span><span class="err">----</span>
 <span class="err">cp</span><span class="w"> </span><span class="err">./.builds/emcode.hex</span><span class="w"> </span><span class="err">.</span>
 <span class="err">====</span><span class="w"> </span><span class="err">Make</span><span class="w"> </span><span class="err">done</span><span class="w"> </span><span class="err">====</span>
 </code></pre></div>
@@ -3901,7 +3901,7 @@ ERROR<span class="w">             </span>MSP-EXP432P401R<span class="w"> </span>
 </table>
 <p>By default, <code>USER_LIB_PATH</code> refer to the <code>library</code> sub-folder of the sketchbook folder <code>Arduino</code> defined by Arduino.</p>
 <p>When specified, <code>USER_LIB_PATH</code> could be an absolute or a relative path.</p>
-<div class="* highlight"><pre><span></span><code><span class="err">USER_LIB_PATH</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/home/User/Projects/Libraries</span>
+<div class="highlight"><pre><span></span><code><span class="err">USER_LIB_PATH</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">/home/User/Projects/Libraries</span>
 <span class="err">USER_LIB_PATH</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">../Libraries</span>
 </code></pre></div>
 <h2 id="run-batch-build">Run batch build<a class="headerlink" href="#run-batch-build" title="Permanent link">¶</a></h2>
@@ -3913,7 +3913,7 @@ ERROR<span class="w">             </span>MSP-EXP432P401R<span class="w"> </span>
 <ul>
 <li>Launch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="nv">BOARD</span><span class="o">=</span><span class="s2">"Raspberry_Pi_Pico_RP2040_DebugProbe_CMSIS_DAP"</span>
+<div class="highlight"><pre><span></span><code><span class="nv">BOARD</span><span class="o">=</span><span class="s2">"Raspberry_Pi_Pico_RP2040_DebugProbe_CMSIS_DAP"</span>
 <span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">"HIDE_ALL=true"</span>
 
 <span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>*/<span class="w"> </span><span class="p">;</span>
@@ -4059,7 +4059,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

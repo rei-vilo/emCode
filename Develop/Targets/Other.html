@@ -3438,7 +3438,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p class="admonition-title">Example</p>
 <p>The first successful build and link against the Raspberry Pi Pico RP2040 board with core <code>3.3.0</code> generates the board core archive <code>Raspberry_Pi_Pico_W_RP2040_MSD_3.3.0.a</code>. This allows the following builds to go faster as they use the archive.</p>
 <p>When the core is updated, for example to <code>3.4.0</code>, the procedure is called again to generate the board core archive <code>Raspberry_Pi_Pico_W_RP2040_MSD_3.4.0.a</code>.</p>
-<div class="* highlight"><pre><span></span><code><span class="w">    </span>emCode
+<div class="highlight"><pre><span></span><code><span class="w">    </span>emCode
 <span class="w">    </span>├──<span class="w"> </span>Template
 <span class="w">    </span>└──<span class="w"> </span>Tools
 <span class="w">        </span>├──<span class="w"> </span>Configurations
@@ -3461,8 +3461,8 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Launch the command</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">make<span class="w"> </span>core<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span>Raspberry_Pi_Pico_W_RP2040_MSD
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>core<span class="w"> </span>-j<span class="w"> </span><span class="nv">SELECTED_BOARD</span><span class="o">=</span>Raspberry_Pi_Pico_W_RP2040_MSD
+</code></pre></div>
 <p>Or</p>
 <ul>
 <li>Call the prompt with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>, </li>
@@ -3488,8 +3488,8 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Launch the command</p>
 </li>
 </ul>
-<p></p><div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">make<span class="w"> </span>document
-</span></code></pre></div></td></tr></tbody></table></div>
+<p></p><div class="highlight"><pre><span></span><code>make<span class="w"> </span>document
+</code></pre></div>
 Or<p></p>
 <ul>
 <li>Call the prompt with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>, </li>
@@ -3629,7 +3629,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

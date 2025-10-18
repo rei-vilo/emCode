@@ -3593,20 +3593,20 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>Run</p>
 </li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:nrf52
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:nrf52
+</code></pre></div>
 <h2 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">¶</a></h2>
 <h3 id="use-the-bluetooth-library">Use the Bluetooth library<a class="headerlink" href="#use-the-bluetooth-library" title="Permanent link">¶</a></h3>
 <p>To use the Bluetooth library provided with the boards package,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">BLE</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">BLE</span>
 </code></pre></div>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"BLECentralRole.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"BLECentralRole.h"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">"BLEPeripheral.h"</span>
 </code></pre></div>
 <h3 id="use-the-low-power-library">Use the low-power library<a class="headerlink" href="#use-the-low-power-library" title="Permanent link">¶</a></h3>
@@ -3614,59 +3614,59 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Arduino_Low_Power</span>
+<div class="highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">Arduino_Low_Power</span>
 </code></pre></div>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"ArduinoLowPower.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"ArduinoLowPower.h"</span>
 </code></pre></div>
 <h3 id="use-the-real-time-clock-library">Use the real-time clock library<a class="headerlink" href="#use-the-real-time-clock-library" title="Permanent link">¶</a></h3>
 <p>To use the RTC library provided with the boards package,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">RTCInt</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">RTCInt</span>
 </code></pre></div>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"RTCInt.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"RTCInt.h"</span>
 </code></pre></div>
 <p>To use the RTC Zero library,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">RTCZero</span>
+<div class="highlight"><pre><span></span><code><span class="err">USER_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">RTCZero</span>
 </code></pre></div>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"RTCZero.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"RTCZero.h"</span>
 </code></pre></div>
 <h3 id="use-the-nfc-library">Use the NFC library<a class="headerlink" href="#use-the-nfc-library" title="Permanent link">¶</a></h3>
 <p>To use the NFC library provided with the boards package,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">NFC</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">NFC</span>
 </code></pre></div>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"NFC.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"NFC.h"</span>
 </code></pre></div>
 <h3 id="use-the-sensors-library-on-the-primo-core-board">Use the sensors library on the Primo Core board<a class="headerlink" href="#use-the-sensors-library-on-the-primo-core-board" title="Permanent link">¶</a></h3>
 <p>To use the NFC library provided with the boards package,</p>
 <ul>
 <li>Edit the main <code>M̀akefile</code> with</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">CoreSensors</span>
+<div class="highlight"><pre><span></span><code><span class="err">APP_LIBS_LIST</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">CoreSensors</span>
 </code></pre></div>
 <ul>
 <li>Include in the main sketch</li>
 </ul>
-<div class="* highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"CoreSensors.h"</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"CoreSensors.h"</span>
 </code></pre></div>
 <h2 id="upload">Upload<a class="headerlink" href="#upload" title="Permanent link">¶</a></h2>
 <h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">¶</a></h2>
@@ -3802,7 +3802,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>

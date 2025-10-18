@@ -3673,9 +3673,17 @@ New release 14.7 adds a ReadMe file for the Archive target.
 </ul>
 <h2 id="install-the-recommended-extensions">Install the recommended extensions<a class="headerlink" href="#install-the-recommended-extensions" title="Permanent link">¶</a></h2>
 <p>Visual Studio Code is based on extensions.</p>
-<p>To install an extension using the command line:</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">code<span class="w"> </span>--install-extension<span class="w"> </span>ms-vscode.cpptools
-</span></code></pre></div></td></tr></tbody></table></div>
+<p>To install an extension using the command line,</p>
+<ul>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Launch</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>code<span class="w"> </span>--install-extension<span class="w"> </span>ms-vscode.cpptools
+</code></pre></div>
 <p>To install an extension using the IDE:</p>
 <ul>
 <li>
@@ -3802,10 +3810,10 @@ New release 14.7 adds a ReadMe file for the Archive target.
 </li>
 <li>
 <p>Link system dictionaries located at <code>/usr/share/hunspell/</code> with <code>.dic</code> and <code>.aff</code> extensions with</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/hunspell/*<span class="w"> </span>~/.config/Code/Dictionaries
-</span></code></pre></div></td></tr></tbody></table></div>
 </li>
 </ul>
+<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/hunspell/*<span class="w"> </span>~/.config/Code/Dictionaries
+</code></pre></div>
 <p>Visual Studio Code generates temporary files for each project. The <strong>Workspace Storage Cleanup</strong> extension manages them to save space.</p>
 <h3 id="install-the-extensions-to-format-the-code">Install the extensions to format the code<a class="headerlink" href="#install-the-extensions-to-format-the-code" title="Permanent link">¶</a></h3>
 <p>The <strong>C/C++ extension</strong> includes a formatter. As an option, <strong>Artistic Style</strong> provides more parameters.</p>
@@ -3854,7 +3862,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 </tbody>
 </table>
 <p>The <strong>Doxygen extension</strong> provides tools to generate the documentation. It requires the prior installation of Doxygen and optionally, GraphViz to generate graphs and LaTex to generate PDFs.</p>
-<center>![](img/Logo-064-Doxywizard.png) ![](img/Logo-064-Graphviz.png) ![](img/Logo-064-TeX.png)</center>
+<div><center><img src="img/Logo-064-Doxywizard.png"> <img src="img/Logo-064-Graphviz.png"> <img src="img/Logo-064-TeX.png"></center></div>
 
 <p><strong>Doxygen</strong> generates all the help files based on comments added to the code. Output formats are HTML and LaTeX. Doxygen includes <strong>DoxyWizard</strong>, a GUI for an easy tweaking of the parameters. Doxygen requires <strong>Graphviz</strong> to draw elaborate dependency trees.</p>
 <p>Finally, <strong>TeXShop</strong> translates the generated Doxygen <strong>LaTeX</strong> files into a PDF document.</p>
@@ -3926,38 +3934,31 @@ New release 14.7 adds a ReadMe file for the Archive target.
 </li>
 </ul>
 <p>The Segger J-Link probe may need</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">nano<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
-</span></code></pre></div></td></tr></tbody></table></div>
-<div class="* highlight"><pre><span></span><code>ACTION!<span class="o">=</span><span class="s2">"add"</span>,<span class="w"> </span>SUBSYSTEM!<span class="o">=</span><span class="s2">"usb_device"</span>,<span class="w"> </span><span class="nv">GOTO</span><span class="o">=</span><span class="s2">"segger_rules_end"</span>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ACTION!<span class="o">=</span><span class="s2">"add"</span>,<span class="w"> </span>SUBSYSTEM!<span class="o">=</span><span class="s2">"usb_device"</span>,<span class="w"> </span><span class="nv">GOTO</span><span class="o">=</span><span class="s2">"segger_rules_end"</span>
 ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">"1366"</span><span class="w"> </span>ENV<span class="o">{</span>ID_MM_DEVICE_IGNORE<span class="o">}=</span><span class="s2">"1"</span>
 <span class="c1">#ATTRS{idVendor}=="1366" ATTRS{idProduct}=="0105", ENV{ID_MM_DEVICE_IGNORE}="1"</span>
 <span class="nv">LABEL</span><span class="o">=</span><span class="s2">"segger_rules_end"</span>
 </code></pre></div>
 <p>Save and close with <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span> <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span></p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>su
-</span></code></pre></div></td></tr></tbody></table></div>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">#</span>
-<span class="normal">#</span>
-<span class="normal">#</span>
-<span class="normal">#</span>
-<span class="normal">#</span>
-<span class="normal">#</span>
-<span class="normal">#</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">chown<span class="w"> </span>root<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
-</span><span class="">chmod<span class="w"> </span><span class="nv">u</span><span class="o">=</span>rw<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
-</span><span class="">chmod<span class="w"> </span>a+r<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
-</span><span class="">ls<span class="w"> </span>-l<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
-</span><span class="">cp<span class="w"> </span><span class="m">99</span>-segger-vcom.rules<span class="w"> </span>/etc/udev/rules.d/99-segger-vcom.rules
-</span><span class="">udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
-</span><span class=""><span class="nb">exit</span>
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>su
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>chown<span class="w"> </span>root<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
+chmod<span class="w"> </span><span class="nv">u</span><span class="o">=</span>rw<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
+chmod<span class="w"> </span>a+r<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
+ls<span class="w"> </span>-l<span class="w"> </span><span class="m">99</span>-segger-vcom.rules
+cp<span class="w"> </span><span class="m">99</span>-segger-vcom.rules<span class="w"> </span>/etc/udev/rules.d/99-segger-vcom.rules
+udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules
+<span class="nb">exit</span>
+</code></pre></div>
 <p>And, if <strong>JLinkGDBServer</strong> complains about missing libraries,</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libncursesw5
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libncursesw5
+</code></pre></div>
 <p>The <strong>Cortex Debug extension</strong> requires a modern GDB client, version <code>9</code> or later. Some boards packages include older versions of the GDB client.</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gdb-multiarch
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gdb-multiarch
+</code></pre></div>
 <p>For more information on the Cortex Debug extension,</p>
 <ul>
 <li>Please refer to the <a href="https://github.com/Marus/cortex-debug/wiki" rel="noopener" target="_blank">Cortex-Debug</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span> wiki.</li>
@@ -4068,8 +4069,8 @@ ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">
 </tbody>
 </table>
 <p>WSL may require the manual installation of some utilities.</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>bc<span class="w"> </span>curl<span class="w"> </span>tree<span class="w"> </span>python3<span class="w"> </span>pip
-</span></code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>bc<span class="w"> </span>curl<span class="w"> </span>tree<span class="w"> </span>python3<span class="w"> </span>pip
+</code></pre></div>
 <p>For more information on WSL, please refer to</p>
 <ul>
 <li><a href="https://learn.microsoft.com/en-us/windows/wsl/about" rel="noopener" target="_blank">Windows Subsystem for Linux Documentation</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span>;</li>
@@ -4096,19 +4097,16 @@ ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">
 <ul>
 <li>Open a Terminal window;</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ls<span class="w"> </span>-all<span class="w"> </span>/dev/ttyACM0
-</span>crw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>dialout<span class="w"> </span><span class="m">166</span>,<span class="w"> </span><span class="m">0</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">13</span>:20<span class="w"> </span>/dev/ttyACM0
-</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-all<span class="w"> </span>/dev/ttyACM0
+crw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>dialout<span class="w"> </span><span class="m">166</span>,<span class="w"> </span><span class="m">0</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">13</span>:20<span class="w"> </span>/dev/ttyACM0
+</code></pre></div>
 <ul>
 <li>Change the authorisation of the USB device to allow read and write, as it is protected by default.</li>
 </ul>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span>
-<span class="normal">$</span>
-<span class="normal"></span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">666</span><span class="w"> </span>/dev/ttyACM0
-</span><span class="">ls<span class="w"> </span>-all<span class="w"> </span>/dev/ttyACM0
-</span>crw-rw-rw-<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>dialout<span class="w"> </span><span class="m">166</span>,<span class="w"> </span><span class="m">0</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">13</span>:20<span class="w"> </span>/dev/ttyACM0
-</code></pre></div></td></tr></tbody></table></div>
+<p><code>bash lines
+sudo chmod 666 /dev/ttyACM0
+ls -all /dev/ttyACM0
+crw-rw-rw- 1 root dialout 166, 0 Jun 26 13:20 /dev/ttyACM0</code></p>
 <p>For more information on connecting USB devices to WSL, please refer to</p>
 <ul>
 <li><a href="https://learn.microsoft.com/en-us/windows/wsl/connect-usb" rel="noopener" target="_blank">Connect USB devices</a> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span>;</li>
@@ -4260,7 +4258,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>

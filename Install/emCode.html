@@ -3363,11 +3363,19 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <ul>
 <li>Create the symbolic link <code>~/.emCode</code> to the actual location of emCode.</li>
 </ul>
-<p>For example, if emCode is located at <code>~/Projects/emCode</code>, create the symbolic link with</p>
-<div class="* hl_lines highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">$</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="">ln<span class="w"> </span>-s<span class="w"> </span>~/Projects/emCode<span class="w"> </span>~/.emCode
-</span></code></pre></div></td></tr></tbody></table></div>
+<p>For example, if emCode is located at <code>~/Projects/emCode</code>, </p>
+<ul>
+<li>
+<p>Open a <strong>Terminal</strong> window.</p>
+</li>
+<li>
+<p>Create the symbolic link with</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span>~/Projects/emCode<span class="w"> </span>~/.emCode
+</code></pre></div>
 <p>The emCode folder contains two sub-folders.</p>
-<div class="* highlight"><pre><span></span><code>emCode
+<div class="highlight"><pre><span></span><code>emCode
 ├── Template
 └── Tools
     ├── Configurations
@@ -3378,7 +3386,7 @@ New release 14.7 adds a ReadMe file for the Archive target.
 <p>The <code>Tools</code> sub-folder contains the configuration files of the boards, the pre-compiled core archives, and the makefiles.</p>
 <p>The pre-compiled core archives are generated during the first successful build against a board.</p>
 <p>For example, the first successful build and link against the Raspberry Pi Pico RP2040 board with core <code>4.4.4</code> uses the configuration <code>Raspberry_Pi_Pico_RP2040_MSD.mk</code> and generates <code>Raspberry_Pi_Pico_RP2040_MSD_4.4.4.a</code>.</p>
-<div class="* highlight"><pre><span></span><code>emCode
+<div class="highlight"><pre><span></span><code>emCode
 ├── Template
 └── Tools
     ├── Configurations
@@ -3527,7 +3535,7 @@ and <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.22"}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "announce.dismiss", "announce.dismiss", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "14.7.25"}</script>
     
     
       <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
