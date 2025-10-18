@@ -91,7 +91,7 @@ ifeq ($(UPLOADER),xds110)
 # Place xdsdfu under UTILITIES_PATH
 #   XDS110_USB := $(shell $(UTILITIES_PATH)/xdsdfu -e | grep "Serial Num" | xargs | rev | cut -d\  -f1 | rev)
   XDS110_USB := $(shell $(UTILITIES_PATH)/xdsdfu -e | grep "Serial Num" | sed "s/Serial Num://g")
-#   $(info >>> XDS110_USB $(XDS110_USB))
+  $(info >>> XDS110_USB $(XDS110_USB))
 #   $(info >>> UTILITIES_PATH $(UTILITIES_PATH))
 
   ifeq ($(XDS110_SERIAL),)
@@ -2730,10 +2730,10 @@ ifneq ($(COMMAND_AFTER_COMPILE),)
 	$(QUIET_BUILD)$(COMMAND_AFTER_COMPILE)
 endif # COMMAND_AFTER_COMPILE
 
-fast: start_message change before_compile compile after_compile reset raw_upload serial
+fast: start_message change before_compile compile after_compile reset raw_upload
 	@echo "==== $(MESSAGE_TASK) done ===="
 
-all: start_message clean before_compile compile after_compile reset raw_upload serial
+all: start_message clean before_compile compile after_compile reset raw_upload
 	@echo "==== $(MESSAGE_TASK) done ===="
 
 build: start_message nothing before_compile compile after_compile

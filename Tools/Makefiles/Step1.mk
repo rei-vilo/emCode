@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 02 Jan 2025 release 14.6.8
+# Last update: 25 Sep 2025 release 14.7.23
 #
 
 include $(MAKEFILE_PATH)/Step0.mk
@@ -628,7 +628,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             -include $(MAKEFILE_PATH)/nRF51_Boards.mk
 
 #             Raspberry Pi
-            -include $(MAKEFILE_PATH)/RasPiPico.mk
+            -include $(MAKEFILE_PATH)/RaspberryPiPico.mk
 
 #             RedBear
             -include $(MAKEFILE_PATH)/RedBearLabDUO.mk

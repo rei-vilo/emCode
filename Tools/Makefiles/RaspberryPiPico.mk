@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 15 Sep 2025 release 14.7.21
+# Last update: 25 Sep 2025 release 14.7.23
 #
 
 # RP2040 Pico for Arduino
@@ -25,7 +25,7 @@ ifneq ($(wildcard $(ARDUINO_RP2040_INITIAL)/hardware/rp2040),)
 endif # ARDUINO_RP2040_INITIAL
 
 ifneq ($(call PARSE_FILE,$(BOARD_TAG),name,$(RP2040_BOARDS)),)
-MAKEFILE_NAME = RasPiPico
+MAKEFILE_NAME = RaspberryPiPico
 RELEASE_CORE = $(RP2040_RELEASE)
 READY_FOR_EMCODE_NEXT = 1
 
@@ -104,7 +104,8 @@ ifeq ($(UPLOADER),cp_uf2)
     BEFORE_VOLUME_PORT = $(USB_RESET)
 
     TARGET_BIN_CP = $(BUILDS_PATH)/firmware.uf2
-    COMMAND_PRE_UPLOAD = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(RP2040_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
+#     pqt-elf2uf2 is deprecated
+#     COMMAND_PRE_UPLOAD = $(OTHER_TOOLS_PATH)/pqt-elf2uf2/$(RP2040_TOOLS_RELEASE)/elf2uf2 $(TARGET_ELF) $(TARGET_BIN_CP)
     USED_VOLUME_PORT = $(strip $(BOARD_VOLUME))
 
     UPLOADER_PATH = $(HARDWARE_PATH)/tools
