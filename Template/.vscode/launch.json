@@ -7,7 +7,7 @@
     // See https://github.com/Marus/cortex-debug.
     "version": "0.2.0",
     "configurations": [
-       {
+        {
             "type": "cppdbg",
             "request": "launch",
             "name": "Nano Matter",
@@ -17,11 +17,22 @@
             "miDebuggerPath": "/usr/bin/gdb-multiarch",
             "program": "${workspaceRoot}/.builds/emcode.elf",
             "setupCommands": [
-                { "text": "set remotetimeout 5" },
-                { "text": "target extended-remote :3333" },
-                { "text": "monitor reset halt" },
-                { "text": "file '${workspaceRoot}/.builds/emcode.elf'" },
-                { "text": "break main", "ignoreFailures": true }
+                {
+                    "text": "set remotetimeout 5"
+                },
+                {
+                    "text": "target extended-remote :3333"
+                },
+                {
+                    "text": "monitor reset halt"
+                },
+                {
+                    "text": "file '${workspaceRoot}/.builds/emcode.elf'"
+                },
+                {
+                    "text": "break main",
+                    "ignoreFailures": true
+                }
             ],
             "launchCompleteCommand": "None",
             "externalConsole": false,
@@ -87,8 +98,10 @@
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
-                "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                "-speed", "2000"
+                "-rtos",
+                "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
+                "-speed",
+                "2000"
             ]
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
@@ -98,7 +111,6 @@
             "request": "launch",
             "name": "RP2040 PicoProbe",
             "servertype": "openocd",
-            // "serverpath": "${env:HOME}/Projets/emCode/Tools/OpenOCD_RP2040/openocd_picoprobe",
             "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/emcode.elf",
@@ -106,13 +118,14 @@
             "gdbPath": "/usr/bin/gdb-multiarch",
             "device": "RP2040",
             "serverArgs": [
-                "-f", "target/rp2040.cfg",
-                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/share/openocd/scripts",
+                "-f",
+                "target/rp2040.cfg",
+                "-s",
+                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/picoprobe.cfg"
             ],
-            "svdFile": "${env:HOME}/Projets/emCode/Tools/SVD/rp2040.svd",
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Make"
         },
@@ -121,7 +134,6 @@
             "request": "launch",
             "name": "RP2040 CMSIS-DAP",
             "servertype": "openocd",
-            // "serverpath": "${env:HOME}/Projets/emCode/Tools/OpenOCD_RP2040/openocd_picoprobe",
             "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/emcode.elf",
@@ -129,14 +141,16 @@
             "gdbPath": "/usr/bin/gdb-multiarch",
             "device": "RP2040",
             "serverArgs": [
-                "-c", "adapter speed 5000",
-                "-f", "target/rp2040.cfg",
-                "-s", "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/share/openocd/scripts",
+                "-c",
+                "adapter speed 5000",
+                "-f",
+                "target/rp2040.cfg",
+                "-s",
+                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/cmsis-dap.cfg"
             ],
-            "svdFile": "${env:HOME}/Projets/emCode/Tools/SVD/rp2040.svd",
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Make"
         },
@@ -181,8 +195,10 @@
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
-                "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                "-speed", "2000"
+                "-rtos",
+                "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
+                "-speed",
+                "2000"
             ]
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
@@ -199,10 +215,11 @@
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
-                "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                "-speed", "2000"
+                "-rtos",
+                "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
+                "-speed",
+                "2000"
             ]
-            // "svdFile": "${env:HOME}/Projets/emCode/Tools/SVD/MSP432P401R.svd",
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
         },
@@ -218,11 +235,102 @@
             "interface": "swd",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "serverArgs": [
-                "-rtos", "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
-                "-speed", "2000"
+                "-rtos",
+                "/opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so",
+                "-speed",
+                "2000"
             ]
             // The extension uploads the executable to the MCU
             // "preLaunchTask": "Fast"
-        }
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "RP2040 J-Link",
+            "servertype": "jlink",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "device": "RP2040_M0_0",
+            "serverArgs": [
+                "-f",
+                "target/rp2040.cfg",
+            ],
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Make"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "RP2350 CMSIS-DAP",
+            "servertype": "openocd",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/bin/openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "device": "RP2350",
+            "serverArgs": [
+                "-c",
+                "adapter speed 5000",
+                "-f",
+                "target/rp2350.cfg",
+                "-s",
+                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/share/openocd/scripts",
+            ],
+            "configFiles": [
+                "interface/cmsis-dap.cfg"
+            ],
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Make"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "RP2350 J-Link",
+            "servertype": "jlink",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "device": "RP2350_M0_0",
+            "serverArgs": [
+                "-f",
+                "target/rp2350.cfg",
+            ],
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Make"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "SAMD21 J-Link",
+            "servertype": "jlink",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "device": "ATSAMD21G18A",
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Make"
+        },
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "SAMD21 CMSIS-DAP",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/.builds/emcode.elf",
+            "interface": "swd",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "device": "ATSAMD21G18A",
+            "configFiles": [
+                "interface/cmsis-dap.cfg",
+                "target/at91samdXX.cfg"
+            ],
+            // The extension uploads the executable to the MCU
+            // "preLaunchTask": "Make"
+        },
     ]
 }

@@ -29,9 +29,9 @@ BOARD_TAG4 = adafruit_feather.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = adafruit_feather.menu.usbstack.tinyusb
 BOARD_TAG5 = adafruit_feather.menu.usbstack.picosdk
-# Stack protect, default = disabled
+# Stack protect, default = disabled
 BOARD_TAG6 = adafruit_feather.menu.stackprotect.Disabled
-# Exception, default = disabled
+# Exception, default = disabled
 BOARD_TAG7 = adafruit_feather.menu.exceptions.Disabled
 # Upload method
 BOARD_TAG8 = adafruit_feather.menu.uploadmethod.default

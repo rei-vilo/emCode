@@ -36,9 +36,9 @@ BOARD_TAG4 = rpipico2.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = rpipico2.menu.usbstack.tinyusb
 BOARD_TAG5 = rpipico2.menu.usbstack.picosdk
-# Stack protect, default = disabled
+# Stack protect, default = disabled
 BOARD_TAG6 = rpipico2.menu.stackprotect.Disabled
-# Exception, default = disabled
+# Exception, default = disabled
 BOARD_TAG7 = rpipico2.menu.exceptions.Disabled
 # Upload method
 BOARD_TAG8 = rpipico2.menu.uploadmethod.picotool
@@ -86,22 +86,22 @@ UPLOADER = jlink
 # Linux
 # BOARD_VOLUME = /media/$(USER)/RPI-RP2
 
-# # MCU for AVRDUDE
-# # If not specified, AVRDUDE_MCU = value from boards.txt
+# # MCU for AVRDUDE
+# # If not specified, AVRDUDE_MCU = value from boards.txt
 # # 
 # AVRDUDE_MCU = atmega328
 # 
-# # Although compatible, the actual MCU may have a different speed.
-# # If not specified, F_CPU = value from boards.txt
+# # Although compatible, the actual MCU may have a different speed.
+# # If not specified, F_CPU = value from boards.txt
 # # 
-# # F_CPU = 16000000L
+# # F_CPU = 16000000L
 # 
-# # Fuses for AVRDUDE
-# # To by-pass fuses, set AVR_IGNORE_FUSES = 1 otherwise AVR_IGNORE_FUSES = 0
-# # AVR_IGNORE_FUSES = 1
+# # Fuses for AVRDUDE
+# # To by-pass fuses, set AVR_IGNORE_FUSES = 1 otherwise AVR_IGNORE_FUSES = 0
+# # AVR_IGNORE_FUSES = 1
 # 
-# # Define fuses, only if different from default values
-# # ISP_LOCK_FUSE_PRE ISP_LOCK_FUSE_POST ISP_HIGH_FUSE ISP_LOW_FUSE ISP_EXT_FUSE
+# # Define fuses, only if different from default values
+# # ISP_LOCK_FUSE_PRE ISP_LOCK_FUSE_POST ISP_HIGH_FUSE ISP_LOW_FUSE ISP_EXT_FUSE
 # 
 # MESSAGE_WARNING = BETA! Not yet tested against $(CONFIG_NAME)
 

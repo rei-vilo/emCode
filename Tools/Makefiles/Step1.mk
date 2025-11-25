@@ -32,31 +32,31 @@ PARSE_FILE = $(shell if [ ! -z $(3) ] ; then if [ -f $(3) ] ; then grep ^$(1).$(
 # Function PARSE_BOARD data retrieval from boards.txt
 # result = $(call SEARCH_FOR,'list of board tags','parameter')
 # Implicit variable BOARDS_TXT
-# 
+#
 SEARCH_FOR = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
 
 # Function VERSION version of library
 # result = $(call VERSION,'list of board tags','parameter')
 # $(foreach file,$(INFO_LOCAL_UNARCHIVES_LIST),$(info . $(file) release $(shell grep version $(CURRENT_DIR)/$(file)/library.properties | cut -d= -f2)))
-# 
+#
 VERSION = $(shell work=$(2)/$(1)/library.properties ; test=$$(grep version $$work | cut -d= -f2) ; if [ $$test ] ; then echo $(1) release $$test ; else echo "$(1) release ?" ; fi ; )
 # VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work )
 # VERSION = $(shell work=$(2)/$(1)/library.properties ; echo $$work ; test=$$(grep "version" $$work) ; echo $$test )
 
-# define CHECK_RELEASE = 
+# define CHECK_RELEASE =
 #     $(info Warning           $(1) $(4) expected, $(shell if [ -d $(ARDUINO_PACKAGES_PATH)/$(2)/hardware/$(3) ] ; then basename $(ARDUINO_PACKAGES_PATH)/$(2)/hardware/$(3)/* -d ; else echo "none" ; fi) found)
 # endef
 
 # $(call CHECK_RELEASE,STM32duino,STMicroelectronics,stm32,$(STM32DUINO_RELEASE))
 
-# define CHECK_RELEASE = 
+# define CHECK_RELEASE =
 
 #     $(info $(shell CHECK_PATH=$(ARDUINO_PACKAGES_PATH)/$(2)/hardware/$(3) ; if [ -d $$CHECK_PATH ]; then FOUND_PATH=$$(basename $$CHECK_PATH/* -d) ; else FOUND_PATH="none" ; fi ; if [ "$$FOUND_PATH" != "$(4)" ] ; then printf "%-18s %s expected, %s found" $(1) $(4) $$FOUND_PATH ; fi ))
 
 # endef
 
 include $(MAKEFILE_PATH)/About.mk
- 
+
 READ_ME_NAME := Summary.md
 READ_ME_FILE := $(BUILDS_PATH)/$(READ_ME_NAME)
 
@@ -71,7 +71,7 @@ ARDUINO_PACKAGES_PATH = $(ARDUINO_15_LIBRARY_PATH)/packages
 ARDUINO_IDE_LIBRARY_PATH = $(HOME)/.arduinoIDE
 
 # preferences.txt no longer used
-# ARDUINO_PREFERENCES = $(ARDUINO_LIBRARY_PATH)/preferences.txt 
+# ARDUINO_PREFERENCES = $(ARDUINO_LIBRARY_PATH)/preferences.txt
 ARDUINO_IDE_YAML := $(ARDUINO_IDE_LIBRARY_PATH)/arduino-cli.yaml
 ARDUINO_15_YAML := $(ARDUINO_15_LIBRARY_PATH)/arduino-cli.yaml
 
@@ -80,7 +80,7 @@ ARDUINO_15_YAML := $(ARDUINO_15_LIBRARY_PATH)/arduino-cli.yaml
 # $(info === ARDUINO_PACKAGES_PATH $(ARDUINO_PACKAGES_PATH))
 # $(info === ARDUINO_PREFERENCES $(ARDUINO_PREFERENCES))
 
-define CHECK_RELEASE = 
+define CHECK_RELEASE =
 
     $(info $(shell CHECK_PATH=$(ARDUINO_PACKAGES_PATH)/$(2)/hardware/$(3) ; if [ -d $$CHECK_PATH ]; then FOUND_PATH=$$(basename $$CHECK_PATH/* -d) ; else FOUND_PATH="none" ; fi ; if [ "$$FOUND_PATH" != "$(4)" ] ; then printf "%-18s %s expected, %s found" "$(1)" $(4) $$FOUND_PATH ; else printf "%-18s %s expected and found" "$(1)" $(4) ; fi ))
 
@@ -136,11 +136,11 @@ endef
 # GUI options
 #
 # Function MESSAGE_GUI with level option
-# result = MESSAGE_GUI_ERROR(message) for error 
-# result = MESSAGE_GUI_WARNING(message) for warning 
+# result = MESSAGE_GUI_ERROR(message) for error
+# result = MESSAGE_GUI_WARNING(message) for warning
 # result = MESSAGE_GUI_INFO(message) for information
 
-# ZENITY Display a dialogue box with title emCode and message 
+# ZENITY Display a dialogue box with title emCode and message
 ifeq ($(GUI_OPTION),ZENITY)
 
     MESSAGE_GUI_ERROR = $(shell zenity --width=240 --title "emCode" --text "$(1)" --error)
@@ -154,7 +154,7 @@ else ifeq ($(GUI_OPTION),NOTIFY)
     MESSAGE_GUI_WARNING = $(shell notify-send "emCode" "$(1)" -u normal)
     MESSAGE_GUI_INFO = $(shell notify-send "emCode" "$(1)" -u low)
 
-# OSASCRIPT Display a dialogue box with title emCode and message 
+# OSASCRIPT Display a dialogue box with title emCode and message
 else ifeq ($(GUI_OPTION),OSASCRIPT)
 
     MESSAGE_GUI_ERROR = $(shell osascript -e 'tell application "System Events" to display dialog "$(1)" with title "emCode" buttons {"OK"} default button {"OK"} with icon 0')
@@ -187,7 +187,7 @@ endif # GUI_OPTION
 # endif # SKETCH_EXTENSION
 
 # C-compliant project name, empty and default = search
-# 
+#
 ifneq ($(MULTI_INO),1)
 ifeq ($(PROJECT_NAME_AS_IDENTIFIER),)
     PROJECT_LIST = $(wildcard *.ino)
@@ -196,7 +196,7 @@ endif # PROJECT_NAME_AS_IDENTIFIER
 endif # MULTI_INO
 
 # Unicity check
-# 
+#
 ifneq ($(MULTI_INO),1)
 ifneq ($(SKETCH_EXTENSION),__main_cpp_only__)
     ifneq ($(SKETCH_EXTENSION),_main_cpp_only_)
@@ -530,7 +530,7 @@ endif # ARDUINO_APP
 #
 OBJDIR = $(BUILDS_PATH)
 
-# ~
+# ~
 # Warnings flags
 #
 ifeq ($(WARNING_OPTIONS),)
@@ -542,7 +542,7 @@ else
         FLAGS_WARNING = $(addprefix -W, $(WARNING_OPTIONS))
     endif # WARNING_OPTIONS 0
 endif # WARNING_OPTIONS
-# ~~
+# ~~
 
 # Identification and switch
 # ----------------------------------
@@ -569,9 +569,9 @@ endif # WARNING_OPTIONS
 # Order matters!
 #
 
-# $(info >>> BOARD_TAG $(BOARD_TAG))
-# $(info >>> MAKEFILE_PATH $(MAKEFILE_PATH))
-# $(info >>> ARDUINO_PACKAGES_PATH $(ARDUINO_PACKAGES_PATH))
+# $(info >>> BOARD_TAG $(BOARD_TAG))
+# $(info >>> MAKEFILE_PATH $(MAKEFILE_PATH))
+# $(info >>> ARDUINO_PACKAGES_PATH $(ARDUINO_PACKAGES_PATH))
 # $(info >>> ARDUINO_APP $(ARDUINO_APP))
 # $(info >>> BOOL_SELECT_BOARD $(BOOL_SELECT_BOARD))
 
@@ -676,7 +676,7 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     ifeq ($(MAKEFILE_NAME),)
 
         $(call LIST_PLATFORMS)
-        
+
         ifneq ($(strip $(BOARD_TAG)),0)
             $(info ERROR             $(BOARD_TAG) board is not defined)
             $(info .)

@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Created by Rei Vilo on 31 Aug 2023 
+# Created by Rei Vilo on 31 Aug 2023 
 # 
 # Last update: 06 Aug 2025 release 14.7.17
 #
@@ -422,7 +422,7 @@ NM = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-nm
 GDB = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-gdb
 
 # $(info > CPU= '$(CPU)')
-# $(info > OPTIMISATION= '$(OPTIMISATION)')
+# $(info > OPTIMISATION= '$(OPTIMISATION)')
 
 ifeq ($(MAKECMDGOALS),debug)
     OPTIMISATION = -Os -g3 
@@ -640,8 +640,8 @@ TARGET_HEXBIN = $(TARGET_BIN)
 #
 ## COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(TARGET_A) $(FLAGS_L) -Wl,--end-group -Wl,-EL
 # COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_OBJS) $(USER_ARCHIVES) $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(VARIANT_SORTED_OBJS) $(TARGET_CORE_A) $(FLAGS_L) -Wl,--end-group -Wl,-ELVARIANT_SORTED_OBJS has no impact
-# COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_OBJS) $(USER_ARCHIVES) $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(VARIANT_OBJS) $(TARGET_CORE_A) $(FLAGS_L) -Wl,--end-group -Wl,-EL # works
-COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(VARIANT_OBJS) $(TARGET_A) $(TARGET_CORE_A) $(FLAGS_L) -Wl,--end-group -Wl,-EL # works 
+# COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_OBJS) $(USER_ARCHIVES) $(APP_LIB_OBJS) $(BUILD_APP_LIB_OBJS) $(VARIANT_OBJS) $(TARGET_CORE_A) $(FLAGS_L) -Wl,--end-group -Wl,-EL # works
+COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(VARIANT_OBJS) $(TARGET_A) $(TARGET_CORE_A) $(FLAGS_L) -Wl,--end-group -Wl,-EL # works 
 # COMMAND_LINK = $(CXX) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(USER_OBJS) $(VARIANT_OBJS) $(CORE_OBJS) $(BUILD_CORE_OBJS) $(FLAGS_L) -Wl,--end-group -Wl,-EL # fails
 
 # COMMAND_COPY += $(PYTHON_EXEC) $(HARDWARE_PATH)/tools/gen_insights_package.py $(BUILDS_PATH) 

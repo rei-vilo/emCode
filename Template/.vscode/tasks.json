@@ -49,6 +49,10 @@
                 "make",
                 "SELECTED_BOARD=${command:cpptools.activeConfigName}"
             ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
             "detail": "Make with makefile"
         },
         {
@@ -74,17 +78,6 @@
             "detail": "Clean with makefile"
         },
         {
-            "label": "Serial",
-            "type": "shell",
-            "command": "make",
-            "args": [
-                "/dev/tty.ttyACM0",
-                "115200"
-            ],
-            "group": "build",
-            "detail": "Serial with makefile"
-        },
-        {
             "label": "Archive",
             "type": "shell",
             "command": "make",
@@ -93,7 +86,8 @@
                 "SELECTED_BOARD=${command:cpptools.activeConfigName}"
             ],
             "group": {
-                "test"
+                "kind": "test",
+                "isDefault": false
             },
             "detail": "Archive with makefile"
         },

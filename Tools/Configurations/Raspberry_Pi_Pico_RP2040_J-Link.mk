@@ -29,9 +29,9 @@ BOARD_TAG4 = rpipico.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = rpipico.menu.usbstack.tinyusb
 BOARD_TAG5 = rpipico.menu.usbstack.picosdk
-# Stack protect, default = disabled
+# Stack protect, default = disabled
 BOARD_TAG6 = rpipico.menu.stackprotect.Disabled
-# Exception, default = disabled
+# Exception, default = disabled
 BOARD_TAG7 = rpipico.menu.exceptions.Disabled
 # Upload method
 BOARD_TAG8 = rpipico.menu.uploadmethod.default

@@ -30,9 +30,9 @@ BOARD_TAG4 = rpipicow.menu.dbglvl.None
 # USB stack, TinyUSB for Serial
 # BOARD_TAG5 = rpipicow.menu.usbstack.tinyusb
 BOARD_TAG5 = rpipicow.menu.usbstack.picosdk
-# Stack protect, default = disabled
+# Stack protect, default = disabled
 BOARD_TAG6 = rpipicow.menu.stackprotect.Disabled
-# Exception, default = disabled
+# Exception, default = disabled
 BOARD_TAG7 = rpipicow.menu.exceptions.Disabled
 # Upload method
 BOARD_TAG8 = rpipicow.menu.uploadmethod.picoprobe_cmsis_dap

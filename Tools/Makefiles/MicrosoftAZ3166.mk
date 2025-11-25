@@ -309,7 +309,7 @@ TARGET_HEXBIN = $(TARGET_BIN)
 # Link command
 #
 # COMMAND_LINK = $(CC) $(FLAGS_LD) -Wl,--start-group $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -Wl,--end-group -o $(TARGET_ELF) $(FLAGS_LD_2) $(LDFLAGS3)
-## COMMAND_LINK = $(CC) $(FLAGS_LD) -o $(TARGET_ELF) -Wl,--start-group $(FIRST_OBJS) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -ldevkit-sdk-core-lib $(TARGET_A) -Wl,--end-group $(FLAGS_LD_2) $(LDFLAGS3)
+## COMMAND_LINK = $(CC) $(FLAGS_LD) -o $(TARGET_ELF) -Wl,--start-group $(FIRST_OBJS) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -ldevkit-sdk-core-lib $(TARGET_A) -Wl,--end-group $(FLAGS_LD_2) $(LDFLAGS3)
 COMMAND_LINK = $(CC) $(FLAGS_LD) -o $(TARGET_ELF) -Wl,--start-group $(FIRST_OBJS) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) -ldevkit-sdk-core-lib $(TARGET_A) $(TARGET_CORE_A) -Wl,--end-group $(FLAGS_LD_2) $(LDFLAGS3)
 
 # Upload command
