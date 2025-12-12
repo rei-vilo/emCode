@@ -25,18 +25,28 @@
     }
 } */
 
+.md-typeset pre>code {
+    white-space: pre-wrap;
+    word-break: keep-all;
+}
+
+/* .md-typeset p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+} */
+
 /* Border for images */
 /*
 .md-typeset img {
+    display: block;
+    margin: auto;
     height: auto;
     width: auto;
+
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 4px;
     background-color: #fff;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 */
 
@@ -45,5 +55,34 @@
 .md-typeset h3 {
     color: red;
     font-weight: bold;
+}
+
+.md-typeset__scrollwrap {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+} 
+
+.md-typeset__table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* .md-typeset table {
+    width: 100%;
+    table-layout: fixed;
+} */
+
+.md-typeset figcaption {
+    font-style: italic;
+    margin: 1em auto;
+    max-width: 24rem;
+    font-size: 0.9em;
+    color: grey;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
 }
 
