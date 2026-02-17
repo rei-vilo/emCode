@@ -33,13 +33,15 @@ GCC_PREPROCESSOR_DEFINITIONS = __MK66FX1M0__ TEENSYDUINO
 # Specify the full path and name of the application
 # with /Contents/Java/** after
 #
-# # APPLICATIONS_PATH = /Applications
-# # HEADER_SEARCH_PATHS = $(APPLICATIONS_PATH)/Teensyduino.app/Contents/Java/hardware/teensy/avr/*
+#
+# APPLICATIONS_PATH = /Applications
+#
+# HEADER_SEARCH_PATHS = $(APPLICATIONS_PATH)/Teensyduino.app/Contents/Java/hardware/teensy/avr/*
 
 # Maximum RAM size in bytes
 # given by <tag>.upload.maximum_ram_size in boards.txt for Maple and Teensy
 #
-# MAX_RAM_SIZE = 
+# MAX_RAM_SIZE =
 
 MESSAGE_RESET = 1
 

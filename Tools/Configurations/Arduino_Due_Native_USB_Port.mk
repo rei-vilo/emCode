@@ -1,5 +1,5 @@
 #
-# Arduino Due (Native USB Port).mk 
+# Arduino Due (Native USB Port).mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode

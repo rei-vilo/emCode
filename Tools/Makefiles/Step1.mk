@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2025
 # All rights reserved
 #
-# Last update: 25 Sep 2025 release 14.7.23
+# Last update: 19 Jan 2026 release 14.8.0
 #
 
 include $(MAKEFILE_PATH)/Step0.mk
@@ -286,7 +286,7 @@ endif # BOARD_TAG
 # $(HOME) same as $(wildcard ~)
 # $(USER_PATH)/Library same as $(USER_LIBRARY_DIR)
 #
-USER_PATH := $(HOME)
+# unused USER_PATH := $(HOME)
 EMCODE_APP = $(USER_LIBRARY_DIR)/emCode
 PARAMETERS_TXT = $(EMCODE_APP)/parameters.txt
 
@@ -444,8 +444,8 @@ ENERGIA_PATH = $(ENERGIA_APP)
 
 # . Other IDEs
 #
-WIRING_APP = $(APPLICATIONS_PATH)/Wiring.app
-MAPLE_APP = $(APPLICATIONS_PATH)/MapleIDE.app
+# unused WIRING_APP = $(APPLICATIONS_PATH)/Wiring.app
+# unused MAPLE_APP = $(APPLICATIONS_PATH)/MapleIDE.app
 # ROBOTIS_APP = $(APPLICATIONS_PATH)/ROBOTIS_OpenCM.app
 
 # # Other boards with IDEs or plug-ins
@@ -465,9 +465,9 @@ MAPLE_APP = $(APPLICATIONS_PATH)/MapleIDE.app
 MICRODUINO_0 = $(APPLICATIONS_PATH)/Microduino.app
 
 ifneq ($(wildcard $(MICRODUINO_0)),)
-    MICRODUINO_APP = $(MICRODUINO_0)
+    # unused MICRODUINO_APP = $(MICRODUINO_0)
 else
-    MICRODUINO_APP = $(ARDUINO_APP)
+    # unused MICRODUINO_APP = $(ARDUINO_APP)
 endif # MICRODUINO_0
 
 # . LightBlueIDE.app path
@@ -475,9 +475,9 @@ endif # MICRODUINO_0
 LIGHTBLUE_0 = $(APPLICATIONS_PATH)/LightBlueIDE.app
 
 ifneq ($(wildcard $(LIGHTBLUE_0)),)
-    LIGHTBLUE_APP = $(LIGHTBLUE_0)
+    # unused LIGHTBLUE_APP = $(LIGHTBLUE_0)
 else
-    LIGHTBLUE_APP = $(ARDUINO_APP)
+    # unused LIGHTBLUE_APP = $(ARDUINO_APP)
 endif # LIGHTBLUE_0
 
 # IDE-less boards
@@ -512,8 +512,8 @@ endif # ARDUINO_APP
 # # Gone Arduino 1.0, 1.5 Java 6 and 1.5 Java 7 triple release nightmare
 # #
 # ifneq ($(wildcard $(ARDUINO_APP)),)
-#    s103 = $(ARDUINO_APP)/Contents/Java/lib/version.txt
-#    ARDUINO_RELEASE := $(shell cat $(s103) | sed -e "s/\.//g")
+#    WORK_13 = $(ARDUINO_APP)/Contents/Java/lib/version.txt
+#    ARDUINO_RELEASE := $(shell cat $(WORK_13) | sed -e "s/\.//g")
 #    ARDUINO_MAJOR := $(shell echo $(ARDUINO_RELEASE) | cut -d. -f 1-2)
 # else
 #    ARDUINO_RELEASE := 0
@@ -585,8 +585,8 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     EXCLUDE_NAMES += ArduinoTestSuite tests test .git linux extra extras linux
     EXCLUDE_NAMES += $(EXCLUDE_LIBS)
 #    EXCLUDE_LIST = $(addprefix %,$(EXCLUDE_NAMES))
-    s101 = $(addprefix /,$(EXCLUDE_NAMES))
-    EXCLUDE_PATHS = $(addsuffix /,$(s101))
+    WORK_11 = $(addprefix /,$(EXCLUDE_NAMES))
+    EXCLUDE_PATHS = $(addsuffix /,$(WORK_11))
     EXCLUDE_LIST = $(addprefix %,$(EXCLUDE_PATHS))
     ifneq ($(findstring RASPI,$(GCC_PREPROCESSOR_DEFINITIONS)),)
         -include $(MAKEFILE_PATH)/RasPiArduino.mk

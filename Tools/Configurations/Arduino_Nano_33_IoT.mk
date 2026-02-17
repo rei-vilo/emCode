@@ -28,7 +28,7 @@ BOARD_TAG = nano_33_iot
 #
 # BOARD_PORT = /dev/tty.usbmodem* # macOS
 # Linux
-BOARD_PORT = /dev/ttyACM* 
+BOARD_PORT = /dev/ttyACM*
 
 # Define macros for build
 # See Boards.txt for <tag>.build.mcu = <GCC_PREPROCESSOR_DEFINITIONS>

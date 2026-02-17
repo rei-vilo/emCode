@@ -39,9 +39,9 @@ PLATFORM := Teensy
 APPLICATION_PATH := $(TEENSY_PATH)
 PLATFORM_TAG = ARDUINO=$(RELEASE_ARDUINO) TEENSY_CORE EMCODE=$(RELEASE_NOW) ARDUINO_$(call PARSE_BOARD,$(BOARD_TAG),build.board)
 
-# t001 = $(APPLICATION_PATH)/lib/teensyduino.txt
-# t002 = $(APPLICATION_PATH)/lib/version.txt
-# MODIFIED_ARDUINO_VERSION =  $(shell if [ -f $(t002) ] ; then cat $(t002) ; fi)
+# WORK_1 = $(APPLICATION_PATH)/lib/teensyduino.txt
+# WORK_2 = $(APPLICATION_PATH)/lib/version.txt
+# MODIFIED_ARDUINO_VERSION =  $(shell if [ -f $(WORK_2) ] ; then cat $(WORK_2) ; fi)
 PLATFORM_VERSION := $(TEENSY_RELEASE) for Arduino $(ARDUINO_IDE_RELEASE)
 
 # # Release check
@@ -49,7 +49,7 @@ PLATFORM_VERSION := $(TEENSY_RELEASE) for Arduino $(ARDUINO_IDE_RELEASE)
 # #
 # ifeq ($(PLATFORM),Teensy)
 #     REQUIRED_TEENSY_RELEASE = 1.53
-#     TEENSY_RELEASE = $(shell if [ -f $(t001) ] ; then cat $(t001) ; fi)
+#     TEENSY_RELEASE = $(shell if [ -f $(WORK_1) ] ; then cat $(WORK_1) ; fi)
 #     ifeq ($(shell if [[ '$(TEENSY_RELEASE)' > '$(REQUIRED_TEENSY_RELEASE)' ]] || [[ '$(TEENSY_RELEASE)' = '$(REQUIRED_TEENSY_RELEASE)' ]]; then echo 1 ; else echo 0 ; fi ),0)
 #         $(error Teensyduino release $(REQUIRED_TEENSY_RELEASE) or later is required, $(TEENSY_RELEASE) installed.)
 #     endif
@@ -101,7 +101,7 @@ APP_LIB_PATH := $(APPLICATION_PATH)/hardware/avr/$(TEENSY_RELEASE)/libraries
 
 ifeq ($(APP_LIBS_LIST),0)
 #     APP_LIBS_LIST :=
-else 
+else
 
 #     a1000 = $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))
 #     a1000 += $(foreach dir,$(APP_LIB_PATH),$(patsubst %,$(dir)/%/utility,$(APP_LIBS_LIST)))
@@ -144,7 +144,7 @@ ifneq ($(USB_PID),)
 ifneq ($(USB_VID),)
     USB_FLAGS = -DUSB_VID=$(USB_VID)
     USB_FLAGS += -DUSB_PID=$(USB_PID)
-endif # USB_PID 
+endif # USB_PID
 endif # USB_VID
 
 ifeq ($(USB_FLAGS),)

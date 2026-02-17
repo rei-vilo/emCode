@@ -39,7 +39,7 @@ BOARD_TAG8 = rpipicow.menu.uploadmethod.picoprobe_cmsis_dap
 # Country for WiFi
 BOARD_TAG9 = rpipicow.menu.wificountry.worldwide
 # WiFi and BLE
-# rpipicow.menu.ipbtstack.ipv4only 			WiFi IPv4 
+# rpipicow.menu.ipbtstack.ipv4only 			WiFi IPv4
 # rpipicow.menu.ipbtstack.ipv4ipv6			WiFi IPv4 + IPv6
 # rpipicow.menu.ipbtstack.ipv4btcble		WiFi IPv4 + BLE
 # rpipicow.menu.ipbtstack.ipv4ipv6btcble	WiFi IPv4 + IPv6 + BLE

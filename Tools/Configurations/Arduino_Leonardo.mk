@@ -1,5 +1,5 @@
 #
-# Arduino Leonardo.mk 
+# Arduino Leonardo.mk
 # Board configuration file
 # ----------------------------------
 # Developed with emCode
@@ -21,7 +21,7 @@ BOARD_TAG = leonardo
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
 #
-# /dev/tty.usbmodem1* replaced by /dev/tty.usbmodem* for 
+# /dev/tty.usbmodem1* replaced by /dev/tty.usbmodem* for
 # Upload port /dev/tty.usbmodem14101
 # HID port: /dev/tty.usbmodemHIDPC1
 #

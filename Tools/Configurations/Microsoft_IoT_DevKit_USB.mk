@@ -25,7 +25,7 @@ BOARD_TAG = MXCHIP_AZ3166
 # BOARD_PORT = /dev/tty.usbserial*
 # BOARD_PORT = /dev/tty.usbmodem* # macOS
 # Linux
-BOARD_PORT = /dev/ttyACM* 
+BOARD_PORT = /dev/ttyACM*
 
 # Warning: some users have reported /dev/cu.usb*
 

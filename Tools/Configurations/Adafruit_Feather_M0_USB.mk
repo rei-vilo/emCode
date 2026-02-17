@@ -21,9 +21,9 @@ BOARD_TAG = adafruit_feather_m0
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
 #
-# BOARD_PORT = /dev/cu.usbmodem* # macOS 
+# BOARD_PORT = /dev/cu.usbmodem* # macOS
 # Linux
-BOARD_PORT = /dev/ttyACM* 
+BOARD_PORT = /dev/ttyACM*
 
 # Define macros for build
 # See Boards.txt for <tag>.build.mcu = <GCC_PREPROCESSOR_DEFINITIONS>
@@ -51,23 +51,23 @@ UPLOADER = bossac
 
 # MCU for AVRDUDE
 # If not specified, AVRDUDE_MCU = value from boards.txt
-# #
-# AVRDUDE_MCU = atmega328
 #
+# AVRDUDE_MCU = atmega328
+
 # Although compatible, the actual MCU may have a different speed.
 # If not specified, F_CPU = value from boards.txt
-# #
-# F_CPU = 16000000L
 #
+# F_CPU = 16000000L
+
 # Fuses for AVRDUDE
 # To by-pass fuses, set AVR_IGNORE_FUSES = 1 otherwise AVR_IGNORE_FUSES = 0
-#//AVR_IGNORE_FUSES = 1
-#
+# unused AVR_IGNORE_FUSES = 1
+
 # Define fuses, only if different from default values
-#//ISP_LOCK_FUSE_PRE ISP_LOCK_FUSE_POST ISP_HIGH_FUSE ISP_LOW_FUSE ISP_EXT_FUSE
+# ISP_LOCK_FUSE_PRE ISP_LOCK_FUSE_POST ISP_HIGH_FUSE ISP_LOW_FUSE ISP_EXT_FUSE
 #
 
 DELAY_BEFORE_UPLOAD = 2
-DELAY_BEFORE_SERIAL = 5
+# unused DELAY_BEFORE_SERIAL = 5
 
 CONFIG_NAME = Adafruit Feather M0 (USB)

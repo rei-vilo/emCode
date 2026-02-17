@@ -99,15 +99,15 @@ else ifeq ($(UPLOADER),jlink)
 
 # openocd -f $(HARDWARE_PATH)/scripts/openocd/jlink_nrf52.cfg' -c "program {$(TARGET_HEX)} verify reset ; exit"
 
-    ada1600a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
-#    ada1600b = $(shell echo $(ada1600a) | sed 's:{build.flags.usb}::g')
-#    ada1600c = $(firstword $(ada1600b))
-#    JLINK_DEVICE = $(shell echo $(ada1600c) | sed 's:-D::g')
+    WORK_6a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
+#    WORK_6b = $(shell echo $(WORK_6a) | sed 's:{build.flags.usb}::g')
+#    WORK_6c = $(firstword $(WORK_6b))
+#    JLINK_DEVICE = $(shell echo $(WORK_6c) | sed 's:-D::g')
 # Retain NRF52***_XXAA out of build.extra_flags
 # feather52832.build.extra_flags=-DNRF52832_XXAA -DNRF52
 # feather52840.build.extra_flags=-DNRF52840_XXAA {build.flags.usb}
 
-    JLINK_DEVICE = $(shell echo $(ada1600a) | sed 's/.*\(NRF52.*_XXAA\).*/\1/')
+    JLINK_DEVICE = $(shell echo $(WORK_6a) | sed 's/.*\(NRF52.*_XXAA\).*/\1/')
     UPLOADER = jlink
     UPLOADER_PATH = $(SEGGER_PATH)/JLink
     UPLOADER_EXEC = $(UPLOADER_PATH)/JLinkExe
@@ -124,17 +124,17 @@ else ifeq ($(UPLOADER),jlink)
         COMMAND_POWER = $(UPLOADER_EXEC) $(SHARED_OPTS) -commanderscript '$(BUILDS_PATH)/power.jlink'
     endif
 
-    DEBUG_SERVER_PATH = $(SEGGER_PATH)/JLink
-    DEBUG_SERVER_EXEC = $(DEBUG_SERVER_PATH)/JLinkGDBServer
+    # unused DEBUG_SERVER_PATH = $(SEGGER_PATH)/JLink
+    # unused DEBUG_SERVER_EXEC = $(DEBUG_SERVER_PATH)/JLinkGDBServer
 
 # Adafruit nRF52 requires RTOSPlugin_FreeRTOS
 # /usr/bin/JLinkGDBServer -rtos /opt/SEGGER/JLink/GDBServer/RTOSPlugin_FreeRTOS.so -device NRF52840_XXAA -if swd -speed 2000
 
-    DEBUG_SERVER_OPTS = $(SHARED_OPTS) -rtos $(SEGGER_PATH)/GDBServer/RTOSPlugin_FreeRTOS.so
+    # unused DEBUG_SERVER_OPTS = $(SHARED_OPTS) -rtos $(SEGGER_PATH)/GDBServer/RTOSPlugin_FreeRTOS.so
 
 else ifeq ($(UPLOADER),ozone)
-    ada1600a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
-    JLINK_DEVICE = $(shell echo $(ada1600a) | sed 's/.*\(NRF52.*_XXAA\).*/\1/')
+    WORK_6a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
+    JLINK_DEVICE = $(shell echo $(WORK_6a) | sed 's/.*\(NRF52.*_XXAA\).*/\1/')
 
     UPLOADER = ozone
 
@@ -153,25 +153,25 @@ else ifeq ($(UPLOADER),ozone)
         COMMAND_POWER = $(UPLOADER_EXEC) $(SHARED_OPTS) -commanderscript Utilities/power.jlink
     endif
 
-    DEBUGGER_PATH = $(SEGGER_PATH)/Ozone
-    DEBUGGER_EXEC = open $(DEBUGGER_PATH)/Ozone.app
-    DEBUGGER_OPTS = --args $(BUILDS_PATH)/ozone.jdebug
+    # unused DEBUGGER_PATH = $(SEGGER_PATH)/Ozone
+    # unused DEBUGGER_EXEC = open $(DEBUGGER_PATH)/Ozone.app
+    # unused DEBUGGER_OPTS = --args $(BUILDS_PATH)/ozone.jdebug
 
 else ifeq ($(UPLOADER),nrfutil)
 
-#     USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
+    #  USB_RESET = python $(UTILITIES_PATH)/reset_1200.py
     UPLOADER = nrfutil
 
 # adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req 0x00B6 --application sketch.hex sketch.zip
 # adafruit-nrfutil --verbose dfu serial -pkg sketch.zip -p /dev/ttyACM0 -b 115200 --singlebank
 
-#    UPLOADER_PATH = /usr/local
+    # UPLOADER_PATH = /usr/local
 # Dirty implementation for nrfutil
 # nrfutil for linux downloaded from https://github.com/NordicSemiconductor/pc-nrfutil/releases
-#    UPLOADER_EXEC = export LC_ALL=en_IE.UTF-8 ; export LANG=en_IE.UTF-8 ; $(HARDWARE_PATH)/tools/adafruit-nrfutil/macos/adafruit-nrfutil
+    # UPLOADER_EXEC = export LC_ALL=en_IE.UTF-8 ; export LANG=en_IE.UTF-8 ; $(HARDWARE_PATH)/tools/adafruit-nrfutil/macos/adafruit-nrfutil
 #   UPLOADER_EXEC = $(HARDWARE_PATH)/tools/adafruit-nrfutil/linux/nrfutil-linux
 
-#     UPLOADER_EXEC = $(UTILITIES_PATH)/nrfutil-linux
+    #  UPLOADER_EXEC = $(UTILITIES_PATH)/nrfutil-linux
     UPLOADER_EXEC = adafruit-nrfutil
 
     COMMAND_PRE_UPLOAD = $(NRFUTIL_EXEC) dfu genpkg --dev-type 0x0052 --application $(TARGET_HEX) $(TARGET_ZIP)
@@ -189,12 +189,12 @@ else # UPLOADER
 
     UPLOADER = openocd
     UPLOADER_PATH = /usr
-#     UPLOADER_PATH = $(OTHER_TOOLS_PATH)/openocd/0.11.0-arduino2
+    # UPLOADER_PATH = $(OTHER_TOOLS_PATH)/openocd/0.11.0-arduino2
     UPLOADER_EXEC = $(UPLOADER_PATH)/bin/openocd
     UPLOADER_OPTS = -d2 -s $(UPLOADER_PATH)/share/openocd/scripts/
     UPLOADER_OPTS += -f $(VARIANT_PATH)/$(call PARSE_BOARD,$(BOARD_TAG),build.openocdscript)
-#    UPLOAD_OFFSET not required when using .hex
-#    UPLOADER_COMMAND = program {$(TARGET_BIN)}} verify reset 0x00002000; shutdown
+    # UPLOAD_OFFSET not required when using .hex
+    # UPLOADER_COMMAND = program {$(TARGET_BIN)}} verify reset 0x00002000; shutdown
     UPLOADER_COMMAND = program {$(TARGET_HEX)} verify reset ; shutdown ; quit
 # telnet_port disabled;
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "$(UPLOADER_COMMAND)"
@@ -214,35 +214,20 @@ APP_LIB_PATH := $(HARDWARE_PATH)/libraries
 # Generate main.cpp
 # ----------------------------------
 #
-ifneq ($(strip $(KEEP_MAIN)),true)
-$(shell echo "// " > ./main.cpp)
-$(shell echo "// main.cpp generated by emCode" >> ./main.cpp)
-$(shell echo "// from $(CORE_LIB_PATH)" >> ./main.cpp)
-$(shell echo "// at $$(date +'%d %b %Y %T')" >> ./main.cpp)
-$(shell echo "// ----------------------------------" >> ./main.cpp)
-$(shell echo "// DO NOT EDIT THIS FILE." >> ./main.cpp)
-$(shell echo "// ----------------------------------" >> ./main.cpp)
-$(shell echo "#if defined(EMCODE)" >> ./main.cpp)
-$(shell echo " " >> ./main.cpp)
-$(shell cat $(CORE_LIB_PATH)/main.cpp >> ./main.cpp)
-$(shell echo " " >> ./main.cpp)
-$(shell echo "#include \"$(PROJECT_NAME_AS_IDENTIFIER).$(SKETCH_EXTENSION)\"" >> ./main.cpp)
-$(shell echo " " >> ./main.cpp)
-$(shell echo "#endif // EMCODE" >> ./main.cpp)
-endif
+MAIN_LOCK = false
 
 # Core files
 # Crazy maze of sub-folders
 #
 CORE_C_SRCS = $(shell find $(CORE_LIB_PATH) -name \*.c)
-ada1300 = $(filter-out %main.cpp, $(shell find $(CORE_LIB_PATH) -name \*.cpp))
-CORE_CPP_SRCS = $(filter-out %/$(EXCLUDE_LIST),$(ada1300))
+WORK_3 = $(filter-out %main.cpp, $(shell find $(CORE_LIB_PATH) -name \*.cpp))
+CORE_CPP_SRCS = $(filter-out %/$(EXCLUDE_LIST),$(WORK_3))
 CORE_AS1_SRCS = $(shell find $(CORE_LIB_PATH) -name \*.S)
 CORE_AS1_SRCS_OBJ = $(patsubst %.S,%.S.o,$(filter %.S, $(CORE_AS1_SRCS)))
 CORE_AS2_SRCS = $(shell find $(CORE_LIB_PATH) -name \*.s)
 CORE_AS2_SRCS_OBJ = $(patsubst %.s,%.s.o,$(filter %.s, $(CORE_AS_SRCS)))
-CORE_H_SRCS = $(foreach dir,$(ada1000),$(wildcard $(dir)/*.h))
-CORE_H_SRCS += $(foreach dir,$(ada1000),$(wildcard $(dir)/*.hpp))
+# unused CORE_H_SRCS = $(foreach dir,$(WORK_0),$(wildcard $(dir)/*.h))
+# unused CORE_H_SRCS += $(foreach dir,$(WORK_0),$(wildcard $(dir)/*.hpp))
 
 CORE_OBJ_FILES = $(CORE_C_SRCS:.c=.c.o) $(CORE_CPP_SRCS:.cpp=.cpp.o) $(CORE_AS1_SRCS_OBJ) $(CORE_AS2_SRCS_OBJ)
 CORE_OBJS = $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
@@ -262,23 +247,23 @@ ifeq ($(APP_LIBS_LIST),0)
 endif
 
 # Now, adding extra libraries manually
-APP_LIBS_LIST += Adafruit_TinyUSB_Arduino 
+APP_LIBS_LIST += Adafruit_TinyUSB_Arduino
 APP_LIBS_LIST += Adafruit_LittleFS InternalFileSytem SPI
 ifeq ($(BOARD_TAG),feather52832)
 else
-    APP_LIBS_LIST += Adafruit_nRFCrypto 
-endif 
+    APP_LIBS_LIST += Adafruit_nRFCrypto
+endif
 APP_LIBS_LIST += Bluefruit52Lib
 
 # Now, adding some extra non-standard sub-folders manually
-ada1000 = $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d | egrep -v 'examples'))
+WORK_0 = $(foreach dir,$(APP_LIBS_LIST),$(shell find $(APP_LIB_PATH)/$(dir) -type d | egrep -v 'examples'))
 
 # Pick and sort
-APP_LIB_CPP_SRC = $(foreach dir,$(ada1000),$(wildcard $(dir)/*.cpp))
-APP_LIB_C_SRC = $(foreach dir,$(ada1000),$(wildcard $(dir)/*.c))
-APP_LIB_S_SRC = $(foreach dir,$(ada1000),$(wildcard $(dir)/*.S))
-APP_LIB_H_SRC = $(foreach dir,$(ada1000),$(wildcard $(dir)/*.h))
-APP_LIB_H_SRC += $(foreach dir,$(ada1000),$(wildcard $(dir)/*.hpp))
+APP_LIB_CPP_SRC = $(foreach dir,$(WORK_0),$(wildcard $(dir)/*.cpp))
+APP_LIB_C_SRC = $(foreach dir,$(WORK_0),$(wildcard $(dir)/*.c))
+# unused APP_LIB_S_SRC = $(foreach dir,$(WORK_0),$(wildcard $(dir)/*.S))
+APP_LIB_H_SRC = $(foreach dir,$(WORK_0),$(wildcard $(dir)/*.h))
+APP_LIB_H_SRC += $(foreach dir,$(WORK_0),$(wildcard $(dir)/*.hpp))
 
 APP_LIB_OBJS = $(patsubst $(HARDWARE_PATH)/%.cpp,$(OBJDIR)/%.cpp.o,$(APP_LIB_CPP_SRC))
 APP_LIB_OBJS += $(patsubst $(HARDWARE_PATH)/%.c,$(OBJDIR)/%.c.o,$(APP_LIB_C_SRC))
@@ -289,17 +274,17 @@ BUILD_APP_LIBS_LIST = $(subst $(BUILD_APP_LIB_PATH)/, ,$(APP_LIB_CPP_SRC))
 #
 BUILD_APP_LIB_PATH = $(APPLICATION_PATH)/libraries
 
-ada1100 = $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))
-ada1100 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/utility,$(APP_LIBS_LIST)))
-ada1100 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src,$(APP_LIBS_LIST)))
-ada1100 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/utility,$(APP_LIBS_LIST)))
-ada1100 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/arch/$(BUILD_CORE),$(APP_LIBS_LIST)))
-ada1100 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/$(BUILD_CORE),$(APP_LIBS_LIST)))
+WORK_1 = $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%,$(APP_LIBS_LIST)))
+WORK_1 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/utility,$(APP_LIBS_LIST)))
+WORK_1 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src,$(APP_LIBS_LIST)))
+WORK_1 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/utility,$(APP_LIBS_LIST)))
+WORK_1 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/arch/$(BUILD_CORE),$(APP_LIBS_LIST)))
+WORK_1 += $(foreach dir,$(BUILD_APP_LIB_PATH),$(patsubst %,$(dir)/%/src/$(BUILD_CORE),$(APP_LIBS_LIST)))
 
-BUILD_APP_LIB_CPP_SRC = $(foreach dir,$(ada1100),$(wildcard $(dir)/*.cpp))
-BUILD_APP_LIB_C_SRC = $(foreach dir,$(ada1100),$(wildcard $(dir)/*.c))
-BUILD_APP_LIB_H_SRC = $(foreach dir,$(ada1100),$(wildcard $(dir)/*.h))
-BUILD_APP_LIB_H_SRC += $(foreach dir,$(ada1100),$(wildcard $(dir)/*.hpp))
+BUILD_APP_LIB_CPP_SRC = $(foreach dir,$(WORK_1),$(wildcard $(dir)/*.cpp))
+BUILD_APP_LIB_C_SRC = $(foreach dir,$(WORK_1),$(wildcard $(dir)/*.c))
+BUILD_APP_LIB_H_SRC = $(foreach dir,$(WORK_1),$(wildcard $(dir)/*.h))
+BUILD_APP_LIB_H_SRC += $(foreach dir,$(WORK_1),$(wildcard $(dir)/*.hpp))
 
 BUILD_APP_LIB_OBJS = $(patsubst $(APPLICATION_PATH)/%.cpp,$(OBJDIR)/%.cpp.o,$(BUILD_APP_LIB_CPP_SRC))
 BUILD_APP_LIB_OBJS += $(patsubst $(APPLICATION_PATH)/%.c,$(OBJDIR)/%.c.o,$(BUILD_APP_LIB_C_SRC))
@@ -314,7 +299,7 @@ BUILD_SD_VERSION = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.sd_version)
 BUILD_SD_FLAGS = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.sd_flags)
 BUILD_SD_DWID = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.sd_fwid)
 
-LDSCRIPT_PATH = $(VARIANT_PATH)
+# unused LDSCRIPT_PATH = $(VARIANT_PATH)
 LDSCRIPT = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.ldscript)
 
 VARIANT_CPP_SRCS = $(wildcard $(VARIANT_PATH)/*.cpp)
@@ -326,14 +311,17 @@ MAX_FLASH_SIZE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),upload.maximum_size)
 
 # Tool-chain names
 #
-CC = $(APP_TOOLS_PATH)/arm-none-eabi-gcc
-CXX = $(APP_TOOLS_PATH)/arm-none-eabi-g++
-AR = $(APP_TOOLS_PATH)/arm-none-eabi-ar
-OBJDUMP = $(APP_TOOLS_PATH)/arm-none-eabi-objdump
-OBJCOPY = $(APP_TOOLS_PATH)/arm-none-eabi-objcopy
-SIZE = $(APP_TOOLS_PATH)/arm-none-eabi-size
-NM = $(APP_TOOLS_PATH)/arm-none-eabi-nm
-GDB = $(APP_TOOLS_PATH)/arm-none-eabi-gdb
+COMPILER_PREFIX = arm-none-eabi
+
+# # Now defined at Step2.mk
+# CC = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-gcc
+# CXX = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-g++
+# AR = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-ar
+# OBJDUMP = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-objdump
+# OBJCOPY = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-objcopy
+# SIZE = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-size
+# NM = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-nm
+# GDB = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-gdb
 
 MCU_FLAG_NAME = mcpu
 MCU = $(call PARSE_BOARD,$(BOARD_TAG),build.mcu)
@@ -366,21 +354,21 @@ endif
 USB_FLAGS += -I$(CORE_LIB_PATH)/TinyUSB -I$(CORE_LIB_PATH)/TinyUSB/Adafruit_TinyUSB_ArduinoCore -I$(CORE_LIB_PATH)/TinyUSB/Adafruit_TinyUSB_ArduinoCore/tinyusb/src -I$(APP_LIB_PATH)/Adafruit_TinyUSB_Arduino/src -I$(APP_LIB_PATH)/Adafruit_nRFCrypto/src -I$(APP_LIB_PATH)/Adafruit_LittleFS/src -I$(APP_LIB_PATH)/InternalFileSytem/src
 
 # WAS:
-# INCLUDE_PATH = $(shell echo $(ada1400g) | sed 's:-I{build.core.path}:$(HARDWARE_PATH)/cores/nRF5:g')
+# INCLUDE_PATH = $(shell echo $(WORK_4g) | sed 's:-I{build.core.path}:$(HARDWARE_PATH)/cores/nRF5:g')
 # NOW: take build.flags.nrf from platform.txt and process it
-ada1400a = $(call PARSE_FILE,build.flags,nrf,$(HARDWARE_PATH)/platform.txt)
-ada1400b = $(filter-out {build.debug_flags}, $(ada1400a))
-ada1400c = $(filter-out {build.logger_flags}, $(ada1400b))
-ada1400d = $(filter-out {build.sysview_flags}, $(ada1400c))
-ada1400e = $(shell echo $(ada1400d) | sed 's:{build.core.path}:$(CORE_LIB_PATH):g')
-ada1400f = $(shell echo $(ada1400e) | sed 's:{nordic.path}:$(CORE_LIB_PATH)/nordic:g')
-ada1400g = $(shell echo $(ada1400f) | sed 's:{rtos.path}:$(CORE_LIB_PATH)/freertos:g')
-ada1400h = $(shell echo $(ada1400g) | sed 's:{build.sd_name}:$(BUILD_SD_NAME):g')
-ada1400i = $(shell echo $(ada1400h) | sed 's:{runtime.platform.path}:$(HARDWARE_PATH):g')
-ada1400j = $(shell echo $(ada1400i) | sed 's:{compiler.optimization_flag}::g')
-ada1400k = $(shell echo $(ada1400j) | sed 's:{compiler.arm.cmsis.c.flags}::g')
+WORK_4a = $(call PARSE_FILE,build.flags,nrf,$(HARDWARE_PATH)/platform.txt)
+WORK_4b = $(filter-out {build.debug_flags}, $(WORK_4a))
+WORK_4c = $(filter-out {build.logger_flags}, $(WORK_4b))
+WORK_4d = $(filter-out {build.sysview_flags}, $(WORK_4c))
+WORK_4e = $(shell echo $(WORK_4d) | sed 's:{build.core.path}:$(CORE_LIB_PATH):g')
+WORK_4f = $(shell echo $(WORK_4e) | sed 's:{nordic.path}:$(CORE_LIB_PATH)/nordic:g')
+WORK_4g = $(shell echo $(WORK_4f) | sed 's:{rtos.path}:$(CORE_LIB_PATH)/freertos:g')
+WORK_4h = $(shell echo $(WORK_4g) | sed 's:{build.sd_name}:$(BUILD_SD_NAME):g')
+WORK_4i = $(shell echo $(WORK_4h) | sed 's:{runtime.platform.path}:$(HARDWARE_PATH):g')
+WORK_4j = $(shell echo $(WORK_4i) | sed 's:{compiler.optimization_flag}::g')
+WORK_4k = $(shell echo $(WORK_4j) | sed 's:{compiler.arm.cmsis.c.flags}::g')
 
-INCLUDE_FLAGS = $(shell echo $(ada1400k) | sed 's:{build.sd_version}:$(BUILD_SD_VERSION):g')
+INCLUDE_FLAGS = $(shell echo $(WORK_4k) | sed 's:{build.sd_version}:$(BUILD_SD_VERSION):g')
 
 BUILD_BOARD = $(call PARSE_BOARD,$(BOARD_TAG),build.board)
 
@@ -394,16 +382,16 @@ INCLUDE_PATH += $(ADAFRUIT_NRF52_PATH)/tools/CMSIS/$(ADAFRUIT_NRF52_CMSIS_RELEAS
 INCLUDE_PATH += $(ADAFRUIT_NRF52_PATH)/tools/CMSIS/$(ADAFRUIT_NRF52_CMSIS_RELEASE)/CMSIS/DSP/Include/
 
 # Was: And even empty folders from the specific libraries
-# INCLUDE_PATH += $(ada1400g)
+# INCLUDE_PATH += $(WORK_4g)
 # Now: No longer, as -I and -D are mixed
-# INCLUDE_FLAGS = $(ada1400i)
+# INCLUDE_FLAGS = $(WORK_4i)
 
-ada1500a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
-FLAGS_D = $(shell echo $(ada1500a) | sed 's:{build.flags.usb}::g')
+WORK_5a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
+FLAGS_D = $(shell echo $(WORK_5a) | sed 's:{build.flags.usb}::g')
 FLAGS_D += $(call PARSE_BOARD,$(BOARD_TAG),build.lfclk_flags)
 
-ada1700a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
-FLAGS_D += $(shell echo $(ada1700&) | sed 's:{build.flags.usb}::g')
+WORK_7a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
+FLAGS_D += $(shell echo $(WORK_7a) | sed 's:{build.flags.usb}::g')
 
 # FLAGS_D += -DNRF5 -DNRF52 -DUSE_LFXO
 # Was in 0.14.0
@@ -446,7 +434,7 @@ FLAGS_CPP = -std=gnu++11 -fno-threadsafe-statics -fno-rtti -fno-exceptions
 FLAGS_AS = -x assembler-with-cpp
 
 FLAGS_LD = $(OPTIMISATION) $(FLAGS_WARNING) -Wl,--gc-sections -save-temps
-FLAGS_LD += -$(MCU_FLAG_NAME)=$(MCU) 
+FLAGS_LD += -$(MCU_FLAG_NAME)=$(MCU)
 FLAGS_LD += -Wl,--wrap=realloc -Wl,--wrap=calloc --specs=nano.specs --specs=nosys.specs
 FLAGS_LD += $(call PARSE_BOARD,$(BOARD_TAG),build.float_flags)
 # FLAGS_LD += -L$(HARDWARE_PATH)/variants/feather52
@@ -460,7 +448,7 @@ FLAGS_LD += -Wl,--warn-common -Wl,--warn-section-align -Wl,--wrap=malloc -Wl,--w
 # FLAGS_LD += --specs=nano.specs --specs=nosys.specs
 FLAGS_LD += -mfloat-abi=hard -mfpu=fpv4-sp-d16 -u _printf_float
 
-FLAGS_LIB = -lm 
+FLAGS_LIB = -lm
 FLAGS_LIB += -L$(ADAFRUIT_NRF52_PATH)/tools/CMSIS/$(ADAFRUIT_NRF52_CMSIS_RELEASE)/CMSIS/DSP/Lib/GCC/ -larm_cortexM4lf_math
 FLAGS_LIB += -L$(APP_LIB_PATH)/Adafruit_nRFCrypto/src/cortex-m4/fpv4-sp-d16-hard -lnrf_cc310_0.9.13-no-interrupts
 
@@ -515,7 +503,7 @@ COMMAND_COPY = $(OBJCOPY) -O ihex $< $@
 # COMMAND_POST_COPY = $(NRFUTIL_EXEC) dfu genpkg --dev-type 0x0052 --application $(TARGET_HEX) $(TARGET_ZIP)
 
 # COMMAND_POST_COPY = $(NRFUTIL_EXEC) pkg generate --hw-version 0x0052 --sd-req $(BUILD_SD_DWID) --application-version $(RELEASE_NOW) --application $(TARGET_HEX) $(TARGET_ZIP)
-FLAG_FIRMWARE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.sd_fwid)
+# unused FLAG_FIRMWARE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.sd_fwid)
 # COMMAND_POST_COPY = $(NRFUTIL_EXEC) dfu genpkg --dev-type 0x0052 --sd-req $(FLAG_FIRMWARE) --application $(TARGET_HEX) $(TARGET_ZIP)
 
 # Upload command

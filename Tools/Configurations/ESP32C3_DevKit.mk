@@ -23,7 +23,7 @@ BOARD_TAG1 = esp32c3.menu.FlashSize.4M
 
 # BOARD_TAG2 is for Flash frequency
 BOARD_TAG2 = esp32c3.menu.FlashFreq.40
-# Although defined as QIO, DIO is forced on Arduino as only DIO works. 
+# Although defined as QIO, DIO is forced on Arduino as only DIO works.
 BOARD_TAG8 = esp32c3.menu.FlashMode.dio
 
 # BOARD_TAG3 is for partition scheme

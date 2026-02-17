@@ -71,6 +71,6 @@ BOARD_VOLUME = /media/reivilo/RPI-RP2
 
 MESSAGE_WARNING = BETA! Not yet tested against $(CONFIG_NAME).
 
-DELAY_BEFORE_SERIAL = 5
+# unused DELAY_BEFORE_SERIAL = 5
 
 CONFIG_NAME = Arduino Nano RP2040 SDK MSD

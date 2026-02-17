@@ -47,12 +47,12 @@ BOARD_TAG2 = nano_nora.menu.USBMode.default
 #
 # BOARD_PORT = /dev/tty.usbmodem* # macOS
 # Linux
-BOARD_PORT = /dev/ttyACM* 
+BOARD_PORT = /dev/ttyACM*
 
 # Define macros for build
 # See Boards.txt for <tag>.build.mcu = <GCC_PREPROCESSOR_DEFINITIONS>
 #
-GCC_PREPROCESSOR_DEFINITIONS = ARDUINO 
+GCC_PREPROCESSOR_DEFINITIONS = ARDUINO
 
 # Specify the full path and name of the application
 # with /Contents/Java/** after

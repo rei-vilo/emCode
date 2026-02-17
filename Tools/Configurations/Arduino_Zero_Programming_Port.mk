@@ -21,7 +21,7 @@ BOARD_TAG = arduino_zero_edbg
 # Port (optional)
 # most common are /dev/tty.usbserial*, /dev/tty.usbmodem* or /dev/tty.uart*
 #
-# BOARD_PORT = /dev/cu.usbmodem* # macOS 
+# BOARD_PORT = /dev/cu.usbmodem* # macOS
 BOARD_PORT = /dev/ttyACM*
 # Linux
 
