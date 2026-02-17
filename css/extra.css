@@ -17,7 +17,7 @@
     }
 
     @bottom-left {
-        content: '© Rei Vilo, 2010-2025 • All rights reserved \a Document subject to change without prior notice';
+        content: '© Rei Vilo, 2010-2026 • All rights reserved \a Document subject to change without prior notice';
     }
 
     @bottom-right {
@@ -59,7 +59,7 @@
 
 .md-typeset__scrollwrap {
     text-align: center;
-    width: 80%;
+    width: 90%;
     margin: auto;
 } 
 
@@ -85,4 +85,15 @@ table {
     width: 100%;
     table-layout: fixed;
 }
+
+.box80 {
+    width:80% !important;
+    margin:auto !important;
+}
+
+.box60 {
+    width:60% !important;
+    margin:auto !important;
+}
+
 
