@@ -8,7 +8,7 @@
 # Embedded computing with make
 #
 # Created by: Rei Vilo
-# Copyright: (c) Rei Vilo, 2010-2025 https://emCode.weebly.com
+# Copyright: (c) Rei Vilo, 2010-2026 https://emCode.weebly.com
 # Licence: All rights reserved
 #
 # Created: 02 Jan 2025 release 14.6.8

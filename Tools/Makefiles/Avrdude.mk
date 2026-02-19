@@ -3,7 +3,7 @@
 # ----------------------------------
 # Embedded computing with make
 #
-# Copyright © Rei Vilo, 2010-2025
+# Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
 # Last update: 12 Nov 2014 release 2.3.3
