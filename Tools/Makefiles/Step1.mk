@@ -593,6 +593,10 @@ ifeq ($(BOOL_SELECT_BOARD),1)
     else
 #         Arduino IDE and supported boards
         ifneq ($(ARDUINO_APP),)
+#             . Zephyr
+ifeq ($(SELECTED_SDK),zephyr)
+            -include $(MAKEFILE_PATH)/ArduinoZephyr.mk
+endif
 #             . Arduino
             -include $(MAKEFILE_PATH)/ArduinoAVR_181.mk
             -include $(MAKEFILE_PATH)/ArduinoAVR.mk
@@ -678,12 +682,12 @@ ifeq ($(BOOL_SELECT_BOARD),1)
         $(call LIST_PLATFORMS)
 
         ifneq ($(strip $(BOARD_TAG)),0)
-            $(info ERROR             $(BOARD_TAG) board is not defined)
+            $(info ERROR              $(BOARD_TAG) board is not defined)
             $(info .)
             $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is not defined)
             $(error Stop)
         else
-            $(info ERROR             $(BOARD_TAG) board is unknown)
+            $(info ERROR              $(BOARD_TAG) board is unknown)
             $(info .)
             $(call MESSAGE_GUI_ERROR,$(BOARD_TAG) board is unknown)
             $(error Stop)

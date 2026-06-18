@@ -8,7 +8,7 @@
 #
 # Created: 04 Sep 2021 release 11.15.0
 #
-# Last update: 25 Sep 2025 release 14.7.23
+# Last update: 09 Mar 2026 release 14.8.5
 #
 
 # RP2040 Pico for Arduino
@@ -331,7 +331,7 @@ FLAGS_MORE = $(filter-out {build.usb_flags}, $(rp2000a))
 FLAGS_MORE += $(call PARSE_BOARD,$(BOARD_TAG),build.float-abi)
 FLAGS_MORE += $(call PARSE_BOARD,$(BOARD_TAG),build.fpu)
 
-TARGET_HEXBIN = $(TARGET_UF2)
+TARGET_HEXBIN_1 = $(TARGET_UF2)
 
 FLAG_STACK = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.flags.stackprotect)
 ifeq ($(FLAG_STACK),)
@@ -500,8 +500,8 @@ COMMAND_LINK = $(CXX) -L$(BUILDS_PATH) $(FLAGS_ALL) $(FLAGS_LD) $(OUT_PREPOSITIO
 
 # Target
 #
-TARGET_HEXBIN = $(TARGET_UF2)
-TARGET_EEP = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).hex
+TARGET_HEXBIN_1 = $(TARGET_UF2)
+TARGET_HEXBIN_2 = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).hex
 
 endif # BOARD_TAG
 

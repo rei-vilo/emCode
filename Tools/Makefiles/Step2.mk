@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 04 Feb 2026 release 14.8.4
+# Last update: 13 Apr 2026 release 14.8.6
 #
 
 # General table of messages
@@ -777,7 +777,7 @@ ifneq ($(MAKECMDGOALS),clean)
     #    endif
     endif # UTILITIES_PATH
     # $(shell $(UTILITIES_PATH)/emCode_chrono)
-    $(shell $(SHELL_STARTCHRONO))
+    $(SHELL_STARTCHRONO)
 
     ifneq ($(wildcard $(UTILITIES_PATH)/emCode_prepare),)
     #     $(info $(UTILITIES_PATH)/emCode_prepare $(CURRENT_DIR))
@@ -1263,13 +1263,13 @@ TARGET_VXP = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).vxp
 TARGET_ZIP = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).zip
 TARGET_AXF = $(OBJDIR)/application.axf
 
-ifndef TARGET_HEXBIN
-    TARGET_HEXBIN = $(TARGET_HEX)
-endif # TARGET_HEXBIN
+ifndef TARGET_HEXBIN_1
+    TARGET_HEXBIN_1 = $(TARGET_HEX)
+endif # TARGET_HEXBIN_1
 
-ifndef TARGET_EEP
-    TARGET_EEP =
-endif # TARGET_EEP
+ifndef TARGET_HEXBIN_2
+    TARGET_HEXBIN_2 =
+endif # TARGET_HEXBIN_2
 
 # List of dependencies
 #
@@ -1662,7 +1662,7 @@ $(OBJDIR)/%.bin2: $(OBJDIR)/%.elf
 	$(call SHOW,"6.6-COPY BIN","$@","$<")
 
 #	$(QUIET_BUILD)$(ESP_POST_COMPILE) -eo $(BOOTLOADER_ELF) -bo $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)_$(ADDRESS_BIN1).bin -bm $(FLAGS_OBJCOPY) -bf $(BUILD_FLASH_FREQ) -bz $(BUILD_FLASH_SIZE) -bs .text -bp 4096 -ec -eo "$<" -bs .irom0.text -bs .text -bs .data -bs .rodata -bc -ec
-	$(QUIET_BUILD)$(POST_COMPILE_COMMAND)
+	$(QUIET_BUILD)$(COMMAND_POST_COMPILE)
 
 	$(QUIET_BUILD)cp $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME)_$(ADDRESS_BIN1).bin $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).bin
 
@@ -1714,7 +1714,7 @@ $(OBJDIR)/%.iap: $(OBJDIR)/%.elf
 $(TARGET_AXF): $(TARGET_ELF)
 # 	$(OBJDIR)/%.axf: $(OBJDIR)/%.elf
 	$(call SHOW,"6.14-COPY AXF","$@","$<")
-	$(QUIET_BUILD)$(POST_COMPILE_COMMAND)
+	$(QUIET_BUILD)$(COMMAND_POST_COMPILE)
 	$(QUIET_BUILD)$(COMMAND_COPY)
 
 $(TARGET_UF2): $(TARGET_ELF)
@@ -1730,49 +1730,49 @@ $(OBJDIR)/%.uf2: $(OBJDIR)/%.elf
 #
 ifeq ($(BOOL_SELECT_BOARD),1)
 
-    # ifeq ($(TARGET_HEXBIN),$(TARGET_AXF))
+    # ifeq ($(TARGET_HEXBIN_1),$(TARGET_AXF))
     ifneq ($(COMMAND_SIZE),)
         FLASH_SIZE = $(COMMAND_SIZE)
         MAX_FLASH_BYTES = 'bytes used ('$(shell echo "scale=1; (100.0* $(shell $(FLASH_SIZE)))/$(MAX_FLASH_SIZE)" | bc)'% of '$(MAX_FLASH_SIZE)' maximum), '$(shell echo "$(MAX_FLASH_SIZE) - $(shell $(FLASH_SIZE))"|bc) 'bytes free ('$(shell echo "scale=1; 100-(100.0* $(shell $(FLASH_SIZE)))/$(MAX_FLASH_SIZE)"|bc)'%)'
 
         RAM_SIZE = 0
 
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_HEX))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_HEX))
         # FLASH_SIZE = $(SIZE) --target=ihex --totals $(TARGET_HEX) | grep TOTALS | tr '\t' . | cut -d. -f2 | tr -d ' '
         FLASH_SIZE = $(SIZE) --target=ihex --totals $(TARGET_HEX) | grep TOTALS | awk '{t=$$3 + $$2} END {print t}'
         RAM_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$3 + $$2} END {print t}'
 
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_VXP))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_VXP))
         FLASH_SIZE = $(SIZE) $(TARGET_ELF) | sed '1d' | awk '{t=$$1 + $$2} END {print t}'
         RAM_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$3} END {print t}'
 
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_BIN))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_BIN))
         FLASH_SIZE = $(SIZE) --target=binary --totals $(TARGET_BIN) | grep TOTALS | tr '\t' . | cut -d. -f2 | tr -d ' '
         RAM_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$3 + $$2} END {print t}'
 
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_BIN2))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_BIN2))
         FLASH_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$1 + $$2} END {print t}'
         RAM_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$3 + $$2} END {print t}'
 
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_OUT))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_OUT))
         FLASH_SIZE = cat $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).map | grep '^.text' | awk 'BEGIN { OFS = "" } {print "0x",$$4}' | xargs printf '%d'
         RAM_SIZE = cat $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).map | grep '^.ebss' | awk 'BEGIN { OFS = "" } {print "0x",$$4}' | xargs printf '%d'
 
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_DOT))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_DOT))
         FLASH_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$1} END {print t}'
         # FLASH_SIZE = ls -all $(TARGET_DOT) | awk '{print $$5}'
         RAM_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$3 + $$2} END {print t}'
 
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_ELF))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_ELF))
         FLASH_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$1} END {print t}'
         RAM_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$3 + $$2} END {print t}'
 
     # For uf2, check size on required elf
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_UF2))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_UF2))
         FLASH_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$1} END {print t}'
         RAM_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$3 + $$2} END {print t}'
 
-    else ifeq ($(TARGET_HEXBIN),$(TARGET_MCU))
+    else ifeq ($(TARGET_HEXBIN_1),$(TARGET_MCU))
         FLASH_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$4} END {print t}'
         RAM_SIZE = $(SIZE) --totals $(TARGET_ELF) | sed '1d' | awk '{t=$$4} END {print t}'
     endif # COMMAND_SIZE
@@ -1880,7 +1880,7 @@ include $(MAKEFILE_PATH)/About.mk
 # Rules
 # ----------------------------------
 #
-compile: message_compile $(OBJDIR) $(TARGET_HEXBIN) $(TARGET_EEP) size
+compile: message_compile $(OBJDIR) $(TARGET_HEXBIN_1) $(TARGET_HEXBIN_2) size
 	@echo $(BOARD_TAG) > $(NEW_TAG)
 
     ifneq ($(TEENSY_F_CPU),)

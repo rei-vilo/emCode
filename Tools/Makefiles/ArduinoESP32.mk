@@ -615,7 +615,7 @@ FLAGS_OBJCOPY = $(call PARSE_BOARD,$(BOARD_TAG),build.flash_mode)
 
 # Target
 #
-TARGET_HEXBIN = $(TARGET_BIN)
+TARGET_HEXBIN_1 = $(TARGET_BIN)
 # TARGET_BIN1 = $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).bin1
 
 # VARIANT_SORTED_OBJS = $(OBJDIR)/variants/$(VARIANT)/dfu_callbacks.cpp.o $(OBJDIR)/variants/$(VARIANT)/double_tap.c.o $(OBJDIR)/variants/$(VARIANT)/io_pin_remap.cpp.o $(OBJDIR)/variants/$(VARIANT)/variant.cpp.o

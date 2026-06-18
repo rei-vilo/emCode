@@ -8,7 +8,7 @@
 #
 # Created: 12 Jan 2024 release 14.3.0
 #
-# Last update: 25 Jul 2025 release 14.7.16
+# Last update: 24 Apr 2026 release 14.8.7
 #
 
 # Silicon Labs for Arduino
@@ -361,7 +361,7 @@ INCLUDE_PATH = $(CORE_LIB_PATH) $(VARIANT_PATH)
 INCLUDE_PATH += $(sort $(dir $(APP_LIB_CPP_SRC) $(APP_LIB_C_SRC) $(APP_LIB_H_SRC)))
 INCLUDE_PATH += $(sort $(dir $(BUILD_APP_LIB_CPP_SRC) $(BUILD_APP_LIB_C_SRC) $(BUILD_APP_LIB_H_SRC)))
 
-TARGET_HEXBIN = $(TARGET_HEX)
+TARGET_HEXBIN_1 = $(TARGET_HEX)
 
 FIRST_O_IN_A = $$(find $(BUILDS_PATH) -name crt0.S.o)
 
@@ -395,7 +395,7 @@ COMMAND_LINK = $(CC) -T $(LDSCRIPT) $(FLAGS_LD) -Wl,--no-warn-rwx-segments -Wl,-
 
 # Target
 #
-TARGET_HEXBIN = $(TARGET_HEX)
+TARGET_HEXBIN_1 = $(TARGET_HEX)
 
 endif # BOARD_TAG
 

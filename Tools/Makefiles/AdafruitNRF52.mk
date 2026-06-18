@@ -461,9 +461,9 @@ FLAGS_OBJCOPY = -v -Obinary
 #
 # J-Link requires HEX and no USB reset at 1200
 # ifeq ($(UPLOADER),jlink)
-    TARGET_HEXBIN = $(TARGET_HEX)
+    TARGET_HEXBIN_1 = $(TARGET_HEX)
 # else
-#    TARGET_HEXBIN = $(TARGET_BIN)
+#    TARGET_HEXBIN_1 = $(TARGET_BIN)
 
 # Serial 1200 reset
 #

@@ -308,7 +308,7 @@ FLAGS_OBJCOPY = -v -Obinary
 
 # Target
 #
-TARGET_HEXBIN = $(TARGET_BIN)
+TARGET_HEXBIN_1 = $(TARGET_BIN)
 
 # Commands
 # ----------------------------------

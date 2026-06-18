@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 09 Feb 2024 release 14.3.4
+# Last update: 22 May 2026 release 14.8.8
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -162,7 +162,7 @@ FLAGS_OBJCOPY = -R .eeprom -O ihex
 
 # Target
 #
-TARGET_HEXBIN = $(TARGET_HEX)
+TARGET_HEXBIN_1 = $(TARGET_HEX)
 
 # Copy command
 #

@@ -176,9 +176,9 @@ FLAGS_OBJCOPY = -O ihex -R .eeprom
 
 # Target
 #
-TARGET_HEXBIN = $(TARGET_HEX)
+TARGET_HEXBIN_1 = $(TARGET_HEX)
 #-O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
-TARGET_EEP = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).eep
+TARGET_HEXBIN_2 = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).eep
 
 # Commands
 # ----------------------------------

@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 26 Jan 2026 release 14.8.3
+# Last update: 18 Jun 2026 release 14.8.9
 #
 
 # On Linux, install pyserial with
@@ -551,6 +551,7 @@ FLAGS_LD += -L$(SDK_PATH)/$(BUILD_MEMORY_TYPE)
 
 # FLAGS_LD = -DFLAGS_LD $(call PARSE_FILE,compiler,elf.extra_flags=,$(HARDWARE_PATH)/platform.txt)
 FLAGS_C += -Werror=return-type # -Wl,--wrap=esp_panic_handler
+FLAGS_C += "-Wl,--wrap=esp_bt_mem_release" "-Wl,--wrap=esp_bt_controller_mem_release"
 
 WORK_8a = $(call PARSE_FILE,compiler,c.elf.flags=,$(HARDWARE_PATH)/platform.txt)
 WORK_8b = $(shell echo '$(WORK_8a)' | sed 's:{compiler.sdk.path}:$(SDK_PATH):g')
@@ -739,7 +740,7 @@ MESSAGE_BEFORE = "Partitions and bootloader"
 
 # Target
 #
-TARGET_HEXBIN = $(TARGET_BIN)
+TARGET_HEXBIN_1 = $(TARGET_BIN)
 # TARGET_BIN1 = $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).bin1
 
 # Commands
@@ -816,6 +817,12 @@ WORK10_post4f = $(shell echo '$(WORK10_post4e)' | sed 's:{build.bootloader_addr}
 WORK10_post4g = $(shell echo '$(WORK10_post4f)' | sed 's:{build.project_name}:$(BINARY_SPECIFIC_NAME):g')
 # COMMAND_POST_COPY += echo 4 ;
 COMMAND_POST_COPY += $(WORK10_post4g) ;
+
+# recipe.hooks.objcopy.postobjcopy.5.pattern=/usr/bin/env bash -c "cp -f '{runtime.platform.path}/tools/partitions/boot_app0.bin' '{build.path}/boot_app0.bin'"
+WORK10_post5a = $(call PARSE_FILE,recipe.hooks.objcopy.postobjcopy.5,pattern=,$(HARDWARE_PATH)/platform.txt)
+WORK10_post5b = $(shell echo '$(WORK10_post5a)' | sed 's:{build.path}:$(BUILDS_PATH):g')
+WORK10_post5c = $(shell echo '$(WORK10_post5b)' | sed 's:{runtime.platform.path}:$(HARDWARE_PATH):g')
+COMMAND_POST_COPY += $(WORK10_post5c) ;
 
 # $(info >>> COMMAND_POST_COPY '$(COMMAND_POST_COPY)')
 

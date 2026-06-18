@@ -3,7 +3,7 @@
 # ----------------------------------
 # Embedded computing with make
 #
-# Copyright (c) Rei Vilo, 2010-2025
+# Copyright (c) Rei Vilo, 2010-2026
 # All rights reserved
 # https://emCode.weebly.com
 #

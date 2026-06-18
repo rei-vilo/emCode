@@ -253,8 +253,8 @@ INCLUDE_PATH += $(CORE_LIB_PATH)/api/deprecated-avr-comp
 
 mbed1000a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
 FLAGS_MORE = $(filter-out {build.usb_flags}, $(mbed1000a))
-FLAGS_MORE    += $(call PARSE_BOARD,$(BOARD_TAG),build.float-abi)
-FLAGS_MORE    += $(call PARSE_BOARD,$(BOARD_TAG),build.fpu)
+FLAGS_MORE += $(call PARSE_BOARD,$(BOARD_TAG),build.float-abi)
+FLAGS_MORE += $(call PARSE_BOARD,$(BOARD_TAG),build.fpu)
 
 # Flags for gcc, g++ and linker
 # ----------------------------------
@@ -329,8 +329,8 @@ COMMAND_LINK = $(CXX) -L$(OBJDIR) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -L$(OBJDIR) $
 
 # Target
 #
-TARGET_HEXBIN = $(TARGET_BIN)
-TARGET_EEP = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).hex
+TARGET_HEXBIN_1 = $(TARGET_BIN)
+TARGET_HEXBIN_2 = $(OBJDIR)/$(BINARY_SPECIFIC_NAME).hex
 
 endif # BOARD_TAG
 

@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 04 Mar 2025 release 14.7.2
+# Last update: 22 May 2026 release 14.8.8
 #
 
 # Teensy 3.x and 4.x specifics
