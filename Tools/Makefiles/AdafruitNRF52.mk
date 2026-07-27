@@ -133,6 +133,7 @@ else ifeq ($(UPLOADER),jlink)
     # unused DEBUG_SERVER_OPTS = $(SHARED_OPTS) -rtos $(SEGGER_PATH)/GDBServer/RTOSPlugin_FreeRTOS.so
 
 else ifeq ($(UPLOADER),ozone)
+
     WORK_6a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
     JLINK_DEVICE = $(shell echo $(WORK_6a) | sed 's/.*\(NRF52.*_XXAA\).*/\1/')
 

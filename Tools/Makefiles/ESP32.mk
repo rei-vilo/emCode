@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 18 Jun 2026 release 14.8.9
+# Last update: 24 Jul 2026 release 14.8.12
 #
 
 # On Linux, install pyserial with
@@ -587,11 +587,14 @@ PARTITIONS_VARIANT_CSV = $(VARIANT_PATH)/$(BUILD_PARTITIONS).csv
 PARTITIONS_BUILDS_BIN = $(BUILDS_PATH)/partitions.bin
 
 # recipe.hooks.prebuild.1.pattern=/usr/bin/env bash -c "[ ! -f "{build.source.path}"/partitions.csv ] || cp -f "{build.source.path}"/partitions.csv "{build.path}"/partitions.csv"
+# recipe.hooks.prebuild.1.pattern=/usr/bin/env bash -c "[ ! -f "{runtime.platform.path}"/tools/partitions/{build.partitions}.csv ] || cp -f "{runtime.platform.path}"/tools/partitions/{build.partitions}.csv "{build.path}"/partitions.csv"
 WORK10_pre1a = $(call PARSE_FILE,recipe.hooks.prebuild.1,pattern=,$(HARDWARE_PATH)/platform.txt)
-WORK10_pre1b = $(shell echo '$(WORK10_pre1a)' | sed 's:"{build.source.path}":$(CURRENT_DIR):g')
-WORK10_pre1c = $(shell echo '$(WORK10_pre1b)' | sed 's:"{build.path}":$(BUILDS_PATH):g')
+WORK10_pre1b = $(shell echo '$(WORK10_pre1a)' | sed 's:"{runtime.platform.path}":$(HARDWARE_PATH):g')
+WORK10_pre1c = $(shell echo '$(WORK10_pre1b)' | sed 's:"{build.source.path}":$(CURRENT_DIR):g')
+WORK10_pre1d = $(shell echo '$(WORK10_pre1c)' | sed 's:{build.partitions}:$(BUILD_PARTITIONS):g')
+WORK10_pre1e = $(shell echo '$(WORK10_pre1d)' | sed 's:"{build.path}":$(BUILDS_PATH):g')
 # COMMAND_BEFORE_COMPILE += echo 1 ;
-COMMAND_BEFORE_COMPILE += $(WORK10_pre1c) ; wait 2 ;
+COMMAND_BEFORE_COMPILE += $(WORK10_pre1e) ; wait 2 ;
 
 # # Requires partitions.csv set by recipe.hooks.prebuild.1
 # # recipe.objcopy.partitions.bin.pattern={tools.gen_esp32part.cmd} -q "{build.path}/partitions.csv" "{build.path}/{build.project_name}.partitions.bin"

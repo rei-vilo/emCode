@@ -127,7 +127,7 @@ ifeq ($(UPLOADER),xds110)
 #     Place xdsdfu under UTILITIES_PATH
 #       XDS110_USB := $(shell $(UTILITIES_PATH)/xdsdfu -e | grep "Serial Num" | xargs | rev | cut -d\  -f1 | rev)
     XDS110_USB := $(shell $(UTILITIES_PATH)/xdsdfu -e | grep "Serial Num" | sed "s/Serial Num://g")
-    $(info >>> XDS110_USB $(XDS110_USB))
+#     $(info >>> XDS110_USB $(XDS110_USB))
 #       $(info >>> UTILITIES_PATH $(UTILITIES_PATH))
 
     ifeq ($(XDS110_SERIAL),)
@@ -141,6 +141,7 @@ ifeq ($(UPLOADER),xds110)
 #         $(info >>> XDS110_FIRST $(XDS110_FIRST))
 #         $(info >>> XDS110_NUMBER $(XDS110_NUMBER))
 #         $(info >>> XDS110_LIST $(XDS110_LIST))
+        $(info List of XDS110     $(XDS110_LIST))
 
         ifeq ($(XDS110_NUMBER),0)
             $(info ERROR              No XDS110 connected)
@@ -148,6 +149,8 @@ ifeq ($(UPLOADER),xds110)
             $(call MESSAGE_GUI_ERROR,No XDS110 connected)
             $(error Stop)
         else ifneq ($(XDS110_NUMBER),1)
+#             $(info XDS110 connected   $(XDS110_NUMBER))
+#             $(info XDS110 list        $(XDS110_LIST))
             XDS110_SERIAL := $(shell zenity --width=240 --list --title="emCode" --column="XDS110" $(XDS110_LIST) --text "Multiple programmers: choose one.")
         else
             XDS110_SERIAL := $(XDS110_FIRST)
@@ -171,7 +174,7 @@ ifeq ($(UPLOADER),xds110)
 
     endif # XDS110_SERIAL
 
-    BOARD_PORT := /dev/cu.usbmodem$(XDS110_SERIAL)*
+#     BOARD_PORT := /dev/cu.usbmodem$(XDS110_SERIAL)*
 
 endif # UPLOADER
 endif # BOOL_SELECT_SERIAL
@@ -1917,7 +1920,7 @@ compile: message_compile $(OBJDIR) $(TARGET_HEXBIN_1) $(TARGET_HEXBIN_2) size
     endif # COMMAND_SIZE
 
 # 	@echo 'Elapsed time     ' $(shell $(UTILITIES_PATH)/emCode_chrono $(BUILDS_PATH) -s)
-	@echo "Elapsed time     " $(SHELL_STOPCHRONO)
+	@printf "%-18s%s\n" "Elapsed time" "$(SHELL_STOPCHRONO)"
 
     ifneq ($(COMMAND_FINAL),)
 		@echo '---- Final ----'
@@ -1974,7 +1977,7 @@ reset:
 			-screen -wipe
 			sleep 1
         else
-			@echo Dual USB available
+			@echo 'Dual USB available'
         endif # DUAL_USB
 
 #         ifeq ($(UPLOADER),stlink)
@@ -2495,6 +2498,7 @@ clean:
 	-@$(REMOVE) -r $(OBJDIR)/*
 	@mkdir -p $(OBJDIR)
 	@if [ -f ./Serial.txt ] ; then mv ./Serial.txt $(OBJDIR)/Serial.txt ; fi
+	@echo "---- Clean done ----"
 
 change:
 	@echo "---- Clean changed ----"
@@ -2506,21 +2510,25 @@ change:
 		@mkdir -p $(OBJDIR)
 		@if [ -f ./Serial.txt ] ; then mv ./Serial.txt $(OBJDIR)/Serial.txt ; fi
 		-@killall $(SERIAL_EXEC)
-		@echo "Remove all"
+		@printf "%-18s%s\n" "Remove" "all"
+		
     else
         ifneq ($(strip $(KEEP_LOCAL)),true)
-			# $(REMOVE) $(LOCAL_OBJS)
+#			$(REMOVE) $(LOCAL_OBJS)
 			@for f in $(LOCAL_OBJS) ; do if [ -f $$f ] ; then $(REMOVE) $$f ; fi ; done
 			@for d in $(LOCAL_LIBS_LIST) ; do if [ -d $(BUILDS_PATH)/$$d ] ; then $(REMOVE) -r $(BUILDS_PATH)/$$d ; fi ; done
-			@echo "Remove local only"
+			@printf "%-18s%s\n" "Remove" "local only"
 			@if [ -f $(OBJDIR)/$(BINARY_SPECIFIC_NAME).elf ] ; then $(REMOVE) $(OBJDIR)/$(BINARY_SPECIFIC_NAME).* ; fi ;
         endif # KEEP_LOCAL
     endif # BOOL_CHANGED_BOARD
+	@echo "---- Clean done ----"
 
 change_main:
 	@echo "---- Clean main ----"
 	@find $(BUILDS_PATH) -name main\* -delete
 	@find $(BUILDS_PATH) -name $(BINARY_SPECIFIC_NAME)\* -delete
+	@printf "%-18s%s\n" "Remove" "main"
+	@echo "---- Clean done ----"
 
 depends: $(DEPS)
 	@echo "---- Depends ----"

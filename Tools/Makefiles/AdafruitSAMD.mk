@@ -85,6 +85,7 @@ else ifeq ($(UPLOADER),cp_uf2)
     COMMAND_PRE_UPLOAD = python  $(ADAFRUIT_NRF52_APP)/hardware/nrf52/$(ADAFRUIT_NRF52_RELEASE)/tools/uf2conv/uf2conv.py -c -b $(UPLOAD_OFFSET) -o $(TARGET_BIN_CP) $(TARGET_BIN)
 
 else ifeq ($(UPLOADER),jlink)
+
     WORK_6a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
 # Add prefix AT and get SAMD21G18 from __SAMD21G18A__
 # Add prefix AT and get SAMD51J19 from __SAMD51J19A__
@@ -112,6 +113,7 @@ else ifeq ($(UPLOADER),jlink)
     # unused DEBUG_SERVER_OPTS = $(SHARED_OPTS)
 
 else ifeq ($(UPLOADER),ozone)
+
     WORK_6a = $(call PARSE_BOARD,$(BOARD_TAG),build.extra_flags)
     JLINK_DEVICE = AT$(shell echo $(WORK_6a) | sed 's/-D__\(SAMD.*\)A__.*/\1/')
 

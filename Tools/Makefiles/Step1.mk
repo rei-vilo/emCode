@@ -111,7 +111,7 @@ define LIST_PLATFORMS
 
     $(call CHECK_RELEASE,Microsoft,AZ3166,stm32f4,$(MICROSOFT_AZ3166_RELEASE))
 
-    $(call CHECK_RELEASE,RedBear,RedBear,STM32F2,$(REDBEAR_DUO_RELEASE))
+    $(call CHECK_RELEASE,RedBear Duo,RedBear,STM32F2,$(REDBEAR_DUO_RELEASE))
 
     $(call CHECK_RELEASE,SiLabs,SiliconLabs,silabs,$(SILICONLABS_SILABS_RELEASE))
 
@@ -261,7 +261,15 @@ endif # MAKECMDGOALS
 
 ifeq ($(BOOL_SELECT_BOARD),1)
 
+ifneq ($(UPLOADER),)
+    FORCED_UPLOADER := $(UPLOADER)
+endif # UPLOADER
+
     include $(CONFIGURATIONS_PATH)/$(SELECTED_BOARD).mk
+
+ifneq ($(FORCED_UPLOADER),)
+    UPLOADER := $(FORCED_UPLOADER)
+endif # FORCED_UPLOADER
 
     ifndef BOARD_TAG
         $(info Syntax            make <target> SELECTED_BOARD=<board name>)

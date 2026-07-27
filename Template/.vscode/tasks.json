@@ -4,13 +4,6 @@
         "reveal": "always",
         "revealProblems": "onProblem"
     },
-    // As per https://stackoverflow.com/a/45503679/1190049
-    "problemMatcher": {
-        "base": "$gcc",
-        "fileLocation": [
-            "absolute", "${workspaceFolder}"
-        ]
-    },
     "tasks": [
         {
             "label": "Build",
@@ -25,7 +18,13 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Build with makefile"
+            "detail": "Build with makefile",
+            "problemMatcher": [
+                {
+                    "base": "$gcc",
+                    "fileLocation": "absolute"
+                }
+            ]
         },
         {
             "label": "Fast",
@@ -39,7 +38,13 @@
                 "kind": "test",
                 "isDefault": true
             },
-            "detail": "Fast with makefile"
+            "detail": "Fast with makefile",
+            "problemMatcher": [
+                {
+                    "base": "$gcc",
+                    "fileLocation": "absolute"
+                }
+            ]
         },
         {
             "label": "Make",
@@ -53,7 +58,13 @@
                 "kind": "test",
                 "isDefault": false
             },
-            "detail": "Make with makefile"
+            "detail": "Make with makefile",
+            "problemMatcher": [
+                {
+                    "base": "$gcc",
+                    "fileLocation": "absolute"
+                }
+            ]
         },
         {
             "label": "Upload",
@@ -64,7 +75,8 @@
                 "SELECTED_BOARD=${command:cpptools.activeConfigName}"
             ],
             "group": "build",
-            "detail": "Upload with makefile"
+            "detail": "Upload with makefile",
+            "problemMatcher": []
         },
         {
             "label": "Clean",
@@ -75,7 +87,8 @@
                 "SELECTED_BOARD=${command:cpptools.activeConfigName}"
             ],
             "group": "build",
-            "detail": "Clean with makefile"
+            "detail": "Clean with makefile",
+            "problemMatcher": []
         },
         {
             "label": "Archive",
@@ -89,7 +102,8 @@
                 "kind": "test",
                 "isDefault": false
             },
-            "detail": "Archive with makefile"
+            "detail": "Archive with makefile",
+            "problemMatcher": []
         },
         {
             "label": "Unarchive",
@@ -103,7 +117,8 @@
                 "kind": "test",
                 "isDefault": false
             },
-            "detail": "Unarchive with makefile"
+            "detail": "Unarchive with makefile",
+            "problemMatcher": []
         },
         {
             "label": "Document",
@@ -117,7 +132,8 @@
                 "kind": "test",
                 "isDefault": false
             },
-            "detail": "Document with makefile"
+            "detail": "Document with makefile",
+            "problemMatcher": []
         },
         {
             "label": "Core",
@@ -131,7 +147,13 @@
                 "kind": "test",
                 "isDefault": false
             },
-            "detail": "Core with makefile"
+            "detail": "Core with makefile",
+            "problemMatcher": [
+                {
+                    "base": "$gcc",
+                    "fileLocation": "absolute"
+                }
+            ]
         }
     ]
 }
