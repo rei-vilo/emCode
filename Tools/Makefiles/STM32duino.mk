@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 02 Feb 2026 release 14.8.3
+# Last update: 19 Sep 2026 release 14.8.16
 #
 
 ifeq ($(MAKEFILE_NAME),)
@@ -34,10 +34,8 @@ READY_FOR_EMCODE_NEXT = 1
 # Complicated menu system for Arduino 1.5
 # Another example of Arduino's quick and dirty job
 #
-BOARD_TAGS_LIST = $(BOARD_TAG) $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3)
-BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3)
-
-# SEARCH_FOR = $(strip $(foreach t,$(1),$(call PARSE_BOARD,$(t),$(2))))
+BOARD_TAGS_LIST = $(BOARD_TAG) $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4) $(BOARD_TAG5) $(BOARD_TAG6) $(BOARD_TAG7) $(BOARD_TAG8) $(BOARD_TAG9) $(BOARD_TAG10)
+BOARD_OPTION_TAGS_LIST = $(BOARD_TAG1) $(BOARD_TAG2) $(BOARD_TAG3) $(BOARD_TAG4) $(BOARD_TAG5) $(BOARD_TAG6) $(BOARD_TAG7) $(BOARD_TAG8) $(BOARD_TAG9) $(BOARD_TAG10)
 
 # STM32duino specifics
 # ----------------------------------
@@ -47,8 +45,14 @@ PLATFORM_VERSION := STM32duino $(STM32DUINO_RELEASE) for Arduino $(ARDUINO_IDE_R
 
 HARDWARE_PATH = $(APPLICATION_PATH)/hardware/stm32/$(STM32DUINO_RELEASE)
 TOOL_CHAIN_PATH = $(APPLICATION_PATH)/tools/xpack-arm-none-eabi-gcc/$(STM32DUINO_GCC_ARM_RELEASE)
-# OTHER_TOOLS_PATH = $(APPLICATION_PATH)/tools/RFDLoader/1.5
-OTHER_TOOLS_PATH = $(APPLICATION_PATH)/tools/STM32Tools/$(STM32DUINO_RELEASE)/tools/macosx
+OTHER_TOOLS_PATH = $(APPLICATION_PATH)/tools/STM32Tools/$(STM32DUINO_TOOLS_RELEASE)
+OPENOCD_PATH = $(APPLICATION_PATH)/tools/xpack-openocd/$(STM32DUINO_OPENOCD_RELEASE)
+
+ifeq ($(OPERATING_SYSTEM),Darwin)
+    STM32_TOOLS_BIN = $(OTHER_TOOLS_PATH)/macosx
+else
+    STM32_TOOLS_BIN = $(OTHER_TOOLS_PATH)/linux
+endif
 
 APP_TOOLS_PATH := $(TOOL_CHAIN_PATH)/bin
 APP_LIB_PATH := $(HARDWARE_PATH)/libraries
@@ -62,10 +66,29 @@ PLATFORM := STM32duino
 SUB_PLATFORM = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.core)
 
 BUILD_CORE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.core)
-BUILD_SERIES = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.series)
 BUILD_BOARD = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.board)
+ifeq ($(BUILD_BOARD),)
+    BUILD_BOARD = $(call PARSE_BOARD,$(BOARD_TAG),build.board)
+endif
+BUILD_SERIES = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.series)
+ifeq ($(BUILD_SERIES),)
+    BUILD_SERIES = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.series)
+endif
+BUILD_FAMILY = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.family)
+ifeq ($(BUILD_FAMILY),)
+    BUILD_FAMILY = GENERIC
+endif
+BUILD_PRODUCT_LINE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.product_line)
+ifeq ($(BUILD_PRODUCT_LINE),)
+    BUILD_PRODUCT_LINE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.product_line)
+endif
+BUILD_ARCH = STM32
 
-PLATFORM_TAG = EMCODE=$(RELEASE_NOW) ARDUINO=$(RELEASE_ARDUINO) STM32DUINO ARDUINO_$(BUILD_BOARD) ARDUINO_$(BUILD_SERIES) ARDUINO_ARCH_STM32 $(BUILD_SERIES) $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.product_line) BOARD_NAME='"$(BUILD_BOARD)"'
+# platform.txt build.info.flags
+PLATFORM_TAG = EMCODE=$(RELEASE_NOW) ARDUINO=$(RELEASE_ARDUINO) STM32DUINO
+PLATFORM_TAG += ARDUINO_$(BUILD_FAMILY) ARDUINO_$(BUILD_BOARD) ARDUINO_ARCH_$(BUILD_ARCH)
+PLATFORM_TAG += $(BUILD_SERIES) $(BUILD_PRODUCT_LINE)
+PLATFORM_TAG += BOARD_NAME='"$(BUILD_BOARD)"'
 
 # Generate main.cpp
 # ----------------------------------
@@ -83,8 +106,6 @@ ifneq ($(strip $(KEEP_MAIN)),true)
     $(shell echo "// ----------------------------------" >> ./main.cpp)
     $(shell echo "#if defined(EMCODE)" >> ./main.cpp)
     $(shell echo " " >> ./main.cpp)
-    # $(shell echo "#include <SrcWrapper.h>" >> ./main.cpp)
-    # $(shell echo " " >> ./main.cpp)
     $(shell cat $(PATH_TO_MAIN_CPP)/main.cpp >> ./main.cpp)
     $(shell echo " " >> ./main.cpp)
     $(shell echo " " >> ./main.cpp)
@@ -96,34 +117,29 @@ endif # KEEP_MAIN
 # Uploader
 #
 ifeq ($(UPLOADER),stlink)
-    UPLOADER_EXEC = st-flash
-    UPLOADER_OPTS = --reset --format ihex write
-    COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) $(TARGET_HEX)
-    # unused DEBUG_SERVER = stlink
-
     UPLOADER_EXEC = $(STM32_CUBE_PATH)/bin/STM32_Programmer_CLI
     UPLOADER_OPTS = -c port=SWD mode=UR -q -d $(TARGET_HEX) -rst
     COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS)
 
 else ifeq ($(UPLOADER),cp_hex)
     TARGET_BIN_CP = $(TARGET_HEX)
-    # unused DEBUG_SERVER = stlink
     USED_VOLUME_PORT = $(strip $(BOARD_VOLUME))
 
 else ifeq ($(UPLOADER),openocd)
-    UPLOADER_EXEC = openocd
-    UPLOADER_OPTS = -f interface/stlink.cfg
-    ifeq ($(findstring NUCLEO_L4,$(BOARD_NAME)),)
-        UPLOADER_OPTS += -f board/st_nucleo_l4.cfg
-    else
-        UPLOADER_OPTS += -f board/st_nucleo_f4.cfg
+    UPLOADER_EXEC = $(OPENOCD_PATH)/bin/openocd
+    OPENOCD_INTERFACE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),upload.protocol)
+    ifeq ($(OPENOCD_INTERFACE),)
+        OPENOCD_INTERFACE = stlink
     endif
-    UPLOADER_OPTS += -c "program $(TARGET_ELF) verify reset ; exit"
-    COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS)
-    # unused DEBUG_SERVER = openocd
-#     # unused DEBUGGER_OPTS = -f board/st_nucleo_f4.cfg
+    OPENOCD_TARGET = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),openocd.target)
+    UPLOADER_OPTS = -d2 -s $(OPENOCD_PATH)/openocd/scripts
+    UPLOADER_OPTS += -f interface/$(OPENOCD_INTERFACE).cfg
+    UPLOADER_OPTS += -f target/$(OPENOCD_TARGET).cfg
+    COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_OPTS) -c "program $(TARGET_ELF) verify reset exit"
 
-else # UPLOADER
+else ifeq ($(UPLOADER),massStorage)
+    UPLOADER_EXEC = $(STM32_TOOLS_BIN)/massStorageCopy.sh
+    COMMAND_UPLOAD = $(UPLOADER_EXEC) -I $(TARGET_BIN) -O $(USED_VOLUME_PORT)
 
 endif # UPLOADER
 
@@ -132,23 +148,17 @@ endif # UPLOADER
 COMPILER_PREFIX = arm-none-eabi
 COMPILER_LOCK = false
 
-# Now defined at Step2.mk
-# CC = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-gcc
-# CXX = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-g++
-# AR = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-ar
-# OBJDUMP = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-objdump
-# OBJCOPY = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-objcopy
-# SIZE = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-size
-# NM = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-nm
-# GDB = $(APP_TOOLS_PATH)/$(COMPILER_PREFIX)-gdb
-
-
 LDSCRIPT = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.ldscript)
-VARIANT = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.variant)
+ifeq ($(LDSCRIPT),)
+    LDSCRIPT = ldscript.ld
+endif
+VARIANT = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.variant)
+ifeq ($(VARIANT),)
+    VARIANT = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.variant)
+endif
 
 # Multiple locations for core libraries
 #
-# CORE_LIB_PATH := $(HARDWARE_PATH)/cores/arduino
 CORE_LIB_PATH := $(shell find $(HARDWARE_PATH)/cores/arduino -type d)
 SYSTEM_LIB_PATH := $(HARDWARE_PATH)/system
 
@@ -168,6 +178,8 @@ CORE_OBJS += $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(CORE_OBJ_FILES))
 
 CORE_LIBS_LOCK = 1
 
+# SrcWrapper is required by recipe.hooks.prebuild and must be compiled
+#
 BUILD_CORE_LIB_PATH := $(shell find $(HARDWARE_PATH)/libraries/SrcWrapper -type d)
 
 BUILD_CORE_C_SRCS = $(foreach dir,$(BUILD_CORE_LIB_PATH),$(wildcard $(dir)/*.c))
@@ -179,36 +191,33 @@ BUILD_CORE_AS2_SRCS = $(foreach dir,$(BUILD_CORE_LIB_PATH),$(wildcard $(dir)/*.s
 BUILD_CORE_AS1_SRCS_OBJ = $(patsubst %.S,%.S.o,$(filter %S, $(BUILD_CORE_AS1_SRCS)))
 BUILD_CORE_AS2_SRCS_OBJ = $(patsubst %.s,%.s.o,$(filter %s, $(BUILD_CORE_AS2_SRCS)))
 
-# unused BUILD_CORE_H_SRCS= $(foreach dir,$(BUILD_CORE_LIB_PATH),$(wildcard $(dir)/*.h))
-
 BUILD_CORE_OBJ_FILES += $(BUILD_CORE_C_SRCS:.c=.c.o) $(BUILD_CORE_CPP_SRCS:.cpp=.cpp.o) $(BUILD_CORE_AS1_SRCS_OBJ) $(BUILD_CORE_AS2_SRCS_OBJ)
 BUILD_CORE_OBJS += $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(BUILD_CORE_OBJ_FILES))
 
-# Variant libraries
+# Variant libraries — paths may contain parentheses
 #
 VARIANT_PATH = $(HARDWARE_PATH)/variants/$(VARIANT)
 
-VARIANT_CPP_SRCS = $(wildcard $(VARIANT_PATH)/*.cpp)
-VARIANT_C_SRCS = $(wildcard $(VARIANT_PATH)/*.c)
+VARIANT_CPP_SRCS = $(shell find "$(VARIANT_PATH)" -maxdepth 1 -name '*.cpp' 2>/dev/null)
+VARIANT_C_SRCS = $(shell find "$(VARIANT_PATH)" -maxdepth 1 -name '*.c' 2>/dev/null)
 
 VARIANT_OBJ_FILES = $(VARIANT_CPP_SRCS:.cpp=.cpp.o) $(VARIANT_C_SRCS:.c=.c.o)
 VARIANT_OBJS = $(patsubst $(HARDWARE_PATH)/%,$(OBJDIR)/%,$(VARIANT_OBJ_FILES))
 
 F_CPU = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.f_cpu)
 MCU = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.mcu)
-ifeq ($(F_CPU),)
-    F_CPU = 72000000L
-endif
 ifeq ($(MCU),)
     MCU = cortex-m3
 endif
 MCU_FLAG_NAME = mcpu
 
+# compiler.stm.extra_include from platform.txt
+INCLUDE_PATH += $(CURRENT_DIR)
 INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/avr
 INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32
+INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/api/deprecated
 INCLUDE_PATH += $(HARDWARE_PATH)/libraries/SrcWrapper/inc
 INCLUDE_PATH += $(HARDWARE_PATH)/libraries/SrcWrapper/inc/LL
-
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/$(BUILD_SERIES)_HAL_Driver/Inc
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/$(BUILD_SERIES)_HAL_Driver/Src
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/$(BUILD_SERIES)
@@ -221,30 +230,15 @@ INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/OpenAMP/open-amp/lib/include
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/OpenAMP/libmetal/lib/include
 INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Middlewares/OpenAMP/virtual_driver
 
-INCLUDE_PATH += $(CMSIS_PATH)/CMSIS/Core/Include/
-INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/CMSIS/Device/ST/$(BUILD_SERIES)/Include/
-INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/CMSIS/Device/ST/$(BUILD_SERIES)/Source/Templates/gcc/
-INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino
-
-INCLUDE_PATH += $(CMSIS_PATH)/Include
+# compiler.arm.cmsis.c.flags from platform.txt
+INCLUDE_PATH += $(CMSIS_PATH)/CMSIS/Core/Include
+INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/CMSIS/Device/ST/$(BUILD_SERIES)/Include
+INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/CMSIS/Device/ST/$(BUILD_SERIES)/Source
+INCLUDE_PATH += $(SYSTEM_LIB_PATH)/Drivers/CMSIS/Device/ST/$(BUILD_SERIES)/Source/Templates/gcc
 INCLUDE_PATH += $(CMSIS_DSP_PATH)/Include
 INCLUDE_PATH += $(CMSIS_DSP_PATH)/PrivateInclude
-INCLUDE_PATH += $(CMSIS_NN_PATH)/Include
+INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino
 
-# INCLUDE_PATH += -DINCLUDE_PATH_3
-# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/LL
-# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb
-# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/OpenAMP
-# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb/hid
-# INCLUDE_PATH += $(HARDWARE_PATH)/cores/arduino/stm32/usb/cdc
-
-# compiler.stm.extra_include="-I{build.source.path}" "-I{build.core.path}/avr" "-I{core_stm32_dir}" "-I{SrcWrapper_include_dir}" "-I{SrcWrapper_include_dir}/LL" "-I{hal_dir}/Inc" "-I{hal_dir}/Src" "-I{build.system.path}/{build.series}" "-I{USBDevice_include_dir}" "-I{usbd_core_dir}/Inc" "-I{usbd_core_dir}/Src" "-I{VirtIO_include_dir}" {build.virtio_extra_include}
-# compiler.arm.cmsis.c.flags="-I{cmsis_dir}/Core/Include/" "-I{cmsis_dev_dir}/Include/" "-I{cmsis_dev_dir}/Source/Templates/gcc/" "-I{cmsis_dir}/DSP/Include" "-I{cmsis_dir}/DSP/PrivateInclude"
-
-# INCLUDE_PATH += $(HARDWARE_PATH)/Drivers/$(BUILD_SERIES)_HAL_Driver
-# INCLUDE_PATH += $(HARDWARE_PATH)/Middlewares/ST/STM32_USB_Device_Library/Core
-
-#  F_CPU
 FLAGS_FPU = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.flags.fp)
 FLAGS_FPU += $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.fpu)
 FLAGS_FPU += $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.float-abi)
@@ -252,31 +246,27 @@ FLAGS_FPU += $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.float-abi)
 # Protect strange paths
 INCLUDE_PATH := $(patsubst %,"%",$(INCLUDE_PATH))
 
-FLAGS_L += $(CMSIS_PATH)/CMSIS/DSP/Lib/GCC/
-
-# FLAGS_D = L_UART_MODULE_ENABLED
 WORK_4a = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.variant_h)
-WORK_4b = $(call PARSE_BOARD,$(BOARD_TAG),build.variant_h)
-WORK_4c = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.variant_h)
-WORK_4d = $(shell echo $(WORK_4c) | sed 's:{build.board}:$(BUILD_BOARD):')
+ifeq ($(WORK_4a),)
+    WORK_4a = $(call PARSE_BOARD,$(BOARD_TAG),build.variant_h)
+endif
+WORK_4b = $(shell echo $(WORK_4a) | sed 's:{build.board}:$(BUILD_BOARD):')
+ifeq ($(WORK_4b),)
+    WORK_4b = variant_generic.h
+endif
+FLAGS_D += VARIANT_H='"$(WORK_4b)"'
 
-FLAGS_D += VARIANT_H='"$(WORK_4d)"'
-
-# MORE_DFLAGS = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.extra_flags)
-# ifeq ($(MORE_DFLAGS),)
-#    MORE_DFLAGS = -DMCU_STM32F103CB -mthumb -DSERIAL_USB -march=armv7-m -D__STM32F1__
-# endif
 FLASH_OFFSET = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.flash_offset)
 ifeq ($(FLASH_OFFSET),)
-    FLASH_OFFSET = 0
+    FLASH_OFFSET = 0x0
 endif
 MAX_FLASH_SIZE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),upload.maximum_size)
 ifeq ($(MAX_FLASH_SIZE),)
-    MAX_FLASH_SIZE = $(call SEARCH_FOR,$(BOARD_TAG),upload.maximum_size)
+    MAX_FLASH_SIZE = $(call PARSE_BOARD,$(BOARD_TAG),upload.maximum_size)
 endif
 MAX_RAM_SIZE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),upload.maximum_data_size)
 ifeq ($(MAX_RAM_SIZE),)
-    MAX_RAM_SIZE = $(call SEARCH_FOR,$(BOARD_TAG),upload.maximum_data_size)
+    MAX_RAM_SIZE = $(call PARSE_BOARD,$(BOARD_TAG),upload.maximum_data_size)
 endif
 
 # $(info *** MAX_FLASH_SIZE '$(MAX_FLASH_SIZE)')
@@ -288,7 +278,19 @@ WORK_0a = $(call PARSE_FILE,build,usb_flags=,$(HARDWARE_PATH)/platform.txt)
 # boards.txt for build.usb_speed build.vid build.pid
 BUILD_USB_SPEED = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.usb_speed)
 BUILD_VID = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.vid)
+ifeq ($(BUILD_VID),)
+    BUILD_VID = $(call PARSE_BOARD,$(BOARD_TAG),vid.0)
+endif
+ifeq ($(BUILD_VID),)
+    BUILD_VID = 0x0483
+endif
 BUILD_PID = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.pid)
+ifeq ($(BUILD_PID),)
+    BUILD_PID = $(call PARSE_BOARD,$(BOARD_TAG),pid.0)
+endif
+ifeq ($(BUILD_PID),)
+    BUILD_PID = 0x5740
+endif
 
 WORK_0b = $(shell echo '$(WORK_0a)' | sed 's:{build.usb_speed}:$(BUILD_USB_SPEED):g')
 WORK_0c = $(shell echo '$(WORK_0b)' | sed 's:{build.vid}:$(BUILD_VID):g')
@@ -298,30 +300,15 @@ BUILD_USB_FLAGS = $(WORK_0d)
 
 # boards.txt build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
 WORK_2a = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.enable_usb)
-
 WORK_2b = $(shell echo '$(WORK_2a)' | sed 's:{build.usb_flags}:$(BUILD_USB_FLAGS):g')
-
 BUILD_ENABLE_USB = $(WORK_2b)
 
-# $(info >>> BOARD_TAGS_LIST $(BOARD_TAGS_LIST))
-
-# $(info >>> WORK_0)
-# $(info >>> WORK_0a $(WORK_0a))
-# $(info >>> WORK_0b $(WORK_0b))
-# $(info >>> WORK_0c $(WORK_0c))
-# $(info >>> WORK_0d $(WORK_0d))
-
-# $(info >>> WORK_2)
-# $(info >>> WORK_2a $(WORK_2a))
-# $(info >>> WORK_2b $(WORK_2b))
-
-# platform.txt build.st_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+# platform.txt / boards.txt build.st_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
 WORK_1a = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.st_extra_flags)
 
 # boards.txt for build.bootloader_flags build.enable_virtio build.product_line build.xSerial
 BUILD_BOOTLOADER_FLAGS = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.bootloader_flags)
 BUILD_ENABLE_VIRTIO = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.enable_virtio)
-BUILD_PRODUCT_LINE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.product_line)
 
 BUILD_XSERIAL = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.xSerial)
 ifeq ($(BUILD_XSERIAL),)
@@ -336,59 +323,47 @@ WORK_1f = $(shell echo '$(WORK_1e)' | sed 's:{build.enable_usb}:$(BUILD_ENABLE_U
 
 BUILD_ST_EXTRA_FLAGS = $(WORK_1f)
 
-# $(info >>> WORK_1)
-# $(info >>> WORK_1a $(WORK_1a))
-# $(info >>> WORK_1b $(WORK_1b))
-# $(info >>> WORK_1c $(WORK_1c))
-# $(info >>> WORK_1d $(WORK_1d))
-# $(info >>> WORK_1e $(WORK_1e))
-# $(info >>> WORK_1f $(WORK_1f))
+BUILD_EXTRA_FLAGS = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.extra_flags)
+BUILD_PERIPHERAL_PINS = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.peripheral_pins)
+BUILD_STARTUP_FILE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.startup_file)
 
-# # Create {build.opt} if not exists in the output sketch dir and force include of SrcWrapper library
-# recipe.hooks.prebuild.1.pattern="{busybox}" sh "{extras.path}/prebuild.sh" "{build.path}" "{build.source.path}" "{runtime.platform.path}" "usb={build.enable_usb}" "virtio={build.enable_virtio}"
-# recipe.hooks.postbuild.1.pattern="{busybox}" sh "{extras.path}/postbuild.sh" "{build.path}" "{build.series}" "{runtime.platform.path}"
+BUILD_LDSPECS = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.flags.ldspecs)
+ifeq ($(BUILD_LDSPECS),)
+    BUILD_LDSPECS = --specs=nano.specs
+endif
 
-BUILD_SERIES = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.series)
-
+# recipe.hooks.prebuild.1.pattern
 COMMAND_BEFORE_COMPILE = sh $(SYSTEM_LIB_PATH)/extras/prebuild.sh $(BUILDS_PATH) $(CURRENT_DIR) $(HARDWARE_PATH) usb=$(BUILD_ENABLE_USB) virtio=$(BUILD_ENABLE_VIRTIO)
 
 MESSAGE_BEFORE = "Set build options"
 
-# COMMAND_AFTER_COMPILE = sh $(SYSTEM_LIB_PATH)/extras/postbuild.sh $(BUILDS_PATH) $(BUILD_SERIES) $(HARDWARE_PATH)
-
-# MESSAGE_AFTER = "Clean build options"
-
 # Flags for gcc, g++ and linker
 # ----------------------------------
 #
-# Common FLAGS_ALL for gcc, g++, assembler and linker
+# compiler.extra_flags=-mcpu={build.mcu} {build.fpu} {build.float-abi} -DVECT_TAB_OFFSET={build.flash_offset} {build.hal} -DEXTENDED_PIN_MODE -mthumb "@{build.opt.path}"
 #
 FLAGS_ALL = $(OPTIMISATION) $(FLAGS_WARNING)
-FLAGS_ALL += -$(MCU_FLAG_NAME)=$(MCU) -DF_CPU=$(F_CPU)
+FLAGS_ALL += -$(MCU_FLAG_NAME)=$(MCU)
+ifneq ($(F_CPU),)
+    FLAGS_ALL += -DF_CPU=$(F_CPU)
+endif
 FLAGS_ALL += $(FLAGS_FPU)
-
 FLAGS_ALL += -DVECT_TAB_OFFSET=$(FLASH_OFFSET)
-FLAGS_ALL += -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -mthumb
+FLAGS_ALL += -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER
+FLAGS_ALL += -DEXTENDED_PIN_MODE -mthumb
 FLAGS_ALL += -ffunction-sections -fdata-sections
 FLAGS_ALL += --param max-inline-insns-single=500 -MMD
-# FLAGS_ALL += -nostdlib -fno-threadsafe-statics
-FLAGS_ALL += $(addprefix -D, $(PLATFORM_TAG) $(FLAGS_D)) $(MORE_DFLAGS) # printf=iprintf
-FLAGS_ALL += -mthumb
+FLAGS_ALL += $(addprefix -D, $(PLATFORM_TAG) $(FLAGS_D))
 FLAGS_ALL += @$(BUILDS_PATH)/sketch/build.opt
-# $(USB_FLAGS)
 FLAGS_ALL += $(addprefix -I, $(INCLUDE_PATH)) -I"$(VARIANT_PATH)"
-
-# $(info >>> INCLUDE_PATH $(INCLUDE_PATH))
-# $(info >>> FLAGS_ALL $(FLAGS_ALL))
-# $(info >>> BUILD_ST_EXTRA_FLAGS $(BUILD_ST_EXTRA_FLAGS))
-
 FLAGS_ALL += $(BUILD_ST_EXTRA_FLAGS)
-# $(info >>> FLAGS_ALL $(FLAGS_ALL))
+FLAGS_ALL += $(BUILD_EXTRA_FLAGS)
 
 # Specific FLAGS_C for gcc only
 # gcc uses FLAGS_ALL and FLAGS_C
+# compiler.c.st_extra_flags={build.peripheral_pins}
 #
-FLAGS_C = -std=gnu17
+FLAGS_C = -std=gnu17 $(BUILD_PERIPHERAL_PINS)
 
 # Specific FLAGS_CPP for g++ only
 # g++ uses FLAGS_ALL and FLAGS_CPP
@@ -397,43 +372,32 @@ FLAGS_CPP = -fno-threadsafe-statics -fno-rtti -fno-exceptions -fno-use-cxa-atexi
 
 # Specific FLAGS_AS for gcc assembler only
 # gcc assembler uses FLAGS_ALL and FLAGS_AS
+# compiler.S.st_extra_flags={build.startup_file}
 #
-FLAGS_AS = -x assembler-with-cpp
+FLAGS_AS = -x assembler-with-cpp $(BUILD_STARTUP_FILE)
 
 # Specific FLAGS_LD for linker only
 # linker uses FLAGS_ALL and FLAGS_LD
+# compiler.c.elf.flags + compiler.ldflags
 #
 FLAGS_LD = $(OPTIMISATION) $(FLAGS_WARNING)
 FLAGS_LD += -$(MCU_FLAG_NAME)=$(MCU) -mthumb
-FLAGS_LD += $(addprefix -L, $(FLAGS_L))
-# FLAGS_LD += -l$(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.cmsis_lib_gcc)
-FLAGS_LD += -Wl,-Map,$(OBJDIR)/emCode.cpp.map # Output a cross reference table.
-# With 1.8.0
-ifeq ($(STM32DUINO_RELEASE),1.8.0)
-    FLAGS_LD += -T $(VARIANT_PATH)/ldscript.ld
-else
-#     With 1.9.0
-    FLAGS_LD += -Wl,--default-script="$(VARIANT_PATH)/ldscript.ld"
-    FLAGS_LD += -Wl,--script="$(SYSTEM_LIB_PATH)/ldscript.ld"
-endif
+FLAGS_LD += $(FLAGS_FPU)
+FLAGS_LD += -Wl,-Map,$(OBJDIR)/emCode.cpp.map
+FLAGS_LD += -Wl,--default-script="$(VARIANT_PATH)/$(LDSCRIPT)"
+FLAGS_LD += -Wl,--script="$(SYSTEM_LIB_PATH)/ldscript.ld"
 FLAGS_LD += -Wl,--no-warn-rwx-segments
-
 FLAGS_LD += -L$(BUILDS_PATH)
 FLAGS_LD += $(addprefix -D, $(PLATFORM_TAG))
-
-FLAGS_LD += $(call SEARCH_FOR,$(BOARD_TAGS_LIST),build.flags.fp)
-FLAGS_LD += --specs=nano.specs
+FLAGS_LD += $(BUILD_LDSPECS)
 FLAGS_LD += -Wl,--defsym=LD_FLASH_OFFSET=$(FLASH_OFFSET)
 FLAGS_LD += -Wl,--defsym=LD_MAX_SIZE=$(MAX_FLASH_SIZE)
 FLAGS_LD += -Wl,--defsym=LD_MAX_DATA_SIZE=$(MAX_RAM_SIZE)
 FLAGS_LD += -Wl,--cref -Wl,--check-sections -Wl,--gc-sections
 FLAGS_LD += -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all
 FLAGS_LD += -Wl,--warn-common
-FLAGS_LD += $(FLAGS_FPU)
 
-FLAGS_LD_2 += -lc -lm -lgcc -lstdc++
-
-INCLUDE_A = $(wildcard $(VARIANT_PATH)/*.a)
+INCLUDE_A = $(shell find "$(VARIANT_PATH)" -maxdepth 1 -name '*.a' 2>/dev/null)
 
 # Specific FLAGS_OBJCOPY for objcopy only
 # objcopy uses FLAGS_OBJCOPY only
@@ -443,30 +407,12 @@ FLAGS_OBJCOPY = -v -Oihex
 # Target
 #
 TARGET_HEXBIN_1 = $(TARGET_HEX)
-# TARGET_HEXBIN_2 = $(TARGET_HEX)
-COMMAND_COPY = $(OBJCOPY) -O binary $< $(TARGET_HEX)
+TARGET_HEXBIN_2 = $(TARGET_BIN)
+COMMAND_COPY = $(OBJCOPY) -O binary $< $(TARGET_BIN)
 COMMAND_POST_COPY = $(OBJCOPY) -O ihex $< $(TARGET_HEX)
 
-# MAX_RAM_SIZE = $(call SEARCH_FOR,$(BOARD_TAGS_LIST),upload.ram.maximum_size)
-
-# Commands
-# ----------------------------------
-#
-# FIRST_O_IN_LD = $$(find $(BUILDS_PATH) -name *.s.o) $$(find $(BUILDS_PATH) -name variant.cpp.o)
-
-# Link command
-#
-# COMMAND_LINK = $(CC) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(FIRST_O_IN_LD) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(INCLUDE_A) $(TARGET_A) -Wl,--end-group
-# COMMAND_LINK = $(CC) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(FIRST_O_IN_LD) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(INCLUDE_A) $(TARGET_A) -lc -Wl,--end-group -lm -lgcc -lstdc++
-# COMMAND_LINK = $(CC) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(REMOTE_OBJS) $(LOCAL_OBJS) -lc -Wl,--end-group -lm -lgcc -lstdc++
-## COMMAND_LINK = $(CC) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(FIRST_O_IN_LD) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(INCLUDE_A) $(TARGET_A) -lc -Wl,--end-group -lm -lgcc -lstdc++
+# recipe.c.combine.pattern
 COMMAND_LINK = $(CC) $(FLAGS_LD) $(OUT_PREPOSITION)$@ -Wl,--start-group $(FIRST_OBJS_IN_LINK) $(LOCAL_OBJS) $(LOCAL_ARCHIVES) $(USER_ARCHIVES) $(INCLUDE_A) $(TARGET_A) $(TARGET_CORE_A) -lc -Wl,--end-group -lm -lgcc -lstdc++
-
-#$(FLAGS_LD_2)
-
-# Upload command
-#
-# COMMAND_UPLOAD = $(UPLOADER_EXEC) $(UPLOADER_PORT) $(UPLOADER_OPTS) $(TARGET_BIN)
 
 endif # BOARD_CHECK
 

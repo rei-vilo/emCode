@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 13 Apr 2026 release 14.8.6
+# Last update: 10 Aug 2026 release 14.8.14
 #
 
 # General table of messages
@@ -341,6 +341,10 @@ endif # HIDE_COMMAND_BUILD
 ifeq ($(HIDE_COMMAND_UPLOAD),true)
     QUIET_UPLOAD = @
 endif # HIDE_COMMAND_UPLOAD
+
+ifeq ($(HIDE_SUMMARY),true)
+	QUIET_SUMMARY = @
+endif # HIDE_SUMMARY
 
 # Find version of the platform
 #
@@ -1332,6 +1336,8 @@ else
     FLAGS_ALL += $(SYS_INCLUDES)
 endif # FLAGS_ALL
 
+FLAGS_ALL += -D__PROJECT__='"$(PROJECT_NAME)"'
+
 ifdef USB_FLAGS
     FLAGS_ALL += $(USB_FLAGS)
 endif # USB_FLAGS
@@ -1791,6 +1797,13 @@ ifeq ($(BOOL_SELECT_BOARD),1)
         RAM_SIZE = $(COMMAND_SIZE_RAM)
     endif # BOARD_TAG teensy41
 
+#     FLASH_SIZE = $(SIZE) -A $(TARGET_ELF) | awk '{s[$$1]=$$2+0} END{print s[".vectors"]+s[".text"]+s[".ARM.extab"]+s[".ARM.exidx"]+s[".copy.table"]+s[".data"]+s["text_application_ram"]}'
+#     RAM_SIZE = $(SIZE) -A $(TARGET_ELF) | awk '{s[$$1]=$$2+0} END{print s[".bootloader_reset_section"]+s[".stack"]+s[".bss"]+s[".noinit"]+s["text_application_ram"]+s[".data"]+s[".memory_manager_heap"]}'
+    ifeq ($(ARDUINO_RAM_SIZE),)
+        ARDUINO_RAM_SIZE = $(SIZE) -A $(TARGET_ELF) | awk '{s[$$1]=$$2+0} END{print s[".data"]+s[".bss"]+s[".noinit"]}'
+    endif # ARDUINO_RAM_SIZE
+#     $(info >>> ARDUINO_RAM_SIZE $(ARDUINO_RAM_SIZE))
+
     ifeq ($(COMMAND_SIZE),)
 
         ifeq ($(MAX_FLASH_SIZE),)
@@ -1821,6 +1834,13 @@ ifeq ($(BOOL_SELECT_BOARD),1)
             MAX_RAM_BYTES = 'bytes used ('$(shell echo "scale=1; (100.0* $(shell $(RAM_SIZE)))/$(MAX_RAM_SIZE)" | bc)'% of '$(MAX_RAM_SIZE)' maximum), '$(shell echo "$(MAX_RAM_SIZE) - $(shell $(RAM_SIZE))"|bc) 'bytes free ('$(shell echo "scale=1; 100-(100.0* $(shell $(RAM_SIZE)))/$(MAX_RAM_SIZE)"|bc)'%)'
         else
             MAX_RAM_BYTES = bytes used
+        endif # MAX_RAM_BYTES
+
+        ifneq ($(MAX_RAM_SIZE),)
+            # MAX_RAM_BYTES = 'bytes (of a '$(MAX_RAM_SIZE)' byte maximum)'
+            MAX_ARDUINO_RAM_BYTES = 'bytes used ('$(shell echo "scale=1; (100.0* $(shell $(ARDUINO_RAM_SIZE)))/$(MAX_RAM_SIZE)" | bc)'% of '$(MAX_RAM_SIZE)' maximum), '$(shell echo "$(MAX_RAM_SIZE) - $(shell $(ARDUINO_RAM_SIZE))"|bc) 'bytes free ('$(shell echo "scale=1; 100-(100.0* $(shell $(ARDUINO_RAM_SIZE)))/$(MAX_RAM_SIZE)"|bc)'%)' '(heap and stack excluded)'
+        else
+            MAX_ARDUINO_RAM_BYTES = bytes used (heap and stack excluded)
         endif # MAX_RAM_BYTES
 
     endif # COMMAND_SIZE
@@ -1898,16 +1918,23 @@ compile: message_compile $(OBJDIR) $(TARGET_HEXBIN_1) $(TARGET_HEXBIN_2) size
 		@echo '---- Size ----'
 		@echo 'Estimated Flash  ' $(shell $(FLASH_SIZE)) $(MAX_FLASH_BYTES);
 		@echo 'Estimated SRAM   ' $(shell $(RAM_SIZE)) $(MAX_RAM_BYTES);
+		@echo 'Estimated Arduino' $(shell $(ARDUINO_RAM_SIZE)) $(MAX_ARDUINO_RAM_BYTES);
+# 		@echo 'Estimated Arduino SRAM excludes stack and heap'
+		@echo 'Folder           ' $(OBJDIR) 
 
-		$(QUIET_BUILD)echo "# Project $(PROJECT_NAME_AS_IDENTIFIER)" > $(READ_ME_NAME)
+		$(QUIET_SUMMARY)echo "# Project $(PROJECT_NAME_AS_IDENTIFIER)" > $(READ_ME_NAME)
 
 		@echo "  " >> $(READ_ME_FILE)
 		@echo '**Estimated Flash**   '$(shell $(FLASH_SIZE)) $(MAX_FLASH_BYTES) >> $(READ_ME_FILE)
 		@echo "  " >> $(READ_ME_FILE)
 		@echo '**Estimated SRAM**    '$(shell $(RAM_SIZE)) $(MAX_RAM_BYTES) >> $(READ_ME_FILE)
+		@echo "  " >> $(READ_ME_FILE)
+		@echo '**Estimated Arduino**    '$(shell $(ARDUINO_RAM_SIZE)) $(MAX_ARDUINO_RAM_BYTES) >> $(READ_ME_FILE)
+# 		@echo "  " >> $(READ_ME_FILE)
+# 		@echo '*Estimated Arduino SRAM excludes stack and heap*' >> $(READ_ME_FILE)
 
-		$(QUIET_BUILD)cat $(READ_ME_FILE) >> $(READ_ME_NAME)
-		$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
+		$(QUIET_SUMMARY)cat $(READ_ME_FILE) >> $(READ_ME_NAME)
+		$(QUIET_SUMMARY)echo "  " >> $(READ_ME_NAME)
 
     else
 
@@ -1919,32 +1946,34 @@ compile: message_compile $(OBJDIR) $(TARGET_HEXBIN_1) $(TARGET_HEXBIN_2) size
 
     endif # COMMAND_SIZE
 
+	@echo '---- Time ----'
 # 	@echo 'Elapsed time     ' $(shell $(UTILITIES_PATH)/emCode_chrono $(BUILDS_PATH) -s)
 	@printf "%-18s%s\n" "Elapsed time" "$(SHELL_STOPCHRONO)"
 
     ifneq ($(COMMAND_FINAL),)
 		@echo '---- Final ----'
-		$(QUIET_BUILD)$(COMMAND_FINAL)
+		$(QUIET_SUMMARY)$(COMMAND_FINAL)
     endif # COMMAND_FINAL
 
-	$(QUIET_BUILD)echo "### GitHub" >> $(READ_ME_NAME)
-	$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
+	$(QUIET_SUMMARY)echo "### GitHub" >> $(READ_ME_NAME)
+	$(QUIET_SUMMARY)echo "  " >> $(READ_ME_NAME)
 
     ifneq ($(wildcard $(CURRENT_DIR)/.git/*),)
 
-		$(QUIET_BUILD)echo "**Commit**        $$(git log -1 | tail -1)" >> $(READ_ME_NAME)
-		$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
-		$(QUIET_BUILD)echo "**Branch**            $$(git branch | grep \* | cut -d ' ' -f2)" >> $(READ_ME_NAME)
-		$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
+		$(QUIET_SUMMARY)echo "**Commit**        $$(git log -1 | tail -1)" >> $(READ_ME_NAME)
+		$(QUIET_SUMMARY)echo "  " >> $(READ_ME_NAME)
+		$(QUIET_SUMMARY)echo "**Branch**            $$(git branch | grep \* | cut -d ' ' -f2)" >> $(READ_ME_NAME)
+		$(QUIET_SUMMARY)echo "  " >> $(READ_ME_NAME)
 
     else
 
-		$(QUIET_BUILD)echo "None" >> $(READ_ME_NAME)
-		$(QUIET_BUILD)echo "  " >> $(READ_ME_NAME)
+		$(QUIET_SUMMARY)echo "None" >> $(READ_ME_NAME)
+		$(QUIET_SUMMARY)echo "  " >> $(READ_ME_NAME)
 
     endif # wildcard CURRENT_DIR/.git/
 
-	$(QUIET_BUILD)echo "---" >> $(READ_ME_NAME)
+	$(QUIET_SUMMARY)echo "---" >> $(READ_ME_NAME)
+	@echo '---- Summary ----'
 
 $(OBJDIR):
 	@echo "---- Build ----"

@@ -839,6 +839,8 @@ else
 
 endif # UPLOADER
 
+ARDUINO_RAM_SIZE = $(SIZE) -A $(TARGET_ELF)| awk '{s[$$1]=$$2+0} END{print s[".data"]+s[".bss"]+s[".noinit"]+s[".dram0.data"]+s[".dram1.data"]+s[".dram0.bss"]+s[".dram1.bss"]}'
+
 endif # ESP32_BOARDS
 
 endif # MAKEFILE_NAME

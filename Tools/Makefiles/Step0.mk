@@ -26,6 +26,7 @@ HIDE_NUMBER ?= false
 HIDE_COMMAND ?= true
 HIDE_INFO ?= false
 HIDE_TOOLS ?= false
+HIDE_SUMMARY ?= true
 HIDE_ALL ?= false
 
 ifeq ($(HIDE_ALL),true)
@@ -33,6 +34,7 @@ ifeq ($(HIDE_ALL),true)
     HIDE_COMMAND := true
     HIDE_INFO := true
     HIDE_TOOLS := true
+	HIDE_SUMMARY := true
 endif # HIDE_ALL
 
 HIDE_COMMAND_BUILD ?= $(HIDE_COMMAND)

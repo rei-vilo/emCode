@@ -8,7 +8,7 @@
 #
 # Created: 12 Jan 2024 release 14.3.0
 #
-# Last update: 24 Apr 2026 release 14.8.7
+# Last update: 16 Sep 2026 release 14.8.16
 #
 
 # Silicon Labs for Arduino
@@ -247,8 +247,9 @@ WORK_8d = $(shell echo $(WORK_8c) | sed 's:-DARDUINO_SILABS="{version}"::g')
 WORK_8e = $(shell echo $(WORK_8d) | sed 's:{build.board}:$(BUILD_BOARD):g')
 WORK_8f = $(shell echo $(WORK_8e) | sed 's:{build.arch}:$(BUILD_ARCH):g')
 WORK_8g = $(shell echo $(WORK_8f) | sed 's:{build.platform}:$(BUILD_PLATFORM):g')
+WORK_8h = $(shell echo $(WORK_8g) | sed 's:{version}:$(SILICONLABS_SILABS_RELEASE):g')
 
-FLAGS_D = $(WORK_8g)
+FLAGS_D = $(WORK_8h)
 FLAGS_D += -DARDUINO_SILABS='"$(SILICONLABS_SILABS_RELEASE)"'
 FLAGS_D += -DEMCODE='"$(RELEASE_NOW)"'
 

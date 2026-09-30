@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 19 Jan 2026 release 14.8.0
+# Last update: 05 Sep 2026 release 14.8.15
 #
 
 include $(MAKEFILE_PATH)/Step0.mk
@@ -651,6 +651,7 @@ endif
             -include $(MAKEFILE_PATH)/SeeeduinoRTL.mk
             -include $(MAKEFILE_PATH)/SeeeduinoNRF52.mk
             -include $(MAKEFILE_PATH)/SeeeduinoMBED.mk
+            -include $(MAKEFILE_PATH)/Lolren_nRF54.mk
 
 #             SiliconLabs
             -include $(MAKEFILE_PATH)/SiliconLabs.mk
