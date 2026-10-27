@@ -111,7 +111,7 @@
             "request": "launch",
             "name": "RP2040 PicoProbe",
             "servertype": "openocd",
-            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/bin/openocd",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/5.0.0-9576866/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/emcode.elf",
             "interface": "swd",
@@ -121,7 +121,7 @@
                 "-f",
                 "target/rp2040.cfg",
                 "-s",
-                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/share/openocd/scripts",
+                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/5.0.0-9576866/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/picoprobe.cfg"
@@ -134,7 +134,7 @@
             "request": "launch",
             "name": "RP2040 CMSIS-DAP",
             "servertype": "openocd",
-            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/bin/openocd",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/5.0.0-9576866/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/emcode.elf",
             "interface": "swd",
@@ -146,7 +146,7 @@
                 "-f",
                 "target/rp2040.cfg",
                 "-s",
-                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/share/openocd/scripts",
+                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/5.0.0-9576866/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/cmsis-dap.cfg"
@@ -265,7 +265,7 @@
             "request": "launch",
             "name": "RP2350 CMSIS-DAP",
             "servertype": "openocd",
-            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/bin/openocd",
+            "serverpath": "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/5.0.0-9576866/bin/openocd",
             "cwd": "${workspaceRoot}",
             "executable": "${workspaceRoot}/.builds/emcode.elf",
             "interface": "swd",
@@ -277,7 +277,7 @@
                 "-f",
                 "target/rp2350.cfg",
                 "-s",
-                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/4.1.0-1aec55e/share/openocd/scripts",
+                "${env:HOME}/.arduino15/packages/rp2040/tools/pqt-openocd/5.0.0-9576866/share/openocd/scripts",
             ],
             "configFiles": [
                 "interface/cmsis-dap.cfg"
