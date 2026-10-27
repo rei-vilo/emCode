@@ -6,7 +6,7 @@
 # Copyright © Rei Vilo, 2010-2026
 # All rights reserved
 #
-# Last update: 24 Jul 2026 release 14.8.12
+# Last update: 19 Oct 2026 release 14.8.22
 #
 
 # On Linux, install pyserial with
@@ -183,6 +183,16 @@ endif
 BUILD_BOOT_FREQ = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.boot_freq)
 ifeq ($(BUILD_BOOT_FREQ),)
     BUILD_BOOT_FREQ = $(BUILD_FLASH_FREQ)
+endif
+
+BUILD_MATTER_MODE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.matter_mode)
+ifeq ($(BUILD_MATTER_MODE),)
+    BUILD_MATTER_MODE = $(call PARSE_BOARD,$(BOARD_TAG),build.matter_mode)
+endif
+
+BUILD_MATTER_LIBS = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.matter_libs)
+ifeq ($(BUILD_MATTER_LIBS),)
+    BUILD_MATTER_LIBS = $(call PARSE_BOARD,$(BOARD_TAG),build.matter_libs)
 endif
 
 # Default is provided by platform.txt
@@ -451,14 +461,15 @@ WORK_1h = $(shell echo '$(WORK_1g)' | sed 's:{build.defines}:$(BUILD_DEFINES):g'
 
 WORK_1i = $(shell echo '$(WORK_1h)' | sed 's:{build.extra_flags.{build.mcu}}:$(FLAGS_BUILD_EXTRA):g')
 
-BUILD_ZIGBEE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.zigbee_mode)
+BUILD_ZIGBEE_MODE = $(call SEARCH_FOR,$(BOARD_OPTION_TAGS_LIST),build.zigbee_mode)
 ifeq ($(BUILD_DEFINES),)
-    BUILD_ZIGBEE = $(call PARSE_BOARD,$(BOARD_TAG),build.zigbee_mode)
-    BUILD_ZIGBEE = $(call PARSE_FILE,build,zigbee_mode=,$(HARDWARE_PATH)/platform.txt)
+    BUILD_ZIGBEE_MODE = $(call PARSE_BOARD,$(BOARD_TAG),build.zigbee_mode)
+    BUILD_ZIGBEE_MODE = $(call PARSE_FILE,build,zigbee_mode=,$(HARDWARE_PATH)/platform.txt)
 endif
 
-WORK_1j = $(shell echo '$(WORK_1i)' | sed 's:{build.zigbee_mode}:$(BUILD_ZIGBEE):g')
-FLAGS_EXTRA = $(WORK_1j)
+WORK_1j = $(shell echo '$(WORK_1i)' | sed 's:{build.zigbee_mode}:$(BUILD_ZIGBEE_MODE):g')
+WORK_1k = $(shell echo '$(WORK_1j)' | sed 's:{build.matter_mode}:$(BUILD_MATTER_MODE):g')
+FLAGS_EXTRA = $(WORK_1k)
 FLAGS_EXTRA += -DARDUINO_HOST_OS='"linux"'
 FLAGS_EXTRA += -DARDUINO_FQBN='"esp32:$(BUILD_CORE):$(BOARD_TAG)"'
 
@@ -745,6 +756,10 @@ MESSAGE_BEFORE = "Partitions and bootloader"
 #
 TARGET_HEXBIN_1 = $(TARGET_BIN)
 # TARGET_BIN1 = $(BUILDS_PATH)/$(BINARY_SPECIFIC_NAME).bin1
+
+
+$(info > FLAGS_ALL $(FLAGS_ALL))
+$(info > FLAGS_C $(FLAGS_C))
 
 # Commands
 # ----------------------------------
