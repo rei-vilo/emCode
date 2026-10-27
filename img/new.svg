@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="20"
+   width="37"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="new.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="20.223254"
+     inkscape:cx="14.463548"
+     inkscape:cy="12.708143"
+     inkscape:window-width="2560"
+     inkscape:window-height="1355"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <clipPath
+     id="a">
+    <rect
+       height="20"
+       rx="3"
+       width="37"
+       id="rect1" />
+  </clipPath>
+  <g
+     clip-path="url(#a)"
+     id="g1">
+    <path
+       d="m0 0h37v20h-37z"
+       fill="#fe7d37"
+       id="path1" />
+  </g>
+  <path
+     d="M 3.5000384,5.1399864 H 6.0195633 L 9.203149,11.806636 V 5.1399864 H 11.33856 V 14.860014 H 8.8190354 L 5.6419601,8.1933641 V 14.860014 H 3.5000384 Z m 10.0390366,0 h 6.087224 v 1.8945265 h -3.828115 v 1.8098913 h 3.600251 v 1.8945268 h -3.600251 v 2.226556 h 3.958323 v 1.894527 h -6.217432 z m 7.454408,0 h 2.161453 l 1.510413,7.0637846 1.503902,-7.0637846 h 2.174474 l 1.497392,7.0637846 1.510413,-7.0637846 h 2.148432 l -2.063797,9.7200276 h -2.60416 L 27.243467,7.4707097 25.674461,14.860014 H 23.0703 Z"
+     style="fill:#ffffff;"
+     id="path2" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:semi-condensed;font-size:13.3333px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold Semi-Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:none;fill:#ffffff;fill-opacity:0.941176;fill-rule:evenodd;stroke-width:2;stroke-linecap:square;stroke-miterlimit:20;paint-order:markers stroke fill"
+     x="2.3997808"
+     y="14.860014"
+     id="text2"><tspan
+       sodipodi:role="line"
+       id="tspan2"
+       x="2.3997808"
+       y="14.860014">NEW</tspan></text>
+</svg>

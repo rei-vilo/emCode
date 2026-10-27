@@ -25,6 +25,28 @@
     }
 } */
 
+/* Base styling for the logo container */
+.md-header__button.md-logo img {
+    width: 32px;    /* Ajustez selon la largeur réelle de votre logo */
+    height: 32px;    /* Ajustez selon la hauteur réelle de votre logo */
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Light mode logo override */
+[data-md-color-scheme="default"] .md-header__button.md-logo img {
+    background-image: url('../img/Logo-256-eC-Website-black.png');
+}
+
+/* Dark mode (slate) logo override */
+[data-md-color-scheme="slate"] .md-header__button.md-logo img {
+    background-image: url('../img/Logo-256-eC-Website-white.png');
+}
+
 .md-typeset pre>code {
     white-space: pre-wrap;
     word-break: keep-all;
@@ -34,6 +56,11 @@
     font-size: 1.2em;
     line-height: 1.5em;
 } */
+
+.md-typeset a,
+.md-nav__item a {
+    text-decoration: none !important;
+}
 
 /* Border for images */
 /*
@@ -53,7 +80,7 @@
 .md-typeset h1,
 .md-typeset h2,
 .md-typeset h3 {
-    color: red;
+    color: var(--md-accent-fg-color);
     font-weight: bold;
 }
 
